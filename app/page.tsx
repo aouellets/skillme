@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { SkillCard } from '@/components/SkillCard'
+import { HeroDemo } from '@/components/HeroDemo'
 import { CATEGORIES } from '@/lib/categories'
 import { getFeaturedSkills, getSkills } from '@/lib/data'
 
@@ -30,24 +31,27 @@ export default async function HomePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
       {/* HERO */}
-      <section className="py-20 sm:py-28">
-        <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
-          The App Store for Claude
-        </p>
-        <h1 className="mt-4 font-display text-5xl leading-[1.05] text-shelf-text-primary sm:text-6xl">
-          Install intelligence.
-        </h1>
-        <p className="mt-5 max-w-xl text-lg text-shelf-text-secondary">
-          {countLabel}. Connect once, install anything. No ZIP files, no terminal, no setup.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Link href="/connect" className="btn btn-primary">
-            Connect to Claude
-          </Link>
-          <Link href="/browse" className="btn btn-secondary">
-            Browse Skills →
-          </Link>
+      <section className="grid grid-cols-1 items-center gap-12 py-20 sm:py-28 lg:grid-cols-2 lg:gap-10">
+        <div>
+          <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+            The App Store for Claude
+          </p>
+          <h1 className="mt-4 font-display text-5xl leading-[1.05] text-shelf-text-primary sm:text-6xl">
+            Install intelligence.
+          </h1>
+          <p className="mt-5 max-w-xl text-lg text-shelf-text-secondary">
+            {countLabel}. Connect once, install anything. No ZIP files, no terminal, no setup.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link href="/connect" className="btn btn-primary">
+              Connect to Claude
+            </Link>
+            <Link href="/browse" className="btn btn-secondary">
+              Browse Skills →
+            </Link>
+          </div>
         </div>
+        <HeroDemo />
       </section>
 
       {/* FEATURED */}
