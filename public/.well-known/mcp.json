@@ -1,14 +1,17 @@
 {
   "name": "SkillShelf",
-  "description": "Browse, install, and manage Claude skills. The App Store for Claude.",
+  "description": "Browse, install, and manage Claude skills and skill packs.",
   "url": "https://skillshelf-ten.vercel.app/api/mcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "tools": [
     "browse_skills",
     "install_skill",
     "uninstall_skill",
     "list_installed",
     "get_active_skills",
-    "rate_skill"
+    "rate_skill",
+    "browse_packs",
+    "install_pack",
+    "manage_collection"
   ]
 }

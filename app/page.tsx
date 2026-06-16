@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { SkillCard } from '@/components/SkillCard'
+import { PackCard } from '@/components/PackCard'
 import { HeroDemo } from '@/components/HeroDemo'
 import { CATEGORIES } from '@/lib/categories'
 import { getFeaturedSkills, getSkills } from '@/lib/data'
+import { getFeaturedPacks } from '@/lib/packs'
 
 export const dynamic = 'force-dynamic'
 
@@ -22,9 +24,10 @@ const STEPS = [
 ]
 
 export default async function HomePage() {
-  const [featured, { total }] = await Promise.all([
+  const [featured, { total }, featuredPacks] = await Promise.all([
     getFeaturedSkills(6),
     getSkills({ limit: 1 }),
+    getFeaturedPacks(3),
   ])
   const countLabel = total > 0 ? `${total} curated Claude skills` : 'Curated Claude skills'
 
@@ -85,6 +88,33 @@ export default async function HomePage() {
           </div>
         )}
       </section>
+
+      {/* FEATURED PACKS */}
+      {featuredPacks.length > 0 && (
+        <section className="py-6">
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+                Themed bundles
+              </p>
+              <h2 className="mt-1 text-xl font-medium text-shelf-text-primary">
+                Skill Packs
+              </h2>
+            </div>
+            <Link
+              href="/packs"
+              className="text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"
+            >
+              View all packs →
+            </Link>
+          </div>
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {featuredPacks.map((pack) => (
+              <PackCard key={pack.id} pack={pack} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* CATEGORIES */}
       <section className="py-16">

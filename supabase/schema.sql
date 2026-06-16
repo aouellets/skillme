@@ -44,6 +44,78 @@ create table if not exists public.user_installs (
   unique (user_token, skill_id)
 );
 
+-- ============================================================
+-- PACKS — curated bundles created by skill publishers or admins
+-- ============================================================
+create table if not exists public.packs (
+  id            uuid primary key default gen_random_uuid(),
+  slug          text unique not null,
+  name          text not null,
+  tagline       text not null,            -- one sentence, shown in cards
+  description   text not null,            -- full description, shown on detail page
+  author        text not null,            -- display name of the curator
+  author_url    text,                     -- link to author's site/profile
+  category      text not null check (category in (
+    'coding', 'writing', 'research', 'productivity',
+    'data', 'design', 'business', 'personal', 'mixed'
+  )),
+  tags          text[],
+  thumbnail_url text,
+  thumbnail_gif text,
+  media_alt     text,
+  install_count integer default 0,
+  featured      boolean default false,
+  verified      boolean default false,    -- reviewed by SkillShelf
+  free          boolean default true,
+  created_at    timestamptz default now(),
+  updated_at    timestamptz default now()
+);
+
+-- Which skills are in each pack (ordered)
+create table if not exists public.pack_skills (
+  id         uuid primary key default gen_random_uuid(),
+  pack_id    uuid not null references public.packs(id) on delete cascade,
+  skill_id   uuid not null references public.skills(id) on delete cascade,
+  position   integer not null default 0,  -- display order within the pack
+  added_at   timestamptz default now(),
+  unique (pack_id, skill_id)
+);
+
+-- ============================================================
+-- USER COLLECTIONS — personal, user-created shelves
+-- ============================================================
+create table if not exists public.user_collections (
+  id            uuid primary key default gen_random_uuid(),
+  user_token    text not null,
+  slug          text not null,             -- user-defined, unique per user
+  name          text not null,
+  description   text,
+  public        boolean default false,     -- false = private, true = shareable link
+  share_token   text unique default gen_random_uuid()::text,
+  created_at    timestamptz default now(),
+  updated_at    timestamptz default now(),
+  unique (user_token, slug)
+);
+
+-- Which skills are in each user collection
+create table if not exists public.collection_skills (
+  id            uuid primary key default gen_random_uuid(),
+  collection_id uuid not null references public.user_collections(id) on delete cascade,
+  skill_id      uuid not null references public.skills(id) on delete cascade,
+  position      integer not null default 0,
+  added_at      timestamptz default now(),
+  unique (collection_id, skill_id)
+);
+
+-- Track which packs a user has installed
+create table if not exists public.user_pack_installs (
+  id           uuid primary key default gen_random_uuid(),
+  user_token   text not null,
+  pack_id      uuid not null references public.packs(id) on delete cascade,
+  installed_at timestamptz default now(),
+  unique (user_token, pack_id)
+);
+
 -- Populate the fts column via trigger (avoids generated column syntax issues)
 create or replace function public.skills_fts_update()
 returns trigger language plpgsql as $$
@@ -72,6 +144,13 @@ create index if not exists skills_featured_idx on public.skills (featured) where
 create index if not exists skills_verified_idx on public.skills (verified) where verified = true;
 create index if not exists skills_fts_idx on public.skills using gin (fts);
 create index if not exists user_installs_token_idx on public.user_installs (user_token);
+create index if not exists packs_category_idx    on public.packs (category);
+create index if not exists packs_featured_idx    on public.packs (featured) where featured = true;
+create index if not exists pack_skills_pack_idx  on public.pack_skills (pack_id);
+create index if not exists ucollections_user_idx on public.user_collections (user_token);
+create index if not exists ucollections_share_idx on public.user_collections (share_token);
+create index if not exists coll_skills_coll_idx  on public.collection_skills (collection_id);
+create index if not exists upacks_user_idx       on public.user_pack_installs (user_token);
 
 -- Atomically increment a skill's install counter.
 create or replace function public.increment_install_count(p_skill_id uuid)
@@ -102,6 +181,15 @@ as $$
   where s.id = p_skill_id;
 $$;
 
+-- Atomically increment a pack's install counter.
+create or replace function public.increment_pack_install_count(p_pack_id uuid)
+returns void language sql as $$
+  update public.packs
+  set install_count = install_count + 1,
+      updated_at    = now()
+  where id = p_pack_id;
+$$;
+
 -- Row Level Security
 alter table public.skills enable row level security;
 alter table public.user_installs enable row level security;
@@ -111,3 +199,39 @@ create policy "skills are public" on public.skills for select using (true);
 
 drop policy if exists "anon installs" on public.user_installs;
 create policy "anon installs" on public.user_installs for all using (true) with check (true);
+
+-- Pack / collection RLS
+alter table public.packs enable row level security;
+alter table public.pack_skills enable row level security;
+alter table public.user_pack_installs enable row level security;
+alter table public.user_collections enable row level security;
+alter table public.collection_skills enable row level security;
+
+drop policy if exists "packs are public" on public.packs;
+create policy "packs are public"       on public.packs for select using (true);
+
+drop policy if exists "pack_skills are public" on public.pack_skills;
+create policy "pack_skills are public" on public.pack_skills for select using (true);
+
+drop policy if exists "anon pack installs" on public.user_pack_installs;
+create policy "anon pack installs"     on public.user_pack_installs for all using (true) with check (true);
+
+drop policy if exists "anon user collections" on public.user_collections;
+create policy "anon user collections"  on public.user_collections for all using (true) with check (true);
+
+drop policy if exists "anon collection skills" on public.collection_skills;
+create policy "anon collection skills" on public.collection_skills for all using (true) with check (true);
+
+-- ============================================================
+-- Safe migration: confirms the packs tables exist on an existing deployment.
+-- The tables themselves are created by the `create table if not exists` blocks
+-- above; running this whole file on an existing DB is safe and idempotent.
+-- ============================================================
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'packs') THEN
+    RAISE NOTICE 'packs table does not exist — run the full schema.sql';
+  ELSE
+    RAISE NOTICE 'packs tables already exist — migration skipped';
+  END IF;
+END $$;

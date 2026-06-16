@@ -10,6 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "db:seed": "tsx scripts/seed-manual.ts",
+    "db:seed-packs": "tsx scripts/seed-packs.ts",
     "ingest": "tsx scripts/ingest.ts"
   },
   "dependencies": {

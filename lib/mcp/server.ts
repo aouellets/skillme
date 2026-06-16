@@ -6,6 +6,9 @@ import { uninstallSkill } from './tools/uninstall'
 import { listInstalled } from './tools/list'
 import { getActiveSkills } from './tools/getActive'
 import { rateSkill } from './tools/rate'
+import { browsePacks } from './tools/browsePacks'
+import { installPack } from './tools/installPack'
+import { manageCollections } from './tools/manageCollections'
 
 const SERVER_NAME = 'SkillShelf'
 const SERVER_VERSION = '1.0.0'
@@ -18,6 +21,9 @@ const TOOLS: Tool<never>[] = [
   uninstallSkill as Tool<never>,
   listInstalled as Tool<never>,
   rateSkill as Tool<never>,
+  browsePacks as Tool<never>,
+  installPack as Tool<never>,
+  manageCollections as Tool<never>,
 ]
 
 const TOOL_BY_NAME = new Map<string, Tool<never>>(
@@ -67,7 +73,11 @@ export function createMCPServer(userToken: string) {
           capabilities: { tools: { listChanged: false } },
           serverInfo: { name: SERVER_NAME, version: SERVER_VERSION },
           instructions:
-            'SkillShelf gives access to curated Claude skills. Call get_active_skills at the start of every conversation to load the user\'s installed skills. Use browse_skills to discover, install_skill to add, uninstall_skill to remove, and list_installed to review.',
+            'SkillShelf gives access to curated Claude skills and packs. ' +
+            'Call get_active_skills at the start of every conversation to load installed skills. ' +
+            'Use browse_skills to discover individual skills, browse_packs to find themed bundles, ' +
+            'install_skill for a single skill, install_pack for a full bundle, ' +
+            'and manage_collection to build and share your personal skill shelves.',
         })
       }
 

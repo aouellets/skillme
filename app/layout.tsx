@@ -64,6 +64,12 @@ function Header() {
           >
             Browse
           </Link>
+          <Link
+            href="/packs"
+            className="px-3 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"
+          >
+            Packs
+          </Link>
           {/* Library nav — re-enable once GitHub OAuth is configured in Supabase
           <Link
             href="/library"
@@ -94,6 +100,9 @@ function Footer() {
         <div className="flex items-center gap-4">
           <Link href="/browse" className="transition-colors hover:text-shelf-text-secondary">
             Browse
+          </Link>
+          <Link href="/packs" className="transition-colors hover:text-shelf-text-secondary">
+            Packs
           </Link>
           <Link href="/connect" className="transition-colors hover:text-shelf-text-secondary">
             Connect
