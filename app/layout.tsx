@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Instrument_Serif, IBM_Plex_Mono } from 'next/font/google'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/site'
 import './globals.css'
 
 const display = Instrument_Serif({
@@ -23,26 +24,7 @@ const mono = IBM_Plex_Mono({
   display: 'swap',
 })
 
-const DEFAULT_SITE_URL = 'https://skillshelf.io'
-
-/**
- * Resolve the public site URL defensively. A missing, empty, or bare-host value
- * (e.g. "skillshelf.io") would otherwise throw `new URL(...)` during the build's
- * page-data collection and fail the deploy. Coerce a bare host to https and fall
- * back to the default if it still isn't a valid absolute URL.
- */
-function resolveSiteUrl(): string {
-  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim()
-  if (!raw) return DEFAULT_SITE_URL
-  const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`
-  try {
-    return new URL(candidate).toString().replace(/\/$/, '')
-  } catch {
-    return DEFAULT_SITE_URL
-  }
-}
-
-const siteUrl = resolveSiteUrl()
+const siteUrl = SITE_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

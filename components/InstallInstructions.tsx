@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { CopyButton } from './CopyButton'
-
-const MCP_URL = process.env.NEXT_PUBLIC_MCP_URL ?? 'https://api.skillshelf.io/mcp'
+import { MCP_URL } from '@/lib/site'
 
 export function InstallInstructions({ skillName }: { skillName: string }) {
   return (

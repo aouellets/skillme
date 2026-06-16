@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { SkillCard } from '@/components/SkillCard'
 import { CATEGORIES } from '@/lib/categories'
-import { getFeaturedSkills } from '@/lib/data'
+import { getFeaturedSkills, getSkills } from '@/lib/data'
 
 export const dynamic = 'force-dynamic'
 
@@ -21,7 +21,11 @@ const STEPS = [
 ]
 
 export default async function HomePage() {
-  const featured = await getFeaturedSkills(6)
+  const [featured, { total }] = await Promise.all([
+    getFeaturedSkills(6),
+    getSkills({ limit: 1 }),
+  ])
+  const countLabel = total > 0 ? `${total} curated Claude skills` : 'Curated Claude skills'
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -34,8 +38,7 @@ export default async function HomePage() {
           Install intelligence.
         </h1>
         <p className="mt-5 max-w-xl text-lg text-shelf-text-secondary">
-          150+ curated Claude skills. Connect once, install anything. No ZIP files, no
-          terminal, no setup.
+          {countLabel}. Connect once, install anything. No ZIP files, no terminal, no setup.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link href="/connect" className="btn btn-primary">

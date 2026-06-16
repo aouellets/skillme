@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import { CopyButton } from '@/components/CopyButton'
+import { MCP_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Connect',
   description: 'Connect SkillShelf to claude.ai in about 30 seconds.',
 }
-
-const MCP_URL = process.env.NEXT_PUBLIC_MCP_URL ?? 'https://api.skillshelf.io/mcp'
 
 const STEPS: Array<{ title: string; body: React.ReactNode }> = [
   {
