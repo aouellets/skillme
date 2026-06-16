@@ -61,6 +61,24 @@ as $$
   where id = p_skill_id;
 $$;
 
+-- Recompute a skill's rating aggregates from all user ratings.
+create or replace function public.recompute_skill_rating(p_skill_id uuid)
+returns void
+language sql
+as $$
+  update public.skills s
+  set rating_count = sub.cnt,
+      rating_avg = coalesce(sub.avg, 0),
+      updated_at = now()
+  from (
+    select count(rating) as cnt,
+           avg(rating)::numeric(3,2) as avg
+    from public.user_installs
+    where skill_id = p_skill_id and rating is not null
+  ) sub
+  where s.id = p_skill_id;
+$$;
+
 -- Row Level Security
 alter table public.skills enable row level security;
 alter table public.user_installs enable row level security;

@@ -8,6 +8,7 @@
     "install_skill",
     "uninstall_skill",
     "list_installed",
-    "get_active_skills"
+    "get_active_skills",
+    "rate_skill"
   ]
 }

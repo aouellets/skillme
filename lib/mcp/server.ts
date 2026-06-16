@@ -5,6 +5,7 @@ import { installSkill } from './tools/install'
 import { uninstallSkill } from './tools/uninstall'
 import { listInstalled } from './tools/list'
 import { getActiveSkills } from './tools/getActive'
+import { rateSkill } from './tools/rate'
 
 const SERVER_NAME = 'SkillShelf'
 const SERVER_VERSION = '1.0.0'
@@ -16,6 +17,7 @@ const TOOLS: Tool<never>[] = [
   installSkill as Tool<never>,
   uninstallSkill as Tool<never>,
   listInstalled as Tool<never>,
+  rateSkill as Tool<never>,
 ]
 
 const TOOL_BY_NAME = new Map<string, Tool<never>>(
