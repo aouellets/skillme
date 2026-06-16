@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Instrument_Serif, IBM_Plex_Mono } from 'next/font/google'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/site'
@@ -44,6 +44,12 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: '#0E0F11',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-shelf-border bg-shelf-void/90 backdrop-blur">
@@ -60,19 +66,14 @@ function Header() {
           </Link>
           <Link
             href="/library"
-            className="px-3 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"
+            className="hidden px-3 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:inline"
           >
             Library
           </Link>
-          <Link
-            href="/connect"
-            className="hidden px-3 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:inline"
-          >
-            Connect
-          </Link>
           <AuthButton />
           <Link href="/connect" className="btn btn-primary ml-1">
-            Connect to Claude
+            <span className="sm:hidden">Connect</span>
+            <span className="hidden sm:inline">Connect to Claude</span>
           </Link>
         </nav>
       </div>
