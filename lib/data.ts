@@ -91,17 +91,16 @@ export async function getSkills(opts: SkillQuery = {}): Promise<SkillPage> {
   if (featured) builder = builder.eq('featured', true)
   if (category) builder = builder.eq('category', category)
   if (query && query.trim()) {
-    builder = builder.textSearch('fts', query.trim(), {
-      type: 'websearch',
-      config: 'english',
-    })
+    builder = builder.or(
+      `name.ilike.%${query.trim()}%,description.ilike.%${query.trim()}%`
+    )
   }
 
   builder = builder.order(column, { ascending }).range(offset, offset + limit - 1)
 
   const { data, error, count } = await builder
   if (error) {
-    console.error('getSkills failed, using fallback:', error.message)
+    console.error('[getSkills] Supabase error, using fallback:', error.message, error.code)
     return applyFallbackQuery(opts)
   }
 
