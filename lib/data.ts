@@ -39,6 +39,11 @@ function seedToSkill(seed: SeedSkill, index: number): Skill {
     featured: seed.featured,
     free: true,
     tags: seed.tags,
+    thumbnail_url:    seed.thumbnail_url,
+    thumbnail_gif:    seed.thumbnail_gif,
+    thumbnail_video:  seed.thumbnail_video,
+    thumbnail_lottie: seed.thumbnail_lottie,
+    media_alt:        seed.media_alt,
     // Stagger created_at so "newest" sorting is stable in fallback mode.
     created_at: new Date(Date.parse(NOW) - index * 86_400_000).toISOString(),
     updated_at: NOW,

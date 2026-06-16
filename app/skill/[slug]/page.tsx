@@ -6,6 +6,7 @@ import { VerifiedMark } from '@/components/VerifiedMark'
 import { InstallInstructions } from '@/components/InstallInstructions'
 import { ShareButton } from '@/components/ShareButton'
 import { StarRating } from '@/components/StarRating'
+import { SkillThumbnail } from '@/components/SkillThumbnail'
 import { CATEGORY_MAP, formatInstalls } from '@/lib/categories'
 import { getSkillBySlug } from '@/lib/data'
 import { SITE_URL } from '@/lib/site'
@@ -68,6 +69,12 @@ export default async function SkillDetailPage({
         <span>/</span>
         <span className="text-shelf-text-secondary">{skill.name}</span>
       </nav>
+
+      {(skill.thumbnail_url || skill.thumbnail_gif || skill.thumbnail_video) && (
+        <div className="mt-6 overflow-hidden rounded-lg border border-shelf-border">
+          <SkillThumbnail skill={skill} size="detail" />
+        </div>
+      )}
 
       {/* Hero */}
       <header className="mt-6">
