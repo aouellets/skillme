@@ -44,6 +44,11 @@ async function main() {
     featured: s.featured,
     free: true,
     tags: s.tags,
+    thumbnail_url:    s.thumbnail_url    ?? null,
+    thumbnail_gif:    s.thumbnail_gif    ?? null,
+    thumbnail_video:  s.thumbnail_video  ?? null,
+    thumbnail_lottie: s.thumbnail_lottie ?? null,
+    media_alt:        s.media_alt        ?? null,
   }))
 
   console.log(`Seeding ${rows.length} skills…`)
