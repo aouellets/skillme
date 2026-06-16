@@ -43,6 +43,9 @@ export async function POST(req: NextRequest) {
     )
   }
 
+  const method = Array.isArray(body) ? 'batch' : (body as { method?: string })?.method ?? 'unknown'
+  console.log(`[MCP] ${method} — token: ${userToken.slice(0, 8)}…`)
+
   try {
     const server = createMCPServer(userToken)
     const response = await server.handle(body as never)
@@ -57,6 +60,7 @@ export async function POST(req: NextRequest) {
     })
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Internal server error'
+    console.error('[MCP] Unhandled error:', err)
     return Response.json(
       {
         jsonrpc: '2.0',
