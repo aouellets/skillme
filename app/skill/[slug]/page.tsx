@@ -5,6 +5,7 @@ import { CategoryBadge } from '@/components/CategoryBadge'
 import { VerifiedMark } from '@/components/VerifiedMark'
 import { InstallInstructions } from '@/components/InstallInstructions'
 import { ShareButton } from '@/components/ShareButton'
+import { StarRating } from '@/components/StarRating'
 import { CATEGORY_MAP, formatInstalls } from '@/lib/categories'
 import { getSkillBySlug } from '@/lib/data'
 import { SITE_URL } from '@/lib/site'
@@ -137,6 +138,11 @@ export default async function SkillDetailPage({
         {/* Sidebar */}
         <aside className="space-y-4">
           <InstallInstructions skillName={skill.name} />
+          <StarRating
+            skillId={skill.id}
+            initialAvg={skill.rating_avg}
+            initialCount={skill.rating_count}
+          />
           <ShareButton
             url={`${SITE_URL}/skill/${skill.slug}`}
             text={`${skill.name} — a Claude skill on SkillShelf`}

@@ -67,6 +67,21 @@ npm run dev
 npm run db:seed
 ```
 
+### Enable GitHub sign-in (optional)
+
+Web sign-in and the star-rating UI use Supabase Auth with GitHub. It degrades
+gracefully when not configured (the Sign in button and ratings simply hide).
+
+1. Create a **GitHub OAuth App** (Settings → Developer settings → OAuth Apps).
+   - Authorization callback URL: `https://<your-project-ref>.supabase.co/auth/v1/callback`
+2. In **Supabase → Authentication → Providers → GitHub**, paste the client ID
+   and secret and enable it.
+3. Add your site URL and `…/auth/callback` to **Authentication → URL
+   Configuration → Redirect URLs**.
+
+The app exchanges the OAuth code at `/auth/callback` and refreshes the session
+via `middleware.ts`.
+
 ### Environment variables
 
 | Variable | Purpose |
