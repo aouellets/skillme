@@ -1,3 +1,7 @@
+-- Run this in the Supabase SQL editor.
+-- Safe to run multiple times (uses IF NOT EXISTS and CREATE OR REPLACE).
+-- After running, execute: npm run db:seed
+
 -- SkillShelf database schema
 -- Run this in the Supabase SQL editor (or via `supabase db push`).
 
@@ -25,10 +29,8 @@ create table if not exists public.skills (
   tags          text[],
   created_at    timestamptz default now(),
   updated_at    timestamptz default now(),
-  -- Generated full-text search vector over name + description.
-  fts tsvector generated always as (
-    to_tsvector('english', coalesce(name, '') || ' ' || coalesce(description, ''))
-  ) stored
+  -- Full-text search vector (populated by trigger below)
+  fts tsvector
 );
 
 create table if not exists public.user_installs (
@@ -41,6 +43,27 @@ create table if not exists public.user_installs (
   updated_at   timestamptz default now(),
   unique (user_token, skill_id)
 );
+
+-- Populate the fts column via trigger (avoids generated column syntax issues)
+create or replace function public.skills_fts_update()
+returns trigger language plpgsql as $$
+begin
+  new.fts := to_tsvector('english',
+    coalesce(new.name, '') || ' ' || coalesce(new.description, '')
+  );
+  return new;
+end;
+$$;
+
+drop trigger if exists skills_fts_trigger on public.skills;
+create trigger skills_fts_trigger
+  before insert or update on public.skills
+  for each row execute function public.skills_fts_update();
+
+-- Backfill fts for any existing rows
+update public.skills set fts = to_tsvector('english',
+  coalesce(name, '') || ' ' || coalesce(description, '')
+) where fts is null;
 
 -- Indexes
 create index if not exists skills_category_idx on public.skills (category);

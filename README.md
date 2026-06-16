@@ -108,6 +108,30 @@ via `middleware.ts`.
 | `NEXT_PUBLIC_MCP_URL` | Public MCP endpoint shown in the UI |
 | `NEXT_PUBLIC_SITE_URL` | Public site URL for metadata |
 
+## Vercel deployment checklist
+
+After deploying to Vercel, set these environment variables in your Vercel project
+dashboard (Settings → Environment Variables):
+
+| Variable | Value |
+|----------|-------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase anon/public key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Your Supabase service role key |
+| `ANTHROPIC_API_KEY` | Your Anthropic API key (for ingest script) |
+| `NEXT_PUBLIC_MCP_URL` | `https://YOUR-DEPLOYMENT.vercel.app/api/mcp` |
+| `NEXT_PUBLIC_SITE_URL` | `https://YOUR-DEPLOYMENT.vercel.app` |
+
+> Once you have a custom domain, update `NEXT_PUBLIC_MCP_URL` and `NEXT_PUBLIC_SITE_URL`
+> to the custom domain and redeploy.
+
+## Database setup (run once per new Supabase project)
+
+1. Go to your Supabase project → SQL Editor
+2. Paste and run the contents of `supabase/schema.sql`
+3. Run `npm run db:seed` to populate the launch skill catalog
+4. Verify in Supabase Table Editor that the `skills` table has rows
+
 ## Tech stack
 
 - **Next.js 15** (App Router, TypeScript strict mode)

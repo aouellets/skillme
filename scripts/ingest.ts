@@ -20,17 +20,6 @@ import type { SkillCategory } from '../lib/types'
 config({ path: '.env.local' })
 config()
 
-const CATEGORIES: SkillCategory[] = [
-  'coding',
-  'writing',
-  'research',
-  'productivity',
-  'data',
-  'design',
-  'business',
-  'personal',
-]
-
 const CLASSIFIER_MODEL = 'claude-opus-4-8'
 
 interface Classification {
@@ -109,41 +98,42 @@ Mark safe = true when the skill provides legitimate, transparent workflow instru
 
 For metadata: name is a short human-readable title (max 5 words); description is one plain-English sentence (max 25 words); category is the single best fit; tags are 3-5 lowercase topical tags; reason briefly justifies the safety verdict.`
 
-const CLASSIFICATION_SCHEMA: Record<string, unknown> = {
-  type: 'object',
-  additionalProperties: false,
-  properties: {
-    name: { type: 'string' },
-    description: { type: 'string' },
-    category: { type: 'string', enum: CATEGORIES },
-    tags: { type: 'array', items: { type: 'string' } },
-    safe: { type: 'boolean' },
-    reason: { type: 'string' },
-  },
-  required: ['name', 'description', 'category', 'tags', 'safe', 'reason'],
-}
-
 async function classify(anthropic: Anthropic, content: string): Promise<Classification> {
   const response = await anthropic.messages.create({
     model: CLASSIFIER_MODEL,
     max_tokens: 1024,
-    system: SAFETY_SYSTEM,
-    output_config: {
-      format: { type: 'json_schema', schema: CLASSIFICATION_SCHEMA },
-    },
+    system: SAFETY_SYSTEM + '\n\nRespond with a valid JSON object only. No markdown fences, no preamble, no explanation. Just the JSON.',
     messages: [
       {
         role: 'user',
-        content: `Classify this skill:\n\n${content.slice(0, 6000)}`,
+        content: `Classify this skill and return JSON:\n\n${content.slice(0, 6000)}`,
       },
     ],
   })
 
-  const text = response.content.find((b) => b.type === 'text')
-  if (!text || text.type !== 'text') {
+  const textBlock = response.content.find((b) => b.type === 'text')
+  if (!textBlock || textBlock.type !== 'text') {
     throw new Error('Classifier returned no text content')
   }
-  return JSON.parse(text.text) as Classification
+  // Strip any accidental markdown fences before parsing
+  const cleaned = textBlock.text
+    .replace(/^```(?:json)?\s*/i, '')
+    .replace(/\s*```\s*$/i, '')
+    .trim()
+  let parsed: Classification
+  try {
+    parsed = JSON.parse(cleaned) as Classification
+  } catch {
+    throw new Error(`Classifier returned invalid JSON: ${cleaned.slice(0, 200)}`)
+  }
+  // Validate required fields
+  const required = ['name', 'description', 'category', 'tags', 'safe', 'reason'] as const
+  for (const field of required) {
+    if (!(field in parsed)) {
+      throw new Error(`Classifier response missing field: ${field}`)
+    }
+  }
+  return parsed
 }
 
 function slugify(owner: string, repo: string): string {

@@ -1,5 +1,5 @@
-const DEFAULT_SITE_URL = 'https://skillshelf.io'
-const DEFAULT_MCP_URL = 'https://api.skillshelf.io/mcp'
+const DEFAULT_SITE_URL = 'https://skillshelf-ten.vercel.app'
+const DEFAULT_MCP_URL = 'https://skillshelf-ten.vercel.app/api/mcp'
 
 /**
  * Resolve the public site URL defensively. A missing, empty, or bare-host value

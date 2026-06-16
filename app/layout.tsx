@@ -64,12 +64,14 @@ function Header() {
           >
             Browse
           </Link>
+          {/* Library nav — re-enable once GitHub OAuth is configured in Supabase
           <Link
             href="/library"
             className="hidden px-3 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:inline"
           >
             Library
           </Link>
+          */}
           <AuthButton />
           <Link href="/connect" className="btn btn-primary ml-1">
             <span className="sm:hidden">Connect</span>
