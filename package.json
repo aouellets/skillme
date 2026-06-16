@@ -9,10 +9,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:seed": "tsx scripts/seed-manual.ts"
+    "db:seed": "tsx scripts/seed-manual.ts",
+    "ingest": "tsx scripts/ingest.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.32.1",
+    "@anthropic-ai/sdk": "^0.104.2",
     "@supabase/ssr": "^0.12.0",
     "@supabase/supabase-js": "^2.47.10",
     "ai": "^6.0.206",

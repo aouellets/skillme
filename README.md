@@ -67,6 +67,20 @@ npm run dev
 npm run db:seed
 ```
 
+### Ingest skills from GitHub (optional)
+
+Pull `SKILL.md` files from public repos, run them through the Claude-powered
+safety + metadata classifier, and upsert the safe ones into the catalog:
+
+```bash
+npm run ingest anthropics/skills multica-ai/andrej-karpathy-skills
+# owner/repo, or owner/repo:path/to/SKILL.md
+```
+
+Requires `ANTHROPIC_API_KEY` and Supabase credentials in `.env.local`
+(`GITHUB_TOKEN` is optional but raises GitHub rate limits). Skills the
+classifier flags as unsafe are skipped, not stored.
+
 ### Enable GitHub sign-in (optional)
 
 Web sign-in and the star-rating UI use Supabase Auth with GitHub. It degrades
