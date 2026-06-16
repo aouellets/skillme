@@ -1,0 +1,77 @@
+/* === SKILLSHELF DESIGN TOKENS === */
+
+:root {
+  /* --- Core Palette --- */
+  --shelf-void: #0e0f11; /* page background */
+  --shelf-surface: #16181c; /* cards, panels */
+  --shelf-elevated: #1e2027; /* hover state, modals */
+  --shelf-border: #2a2d35; /* dividers, card borders */
+  --shelf-muted: #3d424f; /* disabled, placeholder */
+
+  /* --- Text --- */
+  --shelf-text-primary: #f2f3f5;
+  --shelf-text-secondary: #9aa0ad;
+  --shelf-text-tertiary: #5c6270;
+
+  /* --- Accent: Amber/Gold --- */
+  --shelf-accent: #e8a832;
+  --shelf-accent-dim: #2d2417;
+  --shelf-accent-border: #5c430f;
+  --shelf-accent-hover: #f2be5a;
+
+  /* --- Semantic --- */
+  --shelf-success: #3dad6e;
+  --shelf-warning: #e8a832;
+  --shelf-danger: #e05252;
+  --shelf-info: #4a90d9;
+
+  /* --- Category Color Dots --- */
+  --cat-writing: #9b8fff;
+  --cat-coding: #4fc4cf;
+  --cat-research: #6ec97a;
+  --cat-productivity: #e8a832;
+  --cat-data: #4a90d9;
+  --cat-design: #e87c52;
+  --cat-business: #cf7fc9;
+  --cat-personal: #a0a89a;
+
+  /* --- Typography ---
+     The font families (--font-display/body/mono) are injected by next/font in
+     app/layout.tsx so they self-host without layout shift. Fallback stacks: */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Fira Code', monospace;
+
+  /* --- Type Scale --- */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 17px;
+  --text-xl: 21px;
+  --text-2xl: 27px;
+  --text-3xl: 36px;
+  --text-4xl: 48px;
+
+  /* --- Spacing (4px base) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* --- Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* --- Shadows --- */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 0 1px var(--shelf-accent-border), 0 0 20px rgba(232, 168, 50, 0.08);
+}
