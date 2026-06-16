@@ -98,6 +98,9 @@ function Footer() {
           <Link href="/connect" className="transition-colors hover:text-shelf-text-secondary">
             Connect
           </Link>
+          <Link href="/skill-media-guide" className="transition-colors hover:text-shelf-text-secondary">
+            Media Guide
+          </Link>
           <a
             href="https://github.com/aouellets/skillshelf"
             target="_blank"
