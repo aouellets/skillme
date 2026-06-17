@@ -28,7 +28,7 @@ const PACK_DEFINITIONS = [
     skill_slugs: [
       'investor-update-writer', 'competitive-intelligence', 'pricing-strategy',
       'cold-email-craft', 'landing-page-copy', 'go-to-market-planner',
-      'unit-economics', 'pitch-deck-narrative', 'fact-checker',
+      'unit-economics', 'fact-checker',
       'financial-planner', 'market-sizing', 'fundraising-narrative',
     ],
   },
@@ -91,8 +91,8 @@ const PACK_DEFINITIONS = [
     featured: false, verified: true, free: true,
     install_count: 7400,
     skill_slugs: [
-      'contract-reviewer', 'terms-of-service', 'employment-contract',
-      'startup-legal-basics', 'regulatory-scan', 'fact-checker',
+      'terms-of-service', 'employment-contract',
+      'regulatory-scan', 'fact-checker',
     ],
   },
   {
@@ -107,7 +107,7 @@ const PACK_DEFINITIONS = [
     install_count: 18200,
     skill_slugs: [
       'sql-to-insights', 'pandas-expert', 'ab-test-analyzer',
-      'funnel-analysis', 'customer-analytics', 'dashboard-narrator',
+      'funnel-analysis', 'customer-analytics', 'data-story',
       'revenue-modeling',
     ],
   },
@@ -140,7 +140,7 @@ const PACK_DEFINITIONS = [
     skill_slugs: [
       'meeting-notes-to-actions', 'weekly-review', 'okr-builder',
       'feedback-writer', 'stakeholder-update', 'async-communication',
-      'one-on-one-agenda',
+      '1on1-agenda',
     ],
   },
   {
@@ -171,7 +171,7 @@ const PACK_DEFINITIONS = [
     install_count: 8600,
     skill_slugs: [
       'systematic-review', 'literature-review', 'citation-tracker',
-      'grant-writing', 'academic-abstract', 'policy-brief',
+      'academic-essay', 'policy-brief',
       'fact-checker',
     ],
   },
