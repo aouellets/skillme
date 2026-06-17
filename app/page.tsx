@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { SkillCard } from '@/components/SkillCard'
 import { PackCard } from '@/components/PackCard'
 import { HeroDemo } from '@/components/HeroDemo'
 import { Reveal } from '@/components/Reveal'
 import { EmailCapture } from '@/components/EmailCapture'
+import { FeaturedCarousel } from '@/components/FeaturedCarousel'
 import { CATEGORIES } from '@/lib/categories'
 import { getFeaturedSkills, getSkills } from '@/lib/data'
 import { getFeaturedPacks } from '@/lib/packs'
@@ -49,22 +49,22 @@ async function StatsBar() {
 
 const STEPS = [
   {
-    title: 'Connect the MCP',
-    body: 'In claude.ai, open Settings, Integrations, and add the SkillShelf endpoint. You will see it appear in your integrations list. That is the only setup you will ever do.',
+    title: 'Connect once',
+    body: 'Add the SkillShelf endpoint in claude.ai under Settings, Integrations. Thirty seconds, and you never do it again.',
   },
   {
-    title: 'Ask for skills',
-    body: 'Say "show me skills" in any conversation. Claude searches the catalog and returns results sorted by install count, or by what you want to do: "writing skills", "debug SQL".',
+    title: 'Ask in plain English',
+    body: 'Say "show me writing skills" in any conversation. Claude searches the catalog and reads back what fits.',
   },
   {
     title: 'Say "install it"',
-    body: 'Skills load automatically at the start of every conversation from now on. Install a full pack for 8 skills at once. Remove any with "uninstall the X skill".',
+    body: 'The skill activates in your next session and every one after, across every conversation. No reinstalling.',
   },
 ]
 
 export default async function HomePage() {
   const [featured, { total }, featuredPacks] = await Promise.all([
-    getFeaturedSkills(6),
+    getFeaturedSkills(8),
     getSkills({ limit: 1 }),
     getFeaturedPacks(3),
   ])
@@ -114,36 +114,75 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* FEATURED SKILLS */}
-      <section className="py-8">
-        <Reveal className="flex items-end justify-between gap-4">
-          <h2 className="text-2xl font-semibold text-shelf-text-primary">Featured this week</h2>
-          <Link
-            href="/browse"
-            className="shrink-0 text-sm text-shelf-text-secondary transition-colors hover:text-accent-hover"
-          >
-            View all →
-          </Link>
-        </Reveal>
+      {/* HOW IT WORKS — promoted high, non-technical pitch + primary CTA */}
+      <section className="relative py-10 sm:py-14">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-lg border border-shelf-border bg-shelf-surface">
+            {/* top accent hairline */}
+            <div
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-60"
+            />
+            <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+              {/* Left: the pitch */}
+              <div className="lg:py-2">
+                <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-shelf-text-primary sm:text-4xl">
+                  No code.
+                  <br />
+                  No terminal. Just ask.
+                </h2>
+                <p className="mt-5 max-w-md text-base leading-relaxed text-shelf-text-secondary">
+                  You never touch a config file or download a thing. If you can send a message in
+                  Claude, you can install a skill. It is live in your very next conversation.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <Link href="/connect" className="btn btn-primary">
+                    Connect to Claude
+                  </Link>
+                  <Link href="/browse" className="btn btn-secondary">
+                    Browse skills
+                  </Link>
+                </div>
+                <p className="mt-4 font-mono text-xs text-shelf-text-tertiary">
+                  Works in claude.ai. About 30 seconds. Free.
+                </p>
+              </div>
 
-        {featured.length === 0 ? (
-          <p className="mt-8 text-sm text-shelf-text-secondary">
-            No featured skills yet. Check back soon.
-          </p>
-        ) : (
-          <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((skill, i) => (
-              <Reveal key={skill.id} delay={i * 60}>
-                <SkillCard skill={skill} />
-              </Reveal>
-            ))}
+              {/* Right: connected vertical stepper */}
+              <ol className="relative space-y-7 before:absolute before:bottom-3 before:left-[15px] before:top-3 before:w-px before:bg-shelf-border">
+                {STEPS.map((step, i) => (
+                  <li key={step.title} className="relative flex gap-4">
+                    <span className="relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full border border-accent-border bg-shelf-elevated font-mono text-sm font-medium text-accent">
+                      {i + 1}
+                    </span>
+                    <div className="pt-0.5">
+                      <h3 className="text-base font-semibold text-shelf-text-primary">
+                        {step.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-shelf-text-secondary">
+                        {step.body}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
-        )}
+        </Reveal>
       </section>
 
-      {/* FEATURED PACKS */}
+      {/* FEATURED SKILLS — horizontal carousel */}
+      {featured.length > 0 && (
+        <section className="py-10">
+          <Reveal>
+            <FeaturedCarousel skills={featured} title="Featured this week" href="/browse" />
+          </Reveal>
+        </section>
+      )}
+
+      {/* FEATURED PACKS — card grid */}
       {featuredPacks.length > 0 && (
-        <section className="py-8">
+        <section className="py-10">
           <Reveal className="flex items-end justify-between gap-4">
             <h2 className="text-2xl font-semibold text-shelf-text-primary">Skill packs</h2>
             <Link
@@ -163,17 +202,13 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* CATEGORIES — full-width tinted band breaks the rhythm */}
-      <section className="py-16">
+      {/* CATEGORIES — chips */}
+      <section className="py-14">
         <Reveal>
           <h2 className="text-2xl font-semibold text-shelf-text-primary">Browse by category</h2>
           <div className="mt-6 flex flex-wrap gap-3">
             {CATEGORIES.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={`/browse?category=${cat.slug}`}
-                className="chip"
-              >
+              <Link key={cat.slug} href={`/browse?category=${cat.slug}`} className="chip">
                 <span
                   aria-hidden
                   className="inline-block h-2.5 w-2.5 rounded-full"
@@ -234,36 +269,23 @@ export default async function HomePage() {
         </Reveal>
       </section>
 
-      {/* HOW IT WORKS — connected numbered flow, not 3 identical cards */}
-      <section className="relative py-16">
+      {/* FINAL CTA — closing band, centered launch moment */}
+      <section className="relative py-20 text-center sm:py-24">
+        <div className="aurora" aria-hidden />
         <Reveal>
-          <h2 className="text-2xl font-semibold text-shelf-text-primary">How it works</h2>
-          <p className="mt-2 max-w-lg text-shelf-text-secondary">
-            From zero to a live skill in three steps. Nothing to download.
+          <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-shelf-text-primary sm:text-5xl">
+            Your next conversation just got an upgrade.
+          </h2>
+          <p className="mx-auto mt-5 max-w-md text-lg leading-relaxed text-shelf-text-secondary">
+            Connect once and every Claude chat can reach the whole catalog.
           </p>
+          <div className="mt-8 flex justify-center">
+            <Link href="/connect" className="btn btn-primary">
+              Connect to Claude
+            </Link>
+          </div>
+          <p className="mt-4 font-mono text-xs text-shelf-text-tertiary">Free and open source.</p>
         </Reveal>
-
-        <ol className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-shelf-border bg-shelf-border sm:grid-cols-3">
-          {STEPS.map((step, i) => (
-            <Reveal as="li" key={step.title} delay={i * 80} className="bg-shelf-surface p-7">
-              <span className="font-mono text-sm font-medium text-accent">
-                {`0${i + 1}`}
-              </span>
-              <h3 className="mt-4 text-lg font-semibold text-shelf-text-primary">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-shelf-text-secondary">
-                {step.body}
-              </p>
-            </Reveal>
-          ))}
-        </ol>
-
-        <div className="mt-8">
-          <Link href="/connect" className="btn btn-primary">
-            Get started
-          </Link>
-        </div>
       </section>
     </div>
   )
