@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Instrument_Serif, IBM_Plex_Mono } from 'next/font/google'
 import Link from 'next/link'
+import { Analytics } from '@vercel/analytics/react'
 import { SITE_URL } from '@/lib/site'
 import { AuthButton } from '@/components/AuthButton'
 import { EmailCapture } from '@/components/EmailCapture'
@@ -168,6 +169,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   )
