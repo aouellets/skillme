@@ -3,8 +3,12 @@ import { CopyButton } from '@/components/CopyButton'
 import { MCP_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Connect',
-  description: 'Connect SkillShelf to claude.ai in about 30 seconds.',
+  title: 'Connect to Claude',
+  description:
+    'Add SkillShelf to claude.ai in 30 seconds. Connect the MCP once and browse, install, and manage 300+ Claude skills from inside any Claude conversation.',
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
 // Screenshots are shown only once the files exist and the flag is enabled in

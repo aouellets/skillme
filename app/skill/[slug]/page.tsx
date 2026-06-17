@@ -23,6 +23,9 @@ export async function generateMetadata({
   const { slug } = await params
   const skill = await getSkillBySlug(slug)
   if (!skill) return { title: 'Skill not found' }
+
+  const ogImage = skill.thumbnail_url ?? `${SITE_URL}/og-default.png`
+
   return {
     title: skill.name,
     description: skill.description,
@@ -30,11 +33,13 @@ export async function generateMetadata({
       title: `${skill.name} · SkillShelf`,
       description: skill.description,
       type: 'article',
+      images: [{ url: ogImage, width: 1200, height: 630, alt: skill.name }],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${skill.name} · SkillShelf`,
       description: skill.description,
+      images: [ogImage],
     },
   }
 }
