@@ -25,12 +25,12 @@ export async function generateMetadata({
     title: pack.name,
     description: pack.tagline,
     openGraph: {
-      title: `${pack.name} · SkillShelf`,
+      title: `${pack.name} · Skill Me`,
       description: pack.tagline,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${pack.name} · SkillShelf`,
+      title: `${pack.name} · Skill Me`,
       description: pack.tagline,
     },
   }
@@ -106,7 +106,7 @@ export default async function PackDetailPage({
               <li className="flex gap-3">
                 <span className="font-mono text-accent">1.</span>
                 <span>
-                  Make sure SkillShelf MCP is connected.{' '}
+                  Make sure Skill Me MCP is connected.{' '}
                   <Link href="/connect" className="text-accent hover:text-accent-hover">
                     Connect →
                   </Link>

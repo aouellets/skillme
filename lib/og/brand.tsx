@@ -5,7 +5,7 @@ import type { ReactElement } from 'react'
 /**
  * Shared brand kit for dynamically generated Open Graph / share images
  * (next/og + Satori). One place for the palette, the canvas size, the
- * self-hosted Geist fonts, and the SkillShelf logo mark so every card
+ * self-hosted Geist fonts, and the Skill Me logo mark so every card
  * (home, skill, pack) is visually consistent.
  *
  * Fonts are loaded from co-located .ttf files via `import.meta.url` so Next
@@ -17,14 +17,15 @@ export const OG_SIZE = { width: 1200, height: 630 }
 export const OG_CONTENT_TYPE = 'image/png'
 
 export const OG = {
-  void: '#0a0a0c',
-  surface: '#121216',
-  border: '#25252d',
-  text: '#fafafa',
-  secondary: '#a2a2ad',
-  tertiary: '#6c6c79',
-  gold: '#f0b429',
-  onGold: '#1a1305',
+  void: '#080a0a',
+  surface: '#101413',
+  border: '#222826',
+  text: '#f5f7f5',
+  secondary: '#9ba29d',
+  tertiary: '#646b66',
+  // The locked lime accent. Key name kept for call-site stability.
+  gold: '#b4f33e',
+  onGold: '#0a1400',
 }
 
 let fontCache: Array<{ name: string; data: Buffer; weight: 400 | 600 | 900; style: 'normal' }> | null =
@@ -46,13 +47,14 @@ export async function loadBrandFonts() {
   return fontCache
 }
 
-/** SkillShelf logo mark, composed from divs (the stacked-shelf monogram). */
+/** Skill Me logo mark, composed from divs: a rising bar chart in the lime
+ *  accent (the "personal momentum" motif), robust under Satori. */
 export function LogoBadge({ size = 64 }: { size?: number }): ReactElement {
   const unit = size / 64
-  const bar = (w: number, color: string) => ({
-    width: w * unit,
-    height: 9 * unit,
-    borderRadius: 4 * unit,
+  const bar = (h: number, color: string) => ({
+    width: 7 * unit,
+    height: h * unit,
+    borderRadius: 3 * unit,
     backgroundColor: color,
   })
   return (
@@ -60,19 +62,19 @@ export function LogoBadge({ size = 64 }: { size?: number }): ReactElement {
       style={{
         width: size,
         height: size,
-        borderRadius: 14 * unit,
+        borderRadius: 16 * unit,
         backgroundColor: OG.surface,
-        border: `${2 * unit}px solid #34343f`,
+        border: `${2 * unit}px solid #323a37`,
         display: 'flex',
-        flexDirection: 'column',
+        alignItems: 'flex-end',
         justifyContent: 'center',
-        gap: 4.5 * unit,
-        padding: `0 ${14 * unit}px`,
+        gap: 4 * unit,
+        padding: `0 0 ${16 * unit}px`,
       }}
     >
-      <div style={bar(36, OG.gold)} />
-      <div style={bar(22, OG.secondary)} />
-      <div style={bar(36, OG.gold)} />
+      <div style={bar(14, OG.secondary)} />
+      <div style={bar(22, OG.gold)} />
+      <div style={bar(32, OG.gold)} />
     </div>
   )
 }
@@ -81,12 +83,12 @@ export function LogoBadge({ size = 64 }: { size?: number }): ReactElement {
 export function Wordmark({ size = 30 }: { size?: number }): ReactElement {
   return (
     <div style={{ display: 'flex', fontSize: size, fontWeight: 600, color: OG.text }}>
-      Skill<span style={{ color: OG.gold }}>Shelf</span>
+      Skill<span style={{ color: OG.gold }}>&nbsp;Me</span>
     </div>
   )
 }
 
-/** Gold star glyph as SVG (Geist has no ★ glyph, so we draw it). */
+/** Lime star glyph as SVG (Geist has no ★ glyph, so we draw it). */
 export function Star({ size = 28 }: { size?: number }): ReactElement {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill={OG.gold}>

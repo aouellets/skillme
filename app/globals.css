@@ -90,7 +90,7 @@
   .btn-primary:hover {
     background-color: var(--shelf-accent-hover);
     border-color: var(--shelf-accent-hover);
-    box-shadow: 0 0 30px -8px rgba(240, 180, 41, 0.5);
+    box-shadow: 0 0 30px -8px rgba(180, 243, 62, 0.5);
   }
 
   .btn-secondary {
@@ -199,9 +199,61 @@
       transparent
     );
   }
+
+  /* === Glass surface — frosted premium panel with inner edge refraction.
+     Used on the header and the hero showcase. Falls back to a solid fill
+     under prefers-reduced-transparency. === */
+  .glass {
+    background: linear-gradient(
+        180deg,
+        var(--glass-highlight),
+        transparent 42%
+      ),
+      var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    box-shadow: inset 0 1px 0 var(--glass-highlight),
+      var(--shadow-raised);
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .glass {
+      background: var(--shelf-surface);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+
+  /* === Edge-light frame — the signature lime gradient halo around the hero
+     showcase in the reference UI. Pure decoration, pointer-events off. === */
+  .edge-light {
+    position: relative;
+  }
+
+  .edge-light::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(180, 243, 62, 0.55),
+      rgba(180, 243, 62, 0.04) 30%,
+      transparent 55%,
+      rgba(180, 243, 62, 0.18)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }
 
-/* === Ambient gold field behind the hero (focal hierarchy, not neon spam) === */
+/* === Ambient lime field behind the hero (focal hierarchy, not neon spam) === */
 .aurora {
   position: absolute;
   inset: -20% -10% auto -10%;
@@ -209,8 +261,8 @@
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(60% 60% at 72% 18%, rgba(240, 180, 41, 0.16), transparent 70%),
-    radial-gradient(50% 50% at 18% 0%, rgba(91, 157, 249, 0.06), transparent 70%);
+    radial-gradient(60% 60% at 72% 18%, rgba(180, 243, 62, 0.14), transparent 70%),
+    radial-gradient(50% 50% at 18% 0%, rgba(78, 222, 128, 0.05), transparent 70%);
   filter: blur(8px);
 }
 

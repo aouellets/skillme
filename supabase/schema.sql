@@ -2,7 +2,7 @@
 -- Safe to run multiple times (uses IF NOT EXISTS and CREATE OR REPLACE).
 -- After running, execute: npm run db:seed
 
--- SkillShelf database schema
+-- Skill Me database schema
 -- Run this in the Supabase SQL editor (or via `supabase db push`).
 
 create extension if not exists pgcrypto;
@@ -71,7 +71,7 @@ create table if not exists public.packs (
   media_alt     text,
   install_count integer default 0,
   featured      boolean default false,
-  verified      boolean default false,    -- reviewed by SkillShelf
+  verified      boolean default false,    -- reviewed by Skill Me
   free          boolean default true,
   created_at    timestamptz default now(),
   updated_at    timestamptz default now()

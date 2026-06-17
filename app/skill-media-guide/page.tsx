@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Skill Media Guide',
-  description: 'How to add thumbnails, GIFs, and animated previews to your Claude skill on SkillShelf.',
+  description: 'How to add thumbnails, GIFs, and animated previews to your Claude skill on Skill Me.',
 }
 
 export default function SkillMediaGuidePage() {

@@ -1,4 +1,4 @@
-# SkillShelf
+# Skill Me
 
 **The App Store for Claude Skills.**
 
@@ -6,7 +6,7 @@ Install intelligence. Browse curated Claude skills and install them directly fro
 inside Claude — no technical setup, no ZIP files, no copy-pasting. Connect the
 MCP once and your installed skills load automatically in every future session.
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-E8A832.svg)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-b4f33e.svg)](./LICENSE)
 
 ---
 
@@ -26,7 +26,7 @@ step-by-step.
 
 ## How it works
 
-SkillShelf is a hosted **MCP server** plus a **web catalog**, backed by Supabase.
+Skill Me is a hosted **MCP server** plus a **web catalog**, backed by Supabase.
 
 - The MCP server (`app/api/mcp/route.ts`) speaks JSON-RPC 2.0 over Streamable
   HTTP and exposes five tools:

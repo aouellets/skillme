@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Your Library',
-  description: 'The skills you have installed and rated on SkillShelf.',
+  description: 'The skills you have installed and rated on Skill Me.',
 }
 
 type InstallRow = {

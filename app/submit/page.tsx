@@ -4,7 +4,7 @@ import { CopyButton } from '@/components/CopyButton'
 
 export const metadata: Metadata = {
   title: 'Submit a Skill',
-  description: 'Add your Claude skill to the SkillShelf catalog. Open-source, reviewed, and available to every SkillShelf user.',
+  description: 'Add your Claude skill to the Skill Me catalog. Open-source, reviewed, and available to every Skill Me user.',
   twitter: { card: 'summary_large_image' },
 }
 
@@ -34,7 +34,7 @@ export default function SubmitPage() {
         Submit a skill
       </h1>
       <p className="mt-4 text-lg text-shelf-text-secondary">
-        Every skill in the SkillShelf catalog started as a community contribution.
+        Every skill in the Skill Me catalog started as a community contribution.
         Submit yours and it becomes available to every user, installed in seconds
         from inside Claude.
       </p>
@@ -47,7 +47,7 @@ export default function SubmitPage() {
           </h2>
           <p className="mt-2 text-sm text-shelf-text-secondary">
             Open a GitHub issue using the skill submission template. Paste your
-            SKILL.md content. The SkillShelf team will review and add it within
+            SKILL.md content. The Skill Me team will review and add it within
             a few days.
           </p>
           <a

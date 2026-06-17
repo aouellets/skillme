@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
 
 // Some MCP clients probe with GET to open a stream; we are POST-only JSON.
 export async function GET() {
-  return new Response('SkillShelf MCP endpoint. Use POST with JSON-RPC 2.0.', {
+  return new Response('Skill Me MCP endpoint. Use POST with JSON-RPC 2.0.', {
     status: 200,
     headers: { ...CORS_HEADERS, 'Content-Type': 'text/plain' },
   })

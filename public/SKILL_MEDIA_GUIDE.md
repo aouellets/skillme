@@ -1,8 +1,8 @@
-# SkillShelf Media Guide
+# Skill Me Media Guide
 
 ## How to add thumbnails, GIFs, and video previews to your skill
 
-SkillShelf supports animated previews that play on hover in the catalog. This guide
+Skill Me supports animated previews that play on hover in the catalog. This guide
 explains how to add media to your skill so it shows a preview that converts browsers
 into installers.
 
@@ -23,7 +23,7 @@ media:
 ---
 ```
 
-That's it. When SkillShelf ingests your skill, it reads these fields and displays
+That's it. When Skill Me ingests your skill, it reads these fields and displays
 them in the catalog.
 
 ---
@@ -42,7 +42,7 @@ them in the catalog.
 
 ## Priority order
 
-SkillShelf shows media in this priority:
+Skill Me shows media in this priority:
 
 1. **Video loop** — if `video` is set and GIF is not, video plays on hover
 2. **Animated GIF** — plays on hover if set
@@ -65,7 +65,7 @@ The static thumbnail is shown:
 
 - 1200 × 630 pixels (2:1 ratio, standard OG image)
 - PNG or WebP recommended
-- Dark background preferred (matches SkillShelf's dark UI)
+- Dark background preferred (matches Skill Me's dark UI)
 - Show the skill *doing something* — not a logo or text-only image
 
 **Good thumbnail examples:**
@@ -246,19 +246,19 @@ media:
 
 ---
 
-## SkillShelf ingestion
+## Skill Me ingestion
 
-When you submit your skill to SkillShelf (via PR or the ingest script), the media
+When you submit your skill to Skill Me (via PR or the ingest script), the media
 fields from your frontmatter are automatically parsed and stored. No additional
 configuration needed.
 
-The SkillShelf OG image for your skill page will use your `thumbnail` as the
+The Skill Me OG image for your skill page will use your `thumbnail` as the
 background, making social shares look like this:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                                                                  │
-│   [your thumbnail image]                          SkillShelf     │
+│   [your thumbnail image]                          Skill Me     │
 │                                                                  │
 │   Git Commit Writer                              ★ 4.6 · coding │
 │   Generates Conventional Commits messages...                     │
@@ -279,7 +279,7 @@ Before submitting your skill with media:
 - [ ] Alt text is descriptive (what does the preview show?)
 - [ ] URLs are permanent (not localhost, not expiring signed URLs)
 - [ ] Media loads over HTTPS
-- [ ] Tested on a dark background (SkillShelf is dark)
+- [ ] Tested on a dark background (Skill Me is dark)
 
 ---
 

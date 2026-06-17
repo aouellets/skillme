@@ -10,7 +10,7 @@ export function InstallInstructions({ skillName }: { skillName: string }) {
         <li className="flex gap-3">
           <span className="font-mono text-accent">1.</span>
           <span>
-            Make sure the SkillShelf MCP is connected.{' '}
+            Make sure the Skill Me MCP is connected.{' '}
             <Link href="/connect" className="text-accent hover:text-accent-hover">
               Connect in 30 seconds →
             </Link>

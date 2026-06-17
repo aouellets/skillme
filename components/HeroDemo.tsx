@@ -196,15 +196,15 @@ export function HeroDemo() {
   return (
     <div
       aria-hidden
-      className="demo-panel card relative flex min-h-[380px] flex-col gap-4 overflow-hidden p-5 sm:p-6"
+      className="demo-panel glass edge-light relative flex min-h-[380px] flex-col gap-4 overflow-hidden rounded-lg p-5 sm:p-6"
     >
       {/* header / window chrome */}
       <div className="flex items-center justify-between border-b border-shelf-border pb-3">
         <div className="flex items-center gap-2">
-          <span className="flex h-5 w-5 items-center justify-center rounded-[5px] bg-accent text-[11px] font-bold text-shelf-void">
+          <span className="flex h-5 w-5 items-center justify-center rounded-[5px] bg-accent text-[11px] font-bold text-accent-contrast">
             S
           </span>
-          <span className="text-sm font-medium text-shelf-text-primary">SkillShelf</span>
+          <span className="text-sm font-medium text-shelf-text-primary">Skill Me</span>
         </div>
         <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-shelf-text-tertiary">
           <span className="demo-live inline-block h-1.5 w-1.5 rounded-full bg-success" />
@@ -288,7 +288,7 @@ export function HeroDemo() {
                 </div>
 
                 {installed ? (
-                  <span className="demo-installed flex shrink-0 items-center gap-1 rounded-md bg-accent px-2.5 py-1.5 text-xs font-medium text-shelf-void">
+                  <span className="demo-installed flex shrink-0 items-center gap-1 rounded-md bg-accent px-2.5 py-1.5 text-xs font-medium text-accent-contrast">
                     <span className="text-[11px] font-bold">✓</span> Installed
                   </span>
                 ) : (

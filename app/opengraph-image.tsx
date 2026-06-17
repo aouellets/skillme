@@ -3,7 +3,7 @@ import { OG, OG_SIZE, OG_CONTENT_TYPE, loadBrandFonts, LogoBadge, Wordmark, Chip
 
 export const size = OG_SIZE
 export const contentType = OG_CONTENT_TYPE
-export const alt = 'SkillShelf, the App Store for Claude Skills'
+export const alt = 'Skill Me, the App Store for Claude Skills'
 
 export default async function Image() {
   const fonts = await loadBrandFonts()
@@ -23,7 +23,7 @@ export default async function Image() {
           position: 'relative',
         }}
       >
-        {/* gold ambient glow, top-right */}
+        {/* lime ambient glow, top-right */}
         <div
           style={{
             position: 'absolute',
@@ -33,7 +33,7 @@ export default async function Image() {
             height: 560,
             borderRadius: 9999,
             background:
-              'radial-gradient(circle at center, rgba(240,180,41,0.20), rgba(240,180,41,0))',
+              'radial-gradient(circle at center, rgba(180,243,62,0.20), rgba(180,243,62,0))',
           }}
         />
 

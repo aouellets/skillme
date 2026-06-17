@@ -6,14 +6,14 @@ import { OG, OG_SIZE, OG_CONTENT_TYPE, loadBrandFonts, LogoBadge, Wordmark, Star
 export const size = OG_SIZE
 export const contentType = OG_CONTENT_TYPE
 export const dynamic = 'force-dynamic'
-export const alt = 'SkillShelf skill'
+export const alt = 'Skill Me skill'
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const skill = await getSkillBySlug(slug)
   const fonts = await loadBrandFonts()
 
-  const name = skill?.name ?? 'SkillShelf'
+  const name = skill?.name ?? 'Skill Me'
   const description =
     skill?.description ?? 'The App Store for Claude skills. Install intelligence.'
   const category = skill ? CATEGORY_MAP[skill.category] : undefined
@@ -136,7 +136,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             {installs && <div style={{ display: 'flex' }}>{installs} installs</div>}
           </div>
           <div style={{ display: 'flex', fontSize: 28, fontWeight: 600, color: OG.gold }}>
-            Install on SkillShelf
+            Install on Skill Me
           </div>
         </div>
       </div>

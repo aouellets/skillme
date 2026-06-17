@@ -1,6 +1,6 @@
-# SkillShelf — Product Hunt Launch Kit
+# Skill Me — Product Hunt Launch Kit
 
-Everything needed to launch SkillShelf on Product Hunt. Save the PH listing as a
+Everything needed to launch Skill Me on Product Hunt. Save the PH listing as a
 draft now; it can be edited until the moment it goes live.
 
 > **Asset status**
@@ -16,7 +16,7 @@ draft now; it can be edited until the moment it goes live.
 
 ## Listing
 
-- **Product name:** SkillShelf
+- **Product name:** Skill Me
 - **Tagline (≤60 chars):** `The App Store for Claude Skills` (31 chars ✅)
 - **Thumbnail:** `public/ph-thumbnail.png` (240×240)
 - **Topics:** Artificial Intelligence, Productivity, Developer Tools, Open Source
@@ -54,14 +54,14 @@ Capture at a 1270px viewport width and crop/pad to 1270×760. Save as
 ## First comment (post at 12:01am PT on launch day)
 
 ```
-Hey PH! 👋 Alex here, maker of SkillShelf.
+Hey PH! 👋 Alex here, maker of Skill Me.
 
 I built this because the Claude skills ecosystem exploded in 2026 — there are now
 thousands of community skills on GitHub — but getting them still requires finding
 a repo, downloading a file, uploading a ZIP, and repeating for every skill.
 That's the developer path. It works but it excludes everyone else.
 
-SkillShelf is the consumer path: one MCP connection, then browse and install
+Skill Me is the consumer path: one MCP connection, then browse and install
 from inside Claude in plain English. "Show me writing skills." "Install it."
 Done. Skills auto-activate in every future conversation.
 
@@ -85,7 +85,7 @@ who connects the MCP and actually uses it today.
 ## Launch-day tweet thread (schedule for 12:01am PT)
 
 ```
-🚀 We just launched SkillShelf on @ProductHunt!
+🚀 We just launched Skill Me on @ProductHunt!
 The App Store for Claude Skills.
 Connect one MCP, then say "show me writing skills" or "install the engineering workflow pack."
 300+ curated skills. Active in every future conversation.
@@ -102,7 +102,7 @@ But installing them still requires:
 → Repeat for EVERY skill
 That's the developer path.
 ---
-SkillShelf is the consumer path.
+Skill Me is the consumer path.
 Connect the MCP once (30 seconds).
 Then just say what you want:
 "show me skills for writing LinkedIn posts"
@@ -118,9 +118,9 @@ What's in the catalog today:
 → Open source (MIT)
 [browse link]
 ---
-What makes SkillShelf different from claude.ai's built-in skills UI?
+What makes Skill Me different from claude.ai's built-in skills UI?
 claude.ai's built-in: upload a ZIP file. Technical. No discovery.
-SkillShelf: browse by voice. Install by voice. Zero friction.
+Skill Me: browse by voice. Install by voice. Zero friction.
 It's the difference between a file manager and an App Store.
 ---
 We also built a media guide for skill authors to add GIF previews.

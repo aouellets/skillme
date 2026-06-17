@@ -1,6 +1,6 @@
 ---
 name: Skill Submission
-about: Submit a new skill for the SkillShelf catalog
+about: Submit a new skill for the Skill Me catalog
 title: "[SKILL] Your Skill Name"
 labels: skill-submission
 assignees: aouellets

@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   description:
     'Search 300+ curated Claude skills by category. Coding, writing, research, productivity, data, design, business, and personal skills, all installable directly from Claude.',
   openGraph: {
-    title: 'Browse Claude Skills · SkillShelf',
+    title: 'Browse Claude Skills · Skill Me',
     description: '300+ curated skills. Search, filter, install from inside Claude.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Browse Claude Skills · SkillShelf',
+    title: 'Browse Claude Skills · Skill Me',
     description: '300+ curated skills. Search, filter, install from inside Claude.',
   },
 }

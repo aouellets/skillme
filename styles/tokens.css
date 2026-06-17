@@ -1,31 +1,34 @@
-/* === SKILLSHELF DESIGN TOKENS ===
-   Dark-tech marketplace. One locked accent (gold). One radius system.
-   Dials: VARIANCE 7 / MOTION 5 / DENSITY 4. */
+/* === SKILL ME DESIGN TOKENS ===
+   Premium dark-tech. One locked accent (electric lime). One radius system.
+   Internal token namespace stays `--shelf-*` (implementation detail, not the
+   brand). Dials: VARIANCE 7 / MOTION 6 / DENSITY 4. */
 
 :root {
-  /* --- Core Palette (neutral near-black, faint warmth to seat the gold) --- */
-  --shelf-void: #0a0a0c; /* page background */
-  --shelf-surface: #121216; /* cards, panels */
-  --shelf-elevated: #1a1a20; /* hover state, raised surfaces */
-  --shelf-border: #25252d; /* dividers, card borders */
-  --shelf-border-strong: #34343f; /* emphasized borders, hover */
-  --shelf-muted: #3a3a46; /* disabled, placeholder */
+  /* --- Core Palette (near-black with a faint cool-green undertone to seat the
+     lime so it reads premium, not toxic) --- */
+  --shelf-void: #080a0a; /* page background */
+  --shelf-surface: #101413; /* cards, panels */
+  --shelf-elevated: #181d1b; /* hover state, raised surfaces */
+  --shelf-border: #222826; /* dividers, card borders */
+  --shelf-border-strong: #323a37; /* emphasized borders, hover */
+  --shelf-muted: #3b443f; /* disabled, placeholder */
 
   /* --- Text --- */
-  --shelf-text-primary: #fafafa;
-  --shelf-text-secondary: #a2a2ad;
-  --shelf-text-tertiary: #6c6c79;
+  --shelf-text-primary: #f5f7f5;
+  --shelf-text-secondary: #9ba29d;
+  --shelf-text-tertiary: #646b66;
 
-  /* --- Accent: Gold (the locked brand color, used identically everywhere) --- */
-  --shelf-accent: #f0b429;
-  --shelf-accent-hover: #f7c948;
-  --shelf-accent-dim: #241c0c; /* tinted backgrounds */
-  --shelf-accent-border: #5a440f; /* tinted borders */
-  --shelf-on-accent: #1a1305; /* text on a gold fill — AA on gold */
+  /* --- Accent: Electric Lime (the locked brand color, used identically
+     everywhere — the green of the reference vitals UI) --- */
+  --shelf-accent: #b4f33e;
+  --shelf-accent-hover: #c8f86d;
+  --shelf-accent-dim: #16210b; /* tinted backgrounds */
+  --shelf-accent-border: #37491b; /* tinted borders */
+  --shelf-on-accent: #0a1400; /* text on a lime fill — AA on lime */
 
-  /* --- Semantic --- */
+  /* --- Semantic (kept distinct from the lime accent) --- */
   --shelf-success: #4ade80;
-  --shelf-warning: #f0b429;
+  --shelf-warning: #f5c451;
   --shelf-danger: #f05252;
   --shelf-info: #5b9df9;
 
@@ -33,11 +36,16 @@
   --cat-writing: #a797ff;
   --cat-coding: #4fd1d9;
   --cat-research: #6ee787;
-  --cat-productivity: #f0b429;
+  --cat-productivity: #f5c451;
   --cat-data: #5b9df9;
   --cat-design: #ff8a5c;
   --cat-business: #df8ad9;
   --cat-personal: #aab4a4;
+
+  /* --- Glass (frosted surfaces — premium edge refraction) --- */
+  --glass-fill: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.10);
 
   /* --- Typography ---
      Families are injected by next/font in app/layout.tsx (self-hosted, no CLS):
@@ -85,5 +93,5 @@
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-raised: 0 12px 40px -12px rgba(0, 0, 0, 0.6);
   --shadow-modal: 0 24px 70px rgba(0, 0, 0, 0.65);
-  --shadow-glow: 0 0 0 1px var(--shelf-accent-border), 0 0 48px -10px rgba(240, 180, 41, 0.3);
+  --shadow-glow: 0 0 0 1px var(--shelf-accent-border), 0 0 48px -10px rgba(180, 243, 62, 0.32);
 }

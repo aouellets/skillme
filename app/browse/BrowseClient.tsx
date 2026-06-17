@@ -101,7 +101,7 @@ export function BrowseClient({
       </p>
       <p className="mt-2 text-xs text-shelf-text-tertiary">
         Install counts reflect community GitHub adoption data. Real-time installs
-        via SkillShelf MCP are tracked separately and added daily.
+        via Skill Me MCP are tracked separately and added daily.
       </p>
 
       <div className="mt-8 space-y-5">

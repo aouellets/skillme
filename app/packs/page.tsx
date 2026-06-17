@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   description:
     'Curated bundles of Claude skills. Install a themed set in one command. Solo Founder Stack, Engineering Workflow, Content Marketing Engine, and more.',
   openGraph: {
-    title: 'Skill Packs · SkillShelf',
+    title: 'Skill Packs · Skill Me',
     description: 'Install a full themed skill bundle in one Claude command.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Skill Packs · SkillShelf',
+    title: 'Skill Packs · Skill Me',
     description: 'Install a full themed skill bundle in one Claude command.',
   },
 }

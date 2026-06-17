@@ -2,7 +2,7 @@ export function VerifiedMark({ label = true }: { label?: boolean }) {
   return (
     <span
       className="inline-flex items-center gap-1 text-xs text-success"
-      title="Verified by SkillShelf"
+      title="Verified by Skill Me"
     >
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden>
         <path
