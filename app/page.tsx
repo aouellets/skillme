@@ -3,24 +3,62 @@ import { SkillCard } from '@/components/SkillCard'
 import { PackCard } from '@/components/PackCard'
 import { HeroDemo } from '@/components/HeroDemo'
 import { Reveal } from '@/components/Reveal'
+import { EmailCapture } from '@/components/EmailCapture'
 import { CATEGORIES } from '@/lib/categories'
 import { getFeaturedSkills, getSkills } from '@/lib/data'
 import { getFeaturedPacks } from '@/lib/packs'
+import { getSupabase } from '@/lib/supabase'
 
 export const dynamic = 'force-dynamic'
+
+/** Live catalog stats for the hero. Renders nothing when the DB is empty/unavailable. */
+async function StatsBar() {
+  try {
+    const supabase = getSupabase()
+    if (!supabase) return null
+
+    const [skillsRes, packsRes] = await Promise.all([
+      supabase.from('skills').select('id', { count: 'exact', head: true }),
+      supabase.from('packs').select('id', { count: 'exact', head: true }),
+    ])
+
+    const skills = skillsRes.count ?? 0
+    const packs = packsRes.count ?? 0
+    if (skills === 0) return null
+
+    return (
+      <div className="flex flex-wrap gap-6 font-mono text-xs text-shelf-text-tertiary">
+        <span>
+          <span className="text-shelf-text-secondary">{skills.toLocaleString()}</span> skills
+        </span>
+        <span>
+          <span className="text-shelf-text-secondary">{packs}</span> packs
+        </span>
+        <span>
+          <span className="text-shelf-text-secondary">free</span> forever
+        </span>
+        <span>
+          <span className="text-shelf-text-secondary">MIT</span> licensed
+        </span>
+      </div>
+    )
+  } catch {
+    return null
+  }
+}
 
 const STEPS = [
   {
     title: 'Connect the MCP',
-    body: 'In claude.ai, open Settings, Integrations, and add the SkillShelf endpoint. One time, thirty seconds.',
+    body: 'In claude.ai, open Settings, Integrations, and add the SkillShelf endpoint. You will see it appear in your integrations list. That is the only setup you will ever do.',
   },
   {
     title: 'Ask for skills',
-    body: 'Say "show me writing skills" in any conversation. Claude searches the catalog and reads back what fits.',
+    body: 'Say "show me skills" in any conversation. Claude searches the catalog and returns results sorted by install count, or by what you want to do: "writing skills", "debug SQL".',
   },
   {
     title: 'Say "install it"',
-    body: 'The skill lands in your library and activates automatically in your next session, across every conversation.',
+    body: 'Skills load automatically at the start of every conversation from now on. Install a full pack for 8 skills at once. Remove any with "uninstall the X skill".',
   },
 ]
 
@@ -30,7 +68,8 @@ export default async function HomePage() {
     getSkills({ limit: 1 }),
     getFeaturedPacks(3),
   ])
-  const countLabel = total > 0 ? `${total} curated Claude skills` : 'Curated Claude skills'
+  const countLabel =
+    total > 0 ? `${total.toLocaleString()}+ curated Claude skills` : 'Curated Claude skills'
 
   return (
     <div className="mx-auto max-w-content px-4 sm:px-6">
@@ -47,6 +86,12 @@ export default async function HomePage() {
           <p className="mt-6 max-w-md text-lg leading-relaxed text-shelf-text-secondary">
             {countLabel}. Connect once, install anything. No ZIP files, no terminal, no setup.
           </p>
+
+          {/* Live stats */}
+          <div className="mt-4">
+            <StatsBar />
+          </div>
+
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link href="/connect" className="btn btn-primary">
               Connect to Claude
@@ -54,6 +99,14 @@ export default async function HomePage() {
             <Link href="/browse" className="btn btn-secondary">
               Browse skills
             </Link>
+          </div>
+
+          {/* Email capture — after the hero CTAs */}
+          <div className="mt-10 max-w-md">
+            <EmailCapture
+              label="New skill packs drop weekly. Get notified."
+              placement="inline"
+            />
           </div>
         </div>
         <div className="fade-up" style={{ animationDelay: '120ms' }}>
@@ -129,6 +182,54 @@ export default async function HomePage() {
                 {cat.label}
               </Link>
             ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* OPEN SOURCE CREDIBILITY — plain text columns grouped by a top rule */}
+      <section className="border-t border-shelf-border py-16">
+        <Reveal className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <div>
+            <h3 className="font-display text-base font-semibold text-shelf-text-primary">
+              Open source
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-shelf-text-secondary">
+              MIT licensed. Self-hostable. The full MCP server and web catalog are on GitHub.
+              Fork it, extend it, run your own private instance.
+            </p>
+            <a
+              href="https://github.com/aouellets/skillshelf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex text-sm text-accent transition-colors hover:text-accent-hover"
+            >
+              View on GitHub →
+            </a>
+          </div>
+          <div>
+            <h3 className="font-display text-base font-semibold text-shelf-text-primary">
+              Safety reviewed
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-shelf-text-secondary">
+              Every skill is reviewed for prompt injection and hidden instructions before
+              publishing. No skill in the catalog can exfiltrate your data or override
+              Claude&apos;s behavior.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-display text-base font-semibold text-shelf-text-primary">
+              Skill standard
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-shelf-text-secondary">
+              Skills use the open SKILL.md format, compatible with Claude Code, Cursor,
+              Gemini CLI, and OpenAI Codex. Skills you install here work everywhere.
+            </p>
+            <Link
+              href="/submit"
+              className="mt-3 inline-flex text-sm text-accent transition-colors hover:text-accent-hover"
+            >
+              Submit your skill →
+            </Link>
           </div>
         </Reveal>
       </section>

@@ -36,3 +36,9 @@ export function formatInstalls(count: number): string {
   }
   return String(count)
 }
+
+/** A skill is "new" if it was added within the last 14 days. Client-safe. */
+export function isNewSkill(createdAt: string): boolean {
+  const age = Date.now() - Date.parse(createdAt)
+  return age < 14 * 24 * 60 * 60 * 1000 // 14 days
+}

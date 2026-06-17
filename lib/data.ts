@@ -96,20 +96,24 @@ export async function getSkills(opts: SkillQuery = {}): Promise<SkillPage> {
   if (featured) builder = builder.eq('featured', true)
   if (category) builder = builder.eq('category', category)
   if (query && query.trim()) {
-    builder = builder.or(
-      `name.ilike.%${query.trim()}%,description.ilike.%${query.trim()}%`
-    )
+    const q = query.trim()
+    builder = builder.or(`name.ilike.%${q}%,description.ilike.%${q}%`)
   }
 
   builder = builder.order(column, { ascending }).range(offset, offset + limit - 1)
 
   const { data, error, count } = await builder
   if (error) {
-    console.error('[getSkills] Supabase error, using fallback:', error.message, error.code)
+    console.error('[getSkills] Supabase query failed — code:', error.code, 'message:', error.message)
     return applyFallbackQuery(opts)
   }
 
-  return { skills: (data ?? []) as Skill[], total: count ?? data?.length ?? 0 }
+  if (!data || data.length === 0) {
+    console.warn('[getSkills] Query returned zero rows — falling back to seed data')
+    return applyFallbackQuery(opts)
+  }
+
+  return { skills: data as Skill[], total: count ?? data.length }
 }
 
 export async function getFeaturedSkills(limit = 6): Promise<Skill[]> {
@@ -127,6 +131,10 @@ export async function getSkillBySlug(slug: string): Promise<Skill | null> {
   }
   return data as Skill
 }
+
+// Re-exported from the client-safe module so it can be used in both server and
+// client components (SkillCard renders inside the client BrowseClient).
+export { isNewSkill } from './categories'
 
 export async function getAllSlugs(): Promise<string[]> {
   const supabase = getSupabase()

@@ -164,26 +164,39 @@ export async function getPackBySlug(slug: string): Promise<Pack | null> {
   const supabase = getSupabase()
   if (!supabase) return SEED_PACKS.find((p) => p.slug === slug) ?? null
 
-  const { data, error } = await supabase
+  // Step 1: fetch the pack
+  const { data: pack, error: packError } = await supabase
     .from('packs')
-    .select(`
-      *,
-      pack_skills(
-        position,
-        skills(*)
-      )
-    `)
+    .select('*')
     .eq('slug', slug)
     .single()
 
-  if (error || !data) return SEED_PACKS.find((p) => p.slug === slug) ?? null
+  if (packError || !pack) {
+    console.error('[getPackBySlug] pack fetch error:', packError?.message)
+    return SEED_PACKS.find((p) => p.slug === slug) ?? null
+  }
 
-  const skills = ((data as Record<string, unknown>).pack_skills as Array<{ position: number; skills: unknown }>)
-    ?.sort((a, b) => a.position - b.position)
-    .map((ps) => ps.skills)
-    .filter(Boolean) ?? []
+  // Step 2: fetch pack_skills with skill data as a separate query (more reliable)
+  const { data: packSkills, error: psError } = await supabase
+    .from('pack_skills')
+    .select('position, skill_id, skills(*)')
+    .eq('pack_id', pack.id)
+    .order('position', { ascending: true })
 
-  return { ...data, skills, skill_count: skills.length } as unknown as Pack
+  if (psError) {
+    console.error('[getPackBySlug] pack_skills fetch error:', psError.message)
+    return { ...pack, skills: [], skill_count: 0 } as unknown as Pack
+  }
+
+  const skills = (packSkills ?? [])
+    .map((ps: Record<string, unknown>) => ps.skills)
+    .filter(Boolean)
+
+  return {
+    ...pack,
+    skills,
+    skill_count: skills.length,
+  } as unknown as Pack
 }
 
 export async function getFeaturedPacks(limit = 4): Promise<Pack[]> {

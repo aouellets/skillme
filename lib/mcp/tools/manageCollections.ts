@@ -7,6 +7,7 @@ import {
   deleteCollection,
 } from '../../collections'
 import { text, type Tool } from '../types'
+import { SITE_URL } from '../../site'
 
 interface CollectionArgs {
   action: 'list' | 'create' | 'add_skill' | 'remove_skill' | 'share' | 'delete'
@@ -40,7 +41,7 @@ export const manageCollections: Tool<CollectionArgs> = {
     },
   },
   async handler(args, ctx) {
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://skillshelf.io'
+    const siteUrl = SITE_URL
 
     switch (args.action) {
       case 'list': {

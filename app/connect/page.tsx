@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description: 'Connect SkillShelf to claude.ai in about 30 seconds.',
 }
 
+// Screenshots are shown only once the files exist and the flag is enabled in
+// Vercel. Keeps the page from rendering broken images before then.
+const SHOW_SCREENSHOTS = process.env.NEXT_PUBLIC_SHOW_SCREENSHOTS === 'true'
+
 const STEPS: Array<{ title: string; body: React.ReactNode }> = [
   {
     title: 'Open claude.ai',
@@ -64,19 +68,56 @@ export default function ConnectPage() {
             <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-accent-border bg-accent-dim font-mono text-sm font-medium text-accent-hover">
               {i + 1}
             </span>
-            <div className="min-w-0">
+            <div className="w-full min-w-0">
               <h2 className="font-display text-base font-semibold text-shelf-text-primary">{step.title}</h2>
               {step.body === 'paste-url' ? (
-                <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center">
-                  <code className="flex-1 overflow-x-auto rounded-btn border border-shelf-border bg-shelf-void px-3 py-2 font-mono text-sm text-shelf-text-primary">
-                    {MCP_URL}
-                  </code>
-                  <CopyButton value={MCP_URL} />
-                </div>
+                <>
+                  <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center">
+                    <code className="flex-1 overflow-x-auto rounded-btn border border-shelf-border bg-shelf-void px-3 py-2 font-mono text-sm text-shelf-text-primary">
+                      {MCP_URL}
+                    </code>
+                    <CopyButton value={MCP_URL} />
+                  </div>
+                  {SHOW_SCREENSHOTS && (
+                    <div className="mt-3 overflow-hidden rounded-lg border border-shelf-border">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/screenshots/add-integration.png"
+                        alt="Paste the SkillShelf URL and click Connect"
+                        className="w-full"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                </>
               ) : (
-                <p className="mt-1 text-sm leading-relaxed text-shelf-text-secondary">
-                  {step.body}
-                </p>
+                <>
+                  <p className="mt-1 text-sm leading-relaxed text-shelf-text-secondary">
+                    {step.body}
+                  </p>
+                  {SHOW_SCREENSHOTS && i === 0 && (
+                    <div className="mt-3 overflow-hidden rounded-lg border border-shelf-border">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/screenshots/settings-avatar.png"
+                        alt="Click your avatar in the bottom-left of claude.ai"
+                        className="w-full"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  {SHOW_SCREENSHOTS && i === 1 && (
+                    <div className="mt-3 overflow-hidden rounded-lg border border-shelf-border">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/screenshots/settings-integrations.png"
+                        alt="Click Integrations in the Settings sidebar"
+                        className="w-full"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </li>

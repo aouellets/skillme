@@ -236,6 +236,18 @@ drop policy if exists "anon collection skills" on public.collection_skills;
 create policy "anon collection skills" on public.collection_skills for all using (true) with check (true);
 
 -- ============================================================
+-- WAITLIST — email capture for new-skill notifications
+-- ============================================================
+create table if not exists public.waitlist (
+  id         uuid primary key default gen_random_uuid(),
+  email      text unique not null,
+  created_at timestamptz default now()
+);
+
+alter table public.waitlist enable row level security;
+-- No public read — admin only
+
+-- ============================================================
 -- Safe migration: confirms the packs tables exist on an existing deployment.
 -- The tables themselves are created by the `create table if not exists` blocks
 -- above; running this whole file on an existing DB is safe and idempotent.

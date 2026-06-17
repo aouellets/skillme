@@ -3,9 +3,11 @@ import { Space_Grotesk } from 'next/font/google'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import Link from 'next/link'
+import { Analytics } from '@vercel/analytics/react'
 import { SITE_URL } from '@/lib/site'
 import { AuthButton } from '@/components/AuthButton'
 import { Wordmark } from '@/components/Logo'
+import { EmailCapture } from '@/components/EmailCapture'
 import './globals.css'
 
 // Display: Space Grotesk — a technical grotesk for headlines + wordmark.
@@ -33,6 +35,21 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: 'SkillShelf',
     type: 'website',
+    images: [
+      {
+        url: '/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: 'SkillShelf · The App Store for Claude Skills',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SkillShelf · The App Store for Claude Skills',
+    description: 'Install intelligence. Connect once, install anything.',
+    images: ['/og-default.png'],
+    creator: '@aouellets',
   },
 }
 
@@ -83,6 +100,9 @@ function Footer() {
             <p className="mt-3 text-sm leading-relaxed text-shelf-text-tertiary">
               The App Store for Claude skills. Connect once, install anything.
             </p>
+            <div className="mt-5">
+              <EmailCapture placement="footer" label="New skills weekly" />
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-x-12 gap-y-2 text-sm sm:grid-cols-2">
             <span className="col-span-2 mb-1 font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
@@ -97,6 +117,12 @@ function Footer() {
             <Link href="/connect" className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary">
               Connect to Claude
             </Link>
+            <Link href="/about" className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary">
+              About
+            </Link>
+            <Link href="/submit" className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary">
+              Submit a skill
+            </Link>
             <Link href="/skill-media-guide" className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary">
               Media guide
             </Link>
@@ -107,6 +133,14 @@ function Footer() {
               className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"
             >
               GitHub
+            </a>
+            <a
+              href="https://x.com/aouellets"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"
+            >
+              X / Twitter
             </a>
           </div>
         </div>
@@ -131,6 +165,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   )

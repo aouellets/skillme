@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { track } from '@/lib/analytics'
 
 export function CopyButton({
   value,
@@ -16,6 +17,7 @@ export function CopyButton({
   async function copy() {
     try {
       await navigator.clipboard.writeText(value)
+      track('mcp_url_copied')
       setCopied(true)
       setTimeout(() => setCopied(false), 1800)
     } catch {
