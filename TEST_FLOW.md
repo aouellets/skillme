@@ -2,6 +2,22 @@
 
 Run this before every major update and before PH launch.
 
+## Automated smoke test
+
+For a fast, scriptable check of the MCP endpoint (handshake, tool list,
+browse, install, list, get_active, packs, uninstall), start the server and run:
+
+```bash
+npm run build && npm run start   # or: npm run dev
+npm run test:mcp                 # drives http://localhost:3000/api/mcp
+```
+
+The install/uninstall steps require a configured skillshelf Supabase
+(`schema.sql` applied + `npm run db:seed`). Without it, browse still works via
+the bundled seed catalog but the DB write paths will report failures.
+
+## Manual claude.ai flow
+
 ## Tester setup
 1. Go to claude.ai → Settings → Integrations
 2. Add integration: [MCP URL]
