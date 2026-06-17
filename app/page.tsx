@@ -11,16 +11,16 @@ export const dynamic = 'force-dynamic'
 
 const STEPS = [
   {
-    title: 'Connect the MCP',
-    body: 'In claude.ai, open Settings → Integrations and add the SkillShelf endpoint. One time, thirty seconds.',
+    title: 'Connect the MCP in 30 seconds',
+    body: 'In claude.ai, open Settings → Integrations and add the SkillShelf endpoint. You\'ll see it appear in your integrations list. That\'s the only setup you\'ll ever do.',
   },
   {
-    title: 'Ask for skills',
-    body: 'Say "show me writing skills" in any conversation. Claude searches the catalog and reads back what fits.',
+    title: 'Say "show me skills" in any conversation',
+    body: 'Claude searches the catalog and returns results sorted by install count. Filter by category or search by what you want to do: "writing skills", "debug SQL", "market research".',
   },
   {
-    title: 'Say "install it"',
-    body: 'The skill is added to your library and activates automatically in your next session — across every conversation.',
+    title: 'Say "install it" — active in your next session',
+    body: 'Skills load automatically at the start of every conversation from now on. Install a full pack and get 8 skills at once. Uninstall any time with "remove the X skill".',
   },
 ]
 
@@ -30,7 +30,8 @@ export default async function HomePage() {
     getSkills({ limit: 1 }),
     getFeaturedPacks(3),
   ])
-  const countLabel = total > 0 ? `${total} curated Claude skills` : 'Curated Claude skills'
+  const countLabel =
+    total > 0 ? `${total.toLocaleString()}+ curated Claude skills` : 'Curated Claude skills'
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -145,6 +146,51 @@ export default async function HomePage() {
               {cat.label}
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* OPEN SOURCE CREDIBILITY */}
+      <section className="py-16 border-t border-shelf-border">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+              Open source
+            </p>
+            <p className="mt-2 text-shelf-text-secondary text-sm leading-relaxed">
+              MIT licensed. Self-hostable. The full MCP server and web catalog are on GitHub.
+              Fork it, extend it, run your own private instance.
+            </p>
+            <a
+              href="https://github.com/aouellets/skillshelf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex text-sm text-accent hover:text-accent-hover"
+            >
+              View on GitHub →
+            </a>
+          </div>
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+              Safety reviewed
+            </p>
+            <p className="mt-2 text-shelf-text-secondary text-sm leading-relaxed">
+              Every skill is reviewed for prompt injection and hidden instructions before
+              publishing. No skill in the catalog can exfiltrate your data or override
+              Claude&apos;s behavior.
+            </p>
+          </div>
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+              Skill standard
+            </p>
+            <p className="mt-2 text-shelf-text-secondary text-sm leading-relaxed">
+              Skills use the open SKILL.md format, compatible with Claude Code, Cursor,
+              Gemini CLI, and OpenAI Codex. Skills you install here work everywhere.
+            </p>
+            <Link href="/submit" className="mt-3 inline-flex text-sm text-accent hover:text-accent-hover">
+              Submit your skill →
+            </Link>
+          </div>
         </div>
       </section>
 

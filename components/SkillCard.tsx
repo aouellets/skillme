@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { CategoryBadge } from './CategoryBadge'
 import { VerifiedMark } from './VerifiedMark'
 import { SkillThumbnail } from './SkillThumbnail'
-import { formatInstalls } from '@/lib/categories'
+import { formatInstalls, isNewSkill } from '@/lib/categories'
 import type { Skill } from '@/lib/types'
 
 type SkillCardData = Omit<Skill, 'skill_content'> & { skill_content?: string }
@@ -11,8 +11,13 @@ export function SkillCard({ skill }: { skill: SkillCardData }) {
   return (
     <Link
       href={`/skill/${skill.slug}`}
-      className="card group flex h-full flex-col overflow-hidden"
+      className="card group relative flex h-full flex-col overflow-hidden"
     >
+      {isNewSkill(skill.created_at) && (
+        <span className="absolute right-3 top-3 z-10 rounded border border-success/30 bg-success/10 px-1.5 py-0.5 font-mono text-xs text-success">
+          New
+        </span>
+      )}
       <SkillThumbnail skill={skill} size="card" />
       <div className="flex flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">

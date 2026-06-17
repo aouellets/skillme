@@ -128,6 +128,10 @@ export async function getSkillBySlug(slug: string): Promise<Skill | null> {
   return data as Skill
 }
 
+// Re-exported from the client-safe module so it can be used in both server and
+// client components (SkillCard renders inside the client BrowseClient).
+export { isNewSkill } from './categories'
+
 export async function getAllSlugs(): Promise<string[]> {
   const supabase = getSupabase()
   if (!supabase) return FALLBACK.map((s) => s.slug)
