@@ -21,19 +21,30 @@ export const metadata: Metadata = {
   },
 }
 
+const SORTS = ['hot', 'trending', 'newest', 'top_rated'] as const
+type Sort = (typeof SORTS)[number]
+
 export default async function BrowsePage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string; q?: string }>
+  searchParams: Promise<{ category?: string; q?: string; sort?: string }>
 }) {
   const params = await searchParams
   const initialCategory: SkillCategory | 'all' =
     params.category && isCategory(params.category) ? params.category : 'all'
   const initialQuery = params.q ?? ''
+  const initialSort: Sort =
+    params.sort && (SORTS as readonly string[]).includes(params.sort)
+      ? (params.sort as Sort)
+      : 'trending'
 
   return (
     <Suspense fallback={null}>
-      <BrowseClient initialCategory={initialCategory} initialQuery={initialQuery} />
+      <BrowseClient
+        initialCategory={initialCategory}
+        initialQuery={initialQuery}
+        initialSort={initialSort}
+      />
     </Suspense>
   )
 }

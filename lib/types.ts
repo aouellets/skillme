@@ -30,6 +30,42 @@ export interface Skill {
   thumbnail_video?:  string
   thumbnail_lottie?: string
   media_alt?:        string
+  hot_score?:        number
+  featured_rank?:    number | null
+  created_at: string
+  updated_at: string
+}
+
+export type SubmissionStatus =
+  | 'pending'
+  | 'in_review'
+  | 'approved'
+  | 'rejected'
+  | 'needs_changes'
+
+export type SafetyVerdict = 'safe' | 'unsafe' | 'unknown'
+
+export interface SkillSubmission {
+  id: string
+  status: SubmissionStatus
+  name: string
+  description: string
+  category: SkillCategory
+  subcategory?: string
+  source_url?: string
+  author?: string
+  skill_content: string
+  tags?: string[]
+  thumbnail_url?: string
+  media_alt?: string
+  submitter_email?: string
+  submitter_token?: string
+  safety_verdict: SafetyVerdict
+  safety_reason?: string
+  classifier_model?: string
+  reviewer_note?: string
+  reviewed_at?: string | null
+  published_skill_id?: string | null
   created_at: string
   updated_at: string
 }

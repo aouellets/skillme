@@ -8,10 +8,11 @@ import { CategoryFilter } from '@/components/CategoryFilter'
 import type { Skill, SkillCategory } from '@/lib/types'
 
 type SkillSummary = Omit<Skill, 'skill_content'>
-type Sort = 'trending' | 'newest' | 'top_rated'
+type Sort = 'hot' | 'trending' | 'newest' | 'top_rated'
 
 const PAGE_SIZE = 12
 const SORTS: Array<{ value: Sort; label: string }> = [
+  { value: 'hot', label: 'Hot' },
   { value: 'trending', label: 'Trending' },
   { value: 'newest', label: 'Newest' },
   { value: 'top_rated', label: 'Top Rated' },
@@ -20,16 +21,18 @@ const SORTS: Array<{ value: Sort; label: string }> = [
 export function BrowseClient({
   initialCategory,
   initialQuery,
+  initialSort = 'trending',
 }: {
   initialCategory: SkillCategory | 'all'
   initialQuery: string
+  initialSort?: Sort
 }) {
   const router = useRouter()
   const searchParams = useSearchParams()
 
   const [query, setQuery] = useState(initialQuery)
   const [category, setCategory] = useState<SkillCategory | 'all'>(initialCategory)
-  const [sort, setSort] = useState<Sort>('trending')
+  const [sort, setSort] = useState<Sort>(initialSort)
 
   const [skills, setSkills] = useState<SkillSummary[]>([])
   const [total, setTotal] = useState(0)

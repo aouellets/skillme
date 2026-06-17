@@ -3,7 +3,7 @@ import { getSupabase } from './supabase'
 import { SEED_SKILLS, type SeedSkill } from './seed-data'
 import type { Skill, SkillCategory } from './types'
 
-export type SortOption = 'trending' | 'newest' | 'top_rated'
+export type SortOption = 'trending' | 'newest' | 'top_rated' | 'hot'
 
 export interface SkillQuery {
   query?: string
@@ -44,6 +44,10 @@ function seedToSkill(seed: SeedSkill, index: number): Skill {
     thumbnail_video:  seed.thumbnail_video,
     thumbnail_lottie: seed.thumbnail_lottie,
     media_alt:        seed.media_alt,
+    // Mirror the DB's initial hot_score seed (ln(1 + install_count)) so the Hot
+    // section ranks identically in fallback mode and right after seeding.
+    hot_score:        Math.log(1 + seed.install_count),
+    featured_rank:    null,
     // Stagger created_at so "newest" sorting is stable in fallback mode.
     created_at: new Date(Date.parse(NOW) - index * 86_400_000).toISOString(),
     updated_at: NOW,
@@ -71,6 +75,13 @@ function applyFallbackQuery(opts: SkillQuery): SkillPage {
   rows.sort((a, b) => {
     if (sort === 'newest') return Date.parse(b.created_at) - Date.parse(a.created_at)
     if (sort === 'top_rated') return b.rating_avg - a.rating_avg
+    if (sort === 'hot') return (b.hot_score ?? 0) - (a.hot_score ?? 0)
+    // Featured shelves order by curator-set rank first, then install volume.
+    if (featured) {
+      const ra = a.featured_rank ?? Number.MAX_SAFE_INTEGER
+      const rb = b.featured_rank ?? Number.MAX_SAFE_INTEGER
+      if (ra !== rb) return ra - rb
+    }
     return b.install_count - a.install_count
   })
 
@@ -81,6 +92,7 @@ function applyFallbackQuery(opts: SkillQuery): SkillPage {
 function orderColumn(sort: SortOption): { column: string; ascending: boolean } {
   if (sort === 'newest') return { column: 'created_at', ascending: false }
   if (sort === 'top_rated') return { column: 'rating_avg', ascending: false }
+  if (sort === 'hot') return { column: 'hot_score', ascending: false }
   return { column: 'install_count', ascending: false }
 }
 
@@ -100,6 +112,11 @@ export async function getSkills(opts: SkillQuery = {}): Promise<SkillPage> {
     builder = builder.or(`name.ilike.%${q}%,description.ilike.%${q}%`)
   }
 
+  // Featured shelves order by the curator-set rank first (nulls last), then by
+  // the requested sort column — so you can hand-pin the top of "Featured".
+  if (featured) {
+    builder = builder.order('featured_rank', { ascending: true, nullsFirst: false })
+  }
   builder = builder.order(column, { ascending }).range(offset, offset + limit - 1)
 
   const { data, error, count } = await builder
@@ -124,6 +141,12 @@ export async function getSkills(opts: SkillQuery = {}): Promise<SkillPage> {
 
 export async function getFeaturedSkills(limit = 6): Promise<Skill[]> {
   const { skills } = await getSkills({ featured: true, sort: 'trending', limit })
+  return skills
+}
+
+/** Skills ranked by time-decayed install velocity (the "Hot right now" shelf). */
+export async function getHotSkills(limit = 6): Promise<Skill[]> {
+  const { skills } = await getSkills({ sort: 'hot', limit })
   return skills
 }
 

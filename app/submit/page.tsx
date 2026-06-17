@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CopyButton } from '@/components/CopyButton'
+import { SubmitForm } from '@/components/SubmitForm'
 
 export const metadata: Metadata = {
   title: 'Submit a Skill',
@@ -39,46 +40,58 @@ export default function SubmitPage() {
         from inside Claude.
       </p>
 
-      {/* Two paths */}
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className="card p-6">
-          <h2 className="text-base font-medium text-shelf-text-primary">
-            Option 1: GitHub issue
-          </h2>
-          <p className="mt-2 text-sm text-shelf-text-secondary">
-            Open a GitHub issue using the skill submission template. Paste your
-            SKILL.md content. The Skill Me team will review and add it within
-            a few days.
-          </p>
-          <a
-            href="https://github.com/aouellets/skillshelf/issues/new?template=skill_submission.md&title=[SKILL]+Your+Skill+Name"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary mt-4"
-          >
-            Open GitHub issue →
-          </a>
+      {/* Primary path — submit directly from the browser */}
+      <section className="mt-10">
+        <h2 className="text-xl font-medium text-shelf-text-primary">
+          Submit directly
+        </h2>
+        <p className="mt-2 text-sm text-shelf-text-secondary">
+          Fill this out and your skill enters the review queue immediately. It is
+          auto-checked for safety, then a human reviews and publishes it.
+        </p>
+        <div className="mt-5">
+          <SubmitForm />
         </div>
+      </section>
 
-        <div className="card p-6">
-          <h2 className="text-base font-medium text-shelf-text-primary">
-            Option 2: Pull request
-          </h2>
-          <p className="mt-2 text-sm text-shelf-text-secondary">
-            Fork the repo, add your skill to{' '}
-            <code className="font-mono text-sm text-accent">lib/seed-data.ts</code>,
-            and open a PR. Faster for developers who want full control.
-          </p>
-          <a
-            href="https://github.com/aouellets/skillshelf/blob/main/CONTRIBUTING.md"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-secondary mt-4"
-          >
-            Read CONTRIBUTING.md →
-          </a>
+      {/* Alternate paths — GitHub */}
+      <section className="mt-12">
+        <h2 className="text-xl font-medium text-shelf-text-primary">Prefer GitHub?</h2>
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="card p-6">
+            <h3 className="text-base font-medium text-shelf-text-primary">GitHub issue</h3>
+            <p className="mt-2 text-sm text-shelf-text-secondary">
+              Open an issue with the submission template and paste your SKILL.md.
+              We review and add it within a few days.
+            </p>
+            <a
+              href="https://github.com/aouellets/skillshelf/issues/new?template=skill_submission.md&title=[SKILL]+Your+Skill+Name"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary mt-4"
+            >
+              Open GitHub issue →
+            </a>
+          </div>
+
+          <div className="card p-6">
+            <h3 className="text-base font-medium text-shelf-text-primary">Pull request</h3>
+            <p className="mt-2 text-sm text-shelf-text-secondary">
+              Fork the repo, add your skill to{' '}
+              <code className="font-mono text-sm text-accent">lib/seed-data.ts</code>,
+              and open a PR. Full control for developers.
+            </p>
+            <a
+              href="https://github.com/aouellets/skillshelf/blob/main/CONTRIBUTING.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary mt-4"
+            >
+              Read CONTRIBUTING.md →
+            </a>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Requirements */}
       <section className="mt-12">

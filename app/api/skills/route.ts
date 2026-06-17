@@ -5,7 +5,7 @@ import { isCategory } from '@/lib/categories'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-const SORTS: SortOption[] = ['trending', 'newest', 'top_rated']
+const SORTS: SortOption[] = ['trending', 'newest', 'top_rated', 'hot']
 
 export async function GET(req: NextRequest) {
   const params = req.nextUrl.searchParams
