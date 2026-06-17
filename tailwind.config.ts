@@ -13,6 +13,7 @@ const config: Config = {
           surface: 'var(--shelf-surface)',
           elevated: 'var(--shelf-elevated)',
           border: 'var(--shelf-border)',
+          'border-strong': 'var(--shelf-border-strong)',
           muted: 'var(--shelf-muted)',
         },
         'shelf-text': {
@@ -25,9 +26,11 @@ const config: Config = {
           dim: 'var(--shelf-accent-dim)',
           border: 'var(--shelf-accent-border)',
           hover: 'var(--shelf-accent-hover)',
+          contrast: 'var(--shelf-on-accent)',
         },
         success: 'var(--shelf-success)',
         danger: 'var(--shelf-danger)',
+        info: 'var(--shelf-info)',
       },
       fontFamily: {
         display: 'var(--font-display)',
@@ -35,7 +38,14 @@ const config: Config = {
         mono: 'var(--font-mono)',
       },
       borderRadius: {
-        btn: '6px',
+        xs: 'var(--radius-xs)',
+        sm: 'var(--radius-sm)',
+        md: 'var(--radius-md)',
+        lg: 'var(--radius-lg)',
+        btn: 'var(--radius-sm)',
+      },
+      maxWidth: {
+        content: '72rem',
       },
     },
   },

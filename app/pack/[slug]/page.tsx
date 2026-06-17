@@ -58,10 +58,10 @@ export default async function PackDetailPage({
           </span>
           {pack.verified && <VerifiedMark />}
         </div>
-        <h1 className="mt-3 font-display text-4xl text-shelf-text-primary sm:text-5xl">
+        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-shelf-text-primary sm:text-5xl">
           {pack.name}
         </h1>
-        <p className="mt-2 text-lg text-shelf-text-secondary">{pack.tagline}</p>
+        <p className="mt-3 text-lg leading-relaxed text-shelf-text-secondary">{pack.tagline}</p>
         <div className="mt-3 flex flex-wrap items-center gap-4 font-mono text-sm text-shelf-text-tertiary">
           <span>{formatInstalls(pack.install_count)} installs</span>
           {pack.author && <span>by {pack.author}</span>}

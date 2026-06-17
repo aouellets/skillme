@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { SkillCard } from '@/components/SkillCard'
 import { PackCard } from '@/components/PackCard'
 import { HeroDemo } from '@/components/HeroDemo'
+import { Reveal } from '@/components/Reveal'
 import { CATEGORIES } from '@/lib/categories'
 import { getFeaturedSkills, getSkills } from '@/lib/data'
 import { getFeaturedPacks } from '@/lib/packs'
@@ -11,7 +12,7 @@ export const dynamic = 'force-dynamic'
 const STEPS = [
   {
     title: 'Connect the MCP',
-    body: 'In claude.ai, open Settings → Integrations and add the SkillShelf endpoint. One time, thirty seconds.',
+    body: 'In claude.ai, open Settings, Integrations, and add the SkillShelf endpoint. One time, thirty seconds.',
   },
   {
     title: 'Ask for skills',
@@ -19,7 +20,7 @@ const STEPS = [
   },
   {
     title: 'Say "install it"',
-    body: 'The skill is added to your library and activates automatically in your next session — across every conversation.',
+    body: 'The skill lands in your library and activates automatically in your next session, across every conversation.',
   },
 ]
 
@@ -32,17 +33,18 @@ export default async function HomePage() {
   const countLabel = total > 0 ? `${total} curated Claude skills` : 'Curated Claude skills'
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6">
-      {/* HERO */}
-      <section className="grid grid-cols-1 items-center gap-12 py-20 sm:py-28 lg:grid-cols-2 lg:gap-10">
-        <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
-            The App Store for Claude
-          </p>
-          <h1 className="mt-4 font-display text-5xl leading-[1.05] text-shelf-text-primary sm:text-6xl">
-            Install intelligence.
+    <div className="mx-auto max-w-content px-4 sm:px-6">
+      {/* HERO — asymmetric split, single eyebrow for the whole page */}
+      <section className="relative grid grid-cols-1 items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
+        <div className="aurora" aria-hidden />
+        <div className="fade-up">
+          <span className="eyebrow">The App Store for Claude</span>
+          <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-shelf-text-primary sm:text-6xl">
+            Install
+            <br />
+            intelligence.
           </h1>
-          <p className="mt-5 max-w-xl text-lg text-shelf-text-secondary">
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-shelf-text-secondary">
             {countLabel}. Connect once, install anything. No ZIP files, no terminal, no setup.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -50,40 +52,37 @@ export default async function HomePage() {
               Connect to Claude
             </Link>
             <Link href="/browse" className="btn btn-secondary">
-              Browse Skills →
+              Browse skills
             </Link>
           </div>
         </div>
-        <HeroDemo />
+        <div className="fade-up" style={{ animationDelay: '120ms' }}>
+          <HeroDemo />
+        </div>
       </section>
 
-      {/* FEATURED */}
-      <section className="py-6">
-        <div className="flex items-end justify-between">
-          <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
-              Featured this week
-            </p>
-            <h2 className="mt-1 text-xl font-medium text-shelf-text-primary">
-              Curated and verified
-            </h2>
-          </div>
+      {/* FEATURED SKILLS */}
+      <section className="py-8">
+        <Reveal className="flex items-end justify-between gap-4">
+          <h2 className="text-2xl font-semibold text-shelf-text-primary">Featured this week</h2>
           <Link
             href="/browse"
-            className="text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"
+            className="shrink-0 text-sm text-shelf-text-secondary transition-colors hover:text-accent-hover"
           >
             View all →
           </Link>
-        </div>
+        </Reveal>
 
         {featured.length === 0 ? (
           <p className="mt-8 text-sm text-shelf-text-secondary">
             No featured skills yet. Check back soon.
           </p>
         ) : (
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((skill) => (
-              <SkillCard key={skill.id} skill={skill} />
+          <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((skill, i) => (
+              <Reveal key={skill.id} delay={i * 60}>
+                <SkillCard skill={skill} />
+              </Reveal>
             ))}
           </div>
         )}
@@ -91,72 +90,74 @@ export default async function HomePage() {
 
       {/* FEATURED PACKS */}
       {featuredPacks.length > 0 && (
-        <section className="py-6">
-          <div className="flex items-end justify-between">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
-                Themed bundles
-              </p>
-              <h2 className="mt-1 text-xl font-medium text-shelf-text-primary">
-                Skill Packs
-              </h2>
-            </div>
+        <section className="py-8">
+          <Reveal className="flex items-end justify-between gap-4">
+            <h2 className="text-2xl font-semibold text-shelf-text-primary">Skill packs</h2>
             <Link
               href="/packs"
-              className="text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"
+              className="shrink-0 text-sm text-shelf-text-secondary transition-colors hover:text-accent-hover"
             >
               View all packs →
             </Link>
-          </div>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {featuredPacks.map((pack) => (
-              <PackCard key={pack.id} pack={pack} />
+          </Reveal>
+          <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {featuredPacks.map((pack, i) => (
+              <Reveal key={pack.id} delay={i * 60}>
+                <PackCard pack={pack} />
+              </Reveal>
             ))}
           </div>
         </section>
       )}
 
-      {/* CATEGORIES */}
+      {/* CATEGORIES — full-width tinted band breaks the rhythm */}
       <section className="py-16">
-        <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
-          Browse by category
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          {CATEGORIES.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={`/browse?category=${cat.slug}`}
-              className="inline-flex items-center gap-2 rounded-btn border border-shelf-border bg-shelf-surface px-4 py-2 text-sm text-shelf-text-secondary transition-colors hover:border-shelf-muted hover:text-shelf-text-primary"
-            >
-              <span
-                aria-hidden
-                className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: cat.color }}
-              />
-              {cat.label}
-            </Link>
-          ))}
-        </div>
+        <Reveal>
+          <h2 className="text-2xl font-semibold text-shelf-text-primary">Browse by category</h2>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {CATEGORIES.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/browse?category=${cat.slug}`}
+                className="chip"
+              >
+                <span
+                  aria-hidden
+                  className="inline-block h-2.5 w-2.5 rounded-full"
+                  style={{ backgroundColor: cat.color }}
+                />
+                {cat.label}
+              </Link>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="py-16">
-        <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
-          How it works
-        </p>
-        <ol className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      {/* HOW IT WORKS — connected numbered flow, not 3 identical cards */}
+      <section className="relative py-16">
+        <Reveal>
+          <h2 className="text-2xl font-semibold text-shelf-text-primary">How it works</h2>
+          <p className="mt-2 max-w-lg text-shelf-text-secondary">
+            From zero to a live skill in three steps. Nothing to download.
+          </p>
+        </Reveal>
+
+        <ol className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-shelf-border bg-shelf-border sm:grid-cols-3">
           {STEPS.map((step, i) => (
-            <li key={step.title} className="card p-6">
-              <span className="font-mono text-sm text-accent">{`0${i + 1}`}</span>
-              <h3 className="mt-3 text-base font-medium text-shelf-text-primary">
+            <Reveal as="li" key={step.title} delay={i * 80} className="bg-shelf-surface p-7">
+              <span className="font-mono text-sm font-medium text-accent">
+                {`0${i + 1}`}
+              </span>
+              <h3 className="mt-4 text-lg font-semibold text-shelf-text-primary">
                 {step.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-shelf-text-secondary">
                 {step.body}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ol>
+
         <div className="mt-8">
           <Link href="/connect" className="btn btn-primary">
             Get started

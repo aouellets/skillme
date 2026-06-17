@@ -16,7 +16,7 @@ export async function generateMetadata({
   if (!collection) return { title: 'Collection not found' }
   return {
     title: collection.name,
-    description: collection.description ?? `A skill collection on SkillShelf — ${collection.skill_count ?? 0} skills.`,
+    description: collection.description ?? `A skill collection on SkillShelf, ${collection.skill_count ?? 0} skills.`,
   }
 }
 

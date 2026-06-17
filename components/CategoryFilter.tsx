@@ -25,11 +25,7 @@ export function CategoryFilter({
             role="tab"
             aria-selected={isActive}
             onClick={() => onChange(item.value)}
-            className={`inline-flex items-center gap-1.5 rounded-btn border px-3 py-1.5 text-sm transition-colors ${
-              isActive
-                ? 'border-accent-border bg-accent-dim text-accent-hover'
-                : 'border-shelf-border bg-shelf-surface text-shelf-text-secondary hover:border-shelf-muted hover:text-shelf-text-primary'
-            }`}
+            className={`chip ${isActive ? 'chip-active' : ''}`}
           >
             {item.color && (
               <span

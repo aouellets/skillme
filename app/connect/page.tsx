@@ -37,13 +37,11 @@ const STEPS: Array<{ title: string; body: React.ReactNode }> = [
 export default function ConnectPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-      <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
-        Setup
-      </p>
-      <h1 className="mt-3 font-display text-5xl text-shelf-text-primary">
+      <span className="eyebrow">Setup</span>
+      <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-shelf-text-primary sm:text-5xl">
         Connect in 30 seconds
       </h1>
-      <p className="mt-4 text-lg text-shelf-text-secondary">
+      <p className="mt-4 text-lg leading-relaxed text-shelf-text-secondary">
         SkillShelf runs as an MCP integration inside claude.ai. Connect it once and your
         installed skills load in every conversation.
       </p>
@@ -63,11 +61,11 @@ export default function ConnectPage() {
       <ol className="mt-10 space-y-4">
         {STEPS.map((step, i) => (
           <li key={step.title} className="card flex gap-4 p-5">
-            <span className="flex h-8 w-8 flex-none items-center justify-center rounded-btn border border-accent-border bg-accent-dim font-mono text-sm text-accent-hover">
+            <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-accent-border bg-accent-dim font-mono text-sm font-medium text-accent-hover">
               {i + 1}
             </span>
             <div className="min-w-0">
-              <h2 className="text-base font-medium text-shelf-text-primary">{step.title}</h2>
+              <h2 className="font-display text-base font-semibold text-shelf-text-primary">{step.title}</h2>
               {step.body === 'paste-url' ? (
                 <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <code className="flex-1 overflow-x-auto rounded-btn border border-shelf-border bg-shelf-void px-3 py-2 font-mono text-sm text-shelf-text-primary">
@@ -86,9 +84,9 @@ export default function ConnectPage() {
       </ol>
 
       <div className="card mt-8 border-accent-border bg-accent-dim p-5">
-        <p className="text-sm text-accent-hover">
+        <p className="text-sm leading-relaxed text-accent-hover">
           Your MCP connection is permanent. Once connected, skills persist across all
-          conversations — there is nothing to reinstall.
+          conversations. There is nothing to reinstall.
         </p>
       </div>
     </div>

@@ -30,7 +30,7 @@ export default async function Image({
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#0E0F11',
+          backgroundColor: '#0a0a0c',
           padding: '0',
           fontFamily: 'sans-serif',
           position: 'relative',
@@ -56,7 +56,7 @@ export default async function Image({
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to bottom, rgba(14,15,17,0.3) 0%, rgba(14,15,17,0.95) 60%)',
+            background: 'linear-gradient(to bottom, rgba(10,10,12,0.3) 0%, rgba(10,10,12,0.96) 60%)',
           }}
         />
 
@@ -84,9 +84,9 @@ export default async function Image({
               style={{
                 display: 'flex',
                 fontSize: 84,
-                color: '#F2F3F5',
+                color: '#fafafa',
                 lineHeight: 1.05,
-                fontWeight: 600,
+                fontWeight: 700,
               }}
             >
               {name}
@@ -111,11 +111,11 @@ export default async function Image({
               justifyContent: 'space-between',
             }}
           >
-            <div style={{ display: 'flex', fontSize: 30, color: '#E8A832', fontWeight: 600 }}>
+            <div style={{ display: 'flex', fontSize: 30, color: '#f0b429', fontWeight: 700 }}>
               SkillShelf
             </div>
             {installs && (
-              <div style={{ display: 'flex', fontSize: 26, color: '#5C6270' }}>{installs}</div>
+              <div style={{ display: 'flex', fontSize: 26, color: '#6c6c79' }}>{installs}</div>
             )}
           </div>
         </div>

@@ -9,15 +9,13 @@ export const metadata: Metadata = {
 export default function SkillMediaGuidePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-      <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
-        Contributor Guide
-      </p>
-      <h1 className="mt-3 font-display text-5xl text-shelf-text-primary">
-        Skill Media Guide
+      <span className="eyebrow">Contributor guide</span>
+      <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-shelf-text-primary sm:text-5xl">
+        Skill media guide
       </h1>
-      <p className="mt-4 text-lg text-shelf-text-secondary">
+      <p className="mt-4 text-lg leading-relaxed text-shelf-text-secondary">
         Add animated thumbnails, GIF previews, and video loops to your skills.
-        They play on hover in the catalog — a good preview converts browsers into installers.
+        They play on hover in the catalog, and a good preview converts browsers into installers.
       </p>
 
       {/* Quick start */}
@@ -57,7 +55,7 @@ media:
                 ['gif', 'Animated GIF', '3 MB', 'Hover animation in catalog'],
                 ['video', 'MP4 or WebM', '5 MB', 'Hover video loop (silent)'],
                 ['lottie', 'Lottie JSON URL', '200 KB', 'Vector animation'],
-                ['alt', 'Text (125 chars)', '—', 'Screen reader description'],
+                ['alt', 'Text (125 chars)', 'n/a', 'Screen reader description'],
               ].map(([field, format, size, purpose]) => (
                 <tr key={field} className="border-b border-shelf-border/50">
                   <td className="py-2 pr-4 text-accent">{field}</td>

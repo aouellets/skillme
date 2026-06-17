@@ -89,7 +89,7 @@ export function StarRating({
         <p className="mt-2 text-xs text-shelf-text-secondary">Sign in to rate this skill.</p>
       )}
       {status === 'saved' && (
-        <p className="mt-2 text-xs text-success">Thanks — your rating was saved.</p>
+        <p className="mt-2 text-xs text-success">Thanks, your rating was saved.</p>
       )}
       {status === 'error' && (
         <p className="mt-2 text-xs text-danger">Could not save your rating. Try again.</p>

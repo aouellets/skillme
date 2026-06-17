@@ -115,31 +115,34 @@ export function SkillThumbnail({ skill, size = 'card' }: Props) {
  * Uses the skill name to pick a stable color and renders the first letter.
  */
 function SkillPlaceholder({ name, size }: { name: string; size: 'card' | 'detail' }) {
-  // Stable color from first char code — cycles through 8 category colors
+  // Stable color from first char code, cycling through the category palette.
   const colors = [
-    ['#2D2417', '#E8A832'], // amber
-    ['#1A1F2E', '#4FC4CF'], // teal
-    ['#1A2620', '#6EC97A'], // green
-    ['#1E1B2E', '#9B8FFF'], // purple
-    ['#1C2435', '#4A90D9'], // blue
-    ['#2A1C17', '#E87C52'], // coral
-    ['#271A27', '#CF7FC9'], // pink
-    ['#1C1E1A', '#A0A89A'], // gray-green
+    ['#241c0c', '#f0b429'], // gold
+    ['#0e1f21', '#4fd1d9'], // teal
+    ['#0f2117', '#6ee787'], // green
+    ['#191428', '#a797ff'], // purple
+    ['#0f1d33', '#5b9df9'], // blue
+    ['#26140c', '#ff8a5c'], // coral
+    ['#221024', '#df8ad9'], // pink
+    ['#16180f', '#aab4a4'], // sage
   ]
   const idx = (name.charCodeAt(0) || 0) % colors.length
   const [bg, fg] = colors[idx]
+  const letter = (name.trim().charAt(0) || '?').toUpperCase()
 
   return (
     <div
-      className={`flex w-full items-center justify-center ${ASPECT[size]}`}
-      style={{ backgroundColor: bg }}
+      className={`relative flex w-full items-center justify-center overflow-hidden ${ASPECT[size]}`}
+      style={{
+        backgroundImage: `radial-gradient(120% 100% at 50% -10%, ${bg}, var(--shelf-void) 80%)`,
+      }}
       aria-hidden
     >
       <span
-        className="select-none font-display text-5xl font-normal opacity-40"
+        className="select-none font-display text-6xl font-semibold opacity-50"
         style={{ color: fg }}
       >
-        {(name.trim().charAt(0) || '?').toUpperCase()}
+        {letter}
       </span>
     </div>
   )

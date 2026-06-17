@@ -10,7 +10,7 @@ export function PackCard({ pack }: { pack: PackCardData }) {
   return (
     <Link
       href={`/pack/${pack.slug}`}
-      className="card group flex h-full flex-col overflow-hidden"
+      className="card card-interactive group flex h-full flex-col overflow-hidden"
     >
       <SkillThumbnail
         skill={{
@@ -22,16 +22,16 @@ export function PackCard({ pack }: { pack: PackCardData }) {
         size="card"
       />
 
-      <div className="flex flex-col gap-3 p-5">
+      <div className="flex flex-1 flex-col gap-3 p-5">
         {/* Pack badge */}
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1 rounded border border-accent-border bg-accent-dim px-2 py-0.5 font-mono text-xs text-accent">
+          <span className="inline-flex items-center gap-1 rounded-xs border border-accent-border bg-accent-dim px-2 py-0.5 font-mono text-xs text-accent">
             Pack
           </span>
           {pack.verified && <VerifiedMark label={false} />}
         </div>
 
-        <h3 className="text-base font-medium text-shelf-text-primary group-hover:text-accent-hover">
+        <h3 className="font-display text-base font-semibold leading-snug text-shelf-text-primary transition-colors group-hover:text-accent-hover">
           {pack.name}
         </h3>
 

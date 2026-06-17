@@ -15,7 +15,7 @@ export function CategoryBadge({
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-btn border border-shelf-border bg-shelf-elevated ${pad} text-shelf-text-secondary`}
+      className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border border-shelf-border bg-shelf-elevated ${pad} text-shelf-text-secondary`}
     >
       <span
         aria-hidden

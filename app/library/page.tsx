@@ -85,9 +85,9 @@ export default async function LibraryPage() {
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <h1 className="font-display text-4xl text-shelf-text-primary">Your library</h1>
-      <p className="mt-2 text-shelf-text-secondary">
+    <div className="mx-auto max-w-content px-4 py-12 sm:px-6">
+      <h1 className="font-display text-4xl font-semibold tracking-tight text-shelf-text-primary">Your library</h1>
+      <p className="mt-3 max-w-xl text-shelf-text-secondary">
         Skills you&apos;ve installed and rated on the web. Inside Claude, your installed
         skills load automatically each session.
       </p>

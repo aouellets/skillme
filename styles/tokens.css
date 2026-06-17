@@ -1,56 +1,61 @@
-/* === SKILLSHELF DESIGN TOKENS === */
+/* === SKILLSHELF DESIGN TOKENS ===
+   Dark-tech marketplace. One locked accent (gold). One radius system.
+   Dials: VARIANCE 7 / MOTION 5 / DENSITY 4. */
 
 :root {
-  /* --- Core Palette --- */
-  --shelf-void: #0e0f11; /* page background */
-  --shelf-surface: #16181c; /* cards, panels */
-  --shelf-elevated: #1e2027; /* hover state, modals */
-  --shelf-border: #2a2d35; /* dividers, card borders */
-  --shelf-muted: #3d424f; /* disabled, placeholder */
+  /* --- Core Palette (neutral near-black, faint warmth to seat the gold) --- */
+  --shelf-void: #0a0a0c; /* page background */
+  --shelf-surface: #121216; /* cards, panels */
+  --shelf-elevated: #1a1a20; /* hover state, raised surfaces */
+  --shelf-border: #25252d; /* dividers, card borders */
+  --shelf-border-strong: #34343f; /* emphasized borders, hover */
+  --shelf-muted: #3a3a46; /* disabled, placeholder */
 
   /* --- Text --- */
-  --shelf-text-primary: #f2f3f5;
-  --shelf-text-secondary: #9aa0ad;
-  --shelf-text-tertiary: #5c6270;
+  --shelf-text-primary: #fafafa;
+  --shelf-text-secondary: #a2a2ad;
+  --shelf-text-tertiary: #6c6c79;
 
-  /* --- Accent: Amber/Gold --- */
-  --shelf-accent: #e8a832;
-  --shelf-accent-dim: #2d2417;
-  --shelf-accent-border: #5c430f;
-  --shelf-accent-hover: #f2be5a;
+  /* --- Accent: Gold (the locked brand color, used identically everywhere) --- */
+  --shelf-accent: #f0b429;
+  --shelf-accent-hover: #f7c948;
+  --shelf-accent-dim: #241c0c; /* tinted backgrounds */
+  --shelf-accent-border: #5a440f; /* tinted borders */
+  --shelf-on-accent: #1a1305; /* text on a gold fill — AA on gold */
 
   /* --- Semantic --- */
-  --shelf-success: #3dad6e;
-  --shelf-warning: #e8a832;
-  --shelf-danger: #e05252;
-  --shelf-info: #4a90d9;
+  --shelf-success: #4ade80;
+  --shelf-warning: #f0b429;
+  --shelf-danger: #f05252;
+  --shelf-info: #5b9df9;
 
   /* --- Category Color Dots --- */
-  --cat-writing: #9b8fff;
-  --cat-coding: #4fc4cf;
-  --cat-research: #6ec97a;
-  --cat-productivity: #e8a832;
-  --cat-data: #4a90d9;
-  --cat-design: #e87c52;
-  --cat-business: #cf7fc9;
-  --cat-personal: #a0a89a;
+  --cat-writing: #a797ff;
+  --cat-coding: #4fd1d9;
+  --cat-research: #6ee787;
+  --cat-productivity: #f0b429;
+  --cat-data: #5b9df9;
+  --cat-design: #ff8a5c;
+  --cat-business: #df8ad9;
+  --cat-personal: #aab4a4;
 
   /* --- Typography ---
-     The font families (--font-display/body/mono) are injected by next/font in
-     app/layout.tsx so they self-host without layout shift. Fallback stacks: */
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Fira Code', monospace;
+     Families are injected by next/font in app/layout.tsx (self-hosted, no CLS):
+       --ff-display     → Space Grotesk
+       --font-geist-sans → Geist
+       --font-geist-mono → Geist Mono
+     Fallback stacks declared in globals.css. */
 
-  /* --- Type Scale --- */
-  --text-xs: 11px;
-  --text-sm: 13px;
-  --text-base: 15px;
-  --text-lg: 17px;
-  --text-xl: 21px;
-  --text-2xl: 27px;
-  --text-3xl: 36px;
-  --text-4xl: 48px;
+  /* --- Type Scale (fluid-ish, generous display) --- */
+  --text-xs: 0.75rem; /* 12 */
+  --text-sm: 0.8125rem; /* 13 */
+  --text-base: 0.9375rem; /* 15 */
+  --text-lg: 1.0625rem; /* 17 */
+  --text-xl: 1.3125rem; /* 21 */
+  --text-2xl: 1.625rem; /* 26 */
+  --text-3xl: 2.25rem; /* 36 */
+  --text-4xl: 3rem; /* 48 */
+  --text-5xl: 3.75rem; /* 60 */
 
   /* --- Spacing (4px base) --- */
   --space-1: 4px;
@@ -64,14 +69,21 @@
   --space-12: 48px;
   --space-16: 64px;
 
-  /* --- Radius --- */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  /* --- Radius (ONE documented system) ---
+     badges/tags  → xs
+     buttons/inputs → sm
+     small cards  → md
+     cards/panels → lg
+     filter chips / pills → full */
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
 
-  /* --- Shadows --- */
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 0 1px var(--shelf-accent-border), 0 0 20px rgba(232, 168, 50, 0.08);
+  /* --- Shadows (dark, subtle, tinted — never pure-black slab) --- */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-raised: 0 12px 40px -12px rgba(0, 0, 0, 0.6);
+  --shadow-modal: 0 24px 70px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 0 1px var(--shelf-accent-border), 0 0 48px -10px rgba(240, 180, 41, 0.3);
 }

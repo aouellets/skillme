@@ -92,31 +92,31 @@ export function BrowseClient({
   const hasMore = skills.length < total
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <h1 className="font-display text-4xl text-shelf-text-primary">Browse skills</h1>
-      <p className="mt-2 text-shelf-text-secondary">
+    <div className="mx-auto max-w-content px-4 py-12 sm:px-6">
+      <h1 className="font-display text-4xl font-semibold tracking-tight text-shelf-text-primary">
+        Browse skills
+      </h1>
+      <p className="mt-3 max-w-xl text-shelf-text-secondary">
         Search the catalog, filter by category, and install from inside Claude.
       </p>
 
-      <div className="mt-8 space-y-4">
+      <div className="mt-8 space-y-5">
         <div className="max-w-md">
           <SearchBar initialValue={initialQuery} onSearch={setQuery} />
         </div>
 
         <CategoryFilter active={category} onChange={setCategory} />
 
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-shelf-text-tertiary">Sort</span>
-          <div className="flex gap-1">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+            Sort
+          </span>
+          <div className="flex gap-2">
             {SORTS.map((s) => (
               <button
                 key={s.value}
                 onClick={() => setSort(s.value)}
-                className={`rounded-btn border px-3 py-1 text-xs transition-colors ${
-                  sort === s.value
-                    ? 'border-accent-border bg-accent-dim text-accent-hover'
-                    : 'border-shelf-border bg-shelf-surface text-shelf-text-secondary hover:text-shelf-text-primary'
-                }`}
+                className={`chip !py-1.5 text-xs ${sort === s.value ? 'chip-active' : ''}`}
               >
                 {s.label}
               </button>
@@ -144,7 +144,7 @@ export function BrowseClient({
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {skills.map((skill) => (
                 <SkillCard key={skill.id} skill={skill} />
               ))}
@@ -169,13 +169,18 @@ export function BrowseClient({
 }
 
 function SkeletonGrid() {
+  // Skeleton mirrors the real SkillCard shape: media banner + title + body + meta.
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {Array.from({ length: 6 }).map((_, i) => (
-        <div key={i} className="card h-40 animate-pulse p-5">
-          <div className="h-4 w-2/3 rounded bg-shelf-elevated" />
-          <div className="mt-3 h-3 w-full rounded bg-shelf-elevated" />
-          <div className="mt-2 h-3 w-5/6 rounded bg-shelf-elevated" />
+        <div key={i} className="card animate-pulse overflow-hidden">
+          <div className="aspect-[16/9] w-full bg-shelf-elevated" />
+          <div className="p-5">
+            <div className="h-4 w-2/3 rounded-xs bg-shelf-elevated" />
+            <div className="mt-3 h-3 w-full rounded-xs bg-shelf-elevated" />
+            <div className="mt-2 h-3 w-5/6 rounded-xs bg-shelf-elevated" />
+            <div className="mt-4 h-3 w-1/3 rounded-xs bg-shelf-elevated" />
+          </div>
         </div>
       ))}
     </div>

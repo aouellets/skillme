@@ -82,7 +82,7 @@ export default async function SkillDetailPage({
           <CategoryBadge category={skill.category} size="md" />
           {skill.verified && <VerifiedMark />}
         </div>
-        <h1 className="mt-3 font-display text-4xl text-shelf-text-primary sm:text-5xl">
+        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-shelf-text-primary sm:text-5xl">
           {skill.name}
         </h1>
         <div className="mt-3 flex flex-wrap items-center gap-4 font-mono text-sm text-shelf-text-tertiary">
@@ -152,7 +152,7 @@ export default async function SkillDetailPage({
           />
           <ShareButton
             url={`${SITE_URL}/skill/${skill.slug}`}
-            text={`${skill.name} — a Claude skill on SkillShelf`}
+            text={`${skill.name}, a Claude skill on SkillShelf`}
           />
           {skill.source_url && (
             <a
