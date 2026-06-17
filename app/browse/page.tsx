@@ -2,23 +2,29 @@ import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { BrowseClient } from './BrowseClient'
 import { isCategory } from '@/lib/categories'
+import { getSkillCount, formatSkillCount } from '@/lib/data'
 import type { SkillCategory } from '@/lib/types'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: 'Browse Skills',
-  description:
-    'Search 300+ curated Claude skills by category. Coding, writing, research, productivity, data, design, business, and personal skills, all installable directly from Claude.',
-  openGraph: {
-    title: 'Browse Claude Skills · Skill Me',
-    description: '300+ curated skills. Search, filter, install from inside Claude.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Browse Claude Skills · Skill Me',
-    description: '300+ curated skills. Search, filter, install from inside Claude.',
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const count = formatSkillCount(await getSkillCount())
+  const short = `${count} curated skills. Search, filter, install from inside Claude.`
+  return {
+    title: 'Browse Skills',
+    description:
+      `Search ${count} curated Claude skills by category. Coding, writing, research, productivity, ` +
+      'data, design, business, and personal skills, all installable directly from Claude.',
+    openGraph: {
+      title: 'Browse Claude Skills · Skill Me',
+      description: short,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Browse Claude Skills · Skill Me',
+      description: short,
+    },
+  }
 }
 
 const SORTS = ['hot', 'trending', 'newest', 'top_rated'] as const

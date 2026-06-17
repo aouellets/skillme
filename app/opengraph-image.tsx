@@ -1,12 +1,13 @@
 import { ImageResponse } from 'next/og'
 import { OG, OG_SIZE, OG_CONTENT_TYPE, loadBrandFonts, LogoBadge, Wordmark, Chip } from '@/lib/og/brand'
+import { getSkillCount, formatSkillCount } from '@/lib/data'
 
 export const size = OG_SIZE
 export const contentType = OG_CONTENT_TYPE
 export const alt = 'Skill Me, the App Store for Claude Skills'
 
 export default async function Image() {
-  const fonts = await loadBrandFonts()
+  const [fonts, skillCount] = await Promise.all([loadBrandFonts(), getSkillCount()])
 
   return new ImageResponse(
     (
@@ -65,7 +66,7 @@ export default async function Image() {
 
         {/* footer chips */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <Chip>300+ curated skills</Chip>
+          <Chip>{`${formatSkillCount(skillCount)} curated skills`}</Chip>
           <Chip>Open source</Chip>
           <Chip>Works in every Claude chat</Chip>
         </div>
