@@ -5,8 +5,45 @@ import { HeroDemo } from '@/components/HeroDemo'
 import { CATEGORIES } from '@/lib/categories'
 import { getFeaturedSkills, getSkills } from '@/lib/data'
 import { getFeaturedPacks } from '@/lib/packs'
+import { getSupabase } from '@/lib/supabase'
 
 export const dynamic = 'force-dynamic'
+
+/** Live catalog stats for the hero. Renders nothing when the DB is empty/unavailable. */
+async function StatsBar() {
+  try {
+    const supabase = getSupabase()
+    if (!supabase) return null
+
+    const [skillsRes, packsRes] = await Promise.all([
+      supabase.from('skills').select('id', { count: 'exact', head: true }),
+      supabase.from('packs').select('id', { count: 'exact', head: true }),
+    ])
+
+    const skills = skillsRes.count ?? 0
+    const packs = packsRes.count ?? 0
+    if (skills === 0) return null
+
+    return (
+      <div className="flex flex-wrap gap-6 font-mono text-xs text-shelf-text-tertiary">
+        <span>
+          <span className="text-shelf-text-secondary">{skills.toLocaleString()}</span> skills
+        </span>
+        <span>
+          <span className="text-shelf-text-secondary">{packs}</span> packs
+        </span>
+        <span>
+          <span className="text-shelf-text-secondary">free</span> forever
+        </span>
+        <span>
+          <span className="text-shelf-text-secondary">MIT</span> licensed
+        </span>
+      </div>
+    )
+  } catch {
+    return null
+  }
+}
 
 const STEPS = [
   {
@@ -45,6 +82,12 @@ export default async function HomePage() {
           <p className="mt-5 max-w-xl text-lg text-shelf-text-secondary">
             {countLabel}. Connect once, install anything. No ZIP files, no terminal, no setup.
           </p>
+
+          {/* Live stats */}
+          <div className="mt-4">
+            <StatsBar />
+          </div>
+
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link href="/connect" className="btn btn-primary">
               Connect to Claude
