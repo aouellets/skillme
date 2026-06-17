@@ -7,7 +7,7 @@ import { VerifiedMark } from '@/components/VerifiedMark'
 import { CopyButton } from '@/components/CopyButton'
 import { formatInstalls } from '@/lib/categories'
 import { getPackBySlug } from '@/lib/packs'
-import { MCP_URL } from '@/lib/site'
+import { MCP_URL, SITE_URL } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,9 +19,23 @@ export async function generateMetadata({
   const { slug } = await params
   const pack = await getPackBySlug(slug)
   if (!pack) return { title: 'Pack not found' }
+
+  const ogImage = pack.thumbnail_url ?? `${SITE_URL}/og-default.png`
+
   return {
     title: pack.name,
     description: pack.tagline,
+    openGraph: {
+      title: `${pack.name} · SkillShelf`,
+      description: pack.tagline,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: pack.name }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${pack.name} · SkillShelf`,
+      description: pack.tagline,
+      images: [ogImage],
+    },
   }
 }
 
