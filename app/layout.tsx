@@ -61,20 +61,20 @@ export const viewport: Viewport = {
 function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-shelf-border/80 bg-shelf-void/70 backdrop-blur-xl supports-[backdrop-filter]:bg-shelf-void/55">
-      <div className="mx-auto flex h-16 max-w-content items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-content items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" aria-label="Skill Me home" className="transition-opacity hover:opacity-80">
           <Wordmark />
         </Link>
         <nav className="flex items-center gap-1 sm:gap-2">
           <Link
             href="/browse"
-            className="rounded-sm px-3 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"
+            className="rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:px-3"
           >
             Browse
           </Link>
           <Link
             href="/packs"
-            className="rounded-sm px-3 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"
+            className="rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:px-3"
           >
             Packs
           </Link>
@@ -92,7 +92,7 @@ function Header() {
 function Footer() {
   return (
     <footer className="mt-28 border-t border-shelf-border">
-      <div className="mx-auto max-w-content px-4 py-12 sm:px-6">
+      <div className="mx-auto max-w-content px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-xs">
             <Wordmark />

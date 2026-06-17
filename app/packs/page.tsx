@@ -24,7 +24,7 @@ export default async function PacksPage() {
   const { packs, total } = await getPacks({ limit: 48 })
 
   return (
-    <div className="mx-auto max-w-content px-4 py-12 sm:px-6">
+    <div className="mx-auto max-w-content px-4 py-12 sm:px-6 lg:px-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <span className="eyebrow">Curated bundles</span>
@@ -62,7 +62,7 @@ export default async function PacksPage() {
           </Link>
         </div>
       ) : (
-        <div className="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {packs.map((pack) => (
             <PackCard key={pack.id} pack={pack} />
           ))}

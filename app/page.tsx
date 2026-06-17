@@ -72,7 +72,7 @@ export default async function HomePage() {
     total > 0 ? `${total.toLocaleString()}+ curated Claude skills` : 'Curated Claude skills'
 
   return (
-    <div className="mx-auto max-w-content px-4 sm:px-6">
+    <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
       {/* HERO — asymmetric split, single eyebrow for the whole page */}
       <section className="relative grid grid-cols-1 items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
         <div className="aurora" aria-hidden />

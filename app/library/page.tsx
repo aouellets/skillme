@@ -66,7 +66,7 @@ export default async function LibraryPage() {
           cta
         />
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {items.map((r) => (
             <div key={r.skills!.id} className="flex flex-col gap-1">
               <SkillCard skill={r.skills!} />
@@ -85,7 +85,7 @@ export default async function LibraryPage() {
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto max-w-content px-4 py-12 sm:px-6">
+    <div className="mx-auto max-w-content px-4 py-12 sm:px-6 lg:px-8">
       <h1 className="font-display text-4xl font-semibold tracking-tight text-shelf-text-primary">Your library</h1>
       <p className="mt-3 max-w-xl text-shelf-text-secondary">
         Skills you&apos;ve installed and rated on the web. Inside Claude, your installed

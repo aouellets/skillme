@@ -45,7 +45,7 @@ const config: Config = {
         btn: 'var(--radius-sm)',
       },
       maxWidth: {
-        content: '72rem',
+        content: '88rem',
       },
     },
   },
