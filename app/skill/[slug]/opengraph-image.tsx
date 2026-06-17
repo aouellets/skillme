@@ -1,25 +1,29 @@
 import { ImageResponse } from 'next/og'
 import { getSkillBySlug } from '@/lib/data'
 import { CATEGORY_MAP, formatInstalls } from '@/lib/categories'
+import { OG, OG_SIZE, OG_CONTENT_TYPE, loadBrandFonts, LogoBadge, Wordmark, Star, clean } from '@/lib/og/brand'
 
-export const size = { width: 1200, height: 630 }
-export const contentType = 'image/png'
+export const size = OG_SIZE
+export const contentType = OG_CONTENT_TYPE
 export const dynamic = 'force-dynamic'
 export const alt = 'SkillShelf skill'
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const skill = await getSkillBySlug(slug)
+  const fonts = await loadBrandFonts()
 
   const name = skill?.name ?? 'SkillShelf'
   const description =
-    skill?.description ?? 'The App Store for Claude Skills. Install intelligence.'
+    skill?.description ?? 'The App Store for Claude skills. Install intelligence.'
   const category = skill ? CATEGORY_MAP[skill.category] : undefined
-  const installs = skill ? `${formatInstalls(skill.install_count)} installs` : ''
+  const installs = skill ? formatInstalls(skill.install_count) : null
+  const rating = skill && skill.rating_count > 0 ? skill.rating_avg.toFixed(1) : null
+
+  // Scale the headline so long names still fit on two lines.
+  const nameSize = name.length > 34 ? 64 : name.length > 22 ? 80 : 96
+  const cleaned = clean(description)
+  const desc = cleaned.length > 150 ? `${cleaned.slice(0, 150)}…` : cleaned
 
   return new ImageResponse(
     (
@@ -30,97 +34,113 @@ export default async function Image({
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#0a0a0c',
-          padding: '0',
-          fontFamily: 'sans-serif',
+          backgroundColor: OG.void,
+          fontFamily: 'Geist',
+          padding: 80,
           position: 'relative',
         }}
       >
-        {/* Background thumbnail image if available */}
+        {/* faint skill thumbnail as backdrop, if available */}
         {skill?.thumbnail_url && (
           <img
             src={skill.thumbnail_url}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: 0.25,
-            }}
+            width={OG_SIZE.width}
+            height={OG_SIZE.height}
+            style={{ position: 'absolute', inset: 0, objectFit: 'cover', opacity: 0.16 }}
           />
         )}
-
-        {/* Dark gradient overlay for text readability */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to bottom, rgba(10,10,12,0.3) 0%, rgba(10,10,12,0.96) 60%)',
+            background: `linear-gradient(180deg, rgba(10,10,12,0.55), ${OG.void} 72%)`,
           }}
         />
 
-        {/* Content over the overlay */}
+        {/* header */}
         <div
           style={{
-            position: 'relative',
-            padding: '72px',
             display: 'flex',
-            flexDirection: 'column',
+            alignItems: 'center',
             justifyContent: 'space-between',
-            height: '100%',
+            position: 'relative',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            {category && (
-              <div style={{ display: 'flex', fontSize: 28, color: '#9AA0AD' }}>
-                {category.label}
-              </div>
-            )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+            <LogoBadge size={56} />
+            <Wordmark size={30} />
           </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {category && (
             <div
               style={{
                 display: 'flex',
-                fontSize: 84,
-                color: '#fafafa',
-                lineHeight: 1.05,
-                fontWeight: 700,
+                alignItems: 'center',
+                gap: 12,
+                border: `1px solid ${OG.border}`,
+                backgroundColor: OG.surface,
+                borderRadius: 999,
+                padding: '10px 22px',
+                fontSize: 26,
+                color: OG.secondary,
               }}
             >
-              {name}
+              <div style={{ width: 14, height: 14, borderRadius: 999, backgroundColor: OG.gold }} />
+              {category.label}
             </div>
-            <div
-              style={{
-                display: 'flex',
-                fontSize: 32,
-                color: '#9AA0AD',
-                lineHeight: 1.4,
-                maxWidth: '900px',
-              }}
-            >
-              {description.length > 140 ? `${description.slice(0, 140)}…` : description}
-            </div>
-          </div>
+          )}
+        </div>
 
+        {/* skill name + description */}
+        <div style={{ display: 'flex', flexDirection: 'column', position: 'relative' }}>
           <div
             style={{
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+              fontSize: nameSize,
+              fontWeight: 900,
+              letterSpacing: -2,
+              lineHeight: 1.02,
+              color: OG.text,
             }}
           >
-            <div style={{ display: 'flex', fontSize: 30, color: '#f0b429', fontWeight: 700 }}>
-              SkillShelf
-            </div>
-            {installs && (
-              <div style={{ display: 'flex', fontSize: 26, color: '#6c6c79' }}>{installs}</div>
+            {name}
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              marginTop: 24,
+              fontSize: 34,
+              lineHeight: 1.35,
+              color: OG.secondary,
+              maxWidth: 1000,
+            }}
+          >
+            {desc}
+          </div>
+        </div>
+
+        {/* footer: rating + installs, brand */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            position: 'relative',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 28, fontSize: 28, color: OG.secondary }}>
+            {rating && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <Star size={28} /> {rating}
+              </div>
             )}
+            {installs && <div style={{ display: 'flex' }}>{installs} installs</div>}
+          </div>
+          <div style={{ display: 'flex', fontSize: 28, fontWeight: 600, color: OG.gold }}>
+            Install on SkillShelf
           </div>
         </div>
       </div>
     ),
-    size
+    { ...OG_SIZE, fonts }
   )
 }
