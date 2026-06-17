@@ -1,4 +1,4 @@
-# Contributing to SkillShelf
+# Contributing to Skill Me
 
 Thanks for helping grow the shelf. The most valuable contribution is a good
 skill — but bug fixes and improvements to the catalog are equally welcome.

@@ -10,7 +10,7 @@ export const installSkill: Tool<InstallArgs> = {
   definition: {
     name: 'install_skill',
     description:
-      'Install a skill from SkillShelf so it activates in future Claude sessions. Returns confirmation and the skill content that will be loaded automatically going forward.',
+      'Install a skill from Skill Me so it activates in future Claude sessions. Returns confirmation and the skill content that will be loaded automatically going forward.',
     inputSchema: {
       type: 'object',
       required: ['skill_id'],

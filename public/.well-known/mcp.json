@@ -1,5 +1,5 @@
 {
-  "name": "SkillShelf",
+  "name": "Skill Me",
   "description": "Browse, install, and manage Claude skills and skill packs.",
   "url": "https://skillshelf-ten.vercel.app/api/mcp",
   "version": "1.1.0",

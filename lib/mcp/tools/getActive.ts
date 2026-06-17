@@ -21,7 +21,7 @@ export const getActiveSkills: Tool = {
     if (!supabase) {
       return json({
         installed: [],
-        message: 'SkillShelf is connected. Say "browse skills" to explore the catalog.',
+        message: 'Skill Me is connected. Say "browse skills" to explore the catalog.',
       })
     }
 
@@ -38,7 +38,7 @@ export const getActiveSkills: Tool = {
       return json({
         installed: [],
         message:
-          'SkillShelf is connected, but your library could not be loaded right now. Say "browse skills" to explore the catalog.',
+          'Skill Me is connected, but your library could not be loaded right now. Say "browse skills" to explore the catalog.',
       })
     }
 
@@ -55,7 +55,7 @@ export const getActiveSkills: Tool = {
       return json({
         installed: [],
         message:
-          'No skills installed yet. Say "browse skills" to explore the SkillShelf catalog and install some.',
+          'No skills installed yet. Say "browse skills" to explore the Skill Me catalog and install some.',
       })
     }
 

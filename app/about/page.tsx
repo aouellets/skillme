@@ -4,18 +4,18 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'SkillShelf is an open-source App Store for Claude skills. Built to fill the gap between the Claude skills ecosystem and non-technical users.',
+    'Skill Me is an open-source App Store for Claude skills. Built to fill the gap between the Claude skills ecosystem and non-technical users.',
   twitter: { card: 'summary_large_image' },
 }
 
 const FAQ = [
   {
-    q: 'What is SkillShelf?',
-    a: 'SkillShelf is an open-source marketplace for Claude skills, modular instruction packages that extend what Claude can do. Connect the SkillShelf MCP to claude.ai once, then browse and install skills conversationally. Skills activate automatically in every future session.',
+    q: 'What is Skill Me?',
+    a: 'Skill Me is an open-source marketplace for Claude skills, modular instruction packages that extend what Claude can do. Connect the Skill Me MCP to claude.ai once, then browse and install skills conversationally. Skills activate automatically in every future session.',
   },
   {
-    q: 'Is SkillShelf affiliated with Anthropic?',
-    a: 'No. SkillShelf is an independent, open-source project. It uses the public MCP (Model Context Protocol) standard that Anthropic published in 2025. The skills in the catalog are sourced from the community and verified by the SkillShelf team, not by Anthropic.',
+    q: 'Is Skill Me affiliated with Anthropic?',
+    a: 'No. Skill Me is an independent, open-source project. It uses the public MCP (Model Context Protocol) standard that Anthropic published in 2025. The skills in the catalog are sourced from the community and verified by the Skill Me team, not by Anthropic.',
   },
   {
     q: 'Is it free?',
@@ -23,19 +23,19 @@ const FAQ = [
   },
   {
     q: 'Is it safe to connect an MCP to Claude?',
-    a: 'SkillShelf only loads skill content (plain text instructions) into your Claude context. It does not have access to your conversations, files, or Claude account. Every skill in the catalog passes a safety review before publishing, we check for prompt injection, data exfiltration attempts, and hidden instructions. The source code is public so you can audit it yourself.',
+    a: 'Skill Me only loads skill content (plain text instructions) into your Claude context. It does not have access to your conversations, files, or Claude account. Every skill in the catalog passes a safety review before publishing, we check for prompt injection, data exfiltration attempts, and hidden instructions. The source code is public so you can audit it yourself.',
   },
   {
     q: 'What is the MCP standard?',
-    a: 'MCP (Model Context Protocol) is an open standard published by Anthropic in late 2025. It lets external services add tools and context to Claude conversations. SkillShelf uses MCP to inject skill instructions at the start of each session. Many other tools use MCP too, it is the standard way to extend Claude.',
+    a: 'MCP (Model Context Protocol) is an open standard published by Anthropic in late 2025. It lets external services add tools and context to Claude conversations. Skill Me uses MCP to inject skill instructions at the start of each session. Many other tools use MCP too, it is the standard way to extend Claude.',
   },
   {
     q: 'Do I need a Claude subscription?',
-    a: 'MCP integrations require a claude.ai Pro, Team, or Enterprise plan. Free tier users on claude.ai cannot add MCP integrations. Claude API users can connect SkillShelf to their own deployments directly.',
+    a: 'MCP integrations require a claude.ai Pro, Team, or Enterprise plan. Free tier users on claude.ai cannot add MCP integrations. Claude API users can connect Skill Me to their own deployments directly.',
   },
   {
     q: 'How are skills different from the built-in skills in claude.ai?',
-    a: 'Claude.ai has a built-in skills UI where you can upload a ZIP file containing a SKILL.md. SkillShelf hosts the skills, provides a browse-and-discover experience, and handles installation via conversation, no ZIP files, no technical setup. Think of claude.ai\'s built-in UI as the developer path and SkillShelf as the consumer App Store.',
+    a: 'Claude.ai has a built-in skills UI where you can upload a ZIP file containing a SKILL.md. Skill Me hosts the skills, provides a browse-and-discover experience, and handles installation via conversation, no ZIP files, no technical setup. Think of claude.ai\'s built-in UI as the developer path and Skill Me as the consumer App Store.',
   },
   {
     q: 'Can I submit my own skill?',
@@ -43,11 +43,11 @@ const FAQ = [
   },
   {
     q: 'How do skills activate?',
-    a: 'When you start a new Claude conversation, SkillShelf\'s get_active_skills tool runs automatically and injects the content of your installed skills into the session context. Claude reads the skill instructions and applies them for the duration of the conversation.',
+    a: 'When you start a new Claude conversation, Skill Me\'s get_active_skills tool runs automatically and injects the content of your installed skills into the session context. Claude reads the skill instructions and applies them for the duration of the conversation.',
   },
   {
-    q: 'Who built SkillShelf?',
-    a: 'SkillShelf was built by Alexander Ouellet, an AI product executive and engineer. It started as a weekend project to fill the gap between the growing Claude skills ecosystem and non-technical users who had no way to discover or install skills without a technical background.',
+    q: 'Who built Skill Me?',
+    a: 'Skill Me was built by Alexander Ouellet, an AI product executive and engineer. It started as a weekend project to fill the gap between the growing Claude skills ecosystem and non-technical users who had no way to discover or install skills without a technical background.',
   },
 ]
 
@@ -67,7 +67,7 @@ export default function AboutPage() {
         you want. That is the developer path, it works, but it excludes everyone else.
       </p>
       <p className="mt-4 text-lg leading-relaxed text-shelf-text-secondary">
-        SkillShelf is the consumer path. Connect once, browse by category, say
+        Skill Me is the consumer path. Connect once, browse by category, say
         &quot;install it&quot; in plain English. Skills activate in every future conversation.
         No ZIP files. No terminal. No setup.
       </p>
@@ -91,7 +91,7 @@ export default function AboutPage() {
       <section className="mt-14">
         <h2 className="font-display text-3xl text-shelf-text-primary">How it works</h2>
         <p className="mt-4 text-shelf-text-secondary">
-          SkillShelf is a hosted MCP server plus a web catalog. Connect the MCP to
+          Skill Me is a hosted MCP server plus a web catalog. Connect the MCP to
           claude.ai once, it takes about 30 seconds. After that, your installed
           skills automatically load at the start of every Claude conversation via
           the <code className="rounded border border-shelf-border bg-shelf-void px-1.5 py-0.5 font-mono text-sm text-shelf-text-primary">get_active_skills</code> tool.
@@ -117,7 +117,7 @@ export default function AboutPage() {
       <section className="mt-10 card border-shelf-border p-5">
         <p className="text-sm text-shelf-text-secondary">
           <strong className="text-shelf-text-primary">Independent project.</strong>{' '}
-          SkillShelf is not affiliated with, endorsed by, or connected to Anthropic.
+          Skill Me is not affiliated with, endorsed by, or connected to Anthropic.
           It uses the public MCP standard and the open SKILL.md format.
           Claude® is a trademark of Anthropic.
         </p>

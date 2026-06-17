@@ -24,21 +24,21 @@ const siteUrl = SITE_URL
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'SkillShelf · The App Store for Claude Skills',
-    template: '%s · SkillShelf',
+    default: 'Skill Me · The App Store for Claude Skills',
+    template: '%s · Skill Me',
   },
   description:
     'Install intelligence. Browse curated Claude skills and install them from inside Claude. No setup, no ZIP files, no copy-pasting.',
   openGraph: {
-    title: 'SkillShelf · The App Store for Claude Skills',
+    title: 'Skill Me · The App Store for Claude Skills',
     description: 'Install intelligence. Connect once, install anything.',
     url: siteUrl,
-    siteName: 'SkillShelf',
+    siteName: 'Skill Me',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SkillShelf · The App Store for Claude Skills',
+    title: 'Skill Me · The App Store for Claude Skills',
     description: 'Install intelligence. Connect once, install anything.',
     creator: '@aouellets',
   },
@@ -53,16 +53,16 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0a0a0c',
+  themeColor: '#080a0a',
   width: 'device-width',
   initialScale: 1,
 }
 
 function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-shelf-border bg-shelf-void/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-shelf-border/80 bg-shelf-void/70 backdrop-blur-xl supports-[backdrop-filter]:bg-shelf-void/55">
       <div className="mx-auto flex h-16 max-w-content items-center justify-between px-4 sm:px-6">
-        <Link href="/" aria-label="SkillShelf home" className="transition-opacity hover:opacity-80">
+        <Link href="/" aria-label="Skill Me home" className="transition-opacity hover:opacity-80">
           <Wordmark />
         </Link>
         <nav className="flex items-center gap-1 sm:gap-2">
@@ -145,7 +145,7 @@ function Footer() {
         </div>
         <div className="rule mt-10" />
         <p className="mt-6 text-xs text-shelf-text-tertiary">
-          © {new Date().getFullYear()} SkillShelf. Built for the Claude community.
+          © {new Date().getFullYear()} Skill Me. Built for the Claude community.
         </p>
       </div>
     </footer>

@@ -117,7 +117,7 @@ export function SkillThumbnail({ skill, size = 'card' }: Props) {
 function SkillPlaceholder({ name, size }: { name: string; size: 'card' | 'detail' }) {
   // Stable color from first char code, cycling through the category palette.
   const colors = [
-    ['#241c0c', '#f0b429'], // gold
+    ['#16210b', '#b4f33e'], // lime
     ['#0e1f21', '#4fd1d9'], // teal
     ['#0f2117', '#6ee787'], // green
     ['#191428', '#a797ff'], // purple

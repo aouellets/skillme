@@ -29,13 +29,13 @@ export async function generateMetadata({
     title: skill.name,
     description: skill.description,
     openGraph: {
-      title: `${skill.name} · SkillShelf`,
+      title: `${skill.name} · Skill Me`,
       description: skill.description,
       type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${skill.name} · SkillShelf`,
+      title: `${skill.name} · Skill Me`,
       description: skill.description,
     },
   }
@@ -154,7 +154,7 @@ export default async function SkillDetailPage({
           />
           <ShareButton
             url={`${SITE_URL}/skill/${skill.slug}`}
-            text={`${skill.name}, a Claude skill on SkillShelf`}
+            text={`${skill.name}, a Claude skill on Skill Me`}
           />
           {skill.source_url && (
             <a

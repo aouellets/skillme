@@ -16,7 +16,7 @@ export async function generateMetadata({
   if (!collection) return { title: 'Collection not found' }
   return {
     title: collection.name,
-    description: collection.description ?? `A skill collection on SkillShelf, ${collection.skill_count ?? 0} skills.`,
+    description: collection.description ?? `A skill collection on Skill Me, ${collection.skill_count ?? 0} skills.`,
   }
 }
 
@@ -65,7 +65,7 @@ export default async function SharedCollectionPage({
 
       <div className="card mt-8 p-5">
         <p className="text-sm text-shelf-text-secondary">
-          Want to install all skills in this collection? Connect the SkillShelf MCP and say:
+          Want to install all skills in this collection? Connect the Skill Me MCP and say:
         </p>
         <p className="mt-2 font-mono text-sm text-shelf-text-primary">
           &quot;Install all skills from collection {collection.name}&quot;

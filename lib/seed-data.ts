@@ -24,10 +24,10 @@ export interface SeedSkill {
 export const SEED_SKILLS: SeedSkill[] = [
   {
     slug: 'skillshelf',
-    name: 'SkillShelf',
+    name: 'Skill Me',
     category: 'productivity',
     description:
-      'Teaches Claude to use the SkillShelf catalog itself — browse, install, and manage skills from any conversation. The first skill on the shelf.',
+      'Teaches Claude to use the Skill Me catalog itself — browse, install, and manage skills from any conversation. The first skill on the shelf.',
     author: 'skillshelf',
     source_url: 'https://github.com/aouellets/skillshelf',
     featured: true,
@@ -37,17 +37,17 @@ export const SEED_SKILLS: SeedSkill[] = [
     rating_avg: 5.0,
     rating_count: 3120,
     skill_content: `---
-name: SkillShelf
-description: Use the SkillShelf catalog from inside any conversation — discover, install, and manage Claude skills through the SkillShelf MCP, and load installed skills automatically each session.
+name: Skill Me
+description: Use the Skill Me catalog from inside any conversation — discover, install, and manage Claude skills through the Skill Me MCP, and load installed skills automatically each session.
 ---
 
-# SkillShelf
+# Skill Me
 
-SkillShelf is the App Store for Claude skills. This skill teaches you how to use
+Skill Me is the App Store for Claude skills. This skill teaches you how to use
 it: how to find skills the user asks for, install them, keep track of what's
 installed, and load installed skills at the start of every conversation.
 
-You interact with SkillShelf through its MCP tools. Use them whenever the user
+You interact with Skill Me through its MCP tools. Use them whenever the user
 talks about finding, adding, removing, or rating skills — even casually
 ("got anything for writing cold emails?").
 

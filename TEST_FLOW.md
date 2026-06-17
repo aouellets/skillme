@@ -1,4 +1,4 @@
-# SkillShelf End-to-End Test Flow
+# Skill Me End-to-End Test Flow
 
 Run this before every major update and before PH launch.
 

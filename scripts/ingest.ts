@@ -1,5 +1,5 @@
 /**
- * Ingest skills from public GitHub repositories into the SkillShelf catalog.
+ * Ingest skills from public GitHub repositories into the Skill Me catalog.
  *
  * For each repo it: fetches SKILL.md, parses frontmatter, runs a Claude-powered
  * safety + metadata classifier, and upserts the result into Supabase. A skill
@@ -83,7 +83,7 @@ function parseFrontmatter(content: string): Record<string, string> {
   return out
 }
 
-const SAFETY_SYSTEM = `You are a security and metadata classifier for SkillShelf, a marketplace of Claude skills.
+const SAFETY_SYSTEM = `You are a security and metadata classifier for Skill Me, a marketplace of Claude skills.
 
 Given a SKILL.md file, return structured metadata and a safety verdict.
 

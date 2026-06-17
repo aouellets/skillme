@@ -1,5 +1,5 @@
 /**
- * Seed the SkillShelf catalog with the launch skills.
+ * Seed the Skill Me catalog with the launch skills.
  *
  * Usage:
  *   npm run db:seed

@@ -6,14 +6,14 @@ import { OG, OG_SIZE, OG_CONTENT_TYPE, loadBrandFonts, LogoBadge, Wordmark, clea
 export const size = OG_SIZE
 export const contentType = OG_CONTENT_TYPE
 export const dynamic = 'force-dynamic'
-export const alt = 'SkillShelf pack'
+export const alt = 'Skill Me pack'
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const pack = await getPackBySlug(slug)
   const fonts = await loadBrandFonts()
 
-  const name = pack?.name ?? 'SkillShelf'
+  const name = pack?.name ?? 'Skill Me'
   const tagline = pack?.tagline ?? 'A themed bundle of curated Claude skills.'
   const skillCount = pack?.skill_count ?? 0
   const installs = pack ? formatInstalls(pack.install_count) : null
@@ -46,7 +46,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             height: 560,
             borderRadius: 9999,
             background:
-              'radial-gradient(circle at center, rgba(240,180,41,0.18), rgba(240,180,41,0))',
+              'radial-gradient(circle at center, rgba(180,243,62,0.18), rgba(180,243,62,0))',
           }}
         />
 
@@ -120,7 +120,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             {installs ? `${installs} installs` : 'Install the whole set in one command'}
           </div>
           <div style={{ display: 'flex', fontSize: 28, fontWeight: 600, color: OG.gold }}>
-            Install on SkillShelf
+            Install on Skill Me
           </div>
         </div>
       </div>

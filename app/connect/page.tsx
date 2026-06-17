@@ -5,7 +5,7 @@ import { MCP_URL } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Connect to Claude',
   description:
-    'Add SkillShelf to claude.ai in 30 seconds. Connect the MCP once and browse, install, and manage 300+ Claude skills from inside any Claude conversation.',
+    'Add Skill Me to claude.ai in 30 seconds. Connect the MCP once and browse, install, and manage 300+ Claude skills from inside any Claude conversation.',
   twitter: {
     card: 'summary_large_image',
   },
@@ -29,12 +29,12 @@ const STEPS: Array<{ title: string; body: React.ReactNode }> = [
     body: 'Click "+ Add integration" (also labeled "Add custom integration").',
   },
   {
-    title: 'Paste the SkillShelf URL',
+    title: 'Paste the Skill Me URL',
     body: 'paste-url',
   },
   {
     title: 'Connect',
-    body: 'Click Connect. You will see SkillShelf appear in your integrations list.',
+    body: 'Click Connect. You will see Skill Me appear in your integrations list.',
   },
   {
     title: 'Start a conversation',
@@ -50,7 +50,7 @@ export default function ConnectPage() {
         Connect in 30 seconds
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-shelf-text-secondary">
-        SkillShelf runs as an MCP integration inside claude.ai. Connect it once and your
+        Skill Me runs as an MCP integration inside claude.ai. Connect it once and your
         installed skills load in every conversation.
       </p>
 
@@ -87,7 +87,7 @@ export default function ConnectPage() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/screenshots/add-integration.png"
-                        alt="Paste the SkillShelf URL and click Connect"
+                        alt="Paste the Skill Me URL and click Connect"
                         className="w-full"
                         loading="lazy"
                       />

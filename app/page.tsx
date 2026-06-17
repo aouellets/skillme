@@ -50,7 +50,7 @@ async function StatsBar() {
 const STEPS = [
   {
     title: 'Connect once',
-    body: 'Add the SkillShelf endpoint in claude.ai under Settings, Integrations. Thirty seconds, and you never do it again.',
+    body: 'Add the Skill Me endpoint in claude.ai under Settings, Integrations. Thirty seconds, and you never do it again.',
   },
   {
     title: 'Ask in plain English',
