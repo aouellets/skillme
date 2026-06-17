@@ -1,5 +1,6 @@
 import 'server-only'
 import { getSupabase } from './supabase'
+import { PACK_DEFINITIONS } from './pack-definitions'
 import type { Pack, PackCategory } from './types'
 
 export interface PackQuery {
@@ -15,111 +16,28 @@ export interface PackPage {
   total: number
 }
 
-/** Fallback seed packs — shown when Supabase is unavailable */
-export const SEED_PACKS: Pack[] = [
-  {
-    id: 'pack-solo-founder',
-    slug: 'solo-founder-stack',
-    name: 'Solo Founder Stack',
-    tagline: 'Everything a solo founder needs from idea to first $10k MRR.',
-    description: 'A curated collection of 12 skills for founders building alone. Covers investor updates, competitive intelligence, pricing strategy, cold email, landing page copy, and unit economics. Built from what actually gets used in the first 18 months.',
-    author: 'Skill Me',
-    category: 'business',
-    tags: ['startups', 'founder', 'business'],
-    install_count: 14800,
-    featured: true,
-    verified: true,
-    free: true,
-    skill_count: 12,
-    created_at: '2026-01-01T00:00:00Z',
-    updated_at: '2026-01-01T00:00:00Z',
-  },
-  {
-    id: 'pack-design-system',
-    slug: 'design-system-builder',
-    name: 'Design System Builder',
-    tagline: 'From tokens to components to documentation — the complete design system workflow.',
-    description: 'Build a production design system end to end. Covers design token systems, component API design, color accessibility, dark mode, icon systems, and prototype specs. 8 complementary skills that work together.',
-    author: 'Skill Me',
-    category: 'design',
-    tags: ['design-system', 'design', 'components'],
-    install_count: 9200,
-    featured: true,
-    verified: true,
-    free: true,
-    skill_count: 8,
-    created_at: '2026-01-01T00:00:00Z',
-    updated_at: '2026-01-01T00:00:00Z',
-  },
-  {
-    id: 'pack-content-marketing',
-    slug: 'content-marketing-engine',
-    name: 'Content Marketing Engine',
-    tagline: 'LinkedIn, Twitter, blog, newsletter — one pack, every channel.',
-    description: 'A full content marketing stack for founders and marketers. Includes LinkedIn posts, tweet threads, technical blog, email newsletters, landing page copy, case studies, and brand voice. Write for every channel without starting from scratch each time.',
-    author: 'Skill Me',
-    category: 'writing',
-    tags: ['content', 'marketing', 'writing'],
-    install_count: 22400,
-    featured: true,
-    verified: true,
-    free: true,
-    skill_count: 9,
-    created_at: '2026-01-01T00:00:00Z',
-    updated_at: '2026-01-01T00:00:00Z',
-  },
-  {
-    id: 'pack-eng-workflow',
-    slug: 'engineering-workflow',
-    name: 'Engineering Workflow',
-    tagline: 'The git, review, and release workflow every senior engineer already uses.',
-    description: 'Commit messages, PR descriptions, changelogs, readmes, code review, TypeScript strict mode, and TDD — the core workflow skills that separate professional engineers from juniors. 8 skills that complement each other.',
-    author: 'Skill Me',
-    category: 'coding',
-    tags: ['git', 'workflow', 'engineering'],
-    install_count: 31600,
-    featured: true,
-    verified: true,
-    free: true,
-    skill_count: 8,
-    created_at: '2026-01-01T00:00:00Z',
-    updated_at: '2026-01-01T00:00:00Z',
-  },
-  {
-    id: 'pack-legal-team',
-    slug: 'legal-team-starter',
-    name: 'Legal Team Starter',
-    tagline: 'NDA triage, contract review, terms drafting — the essentials for in-house legal.',
-    description: 'A skill pack for legal teams and founders who handle their own legal work. Covers contract review, terms of service drafting, employment contract flags, startup legal basics, and regulatory scanning. Built from the Anthropic Claude for Legal Teams pattern library.',
-    author: 'Skill Me',
-    category: 'business',
-    tags: ['legal', 'compliance', 'contracts'],
-    install_count: 7400,
-    featured: false,
-    verified: true,
-    free: true,
-    skill_count: 6,
-    created_at: '2026-01-01T00:00:00Z',
-    updated_at: '2026-01-01T00:00:00Z',
-  },
-  {
-    id: 'pack-data-analyst',
-    slug: 'data-analyst-toolkit',
-    name: 'Data Analyst Toolkit',
-    tagline: 'From raw data to board-ready insights, every step covered.',
-    description: 'The complete data analysis workflow: SQL to insights, pandas data cleaning, A/B test analysis, funnel analysis, customer analytics, and dashboard narration. Whether you work in Python or SQL, these skills turn data into decisions.',
-    author: 'Skill Me',
-    category: 'data',
-    tags: ['analytics', 'data', 'sql'],
-    install_count: 18200,
-    featured: false,
-    verified: true,
-    free: true,
-    skill_count: 7,
-    created_at: '2026-01-01T00:00:00Z',
-    updated_at: '2026-01-01T00:00:00Z',
-  },
-]
+/**
+ * Fallback seed packs — shown when Supabase is unavailable. Derived from the
+ * canonical PACK_DEFINITIONS so this list and the DB seeder never drift and the
+ * per-pack skill count is always accurate.
+ */
+export const SEED_PACKS: Pack[] = PACK_DEFINITIONS.map((p) => ({
+  id: `pack-${p.slug}`,
+  slug: p.slug,
+  name: p.name,
+  tagline: p.tagline,
+  description: p.description,
+  author: p.author,
+  category: p.category,
+  tags: p.tags,
+  install_count: p.install_count,
+  featured: p.featured,
+  verified: p.verified,
+  free: p.free,
+  skill_count: p.skill_slugs.length,
+  created_at: '2026-01-01T00:00:00Z',
+  updated_at: '2026-01-01T00:00:00Z',
+}))
 
 export async function getPacks(opts: PackQuery = {}): Promise<PackPage> {
   const supabase = getSupabase()

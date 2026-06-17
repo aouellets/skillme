@@ -6,7 +6,7 @@ import { EmailCapture } from '@/components/EmailCapture'
 import { FeaturedCarousel } from '@/components/FeaturedCarousel'
 import { SkillCard } from '@/components/SkillCard'
 import { CATEGORIES } from '@/lib/categories'
-import { getFeaturedSkills, getHotSkills, getSkills } from '@/lib/data'
+import { getFeaturedSkills, getHotSkills, getSkills, formatSkillCount } from '@/lib/data'
 import { getFeaturedPacks } from '@/lib/packs'
 import { getSupabase } from '@/lib/supabase'
 
@@ -71,7 +71,7 @@ export default async function HomePage() {
     getFeaturedPacks(3),
   ])
   const countLabel =
-    total > 0 ? `${total.toLocaleString()}+ curated Claude skills` : 'Curated Claude skills'
+    total > 0 ? `${formatSkillCount(total)} curated Claude skills` : 'Curated Claude skills'
 
   return (
     <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8">

@@ -150,6 +150,32 @@ export async function getHotSkills(limit = 6): Promise<Skill[]> {
   return skills
 }
 
+/**
+ * Live total number of skills in the catalog. Cheap head-only count query;
+ * falls back to the seed catalog size when Supabase is unavailable so marketing
+ * copy and OG images never show a zero or a stale hardcoded figure.
+ */
+export async function getSkillCount(): Promise<number> {
+  const supabase = getSupabase()
+  if (!supabase) return FALLBACK.length
+
+  const { count, error } = await supabase
+    .from('skills')
+    .select('id', { count: 'exact', head: true })
+  if (error || count == null || count === 0) return FALLBACK.length
+  return count
+}
+
+/**
+ * Format a catalog size for display — rounded down to a clean "190+"-style
+ * figure so the number reads as a floor, not a precise (and quickly stale) count.
+ */
+export function formatSkillCount(n: number): string {
+  if (n <= 0) return 'Curated'
+  if (n < 10) return `${n}`
+  return `${Math.floor(n / 10) * 10}+`
+}
+
 export async function getSkillBySlug(slug: string): Promise<Skill | null> {
   const supabase = getSupabase()
   if (!supabase) return FALLBACK.find((s) => s.slug === slug) ?? null
