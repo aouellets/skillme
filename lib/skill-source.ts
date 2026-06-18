@@ -15,7 +15,7 @@
  * renderer (`lib/data.ts`), and the SKILL.md exporter
  * (`scripts/export-skill-files.ts`) so all three agree.
  */
-export const SKILLS_REPO = 'https://github.com/aouellets/skillshelf'
+export const SKILLS_REPO = 'https://github.com/aouellets/skillme'
 
 /** Authors whose unsourced skills we host (and may publish) in this repo. */
 const HOSTED_AUTHORS = new Set(['community', 'Skill Me'])

@@ -21,7 +21,7 @@ draft now; it can be edited until the moment it goes live.
 - **Thumbnail:** `public/ph-thumbnail.png` (240×240)
 - **Topics:** Artificial Intelligence, Productivity, Developer Tools, Open Source
 - **Website:** https://skillme.dev
-- **GitHub:** https://github.com/aouellets/skillshelf
+- **GitHub:** https://github.com/aouellets/skillme
 
 **Description (≤260 chars):**
 

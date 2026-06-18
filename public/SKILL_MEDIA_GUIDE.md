@@ -285,4 +285,4 @@ Before submitting your skill with media:
 
 ## Questions?
 
-Open an issue at https://github.com/aouellets/skillshelf or start a discussion.
+Open an issue at https://github.com/aouellets/skillme or start a discussion.

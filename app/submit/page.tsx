@@ -65,7 +65,7 @@ export default function SubmitPage() {
               We review and add it within a few days.
             </p>
             <a
-              href="https://github.com/aouellets/skillshelf/issues/new?template=skill_submission.md&title=[SKILL]+Your+Skill+Name"
+              href="https://github.com/aouellets/skillme/issues/new?template=skill_submission.md&title=[SKILL]+Your+Skill+Name"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary mt-4"
@@ -82,7 +82,7 @@ export default function SubmitPage() {
               and open a PR. Full control for developers.
             </p>
             <a
-              href="https://github.com/aouellets/skillshelf/blob/main/CONTRIBUTING.md"
+              href="https://github.com/aouellets/skillme/blob/main/CONTRIBUTING.md"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary mt-4"

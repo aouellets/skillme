@@ -118,6 +118,27 @@ export function SkillThumbnail({ skill, size = 'card' }: Props) {
           </span>
         </div>
       )}
+
+      <ThumbSheen />
+    </div>
+  )
+}
+
+/**
+ * Decorative light treatment shared by every thumbnail (media + placeholder).
+ * A top sheen + inset edge ring make the art read as a lit screen, and the
+ * bottom scrim/seam grounds it cleanly against the card body. Pointer-events
+ * off so it never intercepts hover/clicks.
+ */
+function ThumbSheen() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* top sheen — catches light along the upper edge */}
+      <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/[0.07] to-transparent" />
+      {/* bottom grounding scrim into the card body */}
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-shelf-void/45 to-transparent" />
+      {/* inset edge ring + 1px seam at the base */}
+      <div className="absolute inset-0 shadow-[inset_0_1px_0_rgba(245,247,245,0.07),inset_0_-1px_0_rgba(8,10,10,0.7)]" />
     </div>
   )
 }
@@ -138,9 +159,12 @@ function SkillPlaceholder({
   size: 'card' | 'detail'
 }) {
   return (
-    <div
-      className={`relative w-full overflow-hidden ${ASPECT[size]}`}
-      dangerouslySetInnerHTML={{ __html: categoryThumbnailSvg(category, { seed }) }}
-    />
+    <div className={`relative w-full overflow-hidden ${ASPECT[size]}`}>
+      <div
+        className="absolute inset-0"
+        dangerouslySetInnerHTML={{ __html: categoryThumbnailSvg(category, { seed }) }}
+      />
+      <ThumbSheen />
+    </div>
   )
 }

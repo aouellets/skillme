@@ -21,7 +21,7 @@ the same inbox, or a separate one) before submitting.
 >
 > - **Connect / setup:** https://skillme.dev/connect
 > - **Browse the catalog:** https://skillme.dev
-> - **Report a bug:** https://github.com/aouellets/skillshelf/issues
+> - **Report a bug:** https://github.com/aouellets/skillme/issues
 > - **Security issue?** Email security@skillshelf.ai (please don't post security
 >   reports publicly).
 > - **Privacy / delete my data:** reply to this email with "data deletion" and
@@ -50,7 +50,7 @@ Short, on-brand templates for the common cases.
 ### "How do I submit a skill?"
 
 > Skills are accepted via pull request — see our contributing guide:
-> https://github.com/aouellets/skillshelf/blob/main/CONTRIBUTING.md. Every
+> https://github.com/aouellets/skillme/blob/main/CONTRIBUTING.md. Every
 > submission runs through a safety classifier before it's listed. If you'd rather
 > describe the skill and let us draft it, just reply with what it should do and
 > who it's for.

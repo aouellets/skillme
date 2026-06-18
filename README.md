@@ -48,7 +48,7 @@ User identity is a token derived from the MCP connection headers
 ## Run locally
 
 ```bash
-git clone https://github.com/aouellets/skillshelf
+git clone https://github.com/aouellets/skillme
 cd skillshelf
 cp .env.example .env.local
 # Fill in your Supabase + Anthropic keys (optional — the catalog works without them)

@@ -30,7 +30,7 @@ const CORE_SEED_SKILLS: SeedSkill[] = [
     description:
       'Teaches Claude to use the Skill Me catalog itself — browse, install, and manage skills from any conversation. The first skill on the shelf.',
     author: 'skillshelf',
-    source_url: 'https://github.com/aouellets/skillshelf',
+    source_url: 'https://github.com/aouellets/skillme',
     featured: true,
     verified: true,
     tags: ['mcp', 'skills', 'meta', 'productivity'],
@@ -235,6 +235,175 @@ serves that direction.
 2. Is hierarchy obvious within one second of looking?
 3. Are focus, hover, disabled, and empty states all handled?
 4. Does it hold up at 375px width?`,
+  },
+  {
+    slug: 'ponytail',
+    name: 'Ponytail',
+    category: 'coding',
+    description:
+      'Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote — applies a decision ladder that cuts ~54% of generated code before a line is written.',
+    author: 'DietrichGebert',
+    source_url: 'https://github.com/DietrichGebert/ponytail',
+    featured: true,
+    verified: true,
+    tags: ['agents', 'code-quality', 'minimalism', 'claude-code'],
+    install_count: 41200,
+    rating_avg: 4.9,
+    rating_count: 612,
+    skill_content: `---
+name: Ponytail
+description: Write the minimum viable code. Before adding anything, walk the decision ladder — does it need to exist, can stdlib or a native feature do it, can it be one line — and only then write the smallest thing that works.
+---
+
+# Ponytail
+
+Think like the laziest senior dev in the room. The best code is the code you
+never wrote. Over-engineering is the default failure mode of AI coding agents;
+your job is to resist it on every change.
+
+## The decision ladder
+
+Before writing any new code, walk these rungs in order and stop at the first
+that works:
+
+1. **Does it need to exist at all?** Delete the requirement before writing the
+   solution. The cheapest feature is the one you talked the user out of.
+2. **Can the standard library do it?** Reach for stdlib before a dependency.
+3. **Is there a native language/framework feature?** Prefer built-ins over
+   hand-rolled helpers.
+4. **Is an already-installed dependency enough?** Don't add a package for what
+   you already ship.
+5. **Can it be one line?** A comprehension or a single call beats a helper
+   function and a test for it.
+6. **Only now:** write the minimum viable code — no speculative abstraction, no
+   "we might need it later", no configuration nobody asked for.
+
+## Intensity
+
+Match the rigor to the task. \`lite\` for quick edits, \`full\` for normal work,
+\`ultra\` when the diff is getting large and you want maximum pushback, \`off\`
+when the user explicitly wants a scaffold. When unsure, default to \`full\`.
+
+## Companion reviews
+
+- **Audit a diff** before committing: flag every line that fails the ladder.
+- **Audit a repo** for accumulated over-engineering: dead abstractions, wrapper
+  functions with one caller, config that's never varied.
+- **Defer debt**: name what you chose *not* to build and why, so the next person
+  sees the seam instead of guessing.
+
+## The test
+
+For every block you're about to write, ask: "Would a senior dev who hates
+maintenance write this?" If they'd delete it in review, delete it now. Keep
+behavior identical; only the code gets smaller.`,
+  },
+  {
+    slug: 'codegraph',
+    name: 'CodeGraph',
+    category: 'coding',
+    description:
+      'Cross-language code intelligence for AI agents. Builds a semantic graph of functions, classes, imports, and call chains across 38 languages and exposes it through MCP tools — so you query structure instead of grepping files.',
+    author: 'codegraph-ai',
+    source_url: 'https://github.com/codegraph-ai/CodeGraph',
+    featured: true,
+    verified: true,
+    tags: ['mcp', 'code-intelligence', 'graph', 'agents'],
+    install_count: 26400,
+    rating_avg: 4.8,
+    rating_count: 318,
+    skill_content: `---
+name: CodeGraph
+description: Understand a codebase as a graph, not a pile of files. When you need structure — who calls this, what does it import, what breaks if I change it — query CodeGraph's MCP tools instead of grepping, and trust the structured result.
+---
+
+# CodeGraph
+
+CodeGraph gives you structured code understanding through a semantic graph of
+the codebase — functions, classes, imports, and call chains across 38 languages
+— served over MCP. Use it whenever a question is about *structure* rather than
+text.
+
+## When to reach for it
+
+Prefer CodeGraph over raw \`grep\`/file reads when the user asks:
+
+- "Who calls this function?" / "What does this depend on?"
+- "What's the blast radius if I change X?" — impact and call-graph traversal.
+- "Where is this concept implemented?" — semantic search over full-body
+  embeddings, not just string matches.
+- "Why did we do it this way?" — the persistent memory layer surfaces past
+  debugging insights across sessions.
+
+## How to use it well
+
+- **Pick a tool profile** (\`core\`, \`graph\`, \`memory\`, \`security\`) to keep the
+  tool surface — and your context budget — small. Don't load all 42 tools when
+  you only need call-graph traversal.
+- **Ask for intent-aware context** in one call rather than chaining many file
+  reads; CodeGraph returns the relevant slice of the graph.
+- **Trust the graph.** Once a result comes back, don't re-verify it by grepping
+  — that's the workflow CodeGraph exists to replace.
+- **Record insights** to the memory layer when you debug something non-obvious,
+  so the next session starts ahead.
+
+## PR and review work
+
+For pull requests, use the analysis tools for blast radius, test-gap detection,
+and reviewer suggestions before reading the diff line by line. Verify design
+against code where the two can drift.`,
+  },
+  {
+    slug: 'codegraph-local',
+    name: 'CodeGraph Local',
+    category: 'coding',
+    description:
+      'A pre-indexed code knowledge graph that auto-syncs on every change and runs 100% locally. One MCP call returns entry points, related symbols, and snippets — fewer tokens, fewer tool calls, no data leaves your machine.',
+    author: 'colbymchenry',
+    source_url: 'https://github.com/colbymchenry/codegraph',
+    featured: true,
+    verified: true,
+    tags: ['mcp', 'code-intelligence', 'local', 'agents'],
+    install_count: 18700,
+    rating_avg: 4.8,
+    rating_count: 241,
+    skill_content: `---
+name: CodeGraph Local
+description: A local, always-fresh knowledge graph of the codebase. When you need to orient — entry points, a symbol's source and dependents, call sites — ask CodeGraph in one call instead of reading many files, and trust the result without re-grepping.
+---
+
+# CodeGraph Local
+
+CodeGraph Local keeps a pre-indexed SQLite knowledge graph of the project's
+symbols and relationships, auto-synced on code changes by native OS file
+watchers. Everything runs locally — no external APIs, no data leaves the
+machine. Use it to orient fast and spend fewer tokens and tool calls.
+
+## The four tools
+
+- **explore** — answer a structural question ("how does auth flow work?") in a
+  single call: entry points, related symbols, and code snippets together.
+- **node** — one symbol's source plus everything that depends on it.
+- **search** — locate symbols by name across the codebase (FTS5 full-text).
+- **callers** — find every call site of a function.
+
+## How to use it well
+
+- **Start with \`explore\`** for any "where do I begin" question — it builds the
+  context for you in one shot, instead of opening files one at a time.
+- **Use \`node\` and \`callers\`** to scope a change before editing: see the source
+  and its dependents so you know the blast radius.
+- **Trust the index.** It auto-syncs on save, so results are current — don't
+  re-verify with \`grep\`. That's the whole point: fewer tokens, fewer calls.
+- **Lean on framework awareness.** It understands 17+ web frameworks and
+  cross-language bridges (Swift/ObjC, React Native, Expo), so route and
+  component questions resolve correctly.
+
+## When to prefer it
+
+Reach for CodeGraph Local first on large or unfamiliar repos where grepping
+would be slow or noisy, and any time you'd otherwise read five files to answer
+one structural question.`,
   },
   {
     slug: 'meeting-notes-to-actions',

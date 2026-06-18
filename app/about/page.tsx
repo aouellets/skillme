@@ -100,7 +100,7 @@ export default function AboutPage() {
         <p className="mt-3 text-shelf-text-secondary">
           The source code is{' '}
           <a
-            href="https://github.com/aouellets/skillshelf"
+            href="https://github.com/aouellets/skillme"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent hover:text-accent-hover"

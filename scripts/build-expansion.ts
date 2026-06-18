@@ -22,7 +22,7 @@ const ROOT = join(__dirname, '..')
 const DATA_DIR = join(__dirname, 'expansion-data')
 const OUT_TS = join(ROOT, 'lib', 'seed-data-expansion.ts')
 
-const REPO = 'https://github.com/aouellets/skillshelf'
+const REPO = 'https://github.com/aouellets/skillme'
 
 interface RawSkill {
   slug: string

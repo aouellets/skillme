@@ -153,13 +153,24 @@ export function categoryThumbnailSvg(category: string | undefined, opts: Categor
       <stop offset="0%" stop-color="${art.bg}"/>
       <stop offset="78%" stop-color="${VOID}"/>
     </radialGradient>
+    <radialGradient id="cgl-${uid}" cx="50%" cy="40%" r="42%">
+      <stop offset="0%" stop-color="${art.fg}" stop-opacity="0.20"/>
+      <stop offset="60%" stop-color="${art.fg}" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="${art.fg}" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cgr-${uid}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="52%" stop-color="${VOID}" stop-opacity="0"/>
+      <stop offset="100%" stop-color="${VOID}" stop-opacity="0.6"/>
+    </linearGradient>
     <pattern id="cd-${uid}" width="13" height="13" patternUnits="userSpaceOnUse">
       <circle cx="1" cy="1" r="1" fill="${art.fg}" opacity="0.05"/>
     </pattern>
   </defs>
   <rect width="320" height="180" fill="url(#cg-${uid})"/>
   <rect width="320" height="180" fill="url(#cd-${uid})"/>
-  <g transform="translate(136 50) scale(2)" fill="none" stroke="${art.fg}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">${icon}</g>
-  <text x="160" y="134" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="3" fill="${art.fg}" opacity="0.7">${art.label.toUpperCase()}</text>
+  <rect width="320" height="180" fill="url(#cgl-${uid})"/>
+  <g transform="translate(136 50) scale(2)" fill="none" stroke="${art.fg}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">${icon}</g>
+  <rect width="320" height="180" fill="url(#cgr-${uid})"/>
+  <text x="160" y="134" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="3" fill="${art.fg}" opacity="0.72">${art.label.toUpperCase()}</text>
 </svg>`
 }

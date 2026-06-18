@@ -9,7 +9,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Adds idempotency keys and request deduplication so at-least-once delivery and client retries never double-charge or double-ship. Use when building any write endpoint that triggers payments, orders, emails, or other non-reversible side effects.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/idempotency-enforcer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/idempotency-enforcer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -29,7 +29,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Builds a signature-verified, replay-resistant, fast-acking async webhook endpoint that verifies-then-enqueues and survives retries and out-of-order delivery. Use when receiving webhooks from Stripe, GitHub, or any third party.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/webhook-receiver-hardener",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/webhook-receiver-hardener",
     "featured": false,
     "verified": true,
     "tags": [
@@ -49,7 +49,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Implements exponential backoff with full jitter, honors Retry-After, and adds client-side throttling so you stay under an upstream API's rate limits instead of hammering them. Use when calling any rate-limited or quota-enforced third-party API.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/rate-limit-handler",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/rate-limit-handler",
     "featured": false,
     "verified": true,
     "tags": [
@@ -69,7 +69,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Adds circuit breakers, timeouts, and bulkheads around flaky upstream dependencies so a slow or failing service degrades gracefully instead of cascading. Use when integrating an external API or service that can be slow or unavailable.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/circuit-breaker-builder",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/circuit-breaker-builder",
     "featured": false,
     "verified": true,
     "tags": [
@@ -89,7 +89,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Designs date-pinned or header-based API versioning plus a humane deprecation path, defining what counts as breaking and how long old versions live. Use when launching a public or partner API or making a change that could break existing clients.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/api-versioning-strategist",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/api-versioning-strategist",
     "featured": false,
     "verified": true,
     "tags": [
@@ -109,7 +109,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Builds correct cursor pagination and incremental delta sync against a paginated API, handling inserts, deletes, watermarks, and resumability. Use when fetching large datasets or keeping a local copy in sync with a remote API.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/pagination-and-sync-engineer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/pagination-and-sync-engineer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -129,7 +129,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Generates a typed, resilient client from an OpenAPI spec with retries, timeouts, and typed errors baked into the transport layer. Use when integrating a REST API that ships an OpenAPI or Swagger spec.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/api-client-generator",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/api-client-generator",
     "featured": false,
     "verified": true,
     "tags": [
@@ -149,7 +149,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "data",
     "description": "Finds and eliminates N+1 query patterns in ORM code (ActiveRecord, Prisma, SQLAlchemy, Hibernate) using eager loading, with judgment on when N+1 is acceptable; use when a request issues many similar queries, a list endpoint is slow, or query logs show repeated SELECTs in a loop.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/n-plus-one-hunter",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/n-plus-one-hunter",
     "featured": false,
     "verified": true,
     "tags": [
@@ -170,7 +170,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "data",
     "description": "Interprets Postgres and MySQL EXPLAIN ANALYZE output to pinpoint the bottleneck node — seq scans, bad row estimates, expensive sorts and joins — and prescribes a fix for each; use when a query is slow and you have or can capture its execution plan.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/explain-plan-reader",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/explain-plan-reader",
     "featured": false,
     "verified": true,
     "tags": [
@@ -191,7 +191,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "data",
     "description": "Recommends, orders, and removes indexes for a given slow query and schema — composite column order, partial and covering indexes, duplicate and unused index cleanup, and write-cost tradeoffs; use when a query needs an index, or when auditing a table's index set for bloat.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/index-advisor",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/index-advisor",
     "featured": false,
     "verified": true,
     "tags": [
@@ -212,7 +212,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "data",
     "description": "Refactors slow SQL into efficient equivalents — correlated subqueries to joins, accidental cross joins, OR conditions to UNION, SELECT * to explicit columns, and OFFSET pagination to keyset; use when a query is structurally inefficient regardless of indexing.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/query-rewriter",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/query-rewriter",
     "featured": false,
     "verified": true,
     "tags": [
@@ -233,7 +233,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "data",
     "description": "Designs partitioning and sharding for a large table — range, list, or hash strategy, partition key choice, and the operational pitfalls — and decides when not to partition at all; use when a single table is too large to manage, vacuum, or query efficiently.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/partition-planner",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/partition-planner",
     "featured": false,
     "verified": true,
     "tags": [
@@ -254,7 +254,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "data",
     "description": "Diagnoses connection pool exhaustion and sets correct pool sizes and timeouts across app pools and PgBouncer, including serverless connection storms; use when you see connection-limit errors, checkout timeouts, or idle-connection pile-up.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/connection-pool-tuner",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/connection-pool-tuner",
     "featured": false,
     "verified": true,
     "tags": [
@@ -275,7 +275,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "data",
     "description": "Flags schema migrations that take blocking locks or run long, and rewrites them into zero-downtime steps — nullable-add-then-backfill, concurrent index builds, and expand-contract; use before running any ALTER TABLE or migration against a live production database.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/migration-safety-checker",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/migration-safety-checker",
     "featured": false,
     "verified": true,
     "tags": [
@@ -296,7 +296,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "data",
     "description": "Diagnoses read-replica lag and the stale-read bugs it causes, and applies read-after-write consistency strategies; use when reads return data older than a just-committed write, or when monitoring shows replica lag growing.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/replication-lag-debugger",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/replication-lag-debugger",
     "featured": false,
     "verified": true,
     "tags": [
@@ -317,7 +317,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Turns a raw spec or feature list into a benefit-led, scannable product description page (PDP) written in the brand's voice. Use when you have product specs and need conversion-focused PDP copy.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/product-description-writer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/product-description-writer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -338,7 +338,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Writes an Amazon title, bullet points, and backend search terms that respect Amazon's character limits and keyword rules while staying scannable and compliant. Use when creating or fixing an Amazon listing.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/amazon-listing-optimizer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/amazon-listing-optimizer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -359,7 +359,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Generates consistent copy across size, color, and bundle variants from one master description without creating duplicate-content problems. Use when one product has many variants needing distinct yet on-brand copy.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/variant-copy-scaler",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/variant-copy-scaler",
     "featured": false,
     "verified": true,
     "tags": [
@@ -380,7 +380,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Mines real customer reviews into a PDP FAQ and objection-handling block that preempts the doubts stopping purchases. Use when you have review or Q&A data and want to reduce pre-purchase hesitation.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/review-to-faq-builder",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/review-to-faq-builder",
     "featured": false,
     "verified": true,
     "tags": [
@@ -401,7 +401,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Writes collection and category intro copy optimized for commercial-intent keywords and fast scanning, without burying the products. Use when a collection or category page needs SEO-aware intro and supporting copy.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/category-page-copywriter",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/category-page-copywriter",
     "featured": false,
     "verified": true,
     "tags": [
@@ -422,7 +422,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Drafts a 3-email cart-recovery sequence with escalating messaging and deliberate incentive logic that protects margin. Use when you need to recover abandoned carts via email.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/abandoned-cart-sequence",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/abandoned-cart-sequence",
     "featured": false,
     "verified": true,
     "tags": [
@@ -443,7 +443,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Builds an honest \"X vs Y\" comparison table and supporting copy that wins commercial-intent searches without misrepresenting competitors. Use when targeting \"vs\" or \"alternative\" search queries.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/comparison-page-builder",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/comparison-page-builder",
     "featured": false,
     "verified": true,
     "tags": [
@@ -464,7 +464,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Produces an incremental migration plan that runs the legacy and new systems side by side behind a routing layer, slicing and sequencing work to avoid a big-bang rewrite. Use when planning to replace or rebuild a legacy system that must stay live throughout.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/strangler-fig-planner",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/strangler-fig-planner",
     "featured": false,
     "verified": true,
     "tags": [
@@ -485,7 +485,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Drives a major-version framework upgrade using codemods, changelog diffing, and incremental PRs while keeping the app green throughout. Use when bumping React, Rails, Spring Boot, Angular, or any framework across a major version with breaking changes.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/framework-upgrader",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/framework-upgrader",
     "featured": false,
     "verified": true,
     "tags": [
@@ -506,7 +506,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Ports a codebase across breaking language or runtime versions using shims, automated transforms, and layered verification. Use when migrating Python 2 to 3, jumping Node majors, moving across Java LTS versions, or any runtime upgrade with breaking syntax or semantics.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/language-version-migrator",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/language-version-migrator",
     "featured": false,
     "verified": true,
     "tags": [
@@ -527,7 +527,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Finds unreachable, unused, and orphaned code with hard evidence and removes it safely without breaking dynamic callers. Use when reducing a bloated codebase, cleaning up after a migration, or before estimating work on an unfamiliar module.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/dead-code-eliminator",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/dead-code-eliminator",
     "featured": false,
     "verified": true,
     "tags": [
@@ -548,7 +548,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Reads tangled legacy logic and documents the implicit business rules and edge cases it encodes before a rewrite, so behavior is preserved. Use when you must reimplement or replace code whose real requirements live only in the source.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/business-rule-extractor",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/business-rule-extractor",
     "featured": false,
     "verified": true,
     "tags": [
@@ -569,7 +569,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Writes pinning and characterization tests around untested legacy code to lock in current behavior before refactoring. Use when you need a safety net before changing code that has no tests and whose correct behavior is whatever it currently does.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/characterization-test-writer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/characterization-test-writer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -590,7 +590,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Identifies bounded-context seams for extracting a service from a monolith, analyzing dependencies, data ownership, and anti-corruption layers, then sequences the extraction. Use when planning to carve a service out of a monolith or evaluating whether a seam is ready to extract.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/monolith-decomposer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/monolith-decomposer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -611,7 +611,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Builds Android Jetpack Compose UI with correct state hoisting, unidirectional data flow, and recomposition-safe patterns. Use when writing or refactoring Compose screens, composables, or state handling.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/jetpack-compose-builder",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/jetpack-compose-builder",
     "featured": false,
     "verified": true,
     "tags": [
@@ -632,7 +632,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Structures Flutter widget trees and state management with Riverpod or Bloc, using const widgets and avoiding rebuild storms. Use when building Flutter screens, refactoring widget trees, or choosing state management.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/flutter-widget-architect",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/flutter-widget-architect",
     "featured": false,
     "verified": true,
     "tags": [
@@ -653,7 +653,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Implements local-first storage with background sync, conflict resolution, queueing, and retry on mobile. Use when building offline-capable features, sync engines, or reconciling local and server state.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/mobile-offline-sync",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/mobile-offline-sync",
     "featured": false,
     "verified": true,
     "tags": [
@@ -674,7 +674,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Wires APNs and FCM push end to end including tokens, payloads, deep links, permission UX, and silent pushes. Use when adding push notifications, debugging delivery, or handling notification taps.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/push-notification-wirer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/push-notification-wirer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -695,7 +695,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Prepares signing, build config, and store metadata for App Store and Play submission including provisioning, versioning, Fastlane, and common rejection reasons. Use when preparing a mobile release or submission.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/app-store-release-prep",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/app-store-release-prep",
     "featured": false,
     "verified": true,
     "tags": [
@@ -716,7 +716,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Diagnoses jank, over-rendering, and memory issues on mobile using frame budget, leak detection, and list virtualization. Use when an app stutters, drops frames, grows memory, or feels slow to scroll.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/mobile-perf-profiler",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/mobile-perf-profiler",
     "featured": false,
     "verified": true,
     "tags": [
@@ -737,7 +737,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Drafts an inclusive, role-relevant job description from a role brief and leveling. Use when turning a hiring manager's brief into a posting.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/job-description-writer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/job-description-writer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -757,7 +757,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Flags exclusionary, gendered, age-coded, and ableist language in a job description and suggests neutral alternatives. Use when reviewing a JD before it posts.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/jd-bias-scrubber",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/jd-bias-scrubber",
     "featured": false,
     "verified": true,
     "tags": [
@@ -778,7 +778,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Turns a job description into a structured, weighted candidate scorecard that scores job-relevant skills instead of vibes. Use when setting up a fair screening process.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/screening-rubric-builder",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/screening-rubric-builder",
     "featured": false,
     "verified": true,
     "tags": [
@@ -798,7 +798,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Generates structured behavioral (STAR) and role-specific interview questions mapped to competencies, with what good and weak answers look like. Use when planning an interview loop.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/interview-question-kit",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/interview-question-kit",
     "featured": false,
     "verified": true,
     "tags": [
@@ -819,7 +819,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Drafts personalized, respectful sourcing and InMail messages from a public profile summary. Use when reaching out to a passive candidate.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/candidate-outreach-personalizer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/candidate-outreach-personalizer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -839,7 +839,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Drafts clear offer letters and respectful, legally-careful candidate rejection notes. Use when communicating a hiring decision to a candidate.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/offer-rejection-writer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/offer-rejection-writer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -859,7 +859,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Generates a 30/60/90-day onboarding plan for a given role with milestones, check-ins, and ramp goals. Use when a new hire is about to start.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/onboarding-plan-builder",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/onboarding-plan-builder",
     "featured": false,
     "verified": true,
     "tags": [
@@ -879,7 +879,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Consolidates multiple interviewer scorecards into a calibrated hire/no-hire summary that surfaces disagreement and bias risks. Use when running a post-loop debrief.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/interview-debrief-synthesizer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/interview-debrief-synthesizer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -900,7 +900,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Diagnoses the root cause of intermittently failing tests and fixes them at the source instead of retrying. Use when a test passes locally but fails in CI, or fails roughly one run in ten.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/flaky-test-detangler",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/flaky-test-detangler",
     "featured": false,
     "verified": true,
     "tags": [
@@ -920,7 +920,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Identifies untested critical paths and branches and prioritizes them by risk rather than chasing a line-coverage percentage. Use when deciding what to test next or auditing a suite before a release.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/coverage-gap-finder",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/coverage-gap-finder",
     "featured": false,
     "verified": true,
     "tags": [
@@ -940,7 +940,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Generates realistic fixtures, factories, and edge-case datasets using the builder pattern while avoiding shared mutable fixtures. Use when tests need domain objects, seed data, or boundary inputs.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/test-data-builder",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/test-data-builder",
     "featured": false,
     "verified": true,
     "tags": [
@@ -960,7 +960,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Writes consumer-driven contract tests for service and API boundaries so integrations break loudly at build time instead of silently in production. Use when two services or a client and an API must stay in sync.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/contract-test-writer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/contract-test-writer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -980,7 +980,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Converts an acceptance criterion into a maintainable Playwright or Cypress end-to-end test using role-based selectors and the page-object or fixture pattern. Use when turning a user story or AC into a browser test.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/e2e-scenario-author",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/e2e-scenario-author",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1000,7 +1000,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Sets up the right mocks, stubs, and fakes for external dependencies without over-mocking, and decides what to fake versus use for real. Use when a test touches a network call, database, clock, or third-party SDK.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/mock-stub-designer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/mock-stub-designer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1020,7 +1020,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "coding",
     "description": "Uses mutation testing to expose tests that execute code but assert nothing, and interprets surviving mutants into concrete missing assertions. Use when coverage looks high but you doubt the tests actually catch bugs.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/mutation-test-runner",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/mutation-test-runner",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1040,7 +1040,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Groups a seed keyword list into topic clusters mapped to search intent and a pillar/cluster content architecture. Use when you have a raw keyword export and need to turn it into a publishable content plan rather than a flat list of pages.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/keyword-cluster-builder",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/keyword-cluster-builder",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1060,7 +1060,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Labels each query by search intent and recommends the right page type (blog, comparison, category, landing, or hub). Use when deciding what kind of page a keyword deserves or auditing whether existing pages match what searchers actually want.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/search-intent-classifier",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/search-intent-classifier",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1080,7 +1080,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Given 3-5 ranking competitor URLs for a target query, outputs the subtopics, entities, and questions a draft is missing. Use before publishing or refreshing a page to close coverage gaps against what already ranks.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/serp-gap-analyzer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/serp-gap-analyzer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1100,7 +1100,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Writes title tags and meta descriptions within pixel and character limits with correct keyword placement and CTR-driving framing. Use when finalizing a page's SERP snippet or fixing titles that rank but get few clicks.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/meta-title-optimizer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/meta-title-optimizer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1120,7 +1120,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Recommends internal links and anchor text between a new article and an existing content inventory to build topical authority. Use when publishing or refreshing a page and you have a list of existing URLs to link to and from.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/internal-linking-mapper",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/internal-linking-mapper",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1140,7 +1140,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Rewrites a section into concise, citable answer blocks optimized for AI answer engines and featured snippets (AEO/GEO). Use when you want a page quoted by AI Overviews, ChatGPT, or Perplexity, or to win a featured snippet.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/aeo-answer-blockifier",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/aeo-answer-blockifier",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1160,7 +1160,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "business",
     "description": "Diffs an aging article against current SERP intent and lists concrete update actions to recover or grow rankings. Use when a page is slipping in rankings or traffic, or during a periodic content-decay review.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/content-refresh-auditor",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/content-refresh-auditor",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1180,7 +1180,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "writing",
     "description": "Builds a 4-week multi-platform posting calendar from content pillars, cadence, and key dates. Use when planning a month of social content across channels.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/social-content-calendar",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/social-content-calendar",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1200,7 +1200,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "writing",
     "description": "Writes platform-native captions for Instagram, LinkedIn, X, and TikTok from a topic and brand voice with correct length and CTA. Use when drafting the words that ship with a post.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/social-caption-writer",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/social-caption-writer",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1220,7 +1220,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "writing",
     "description": "Produces 10 scroll-stopping opening lines for a given post idea, organized by hook archetype. Use when a post needs a stronger first line or you want options to test.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/social-hook-generator",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/social-hook-generator",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1240,7 +1240,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "writing",
     "description": "Reshapes one piece of content into platform-specific versions tuned for each channel's length, tone, format, and native conventions. Use when adapting a post, article, or video across multiple platforms.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/cross-platform-reformatter",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/cross-platform-reformatter",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1260,7 +1260,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "writing",
     "description": "Recommends a tiered hashtag and keyword set sized to account reach, balancing broad, niche, and branded tags while avoiding banned or spammy ones. Use when choosing tags for a post or building a reusable set.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/hashtag-strategist",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/hashtag-strategist",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1280,7 +1280,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "writing",
     "description": "Drafts on-brand replies to comments and DMs at scale, including graceful handling of criticism and complaints. Use when responding to an inbox or comment section in the brand's voice.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/engagement-reply-drafter",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/engagement-reply-drafter",
     "featured": false,
     "verified": true,
     "tags": [
@@ -1300,7 +1300,7 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "category": "writing",
     "description": "Outlines a multi-slide Instagram or LinkedIn carousel with a hook slide, per-slide copy, and a CTA slide. Use when turning an idea into a swipeable, value-dense carousel.",
     "author": "Skill Me",
-    "source_url": "https://github.com/aouellets/skillshelf/tree/main/skills/carousel-scripter",
+    "source_url": "https://github.com/aouellets/skillme/tree/main/skills/carousel-scripter",
     "featured": false,
     "verified": true,
     "tags": [

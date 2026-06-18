@@ -25,7 +25,7 @@ generic custom-connector placeholder.
 | **Authentication** | `none` — identity is derived from the connection's session headers; no login or API key required |
 | **Icon** | `https://skillme.dev/skill-me-icon.svg` (scalable) and `…/skill-me-icon-512.png` (512×512 PNG) |
 | **Website / docs** | `https://skillme.dev` · setup guide: `https://skillme.dev/connect` |
-| **Source** | `https://github.com/aouellets/skillshelf` (MIT) |
+| **Source** | `https://github.com/aouellets/skillme` (MIT) |
 | **Privacy policy** | `https://skillme.dev/privacy` *(must be published — draft in §4)* |
 | **Support contact** | `support@skillme.dev` *(set up an inbox)* · GitHub Issues for bug reports |
 | **Test account** | None needed — add the connector and call `browse_skills`; all read tools work with no credentials. |
@@ -159,4 +159,4 @@ The directory requires every tool to carry `title` plus a `readOnlyHint` /
 > accesses chats, memory, or files and stores only the user's chosen library.
 > We'd like it listed so users get a trustworthy, branded entry point instead of
 > a generic custom connector. Catalog: skillme.dev · Source:
-> github.com/aouellets/skillshelf.
+> github.com/aouellets/skillme.

@@ -129,7 +129,7 @@ function Footer() {
               Privacy
             </Link>
             <a
-              href="https://github.com/aouellets/skillshelf"
+              href="https://github.com/aouellets/skillme"
               target="_blank"
               rel="noopener noreferrer"
               className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary"

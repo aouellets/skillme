@@ -30,3 +30,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# codegraph (local code index + editor rules)
+.codegraph/
+.cursor/
+
+# supabase CLI scratch
+supabase/.temp/

@@ -116,20 +116,23 @@
     background-color: var(--shelf-surface);
   }
 
-  /* === Cards — radius 16px (lg), lift on hover === */
+  /* === Cards — radius 16px (lg), lit top edge, lift on hover ===
+     A faint top-edge highlight catches light so each tile reads as a raised
+     panel against the void, not a flat fill. The highlight is layered into
+     both states so it persists through the hover lift. */
   .card {
-    background-color: var(--shelf-surface);
+    background: linear-gradient(180deg, var(--shelf-elevated) 0%, var(--shelf-surface) 38%);
     border: 1px solid var(--shelf-border);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--card-edge-light), var(--shadow-card);
     transition: border-color 0.18s ease, background-color 0.18s ease,
-      transform 0.18s ease, box-shadow 0.18s ease;
+      transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
   }
 
   .card-interactive:hover {
     border-color: var(--shelf-border-strong);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-raised);
+    transform: translateY(-4px);
+    box-shadow: var(--card-edge-light), var(--shadow-raised);
   }
 
   /* === Inputs === */

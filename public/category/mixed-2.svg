@@ -4,12 +4,23 @@
       <stop offset="0%" stop-color="#16210b"/>
       <stop offset="78%" stop-color="#080a0a"/>
     </radialGradient>
+    <radialGradient id="cgl-mixed2" cx="50%" cy="40%" r="42%">
+      <stop offset="0%" stop-color="#b4f33e" stop-opacity="0.20"/>
+      <stop offset="60%" stop-color="#b4f33e" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#b4f33e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cgr-mixed2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="52%" stop-color="#080a0a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#080a0a" stop-opacity="0.6"/>
+    </linearGradient>
     <pattern id="cd-mixed2" width="13" height="13" patternUnits="userSpaceOnUse">
       <circle cx="1" cy="1" r="1" fill="#b4f33e" opacity="0.05"/>
     </pattern>
   </defs>
   <rect width="320" height="180" fill="url(#cg-mixed2)"/>
   <rect width="320" height="180" fill="url(#cd-mixed2)"/>
-  <g transform="translate(136 50) scale(2)" fill="none" stroke="#b4f33e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"><path d="M12 4 3 9l9 5 9-5z"/><path d="M3 14l9 5 9-5"/></g>
-  <text x="160" y="134" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="3" fill="#b4f33e" opacity="0.7">COLLECTION</text>
+  <rect width="320" height="180" fill="url(#cgl-mixed2)"/>
+  <g transform="translate(136 50) scale(2)" fill="none" stroke="#b4f33e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"><path d="M12 4 3 9l9 5 9-5z"/><path d="M3 14l9 5 9-5"/></g>
+  <rect width="320" height="180" fill="url(#cgr-mixed2)"/>
+  <text x="160" y="134" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="3" fill="#b4f33e" opacity="0.72">COLLECTION</text>
 </svg>

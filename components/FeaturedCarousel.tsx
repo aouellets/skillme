@@ -28,8 +28,14 @@ export function FeaturedCarousel({
 }) {
   const trackRef = useRef<HTMLUListElement>(null)
   const itemRefs = useRef<(HTMLLIElement | null)[]>([])
+  const ratiosRef = useRef<number[]>([])
   const [active, setActive] = useState(0)
   const [reduce, setReduce] = useState(false)
+  // Edge-fade flags: only fade a side when there is hidden content that way,
+  // so the first/last cards stay crisp at the rail edges. Driven by the same
+  // IntersectionObserver — no scroll listener.
+  const [fadeStart, setFadeStart] = useState(false)
+  const [fadeEnd, setFadeEnd] = useState(true)
   const pausedRef = useRef(false)
 
   const scrollToIndex = useCallback(
@@ -37,12 +43,13 @@ export function FeaturedCarousel({
       const track = trackRef.current
       const item = itemRefs.current[index]
       if (!track || !item) return
-      // Track is position:relative, so item.offsetLeft is measured from the
-      // track's border edge and includes the scrollport's left padding. The
-      // snap-start target (which respects scroll-padding) is that distance
-      // minus the padding, so cards land flush regardless of the inset.
-      const padLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0
-      track.scrollTo({ left: item.offsetLeft - padLeft, behavior: reduce ? 'auto' : 'smooth' })
+      // Measure from live rects so the scroll target is robust to the track's
+      // inline scroll-padding (which aligns the first card to the content edge
+      // while letting the rail bleed full-width for un-clipped hover shadows).
+      const pad = parseFloat(getComputedStyle(track).scrollPaddingLeft) || 0
+      const delta =
+        item.getBoundingClientRect().left - track.getBoundingClientRect().left - pad
+      track.scrollBy({ left: delta, behavior: reduce ? 'auto' : 'smooth' })
     },
     [reduce]
   )
@@ -60,23 +67,29 @@ export function FeaturedCarousel({
     setReduce(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   }, [])
 
-  // Track the most-visible card to drive the active dot (no scroll listener).
+  // Track the most-visible card to drive the active dot, plus the edge-fade
+  // flags — all from one IntersectionObserver, no scroll listener.
   useEffect(() => {
     const track = trackRef.current
     if (!track || typeof IntersectionObserver === 'undefined') return
+    const last = skills.length - 1
     const io = new IntersectionObserver(
       (entries) => {
         let best: { i: number; ratio: number } | null = null
         for (const entry of entries) {
           const i = itemRefs.current.indexOf(entry.target as HTMLLIElement)
           if (i < 0) continue
+          ratiosRef.current[i] = entry.intersectionRatio
           if (!best || entry.intersectionRatio > best.ratio) {
             best = { i, ratio: entry.intersectionRatio }
           }
         }
         if (best && best.ratio > 0.5) setActive(best.i)
+        // Fade an edge only while its boundary card is not (nearly) fully shown.
+        setFadeStart((ratiosRef.current[0] ?? 1) < 0.99)
+        setFadeEnd((ratiosRef.current[last] ?? 1) < 0.99)
       },
-      { root: track, threshold: [0.25, 0.5, 0.75] }
+      { root: track, threshold: [0, 0.25, 0.5, 0.75, 0.99, 1] }
     )
     itemRefs.current.forEach((el) => el && io.observe(el))
     return () => io.disconnect()
@@ -89,17 +102,12 @@ export function FeaturedCarousel({
       if (pausedRef.current) return
       setActive((prev) => {
         const next = (prev + 1) % skills.length
-        const track = trackRef.current
-        const item = itemRefs.current[next]
-        if (track && item) {
-          const padLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0
-          track.scrollTo({ left: item.offsetLeft - padLeft, behavior: 'smooth' })
-        }
+        scrollToIndex(next)
         return next
       })
     }, 4800)
     return () => clearInterval(id)
-  }, [reduce, skills.length])
+  }, [reduce, skills.length, scrollToIndex])
 
   return (
     <div
@@ -124,26 +132,35 @@ export function FeaturedCarousel({
         </div>
       </div>
 
-      <ul
-        ref={trackRef}
-        className="no-scrollbar relative mt-7 -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-4 px-4 pb-9 pt-5"
-        aria-label={title}
-      >
-        {skills.map((skill, i) => (
-          <li
-            key={skill.id}
-            ref={(el) => {
-              itemRefs.current[i] = el
-            }}
-            className="w-[82%] shrink-0 snap-start sm:w-[340px]"
-          >
-            <SkillCard skill={skill} />
-          </li>
-        ))}
-      </ul>
+      {/* Full-bleed rail: negative margins cancel the page gutter so the track's
+          own padding gives cards room to lift and cast shadows without clipping,
+          while the first card still lines up with the page content edge. */}
+      <div className="-mx-4 mt-3 sm:-mx-6 lg:-mx-8">
+        <ul
+          ref={trackRef}
+          style={{
+            WebkitMaskImage: edgeMask(fadeStart, fadeEnd),
+            maskImage: edgeMask(fadeStart, fadeEnd),
+          }}
+          className="no-scrollbar relative flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-4 px-4 py-10 sm:scroll-px-6 sm:px-6 lg:scroll-px-8 lg:px-8"
+          aria-label={title}
+        >
+          {skills.map((skill, i) => (
+            <li
+              key={skill.id}
+              ref={(el) => {
+                itemRefs.current[i] = el
+              }}
+              className="w-[82%] shrink-0 snap-start sm:w-[340px]"
+            >
+              <SkillCard skill={skill} />
+            </li>
+          ))}
+        </ul>
+      </div>
 
       {skills.length > 1 && (
-        <div className="mt-5 flex items-center justify-center gap-2" role="tablist" aria-label="Carousel position">
+        <div className="mt-3 flex items-center justify-center gap-2" role="tablist" aria-label="Carousel position">
           {skills.map((skill, i) => (
             <button
               key={skill.id}
@@ -162,6 +179,19 @@ export function FeaturedCarousel({
       )}
     </div>
   )
+}
+
+/**
+ * Horizontal alpha mask for the rail. Cards dissolve into the gutter on any
+ * side that still hides content, so the rail reads as a seamless surface
+ * rather than a hard-cut row. The fade lives in the bleed gutter, so a card
+ * resting against the content edge stays fully crisp.
+ */
+function edgeMask(fadeStart: boolean, fadeEnd: boolean): string {
+  const fade = '2.5rem'
+  const left = fadeStart ? `transparent 0` : `black 0`
+  const right = fadeEnd ? `transparent 100%` : `black 100%`
+  return `linear-gradient(to right, ${left}, black ${fade}, black calc(100% - ${fade}), ${right})`
 }
 
 function CarouselButton({

@@ -4,12 +4,23 @@
       <stop offset="0%" stop-color="#0f2117"/>
       <stop offset="78%" stop-color="#080a0a"/>
     </radialGradient>
+    <radialGradient id="cgl-research2" cx="50%" cy="40%" r="42%">
+      <stop offset="0%" stop-color="#6ee787" stop-opacity="0.20"/>
+      <stop offset="60%" stop-color="#6ee787" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#6ee787" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cgr-research2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="52%" stop-color="#080a0a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#080a0a" stop-opacity="0.6"/>
+    </linearGradient>
     <pattern id="cd-research2" width="13" height="13" patternUnits="userSpaceOnUse">
       <circle cx="1" cy="1" r="1" fill="#6ee787" opacity="0.05"/>
     </pattern>
   </defs>
   <rect width="320" height="180" fill="url(#cg-research2)"/>
   <rect width="320" height="180" fill="url(#cd-research2)"/>
-  <g transform="translate(136 50) scale(2)" fill="none" stroke="#6ee787" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"><path d="M9 4h6"/><path d="M10 4v5L6 17.5A1.5 1.5 0 0 0 7.4 20h9.2a1.5 1.5 0 0 0 1.4-2.5L14 9V4"/><path d="M8.5 14h7"/></g>
-  <text x="160" y="134" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="3" fill="#6ee787" opacity="0.7">RESEARCH</text>
+  <rect width="320" height="180" fill="url(#cgl-research2)"/>
+  <g transform="translate(136 50) scale(2)" fill="none" stroke="#6ee787" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"><path d="M9 4h6"/><path d="M10 4v5L6 17.5A1.5 1.5 0 0 0 7.4 20h9.2a1.5 1.5 0 0 0 1.4-2.5L14 9V4"/><path d="M8.5 14h7"/></g>
+  <rect width="320" height="180" fill="url(#cgr-research2)"/>
+  <text x="160" y="134" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="3" fill="#6ee787" opacity="0.72">RESEARCH</text>
 </svg>
