@@ -1,10 +1,18 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import type { Skill } from '@/lib/types'
+import type { SkillCategory, PackCategory } from '@/lib/types'
+import { categoryThumbnailSvg } from '@/lib/category-art'
 
 interface Props {
-  skill: Pick<Skill, 'name' | 'thumbnail_url' | 'thumbnail_gif' | 'thumbnail_video' | 'media_alt'>
+  skill: {
+    name: string
+    category?: SkillCategory | PackCategory
+    thumbnail_url?: string
+    thumbnail_gif?: string
+    thumbnail_video?: string
+    media_alt?: string
+  }
   size?: 'card' | 'detail'
 }
 
@@ -47,7 +55,7 @@ export function SkillThumbnail({ skill, size = 'card' }: Props) {
   }
 
   if (!hasAnyMedia) {
-    return <SkillPlaceholder name={skill.name} size={size} />
+    return <SkillPlaceholder category={skill.category} seed={skill.name} size={size} />
   }
 
   return (
@@ -111,39 +119,24 @@ export function SkillThumbnail({ skill, size = 'card' }: Props) {
 }
 
 /**
- * Generated placeholder — shown when no media is provided.
- * Uses the skill name to pick a stable color and renders the first letter.
+ * Generated placeholder — shown when no media is provided. Renders the
+ * category's art (brand color + line icon + label) as inline SVG so every
+ * skill and pack gets a recognizable, on-brand thumbnail by category. Falls
+ * back to the "collection" art for unknown/missing categories.
  */
-function SkillPlaceholder({ name, size }: { name: string; size: 'card' | 'detail' }) {
-  // Stable color from first char code, cycling through the category palette.
-  const colors = [
-    ['#16210b', '#b4f33e'], // lime
-    ['#0e1f21', '#4fd1d9'], // teal
-    ['#0f2117', '#6ee787'], // green
-    ['#191428', '#a797ff'], // purple
-    ['#0f1d33', '#5b9df9'], // blue
-    ['#26140c', '#ff8a5c'], // coral
-    ['#221024', '#df8ad9'], // pink
-    ['#16180f', '#aab4a4'], // sage
-  ]
-  const idx = (name.charCodeAt(0) || 0) % colors.length
-  const [bg, fg] = colors[idx]
-  const letter = (name.trim().charAt(0) || '?').toUpperCase()
-
+function SkillPlaceholder({
+  category,
+  seed,
+  size,
+}: {
+  category?: string
+  seed?: string
+  size: 'card' | 'detail'
+}) {
   return (
     <div
-      className={`relative flex w-full items-center justify-center overflow-hidden ${ASPECT[size]}`}
-      style={{
-        backgroundImage: `radial-gradient(120% 100% at 50% -10%, ${bg}, var(--shelf-void) 80%)`,
-      }}
-      aria-hidden
-    >
-      <span
-        className="select-none font-display text-6xl font-semibold opacity-50"
-        style={{ color: fg }}
-      >
-        {letter}
-      </span>
-    </div>
+      className={`relative w-full overflow-hidden ${ASPECT[size]}`}
+      dangerouslySetInnerHTML={{ __html: categoryThumbnailSvg(category, { seed }) }}
+    />
   )
 }

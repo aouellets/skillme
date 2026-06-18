@@ -8,8 +8,12 @@ skill — but bug fixes and improvements to the catalog are equally welcome.
 Skills are accepted via pull request.
 
 1. **Fork** this repository.
-2. **Add your skill** to `lib/seed-data.ts` (or a future `skills/` directory),
-   following the existing shape:
+2. **Add your skill.** Skill Me–authored packs live as JSON in
+   `scripts/expansion-data/*.json` and compile to portable
+   `skills/<slug>/SKILL.md` files plus `lib/seed-data-expansion.ts` via
+   `npx tsx scripts/build-expansion.ts` (don't hand-edit the generated files).
+   Community single-skill submissions can go straight into `lib/seed-data.ts`.
+   Either way, follow the existing shape:
    - `slug` — unique, lowercase, hyphenated.
    - `name` — short and human-readable.
    - `description` — one sentence, plain English, no buzzwords.

@@ -1,6 +1,7 @@
 import 'server-only'
 import { getSupabase } from './supabase'
 import { SEED_SKILLS, type SeedSkill } from './seed-data'
+import { resolveSourceUrl } from './skill-source'
 import type { Skill, SkillCategory } from './types'
 
 export type SortOption = 'trending' | 'newest' | 'top_rated' | 'hot'
@@ -29,7 +30,7 @@ function seedToSkill(seed: SeedSkill, index: number): Skill {
     name: seed.name,
     description: seed.description,
     category: seed.category,
-    source_url: seed.source_url,
+    source_url: resolveSourceUrl(seed),
     author: seed.author,
     skill_content: seed.skill_content,
     install_count: seed.install_count,

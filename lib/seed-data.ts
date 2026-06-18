@@ -1,4 +1,5 @@
 import type { SkillCategory } from './types'
+import { EXPANSION_SKILLS } from './seed-data-expansion'
 
 export interface SeedSkill {
   slug: string
@@ -21,7 +22,7 @@ export interface SeedSkill {
   media_alt?:        string
 }
 
-export const SEED_SKILLS: SeedSkill[] = [
+const CORE_SEED_SKILLS: SeedSkill[] = [
   {
     slug: 'skillshelf',
     name: 'Skill Me',
@@ -14933,3 +14934,11 @@ Deliver: a one-line value statement, a validation interview script, a cut-down M
   },
 
 ]
+
+/**
+ * The full seed catalog: the hand-curated core plus the generated expansion
+ * packs (`scripts/expansion-data/*.json` → `seed-data-expansion.ts`). Keeping
+ * the expansion in its own module keeps this file reviewable and lets the
+ * generator own escaping.
+ */
+export const SEED_SKILLS: SeedSkill[] = [...CORE_SEED_SKILLS, ...EXPANSION_SKILLS]

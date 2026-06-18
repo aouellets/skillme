@@ -10,6 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "test:mcp": "node scripts/test-mcp-e2e.mjs",
+    "build:catalog": "tsx scripts/build-expansion.ts && tsx scripts/export-skill-files.ts",
+    "build:art": "tsx scripts/generate-category-art.ts",
     "db:seed": "tsx scripts/seed-manual.ts",
     "db:seed-packs": "tsx scripts/seed-packs.ts",
     "ingest": "tsx scripts/ingest.ts"

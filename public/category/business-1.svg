@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Business placeholder">
+  <defs>
+    <radialGradient id="cg-business1" cx="50%" cy="-6%" r="115%">
+      <stop offset="0%" stop-color="#221024"/>
+      <stop offset="78%" stop-color="#080a0a"/>
+    </radialGradient>
+    <pattern id="cd-business1" width="13" height="13" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#df8ad9" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="320" height="180" fill="url(#cg-business1)"/>
+  <rect width="320" height="180" fill="url(#cd-business1)"/>
+  <g transform="translate(136 50) scale(2)" fill="none" stroke="#df8ad9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"><path d="M5 20V7l7-3 7 3v13"/><path d="M3 20h18"/><path d="M9 9h2.5"/><path d="M12.5 9H15"/><path d="M9 13h2.5"/><path d="M12.5 13H15"/><path d="M10.5 20v-4h3v4"/></g>
+  <text x="160" y="134" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="3" fill="#df8ad9" opacity="0.7">BUSINESS</text>
+</svg>

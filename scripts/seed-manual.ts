@@ -10,6 +10,7 @@
 import { config } from 'dotenv'
 import { createClient } from '@supabase/supabase-js'
 import { SEED_SKILLS } from '../lib/seed-data'
+import { resolveSourceUrl } from '../lib/skill-source'
 
 config({ path: '.env.local' })
 config() // fall back to .env
@@ -34,7 +35,7 @@ async function main() {
     name: s.name,
     description: s.description,
     category: s.category,
-    source_url: s.source_url ?? null,
+    source_url: resolveSourceUrl(s) ?? null,
     author: s.author,
     skill_content: s.skill_content,
     install_count: s.install_count,
