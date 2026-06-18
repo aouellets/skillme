@@ -38,8 +38,11 @@ export function FeaturedCarousel({
       const item = itemRefs.current[index]
       if (!track || !item) return
       // Track is position:relative, so item.offsetLeft is measured from the
-      // track's own padding edge, which equals the target scrollLeft.
-      track.scrollTo({ left: item.offsetLeft, behavior: reduce ? 'auto' : 'smooth' })
+      // track's border edge and includes the scrollport's left padding. The
+      // snap-start target (which respects scroll-padding) is that distance
+      // minus the padding, so cards land flush regardless of the inset.
+      const padLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0
+      track.scrollTo({ left: item.offsetLeft - padLeft, behavior: reduce ? 'auto' : 'smooth' })
     },
     [reduce]
   )
@@ -89,7 +92,8 @@ export function FeaturedCarousel({
         const track = trackRef.current
         const item = itemRefs.current[next]
         if (track && item) {
-          track.scrollTo({ left: item.offsetLeft, behavior: 'smooth' })
+          const padLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0
+          track.scrollTo({ left: item.offsetLeft - padLeft, behavior: 'smooth' })
         }
         return next
       })
@@ -122,7 +126,7 @@ export function FeaturedCarousel({
 
       <ul
         ref={trackRef}
-        className="no-scrollbar relative mt-7 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2"
+        className="no-scrollbar relative mt-7 -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-4 px-4 pb-9 pt-5"
         aria-label={title}
       >
         {skills.map((skill, i) => (
