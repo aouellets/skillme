@@ -203,8 +203,11 @@ alter table public.user_installs enable row level security;
 drop policy if exists "skills are public" on public.skills;
 create policy "skills are public" on public.skills for select using (true);
 
+-- user_installs is written/read only via the service-role key (server-side).
+-- RLS stays ON with NO anon/authenticated policy => deny by default. (Do NOT
+-- add `for all using(true)` here: the public anon key would then expose every
+-- user's installs. See migration 0002_rls_hardening.sql.)
 drop policy if exists "anon installs" on public.user_installs;
-create policy "anon installs" on public.user_installs for all using (true) with check (true);
 
 -- Media column migration (safe to run on existing tables)
 alter table public.skills add column if not exists thumbnail_url    text;
@@ -226,14 +229,13 @@ create policy "packs are public"       on public.packs for select using (true);
 drop policy if exists "pack_skills are public" on public.pack_skills;
 create policy "pack_skills are public" on public.pack_skills for select using (true);
 
+-- user_pack_installs / user_collections / collection_skills are accessed only
+-- via the service-role key (server-side). RLS stays ON with no anon policy =>
+-- deny by default. Public collection sharing reads through the service role in
+-- lib/collections.ts. (See migration 0002_rls_hardening.sql.)
 drop policy if exists "anon pack installs" on public.user_pack_installs;
-create policy "anon pack installs"     on public.user_pack_installs for all using (true) with check (true);
-
 drop policy if exists "anon user collections" on public.user_collections;
-create policy "anon user collections"  on public.user_collections for all using (true) with check (true);
-
 drop policy if exists "anon collection skills" on public.collection_skills;
-create policy "anon collection skills" on public.collection_skills for all using (true) with check (true);
 
 -- ============================================================
 -- WAITLIST — email capture for new-skill notifications

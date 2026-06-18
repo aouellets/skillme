@@ -32,8 +32,6 @@ export function FeaturedCarousel({
   const [reduce, setReduce] = useState(false)
   const pausedRef = useRef(false)
 
-  const behavior = (): ScrollBehavior => (reduce ? 'auto' : 'smooth')
-
   const scrollToIndex = useCallback(
     (index: number) => {
       const track = trackRef.current

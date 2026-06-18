@@ -1,9 +1,9 @@
-const DEFAULT_SITE_URL = 'https://skillshelf-ten.vercel.app'
-const DEFAULT_MCP_URL = 'https://skillshelf-ten.vercel.app/api/mcp'
+const DEFAULT_SITE_URL = 'https://skillme.dev'
+const DEFAULT_MCP_URL = 'https://skillme.dev/api/mcp'
 
 /**
  * Resolve the public site URL defensively. A missing, empty, or bare-host value
- * (e.g. "skillshelf.io") would otherwise throw `new URL(...)` during the build's
+ * (e.g. "skillme.dev") would otherwise throw `new URL(...)` during the build's
  * page-data collection and fail the deploy. Coerce a bare host to https and fall
  * back to the default if it still isn't a valid absolute URL.
  */

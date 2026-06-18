@@ -44,6 +44,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         {skill?.thumbnail_url && (
           <img
             src={skill.thumbnail_url}
+            alt=""
             width={OG_SIZE.width}
             height={OG_SIZE.height}
             style={{ position: 'absolute', inset: 0, objectFit: 'cover', opacity: 0.16 }}

@@ -20,7 +20,7 @@ draft now; it can be edited until the moment it goes live.
 - **Tagline (≤60 chars):** `The App Store for Claude Skills` (31 chars ✅)
 - **Thumbnail:** `public/ph-thumbnail.png` (240×240)
 - **Topics:** Artificial Intelligence, Productivity, Developer Tools, Open Source
-- **Website:** https://skillshelf-ten.vercel.app
+- **Website:** https://skillme.dev
 - **GitHub:** https://github.com/aouellets/skillshelf
 
 **Description (≤260 chars):**
@@ -132,7 +132,7 @@ Submit yours at [submit link]
 We review and publish within a few days.
 Authors get credited and linked back to their GitHub.
 ---
-Try it now → [skillshelf-ten.vercel.app]
+Try it now → [skillme.dev]
 And if you can spare 30 seconds, we'd love an upvote on Product Hunt 🙏
 [PH link]
 ```

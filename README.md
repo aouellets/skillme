@@ -13,16 +13,16 @@ MCP once and your installed skills load automatically in every future session.
 ## Connect in 30 seconds
 
 1. Go to **claude.ai → Settings → Integrations**
-2. Add the MCP URL: `https://skillshelf-ten.vercel.app/api/mcp`
+2. Add the MCP URL: `https://skillme.dev/api/mcp`
 3. Say **"show me skills"** in any conversation
 
 Skills you install activate automatically in your next session, across every
-conversation. See [the connect guide](https://skillshelf-ten.vercel.app/connect)
+conversation. See [the connect guide](https://skillme.dev/connect)
 for the step-by-step.
 
 ## Browse the catalog
 
-→ [skillshelf-ten.vercel.app](https://skillshelf-ten.vercel.app)
+→ [skillme.dev](https://skillme.dev)
 
 ## How it works
 
@@ -81,20 +81,36 @@ Requires `ANTHROPIC_API_KEY` and Supabase credentials in `.env.local`
 (`GITHUB_TOKEN` is optional but raises GitHub rate limits). Skills the
 classifier flags as unsafe are skipped, not stored.
 
-### Enable GitHub sign-in (optional)
+### Enable sign-in
 
-Web sign-in and the star-rating UI use Supabase Auth with GitHub. It degrades
-gracefully when not configured (the Sign in button and ratings simply hide).
+Web sign-in (the `/login` page) and the star-rating UI use Supabase Auth. The
+primary path is a **passwordless email magic link**; **GitHub** is offered as a
+second option. Auth degrades gracefully when not configured (the Sign in button
+and ratings simply hide).
+
+**Required for either method — allowlist the redirect URLs.** In **Supabase →
+Authentication → URL Configuration**:
+
+- Set **Site URL** to your production origin (e.g. `https://skillme.dev`).
+- Add these to **Redirect URLs** (one per environment you use):
+  - `https://<your-domain>/auth/callback`
+  - `http://localhost:3000/auth/callback` (local dev)
+
+**Email magic link (works out of the box):** enabled by default in Supabase.
+The built-in email sender is rate-limited (a few messages/hour) and is fine for
+testing. **For production, configure custom SMTP** in **Authentication → Emails →
+SMTP Settings** (e.g. Resend, Postmark, SES) so links actually deliver at volume.
+
+**GitHub (optional second option):**
 
 1. Create a **GitHub OAuth App** (Settings → Developer settings → OAuth Apps).
    - Authorization callback URL: `https://<your-project-ref>.supabase.co/auth/v1/callback`
 2. In **Supabase → Authentication → Providers → GitHub**, paste the client ID
    and secret and enable it.
-3. Add your site URL and `…/auth/callback` to **Authentication → URL
-   Configuration → Redirect URLs**.
 
-The app exchanges the OAuth code at `/auth/callback` and refreshes the session
-via `middleware.ts`.
+The app verifies the magic-link / OAuth code at `/auth/callback` (handling both
+PKCE `code` and OTP `token_hash`) and refreshes the session via `middleware.ts`.
+Failed sign-ins bounce back to `/login?error=…` with a friendly message.
 
 ### Environment variables
 
@@ -119,11 +135,11 @@ dashboard (Settings → Environment Variables):
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase anon/public key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Your Supabase service role key |
 | `ANTHROPIC_API_KEY` | Your Anthropic API key (for ingest script) |
-| `NEXT_PUBLIC_MCP_URL` | `https://YOUR-DEPLOYMENT.vercel.app/api/mcp` |
-| `NEXT_PUBLIC_SITE_URL` | `https://YOUR-DEPLOYMENT.vercel.app` |
+| `NEXT_PUBLIC_MCP_URL` | `https://skillme.dev/api/mcp` |
+| `NEXT_PUBLIC_SITE_URL` | `https://skillme.dev` |
 
-> Once you have a custom domain, update `NEXT_PUBLIC_MCP_URL` and `NEXT_PUBLIC_SITE_URL`
-> to the custom domain and redeploy.
+> These should match the production custom domain (`skillme.dev`). If you deploy a
+> fork to a different domain, update both and redeploy.
 
 ## Database setup (run once per new Supabase project)
 
@@ -147,9 +163,9 @@ dashboard (Settings → Environment Variables):
 vercel deploy
 ```
 
-The app is live at [`skillshelf-ten.vercel.app`](https://skillshelf-ten.vercel.app)
+The app is live at [`skillme.dev`](https://skillme.dev)
 (the MCP route lives at `/api/mcp`). Set the environment variables in your Vercel
-project. To serve it from a custom domain, attach the domain in Vercel and update
+project. To serve a fork from a different domain, attach the domain in Vercel and update
 `NEXT_PUBLIC_MCP_URL` / `NEXT_PUBLIC_SITE_URL` to match, then redeploy.
 
 ## Contributing

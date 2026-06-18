@@ -1,10 +1,26 @@
 import { NextRequest } from 'next/server'
 import { getServiceSupabase } from '@/lib/supabase'
+import { checkRateLimit } from '@/lib/mcp/rateLimit'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
+function clientIp(req: NextRequest): string {
+  const fwd = req.headers.get('x-forwarded-for')
+  if (fwd) return fwd.split(',')[0].trim()
+  return req.headers.get('x-real-ip') ?? 'unknown'
+}
+
 export async function POST(req: NextRequest) {
+  // Per-IP rate limit to deter signup spam (10/min, shared limiter).
+  const rate = checkRateLimit(`waitlist:${clientIp(req)}`)
+  if (!rate.ok) {
+    return Response.json(
+      { error: `Too many requests. Try again in ${rate.retryAfter}s.` },
+      { status: 429 }
+    )
+  }
+
   let body: { email?: string }
   try {
     body = await req.json()

@@ -64,7 +64,11 @@ export function SkillThumbnail({ skill, size = 'card' }: Props) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Static image — always rendered as base layer */}
+      {/* Static image — always rendered as base layer.
+          Intentionally a plain <img>: thumbnails are remote, cross-opacity
+          hover-swapped with the GIF/video layers, and not LCP-critical.
+          next/image's layout/optimization gets in the way here. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       {hasStatic && (
         <img
           src={skill.thumbnail_url!}
