@@ -13,16 +13,16 @@ MCP once and your installed skills load automatically in every future session.
 ## Connect in 30 seconds
 
 1. Go to **claude.ai → Settings → Integrations**
-2. Add the MCP URL: `https://api.skillshelf.io/mcp`
+2. Add the MCP URL: `https://skillshelf-ten.vercel.app/api/mcp`
 3. Say **"show me skills"** in any conversation
 
 Skills you install activate automatically in your next session, across every
-conversation. See [the connect guide](https://skillshelf.io/connect) for the
-step-by-step.
+conversation. See [the connect guide](https://skillshelf-ten.vercel.app/connect)
+for the step-by-step.
 
 ## Browse the catalog
 
-→ [skillshelf.io](https://skillshelf.io)
+→ [skillshelf-ten.vercel.app](https://skillshelf-ten.vercel.app)
 
 ## How it works
 
@@ -129,8 +129,9 @@ dashboard (Settings → Environment Variables):
 
 1. Go to your Supabase project → SQL Editor
 2. Paste and run the contents of `supabase/schema.sql`
-3. Run `npm run db:seed` to populate the launch skill catalog
-4. Verify in Supabase Table Editor that the `skills` table has rows
+3. Run `npm run db:seed` to populate the skill catalog, then
+   `npm run db:seed-packs` to populate the curated packs
+4. Verify in Supabase Table Editor that the `skills` and `packs` tables have rows
 
 ## Tech stack
 
@@ -146,8 +147,10 @@ dashboard (Settings → Environment Variables):
 vercel deploy
 ```
 
-Point `api.skillshelf.io` at the deployment (the MCP route lives at
-`/api/mcp`) and set the environment variables in your Vercel project.
+The app is live at [`skillshelf-ten.vercel.app`](https://skillshelf-ten.vercel.app)
+(the MCP route lives at `/api/mcp`). Set the environment variables in your Vercel
+project. To serve it from a custom domain, attach the domain in Vercel and update
+`NEXT_PUBLIC_MCP_URL` / `NEXT_PUBLIC_SITE_URL` to match, then redeploy.
 
 ## Contributing
 
