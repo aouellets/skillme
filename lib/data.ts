@@ -2,6 +2,7 @@ import 'server-only'
 import { getSupabase } from './supabase'
 import { SEED_SKILLS, type SeedSkill } from './seed-data'
 import { resolveSourceUrl } from './skill-source'
+import { sanitizeSearchTerm } from './search'
 import type { Skill, SkillCategory } from './types'
 
 export type SortOption = 'trending' | 'newest' | 'top_rated' | 'hot'
@@ -108,8 +109,8 @@ export async function getSkills(opts: SkillQuery = {}): Promise<SkillPage> {
 
   if (featured) builder = builder.eq('featured', true)
   if (category) builder = builder.eq('category', category)
-  if (query && query.trim()) {
-    const q = query.trim()
+  const q = sanitizeSearchTerm(query)
+  if (q) {
     builder = builder.or(`name.ilike.%${q}%,description.ilike.%${q}%`)
   }
 

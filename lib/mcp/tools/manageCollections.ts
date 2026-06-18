@@ -6,7 +6,8 @@ import {
   setCollectionPublic,
   deleteCollection,
 } from '../../collections'
-import { text, type Tool } from '../types'
+import { text, requireToken, type Tool } from '../types'
+import { checkRateLimit } from '../rateLimit'
 import { SITE_URL } from '../../site'
 
 interface CollectionArgs {
@@ -44,9 +45,20 @@ export const manageCollections: Tool<CollectionArgs> = {
   async handler(args, ctx) {
     const siteUrl = SITE_URL
 
+    const auth = requireToken(ctx)
+    if ('error' in auth) return auth.error
+
+    // Mutating actions are rate-limited; listing is a cheap read.
+    if (args.action !== 'list') {
+      const limit = checkRateLimit(auth.token)
+      if (!limit.ok) {
+        return text(`Rate limit reached. Try again in ${limit.retryAfter}s.`, true)
+      }
+    }
+
     switch (args.action) {
       case 'list': {
-        const collections = await getUserCollections(ctx.userToken)
+        const collections = await getUserCollections(auth.token)
         if (collections.length === 0) {
           return text('You have no collections yet. Say "create a collection called My Stack" to make one.')
         }
@@ -60,7 +72,7 @@ export const manageCollections: Tool<CollectionArgs> = {
         if (!args.collection_name?.trim()) {
           return text('A collection name is required.', true)
         }
-        const collection = await createCollection(ctx.userToken, args.collection_name.trim(), args.collection_description)
+        const collection = await createCollection(auth.token, args.collection_name.trim(), args.collection_description)
         if (!collection) return text('Could not create the collection.', true)
         return text(
           `Created collection "${collection.name}".\n\nCollection id: ${collection.id}\n\nAdd skills with: add_skill action and the skill_id from browse_skills.`
@@ -70,7 +82,7 @@ export const manageCollections: Tool<CollectionArgs> = {
       case 'add_skill': {
         if (!args.collection_id) return text('A collection_id is required.', true)
         if (!args.skill_id) return text('A skill_id is required.', true)
-        const ok = await addSkillToCollection(args.collection_id, args.skill_id, ctx.userToken)
+        const ok = await addSkillToCollection(args.collection_id, args.skill_id, auth.token)
         return ok
           ? text('Skill added to collection.')
           : text('Could not add the skill. Check the collection_id belongs to you.', true)
@@ -79,14 +91,14 @@ export const manageCollections: Tool<CollectionArgs> = {
       case 'remove_skill': {
         if (!args.collection_id) return text('A collection_id is required.', true)
         if (!args.skill_id) return text('A skill_id is required.', true)
-        const ok = await removeSkillFromCollection(args.collection_id, args.skill_id, ctx.userToken)
+        const ok = await removeSkillFromCollection(args.collection_id, args.skill_id, auth.token)
         return ok ? text('Skill removed from collection.') : text('Could not remove the skill.', true)
       }
 
       case 'share': {
         if (!args.collection_id) return text('A collection_id is required.', true)
         const isPublic = args.public !== false // default to true for share action
-        const shareToken = await setCollectionPublic(args.collection_id, ctx.userToken, isPublic)
+        const shareToken = await setCollectionPublic(args.collection_id, auth.token, isPublic)
         if (!shareToken) return text('Could not update the collection.', true)
         if (!isPublic) return text('Collection is now private.')
         return text(
@@ -96,7 +108,7 @@ export const manageCollections: Tool<CollectionArgs> = {
 
       case 'delete': {
         if (!args.collection_id) return text('A collection_id is required.', true)
-        const ok = await deleteCollection(args.collection_id, ctx.userToken)
+        const ok = await deleteCollection(args.collection_id, auth.token)
         return ok ? text('Collection deleted.') : text('Could not delete the collection.', true)
       }
 

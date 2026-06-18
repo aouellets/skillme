@@ -1,6 +1,6 @@
 import { getServiceSupabase } from '../../supabase'
 import { checkRateLimit } from '../rateLimit'
-import { text, type Tool } from '../types'
+import { text, requireToken, type Tool } from '../types'
 
 interface InstallPackArgs {
   pack_id?: string
@@ -25,7 +25,10 @@ export const installPack: Tool<InstallPackArgs> = {
       return text('A pack_id is required. Call browse_packs first to find one.', true)
     }
 
-    const limit = checkRateLimit(ctx.userToken)
+    const auth = requireToken(ctx)
+    if ('error' in auth) return auth.error
+
+    const limit = checkRateLimit(auth.token)
     if (!limit.ok) {
       return text(`Rate limit reached. Try again in ${limit.retryAfter}s.`, true)
     }
@@ -62,7 +65,7 @@ export const installPack: Tool<InstallPackArgs> = {
 
     // Upsert all skills as installed
     const installs = skillIds.map((skill_id) => ({
-      user_token: ctx.userToken,
+      user_token: auth.token,
       skill_id,
       active: true,
       updated_at: new Date().toISOString(),
@@ -73,12 +76,13 @@ export const installPack: Tool<InstallPackArgs> = {
       .upsert(installs, { onConflict: 'user_token,skill_id' })
 
     if (upsertError) {
-      return text(`Could not install pack: ${upsertError.message}`, true)
+      console.error('install_pack upsert failed:', upsertError.message)
+      return text('Could not install the pack right now. Please try again.', true)
     }
 
     // Record pack install
     await supabase.from('user_pack_installs').upsert(
-      { user_token: ctx.userToken, pack_id: packData.id },
+      { user_token: auth.token, pack_id: packData.id },
       { onConflict: 'user_token,pack_id' }
     )
 

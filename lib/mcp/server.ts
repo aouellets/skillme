@@ -68,7 +68,11 @@ function error(
   return { jsonrpc: '2.0', id: id ?? null, error: { code, message } }
 }
 
-export function createMCPServer(userToken: string) {
+// Cap fan-out on JSON-RPC batches so a single request can't enqueue an
+// unbounded amount of work.
+const MAX_BATCH_SIZE = 50
+
+export function createMCPServer(userToken: string | null) {
   const ctx: ToolContext = { userToken }
 
   async function handleOne(
@@ -141,6 +145,9 @@ export function createMCPServer(userToken: string) {
     body: JsonRpcRequest | JsonRpcRequest[]
   ): Promise<JsonRpcResponse | JsonRpcResponse[] | null> {
     if (Array.isArray(body)) {
+      if (body.length > MAX_BATCH_SIZE) {
+        return error(null, -32600, `Batch too large: max ${MAX_BATCH_SIZE} requests`)
+      }
       const responses = await Promise.all(body.map(handleOne))
       const filtered = responses.filter((r): r is JsonRpcResponse => r !== null)
       return filtered.length > 0 ? filtered : null

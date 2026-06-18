@@ -1,6 +1,7 @@
 import 'server-only'
 import { getSupabase } from './supabase'
 import { PACK_DEFINITIONS } from './pack-definitions'
+import { sanitizeSearchTerm } from './search'
 import type { Pack, PackCategory } from './types'
 
 export interface PackQuery {
@@ -54,9 +55,10 @@ export async function getPacks(opts: PackQuery = {}): Promise<PackPage> {
 
   if (category) builder = builder.eq('category', category)
   if (featured) builder = builder.eq('featured', true)
-  if (query?.trim()) {
+  const q = sanitizeSearchTerm(query)
+  if (q) {
     builder = builder.or(
-      `name.ilike.%${query.trim()}%,tagline.ilike.%${query.trim()}%,description.ilike.%${query.trim()}%`
+      `name.ilike.%${q}%,tagline.ilike.%${q}%,description.ilike.%${q}%`
     )
   }
 

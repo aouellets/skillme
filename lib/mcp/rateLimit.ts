@@ -1,7 +1,14 @@
 /**
- * In-memory sliding-window rate limiter for installs: 10 per minute per user
- * token. This is best-effort and per-instance — adequate for the POC. For
- * multi-region production, back this with Redis or Supabase.
+ * In-memory sliding-window rate limiter for state-changing MCP tools (install,
+ * install_pack, rate, manage_collection): 10 actions per minute per user token.
+ *
+ * Best-effort and per-instance — adequate for the POC. KNOWN LIMITATIONS for
+ * production (tracked as follow-up): (1) on serverless this resets per cold
+ * start and is not shared across instances; (2) it is keyed on the caller's
+ * bearer token, which is currently client-chosen, so a determined abuser can
+ * rotate tokens to bypass it (rating/install-count ballot-stuffing). Both are
+ * fully closed only by binding rate limits to an authenticated identity + IP
+ * and backing this with a shared store (Redis or a Supabase table).
  */
 const WINDOW_MS = 60_000
 const MAX_PER_WINDOW = 10

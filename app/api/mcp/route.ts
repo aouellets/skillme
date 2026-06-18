@@ -4,6 +4,16 @@ import { createMCPServer } from '@/lib/mcp/server'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
+// Reject oversized payloads before parsing — a cheap guard against memory-abuse
+// / amplification via huge JSON bodies or batches. 256 KB is generous for
+// JSON-RPC tool calls.
+const MAX_BODY_BYTES = 256 * 1024
+
+// NOTE: Access-Control-Allow-Origin is intentionally `*`. The endpoint carries
+// no ambient/cookie credentials — identity is a bearer token in X-User-Token /
+// Mcp-Session-Id over the caller's own TLS connection — so a wildcard origin
+// does not enable a CSRF-style cross-site authenticated request. Revisit this
+// if identity ever moves to cookies.
 const CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
@@ -13,21 +23,37 @@ const CORS_HEADERS: Record<string, string> = {
 }
 
 /**
- * Derive a stable per-user token. claude.ai connectors persist headers across a
- * connection, so installs stay tied to the same user. Falls back to a generated
- * UUID when no identifying header is present.
+ * Derive a stable per-user token from the bearer-style headers claude.ai
+ * connectors persist across a connection. Returns null when the caller has not
+ * presented one yet (e.g. a brand-new connection's first `initialize`): we no
+ * longer mint a throwaway per-request UUID as identity, because that silently
+ * created an unauthenticated, uncorrelated identity for state-changing calls.
+ * State-changing tools require a non-null token (enforced per-tool); the
+ * response advertises a session id the client reuses on subsequent requests.
  */
-function getUserToken(req: NextRequest): string {
+function getUserToken(req: NextRequest): string | null {
   return (
     req.headers.get('x-user-token') ??
     req.headers.get('x-session-id') ??
     req.headers.get('mcp-session-id') ??
-    crypto.randomUUID()
+    null
   )
 }
 
 export async function POST(req: NextRequest) {
   const userToken = getUserToken(req)
+
+  const contentLength = Number(req.headers.get('content-length') ?? 0)
+  if (contentLength > MAX_BODY_BYTES) {
+    return Response.json(
+      {
+        jsonrpc: '2.0',
+        id: null,
+        error: { code: -32600, message: 'Request body too large' },
+      },
+      { status: 413, headers: CORS_HEADERS }
+    )
+  }
 
   let body: unknown
   try {
@@ -44,7 +70,12 @@ export async function POST(req: NextRequest) {
   }
 
   const method = Array.isArray(body) ? 'batch' : (body as { method?: string })?.method ?? 'unknown'
-  console.log(`[MCP] ${method} — token: ${userToken.slice(0, 8)}…`)
+  // Do not log the user token: it is a bearer credential for the user's library.
+  console.log(`[MCP] ${method}`)
+
+  // Advertise a session id the client should send back on later requests. Echo
+  // the caller's existing token, or assign a fresh one for new connections.
+  const sessionId = userToken ?? crypto.randomUUID()
 
   try {
     const server = createMCPServer(userToken)
@@ -52,20 +83,23 @@ export async function POST(req: NextRequest) {
 
     // Notifications produce no response body.
     if (response === null) {
-      return new Response(null, { status: 202, headers: CORS_HEADERS })
+      return new Response(null, {
+        status: 202,
+        headers: { ...CORS_HEADERS, 'Mcp-Session-Id': sessionId },
+      })
     }
 
     return Response.json(response, {
-      headers: { ...CORS_HEADERS, 'Mcp-Session-Id': userToken },
+      headers: { ...CORS_HEADERS, 'Mcp-Session-Id': sessionId },
     })
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'Internal server error'
+    // Log the detail server-side; never leak internal error text to the client.
     console.error('[MCP] Unhandled error:', err)
     return Response.json(
       {
         jsonrpc: '2.0',
         id: null,
-        error: { code: -32603, message: `Internal error: ${message}` },
+        error: { code: -32603, message: 'Internal server error' },
       },
       { status: 500, headers: CORS_HEADERS }
     )

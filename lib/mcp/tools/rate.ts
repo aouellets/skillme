@@ -1,5 +1,6 @@
 import { getServiceSupabase } from '../../supabase'
-import { text, type Tool } from '../types'
+import { checkRateLimit } from '../rateLimit'
+import { text, requireToken, type Tool } from '../types'
 
 interface RateArgs {
   skill_id?: string
@@ -37,6 +38,14 @@ export const rateSkill: Tool<RateArgs> = {
       return text('Rating must be a whole number from 1 to 5.', true)
     }
 
+    const auth = requireToken(ctx)
+    if ('error' in auth) return auth.error
+
+    const limit = checkRateLimit(auth.token)
+    if (!limit.ok) {
+      return text(`Rate limit reached. Try again in ${limit.retryAfter}s.`, true)
+    }
+
     const supabase = getServiceSupabase()
     if (!supabase) {
       return text(
@@ -61,7 +70,7 @@ export const rateSkill: Tool<RateArgs> = {
     // Record the rating on the user's install row (creating it if needed).
     const { error: upsertError } = await supabase.from('user_installs').upsert(
       {
-        user_token: ctx.userToken,
+        user_token: auth.token,
         skill_id: skill.id,
         rating,
         updated_at: new Date().toISOString(),
@@ -70,7 +79,8 @@ export const rateSkill: Tool<RateArgs> = {
     )
 
     if (upsertError) {
-      return text(`Could not save your rating: ${upsertError.message}`, true)
+      console.error('rate_skill upsert failed:', upsertError.message)
+      return text('Could not save your rating right now. Please try again.', true)
     }
 
     // Fold the rating into the public average. Best-effort; never block on it.

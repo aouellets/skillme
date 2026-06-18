@@ -19,7 +19,7 @@ export const getActiveSkills: Tool = {
   },
   async handler(_args, ctx) {
     const supabase = getServiceSupabase()
-    if (!supabase) {
+    if (!supabase || !ctx.userToken) {
       return json({
         installed: [],
         message: 'Skill Me is connected. Say "browse skills" to explore the catalog.',

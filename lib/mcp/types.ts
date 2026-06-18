@@ -1,7 +1,31 @@
 import type { MCPToolResult } from '../types'
 
 export interface ToolContext {
-  userToken: string
+  /**
+   * The caller's bearer identity, or null when no identifying header was
+   * presented. Read-only catalog tools ignore it; user-scoped tools must
+   * reject a null token (use `requireToken`).
+   */
+  userToken: string | null
+}
+
+/**
+ * Guard for user-scoped tools: returns the token when present, or a ready-to-
+ * return error result when the caller is unidentified. Keeps state-changing
+ * tools from operating on a missing/anonymous identity.
+ */
+export function requireToken(
+  ctx: ToolContext
+): { token: string } | { error: MCPToolResult } {
+  if (!ctx.userToken) {
+    return {
+      error: text(
+        'This action needs an active Skill Me connection. Reconnect the Skill Me connector and try again.',
+        true
+      ),
+    }
+  }
+  return { token: ctx.userToken }
 }
 
 /**

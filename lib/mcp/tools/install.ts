@@ -1,6 +1,6 @@
 import { getServiceSupabase } from '../../supabase'
 import { checkRateLimit } from '../rateLimit'
-import { text, type Tool } from '../types'
+import { text, requireToken, type Tool } from '../types'
 
 interface InstallArgs {
   skill_id?: string
@@ -28,7 +28,10 @@ export const installSkill: Tool<InstallArgs> = {
       return text('A skill_id is required. Call browse_skills first to find one.', true)
     }
 
-    const limit = checkRateLimit(ctx.userToken)
+    const auth = requireToken(ctx)
+    if ('error' in auth) return auth.error
+
+    const limit = checkRateLimit(auth.token)
     if (!limit.ok) {
       return text(
         `Rate limit reached (10 installs per minute). Try again in ${limit.retryAfter}s.`,
@@ -59,7 +62,7 @@ export const installSkill: Tool<InstallArgs> = {
 
     const { error: upsertError } = await supabase.from('user_installs').upsert(
       {
-        user_token: ctx.userToken,
+        user_token: auth.token,
         skill_id: skill.id,
         active: true,
         updated_at: new Date().toISOString(),
@@ -68,7 +71,8 @@ export const installSkill: Tool<InstallArgs> = {
     )
 
     if (upsertError) {
-      return text(`Could not install the skill: ${upsertError.message}`, true)
+      console.error('install_skill upsert failed:', upsertError.message)
+      return text('Could not install the skill right now. Please try again.', true)
     }
 
     // Best-effort install counter; never block the install on it.

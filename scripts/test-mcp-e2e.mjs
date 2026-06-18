@@ -12,11 +12,21 @@ const log = (ok, name, detail = '') => {
 }
 
 let idc = 0
-async function rpc(method, params) {
+async function rpc(method, params, headers = {}) {
   const res = await fetch(URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'X-User-Token': TOKEN },
+    headers: { 'Content-Type': 'application/json', 'X-User-Token': TOKEN, ...headers },
     body: JSON.stringify({ jsonrpc: '2.0', id: ++idc, method, params }),
+  })
+  return { status: res.status, body: await res.json().catch(() => null) }
+}
+
+// Raw POST helper for security cases that need control over headers/body.
+async function rawPost(body, headers = {}) {
+  const res = await fetch(URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...headers },
+    body: typeof body === 'string' ? body : JSON.stringify(body),
   })
   return { status: res.status, body: await res.json().catch(() => null) }
 }
@@ -105,6 +115,47 @@ if (firstPackId) {
 if (firstSkillId) {
   const r = await callTool('uninstall_skill', { skill_id: firstSkillId })
   log(!isError(r), 'uninstall_skill (cleanup)', textOf(r).slice(0, 80))
+}
+
+// ---- Security regression checks --------------------------------------------
+
+// 11. PostgREST filter-injection payload in browse_skills.query must be handled
+//     safely (no 500, no leaked internals) — the term is sanitised to a literal.
+{
+  const r = await callTool('browse_skills', {
+    query: 'x,verified.eq.true),id.not.is.null(',
+    limit: 5,
+  })
+  const t = textOf(r)
+  const handled =
+    r.status === 200 && !isError(r) && /Found \d+ skill|No skills found/.test(t)
+  log(handled, 'browse_skills neutralises filter-injection payload', t.split('\n')[0].slice(0, 80))
+}
+
+// 12. State-changing tools must reject an unidentified caller (no token header).
+{
+  const r = await rawPost(
+    { jsonrpc: '2.0', id: 1001, method: 'tools/call', params: { name: 'install_skill', arguments: { skill_id: firstSkillId ?? 'skillshelf' } } },
+    {} // no X-User-Token / session headers
+  )
+  const t = r.body?.result?.content?.map((c) => c.text).join('\n') ?? ''
+  const rejected = r.body?.result?.isError === true && /active Skill Me connection/i.test(t)
+  log(rejected, 'install_skill rejects unidentified caller', t.slice(0, 70))
+}
+
+// 13. Internal errors must not leak raw messages to the client.
+{
+  const r = await rpc('definitely/not/a/method')
+  const msg = r.body?.error?.message ?? ''
+  log(/method not found/i.test(msg), 'unknown method returns clean JSON-RPC error', msg.slice(0, 60))
+}
+
+// 14. Oversized JSON-RPC batches are rejected.
+{
+  const big = Array.from({ length: 60 }, (_, i) => ({ jsonrpc: '2.0', id: i, method: 'ping' }))
+  const r = await rawPost(big, { 'X-User-Token': TOKEN })
+  const rejected = r.body?.error?.code === -32600 && /batch too large/i.test(r.body?.error?.message ?? '')
+  log(rejected, 'oversized batch rejected', r.body?.error?.message ?? `code ${r.body?.error?.code}`)
 }
 
 console.log(`\n${pass} passed, ${fail} failed  (test token: ${TOKEN})`)

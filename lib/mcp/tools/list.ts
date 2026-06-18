@@ -27,6 +27,12 @@ export const listInstalled: Tool = {
       )
     }
 
+    if (!ctx.userToken) {
+      return text(
+        'You have no skills installed yet. Say "browse skills" to explore the catalog.'
+      )
+    }
+
     const { data, error } = await supabase
       .from('user_installs')
       .select('installed_at, skills(name, category)')
