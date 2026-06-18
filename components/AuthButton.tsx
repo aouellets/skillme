@@ -1,11 +1,14 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import type { User } from '@supabase/supabase-js'
 import { getSupabaseBrowserClient } from '@/lib/supabase/client'
 
 export function AuthButton() {
   const supabase = getSupabaseBrowserClient()
+  const pathname = usePathname()
   const [user, setUser] = useState<User | null>(null)
   const [ready, setReady] = useState(false)
 
@@ -27,14 +30,6 @@ export function AuthButton() {
   // Auth not configured — hide the control entirely.
   if (!supabase || !ready) return null
 
-  async function signIn() {
-    if (!supabase) return
-    await supabase.auth.signInWithOAuth({
-      provider: 'github',
-      options: { redirectTo: `${window.location.origin}/auth/callback` },
-    })
-  }
-
   async function signOut() {
     if (!supabase) return
     await supabase.auth.signOut()
@@ -42,10 +37,11 @@ export function AuthButton() {
   }
 
   if (!user) {
+    const next = pathname && pathname !== '/login' ? `?next=${encodeURIComponent(pathname)}` : ''
     return (
-      <button onClick={signIn} className="btn btn-ghost" aria-label="Sign in with GitHub">
+      <Link href={`/login${next}`} className="btn btn-ghost" aria-label="Sign in">
         Sign in
-      </button>
+      </Link>
     )
   }
 
