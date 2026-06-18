@@ -11,6 +11,7 @@ interface BrowsePacksArgs {
 export const browsePacks: Tool<BrowsePacksArgs> = {
   definition: {
     name: 'browse_packs',
+    annotations: { title: 'Browse packs', readOnlyHint: true },
     description:
       'Browse curated skill packs — themed bundles of multiple skills that install together. Use when the user wants a set of related skills for a specific role or workflow (e.g. "marketing skills", "startup pack", "engineering workflow").',
     inputSchema: {

@@ -4,9 +4,22 @@ export interface ToolContext {
   userToken: string
 }
 
+/**
+ * MCP tool annotations (spec 2025-11-25). Behaviour hints clients surface in
+ * their UI; required by the Claude connector directory. Hints are advisory.
+ */
+export interface ToolAnnotations {
+  title?: string
+  readOnlyHint?: boolean
+  destructiveHint?: boolean
+  idempotentHint?: boolean
+  openWorldHint?: boolean
+}
+
 export interface ToolDefinition {
   name: string
   description: string
+  annotations?: ToolAnnotations
   inputSchema: {
     type: 'object'
     properties: Record<string, unknown>

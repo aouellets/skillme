@@ -3,7 +3,7 @@ import { Space_Grotesk } from 'next/font/google'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import Link from 'next/link'
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/next'
 import { SITE_URL } from '@/lib/site'
 import { AuthButton } from '@/components/AuthButton'
 import { Wordmark } from '@/components/Logo'
@@ -124,6 +124,9 @@ function Footer() {
             </Link>
             <Link href="/skill-media-guide" className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary">
               Media guide
+            </Link>
+            <Link href="/privacy" className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary">
+              Privacy
             </Link>
             <a
               href="https://github.com/aouellets/skillshelf"

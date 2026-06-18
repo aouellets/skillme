@@ -9,6 +9,7 @@ interface RateArgs {
 export const rateSkill: Tool<RateArgs> = {
   definition: {
     name: 'rate_skill',
+    annotations: { title: 'Rate skill', readOnlyHint: false, destructiveHint: false, idempotentHint: true },
     description:
       'Rate a skill from 1 to 5 stars. The rating is recorded against the user and folded into the skill\'s public average.',
     inputSchema: {

@@ -21,6 +21,7 @@ interface CollectionArgs {
 export const manageCollections: Tool<CollectionArgs> = {
   definition: {
     name: 'manage_collection',
+    annotations: { title: 'Manage collection', readOnlyHint: false, destructiveHint: false },
     description:
       "Manage the user's personal skill collections — named shelves of hand-picked skills. Actions: list (show all collections), create (new collection), add_skill (add a skill to a collection), remove_skill (remove a skill), share (make a collection public and get a shareable link), delete (remove a collection).",
     inputSchema: {

@@ -9,6 +9,7 @@ type ActiveRow = {
 export const getActiveSkills: Tool = {
   definition: {
     name: 'get_active_skills',
+    annotations: { title: 'Load installed skills', readOnlyHint: true },
     description:
       'ALWAYS call this at the start of every conversation. Returns the full content of all skills the user has installed, so they activate in this session. If no skills are installed, returns empty and suggests browsing the catalog.',
     inputSchema: {

@@ -9,6 +9,7 @@ interface InstallPackArgs {
 export const installPack: Tool<InstallPackArgs> = {
   definition: {
     name: 'install_pack',
+    annotations: { title: 'Install pack', readOnlyHint: false, destructiveHint: false, idempotentHint: true },
     description:
       'Install a skill pack — installs all skills in the pack at once. Returns the list of installed skills. Use after browse_packs to install a pack by its pack_id.',
     inputSchema: {

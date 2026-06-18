@@ -38,7 +38,8 @@ export default async function LibraryPage() {
       <Shell>
         <EmptyCard
           title="Sign in to see your library"
-          body="Use the Sign in button in the top bar to connect your GitHub account and view the skills you've installed and rated here."
+          body="Sign in with your email or GitHub to view the skills you've installed and rated here."
+          signIn
         />
       </Shell>
     )
@@ -96,11 +97,26 @@ function Shell({ children }: { children: React.ReactNode }) {
   )
 }
 
-function EmptyCard({ title, body, cta }: { title: string; body: string; cta?: boolean }) {
+function EmptyCard({
+  title,
+  body,
+  cta,
+  signIn,
+}: {
+  title: string
+  body: string
+  cta?: boolean
+  signIn?: boolean
+}) {
   return (
     <div className="card p-10 text-center">
       <p className="text-shelf-text-primary">{title}</p>
       <p className="mx-auto mt-1 max-w-md text-sm text-shelf-text-secondary">{body}</p>
+      {signIn && (
+        <Link href="/login?next=/library" className="btn btn-primary mt-5">
+          Sign in →
+        </Link>
+      )}
       {cta && (
         <Link href="/browse" className="btn btn-secondary mt-5">
           Browse skills →

@@ -12,6 +12,7 @@ interface BrowseArgs {
 export const browseSkills: Tool<BrowseArgs> = {
   definition: {
     name: 'browse_skills',
+    annotations: { title: 'Browse skills', readOnlyHint: true },
     description:
       'Browse and search the Skill Me catalog. Returns skills matching the query with name, description, category, install count, and skill_id. Use this when the user wants to discover, find, or explore Claude skills.',
     inputSchema: {

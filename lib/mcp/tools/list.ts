@@ -10,6 +10,7 @@ type InstallRow = {
 export const listInstalled: Tool = {
   definition: {
     name: 'list_installed',
+    annotations: { title: 'List installed skills', readOnlyHint: true },
     description:
       'Show the user what skills they currently have installed, with install date and category.',
     inputSchema: {

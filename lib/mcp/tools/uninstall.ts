@@ -8,6 +8,7 @@ interface UninstallArgs {
 export const uninstallSkill: Tool<UninstallArgs> = {
   definition: {
     name: 'uninstall_skill',
+    annotations: { title: 'Uninstall skill', readOnlyHint: false, destructiveHint: true, idempotentHint: true },
     description:
       'Remove an installed skill so it no longer activates in Claude sessions.',
     inputSchema: {
