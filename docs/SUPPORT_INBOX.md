@@ -19,13 +19,13 @@ the same inbox, or a separate one) before submitting.
 >
 > A few things that might help right now:
 >
-> - **Connect / setup:** https://skillshelf-ten.vercel.app/connect
-> - **Browse the catalog:** https://skillshelf-ten.vercel.app
+> - **Connect / setup:** https://skillme.dev/connect
+> - **Browse the catalog:** https://skillme.dev
 > - **Report a bug:** https://github.com/aouellets/skillshelf/issues
 > - **Security issue?** Email security@skillshelf.ai (please don't post security
 >   reports publicly).
 > - **Privacy / delete my data:** reply to this email with "data deletion" and
->   the request will be handled — see https://skillshelf-ten.vercel.app/privacy.
+>   the request will be handled — see https://skillme.dev/privacy.
 >
 > — The Skill Me team
 
@@ -41,11 +41,11 @@ Short, on-brand templates for the common cases.
 ### "How do I connect Skill Me to Claude?"
 
 > 1. In Claude, go to **Settings → Connectors → Add custom connector**.
-> 2. Paste the MCP URL: `https://skillshelf-ten.vercel.app/api/mcp`
+> 2. Paste the MCP URL: `https://skillme.dev/api/mcp`
 > 3. Say **"show me skills"** in any conversation.
 >
 > Skills you install activate automatically in your next session. Full guide:
-> https://skillshelf-ten.vercel.app/connect
+> https://skillme.dev/connect
 
 ### "How do I submit a skill?"
 
@@ -60,7 +60,7 @@ Short, on-brand templates for the common cases.
 > Skill Me has no login. We store only the skills and packs you install, your
 > ratings, and any collections you create — tied to your connection, not to your
 > identity. We never read your conversations, Claude memory, or uploaded files.
-> Full details: https://skillshelf-ten.vercel.app/privacy
+> Full details: https://skillme.dev/privacy
 
 ### "Delete my data" (GDPR/CCPA-style request)
 

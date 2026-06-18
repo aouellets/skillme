@@ -23,8 +23,8 @@ through remediation. We'll credit you on request once a fix ships.
 ## Scope
 
 **In scope**
-- The MCP server: `https://skillshelf-ten.vercel.app/api/mcp`
-- The web catalog and its API routes (`skillshelf-ten.vercel.app`)
+- The MCP server: `https://skillme.dev/api/mcp`
+- The web catalog and its API routes (`skillme.dev`)
 - Authentication/identity handling, install/library data isolation between users
 - This repository's source code
 
@@ -61,7 +61,7 @@ branches to patch.
 ## Data & privacy
 
 How we handle user data is described in our
-[Privacy Policy](https://skillshelf-ten.vercel.app/privacy): no login, no access
+[Privacy Policy](https://skillme.dev/privacy): no login, no access
 to your conversations/memory/files, and we store only the skills, ratings, and
 collections you choose to create.
 
