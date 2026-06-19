@@ -1,5 +1,7 @@
 import { NextRequest } from 'next/server'
 import { createMCPServer } from '@/lib/mcp/server'
+import { verifyAccessToken } from '@/lib/mcp/oauth'
+import { SITE_URL } from '@/lib/site'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -19,29 +21,63 @@ const CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
   'Access-Control-Allow-Headers':
     'Content-Type, Authorization, X-User-Token, x-session-id, Mcp-Session-Id, MCP-Protocol-Version',
-  'Access-Control-Expose-Headers': 'Mcp-Session-Id',
+  'Access-Control-Expose-Headers': 'Mcp-Session-Id, WWW-Authenticate',
 }
 
+// Point unauthenticated/invalid callers at the protected-resource metadata so
+// the client can run the OAuth flow (RFC 9728 §5.1).
+const WWW_AUTHENTICATE = `Bearer resource_metadata="${SITE_URL}/.well-known/oauth-protected-resource"`
+
+type TokenResolution =
+  | { kind: 'ok'; token: string | null }
+  | { kind: 'invalid' }
+
 /**
- * Derive a stable per-user token from the bearer-style headers claude.ai
- * connectors persist across a connection. Returns null when the caller has not
- * presented one yet (e.g. a brand-new connection's first `initialize`): we no
- * longer mint a throwaway per-request UUID as identity, because that silently
- * created an unauthenticated, uncorrelated identity for state-changing calls.
- * State-changing tools require a non-null token (enforced per-tool); the
- * response advertises a session id the client reuses on subsequent requests.
+ * Derive a stable per-user token from the caller's credentials. Prefers an
+ * `Authorization: Bearer` access token minted by our OAuth flow (the path
+ * claude.ai's connector uses): its signed `sub` becomes the identity. Falls
+ * back to the bearer-style headers older clients persist across a connection.
+ *
+ * Returns `{ kind: 'invalid' }` when a Bearer token is presented but fails
+ * verification (expired/forged) so the caller can be told to re-authenticate,
+ * rather than silently downgrading to an anonymous identity. Returns a null
+ * token when no credential is presented at all — read-only catalog tools still
+ * work; state-changing tools require a non-null token (enforced per-tool).
  */
-function getUserToken(req: NextRequest): string | null {
-  return (
-    req.headers.get('x-user-token') ??
-    req.headers.get('x-session-id') ??
-    req.headers.get('mcp-session-id') ??
-    null
-  )
+function getUserToken(req: NextRequest): TokenResolution {
+  const auth = req.headers.get('authorization')
+  if (auth && /^bearer\s+/i.test(auth)) {
+    const sub = verifyAccessToken(auth.replace(/^bearer\s+/i, '').trim())
+    if (!sub) return { kind: 'invalid' }
+    return { kind: 'ok', token: sub }
+  }
+
+  return {
+    kind: 'ok',
+    token:
+      req.headers.get('x-user-token') ??
+      req.headers.get('x-session-id') ??
+      req.headers.get('mcp-session-id') ??
+      null,
+  }
 }
 
 export async function POST(req: NextRequest) {
-  const userToken = getUserToken(req)
+  const resolved = getUserToken(req)
+  if (resolved.kind === 'invalid') {
+    return Response.json(
+      {
+        jsonrpc: '2.0',
+        id: null,
+        error: { code: -32001, message: 'Invalid or expired access token' },
+      },
+      {
+        status: 401,
+        headers: { ...CORS_HEADERS, 'WWW-Authenticate': WWW_AUTHENTICATE },
+      }
+    )
+  }
+  const userToken = resolved.token
 
   const contentLength = Number(req.headers.get('content-length') ?? 0)
   if (contentLength > MAX_BODY_BYTES) {

@@ -22,6 +22,38 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }]
   },
+  /**
+   * Serve OAuth discovery documents from their standard root `.well-known`
+   * locations. They are implemented as API route handlers (so they can read
+   * env-derived URLs) and mapped here, which avoids the Next.js app-router
+   * quirks around dot-prefixed route segments. The path-suffixed variants
+   * (e.g. .../oauth-protected-resource/api/mcp) are what RFC 9728 clients probe
+   * when the protected resource has a path.
+   */
+  async rewrites() {
+    return [
+      {
+        source: '/.well-known/oauth-protected-resource',
+        destination: '/api/oauth/metadata/protected-resource',
+      },
+      {
+        source: '/.well-known/oauth-protected-resource/:path*',
+        destination: '/api/oauth/metadata/protected-resource',
+      },
+      {
+        source: '/.well-known/oauth-authorization-server',
+        destination: '/api/oauth/metadata/authorization-server',
+      },
+      {
+        source: '/.well-known/oauth-authorization-server/:path*',
+        destination: '/api/oauth/metadata/authorization-server',
+      },
+      {
+        source: '/.well-known/openid-configuration',
+        destination: '/api/oauth/metadata/authorization-server',
+      },
+    ]
+  },
 }
 
 export default nextConfig
