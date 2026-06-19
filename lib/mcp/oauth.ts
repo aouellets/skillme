@@ -6,21 +6,27 @@ import crypto from 'node:crypto'
  * WHY THIS EXISTS: claude.ai's custom-connector flow assumes OAuth 2.1 and runs
  * Dynamic Client Registration on connect for every remote MCP server. A server
  * that exposes no OAuth metadata fails registration ("Couldn't register with …'s
- * sign-in service"). Skill Me has no real user accounts, so we implement a
- * frictionless shim: register any client, auto-approve the authorization step,
- * and issue HMAC-signed tokens that encode a stable anonymous identity.
+ * sign-in service"). So we implement a minimal shim: register any client, run a
+ * lightweight authorization step, and issue HMAC-signed tokens that encode the
+ * caller's identity.
  *
  * Everything is stateless — tokens carry their own claims and are verified by
  * HMAC signature, so this works across serverless instances with no shared
  * store. The access token's `sub` becomes the MCP user identity (the partition
  * key for a caller's installed-skill library).
  *
+ * IDENTITY IS HYBRID (see app/api/oauth/authorize): when the caller is signed in
+ * to Skill Me, the authorize endpoint binds `sub` to their real account
+ * (`auth:<id>`), so the connector library is the same one the website shows and
+ * persists across reconnects. When not signed in, it mints a throwaway anonymous
+ * `sub` via newSubject() instead.
+ *
  * SECURITY NOTES:
  *  - Tokens are signed (HMAC-SHA256), not encrypted; payloads are not secret.
  *  - PKCE (S256) is required and verified on the token exchange.
- *  - There is no real authentication, so each authorization mints a fresh
- *    anonymous `sub` (a new empty library). This matches the prior token-based
- *    model and is the inherent limitation of an authless connector.
+ *  - Anonymous `sub`s are unauthenticated bearer identities: anyone holding the
+ *    token holds that (anonymous) library. Account-bound `sub`s inherit the
+ *    security of the user's Skill Me session.
  */
 
 const ISSUER_TYP = {
@@ -196,7 +202,11 @@ export function verifyPkceS256(verifier: string, challenge: string): boolean {
   return a.length === b.length && crypto.timingSafeEqual(a, b)
 }
 
-/** Mint a fresh opaque anonymous identity for a new authorization. */
+/**
+ * Mint a fresh opaque anonymous identity. Used by the authorize endpoint only
+ * when the caller is not signed in; signed-in callers are bound to their real
+ * `auth:<id>` account instead so their library persists across reconnects.
+ */
 export function newSubject(): string {
   return `mcp_${crypto.randomUUID()}`
 }
