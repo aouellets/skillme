@@ -52,10 +52,20 @@ export function AuthButton() {
     'Account'
 
   return (
-    <div className="flex items-center gap-2">
-      <span className="hidden max-w-[140px] truncate text-sm text-shelf-text-secondary sm:inline">
+    <div className="flex items-center gap-1 sm:gap-2">
+      <Link
+        href="/library"
+        className="hidden max-w-[140px] truncate rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:inline"
+        title="Your library"
+      >
         {label}
-      </span>
+      </Link>
+      <Link
+        href="/library"
+        className="rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:hidden"
+      >
+        Library
+      </Link>
       <button onClick={signOut} className="btn btn-ghost">
         Sign out
       </button>

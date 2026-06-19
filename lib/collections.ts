@@ -39,6 +39,30 @@ export async function getUserCollections(userToken: string): Promise<UserCollect
   })) as UserCollection[]
 }
 
+/**
+ * The IDs of the user's collections that already contain a given skill — used
+ * by the "Save to collection" picker to show current membership.
+ */
+export async function getCollectionIdsContainingSkill(
+  userToken: string,
+  skillId: string
+): Promise<string[]> {
+  const supabase = getServiceSupabase()
+  if (!supabase) return []
+
+  const { data, error } = await supabase
+    .from('collection_skills')
+    .select('collection_id, user_collections!inner(user_token)')
+    .eq('skill_id', skillId)
+    .eq('user_collections.user_token', userToken)
+
+  if (error) {
+    console.error('[getCollectionIdsContainingSkill] error:', error.message)
+    return []
+  }
+  return ((data ?? []) as Array<{ collection_id: string }>).map((r) => r.collection_id)
+}
+
 export async function getCollectionByShareToken(
   shareToken: string
 ): Promise<UserCollection | null> {

@@ -1,21 +1,27 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { SkillCard } from '@/components/SkillCard'
+import { LibraryTabs } from '@/components/LibraryTabs'
 import { createSupabaseServerClient } from '@/lib/supabase/server'
 import { getServiceSupabase } from '@/lib/supabase'
-import type { Skill } from '@/lib/types'
+import { getUserCollections } from '@/lib/collections'
+import { SITE_URL } from '@/lib/site'
+import type { Skill, UserCollection } from '@/lib/types'
 
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Your Library',
-  description: 'The skills you have installed and rated on Skill Me.',
+  description: 'The skills you have installed, favorited, and collected on Skill Me.',
 }
 
-type InstallRow = {
-  rating: number | null
-  installed_at: string
-  skills: Skill | null
+type InstallRow = { rating: number | null; installed_at: string; skills: Skill | null }
+type FavoriteRow = { created_at: string; skills: Skill | null }
+
+/** Drop the heavy skill_content before handing skills to client components. */
+function lite(skill: Skill): Omit<Skill, 'skill_content'> {
+  const rest = { ...skill }
+  delete (rest as Partial<Skill>).skill_content
+  return rest
 }
 
 export default async function LibraryPage() {
@@ -38,48 +44,52 @@ export default async function LibraryPage() {
       <Shell>
         <EmptyCard
           title="Sign in to see your library"
-          body="Sign in with your email or GitHub to view the skills you've installed and rated here."
+          body="Sign in with your email or GitHub to view the skills you've installed, favorited, and collected."
           signIn
         />
       </Shell>
     )
   }
 
+  const userToken = `auth:${user.id}`
   const service = getServiceSupabase()
-  let rows: InstallRow[] = []
-  if (service) {
-    const { data } = await service
-      .from('user_installs')
-      .select('rating, installed_at, skills(*)')
-      .eq('user_token', `auth:${user.id}`)
-      .order('installed_at', { ascending: false })
-    rows = (data ?? []) as unknown as InstallRow[]
-  }
 
-  const items = rows.filter((r) => r.skills)
+  let installed: Array<{ skill: Omit<Skill, 'skill_content'>; rating: number | null }> = []
+  let favorites: Array<Omit<Skill, 'skill_content'>> = []
+  let collections: UserCollection[] = []
+
+  if (service) {
+    const [installsRes, favsRes, cols] = await Promise.all([
+      service
+        .from('user_installs')
+        .select('rating, installed_at, skills(*)')
+        .eq('user_token', userToken)
+        .order('installed_at', { ascending: false }),
+      service
+        .from('user_favorites')
+        .select('created_at, skills(*)')
+        .eq('user_token', userToken)
+        .order('created_at', { ascending: false }),
+      getUserCollections(userToken),
+    ])
+
+    installed = ((installsRes.data ?? []) as unknown as InstallRow[])
+      .filter((r) => r.skills)
+      .map((r) => ({ skill: lite(r.skills!), rating: r.rating }))
+    favorites = ((favsRes.data ?? []) as unknown as FavoriteRow[])
+      .filter((r) => r.skills)
+      .map((r) => lite(r.skills!))
+    collections = cols
+  }
 
   return (
     <Shell>
-      {items.length === 0 ? (
-        <EmptyCard
-          title="Your library is empty"
-          body="Rate or install skills and they'll show up here."
-          cta
-        />
-      ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {items.map((r) => (
-            <div key={r.skills!.id} className="flex flex-col gap-1">
-              <SkillCard skill={r.skills!} />
-              {r.rating ? (
-                <p className="px-1 font-mono text-xs text-shelf-text-tertiary">
-                  Your rating: <span className="text-accent">{'★'.repeat(r.rating)}</span>
-                </p>
-              ) : null}
-            </div>
-          ))}
-        </div>
-      )}
+      <LibraryTabs
+        installed={installed}
+        favorites={favorites}
+        collections={collections}
+        siteUrl={SITE_URL}
+      />
     </Shell>
   )
 }
@@ -89,8 +99,8 @@ function Shell({ children }: { children: React.ReactNode }) {
     <div className="mx-auto max-w-content px-4 py-12 sm:px-6 lg:px-8">
       <h1 className="font-display text-4xl font-semibold tracking-tight text-shelf-text-primary">Your library</h1>
       <p className="mt-3 max-w-xl text-shelf-text-secondary">
-        Skills you&apos;ve installed and rated on the web. Inside Claude, your installed
-        skills load automatically each session.
+        Skills you&apos;ve installed, favorited, and collected on the web. Inside Claude, your
+        installed skills load automatically each session.
       </p>
       <div className="mt-8">{children}</div>
     </div>
@@ -100,12 +110,10 @@ function Shell({ children }: { children: React.ReactNode }) {
 function EmptyCard({
   title,
   body,
-  cta,
   signIn,
 }: {
   title: string
   body: string
-  cta?: boolean
   signIn?: boolean
 }) {
   return (
@@ -115,11 +123,6 @@ function EmptyCard({
       {signIn && (
         <Link href="/login?next=/library" className="btn btn-primary mt-5">
           Sign in →
-        </Link>
-      )}
-      {cta && (
-        <Link href="/browse" className="btn btn-secondary mt-5">
-          Browse skills →
         </Link>
       )}
     </div>
