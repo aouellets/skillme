@@ -133,6 +133,14 @@ export async function POST(req: NextRequest) {
   // the caller's existing token, or assign a fresh one for new connections.
   const sessionId = userToken ?? crypto.randomUUID()
 
+  // Per the Streamable HTTP transport, when the client lists `text/event-stream`
+  // in Accept the server MAY reply with an SSE-framed response instead of JSON.
+  // The claude.ai connector (and the reference MCP SDK) actually *require* SSE
+  // framing for the POST response — it rejects a plain application/json body and
+  // aborts right after initialize. So when SSE is accepted, frame each JSON-RPC
+  // message as an `event: message` and close the stream.
+  const acceptsSse = (req.headers.get('accept') ?? '').includes('text/event-stream')
+
   try {
     const server = createMCPServer(userToken)
     const response = await server.handle(body as never)
@@ -142,6 +150,19 @@ export async function POST(req: NextRequest) {
       return new Response(null, {
         status: 202,
         headers: { ...CORS_HEADERS, 'Mcp-Session-Id': sessionId },
+      })
+    }
+
+    if (acceptsSse) {
+      const messages = Array.isArray(response) ? response : [response]
+      const sse = messages.map((m) => `event: message\ndata: ${JSON.stringify(m)}\n\n`).join('')
+      return new Response(sse, {
+        headers: {
+          ...CORS_HEADERS,
+          'Content-Type': 'text/event-stream; charset=utf-8',
+          'Cache-Control': 'no-cache, no-transform',
+          'Mcp-Session-Id': sessionId,
+        },
       })
     }
 
