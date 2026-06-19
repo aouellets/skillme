@@ -38,8 +38,12 @@ function negotiateProtocol(requested: unknown): string {
  * required; we serve a scalable SVG plus a 512px PNG fallback.
  */
 const SERVER_ICONS = [
-  { src: `${SITE_URL}/skill-me-icon.svg`, mimeType: 'image/svg+xml', sizes: 'any' },
-  { src: `${SITE_URL}/skill-me-icon-512.png`, mimeType: 'image/png', sizes: '512x512' },
+  // `sizes` MUST be an array of strings per the MCP Icon schema — a bare string
+  // fails the SDK client's Zod validation of InitializeResult, which makes the
+  // claude.ai connector reject the server ("not a valid MCP server") right after
+  // initialize.
+  { src: `${SITE_URL}/skill-me-icon.svg`, mimeType: 'image/svg+xml', sizes: ['any'] },
+  { src: `${SITE_URL}/skill-me-icon-512.png`, mimeType: 'image/png', sizes: ['512x512'] },
 ]
 
 const TOOLS: Tool<never>[] = [
