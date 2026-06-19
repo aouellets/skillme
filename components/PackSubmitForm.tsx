@@ -9,6 +9,13 @@ export function PackSubmitForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
   const [selected, setSelected] = useState<SkillHit[]>([])
+  const errorRef = useRef<HTMLParagraphElement>(null)
+
+  // Move focus to the error when a submit fails (e.g. fewer than 2 skills, or a
+  // server error) — the banner sits below a long form.
+  useEffect(() => {
+    if (status === 'error') errorRef.current?.focus()
+  }, [status, message])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -153,7 +160,7 @@ export function PackSubmitForm() {
       </Field>
 
       {status === 'error' && (
-        <p role="alert" className="text-sm text-danger">
+        <p ref={errorRef} tabIndex={-1} role="alert" className="text-sm text-danger outline-none">
           {message}
         </p>
       )}

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CATEGORIES } from '@/lib/categories'
 
 const PLACEHOLDER = `---
@@ -16,6 +16,13 @@ license: MIT
 export function SubmitForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+  const errorRef = useRef<HTMLParagraphElement>(null)
+
+  // Move keyboard/screen-reader focus to the error when a submit fails — the
+  // banner sits below a long form, so role="alert" alone isn't enough.
+  useEffect(() => {
+    if (status === 'error') errorRef.current?.focus()
+  }, [status, message])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -136,7 +143,7 @@ export function SubmitForm() {
       </Field>
 
       {status === 'error' && (
-        <p role="alert" className="text-sm text-danger">
+        <p ref={errorRef} tabIndex={-1} role="alert" className="text-sm text-danger outline-none">
           {message}
         </p>
       )}

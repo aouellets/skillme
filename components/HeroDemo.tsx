@@ -196,7 +196,7 @@ export function HeroDemo() {
   return (
     <div
       aria-hidden
-      className="demo-panel glass edge-light relative flex min-h-[380px] flex-col gap-4 overflow-hidden rounded-lg p-5 sm:p-6"
+      className="demo-panel glass edge-light relative flex min-h-[340px] flex-col gap-4 overflow-hidden rounded-lg p-5 sm:min-h-[380px] sm:p-6"
     >
       {/* header / window chrome */}
       <div className="flex items-center justify-between border-b border-shelf-border pb-3">

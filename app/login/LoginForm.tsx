@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { getSupabaseBrowserClient } from '@/lib/supabase/client'
 
@@ -22,6 +22,7 @@ export function LoginForm() {
   const next = safeNext(params.get('next'))
 
   const [email, setEmail] = useState('')
+  const emailRef = useRef<HTMLInputElement>(null)
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'oauth'>('idle')
   const [error, setError] = useState<string | null>(
     params.get('error') ? ERROR_MESSAGES[params.get('error') as string] ?? 'Sign-in failed. Please try again.' : null
@@ -53,6 +54,7 @@ export function LoginForm() {
     const trimmed = email.trim().toLowerCase()
     if (!trimmed || !trimmed.includes('@')) {
       setError('Enter a valid email address.')
+      emailRef.current?.focus()
       return
     }
     setError(null)
@@ -112,6 +114,7 @@ export function LoginForm() {
           Email address
         </label>
         <input
+          ref={emailRef}
           id="email"
           type="email"
           autoComplete="email"
