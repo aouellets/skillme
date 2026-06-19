@@ -792,5 +792,19 @@ export const PACK_DEFINITIONS: PackDefinition[] = [
     install_count: 13100,
     skill_slugs: ["job-description-writer","jd-bias-scrubber","screening-rubric-builder","interview-question-kit","candidate-outreach-personalizer","offer-rejection-writer","onboarding-plan-builder","interview-debrief-synthesizer","hiring-scorecard","feedback-writer"],
   },
+  {
+    slug: "gym-growth-engine",
+    name: "Gym Growth Engine",
+    tagline: "The operator stack to fill, sell, and scale a gym.",
+    description: "The operator's stack for running a gym on the offer, lead-gen, sales, and money-model frameworks behind Gym Launch and Acquisition.com. Model unit economics and Client-Financed Acquisition, build a Grand Slam Offer and premium pricing, fill the gym with a transformation challenge and Meta ads, close with the CLOSER consult and beat objections, kill churn, drive referrals, and run it all on a KPI scoreboard. Every skill operationalizes the method with runnable calculators and ready templates.",
+    author: "Skill Me",
+    category: "business",
+    tags: ["gym","fitness","sales","unit-economics"],
+    featured: false,
+    verified: true,
+    free: true,
+    install_count: 9600,
+    skill_slugs: ["gym-money-model","grand-slam-offer-builder","gym-pricing-and-guarantees","core-four-lead-engine","gym-transformation-challenge","gym-meta-ads-funnel","closer-sales-script","objection-handling-and-speed-to-lead","retention-and-churn-killer","referral-and-affiliate-system","kpi-scoreboard-and-cadence","hiring-a-players-and-sops"],
+  },
 
 ]
