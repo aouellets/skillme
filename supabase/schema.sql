@@ -61,6 +61,7 @@ create table if not exists public.packs (
   description   text not null,            -- full description, shown on detail page
   author        text not null,            -- display name of the curator
   author_url    text,                     -- link to author's site/profile
+  repo_url      text,                     -- GitHub repo for this pack (starrable)
   category      text not null check (category in (
     'coding', 'writing', 'research', 'productivity',
     'data', 'design', 'business', 'personal', 'mixed'

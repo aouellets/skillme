@@ -93,6 +93,7 @@ export interface Pack {
   description: string
   author: string
   author_url?: string
+  repo_url?: string             // GitHub repo for this pack (starrable)
   category: PackCategory
   tags: string[]
   thumbnail_url?: string

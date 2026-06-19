@@ -24,6 +24,7 @@ export interface PackDefinition {
   verified: boolean
   free: boolean
   install_count: number
+  repo_url?: string             // GitHub repo for this pack (starrable)
   skill_slugs: string[]
 }
 
@@ -804,6 +805,7 @@ export const PACK_DEFINITIONS: PackDefinition[] = [
     verified: true,
     free: true,
     install_count: 9600,
+    repo_url: "https://github.com/aouellets/gym-growth-engine",
     skill_slugs: ["gym-money-model","grand-slam-offer-builder","gym-pricing-and-guarantees","core-four-lead-engine","gym-transformation-challenge","gym-meta-ads-funnel","closer-sales-script","objection-handling-and-speed-to-lead","retention-and-churn-killer","referral-and-affiliate-system","kpi-scoreboard-and-cadence","hiring-a-players-and-sops"],
   },
 

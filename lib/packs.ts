@@ -29,6 +29,7 @@ export const SEED_PACKS: Pack[] = PACK_DEFINITIONS.map((p) => ({
   tagline: p.tagline,
   description: p.description,
   author: p.author,
+  repo_url: p.repo_url,
   category: p.category,
   tags: p.tags,
   install_count: p.install_count,
