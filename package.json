@@ -15,6 +15,7 @@
     "setup:email": "tsx scripts/setup-email-forwarding.ts",
     "db:seed": "tsx scripts/seed-manual.ts",
     "db:seed-packs": "tsx scripts/seed-packs.ts",
+    "publish:packs": "tsx scripts/publish-pack-repos.ts",
     "ingest": "tsx scripts/ingest.ts"
   },
   "dependencies": {

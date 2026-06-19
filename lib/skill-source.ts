@@ -15,7 +15,13 @@
  * renderer (`lib/data.ts`), and the SKILL.md exporter
  * (`scripts/export-skill-files.ts`) so all three agree.
  */
-export const SKILLS_REPO = 'https://github.com/aouellets/skillme'
+export const SKILLS_OWNER = 'aouellets'
+export const SKILLS_REPO = `https://github.com/${SKILLS_OWNER}/skillme`
+
+/** The standalone GitHub repo URL for an in-house pack (one repo per pack). */
+export function packRepoUrl(slug: string): string {
+  return `https://github.com/${SKILLS_OWNER}/${slug}`
+}
 
 /** Authors whose unsourced skills we host (and may publish) in this repo. */
 const HOSTED_AUTHORS = new Set(['community', 'Skill Me'])
