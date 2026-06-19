@@ -109,6 +109,26 @@ export async function POST(req: NextRequest) {
   // Do not log the user token: it is a bearer credential for the user's library.
   console.log(`[MCP] ${method}`)
 
+  // TEMP DIAGNOSTIC: capture exactly what the claude.ai connector sends on
+  // initialize (no secrets) so we can see the negotiated protocol + transport
+  // expectations. Remove once the connector handshake is confirmed working.
+  if (method === 'initialize') {
+    const params = (body as { params?: Record<string, unknown> })?.params ?? {}
+    console.log(
+      '[MCP] initialize-detail ' +
+        JSON.stringify({
+          reqProtocol: params.protocolVersion ?? null,
+          clientInfo: params.clientInfo ?? null,
+          capabilities: params.capabilities ?? null,
+          accept: req.headers.get('accept'),
+          contentType: req.headers.get('content-type'),
+          mcpProtocolHeader: req.headers.get('mcp-protocol-version'),
+          hasAuth: Boolean(req.headers.get('authorization')),
+          userAgent: req.headers.get('user-agent'),
+        })
+    )
+  }
+
   // Advertise a session id the client should send back on later requests. Echo
   // the caller's existing token, or assign a fresh one for new connections.
   const sessionId = userToken ?? crypto.randomUUID()
