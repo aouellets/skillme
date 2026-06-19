@@ -16,7 +16,10 @@
   /* --- Text --- */
   --shelf-text-primary: #f5f7f5;
   --shelf-text-secondary: #9ba29d;
-  --shelf-text-tertiary: #646b66;
+  /* Lifted from #646b66 (3.4:1, failed AA) to clear WCAG AA 4.5:1 on void
+     and surface at body/caption sizes; stays dimmer than secondary so the
+     three-tier hierarchy holds. */
+  --shelf-text-tertiary: #7a827c;
 
   /* --- Accent: Electric Lime (the locked brand color, used identically
      everywhere — the green of the reference vitals UI) --- */

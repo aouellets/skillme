@@ -142,7 +142,9 @@
     border: 1px solid var(--shelf-border-strong);
     border-radius: var(--radius-sm);
     padding: 10px 14px;
-    font-size: var(--text-base);
+    /* 16px (not --text-base 15px): below 16px iOS Safari auto-zooms the
+       viewport on focus. Keep inputs at exactly 16px to prevent that. */
+    font-size: 16px;
     width: 100%;
     outline: none;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;

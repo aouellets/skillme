@@ -63,6 +63,7 @@ export function EmailCapture({
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
           required
+          aria-label="Email address"
           className="input flex-1"
           disabled={status === 'loading'}
         />
@@ -71,7 +72,9 @@ export function EmailCapture({
         </button>
       </div>
       {status === 'error' && (
-        <p className="text-xs text-danger">{message}</p>
+        <p role="alert" className="text-xs text-danger">
+          {message}
+        </p>
       )}
     </form>
   )

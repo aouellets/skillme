@@ -91,7 +91,7 @@ export function ReviewForm({
             onMouseEnter={() => setHover(n)}
             onMouseLeave={() => setHover(0)}
             onClick={() => setRating(n)}
-            className={`cursor-pointer text-2xl leading-none transition-colors hover:text-accent-hover ${
+            className={`flex h-11 w-11 cursor-pointer items-center justify-center text-2xl leading-none transition-colors hover:text-accent-hover ${
               display >= n ? 'text-accent' : 'text-shelf-muted'
             }`}
           >
@@ -113,8 +113,16 @@ export function ReviewForm({
         <button type="submit" className="btn btn-primary" disabled={status === 'saving'}>
           {status === 'saving' ? 'Saving…' : editing ? 'Update review' : 'Post review'}
         </button>
-        {status === 'saved' && <span className="text-xs text-success">Your review was saved.</span>}
-        {status === 'error' && <span className="text-xs text-danger">{message}</span>}
+        {status === 'saved' && (
+          <span role="status" className="text-xs text-success">
+            Your review was saved.
+          </span>
+        )}
+        {status === 'error' && (
+          <span role="alert" className="text-xs text-danger">
+            {message}
+          </span>
+        )}
       </div>
     </form>
   )

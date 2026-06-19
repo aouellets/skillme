@@ -81,10 +81,10 @@ export function SubmitForm() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Field label="Skill name" hint="Short, max ~5 words">
+        <Field label="Skill name" hint="Short, max ~5 words" required>
           <input name="name" required maxLength={80} className="input w-full" placeholder="SQL Debugger" />
         </Field>
-        <Field label="Category">
+        <Field label="Category" required>
           <select name="category" required defaultValue="" className="input w-full">
             <option value="" disabled>
               Choose a category…
@@ -98,7 +98,7 @@ export function SubmitForm() {
         </Field>
       </div>
 
-      <Field label="Description" hint="One sentence, plain English, max 25 words">
+      <Field label="Description" hint="One sentence, plain English, max 25 words" required>
         <input
           name="description"
           required
@@ -121,7 +121,7 @@ export function SubmitForm() {
         <input name="tags" className="input w-full" placeholder="sql, debugging, data" />
       </Field>
 
-      <Field label="SKILL.md content" hint="Paste your full SKILL.md. Stubs are rejected.">
+      <Field label="SKILL.md content" hint="Paste your full SKILL.md. Stubs are rejected." required>
         <textarea
           name="skill_content"
           required
@@ -135,7 +135,11 @@ export function SubmitForm() {
         <input name="submitter_email" type="email" className="input w-full" placeholder="your@email.com" />
       </Field>
 
-      {status === 'error' && <p className="text-sm text-danger">{message}</p>}
+      {status === 'error' && (
+        <p role="alert" className="text-sm text-danger">
+          {message}
+        </p>
+      )}
 
       <div className="flex items-center gap-3">
         <button type="submit" className="btn btn-primary" disabled={status === 'loading'}>
@@ -152,15 +156,24 @@ export function SubmitForm() {
 function Field({
   label,
   hint,
+  required,
   children,
 }: {
   label: string
   hint?: string
+  required?: boolean
   children: React.ReactNode
 }) {
   return (
     <label className="block">
-      <span className="text-sm font-medium text-shelf-text-primary">{label}</span>
+      <span className="text-sm font-medium text-shelf-text-primary">
+        {label}
+        {required && (
+          <span className="ml-0.5 text-accent" aria-label="required">
+            *
+          </span>
+        )}
+      </span>
       {hint && <span className="ml-2 text-xs text-shelf-text-tertiary">{hint}</span>}
       <div className="mt-1.5">{children}</div>
     </label>

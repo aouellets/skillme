@@ -208,7 +208,7 @@ function CarouselButton({
       type="button"
       aria-label={label}
       onClick={onClick}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-shelf-border-strong bg-shelf-surface text-shelf-text-secondary transition-colors hover:border-shelf-muted hover:text-shelf-text-primary active:scale-95"
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-shelf-border-strong bg-shelf-surface text-shelf-text-secondary transition-colors hover:border-shelf-muted hover:text-shelf-text-primary active:scale-95"
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
         <path

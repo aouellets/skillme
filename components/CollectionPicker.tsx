@@ -154,7 +154,11 @@ export function CollectionPicker({ skillId }: { skillId: string }) {
                 </button>
               </form>
 
-              {error && <p className="text-xs text-danger">{error}</p>}
+              {error && (
+                <p role="alert" className="text-xs text-danger">
+                  {error}
+                </p>
+              )}
             </>
           )}
         </div>
