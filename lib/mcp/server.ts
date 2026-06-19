@@ -13,7 +13,23 @@ import { SITE_URL } from '../site'
 
 const SERVER_NAME = 'Skill Me'
 const SERVER_VERSION = '1.0.0'
-const DEFAULT_PROTOCOL = '2025-11-25'
+
+/**
+ * Protocol versions we can speak, newest first. We negotiate against this set
+ * rather than blindly echoing the client's requested version: the MCP SDK client
+ * HARD-THROWS ("Server's protocol version is not supported") if `initialize`
+ * returns a version it doesn't recognise, which aborts the connection right
+ * after initialize. When the client asks for a version we know, we honour it;
+ * otherwise we answer with our most widely-supported stable version.
+ */
+const SUPPORTED_PROTOCOLS = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05']
+const DEFAULT_PROTOCOL = '2025-06-18'
+
+function negotiateProtocol(requested: unknown): string {
+  return typeof requested === 'string' && SUPPORTED_PROTOCOLS.includes(requested)
+    ? requested
+    : DEFAULT_PROTOCOL
+}
 
 /**
  * Brand icons advertised in the initialize response per the MCP spec's
@@ -83,9 +99,9 @@ export function createMCPServer(userToken: string | null) {
 
     switch (req.method) {
       case 'initialize': {
-        const requested = (req.params?.protocolVersion as string) ?? DEFAULT_PROTOCOL
+        const negotiated = negotiateProtocol(req.params?.protocolVersion)
         return result(req.id, {
-          protocolVersion: requested,
+          protocolVersion: negotiated,
           capabilities: { tools: { listChanged: false } },
           serverInfo: {
             name: SERVER_NAME,
