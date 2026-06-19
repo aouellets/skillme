@@ -122,6 +122,34 @@ create table if not exists public.user_pack_installs (
   unique (user_token, pack_id)
 );
 
+-- ============================================================
+-- USER FAVORITES — one-click "save" of a skill (see migration 0003)
+-- ============================================================
+create table if not exists public.user_favorites (
+  id         uuid primary key default gen_random_uuid(),
+  user_token text not null,
+  skill_id   uuid not null references public.skills(id) on delete cascade,
+  created_at timestamptz default now(),
+  unique (user_token, skill_id)
+);
+
+-- ============================================================
+-- SKILL REVIEWS — written reviews (rating + text) per user per skill.
+-- Numeric rating stays aggregated from user_installs via recompute_skill_rating;
+-- the review API also upserts the rating there. (see migration 0003)
+-- ============================================================
+create table if not exists public.skill_reviews (
+  id          uuid primary key default gen_random_uuid(),
+  user_token  text not null,
+  skill_id    uuid not null references public.skills(id) on delete cascade,
+  rating      integer not null check (rating between 1 and 5),
+  body        text not null,
+  author_name text,
+  created_at  timestamptz default now(),
+  updated_at  timestamptz default now(),
+  unique (user_token, skill_id)
+);
+
 -- Populate the fts column via trigger (avoids generated column syntax issues)
 create or replace function public.skills_fts_update()
 returns trigger language plpgsql as $$
@@ -157,6 +185,9 @@ create index if not exists ucollections_user_idx on public.user_collections (use
 create index if not exists ucollections_share_idx on public.user_collections (share_token);
 create index if not exists coll_skills_coll_idx  on public.collection_skills (collection_id);
 create index if not exists upacks_user_idx       on public.user_pack_installs (user_token);
+create index if not exists user_favorites_token_idx on public.user_favorites (user_token);
+create index if not exists user_favorites_skill_idx on public.user_favorites (skill_id);
+create index if not exists skill_reviews_skill_idx  on public.skill_reviews (skill_id, created_at desc);
 
 -- Atomically increment a skill's install counter.
 create or replace function public.increment_install_count(p_skill_id uuid)
@@ -237,16 +268,33 @@ drop policy if exists "anon pack installs" on public.user_pack_installs;
 drop policy if exists "anon user collections" on public.user_collections;
 drop policy if exists "anon collection skills" on public.collection_skills;
 
+-- user_favorites / skill_reviews are accessed only via the service-role key
+-- (server-side). RLS stays ON with no anon policy => deny by default. Public
+-- review display reads through the service role, scoped to a single skill_id.
+alter table public.user_favorites enable row level security;
+alter table public.skill_reviews enable row level security;
+
 -- ============================================================
--- WAITLIST — email capture for new-skill notifications
+-- NEWSLETTER — email capture for new-skill notifications
+-- (renamed from "waitlist" — the product is live; see migration 0003)
 -- ============================================================
-create table if not exists public.waitlist (
+DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM information_schema.tables
+             WHERE table_schema = 'public' AND table_name = 'waitlist')
+     AND NOT EXISTS (SELECT 1 FROM information_schema.tables
+             WHERE table_schema = 'public' AND table_name = 'newsletter_signups') THEN
+    ALTER TABLE public.waitlist RENAME TO newsletter_signups;
+  END IF;
+END $$;
+
+create table if not exists public.newsletter_signups (
   id         uuid primary key default gen_random_uuid(),
   email      text unique not null,
   created_at timestamptz default now()
 );
 
-alter table public.waitlist enable row level security;
+alter table public.newsletter_signups enable row level security;
 -- No public read — admin only
 
 -- ============================================================
@@ -289,6 +337,43 @@ create index if not exists skill_submissions_verdict_idx
   on public.skill_submissions (safety_verdict);
 
 alter table public.skill_submissions enable row level security;
+-- No policies: all access via the service-role key in API routes.
+
+-- ============================================================
+-- PACK SUBMISSIONS — public submission queue for curated packs
+-- (see supabase/migrations/0003_user_engagement.sql)
+-- ============================================================
+create table if not exists public.pack_submissions (
+  id                uuid primary key default gen_random_uuid(),
+  status            text not null default 'pending' check (status in (
+    'pending', 'in_review', 'approved', 'rejected', 'needs_changes'
+  )),
+  name              text not null,
+  tagline           text not null,
+  description       text not null,
+  author            text,
+  author_url        text,
+  category          text not null check (category in (
+    'coding', 'writing', 'research', 'productivity',
+    'data', 'design', 'business', 'personal', 'mixed'
+  )),
+  tags              text[],
+  skill_slugs       text[] not null default '{}',
+  thumbnail_url     text,
+  media_alt         text,
+  submitter_email   text,
+  submitter_token   text,
+  reviewer_note     text,
+  reviewed_at       timestamptz,
+  published_pack_id uuid references public.packs(id) on delete set null,
+  created_at        timestamptz default now(),
+  updated_at        timestamptz default now()
+);
+
+create index if not exists pack_submissions_status_idx
+  on public.pack_submissions (status, created_at desc);
+
+alter table public.pack_submissions enable row level security;
 -- No policies: all access via the service-role key in API routes.
 
 -- ============================================================
