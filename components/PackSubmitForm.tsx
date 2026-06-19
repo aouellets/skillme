@@ -9,6 +9,13 @@ export function PackSubmitForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
   const [selected, setSelected] = useState<SkillHit[]>([])
+  const errorRef = useRef<HTMLParagraphElement>(null)
+
+  // Move focus to the error when a submit fails (e.g. fewer than 2 skills, or a
+  // server error) — the banner sits below a long form.
+  useEffect(() => {
+    if (status === 'error') errorRef.current?.focus()
+  }, [status, message])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -82,10 +89,10 @@ export function PackSubmitForm() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Field label="Pack name" hint="Short, max ~5 words">
+        <Field label="Pack name" hint="Short, max ~5 words" required>
           <input name="name" required maxLength={80} className="input w-full" placeholder="Frontend Power Pack" />
         </Field>
-        <Field label="Category">
+        <Field label="Category" required>
           <select name="category" required defaultValue="" className="input w-full">
             <option value="" disabled>
               Choose a category…
@@ -99,7 +106,7 @@ export function PackSubmitForm() {
         </Field>
       </div>
 
-      <Field label="Tagline" hint="One line shown on the pack card">
+      <Field label="Tagline" hint="One line shown on the pack card" required>
         <input
           name="tagline"
           required
@@ -109,7 +116,7 @@ export function PackSubmitForm() {
         />
       </Field>
 
-      <Field label="Description" hint="A short paragraph for the pack page">
+      <Field label="Description" hint="A short paragraph for the pack page" required>
         <textarea
           name="description"
           required
@@ -134,7 +141,12 @@ export function PackSubmitForm() {
       </Field>
 
       <div>
-        <span className="text-sm font-medium text-shelf-text-primary">Skills in this pack</span>
+        <span className="text-sm font-medium text-shelf-text-primary">
+          Skills in this pack
+          <span className="ml-0.5 text-accent" aria-label="required">
+            *
+          </span>
+        </span>
         <span className="ml-2 text-xs text-shelf-text-tertiary">
           Search the catalog and add at least 2 existing skills
         </span>
@@ -147,7 +159,11 @@ export function PackSubmitForm() {
         <input name="submitter_email" type="email" className="input w-full" placeholder="your@email.com" />
       </Field>
 
-      {status === 'error' && <p className="text-sm text-danger">{message}</p>}
+      {status === 'error' && (
+        <p ref={errorRef} tabIndex={-1} role="alert" className="text-sm text-danger outline-none">
+          {message}
+        </p>
+      )}
 
       <div className="flex items-center gap-3">
         <button type="submit" className="btn btn-primary" disabled={status === 'loading'}>
@@ -223,7 +239,7 @@ function SkillPicker({
                 type="button"
                 onClick={() => remove(s.id)}
                 aria-label={`Remove ${s.name}`}
-                className="text-shelf-text-tertiary hover:text-danger"
+                className="-mr-1 flex h-6 w-6 flex-none items-center justify-center rounded-full text-base leading-none text-shelf-text-tertiary transition-colors hover:text-danger"
               >
                 ×
               </button>
@@ -273,15 +289,24 @@ function SkillPicker({
 function Field({
   label,
   hint,
+  required,
   children,
 }: {
   label: string
   hint?: string
+  required?: boolean
   children: React.ReactNode
 }) {
   return (
     <label className="block">
-      <span className="text-sm font-medium text-shelf-text-primary">{label}</span>
+      <span className="text-sm font-medium text-shelf-text-primary">
+        {label}
+        {required && (
+          <span className="ml-0.5 text-accent" aria-label="required">
+            *
+          </span>
+        )}
+      </span>
       {hint && <span className="ml-2 text-xs text-shelf-text-tertiary">{hint}</span>}
       <div className="mt-1.5">{children}</div>
     </label>

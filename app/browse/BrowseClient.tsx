@@ -114,11 +114,11 @@ export function BrowseClient({
 
         <CategoryFilter active={category} onChange={setCategory} />
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <span className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
             Sort
           </span>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {SORTS.map((s) => (
               <button
                 key={s.value}

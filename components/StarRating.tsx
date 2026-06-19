@@ -71,7 +71,7 @@ export function StarRating({
               onMouseEnter={() => interactive && setHover(n)}
               onMouseLeave={() => interactive && setHover(0)}
               onClick={() => interactive && rate(n)}
-              className={`text-2xl leading-none transition-colors ${
+              className={`flex h-11 w-11 items-center justify-center text-2xl leading-none transition-colors ${
                 active ? 'text-accent' : 'text-shelf-muted'
               } ${interactive ? 'cursor-pointer hover:text-accent-hover' : 'cursor-default'}`}
             >
@@ -89,10 +89,14 @@ export function StarRating({
         <p className="mt-2 text-xs text-shelf-text-secondary">Sign in to rate this skill.</p>
       )}
       {status === 'saved' && (
-        <p className="mt-2 text-xs text-success">Thanks, your rating was saved.</p>
+        <p role="status" className="mt-2 text-xs text-success">
+          Thanks, your rating was saved.
+        </p>
       )}
       {status === 'error' && (
-        <p className="mt-2 text-xs text-danger">Could not save your rating. Try again.</p>
+        <p role="alert" className="mt-2 text-xs text-danger">
+          Could not save your rating. Try again.
+        </p>
       )}
     </div>
   )

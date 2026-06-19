@@ -160,7 +160,7 @@ export function FeaturedCarousel({
       </div>
 
       {skills.length > 1 && (
-        <div className="mt-3 flex items-center justify-center gap-2" role="tablist" aria-label="Carousel position">
+        <div className="mt-1 flex items-center justify-center" role="tablist" aria-label="Carousel position">
           {skills.map((skill, i) => (
             <button
               key={skill.id}
@@ -168,12 +168,17 @@ export function FeaturedCarousel({
               aria-selected={active === i}
               aria-label={`Go to ${skill.name}`}
               onClick={() => scrollToIndex(i)}
-              className={`h-1.5 rounded-full transition-all ${
-                active === i
-                  ? 'w-6 bg-accent'
-                  : 'w-1.5 bg-shelf-border-strong hover:bg-shelf-muted'
-              }`}
-            />
+              className="group/dot flex h-11 items-center justify-center px-1.5"
+            >
+              {/* 44px-tall tap target (WCAG/HIG); the visible dot stays 6px. */}
+              <span
+                className={`h-1.5 rounded-full transition-all ${
+                  active === i
+                    ? 'w-6 bg-accent'
+                    : 'w-1.5 bg-shelf-border-strong group-hover/dot:bg-shelf-muted'
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}
@@ -208,7 +213,7 @@ function CarouselButton({
       type="button"
       aria-label={label}
       onClick={onClick}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-shelf-border-strong bg-shelf-surface text-shelf-text-secondary transition-colors hover:border-shelf-muted hover:text-shelf-text-primary active:scale-95"
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-shelf-border-strong bg-shelf-surface text-shelf-text-secondary transition-colors hover:border-shelf-muted hover:text-shelf-text-primary active:scale-95"
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
         <path

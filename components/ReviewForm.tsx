@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 
 /**
@@ -24,6 +24,8 @@ export function ReviewForm({
   const [rating, setRating] = useState(initialRating)
   const [hover, setHover] = useState(0)
   const [body, setBody] = useState(initialBody)
+  const firstStarRef = useRef<HTMLButtonElement>(null)
+  const bodyRef = useRef<HTMLTextAreaElement>(null)
   const [status, setStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
   const [message, setMessage] = useState('')
 
@@ -48,11 +50,13 @@ export function ReviewForm({
     if (rating < 1) {
       setStatus('error')
       setMessage('Pick a star rating first.')
+      firstStarRef.current?.focus()
       return
     }
     if (body.trim().length < 4) {
       setStatus('error')
       setMessage('Write a few words for your review.')
+      bodyRef.current?.focus()
       return
     }
     setStatus('saving')
@@ -84,6 +88,7 @@ export function ReviewForm({
         {[1, 2, 3, 4, 5].map((n) => (
           <button
             key={n}
+            ref={n === 1 ? firstStarRef : undefined}
             type="button"
             role="radio"
             aria-checked={rating === n}
@@ -91,7 +96,7 @@ export function ReviewForm({
             onMouseEnter={() => setHover(n)}
             onMouseLeave={() => setHover(0)}
             onClick={() => setRating(n)}
-            className={`cursor-pointer text-2xl leading-none transition-colors hover:text-accent-hover ${
+            className={`flex h-11 w-11 cursor-pointer items-center justify-center text-2xl leading-none transition-colors hover:text-accent-hover ${
               display >= n ? 'text-accent' : 'text-shelf-muted'
             }`}
           >
@@ -101,6 +106,7 @@ export function ReviewForm({
       </div>
 
       <textarea
+        ref={bodyRef}
         value={body}
         onChange={(e) => setBody(e.target.value)}
         placeholder="What did this skill do well? Where did it fall short?"
@@ -113,8 +119,16 @@ export function ReviewForm({
         <button type="submit" className="btn btn-primary" disabled={status === 'saving'}>
           {status === 'saving' ? 'Saving…' : editing ? 'Update review' : 'Post review'}
         </button>
-        {status === 'saved' && <span className="text-xs text-success">Your review was saved.</span>}
-        {status === 'error' && <span className="text-xs text-danger">{message}</span>}
+        {status === 'saved' && (
+          <span role="status" className="text-xs text-success">
+            Your review was saved.
+          </span>
+        )}
+        {status === 'error' && (
+          <span role="alert" className="text-xs text-danger">
+            {message}
+          </span>
+        )}
       </div>
     </form>
   )

@@ -42,11 +42,19 @@ export function FavoriteButton({
         aria-pressed={favorited}
         aria-label={label}
         title={label}
-        className={`absolute left-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-shelf-border bg-shelf-void/70 text-base backdrop-blur transition-colors hover:border-accent/60 ${
-          favorited ? 'text-accent' : 'text-shelf-text-tertiary hover:text-accent'
-        }`}
+        className="group absolute left-1.5 top-1.5 z-10 flex h-11 w-11 items-center justify-center rounded-full text-base"
       >
-        {favorited ? '♥' : '♡'}
+        {/* 44×44 tap target (WCAG/HIG min); the visible 32px disc is an inner
+            span so the larger hit area doesn't change the card's visual weight. */}
+        <span
+          className={`flex h-8 w-8 items-center justify-center rounded-full border bg-shelf-void/70 backdrop-blur transition-colors ${
+            favorited
+              ? 'border-accent/60 text-accent'
+              : 'border-shelf-border text-shelf-text-tertiary group-hover:border-accent/60 group-hover:text-accent'
+          }`}
+        >
+          {favorited ? '♥' : '♡'}
+        </span>
       </button>
     )
   }

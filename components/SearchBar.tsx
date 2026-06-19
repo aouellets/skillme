@@ -25,15 +25,15 @@ export function SearchBar({
   return (
     <div className="relative">
       <svg
-        className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2"
+        className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-shelf-text-tertiary"
         width="16"
         height="16"
         viewBox="0 0 16 16"
         fill="none"
         aria-hidden
       >
-        <circle cx="7" cy="7" r="5" stroke="#6b7280" strokeWidth="1.5" />
-        <path d="M11 11l3 3" stroke="#6b7280" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M11 11l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
       <input
         type="search"
