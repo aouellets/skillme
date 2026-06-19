@@ -95,7 +95,11 @@ function ReviewCard({ sub, onDone }: { sub: PackSubmission; onDone: () => void }
           Feature this pack on approve
         </label>
 
-        {error && <p className="text-sm text-danger">{error}</p>}
+        {error && (
+          <p role="alert" className="text-sm text-danger">
+            {error}
+          </p>
+        )}
 
         <div className="flex flex-wrap gap-2">
           <button onClick={() => act('approve')} disabled={busy} className="btn btn-primary">
