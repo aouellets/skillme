@@ -1,25 +1,39 @@
 ---
 name: API Versioning Strategist
-description: Designs date-pinned or header-based API versioning plus a humane deprecation path, defining what counts as breaking and how long old versions live. Use when launching a public or partner API or making a change that could break existing clients.
+description: Produces an API version scheme (date-pinned header or URI), a breaking-vs-additive change policy, and a published deprecation/sunset timeline with translation shims. Use when removing or renaming a field or endpoint, tightening validation, cutting a "v2", binding a partner integration to a version, or planning how long an old version lives. Do NOT use when designing the resource shape, URLs, status codes, or pagination of a new endpoint — use REST API Design instead; this skill owns only the version scheme and deprecation path layered on top of that contract.
 ---
 # API Versioning Strategist
 
-Versioning is a contract with people you'll never meet about changes you haven't designed yet. The strategy that wins lets you evolve the API constantly while never silently breaking an integration that's already in production.
+Pick a version scheme, classify every change as breaking or additive, and ship a deprecation path that never silently breaks a live integration.
 
-## Know What Counts as Breaking
-Breaking: removing or renaming a field or endpoint, adding a required request field, tightening validation, changing a type or enum semantics, or altering error codes clients branch on. Non-breaking: adding optional request fields, adding new response fields, adding endpoints, adding new optional enum values clients are told to tolerate. Make additive changes freely within a version; reserve a new version for genuinely breaking ones. Clients must ignore unknown fields — document this as a tolerant-reader contract.
+## Workflow
 
-## Prefer Date-Pinned Versions
-For evolving APIs, a date-pinned version (clients send a Version: 2026-01-15 header, the account is bound to a default) scales far better than v1/v2 path bumps. Each dated release is a small, documented set of breaking changes, and the server transforms requests and responses to translate a pinned client up to current internals. This avoids the trap where v2 becomes a years-long parallel rewrite. URI versioning (/v1/) is simplest and most visible but tends toward big-bang jumps; pick it only for coarse, infrequent revisions.
+1. **Classify the change first.** Decide whether it is breaking or additive before choosing any mechanism.
+   - Breaking: removing/renaming a field or endpoint; adding a required request field; tightening validation; changing a field's type or an enum's semantics; changing error codes or status codes clients branch on.
+   - Additive (ship freely within the current version): adding optional request fields; adding response fields; adding endpoints; adding optional enum values clients are told to tolerate.
+   - Mandate a tolerant-reader contract: clients MUST ignore unknown fields. Document this so additive changes stay non-breaking.
+2. **Choose the scheme to match release cadence.**
+   - Frequent, granular evolution → date-pinned versions: clients send a version header (a pinned release identifier), the account is bound to a default, and each release is a small documented set of breaking changes. Scales without parallel rewrites.
+   - Coarse, infrequent revisions → URI versioning (`/v1/`): simplest and most visible, but biases toward big-bang jumps. Pick only when releases are rare.
+   - Avoid letting a "v2" become a years-long parallel fork of "v1".
+3. **Translate at the edge, never fork logic.** Keep one current internal model. Apply ordered version-transform shims that up-convert old requests and down-convert responses to a pinned client's contract. Each shim is small, independently testable, and removable when its version sunsets. Forking business logic per version is forbidden.
+4. **Pin every integration, never float.** Bind each client to a fixed version at onboarding so it never moves underneath them. Upgrading is an explicit, opt-in action the client takes after reading a changelog — never an automatic float to current.
+5. **Deprecate on a published timeline.** Announce a concrete sunset date, not "soon." On responses served from a deprecated version, emit a `Deprecation` header and a `Sunset` header (HTTP-date), and link migration docs. Give meaningful notice (months for public/partner APIs).
+6. **Track per-version usage.** Instrument which clients hit which version so you can reach the stragglers before removal and confirm a version is truly idle before deleting its shim.
 
-## Translate Between Versions in One Place
-Keep one current internal model and apply ordered version-transform shims at the edge to up-convert old requests and down-convert responses. Never fork business logic per version — that multiplies maintenance and bugs. Each shim is small, testable, and independently removable when its version sunsets.
+## Quality bar
 
-## Deprecate on a Published Timeline
-Announce deprecations with a concrete sunset date, not "soon." Emit a Deprecation header and a Sunset header (RFC dates) on responses using a deprecated version, link to migration docs, and give meaningful notice (months for public APIs). Track per-version usage so you know who's still on it and can reach out before you remove it.
+- Every change is explicitly classified breaking or additive, with a documented rationale for any new version.
+- One internal model; all version differences live in removable edge shims, not branched handlers.
+- Each integration is bound to a fixed version; nothing auto-upgrades.
+- Every deprecation carries a concrete sunset date plus `Deprecation`/`Sunset` headers and a migration link.
+- Per-version usage is measurable before any version is removed.
 
-## Default Pinned, Never Floating
-Bind each integration to a fixed version at onboarding so it never moves under them. Upgrading should be an explicit, opt-in action the client takes after reading a changelog — never an automatic float to latest.
+## Do NOT
 
-## When to Skip
-Internal APIs with one deployable consumer can often skip formal versioning and just coordinate deploys. The full machinery is for public, partner, or independently-deployed clients you can't update in lockstep.
+- Do NOT silently change behavior within a published version — additive only.
+- Do NOT cut a new version for an additive change; reserve versions for genuinely breaking ones.
+- Do NOT fork business logic per version or sprinkle `if version == ...` through handlers.
+- Do NOT float clients to the current version automatically or auto-migrate them.
+- Do NOT announce deprecations without a concrete date, sunset headers, and a migration guide.
+- Do NOT impose this machinery on an internal API with a single deployable consumer — coordinate deploys instead. The full scheme is for public, partner, or independently deployed clients you cannot update in lockstep.

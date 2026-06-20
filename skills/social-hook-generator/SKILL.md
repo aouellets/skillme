@@ -1,25 +1,37 @@
 ---
 name: Social Hook Generator
-description: Produces 10 scroll-stopping opening lines for a given post idea, organized by hook archetype. Use when a post needs a stronger first line or you want options to test.
+description: Generates 10 labeled opening lines for a written social post, one per hook archetype, so the writer can test instead of guess. Use when drafting or rewriting the first line of a LinkedIn post, X post or thread, Instagram caption, or newsletter intro. Do NOT use when the hook is the spoken or on-screen opener of a short-form video (TikTok, Reels, Shorts) — use video-hook-writer instead.
 ---
 # Social Hook Generator
 
-The hook does one job: buy the second line. On every feed the first 1-2 seconds (or the first ~70 visible characters) decide whether the rest exists. Generate variety on purpose — different archetypes win on different platforms and audiences, so the user can test rather than guess.
+Produce 10 distinct opening lines for a written post, labeled by archetype, so the writer A/B-tests rather than guesses. The hook does one job: buy the second line — the first ~70 visible characters decide whether the rest gets read.
 
-## Work Across Hook Archetypes
-Produce 10 hooks spanning distinct patterns so they aren't ten flavors of the same line: the Contrarian ("Stop doing X"), the Stakes ("This mistake cost me $40k"), the Curiosity Gap ("Nobody tells you what happens after Y"), the Specific Number ("I tested 7 ways to Z"), the Question that names the reader's pain, the Mini-Story open ("3 years ago I almost quit"), the Bold Claim, the How-To promise, the Callout ("If you're a [role], read this"), and the Pattern Interrupt (unexpected first word). Label each hook with its archetype.
+## Workflow
+1. Extract the payoff. Identify the post's real tension and the promise the body delivers. If there is no genuine tension or payoff, stop and say the problem is upstream — help reframe the idea before writing hooks.
+2. Mine for specifics. Pull every concrete asset from the idea: numbers, dollar figures, timeframes, named outcomes, roles. Where the idea lacks them, infer plausible placeholders and mark them clearly (e.g. [your number]) for the writer to make true.
+3. Generate one hook per archetype, 10 total, each labeled:
+   - Contrarian — "Stop doing X."
+   - Stakes — "This mistake cost me $40k."
+   - Curiosity Gap — "Nobody tells you what happens after Y."
+   - Specific Number — "I tested 7 ways to Z."
+   - Pain Question — names the reader's exact frustration.
+   - Mini-Story — "3 years ago I almost quit."
+   - Bold Claim — a defensible, falsifiable assertion.
+   - How-To Promise — the concrete result the post teaches.
+   - Callout — "If you're a [role], read this."
+   - Pattern Interrupt — an unexpected first word or framing.
+4. Fit the written surface. Make each hook self-contained as text: it must land before the cut-off — X's tweet limit, LinkedIn's "...more" fold, Instagram's first caption line. No reliance on audio, video, or a thumbnail.
+5. Hand back all 10 with their labels and a one-line note on which archetypes suit the writer's idea best.
 
-## Make Them Concrete
-Vague hooks die. Push for specifics from the post idea — real numbers, named outcomes, a timeframe, a dollar figure. "I grew fast" is dead; "I went from 0 to 10k in 90 days" stops the scroll. If the source idea lacks specifics, infer plausible placeholders and mark them so the user fills in true ones.
+## Quality bar
+- Every hook is concrete: a real number, outcome, timeframe, or named subject beats any adjective. "I grew fast" fails; "0 to 10k in 90 days" passes.
+- The 10 are genuinely different patterns, not ten rewordings of one line.
+- Each hook is an honest open loop the post actually closes — no promise the body can't pay off.
+- Sentence length and first words vary across the set.
 
-## Respect Platform Reading Posture
-For TikTok/Reels, write hooks that work as the first spoken line AND on-screen text — short, punchy, often a question or claim. For LinkedIn, the hook is text-first and can carry a touch more nuance, but must land before the "...more" fold. For X, the whole opening tweet is the hook; make it self-contained. For Instagram, the first line above the fold does the work.
-
-## Earn the Curiosity Honestly
-The hook must be a true promise the post pays off — open loops the body closes. Clickbait that the content doesn't deliver trains the algorithm and the audience against you. No "you won't BELIEVE" hollow shock.
-
-## Avoid Penalized and Stale Patterns
-No engagement-bait phrasing, no "Let that sink in," no "Unpopular opinion" unless the take is genuinely unpopular. Vary sentence length and avoid starting every hook with "I."
-
-## When to Push Back
-If the post idea has no real tension or payoff, say the problem is upstream and help reframe the idea before polishing hooks for it.
+## Do NOT
+- Do not write hooks that depend on a spoken line, on-screen text, or a visual frame — that is video, not a written post.
+- Do not use hollow shock ("you won't BELIEVE"), or clickbait the content doesn't deliver.
+- Do not open with "Unpopular opinion" unless the take is genuinely unpopular, and never use filler like "Let that sink in."
+- Do not start more than two of the ten hooks with "I".
+- Do not ship vague placeholders silently — mark every inferred specific so the writer replaces it.

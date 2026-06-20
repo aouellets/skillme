@@ -1,108 +1,46 @@
 ---
 name: grand-slam-offer-builder
-description: Use when a gym owner needs to design or sharpen a core offer so prospects feel stupid saying no. Triggers on "build my offer", "my offer isn't converting", "what should I include", "make my offer irresistible", "design my challenge offer", "name my program". Encodes the Value Equation and the Grand Slam Offer construction and MAGIC naming methods from $100M Offers.
+description: Build or sharpen a gym's core offer into a one-page canvas — Value-Equation score, problem-to-solution stack, scarcity/urgency/bonus amplifiers, and a MAGIC name — so the right prospect feels stupid saying no. Use when an owner says "build my offer", "my offer isn't converting", "what should I include", "make my offer irresistible", "design my challenge offer", or "name my program". Do NOT use when the task is choosing the price point or writing guarantee language — use gym-pricing-and-guarantees instead; do NOT use when the task is the day-by-day run-of-show for a challenge — use gym-transformation-challenge instead.
 ---
 
 # Grand Slam Offer Builder
 
-A Grand Slam Offer is one so strong that the right prospect feels stupid saying
-no. You get there by raising the value the offer delivers and lowering the cost
-in time and effort, then stacking solutions until the perceived value dwarfs the
-price. This skill builds or sharpens the gym's core offers: the front-end
-challenge and the core membership.
+Turn a gym's front-end challenge and core membership into offers so strong the right prospect feels stupid saying no, by raising delivered value and lowering the cost in time and effort, then stacking solutions until perceived value dwarfs the price. Deliverable: a filled one-page offer canvas.
 
-Guarantee design has its own skill. When you reach the guarantee, hand off to
-gym-pricing-and-guarantees. Pricing the offer against margin also lives there.
+## Workflow
 
-## When to use this skill
+Run these steps in order. Do not skip the Value-Equation score; it tells you what to fix first.
 
-Use it when the owner says the offer is not converting, asks what to include,
-wants to make an offer irresistible, or needs to name a program. If they are
-building the 6-week challenge specifically, this skill builds the offer and
-gym-transformation-challenge builds the run-of-show around it.
+1. **Score the current offer on the Value Equation.** Value rises with the dream outcome and the prospect's belief they will reach it, and falls with the time and effort it costs: `Value = (Dream Outcome x Perceived Likelihood) / (Time Delay x Effort and Sacrifice)`. Rate the offer 1-10 (10 = best) on four levers: Dream outcome (how badly they want the result), Perceived likelihood (how believable the result is for them), Speed (how fast results feel — inverse of time delay), Ease (how little effort it demands — inverse of effort). Run `value_score.js` (below). It multiplies the four and names the lowest lever. Fix that lever first: the equation is multiplicative, so the weakest lever caps the whole offer no matter how strong the others are. See references/value-equation for how to raise each one.
 
-## The operating procedure
+2. **Build the offer from problems, not features.** Name the dream outcome in the prospect's own words ("drop two dress sizes before the wedding and keep it off"). List every problem on the path (no time, no idea what to eat, intimidated by the gym floor, tried before and quit, no accountability). Turn each problem into a solution stated as the thing you provide ("no idea what to eat" → "a done-for-you meal plan with a swap list"). Choose a delivery vehicle for each (group session, 1:1 check-in, app, printed guide, private community, text support) that fits the value and your cost to deliver. Trim and stack: cut anything low-value or expensive, then stack the survivors into one offer that reads as overwhelming value for the price. See references/offer-construction for full worked examples on both the challenge and the membership.
 
-### Step 1: Score the current offer on the Value Equation
+3. **Enhance with the four amplifiers, only after the core stack is strong.** They multiply a good offer and do nothing for a weak one. Scarcity: a real capacity limit ("20 challengers per cohort because that is what our coaches can serve well"). Urgency: a real deadline ("cohort starts the 6th; doors close the 3rd"). Bonuses: extra wins that each remove a specific objection, each with a name and a stated value. Guarantee: hand off to gym-pricing-and-guarantees to choose the type and write the language, then drop the result into the canvas guarantee slot.
 
-Value rises with the dream outcome and the prospect's belief they will reach it,
-and falls with the time it takes and the effort it costs:
+4. **Name the offer with MAGIC.** Pick the clearest two or three elements — you rarely need all five: Magnetic reason why (the hook or occasion: "Summer Shred", "New Year"), Avatar (who it is for: "Busy Moms", "Men Over 40"), Goal (the outcome: "Drop a Dress Size", "First Pull-Up"), Interval (the time frame: "6-Week", "28-Day"), Container word (the format: "Challenge", "Project", "Bootcamp", "Intensive"). See references/naming-magic for 15 worked gym names.
 
-Value = (Dream Outcome x Perceived Likelihood) / (Time Delay x Effort and Sacrifice).
+5. **Fill the offer canvas.** Complete the one-page canvas below. That is the deliverable the owner takes to their designer, landing page, and sales team.
 
-Rate the offer 1 to 10 on each of four levers, where 10 is best:
+## Quality bar
 
-- Dream outcome: how badly the prospect wants the result the offer promises.
-- Perceived likelihood: how believable it is that they will get the result.
-- Speed: how fast they feel the result arrive (this is the inverse of time
-  delay, so faster scores higher).
-- Ease: how little effort and sacrifice it demands (the inverse of effort, so
-  easier scores higher).
+- The weakest Value-Equation lever is identified and explicitly addressed before any bonus is added.
+- Every kept solution traces back to a named problem on the prospect's path; nothing in the stack starts from a feature.
+- Stacked value visibly exceeds the price, and the canvas states the value-to-price framing.
+- Scarcity and urgency reference a real capacity limit and a real deadline the owner will actually hold.
+- The name passes the cold-read test: a stranger knows who it is for, what they get, and how long it takes.
+- The price point and the guarantee language come from gym-pricing-and-guarantees, not invented here.
 
-Run value_score.js. It multiplies the four and names the lowest lever as the
-first thing to fix, because the equation is multiplicative: the weakest lever
-caps the whole offer. Fix that lever before adding bonuses. See
-references/value-equation for how to raise each one.
+## Do NOT
 
-### Step 2: Build the offer from problems
-
-Do not start from features. Start from the outcome and work backward through
-every obstacle.
-
-1. Name the dream outcome in the prospect's words. Example: "drop two dress
-   sizes before the wedding and keep it off."
-2. List every problem on the path. Brainstorm freely: no time, no idea what to
-   eat, intimidated by the gym floor, tried before and quit, no accountability,
-   sore and discouraged in week one.
-3. Turn each problem into a solution stated as the thing you provide. "No idea
-   what to eat" becomes "a done-for-you meal plan with a swap list."
-4. Choose a delivery vehicle for each solution: group session, one-to-one
-   check-in, app, printed guide, private community, text support. Pick the
-   vehicle that fits the value and your cost to deliver.
-5. Trim and stack. Cut anything low-value or expensive to deliver, then stack
-   the survivors into one offer that reads as overwhelming value for the price.
-
-See references/offer-construction for a full worked example on both the
-challenge and the membership.
-
-### Step 3: Enhance with the four amplifiers
-
-Add these only after the core stack is strong. They multiply a good offer and do
-nothing for a weak one.
-
-- Scarcity: limit real capacity. "We take 20 challengers per cohort because that
-  is what our coaches can serve well."
-- Urgency: a real deadline. "Cohort starts the 6th; doors close the 3rd."
-- Bonuses: stack extra wins that solve adjacent problems. Each bonus gets a name
-  and a stated value. A bonus should remove a specific objection.
-- Guarantee: hand off to gym-pricing-and-guarantees to choose the type and write
-  the language. Drop the chosen guarantee into the canvas guarantee slot.
-
-Never fake scarcity or urgency. A deadline you do not hold trains prospects to
-ignore you.
-
-### Step 4: Name the offer with MAGIC
-
-A good name states who it is for and what they get. Use the MAGIC formula and
-pick the two or three elements that fit; you do not need all five every time.
-
-- Magnetic reason why: the hook or occasion ("Summer Shred", "New Year").
-- Avatar: who it is for ("Busy Moms", "Men Over 40").
-- Goal: the outcome ("Drop a Dress Size", "First Pull-Up").
-- Interval: the time frame ("6-Week", "28-Day").
-- Container word: the format ("Challenge", "Project", "Bootcamp", "Intensive").
-
-See references/naming-magic for the formula and 15 worked gym names.
-
-### Step 5: Fill the offer canvas
-
-Complete the one-page canvas below. That is the deliverable the owner takes to
-their designer, their landing page, and their sales team.
+- Do not start from features or a list of what the gym does; start from the outcome and work backward through obstacles.
+- Do not add bonuses, scarcity, or urgency to prop up a weak core stack — fix the lowest lever first.
+- Do not fake scarcity or urgency; a deadline you do not hold trains prospects to ignore you.
+- Do not promise unsafe or unbelievable speed; engineer a believable fast first win instead.
+- Do not set the price or draft the guarantee text here — defer both to gym-pricing-and-guarantees.
 
 ## Calculator
 
-Self-contained Node script. Save as `value_score.js` and run with
-`node value_score.js`. No dependencies.
+Self-contained Node script. Save as `value_score.js` and run with `node value_score.js`. No dependencies.
 
 ```javascript
 // Value Equation scorer. Rate each lever 1-10 (10 = best). Run: node value_score.js
@@ -129,8 +67,6 @@ console.log('Weakest lever:', ratings[weakest], '/10 ->', weakest)
 console.log('Fix first:', levers[weakest])
 ```
 
-### Worked example output
-
 With the ratings above the script prints:
 
 ```
@@ -139,10 +75,7 @@ Weakest lever: 4 /10 -> perceivedLikelihood
 Fix first: Perceived likelihood: add proof, testimonials, and a guarantee
 ```
 
-Read it: the offer promises a result people want (8) but they do not believe
-they will get it (4). No bonus fixes that. Raise belief with before-and-after
-proof, a results guarantee, and named coaches, and the whole score jumps because
-the equation multiplies.
+Read it: the offer promises a result people want (8) but they do not believe they will get it (4). No bonus fixes that. Raise belief with before-and-after proof, a results guarantee, and named coaches, and the whole score jumps because the equation multiplies.
 
 ## Template: offer-canvas
 
@@ -165,7 +98,7 @@ THE STACK (kept solutions, in value order)
   Total stacked value:          $[FILL]
 
 PRICE
-  Price:                        $[FILL]
+  Price:                        $[FILL from gym-pricing-and-guarantees]
   Value-to-price framing:       "[FILL: e.g. $2,400 of coaching for $499]"
 
 AMPLIFIERS
@@ -182,54 +115,33 @@ NAME (MAGIC)
 
 How to raise each lever for a gym:
 
-- Dream outcome. Sell the identity and the life, not the workout. "Be the parent
-  who keeps up with their kids" beats "lose 10 pounds." Make it specific and
-  vivid. Tie it to an event the prospect already cares about.
-- Perceived likelihood. This is usually the weakest lever and the cheapest to
-  fix. Add before-and-after photos of people who look like the prospect, written
-  and video testimonials, named and credentialed coaches, a clear simple plan,
-  and a guarantee. Each one raises belief.
-- Speed (lower time delay). Engineer an early win in week one: a measurable
-  result, a body-composition scan, a personal record. Show the timeline so the
-  result feels close. Do not promise unsafe speed; show a believable fast first
-  win.
-- Ease (lower effort and sacrifice). Do more for them. Provide the meal plan
-  rather than nutrition theory. Book their sessions. Lay out the exact steps.
-  Every decision you remove lowers the effort they feel.
+- **Dream outcome.** Sell the identity and the life, not the workout. "Be the parent who keeps up with their kids" beats "lose 10 pounds." Make it specific and vivid. Tie it to an event the prospect already cares about.
+- **Perceived likelihood.** Usually the weakest lever and the cheapest to fix. Add before-and-after photos of people who look like the prospect, written and video testimonials, named and credentialed coaches, a clear simple plan, and a guarantee. Each one raises belief.
+- **Speed (lower time delay).** Engineer an early win in week one: a measurable result, a body-composition scan, a personal record. Show the timeline so the result feels close. Show a believable fast first win; never promise unsafe speed.
+- **Ease (lower effort and sacrifice).** Do more for them. Provide the meal plan rather than nutrition theory. Book their sessions. Lay out the exact steps. Every decision you remove lowers the effort they feel.
 
-Because the equation multiplies, a 2 on any lever caps the offer no matter how
-strong the other three are. Always fix the lowest lever first.
+Because the equation multiplies, a 2 on any lever caps the offer no matter how strong the other three are. Always fix the lowest lever first.
 
 ## references/offer-construction
 
 Worked example, challenge offer:
 
 - Dream outcome: drop a dress size and feel confident in 6 weeks.
-- Problems and solutions: no time becomes 30-minute semi-private sessions; no
-  diet plan becomes a done-for-you meal plan with swaps; intimidation becomes a
-  small same-goal group and a dedicated coach; quitting becomes weekly check-ins
-  and a group chat; no proof of progress becomes a start and finish InBody scan.
-- Vehicles: semi-private sessions, printed plus app meal plan, private group
-  chat, weekly 1:1 check-in, two body scans.
-- Stack and price: the stack reads as well over a thousand dollars of coaching;
-  the challenge is priced at 499, anchored against that stacked value.
+- Problems and solutions: no time → 30-minute semi-private sessions; no diet plan → a done-for-you meal plan with swaps; intimidation → a small same-goal group and a dedicated coach; quitting → weekly check-ins and a group chat; no proof of progress → a start and finish InBody scan.
+- Vehicles: semi-private sessions, printed plus app meal plan, private group chat, weekly 1:1 check-in, two body scans.
+- Stack and price: the stack reads as well over a thousand dollars of coaching; the challenge is priced (by gym-pricing-and-guarantees) and anchored against that stacked value.
 
 Worked example, membership offer (the ascension):
 
 - Dream outcome: keep the result and make it a lifestyle.
-- Stack: 3 or 4 semi-private sessions per week, quarterly body scans, ongoing
-  nutrition adjustments, the community, member events, and a re-test guarantee.
-- Vehicle and price: monthly recurring membership, priced on the ongoing
-  transformation and the community, not per session.
+- Stack: 3 or 4 semi-private sessions per week, quarterly body scans, ongoing nutrition adjustments, the community, member events, and a re-test guarantee.
+- Vehicle and price: monthly recurring membership, priced on the ongoing transformation and the community, not per session.
 
-The pattern is the same for both: outcome first, problems next, solutions and
-vehicles, then trim and stack.
+The pattern is the same for both: outcome first, problems next, solutions and vehicles, then trim and stack.
 
 ## references/naming-magic
 
-The MAGIC formula combines a Magnetic reason why, the Avatar, the Goal, the time
-Interval, and a Container word. You rarely need all five; pick the clearest two
-or three. Fifteen gym examples:
+The MAGIC formula combines a Magnetic reason why, the Avatar, the Goal, the time Interval, and a Container word. You rarely need all five; pick the clearest two or three. Fifteen gym examples:
 
 1. 6-Week Summer Shred Challenge
 2. 28-Day Dress Size Project for Busy Moms
@@ -247,5 +159,4 @@ or three. Fifteen gym examples:
 14. First Responders 6-Week Fitness Challenge
 15. Over-50 Mobility and Strength Project
 
-Test a name by reading it cold: a stranger should know who it is for, what they
-get, and how long it takes.
+Test a name by reading it cold: a stranger should know who it is for, what they get, and how long it takes.

@@ -1,25 +1,40 @@
 ---
 name: Circuit Breaker Builder
-description: Adds circuit breakers, timeouts, and bulkheads around flaky upstream dependencies so a slow or failing service degrades gracefully instead of cascading. Use when integrating an external API or service that can be slow or unavailable.
+description: Wraps flaky upstream dependencies in circuit breakers, aggressive timeouts, and per-dependency bulkheads so a slow or failing service degrades gracefully instead of cascading into a full outage. Use when a slow or unavailable upstream is stalling your threads, outbound calls hang with no timeout, one dependency's outage is taking down unrelated traffic, or you are integrating a network call that can realistically be slow or down. Do NOT use when the goal is staying under a provider's request quota or handling 429s — use rate-limit-handler instead; do NOT use to size a database connection pool — use connection-pool-tuner instead.
 ---
 # Circuit Breaker Builder
 
-The failure that takes down a system is rarely the dependency dying — it's your service piling up threads waiting on it. Resilience means failing fast and isolating the blast radius so one sick dependency can't drain your whole capacity.
+Protect a service from slow or unavailable upstreams: fail fast, fall back, and isolate the blast radius so one sick dependency can't drain your whole capacity.
 
-## Always Set a Timeout
-A call with no timeout is a resource leak waiting to happen. Set an explicit, aggressive timeout on every outbound call (connect and read separately). The budget should be smaller than your own caller's timeout, so you fail before they give up. Default library timeouts are often minutes or infinite — never trust them.
+## Workflow
 
-## Three States, Clear Transitions
-A breaker has closed (calls pass), open (calls fail instantly without touching the dependency), and half-open (a few probe calls test recovery). Trip from closed to open when failures cross a threshold — prefer a rolling error rate (e.g. >50% over the last N calls with a minimum volume) over a raw count, which is noisy at low traffic. After a cooldown, go half-open; if probes succeed, close; if any fail, re-open and reset the cooldown.
+1. **Set an explicit timeout on every outbound call.** Configure connect and read timeouts separately; never rely on library defaults (often minutes or infinite). The total budget must be shorter than your own caller's timeout so you fail before they give up. A call with no timeout is a guaranteed resource leak under load.
 
-## Fail Fast and Fall Back
-While open, return immediately — a cached value, a sane default, a degraded response, or a clean error. The point is to stop spending threads, connections, and latency on a call you expect to fail. Decide the fallback per call site: stale cache for reads, queue-for-later for writes, hard error only when there's no safe degradation.
+2. **Wrap the call in a three-state breaker.** Closed: calls pass through. Open: calls fail instantly without touching the dependency. Half-open: a few probe calls test recovery. Implement these states explicitly per dependency, not a single global breaker.
 
-## Bulkhead to Contain Blast Radius
-Isolate each dependency in its own pool — separate connection pool, thread pool, or concurrency semaphore. Then a saturated dependency exhausts only its own bulkhead, leaving capacity for unrelated traffic. Without bulkheads, one slow upstream consumes every worker and the whole service stalls.
+3. **Trip on a rolling error rate, not a raw count.** Open the breaker when the error rate crosses a threshold over a sliding window with a minimum request volume (e.g. >50% over the last N calls, ignore until at least M calls). A raw failure count flaps at low traffic and trips on noise.
 
-## Tune With Real Data and Watch It
-Thresholds and cooldowns are guesses until you measure. Emit metrics for state transitions, trip counts, and fallback rates; alert when a breaker opens. A breaker that flaps constantly is mistuned or masking a real outage that needs paging.
+4. **Define a fallback per call site.** While open, return immediately: stale cache for reads, queue-for-later or accept-and-reconcile for writes, a sane default or degraded response where one exists, and a clean fast error only when there is no safe degradation. The point is to stop spending threads, connections, and latency on a call you expect to fail.
 
-## When to Skip
-Don't wrap fast, in-process, or highly reliable local calls — the overhead and false trips aren't worth it. Reserve breakers for network calls to dependencies that can realistically be slow or down.
+5. **Probe and recover from half-open.** After a cooldown, allow a limited number of probe calls. If they succeed, close the breaker. If any fail, re-open and reset (and back off) the cooldown. Never flood the recovering dependency with full traffic the instant the cooldown expires.
+
+6. **Give each dependency its own bulkhead.** Isolate every upstream behind its own concurrency limit — a dedicated connection pool, thread pool, or concurrency semaphore. A saturated dependency then exhausts only its own bulkhead and leaves capacity for unrelated traffic. Never share one pool across multiple upstreams.
+
+7. **Emit metrics and alert.** Record state transitions, trip counts, fallback rates, and timeout rates per dependency. Alert when a breaker opens. Tune thresholds and cooldowns against this real data, not against guesses.
+
+## Quality bar
+
+- Every outbound network call has explicit connect and read timeouts, each shorter than the inherited caller budget.
+- Breaker trip logic uses a rolling error rate with a minimum-volume guard, not a bare count.
+- Each protected dependency has its own bulkhead; no two upstreams share a pool.
+- Every call site behind a breaker has a defined open-state fallback.
+- State transitions are observable and alert on open.
+
+## Do NOT
+
+- Do NOT trust default library timeouts, or ship any outbound call without one.
+- Do NOT retry through an open breaker — that defeats the fail-fast behavior; let the breaker reject.
+- Do NOT trip on a raw failure count at low volume; it flaps and masks real signal.
+- Do NOT share a connection or thread pool across dependencies; one slow upstream then stalls all of them.
+- Do NOT wrap fast, in-process, or highly reliable local calls — the overhead and false trips outweigh the benefit.
+- Do NOT use a breaker to ration calls against a provider quota (that is rate-limit-handler's job) or to decide a DB pool's maximum size (that is connection-pool-tuner's job).

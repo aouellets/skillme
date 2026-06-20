@@ -1,24 +1,30 @@
 ---
 name: Interview Debrief Synthesizer
-description: Consolidates multiple interviewer scorecards into a calibrated hire/no-hire summary that surfaces disagreement and bias risks. Use when running a post-loop debrief.
+description: Consolidates multiple interviewer scorecards into a calibrated hire/no-hire summary that foregrounds evidence, surfaces disagreement, and flags bias risks for a human panel. Use when you have collected scorecards or written feedback from a completed interview loop and need to run the debrief, calibrate divergent ratings, or produce a defensible decision write-up. Do NOT use when you are preparing questions or rubrics before interviews — use interview-question-kit instead.
 ---
 # Interview Debrief Synthesizer
-The debrief is where structured hiring is won or lost. Done well, it aggregates independent, evidence-based assessments into a defensible decision. Done badly, the loudest or most senior voice anchors the room. Your job is to consolidate scorecards into a clear picture that foregrounds evidence and disagreement, so humans can calibrate, not capitulate.
 
-## Aggregate Against the Shared Rubric
-Map every interviewer's scores to the role's defined competencies and weights. Show per-competency scores side by side with each interviewer's cited evidence. Compute the weighted picture, but present it as input to discussion, not a verdict. Flag competencies that were never actually assessed.
+Turn a set of independent interviewer scorecards into one calibrated, evidence-led decision summary that a human panel can defend.
 
-## Surface Disagreement, Don't Average It Away
-Where interviewers diverge on the same competency, highlight it explicitly with both sides' evidence. Divergence usually means missing information or different bars, not a number to split. Recommend the loop discuss or gather more signal rather than quietly averaging a 2 and a 4 into a 3.
+## Workflow
 
-## Separate Evidence From Impression
-For each claim, distinguish observed behavior ("could not explain their own design tradeoffs") from impression ("seemed junior"). Down-weight comments with no evidence. Prompt interviewers to supply the behavior behind a vibe, or set the unsupported comment aside.
+1. **Gather inputs.** Collect every interviewer's scorecard or written feedback and the role's competency rubric with its weights. If the rubric is missing, ask for it; do not infer a bar from the comments.
+2. **Aggregate against the shared rubric.** Map each interviewer's ratings to the defined competencies. Present per-competency scores side by side with each interviewer's cited evidence. Compute the weighted picture, but label it explicitly as input to discussion, never a verdict. Flag any competency no interviewer actually assessed.
+3. **Surface disagreement instead of averaging it.** Where interviewers diverge on the same competency, show both ratings with both sides' evidence. Treat divergence as a signal of missing information or different bars, not a number to split; recommend the panel discuss or gather more signal rather than collapsing a 2 and a 4 into a 3.
+4. **Separate evidence from impression.** For each claim, distinguish observed behavior ("could not explain their own design tradeoffs") from impression ("seemed junior"). Down-weight or set aside comments with no behavior behind them, and note which interviewer should supply the missing evidence.
+5. **Flag bias and process risks.** Mark untethered "fit" or "polish" comments, similarity bias ("reminds me of us"), remarks about communication style that may track accent or culture, harsher scoring on identical evidence, and any reference to a protected characteristic. Frame these as risks for the panel to examine, not as accusations.
+6. **Frame the decision and its rationale.** Summarize strengths, concerns, and the open questions the decision hinges on, mapped to the leveling bar. Present the options — hire / no-hire / more signal needed — each with its supporting evidence. Capture the final rationale in writing for consistency and auditability.
 
-## Watch for Bias and Process Signals
-Flag likely bias patterns: comments about "fit" or "polish" untethered to competency, similarity bias ("reminds me of us"), references to communication style that may track accent or culture, harsher scoring on identical evidence, and anything touching a protected characteristic. Note these as risks for the panel to examine, not as accusations.
+## Quality bar
 
-## Frame the Decision and Its Rationale
-Summarize strengths, concerns, and the open questions a decision hinges on, mapped to the leveling bar. Offer the decision options (hire / no-hire / more signal needed) with the evidence for each. Capture the final rationale in writing for consistency and auditability.
+- Every score and concern in the summary is traceable to a named interviewer and cited evidence.
+- Divergences are shown, not silently reconciled; the summary names what additional signal would resolve each one.
+- The output presents decision options with evidence; it never hands back a single number as the answer.
+- Bias and uncovered-competency risks are called out explicitly for the hiring manager and recruiter.
 
-## Fairness and Compliance Bounds
-This synthesis informs a human decision; it never auto-decides, ranks against other candidates by protected traits, or issues a final hire/no-hire. Strike or quarantine any input referencing age, race, gender, disability, family status, religion, national origin, or salary history. Evaluate only job-relevant evidence, apply the same bar to every candidate, and explicitly flag bias risks for the hiring manager and recruiter to resolve.
+## Do NOT
+
+- Do not auto-decide, issue a final hire/no-hire, or rank the candidate against others by protected traits — this synthesis only informs a human decision.
+- Do not average away disagreement to produce a clean composite score.
+- Do not let an unsupported impression carry weight; require the underlying behavior first.
+- Do not evaluate on anything but job-relevant evidence. Strike or quarantine any input referencing age, race, gender, disability, family status, religion, national origin, or salary history, and apply the same bar to every candidate.

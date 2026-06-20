@@ -1,24 +1,32 @@
 ---
 name: Characterization Test Writer
-description: Writes pinning and characterization tests around untested legacy code to lock in current behavior before refactoring. Use when you need a safety net before changing code that has no tests and whose correct behavior is whatever it currently does.
+description: Writes pinning and characterization tests that lock in the current behavior of untested legacy code before a refactor, so any later behavior change trips an alarm. Use when you are about to refactor, rewrite, or modify an untested legacy function/module and need a safety net first, when code has no tests and its "correct" behavior is simply whatever it does today, or when you must capture existing output (bugs included) before touching it. Do NOT use when writing tests for new behavior you are building red-green — use tdd-expert instead; do NOT use to decide which code is worth testing or to rank coverage gaps — use coverage-gap-finder instead.
 ---
 # Characterization Test Writer
-A characterization test does not assert what the code should do — it pins what the code currently does, bugs included, so any change you make afterward that alters behavior trips an alarm. It is the seatbelt you fasten before touching legacy code.
 
-## Assert Actual Output, Not Expected Output
-The defining move: run the code, observe what it returns, and assert exactly that — even if it looks wrong. The intentional technique is to write a deliberately failing assertion (assert result == 'PLACEHOLDER'), run it, read the actual value from the failure, and paste it in. You are recording reality, not judging it. If output looks buggy, note it for the rewrite phase but pin it as-is; fixing it now defeats the purpose.
+Pin what legacy code currently does — bugs included — so a refactor that changes behavior fails loudly instead of silently.
 
-## Find a Seam to Call the Code
-Untested legacy code usually can't be invoked in isolation — it reaches for databases, clocks, network, globals. Introduce the minimum seam to call it: extract a method, parameterize a constructor, inject the dependency, or use a subclass-and-override (the 'subclass to test' technique from Working Effectively with Legacy Code). Prefer the smallest seam that lets you exercise the unit; avoid large refactors before the net exists.
+## Workflow
 
-## Control the Inputs You Can't Predict
-Pin nondeterminism so output is stable: freeze time (libfaketime, freezegun, Clock injection), seed RNGs, stub network and I/O, and snapshot the database state. If you can't make it deterministic, capture the variable parts with golden-master/approval testing (ApprovalTests, snapshot files) that record a full output blob and diff against it on every run.
+1. Pick the unit and find a seam. Untested legacy code reaches for databases, clocks, network, and globals, so it can't be called in isolation. Introduce the smallest seam that lets you invoke it: extract a method, parameterize a constructor, inject the dependency, or subclass-and-override (the "subclass to sense" technique from Working Effectively with Legacy Code). Do not refactor the body before the net exists.
+2. Capture actual output, not expected. Write a deliberately failing assertion (e.g. `assert result == "PLACEHOLDER"`), run it, read the real value from the failure message, and paste it in. You are recording reality, not judging it.
+3. Pin output that looks wrong as-is. If the captured value looks buggy, tag it (a comment or test name like `pins_known_bug_*`) so the team decides its fate later, but assert it unchanged. Fixing it now defeats the purpose.
+4. Control nondeterminism so output is stable. Freeze time (libfaketime, freezegun, injected Clock), seed RNGs, stub network and I/O, and snapshot DB state. When a value genuinely can't be made deterministic, use golden-master / approval testing (ApprovalTests, snapshot files) to record a full output blob and diff it on every run.
+5. Maximize branch coverage fast. Run coverage tooling, see which branches your tests hit, and add cases until every line the upcoming refactor will touch is covered. Use parameterized tests and replay of recorded production inputs to reach edge cases you'd never invent.
+6. Make failures legible. Name each test for the behavior it pins (`characterizes_returns_zero_for_empty_cart`, not `test_method_3`) and keep each assertion narrow so a break localizes the regression.
 
-## Maximize Coverage of Branches, Fast
-You want breadth before a refactor. Use coverage tooling to see which branches your tests hit, then add cases until the lines you intend to change are covered. Parameterized tests and recorded production inputs (replay real request payloads) cover edge cases you'd never invent. Prioritize the exact code paths the upcoming refactor touches.
+## Quality bar
 
-## Make Failures Loud and Legible
-Name tests so a failure says what behavior changed (characterizes_returns_zero_for_empty_cart), not test_method_3. Keep each assertion narrow so a break localizes the regression. These tests are temporary scaffolding for the refactor — once the code is properly understood and unit-tested, many can be replaced with intention-revealing tests.
+- Every test asserts a value that was observed from a real run, not one you reasoned to.
+- Each code path the refactor will touch is covered before you change a line.
+- Nondeterministic inputs are pinned; the suite passes twice in a row with no flakiness.
+- A failure message names the changed behavior; one regression breaks one narrowly-scoped test.
+- Every pinned-but-suspect output is tagged so a bug is never silently promoted to a requirement.
 
-## When Not to Characterize
-Don't characterize code you're about to delete, or code that's already well unit-tested. Don't let a pinned bug ship as a permanent 'requirement' silently — tag pinned bugs so the team decides their fate. If the code is trivial and obvious, a normal unit test asserting correct behavior is better than pinning.
+## Do NOT
+
+- Do NOT assert what the code *should* do — that is a normal unit test, not a characterization test.
+- Do NOT fix bugs you discover while pinning; record and tag them, fix them after the net is in place.
+- Do NOT perform a large refactor to make code testable before the safety net exists; introduce only the minimum seam.
+- Do NOT characterize code you are about to delete, or code already covered by intention-revealing unit tests.
+- Do NOT leave these tests forever; they are scaffolding for the refactor and should be replaced with intention-revealing tests once behavior is understood.

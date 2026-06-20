@@ -1,31 +1,39 @@
 ---
 name: Internal Linking Mapper
-description: Recommends internal links and anchor text between a new article and an existing content inventory to build topical authority. Use when publishing or refreshing a page with a list of existing URLs.
+description: Maps internal links and anchor text between a new or updated article and an existing URL inventory to strengthen a topic cluster. Use when you have a draft or published page plus a list of existing site URLs (sitemap, export, or pillar/cluster map) and need to decide which pages to link to and from, and with what anchor text.
 ---
 # Internal Linking Mapper
 
-Internal links are the most underused ranking lever you fully control. They route authority (link equity) to your important pages, tell Google how topics relate, and keep users moving. The job is to wire a new page into the existing site so the whole topic cluster gets stronger — not to scatter random links.
+Wire one page into an existing site so the whole topic cluster gains authority: pick the outbound links from the new page, the inbound links into it, and descriptive anchor text for each.
 
-## Link Within the Topic Cluster First
+## Do NOT use when
+- You have a raw keyword export and need to design the cluster/pillar architecture itself — use Keyword Cluster Builder instead.
+- A page is slipping in rankings and you need SERP-intent update actions — use Content Refresh Auditor instead.
+- You need on-page rewrites (titles, headings, body copy, keyword targeting) for a single page — use SEO Optimizer instead.
 
-The highest-value links connect pages on the same subject. A new cluster page links up to its pillar; the pillar links down to it; sibling cluster pages cross-link where genuinely relevant. This mesh is what signals topical authority. Links between unrelated topics dilute relevance and confuse the model.
+This skill assumes the cluster already exists and the page content is set; it only decides the links.
 
-## Write Descriptive, Varied Anchor Text
+## Workflow
 
-Anchor text tells Google what the target page is about. Use descriptive phrases that include the target's topic, not "click here" or bare URLs. Vary the wording across links to the same page — exact-match anchors repeated site-wide look manipulative. Match the anchor to the target's primary keyword loosely, not robotically.
+1. **Gather inputs.** Confirm you have the target page (topic + primary keyword) and the existing URL inventory. If no inventory is supplied, ask for a sitemap, URL export, or pillar/cluster list — do not invent URLs.
+2. **Locate the cluster.** Identify the page's pillar and sibling cluster pages by topic match. Anything outside the cluster is a candidate only if genuinely relevant.
+3. **Plan outbound links from the new page.** Link up to the pillar; cross-link to siblings where the content actually references them; add a contextual link to the top money/conversion page when relevance is real.
+4. **Plan inbound links into the new page.** Scan the inventory for existing pages whose body naturally mentions the new topic, and specify where to add a contextual in-body link pointing to the new page. A page with zero inbound internal links is effectively orphaned.
+5. **Write anchor text per link.** Use a descriptive phrase containing the target's topic; vary wording across links to the same target; never reuse one exact-match anchor site-wide; never use "click here" or a bare URL.
+6. **Place and prune.** Put links in body context, not footer/sidebar boilerplate. Cap the count to the few that help the reader; drop the rest.
+7. **Output the map.** Return a table of source page, target page, anchor text, and direction (outbound from new page / inbound to new page).
 
-## Push Equity Toward Money and Pillar Pages
+## Quality bar
+- The new page has at least one inbound internal link and a link up to its pillar.
+- Every anchor is descriptive and unique enough; no exact-match repetition across the site.
+- Every link is contextual (in body) and topically justified — no volume-padding links to unrelated pages.
+- No links to thin, noindex, or non-canonical pages.
+- Output names real URLs from the supplied inventory only.
 
-Identify the pages that drive revenue or anchor a cluster, and ensure new content links to them. Pages with many internal links and short click-depth from the homepage are read as more important. Use a new article's relevance to send a contextual link to the page you most want to rank.
-
-## Add Inbound Links From Existing Pages
-
-A new page with zero internal links is nearly invisible. Scan the inventory for existing pages whose body naturally references the new topic and add contextual links from them into the new page. Inbound internal links matter more than outbound for getting a new page discovered and ranked.
-
-## Place Links in Context, Mind the Ratio
-
-In-body contextual links carry more weight than footer or sidebar boilerplate. Keep links relevant and reasonable in number — a wall of links on every line reads as spam and splits equity too thin. Prioritize the few links that genuinely help the reader.
-
-## What to Skip
-
-Do not link unrelated pages for the sake of volume, repeat one exact-match anchor everywhere, or bury links in the footer expecting ranking value. Do not orphan the new page by forgetting inbound links. Avoid linking to thin or noindex pages.
+## Do NOT
+- Link unrelated pages to inflate link count.
+- Repeat one exact-match anchor across many links.
+- Bury links in footers or sidebars and expect ranking value.
+- Orphan the new page by skipping inbound links.
+- Link to thin or noindex pages.
+- Fabricate URLs not present in the inventory.

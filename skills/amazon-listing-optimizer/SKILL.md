@@ -1,25 +1,29 @@
 ---
 name: Amazon Listing Optimizer
-description: Writes an Amazon title, bullets, and backend search terms within Amazon's character and keyword rules. Use when creating or fixing an Amazon listing.
+description: Writes an Amazon product title, five bullets, and backend search terms that obey Amazon's character, byte, and keyword rules while staying click-worthy in the search grid. Use when drafting or fixing a Seller Central listing, rewriting an Amazon title or bullet points, packing backend search terms, or recovering a listing flagged or suppressed for content. Do NOT use when writing on-site product-detail-page copy for your own storefront or marketing site — use product-description-writer instead.
 ---
 # Amazon Listing Optimizer
 
-Amazon listings serve two readers at once: the A9 search algorithm and a shopper deciding in a crowded grid. You optimize for discovery without sacrificing the click. Ask for the product, top 5-10 target keywords, brand name, and key specs. Then write to Amazon's structural rules exactly, because the listing gets suppressed or out-ranked when you don't.
+Optimize an Amazon listing for both the A9 search algorithm and a shopper scanning a crowded grid, within Amazon's exact structural rules.
 
-## Title: Front-Load Keywords, Respect the Limit
-Keep titles under 200 characters; many categories cap at 80, so target roughly 80-150 and verify the category. Lead with brand, then the primary keyword, then the most search-relevant attributes (type, size, quantity, color). No ALL CAPS, no promotional phrases ("best," "sale," "free shipping"), no emojis or decorative symbols. Capitalize the first letter of each major word. Every word in the title is indexed, so make each one earn its place.
+## Workflow
+1. Gather inputs: the product, top 5-10 target keywords, brand name, key specs, and the category. If keywords are missing, ask for them or for the category to infer intent — do not guess. If a requested claim violates Amazon policy or lacks substantiation, refuse and propose compliant phrasing before writing.
+2. Write the title. Cap under 200 characters, but many categories cap at 80 — target roughly 80-150 and verify the category limit. Order: brand, primary keyword, then most search-relevant attributes (type, size, quantity, color). Capitalize the first letter of each major word. Make the first ~50 characters say what it is and why it differs, since that is what shows on mobile.
+3. Write exactly 5 bullets. Begin each with a 2-4 word capitalized benefit label, then one supporting sentence. Keep each bullet under ~200 characters for mobile readability. Cover in priority order: main benefit, key feature, fit/compatibility, what is in the box or dimensions, trust/guarantee point. Reserve one bullet for the top objection that reviews reveal.
+4. Write backend search terms. The field caps at 250 bytes total (not per line); spaces separate terms, so no commas. Do not repeat any word already in the title or bullets — Amazon indexes those separately and repeats waste bytes. Add synonyms, common and alternate spellings, and use-case terms. Lowercase throughout.
+5. Run the compliance pass before delivering: scan every field against the Do NOT list and the category's restricted-word rules (supplements, beauty, baby are strictest).
 
-## Bullets: Benefit Headline, Then Proof
-Write exactly 5 bullets. Start each with a 2-4 word capitalized benefit label, then a sentence of supporting detail. Aim for under ~200 characters per bullet for mobile readability even though the field allows more. Cover, in priority order: the main benefit, a key feature, fit/compatibility, what's in the box or dimensions, and a trust or guarantee point. Weave secondary keywords in naturally; never keyword-stuff a bullet into nonsense.
+## Quality bar
+- Title and each bullet are within their character limits and the verified category cap.
+- Every word in the title is search-relevant; none is filler, because every word is indexed.
+- Backend terms add only new tokens (zero overlap with title/bullets) and fit in 250 bytes.
+- Secondary keywords read naturally inside sentences, never stacked into nonsense.
+- No claim survives that you cannot substantiate.
 
-## Backend Search Terms: No Waste, No Repeats
-The backend search-term field caps at 250 bytes total (not per line). Do not repeat any word already in the title or bullets; Amazon indexes those separately, so repeating wastes bytes. Use synonyms, common misspellings, alternate spellings, and use-case terms. No commas needed (spaces separate terms), no brand names of competitors, no quotes, no ASINs. Lowercase is fine and saves nothing but keeps it clean.
-
-## Compliance and Restricted Claims
-No claims of "cures," "FDA approved," "#1," or guarantees you can't substantiate. Avoid restricted words per category (especially supplements, beauty, baby). Don't reference time-sensitive info or pricing in copy. Misuse risks listing suppression, not just lost rank.
-
-## Differentiate in the Grid
-The shopper compares thumbnails and titles side by side. Make the title's first 50 characters communicate what it is and why it's different, since that's what shows on mobile. Reserve one bullet for the objection your reviews or competitor reviews reveal.
-
-## When to Push Back
-If keywords are missing, ask for them or request the category to infer intent rather than guessing. If a requested claim violates Amazon policy or lacks substantiation, refuse and propose compliant phrasing.
+## Do NOT
+- Use ALL CAPS, emojis, or decorative symbols anywhere.
+- Use promotional phrasing in the title or bullets ("best", "sale", "free shipping", "#1").
+- Make restricted claims ("cures", "FDA approved", or unsubstantiated guarantees).
+- Repeat words across the title, bullets, and backend terms.
+- Put competitor brand names, ASINs, quotes, pricing, or time-sensitive info in any field.
+- Keyword-stuff a bullet until it stops reading like a sentence.

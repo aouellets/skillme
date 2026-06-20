@@ -1,21 +1,34 @@
 ---
 name: N+1 Query Hunter
-description: Finds and eliminates N+1 query patterns in ORM code (ActiveRecord, Prisma, SQLAlchemy, Hibernate) using eager loading, with judgment on when N+1 is acceptable; use when a request issues many similar queries, a list endpoint is slow, or query logs show repeated SELECTs in a loop.
+description: Detect ORM loop-of-queries (N+1) patterns from query logs and eliminate them with batched eager loading, keeping the N+1s that are cheap. Use when a list endpoint is slow, a request issues many near-identical SELECTs differing only by an id, query logs show repeated SELECTs in a loop, or a tool like the bullet gem flags an N+1 in ActiveRecord, Prisma, SQLAlchemy, or Hibernate.
 ---
 # N+1 Query Hunter
-An N+1 is one query to fetch a list, then one more query per row to fetch its association. It is the single most common ORM performance bug and it hides because each query is individually fast.
 
-## Detect It First, Don't Guess
-Turn on query logging and count. In Rails, watch the log or use the `bullet` gem. In SQLAlchemy, set `echo=True` or `create_engine(..., echo='debug')`. In Prisma, enable the `query` log event. In Hibernate, set `hibernate.show_sql=true` and `generate_statistics=true`. The tell is a burst of near-identical SELECTs differing only in the WHERE id = ? value, scaling with collection size. pg_stat_statements with a normalized query showing a huge `calls` count confirms it server-side.
+Find ORM N+1 patterns from captured query logs and replace them with batched eager loading, leaving cheap bounded ones alone. An N+1 is one query to fetch a list, then one more query per row to fetch its association — the most common ORM performance bug, hidden because each query is individually fast.
 
-## Fix With Eager Loading
-Replace lazy per-row loads with a batched preload. ActiveRecord: `Post.includes(:author, comments: :user)` — use `preload` to force separate batched queries, `eager_load` to force a LEFT JOIN, `includes` to let Rails choose. SQLAlchemy: `selectinload(Post.comments)` (issues a second IN query, best default) or `joinedload` for one-to-one. Prisma: pass `include` or `select` with nested relations in one call. Hibernate: use `JOIN FETCH` in JPQL or an `@EntityGraph`, never rely on `FetchType.EAGER` globally.
+Do NOT use when reading or interpreting a single statement's EXPLAIN/EXPLAIN ANALYZE plan — use explain-plan-reader instead. Do NOT use when the fix is restructuring one query's SQL (rewriting joins, subqueries, or window functions) — use query-rewriter instead. This skill owns the loop-of-queries case where the fix is preloading, not rewriting one statement.
 
-## Beware Eager-Loading Traps
-`joinedload`/`eager_load` on a one-to-many multiplies rows (cartesian fan-out) and can be slower than the N+1 it replaced — prefer `selectinload`/`preload` for collections. Eager loading inside a method called in a loop just moves the N+1 up a level. Counts don't need rows: use `counter_cache` or a grouped `COUNT` instead of loading children to call `.size`.
+## Workflow
 
-## When N+1 Is Actually Fine
-If N is bounded and small (a detail page loading 3 associations), the batched query and the N+1 are both trivial — don't add complexity. If the per-row query hits a cache (identity map, Redis) the marginal cost may be near zero. Optimize the N+1 that scales with user-controlled input or appears on a hot path, measured at p95.
+1. Capture the evidence before guessing. Turn on query logging and count the SELECTs for the slow request. ActiveRecord: tail the log or add the `bullet` gem. SQLAlchemy: `create_engine(..., echo='debug')`. Prisma: enable the `query` log event. Hibernate: `hibernate.show_sql=true` and `generate_statistics=true`. The tell is a burst of near-identical SELECTs differing only in the `WHERE id = ?` value, scaling with collection size. Confirm server-side with `pg_stat_statements`: a normalized query with a huge `calls` count.
+2. Confirm it scales with input. Note how N grows: with collection size, page size, or user-controlled input. A 2-query "N+1" or one bounded to a handful of rows is not the target — move on.
+3. Replace lazy per-row loads with one batched preload. ActiveRecord: `Post.includes(:author, comments: :user)` — `preload` forces separate batched queries, `eager_load` forces a LEFT JOIN, `includes` lets Rails choose. SQLAlchemy: `selectinload(Post.comments)` (second IN query, best default for collections) or `joinedload` for one-to-one. Prisma: pass `include`/`select` with nested relations in one call. Hibernate: `JOIN FETCH` in JPQL or an `@EntityGraph`; never rely on global `FetchType.EAGER`.
+4. Avoid the fan-out trap. `joinedload`/`eager_load` on a one-to-many multiplies rows (cartesian fan-out) and can be slower than the N+1 it replaced — prefer `selectinload`/`preload` for collections. Eager loading inside a method that is itself called in a loop just moves the N+1 up one level; hoist the preload to the outermost collection.
+5. Use counts, not rows, for sizes. If the code loads children only to call `.size`/`.count`, use `counter_cache` or a grouped `COUNT` instead of materializing the association.
+6. Re-measure. Re-run the request with logging on and confirm the SELECT count dropped to a constant, and that p95 latency improved on the hot path.
 
-## What to Skip
-Don't preload associations a response never serializes — that is a reverse-N+1 fetching unused data. Don't chase a 2-query "N+1" on a page rendered once a day. Fix the ones that show up in slow traces and grow with data volume.
+## Quality bar
+
+- Every fix is justified by a captured query log or `pg_stat_statements` count, before and after.
+- The chosen strategy matches cardinality: IN-batched (`selectinload`/`preload`) for collections, JOIN-based only for one-to-one.
+- The request issues a constant number of queries regardless of collection size.
+- Only N+1s on hot paths or scaling with user-controlled input are touched.
+
+## Do NOT
+
+- Do not optimize by guesswork — never "fix" an N+1 you have not seen in a log or `pg_stat_statements`.
+- Do not preload associations the response never serializes; that is a reverse-N+1 fetching unused data.
+- Do not chase a 2-query "N+1" or one on a page rendered once a day.
+- Do not use `joinedload`/`eager_load` on one-to-many collections by default — the row fan-out can regress latency.
+- Do not set `FetchType.EAGER` globally in Hibernate to "solve" N+1; scope eager loading per query.
+- Do not skip per-row loads that hit an identity map or cache where the marginal cost is already near zero.

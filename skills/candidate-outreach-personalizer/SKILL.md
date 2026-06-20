@@ -1,24 +1,28 @@
 ---
 name: Candidate Outreach Personalizer
-description: Drafts personalized, respectful sourcing and InMail messages from a public profile summary. Use when reaching out to a passive candidate.
+description: Drafts short, personalized recruiting outreach and InMail messages to a passive candidate from their public professional profile. Use when sourcing or contacting a passive candidate, drafting an InMail or LinkedIn sourcing message, or personalizing recruiting outreach from a profile URL or profile summary. Do NOT use when writing sales or founder cold email to prospects — use cold-email-craft instead.
 ---
 # Candidate Outreach Personalizer
-Good sourcing outreach respects the candidate's time and treats them as a professional, not a lead in a funnel. The goal is a short, specific, honest message that earns a reply because it is clearly about them and this role, not a mail-merge blast. Personalized does not mean intrusive.
 
-## Anchor on One Relevant, Public Detail
-Reference exactly one concrete, professionally relevant thing from their public profile: a project, a talk, a tech stack, a published article. Specificity signals you actually looked. One genuine hook beats three generic compliments and avoids the creepy over-familiar tone of listing everything you found.
+Draft a short, honest, easy-to-decline recruiting message that earns a reply because it is clearly about this candidate and this role.
 
-## Lead With Why Them, Why This Role
-In two sentences, connect their demonstrated experience to the actual work of the role. Be honest about the level and scope. Do not inflate the company or the opportunity; passive candidates discount hype instantly and remember recruiters who wasted their time.
+## Workflow
+1. Read the candidate's public professional profile. Extract only job-relevant, candidate-published facts: role history, projects, talks, published writing, tech stack. Discard anything personal or unconfirmed.
+2. Pick exactly one concrete, professionally relevant hook (a specific project, talk, article, or stack choice). One genuine anchor beats three generic compliments and avoids a creepy over-familiar tone.
+3. Write the opener: in two sentences, connect their demonstrated experience to the actual work of this role. State the level and scope honestly; do not inflate the company or opportunity.
+4. State who you are, the company, and that this is a recruiting message. Include real specifics on location/remote and a pay range where required.
+5. Close with one low-commitment ask ("open to a 15-minute chat?") and an explicit, costless way to decline or stay in touch.
+6. Output the draft for a human recruiter to review and send. Flag any detail you could not confirm is public or that is sensitive or non-professional.
 
-## Keep It Short and Easy to Decline
-Aim for under 120 words with one clear, low-commitment ask ("open to a 15-minute chat?"). Make saying no costless and offer to stay in touch. Pushy or guilt-inducing framing damages your employer brand more than a missed reply.
+## Quality bar
+- Under 120 words, one hook, one ask.
+- The hook is specific enough that the message could not be sent unchanged to anyone else.
+- The candidate could decline in one line at no social cost.
+- No claim about the company, role, or a referral that is not literally true.
 
-## Be Transparent and Compliant
-Identify yourself, the company, and that it is a recruiting message. Include real specifics about location/remote and, where required, a pay range. Honor opt-outs and applicable anti-spam and messaging rules. Never imply a relationship or referral that does not exist.
-
-## Personalize Without Crossing Lines
-Use only information the person published in a professional context. Do not reference personal social media, photos, inferred age, ethnicity, family, health, or anything unrelated to the work. If a detail would feel surprising or invasive to receive, leave it out.
-
-## Fairness and Compliance Bounds
-Source and message based only on job-relevant, candidate-published professional information. Never infer or act on protected characteristics, and never use them to decide whom to contact or how. A human recruiter reviews and sends; this drafts. Flag any profile detail that is sensitive, non-professional, or that you cannot confirm is public.
+## Do NOT
+- Do not reference personal social media, photos, family, health, or anything outside professional work.
+- Do not infer or act on protected characteristics (age, ethnicity, gender, disability, religion) to decide whom to contact or what to write.
+- Do not use guilt, urgency, false scarcity, or fake mutual connections.
+- Do not include any detail you cannot confirm the person published in a professional context.
+- Do not auto-send; this drafts only.

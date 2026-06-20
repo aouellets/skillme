@@ -1,25 +1,32 @@
 ---
 name: Product Description Writer
-description: Turns a raw spec or feature list into a benefit-led, scannable PDP description in the brand's voice. Use when you have specs and need conversion copy.
+description: Writes the single on-site PDP master copy — a benefit-led, scannable product detail page in the brand's voice — from a raw spec sheet or feature list. Use when you have a spec list, feature bullets, or a bare template description for one product and need conversion copy for its on-site product detail page. Do NOT use for Amazon or marketplace listings — use amazon-listing-optimizer instead; do NOT use to spin one master into many size/color variants — use variant-copy-scaler instead.
 ---
 # Product Description Writer
 
-A spec sheet describes the product. A PDP sells it. Your job is to translate every feature into the outcome a shopper actually buys, then arrange it so a skimming, half-distracted phone user can decide in eight seconds. Ask for the spec list, target customer, and brand voice before writing. If voice is unknown, infer it from the category and ask one calibrating question.
+Translate a product's specs into the on-site PDP master copy: benefit-led, scannable, in the brand's voice, decidable in eight seconds on a phone.
 
-## Lead With the One Reason They Buy
-Open with a single sentence that names the core transformation or job-to-be-done, not the product category. "Knife" is a category; "slices a ripe tomato without crushing it" is a reason. The first line must work as a standalone hook because many shoppers read nothing else. Put the strongest, most specific benefit here, never a generic "premium quality."
+## Workflow
 
-## Translate Every Feature Into a Benefit
-For each spec, write the feature, then "which means," then the benefit. "316 stainless steel (which means it won't rust in a salt-air bathroom)." Keep the spec for credibility and the benefit for desire. Drop features that translate to nothing the buyer cares about. Never invent performance numbers, certifications, or health claims; use only what the source provides.
+1. Gather inputs. Get the spec/feature list, the target customer, and the brand voice. If voice is unknown, infer it from the category and ask exactly one calibrating question. If the spec list is thin, ask for the one detail competitors omit — do not pad with fluff.
+2. Find the one reason they buy. Name the core transformation or job-to-be-done, not the product category ("slices a ripe tomato without crushing it," not "knife"). This is the lead hook.
+3. Translate each spec to a benefit. For every spec write feature + "which means" + benefit ("316 stainless steel, which means it won't rust in a salt-air bathroom"). Keep the spec for credibility, the benefit for desire. Drop any feature that translates to nothing the buyer cares about.
+4. Surface and answer objections. Name the silent doubt — sizing, fit, durability, returns, "will this work for me" — and give one reassuring line each, woven into bullets or a short "Good to know" note. If it runs small, say so.
+5. Assemble for the F-pattern scan. Open with the lead hook, then a 2-3 sentence intro, then 3-5 benefit bullets with the payoff word front-loaded and the first 2-4 words bold. Close with a benefit-restating CTA. Put a "Details" or "Specs" block at the bottom for literal numbers, dimensions, materials, and care.
+6. Calibrate voice. Match sentence length, vocabulary, and warmth to the brand (premium skincare is calm and precise; a snack brand is playful).
 
-## Make It Scannable
-Write for the F-pattern scan. Use a short intro paragraph (2-3 sentences), then 3-5 benefit bullets that front-load the payoff word. Bold the first 2-4 words of each bullet. Keep sentences under 20 words. Add a short "Details" or "Specs" block at the bottom for the literal numbers, dimensions, materials, and care so spec-hunters find them without cluttering the sell.
+## Quality bar
 
-## Handle Objections Inline
-Name the silent doubt before it kills the sale: sizing, fit, durability, return policy, "will this work for me." One reassuring line each, woven into bullets or a short "Good to know" note. Honesty converts: if it runs small, say so. Misleading copy buys a sale and refunds it later with a bad review.
+- The first line works as a standalone hook — many shoppers read nothing else.
+- Every benefit traces to a spec in the source; every spec that survives earns its place.
+- Sentences stay under 20 words; bullets front-load the payoff.
+- Spec-hunters can find every literal number in the Details block without it cluttering the sell.
+- Every objection a buyer would have before adding to cart is answered honestly.
 
-## Brand Voice and Honest Urgency
-Match sentence length, vocabulary, and warmth to the brand. A premium skincare line is calm and precise; a snack brand is playful. Use urgency only when it is true (limited batch, seasonal, real low stock). Never fabricate scarcity or countdowns. End with a benefit-restating CTA, not just "Buy now."
+## Do NOT
 
-## When to Push Back
-If the spec list is thin, ask for the one detail competitors omit rather than padding with fluff. If asked to claim a health, safety, or earnings outcome the source doesn't support, refuse and offer a compliant alternative.
+- Do not invent performance numbers, certifications, materials, or health/safety/earnings claims. Use only what the source provides; if asked to claim an outcome the source doesn't support, refuse and offer a compliant alternative.
+- Do not open with "premium quality" or any generic category claim.
+- Do not fabricate scarcity, countdowns, or low-stock urgency. Use urgency only when it is true (limited batch, seasonal, real low stock).
+- Do not keep features that translate to no buyer benefit.
+- Do not end with a bare "Buy now" — restate the benefit in the CTA.

@@ -1,94 +1,43 @@
 ---
 name: core-four-lead-engine
-description: Use when a gym owner needs more leads or a plan to get known. Triggers on "I need more leads", "how do I get members", "what marketing should I do", "build a lead plan", "warm outreach", "cold outreach", "what's a lead magnet". Encodes the Core Four (warm outreach, content, cold outreach, paid ads) and the lead-volume math from $100M Leads.
+description: Pick the lead channels that fit a gym's stage, back daily activity out of a member goal, and build a 30-day lead plan across the Core Four (warm outreach, content, cold outreach, paid ads). Use when a gym owner says "I need more leads", "how do I get members", "what marketing should I do", "build a lead plan", "warm/cold outreach", or "what's a lead magnet". Do NOT use when the owner wants other people to bring in members (referrals, affiliate partners, agencies, employees) — use referral-and-affiliate-system instead; for paid-ad creative and budget depth, hand off to gym-meta-ads-funnel.
 ---
 
 # Core Four Lead Engine
 
-There are only four ways to let people know about the gym, and every tactic is a
-version of one of them. Plot them on a grid of who you contact (people who know
-you, or strangers) by how many at once (one, or many):
+Turn "get more members" into a measured 30-day plan with daily activity targets across the four ways a gym can reach people itself.
 
-- Warm outreach: people who know you, one to one.
-- Content: people who follow you, one to many.
-- Cold outreach: strangers, one to one.
-- Paid ads: strangers, one to many.
+There are only four ways to let people know about the gym, mapped by who you contact (knows you, or stranger) and how many at once (one, or many): warm outreach (knows you, one-to-one), content (follows you, one-to-many), cold outreach (strangers, one-to-one), paid ads (strangers, one-to-many). Every tactic is a version of one of these.
 
-This skill picks the right channels for the gym's stage, sets the daily activity
-to hit a member goal, and builds a 30-day plan the owner can actually run.
+## Workflow
 
-Paid ads have their own depth in gym-meta-ads-funnel. Referrals, affiliates, and
-other lead-getters have their own depth in referral-and-affiliate-system. This
-skill plans across all of them and hands off for execution.
+1. **Pick the starting channel by audience and budget.** Start where the gym has an unfair advantage. Existing audience (email list, social following, past members): start with warm outreach and content — free, fast, highest conversion. Money but no audience: start with paid ads against a front-end offer — buys reach now. Neither: start with cold outreach and content — costs time, not money, and builds the audience the other channels need. Pick one or two channels the owner can run daily without fail; add more later.
 
-## When to use this skill
+2. **Set the volume math.** Back daily activity out of the member goal. The funnel runs reach to lead to booked to show to close. Decide the goal and the conversion rates, then run `lead_volume.js` to compute leads needed and daily activity per channel. See `references/volume-math` for estimating each rate. The point is to make the goal concrete: "8 warm conversations and 21 cold outreaches a day" is a plan; "get more members" is not.
 
-Use it when the owner needs leads, asks what marketing to do, or wants a lead
-plan. If the goal is to fill a specific challenge, set the member goal from
-gym-transformation-challenge and the budget from gym-meta-ads-funnel.
+3. **Run each channel with a protected daily minimum.** Each channel works only with consistent volume. Warm outreach: message people who know you with a genuine check-in, then a soft offer — minimum is a fixed number of conversations a day. Content: post on a fixed cadence, each piece showing a problem the gym solves and a transformation — minimum is a cadence you never miss. Cold outreach: reach local strangers with a relevant opener and a free lead magnet — minimum is a fixed number of new outreaches a day. Paid ads: a daily budget against the front-end offer — hand off to gym-meta-ads-funnel for creative and budget.
 
-## The operating procedure
+4. **Use a lead magnet to convert attention into leads.** Cold and content traffic does not buy yet. Offer something valuable and free or cheap that reveals the problem the paid offer solves: a free body-composition scan reveals the gap; a macro calculator reveals the prospect has been guessing. A good lead magnet solves one narrow problem completely and makes the next step obvious. See `references/lead-magnet-design`.
 
-### Step 1: Pick the starting channel by audience and budget
+5. **Build the 30-day lead plan.** Fill the template below: channels, the daily minimum for each, the lead magnet, and the owner of each channel. Review weekly against actual leads and adjust with the more-better-new sequence.
 
-Start where you already have an unfair advantage.
+## Quality bar
 
-- Existing audience (email list, social following, past members): start with
-  warm outreach and content. Free, fast, highest conversion.
-- Money but no audience: start with paid ads to the challenge. Buys reach
-  immediately.
-- Neither audience nor budget: start with cold outreach and content. Costs time,
-  not money, and builds the audience that makes the other channels work.
+- Every channel in the plan has a numeric daily minimum, not "post more."
+- Daily targets trace back to the member goal through the funnel math, not guesses.
+- At most one or two channels at launch; a new channel is added only after the current one runs consistently.
+- The plan names an owner per channel and a weekly review with target-vs-actual.
 
-You will run more than one channel eventually. Start with one or two you can do
-daily without fail, then add.
+## Do NOT
 
-### Step 2: Set the volume math
-
-Back into daily activity from the member goal. The funnel is reach to lead to
-booked to show to close. Decide the goal and the conversion rates, then
-lead_volume.js computes the leads needed and the daily activity per channel. See
-references/volume-math for how to estimate each rate.
-
-The point of the math is to make the goal concrete. "Get more members" is not a
-plan. "Have 8 warm conversations and 21 cold outreaches a day" is.
-
-### Step 3: Run each channel with a daily minimum
-
-Each channel works only with consistent volume. Set a daily minimum per channel
-and protect it.
-
-- Warm outreach: message people who know you with a genuine check-in, then a soft
-  offer. Minimum is a fixed number of conversations a day.
-- Content: post on a schedule. Each piece should show a problem the gym solves
-  and a transformation. Minimum is a posting cadence you never miss.
-- Cold outreach: reach strangers in your area with a relevant opener and a free
-  lead magnet. Minimum is a fixed number of new outreaches a day.
-- Paid ads: a daily budget against the challenge offer. Hand off to
-  gym-meta-ads-funnel for creative and budget.
-
-Scale a channel with the more-better-new sequence: do more of what works, make
-it better, then add a new channel. See references/core-four-grid.
-
-### Step 4: Use a lead magnet to convert attention into leads
-
-Cold and content traffic does not buy yet. Offer something valuable and free or
-cheap that reveals the problem the paid offer solves. A free body-composition
-scan reveals the gap the challenge closes. A nutrition guide reveals how much the
-prospect does not know. The lead magnet should solve a narrow problem completely
-and make the next step obvious. See references/lead-magnet-design for eight gym
-examples and the criteria for a good one.
-
-### Step 5: Build the 30-day lead plan
-
-Put it together in the template: which channels, the daily minimum for each, the
-lead magnet, and the owner of each channel. Review it weekly against actual
-leads. A plan you do not measure is a wish.
+- Do not run all four channels at once from a standing start — none will get the volume it needs.
+- Do not pitch the membership in cold or content traffic; lead with the lead magnet.
+- Do not skip the math and set activity by feel; the daily count is the whole point.
+- Do not build a referral or affiliate program here — that is getting others to sell for you; use referral-and-affiliate-system.
 
 ## Calculator
 
-Self-contained Node script. Save as `lead_volume.js` and run with
-`node lead_volume.js`. No dependencies.
+Self-contained Node script. Save as `lead_volume.js` and run with `node lead_volume.js`. No dependencies. Edit the inputs and the channel shares to match the gym.
 
 ```javascript
 // Lead volume planner. Edit inputs, then: node lead_volume.js
@@ -145,10 +94,7 @@ Daily activity per channel (22 working days):
   Paid ads        35 leads/mo -> 2 ad leads (budget in ads skill)/day
 ```
 
-Read it: 20 members a month is 115 leads, which is 8 warm conversations and 21
-cold outreaches every working day, content earning about 104 impressions a day,
-and ads producing 2 leads a day. Now the goal is a daily checklist. Change the
-shares to match the channels the gym can actually run.
+Read it: 20 members a month is 115 leads, which is 8 warm conversations and 21 cold outreaches every working day, content earning about 104 impressions a day, and ads producing 2 leads a day. The goal is now a daily checklist. Change the shares to match the channels the gym can actually run.
 
 ## Template: 30-day-lead-plan
 
@@ -159,7 +105,7 @@ CHANNEL          DAILY MINIMUM            LEAD MAGNET            OWNER
 Warm outreach    [FILL] conversations     [FILL]                [FILL]
 Content          [FILL] posts/week        [FILL]                [FILL]
 Cold outreach    [FILL] outreaches        [FILL]                [FILL]
-Paid ads         $[FILL]/day              [FILL: challenge]     [FILL]
+Paid ads         $[FILL]/day              [FILL: offer]         [FILL]
 
 WEEKLY REVIEW
   Leads target:   [FILL]      Actual: ____
@@ -169,8 +115,6 @@ WEEKLY REVIEW
 
 ## references/core-four-grid
 
-The grid:
-
 ```
                 ONE TO ONE            ONE TO MANY
   WARM (know)   Warm outreach         Content
@@ -179,18 +123,12 @@ The grid:
 
 Channel mechanics and gym examples:
 
-- Warm outreach. Direct messages and calls to people who know you. Lead with a
-  real check-in, not a pitch. Example: message past challengers who never joined,
-  congratulate a recent life event, then invite them to the new cohort.
-- Content. Posts, reels, and emails to your following. Show problem and
-  transformation. Example: a 30-second client before-and-after with the obstacle
-  they overcame.
-- Cold outreach. Messages and calls to local strangers. Lead with a free lead
-  magnet, not the membership. Example: offer a free InBody scan to a local office.
-- Paid ads. Bought reach to strangers. Sell the challenge, not the gym. Depth in
-  gym-meta-ads-funnel.
+- Warm outreach. Direct messages and calls to people who know you. Lead with a real check-in, not a pitch. Example: message past challengers who never joined, congratulate a recent life event, then invite them to the new cohort.
+- Content. Posts, reels, and emails to your following. Show problem and transformation. Example: a 30-second client before-and-after with the obstacle they overcame.
+- Cold outreach. Messages and calls to local strangers. Lead with a free lead magnet, not the membership. Example: offer a free InBody scan to a local office.
+- Paid ads. Bought reach to strangers. Sell the front-end offer, not the gym. Depth in gym-meta-ads-funnel.
 
-Scaling sequence, applied to each channel before adding the next:
+Scaling sequence (more-better-new), applied to each channel before adding the next:
 
 1. More: increase daily volume of what already produces leads.
 2. Better: improve the opener, the content, the offer, the targeting.
@@ -198,22 +136,18 @@ Scaling sequence, applied to each channel before adding the next:
 
 ## references/lead-magnet-design
 
-A good lead magnet solves one narrow problem completely, is fast to consume,
-reveals the bigger problem the paid offer solves, and makes the next step
-obvious. Eight gym examples:
+A good lead magnet solves one narrow problem completely, is fast to consume, reveals the bigger problem the paid offer solves, and makes the next step obvious. Eight gym examples:
 
 1. Free week of training.
 2. Free body-composition (InBody) scan and readout.
 3. Five-day fat-loss kickstart guide.
 4. Macro and calorie target calculator with a sample day.
-5. Challenge entry at a low front-end price.
+5. Front-end offer entry at a low price.
 6. Free form-check session for one lift.
 7. "Busy parent" 20-minute home workout pack.
 8. Local corporate wellness lunch-and-learn.
 
-Each one reveals a gap. A scan reveals body-fat the prospect did not know.
-A macro calculator reveals they have been guessing. The reveal creates the desire
-the challenge fulfills.
+Each one reveals a gap. A scan reveals body-fat the prospect did not know. A macro calculator reveals they have been guessing. The reveal creates the desire the paid offer fulfills.
 
 ## references/volume-math
 
@@ -223,10 +157,6 @@ Back into activity from the goal. Work the funnel in reverse:
 - Shows needed equals members divided by show-to-close rate.
 - Booked needed equals shows divided by booked-to-show rate.
 - Leads needed equals booked divided by lead-to-booked rate.
-- Activity needed per channel equals that channel's lead share times its
-  activity-per-lead, divided by working days.
+- Activity needed per channel equals that channel's lead share times its activity-per-lead, divided by working days.
 
-Estimate rates from your own history first. If you have none, start with
-lead-to-booked 0.5, booked-to-show 0.7, show-to-close 0.5, and correct them after
-two weeks of real data. The exact numbers matter less than running the math and
-turning the goal into a daily count you can hit.
+Estimate rates from the gym's own history first. With no history, start with lead-to-booked 0.5, booked-to-show 0.7, show-to-close 0.5, and correct them after two weeks of real data. The exact numbers matter less than running the math and turning the goal into a daily count you can hit.

@@ -1,25 +1,35 @@
 ---
 name: Carousel Scripter
-description: Outlines a multi-slide Instagram or LinkedIn carousel with a hook slide, per-slide copy, and a CTA slide. Use when turning an idea into a swipeable, value-dense carousel.
+description: Scripts a multi-slide Instagram or LinkedIn carousel as a hook slide, one-idea-per-slide value frames, and a single-CTA closing slide, with per-slide copy and design direction. Use when the user asks to write, script, or outline a carousel, turn a post/idea/listicle into swipeable slides, or build an Instagram carousel or LinkedIn document (PDF) post.
 ---
 # Carousel Scripter
 
-A carousel works because every swipe is a micro-commitment, and swipe-throughs are a strong signal both Instagram and LinkedIn reward. The whole format lives or dies on slide one earning the swipe, and each slide after it earning the next. Design for momentum, one idea per slide, never a paragraph dumped onto a frame.
+Turn one idea into an ordered slide deck where slide one earns the swipe and every slide after earns the next.
 
-## Slide One Is the Whole Game
-The cover must stop the scroll and promise a payoff: a bold claim, a number ("7 mistakes..."), a contrarian take, or a clear transformation. Keep it to a short headline plus a visual cue to swipe. If slide one is weak, nothing else matters — spend disproportionate effort here and offer 2-3 cover options.
+## Workflow
+1. Confirm the format fits. A carousel earns its keep on multi-step, list, or framework content. If the idea is a single quick tip or a time-sensitive moment, say so and recommend a Reel, single image, or text post instead — do not script a carousel for a one-liner.
+2. Confirm platform, audience, and the one outcome the post should drive (follow, save, comment, click). Default to Instagram if unstated and ask once.
+3. Draft 2-3 cover (slide 1) options. Each is a short headline that stops the scroll and promises a payoff — a number ("7 mistakes…"), a contrarian claim, or a clear transformation — plus a swipe cue. Spend disproportionate effort here.
+4. Lay out the spine: Hook (slide 1), Stakes / why-it-matters (slide 2), Value slides (3 through n-1, one point each), CTA (final slide). Target 6-10 slides total.
+5. Write each value slide as one point: a punchy headline (the layer skimmers read) plus 1-2 short support sentences. Front-load the point in the first words. Number each slide.
+6. End most value slides with a tiny open loop or forward cue so the reader wants the next slide.
+7. Write the closing slide with exactly one ask, tied to the value delivered ("Save this before your next launch").
+8. Add a one-line design direction per slide (what the visual shows), since copy and layout are inseparable.
+9. Write a caption that restates the hook and adds context the slides could not hold.
 
-## Structure for Momentum
-Use a proven spine: Hook (slide 1) then Stakes/why-it-matters (slide 2) then Value slides (3 through n-1, one point each) then CTA (final slide). Aim for 6-10 slides; fewer than 5 feels thin, more than 12 loses people. End each value slide with a tiny open loop or forward cue so the reader wants the next one. Number slides so progress is visible.
+## Platform calibration
+- LinkedIn (PDF / document post): educational, framework-driven, more text tolerated, cleaner design.
+- Instagram: punchier text, stronger visual dependency, fewer words per frame.
 
-## One Idea, Few Words Per Slide
-Each slide carries a single point: a punchy slide headline (the part skimmers read) plus a line or two of support. Roughly 1-2 short sentences per slide max — these are read on a phone at a glance. Front-load the slide's point in its first words. Write the headline layer so the carousel makes sense even if someone only reads headlines.
+## Quality bar
+- Slide 1 alone makes someone want to swipe; reading only the headlines still delivers the full payoff.
+- 6-10 slides; exactly one idea per slide and one CTA on the final slide.
+- Every slide's point lands in its first words at phone-glance speed.
+- Each slide carries a copy block and a design note; a caption ships with the deck.
 
-## End With One Clear Ask
-The final slide converts attention into action: one CTA only — follow for more, save this, comment a keyword, or visit a specific resource. Tie it to the value just delivered ("Save this before your next launch"). Don't stack three asks. Pair the carousel with a caption that restates the hook and adds context the slides couldn't hold.
-
-## Platform Nuances
-LinkedIn carousels (PDF/document posts) skew educational, frameworks, and professional value — more text tolerated, cleaner design. Instagram skews visual, punchier text, stronger design dependency. Note design direction per slide (what the visual should show) since copy and layout are inseparable here.
-
-## When a Carousel Is the Wrong Format
-If the idea is a single quick tip or a time-sensitive moment, a Reel, single image, or text post will outperform a carousel — say so. Carousels earn their keep on multi-step, list, or framework content, not one-liners.
+## Do NOT
+- Do not script a carousel for a single tip, one-liner, or time-sensitive moment — recommend a Reel, single image, or text post.
+- Do not dump a paragraph onto a slide or put more than one idea on a frame.
+- Do not stack multiple asks on the closing slide.
+- Do not ship a weak cover; if slide 1 is weak, nothing downstream matters.
+- Do not bury the point — lead each slide with it, never with throat-clearing.

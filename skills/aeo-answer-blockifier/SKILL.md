@@ -1,31 +1,36 @@
 ---
 name: AEO Answer Blockifier
-description: Rewrites a section into concise, citable answer blocks optimized for AI answer engines and featured snippets (AEO/GEO). Use when you want a page quoted by AI Overviews, ChatGPT, or Perplexity, or to win a snippet.
+description: Rewrites a section or page into concise, self-contained answer blocks that AI answer engines and search snippets can lift and cite verbatim. Use when restructuring a blog post, FAQ, docs page, or landing copy to win a featured snippet or get quoted by AI Overviews, ChatGPT, or Perplexity, or when a draft buries its answer in setup. Do NOT use for keyword research, full-article drafting, or technical/crawlability SEO — use a dedicated SEO or copywriting skill instead.
 ---
 # AEO Answer Blockifier
 
-Answer engines and featured snippets extract a self-contained passage that directly answers a question. Answer Engine Optimization (AEO/GEO) is about engineering passages an AI can lift and cite without context. The same structure that wins Google's featured snippet tends to earn citations in AI Overviews, ChatGPT, and Perplexity.
+Restructure existing content into question-led blocks an engine can quote out of context, so the page earns citations and snippets instead of just ranking.
 
-## Lead With the Answer, Then Elaborate
+## Workflow
 
-State the direct answer in the first one or two sentences, before any setup. AI systems and snippet algorithms grab the opening passage under a relevant heading. Put the conclusion first; supporting detail, nuance, and caveats follow. Burying the answer in paragraph three forfeits the citation.
+1. **Extract the questions.** List every distinct question the section actually answers, in the user's natural wording (including conversational and voice phrasing). One block per question. If a passage answers no clear question, either reframe it as one or drop it from blockification.
+2. **Set the heading to the question.** Make each H2/H3 the exact question, matching how a user would type or speak it. This maps the block to the query and mirrors People Also Ask.
+3. **Lead with the answer.** State the direct answer in the first one or two sentences under the heading — conclusion first, before any setup. Supporting detail, nuance, and caveats follow. An answer buried in paragraph three forfeits the citation.
+4. **Make the block self-contained.** Name the subject explicitly in the answer sentence. Remove "as mentioned above," "this," and any pronoun or reference pointing offscreen, so the block reads correctly when lifted alone.
+5. **Pick the format the question demands.** "How to" / "steps" → numbered list. "Best" / "types of" → bulleted list. "What is" → one tight definition paragraph. Comparison → a table. Forcing prose onto a list-shaped query loses the extraction.
+6. **Size the block to the format.** Definition/paragraph answer: roughly 40–60 words. List: scannable items, one idea each. Table: labeled columns, no prose padding in cells.
+7. **Add verifiable trust signals.** Where the answer makes a factual claim, attach a concrete number, named source, or first-hand specific an engine can check (this is what E-E-A-T rewards). Replace generic unsourced assertions with verifiable ones.
+8. **Verify against the quality bar** before returning.
 
-## Make Each Block Self-Contained
+## Quality bar
 
-A citable block must make sense quoted alone. Avoid "as mentioned above" or pronouns referring offscreen. Name the subject explicitly in the answer sentence so an engine lifting it out of context still reads correctly. Aim for roughly 40-60 words for a paragraph snippet.
+A block ships only if all hold:
+- The heading is the user's question; the first sentence answers it directly.
+- The block reads correctly quoted in isolation — no offscreen references, subject named.
+- The format matches the question type, sized as in step 6.
+- Every factual claim is specific and verifiable, none fabricated.
+- No throat-clearing intro precedes the answer.
 
-## Use the Question as the Heading
+## Do NOT
 
-Phrase the H2/H3 as the exact question a user asks, then answer immediately below. This maps your block to the query, mirrors People Also Ask, and gives engines a clean question/answer pair to extract. Match the question's natural wording, including conversational phrasing used in voice and AI prompts.
-
-## Pick the Right Snippet Format
-
-Match structure to the question. "How to" and "steps" -> numbered list. "Best" or "types of" -> bulleted list. "What is" -> a tight definition paragraph. Comparisons -> a table. The format that fits the question is the one engines extract; forcing prose onto a list query loses.
-
-## Earn Trust Signals for Citation
-
-AI engines favor sources that demonstrate expertise and accuracy (E-E-A-T). Cite concrete data, dates, and named sources; show first-hand experience; keep facts current. Add specifics an engine can verify. Generic, unsourced claims get skipped in favor of pages that look authoritative.
-
-## What to Skip
-
-Do not pad answer blocks with throat-clearing intros, keep nuance out entirely (factual hedging builds trust), or stuff every heading as a question unnaturally. Do not fabricate stats to look citable — answer engines and readers punish inaccuracy. Snippet wins fluctuate; treat them as upside, not a guarantee.
+- Do NOT bury the answer behind setup, background, or a "in this post we'll cover" intro.
+- Do NOT leave pronouns or "as above" references that break when the block is quoted alone.
+- Do NOT force every heading into a question when the wording becomes unnatural.
+- Do NOT fabricate stats, dates, or sources to look citable — readers and engines punish inaccuracy.
+- Do NOT strip genuine caveats or accuracy hedges; precise factual qualification builds trust. Cut only filler, not correctness.
+- Do NOT promise snippet or citation wins as guaranteed; they fluctuate. Optimize structure, treat placement as upside.

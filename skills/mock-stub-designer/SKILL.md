@@ -1,24 +1,28 @@
 ---
 name: Mock Stub Designer
-description: Sets up the right mocks, stubs, and fakes for external dependencies without over-mocking, and decides what to fake versus use for real. Use when a test touches a network call, database, clock, or third-party SDK.
+description: Designs the minimal set of test doubles for a unit or integration test and decides, per dependency, what to fake versus exercise for real. Use when a test touches an external boundary — an HTTP/third-party API, payment or email/SMS SDK, the database, the filesystem, the system clock, or randomness — or when existing tests over-mock and pass while the system is broken.
 ---
 # Mock Stub Designer
-A test double exists to make a test fast, deterministic, and focused — not to mock everything in sight. Over-mocking produces tests that pass while the system is broken because they only verify the mocks.
+A test double exists to make a test fast, deterministic, and focused — never to mock everything in sight. Over-mocking yields tautological tests that pass against a broken system because they only verify the mocks.
 
-## Know the Difference
-A stub returns canned answers (query). A mock asserts an interaction happened (command). A fake is a working lightweight implementation (in-memory repository, sqlite). A spy wraps a real object to record calls. Reach for the weakest double that works: prefer a stub or fake over a mock, because mocks couple the test to the implementation's call sequence.
+## Workflow
+1. **List the dependencies the code under test touches.** For each, classify it: external boundary you do not own (third-party HTTP, payment/email/SMS SDK, clock, randomness, filesystem) versus your own code (domain objects, pure functions, cheap deterministic collaborators).
+2. **Decide fake vs real per dependency.** Double only the boundaries you do not own or cannot control. Use the real thing for your own domain objects and deterministic collaborators — mocking them turns the test into a tautology.
+3. **Pick the weakest double that works.** Stub for canned query answers; fake (in-memory repository, SQLite) for a working lightweight implementation; spy to record calls on a real object; mock (interaction assertion) only when the interaction *is* the behavior. Prefer stub or fake over mock — mocks couple the test to the call sequence.
+4. **Intercept HTTP at the wire, not your client.** Use nock, msw, WireMock, or VCR-style cassettes so serialization and URL building are still exercised. Record real responses once, replay them, and refresh cassettes so they do not drift from the real API.
+5. **Inject or freeze time and randomness.** Never call the wall clock or RNG directly in code you want deterministic; inject a clock and a random source, or freeze them (fake timers, freezegun). Real-clock tests are flaky near boundaries and untestable for time logic.
+6. **Keep one real integration test as a backstop.** For a critical integration, retain at least one test against a real sandbox dependency so the doubles cannot lie forever.
 
-## Fake the Boundary, Not Your Own Code
-Mock at the edges you do not own and cannot control: third-party HTTP APIs, payment SDKs, email/SMS, the system clock, randomness, the filesystem. Do not mock your own domain objects or the unit under test's collaborators that are cheap and deterministic — use the real thing so the test exercises real integration. Mocking everything internal turns a unit test into a tautology.
+## Quality bar
+- Every double covers a boundary you do not own; nothing internal and deterministic is mocked.
+- HTTP is stubbed at the wire layer, not at a hand-mocked client wrapper.
+- Time and randomness are injected or frozen, never read live in tested logic.
+- A single fake implementation is reused across tests, not re-stubbed per test.
+- Interaction assertions (call counts, argument order) appear only where the interaction is the contract.
 
-## Stub at the Network Layer
-For outbound HTTP, intercept at the wire (nock, msw, WireMock, VCR cassettes) rather than mocking your client wrapper. This verifies your serialization and URL building, which a hand-mocked client skips. Record real responses once, then replay them; refresh cassettes periodically so they do not drift from the real API.
-
-## Make Time and Randomness Injectable
-Never call Date.now() or Math.random() directly in code you want to test deterministically — inject a clock and a random source, or freeze them (sinon fake timers, jest.useFakeTimers, freezegun). A test that depends on the real clock is flaky near boundaries and untestable for time-based logic.
-
-## Avoid the Over-Mocking Traps
-Do not assert call counts and argument order unless the interaction IS the behavior (e.g., "charge is called exactly once"). Verifying internal call sequences breaks on every harmless refactor. Keep one fake implementation reused across tests instead of re-stubbing the same thing everywhere. If you find yourself mocking three layers deep, the design is too coupled — that is the real finding.
-
-## When to Use the Real Thing
-Use real in-memory databases, real serialization, and real pure functions. For a critical integration, keep at least one test that hits a real (sandbox) dependency so your doubles cannot lie forever. Skip doubles entirely when the dependency is fast, deterministic, and side-effect-free.
+## Do NOT
+- Do NOT mock the unit under test's own domain objects, pure functions, or cheap deterministic collaborators — use them for real.
+- Do NOT assert call counts or argument order for harmless internal calls; that breaks on every refactor.
+- Do NOT mock three layers deep. If you must, the design is too coupled — report that as the finding instead of papering over it with doubles.
+- Do NOT skip the wire layer by mocking your HTTP client; you lose coverage of serialization and URL building.
+- Do NOT use when the task is fabricating valid domain/fixture data or object graphs (a `User` with defaults, an `Order` with line items) — use test-data-builder instead. This skill decides *whether and how* to fake a dependency, not how to construct domain values.

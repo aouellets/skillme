@@ -1,31 +1,32 @@
 ---
 name: Meta Title Optimizer
-description: Writes title tags + meta descriptions within pixel/char limits with correct keyword placement and CTR-driving framing. Use when finalizing a SERP snippet or fixing titles that rank but get few clicks.
+description: Writes title tags and meta descriptions that fit SERP pixel and character limits, place the keyword for relevance, and frame the snippet to drive clicks. Use when writing or rewriting a page title tag or meta description, fixing a page that ranks but gets few clicks, or differentiating a SERP snippet against competitors. Do NOT use when the request is broad on-page or technical SEO (headings, internal links, schema, crawlability) — use seo-optimizer instead.
 ---
 # Meta Title Optimizer
 
-The title tag is the single highest-leverage on-page element: it influences both ranking and click-through. A page that ranks but is not clicked loses to one ranked below it that is. Write titles for humans scanning a crowded SERP, with the keyword placed where it still earns relevance.
+Write the title tag and meta description for a single page so it fits SERP limits, earns relevance, and wins the click. This skill owns title-tag and meta-description copy only; defer broader on-page work to seo-optimizer.
 
-## Respect the Pixel and Character Budget
+## Workflow
 
-Titles truncate around 580 pixels — roughly 60 characters. Wide capital letters and Ms eat the budget faster than counting characters suggests, so keep titles near 55-58 characters to be safe. Meta descriptions display around 155 characters before truncation; front-load the value.
+1. **Capture the target.** Identify the page's primary keyword (one term), the search intent behind it, and the actual answer the page delivers (its H1 and main content). If any is unknown, ask before writing.
+2. **Read the live SERP.** Look at the current top results for the keyword. Note the dominant title pattern so you can break it instead of blending in.
+3. **Draft the title tag.** Lead with the primary keyword or a close natural variant in the first few words. Keep it to 55-58 characters (titles truncate near 580 pixels, and wide capitals consume the budget faster than a character count implies). Append the brand after a separator only if room remains.
+4. **Differentiate the framing.** If every competing title repeats the same pattern, break it: lead with a number, a concrete benefit, or a question. Match the intent and promise a specific payoff the page actually delivers.
+5. **Draft the meta description.** Front-load the value in the first ~155 characters (the rest truncates). Mirror the searcher's language so the engine bolds matched terms, name a specific differentiator (a number, "free", "step-by-step", a unique angle), and end with a soft call to action.
+6. **Verify against the page.** Confirm the title and description reflect the H1 and the page's real answer. Overpromising gets the title rewritten by the engine and bounces users — both lose.
 
-## Place the Primary Keyword Early
+## Quality bar
 
-Lead with the primary keyword or a close natural variant within the first few words — it carries the most weight and survives truncation. Append the brand at the end after a separator only if room remains. Never keyword-stuff; one primary plus one natural modifier is plenty.
+- Title tag is at most ~58 characters and survives truncation with the keyword intact.
+- Primary keyword (or a close variant) appears in the first few words; no second keyword stuffed in.
+- Meta description front-loads value within ~155 characters and contains one concrete differentiator.
+- Title and description accurately match the H1 and on-page content.
+- Snippet is visibly distinct from the dominant pattern in the live SERP.
 
-## Engineer the Click
+## Do NOT
 
-The meta description does not directly rank, but it sells the click. Match the searcher's intent, promise a specific payoff, and include a soft call to action. Mirror the searcher's language so Google bolds the matched terms. Add a differentiator: a number, a year, "free", "step-by-step", or a unique angle competitors lack.
-
-## Match the Title to On-Page Content
-
-If the title overpromises relative to the page, Google may rewrite it and users bounce — both hurt. The title must accurately reflect the H1 and the page's actual answer. Mismatch causes Google to substitute its own title, wasting your optimization.
-
-## Differentiate Against the Live SERP
-
-Read the current top results before writing. If every title is "Best X in 2026", break the pattern — lead with a number, a benefit, or a question. Sameness is invisible; a distinct framing at the same rank wins clicks.
-
-## What to Skip
-
-Do not stuff multiple keywords, repeat the brand in every title, or use ALL CAPS and clickbait the page cannot deliver. Do not pad descriptions past 155 characters expecting them to show. Avoid auto-generated boilerplate titles that read identically across a site.
+- Stuff multiple keywords or repeat the brand in every title.
+- Use ALL CAPS or clickbait the page cannot deliver.
+- Pad a description past ~155 characters expecting the overflow to display.
+- Ship auto-generated boilerplate titles that read identically across the site.
+- Hardcode a year or other dated token into evergreen titles.

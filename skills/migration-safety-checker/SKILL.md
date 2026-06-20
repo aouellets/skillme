@@ -1,21 +1,31 @@
 ---
 name: Migration Safety Checker
-description: Flags schema migrations that take blocking locks or run long, and rewrites them into zero-downtime steps — nullable-add-then-backfill, concurrent index builds, and expand-contract; use before running any ALTER TABLE or migration against a live production database.
+description: Rewrite a schema migration into independently deployable, zero-downtime steps that never take a long-held blocking lock on a live table. Use when you are about to run an ALTER TABLE, CREATE INDEX, add a constraint, rename a column, or change a column type against a production database with live traffic. Do NOT use for greenfield table/column design with no rows yet — use database-schema instead; do NOT use for broad correctness/integrity review of a migration — use review-db instead.
 ---
 # Migration Safety Checker
-A migration that is correct in a test DB can take a production-halting lock on a large hot table. Safety is about which lock a statement takes and how long it holds it while other queries queue behind it.
 
-## Know Which Statements Take Heavy Locks
-In Postgres, ACCESS EXCLUSIVE locks (which block reads and writes) are taken by adding a column with a volatile default on old versions, changing a column type, adding a non-concurrent index, and many constraint additions. A dangerous trap: a long-running ALTER waiting for its lock blocks every query that arrives after it, even fast SELECTs — the queue, not the ALTER itself, causes the outage. Always set a lock_timeout (a few seconds) before DDL so a blocked migration aborts instead of stalling traffic.
+Turn a migration that is correct in a test DB but takes a production-halting lock into a sequence of small, reversible, zero-downtime steps. The outage is rarely the DDL itself — it is the queue of fast queries that pile up behind a statement waiting for an ACCESS EXCLUSIVE lock.
 
-## Add Columns the Safe Way
-Add a column NULLable with no volatile default (instant in modern Postgres). Backfill in batches (UPDATE ... WHERE id BETWEEN ranges, committing each batch) to avoid one giant transaction and bloat. Only then add the NOT NULL — and do it via a CHECK constraint validated with NOT VALID then VALIDATE CONSTRAINT, which takes a weaker lock than a direct SET NOT NULL.
+## Workflow
 
-## Build Indexes and Constraints Without Blocking
-Use CREATE INDEX CONCURRENTLY (it can't run inside a transaction, so disable the migration's transaction wrapper — disable_ddl_transaction! in Rails). Add foreign keys and check constraints as NOT VALID first (fast, takes a light lock), then VALIDATE CONSTRAINT in a separate step (scans without blocking writes). Drop indexes with DROP INDEX CONCURRENTLY.
+1. **Identify the lock each statement takes.** In Postgres, ACCESS EXCLUSIVE (blocks reads AND writes) is taken by: changing a column type, adding a non-concurrent index, adding a column with a volatile default on old engines, and most constraint additions via direct ALTER. Flag every statement that takes a heavy lock on a large, write-hot table.
+2. **Guard the lock acquisition.** Set `lock_timeout` to a few seconds before any DDL so a blocked statement aborts instead of stalling traffic behind it. A long ALTER waiting for its lock blocks every query that arrives after it, including fast SELECTs — that queue is the outage.
+3. **Add columns nullable, then backfill, then constrain.** Add the column NULLable with no volatile default (instant on modern Postgres). Backfill in batches (`UPDATE ... WHERE id BETWEEN ...`, committing each batch) to avoid one giant transaction and table bloat. Add NOT NULL via a CHECK constraint with `NOT VALID` then `VALIDATE CONSTRAINT` — a weaker lock than direct `SET NOT NULL`.
+4. **Build indexes and constraints without blocking.** Use `CREATE INDEX CONCURRENTLY` (cannot run in a transaction — disable the migration's transaction wrapper, e.g. `disable_ddl_transaction!` in Rails). Add foreign keys and check constraints as `NOT VALID` first (fast, light lock), then `VALIDATE CONSTRAINT` in a separate step (scans without blocking writes). Drop with `DROP INDEX CONCURRENTLY`.
+5. **Use expand-contract for renames and type changes.** Never rename or retype a column in one deploy — running code still references the old shape. Expand: add the new column, dual-write from the app, backfill. Migrate reads to the new column. Contract: stop writing the old column, then drop it in a later deploy. Each step is independently deployable and reversible.
+6. **Verify the actual lock before shipping.** Confirm the rewritten statement's lock with a lock-impact migration linter (e.g. squawk) or by inspecting `pg_locks` while the statement runs on a staging clone — never assume from the SQL alone.
 
-## Use Expand-Contract for Renames and Type Changes
-Never rename a column or change its type in one deploy — the old code still references the old shape. Expand: add the new column/table, dual-write from the app, backfill. Migrate reads to the new column. Contract: stop writing the old column, then drop it in a later deploy. Each step is independently deployable and reversible.
+## Quality bar
 
-## What to Skip
-On a small table (thousands of rows) a brief ACCESS EXCLUSIVE lock is invisible — don't add expand-contract ceremony there. Concurrent index builds are slower and can fail leaving an INVALID index (drop and retry); plain CREATE INDEX is fine in a maintenance window. Match the rigor to the table's size and write traffic, and always verify the actual lock with a tool like the pg-osc or a lock-impact linter before production.
+- Every step is independently deployable and individually reversible.
+- No statement holds ACCESS EXCLUSIVE on a large write-hot table for longer than the `lock_timeout`.
+- Backfills are batched and committed incrementally; no single unbounded UPDATE.
+- The output names the specific lock each statement takes and why each rewrite is safer.
+
+## Do NOT
+
+- Do not ship a bare `ALTER TABLE ... TYPE`, `RENAME COLUMN`, or `SET NOT NULL` against a hot table — expand-contract or NOT VALID/VALIDATE instead.
+- Do not run DDL without a `lock_timeout`; an unbounded wait is the failure mode, not the DDL.
+- Do not wrap `CREATE INDEX CONCURRENTLY` in a transaction; it will error.
+- Do not add expand-contract ceremony to a small table (thousands of rows) where a brief ACCESS EXCLUSIVE lock is invisible — match rigor to table size and write traffic.
+- Do not leave a failed concurrent index in place; it leaves an INVALID index — drop and retry. Plain `CREATE INDEX` is fine inside a maintenance window.

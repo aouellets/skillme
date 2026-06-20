@@ -1,24 +1,32 @@
 ---
 name: Job Description Writer
-description: Drafts an inclusive, role-relevant job description from a role brief and leveling. Use when turning a hiring manager's brief into a posting.
+description: Draft an inclusive, role-relevant, level-calibrated job posting from a hiring manager's role brief. Use when an employer is writing or revising a job description, JD, or job posting — you have a role brief, leveling rubric, or comp band and need outcome-based requirements, plain compensation/logistics, and inclusive tone. Do NOT use when tailoring a candidate's resume or cover letter to a posting — use job-application instead.
 ---
 # Job Description Writer
-A job description is a hiring instrument, not a wish list. Every line either attracts the right candidate and predicts on-the-job success, or it narrows your pool for no reason. Write the JD a strong candidate would actually read to the end, and that a fair process can be built on top of.
 
-## Start From Outcomes, Not Tasks
-Ask what this person must accomplish in 12 months. Translate the role brief into 4-6 outcome statements ("Ship the billing migration with zero revenue-impacting incidents") rather than activity lists ("Write code"). Outcomes make the bar legible to candidates and force the hiring manager to clarify what they are actually buying.
+Turn an employer's role brief into a posting a strong candidate reads to the end and a fair process can be built on. A JD is a hiring instrument, not a wish list: every line either attracts the right candidate and predicts on-the-job success, or it narrows the pool for no reason.
 
-## Separate Must-Haves From Nice-To-Haves
-List only requirements that are genuinely needed on day one. Every must-have shrinks the pool, disproportionately so for underrepresented candidates who self-select out. Cap must-haves at 5-7. Move everything else to "bonus." Replace proxy credentials ("top-tier CS degree") with the underlying competency ("can reason about distributed systems tradeoffs").
+## Workflow
 
-## Level Honestly
-Map the JD to the role's leveling rubric: scope, autonomy, ambiguity, and influence expected. A title without a level invites mismatched applicants and inconsistent interviews. State years-of-experience as a soft signal, never a gate, and avoid hard maximums that screen for age.
+1. Confirm the role brief and level. Pull the role's leveling rubric (scope, autonomy, ambiguity, influence) and map the title to one level. If the level is missing or the brief is vague, ask before drafting — a title without a level produces mismatched applicants and inconsistent interviews.
+2. Write 4-6 outcome statements, not task lists. State what this person must accomplish in 12 months ("Ship the billing migration with zero revenue-impacting incidents"), not activities ("Write code"). Outcomes make the bar legible and force the hiring manager to clarify what they are buying.
+3. Separate must-haves from bonus. Cap must-haves at 5-7 and include only what is genuinely needed on day one. Move everything else to "bonus." Replace proxy credentials ("top-tier CS degree") with the underlying competency ("can reason about distributed-systems tradeoffs").
+4. State experience as a signal, not a gate. Frame years of experience as a soft signal, never a hard requirement. Never set a maximum years-of-experience or any ceiling that screens for age.
+5. State compensation and logistics plainly. Include a real pay range pulled from the employer's comp bands or market data, plus location/remote policy and travel. Never invent a range from intuition; if no band is provided, flag it and route to whoever owns comp.
+6. Set human, inclusive tone. Use plain second-person language. Cut jargon, superlatives, and culture-fit code ("work hard play hard," "ninja," "young and energetic"). State concrete inclusion and accommodation commitments. Describe the team and the work, not a personality the candidate must perform.
+7. Hand off for ownership. You draft; a human hiring manager and recruiter own the final posting and any legal review. Flag any requirement you cannot tie to job performance, and route comp ranges and EEO language to the people who own them.
 
-## Write Compensation and Logistics Plainly
-Include a real pay range pulled from your comp bands or market data, location/remote policy, and travel. Pay transparency is legally required in many jurisdictions and improves apply rates and trust. Never invent a range from intuition.
+## Quality bar
 
-## Make the Tone Human and Inclusive
-Use plain second-person language. Cut jargon, superlatives, and culture-fit code ("work hard play hard," "ninja," "young and energetic"). State concrete inclusion and accommodation commitments. Describe the team and the work, not a personality the candidate must perform.
+- Every must-have is defensibly job-related and consistent with the stated level.
+- Outcomes outnumber raw task lists; the 12-month bar is concrete and measurable.
+- A real, sourced pay range and explicit location/remote policy are present (or explicitly flagged as missing and routed).
+- Tone is plain second person with no jargon, superlatives, or culture-fit code; inclusion and accommodation commitments are concrete.
+- No requirement infers or implies a preference about age, gender, family status, disability, or national origin.
 
-## Fairness and Compliance Bounds
-You draft; a human hiring manager and recruiter own the final posting and any legal review. Keep every requirement defensibly job-related and consistent with the chosen level. Do not infer or imply preferences about age, gender, family status, disability, or national origin. Flag any requirement you cannot tie to job performance, and route comp ranges and EEO language to the people who own them.
+## Do NOT
+
+- Do not write a wish list of every skill the team admires; each must-have shrinks the pool, disproportionately for candidates who self-select out.
+- Do not gate on years of experience or set any maximum, and do not use proxy credentials in place of the underlying competency.
+- Do not invent or estimate a pay range, or assert legal compliance — flag and route comp and EEO language to their owners.
+- Do not write the candidate's resume, cover letter, or application materials; that is the candidate side — use job-application instead.

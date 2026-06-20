@@ -1,6 +1,6 @@
 ---
 name: Skill Tester
-description: Tests a skill with subagent scenarios to verify it triggers correctly and performs its job. Use when validating a new or modified SKILL.md before publishing or adding it to a pack.
+description: Empirically tests a skill with subagent scenarios to verify it triggers correctly and performs its job. Use when validating a new or modified SKILL.md before publishing or adding it to a pack. Do NOT use to statically grade or rewrite skill quality (use Skill Auditor) — this runs live trigger tests.
 ---
 
 # Skill Tester

@@ -1,24 +1,35 @@
 ---
 name: Mutation Test Runner
-description: Uses mutation testing to expose tests that execute code but assert nothing, and interprets surviving mutants into concrete missing assertions. Use when coverage looks high but you doubt the tests actually catch bugs.
+description: Runs mutation testing on already-covered code and turns each surviving mutant into a specific missing assertion, exposing tests that execute code but verify nothing. Use when line coverage is high yet a bug slipped through, when reviewing a critical module (pricing, permissions, auth, state machines) before release, or when you are asked to run Stryker, PIT, mutmut, or cosmic-ray. Do NOT use when the goal is to find which code paths are untested at all — use coverage-gap-finder instead.
 ---
 # Mutation Test Runner
-Mutation testing answers the question coverage cannot: if I deliberately break the code, does a test notice? A surviving mutant is proof that a line is covered but not actually verified.
 
-## How It Works
-The tool (Stryker for JS/TS/C#, PIT for JVM, mutmut/cosmic-ray for Python) makes tiny changes — a mutant — to your source: flips > to >=, swaps + for -, replaces a boolean with true, removes a function call, returns null. It reruns the tests against each mutant. A killed mutant means a test failed (good); a surviving mutant means every test still passed despite the broken code (a gap).
+Prove whether covered code is actually verified: deliberately break a line, and check that a test notices. A surviving mutant is proof that the line is executed but unasserted.
 
-## Read Surviving Mutants as Missing Assertions
-A survivor names the exact unverified behavior. If changing < to <= survives, your boundary case is untested — add an assertion at the edge. If removing a call survives, no test checks that side effect. If negating a condition survives, both branches are not distinguished. Translate each survivor into one specific assertion, not a vague "add more tests."
+## Workflow
 
-## Score and Target
-The mutation score is killed / (total non-equivalent mutants). Treat it as a quality signal for already-covered code, far stronger than line coverage. Set a meaningful floor (e.g. 70-80%) on critical modules, not globally. Aim mutation testing at high-risk logic — pricing, permissions, state machines — where a silent bug is expensive.
+1. Pick the target. Scope to high-risk logic where a silent bug is expensive — pricing, permissions, auth, state machines, financial math. Skip generated code, trivial DTOs, and glue; they have nothing worth mutating.
+2. Pick the runner: Stryker (JS/TS/C#), PIT (JVM), mutmut or cosmic-ray (Python). Configure it to run against the target's existing test suite.
+3. Run scoped, not global. In CI, mutate only changed files (Stryker incremental / diff mode); reserve a full sweep for a nightly job. Enable coverage analysis so only tests touching a mutated line rerun, and parallelize across cores.
+4. Read each surviving mutant as a named missing assertion, not a vague gap:
+   - `<` mutated to `<=` survives -> the boundary case is unasserted; add an assertion at the exact edge value.
+   - A removed function call survives -> no test checks that side effect; assert the side effect.
+   - A negated condition survives -> the two branches are indistinguishable to the suite; assert the differing outcome of each branch.
+   - A return value replaced with a constant survives -> the return is unchecked; assert it.
+5. Triage equivalent mutants. Some mutants cannot change observable behavior (a change in dead code, `i++` vs `++i` in isolation). Distinguishing them is undecidable in general — mark them ignored in the tool's config rather than chasing 100%.
+6. Set a meaningful floor on the targeted modules only (e.g. 70-80% mutation score), where score = killed / (total non-equivalent mutants). Never set one global threshold.
 
-## Handle Equivalent Mutants
-Some mutants do not change observable behavior (e.g. a change inside dead code, or i++ vs ++i in isolation) and can never be killed. These are equivalent mutants and are noise — mark them ignored rather than chasing 100%. Distinguishing them is undecidable in general; use judgment and the tool's ignore config.
+## Quality bar
 
-## Make It Affordable
-Mutation runs are slow because they rerun the suite per mutant. Scope to changed files (Stryker incremental / diff mode) in CI, run the full sweep nightly, and use coverage data so only tests touching a mutated line rerun. Parallelize across cores. Never block every PR on a full-repo mutation run.
+- Every reported survivor maps to one concrete, named assertion a developer can write — no "add more tests."
+- Mutation runs are scoped (diff/incremental in CI, full sweep nightly); no PR blocks on a full-repo run.
+- Equivalent mutants are explicitly ignored, not silently inflating or deflating the score.
+- The score is presented as a quality signal for already-covered code, never as a coverage substitute.
 
-## What It Will Not Tell You
-Mutation testing measures assertion strength, not whether you tested the right behaviors or the right inputs — a missing feature has no code to mutate. Pair it with risk-based coverage analysis. Skip it on generated code, trivial DTOs, and glue; spend the compute where a silent failure actually hurts.
+## Do NOT
+
+- Do NOT block every PR on a full-repo mutation run — it reruns the suite per mutant and will stall the pipeline.
+- Do NOT chase a 100% mutation score; equivalent mutants make it unreachable and the marginal mutants are noise.
+- Do NOT run mutation testing on generated code, DTOs, or glue — spend the compute where a silent failure hurts.
+- Do NOT use a single global threshold; floors belong on critical modules.
+- Do NOT treat mutation testing as a substitute for deciding what to test. It measures assertion strength on existing code; a missing feature has no code to mutate. To find untested paths and inputs, use coverage-gap-finder.

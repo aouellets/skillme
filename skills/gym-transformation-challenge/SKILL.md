@@ -1,93 +1,72 @@
 ---
 name: gym-transformation-challenge
-description: Use when a gym owner is building or running a transformation challenge as a front-end offer. Triggers on "design a 6-week challenge", "transformation challenge", "challenge to membership", "front-end offer to fill my gym", "how do I convert challengers to members", "run-of-show for my challenge". Encodes the Gym Launch challenge front-end and the challenge-to-membership ascension.
+description: Designs a gym's 6-week transformation challenge as a self-funding front-end offer and the week-by-week ascension that converts challengers into recurring members. Use when a gym owner asks to "design a 6-week challenge", structure a "transformation challenge", build a "front-end offer to fill my gym", plan a challenge "run-of-show", or figure out "how do I convert challengers to members". Do NOT use when the request is about the paid ads, audiences, or lead forms that fill the challenge — use gym-meta-ads-funnel instead.
 ---
 
 # Gym Transformation Challenge
 
-The transformation challenge is the gym's front-end: a time-bound program,
-usually 6 weeks, that fills the gym at low friction and is engineered to convert
-challengers into recurring members. Priced right, it covers its own ad spend and
-fulfillment, so acquisition self-funds. Built right, it ascends a large share of
-challengers into membership.
+Structure a time-bound (usually 6-week) front-end challenge that fills the gym at low friction, breaks even on its own ad spend, and is engineered to ascend challengers into recurring membership.
 
-This skill structures the challenge, builds the conversion offer, and lays out
-the run-of-show. It leans on three other skills: grand-slam-offer-builder for the
-offer, gym-money-model for the price that breaks even, and closer-sales-script
-for the week-five conversion conversation.
-
-## When to use this skill
-
-Use it when the owner wants a challenge designed, asks how to convert challengers
-to members, or needs a week-by-week plan to run one. Build the offer first in
-grand-slam-offer-builder, then structure the challenge here.
-
-## The operating procedure
+## Workflow
 
 ### Step 1: Structure the challenge
 
 Decide and write down each element:
 
-- Duration: 6 weeks is the default. Long enough for a visible result, short
-  enough to feel doable.
-- Promise: one specific, believable result. "Drop a dress size in 6 weeks" beats
-  "get fit."
-- Inclusions: sessions per week, a done-for-you nutrition plan, weekly
-  accountability check-ins, a start and finish body-composition scan, a private
-  group. Each inclusion removes one obstacle from the Value Equation.
-- Price: set with gym-money-model so the challenge clears the 2x cash rule.
-  Common range 199 to 599. The price must cover ad spend and fulfillment, with
-  the back-end membership as the profit.
+- **Duration**: 6 weeks by default — long enough for a visible result, short enough to feel doable.
+- **Promise**: one specific, believable result. "Drop a dress size in 6 weeks" beats "get fit."
+- **Inclusions**: sessions per week, a done-for-you nutrition plan, weekly accountability check-ins, a start and finish body-composition scan, a private group. Each inclusion removes one obstacle the buyer would otherwise face.
+- **Price**: common range 199 to 599. The price must cover ad spend and fulfillment, leaving the back-end membership as the profit. (If you also run gym-money-model, set the price there so the challenge clears the cash rule; otherwise size it directly with Step 4.)
 
 ### Step 2: Design the ascension to membership
 
-The challenge is not the business; the membership is. Decide before launch how a
-challenger becomes a member.
+The challenge is not the business; the membership is. Decide before launch how a challenger becomes a member.
 
-- The conversion offer: a member price and terms presented at the end of the
-  challenge. Make staying easier than stopping. Offer a member rate that is only
-  available to challengers and only this week.
-- The timing: present it in week five, after the mid-challenge win and before the
-  final week, when motivation peaks. Book a results review for every challenger
-  and run the CLOSER conversation there.
-- The bridge: continuity of coach, group, and plan. Frame membership as keeping
-  the result they just earned, not buying a new thing.
+- **The conversion offer**: a member price and terms presented at the end of the challenge. Make staying easier than stopping — a member rate available only to challengers and only this week.
+- **The timing**: present it in week 5, after the mid-challenge win and before the final week, when motivation peaks. Book a results review for every challenger and run the conversion conversation there.
+- **The bridge**: continuity of coach, group, and plan. Frame membership as keeping the result they just earned, not buying a new thing.
 
-Fill conversion-offer-sheet for the exact offer presented to challengers.
+Fill the conversion-offer-sheet template for the exact offer presented to challengers.
 
 ### Step 3: Run the challenge week by week
 
-Use the run-of-show. The shape:
-
-- Pre-launch: fill the cohort, collect payment, send the welcome and the first
-  scan booking.
-- Week 1: onboarding, baseline scan, first win, group introductions.
-- Weeks 2 to 4: deliver sessions, weekly check-ins, keep attendance high, surface
-  early results publicly in the group.
-- Week 5: mid-result review, present the membership conversion offer, book
-  results consults.
-- Week 6: final scan, celebrate transformations, close remaining conversions,
-  collect testimonials and before-and-after proof for the next cohort.
+- **Pre-launch (week 0)**: fill the cohort, collect payment, send the welcome, book the first scan, add each challenger to the private group.
+- **Week 1**: onboarding, baseline scan, a first session designed to feel like a win, nutrition plan handed over, group introductions.
+- **Weeks 2–4**: deliver sessions, run weekly check-ins, keep attendance high, post early results publicly in the group, seed the idea of continuing past the challenge.
+- **Week 5**: per-challenger results review, present the membership conversion offer, book consults for the undecided. This is the conversion week.
+- **Week 6**: final scan, transformation celebration, close remaining conversions, collect before-and-after proof and testimonials for the next cohort.
 
 See references/challenge-blueprint for the full deliverables per week.
 
 ### Step 4: Confirm the economics
 
-Run challenge_pnl.js with the cohort's numbers. It returns the front-end profit
-or loss after ad spend and fulfillment, and the projected back-end revenue from
-conversions. A healthy challenge is at least breakeven on the front-end and earns
-its real profit on the back end. See references/challenge-economics.
+Run challenge_pnl.js with the cohort's numbers. It returns front-end profit or loss after ad spend and fulfillment, and projected back-end revenue from conversions. See references/challenge-economics.
 
 ### Step 5: Produce the artifacts
 
-Fill challenge-offer-sheet (the public offer), conversion-offer-sheet (the
-end-of-challenge membership offer), and challenge-runbook (the internal
-week-by-week checklist with owners and timing).
+Fill challenge-offer-sheet (the public offer), conversion-offer-sheet (the end-of-challenge membership offer), and challenge-runbook (the internal week-by-week checklist with owners and timing).
+
+## Quality bar
+
+A challenge is ready to launch only when:
+
+- The promise is one specific, measurable result with a deadline — not a vibe.
+- The front-end nets at or above breakeven in challenge_pnl.js before a single membership converts. Growth must not depend on borrowing against future dues.
+- A dated, challenger-only member rate exists in writing before the cohort starts.
+- Every challenger has a booked week-5 results review, not an open invitation.
+- The runbook names an owner and a date for every step.
+
+## Do NOT
+
+- Do NOT price the challenge to maximize front-end profit. It exists to acquire members at breakeven; the membership is the profit.
+- Do NOT design the conversion offer after the challenge starts. If the member rate and deadline aren't set before launch, conversion improvises and collapses.
+- Do NOT leave conversion to a group announcement. It happens in a one-to-one results review.
+- Do NOT extend the challenge to "give people more time." The deadline is the conversion mechanism.
+- Do NOT write the ad copy, audiences, or lead forms here — that is gym-meta-ads-funnel's job; this skill stops at the offer and run-of-show.
 
 ## Calculator
 
-Self-contained Node script. Save as `challenge_pnl.js` and run with
-`node challenge_pnl.js`. No dependencies.
+Self-contained Node script. Save as `challenge_pnl.js` and run with `node challenge_pnl.js`. No dependencies.
 
 ```javascript
 // Challenge P&L and back-end projection. Edit inputs, then: node challenge_pnl.js
@@ -98,7 +77,7 @@ const inputs = {
   showRate: 0.4,                 // share of leads that become paid challengers
   fulfillmentPerChallenger: 120, // cost to deliver the challenge per person
   conversionToMembership: 0.5,   // share of challengers who become members
-  membershipLtv: 1558,           // contribution LTV per member (from money model)
+  membershipLtv: 1558,           // contribution LTV per member
 }
 
 function pnl(i) {
@@ -152,11 +131,7 @@ BACK END
 TOTAL projected value:  $21910
 ```
 
-Read it: 1,250 dollars of ads fills 20 challengers who pay 9,980. After ads and
-fulfillment the challenge nets 6,330 before a single membership sells, so it
-self-funds. Half convert, adding 15,580 in projected lifetime contribution. The
-front-end pays for growth; the back-end is the profit. Drop the fill or
-conversion rate and watch where the model breaks.
+Read it: $1,250 of ads fills 20 challengers who pay $9,980. After ads and fulfillment the challenge nets $6,330 before a single membership sells, so it self-funds. Half convert, adding $15,580 in projected lifetime contribution. Drop the fill or conversion rate and watch where the model breaks.
 
 ## Template: challenge-offer-sheet
 
@@ -165,7 +140,7 @@ CHALLENGE OFFER. [FILL: challenge name]
 Promise:        [FILL: one specific result in 6 weeks]
 Price:          $[FILL]   (payment plan: [FILL])
 Includes:       [FILL: sessions/week, nutrition plan, check-ins, scans, group]
-Guarantee:      [FILL from gym-pricing-and-guarantees]
+Guarantee:      [FILL: the risk-reversal you offer]
 Scarcity:       [FILL: spots per cohort]
 Urgency:        [FILL: start date, doors close date]
 Who it's for:   [FILL: avatar]
@@ -177,7 +152,7 @@ Who it's for:   [FILL: avatar]
 CHALLENGER-TO-MEMBER OFFER (presented week 5)
 Member rate:        $[FILL]/mo  (challenger-only, this week only)
 What continues:     [FILL: same coach, group, plan, sessions/week]
-Onboarding bonus:   [FILL: e.g. free InBody re-test, branded gear]
+Onboarding bonus:   [FILL: e.g. free body-comp re-test, branded gear]
 Terms:              [FILL: commitment length, start date]
 Why now line:       "[FILL: keep the result you just earned]"
 Deadline:           [FILL: offer expires end of week 6]
@@ -207,42 +182,18 @@ WEEK 6 (owner: [FILL])
 
 Full 6-week run-of-show and deliverables:
 
-- Pre-launch (week 0): confirm payment, send a welcome that sets expectations,
-  collect a starting photo and measurements, book the week-one scan. Add each
-  challenger to the private group.
-- Week 1: baseline body scan, movement assessment, first session designed to feel
-  like a win, nutrition plan handed over, group introductions. The goal is an
-  early result and the habit started.
-- Week 2: first weekly check-in, address the early friction (soreness, schedule),
-  publicly celebrate the first small wins in the group.
-- Week 3: progress check, adjust nutrition, keep attendance high. Reinforce that
-  results are tracking.
-- Week 4: mid-point scan or measurement, share visible progress, begin seeding the
-  idea of continuing past the challenge.
-- Week 5: results review per challenger, present the conversion offer, book a
-  short consult for anyone undecided. This is the conversion week.
-- Week 6: final scan, transformation celebration, close remaining conversions,
-  collect before-and-after photos and testimonials for the next cohort's ads.
+- **Pre-launch (week 0)**: confirm payment, send a welcome that sets expectations, collect a starting photo and measurements, book the week-one scan, add each challenger to the private group.
+- **Week 1**: baseline body scan, movement assessment, a first session designed to feel like a win, nutrition plan handed over, group introductions. Goal: an early result and the habit started.
+- **Week 2**: first weekly check-in, address early friction (soreness, schedule), publicly celebrate the first small wins in the group.
+- **Week 3**: progress check, adjust nutrition, keep attendance high. Reinforce that results are tracking.
+- **Week 4**: mid-point scan or measurement, share visible progress, begin seeding the idea of continuing past the challenge.
+- **Week 5**: results review per challenger, present the conversion offer, book a short consult for anyone undecided. This is the conversion week.
+- **Week 6**: final scan, transformation celebration, close remaining conversions, collect before-and-after photos and testimonials for the next cohort's ads.
 
-The conversion mechanic: every challenger gets a one-to-one results review where
-the coach shows the progress, names the result still available with continued
-training, and presents the challenger-only member rate with a deadline. Run that
-conversation with closer-sales-script.
+The conversion mechanic: every challenger gets a one-to-one results review where the coach shows the progress, names the result still available with continued training, and presents the challenger-only member rate with a deadline.
 
 ## references/challenge-economics
 
-What makes a challenge self-funding: the up-front challenge revenue must cover ad
-spend and fulfillment, with the back-end membership as profit. The four levers
-are fill count, challenge price, cost per lead (which sets ad spend through the
-show rate), and conversion to membership.
+A challenge is self-funding when up-front challenge revenue covers ad spend and fulfillment, leaving the back-end membership as profit. The four levers are fill count, challenge price, cost per lead (which sets ad spend through the show rate), and conversion to membership. Tune them in challenge_pnl.js.
 
-Worked example, using the calculator defaults: 1,250 in ad spend fills 20
-challengers paying 499 each for 9,980 in revenue. After 2,400 of fulfillment, the
-front-end nets 6,330, so the challenge profits before any member converts. Ten
-challengers convert at a contribution LTV of 1,558 each, projecting 15,580 of
-back-end value. Total projected value is 21,910 from a 1,250 ad investment.
-
-If the front-end runs at a loss (low price or high cost per lead), the back-end
-can still justify it, but only if conversion and LTV are strong and the gym has
-the cash to wait. The safer design keeps the front-end at or above breakeven so
-growth never depends on borrowing against future dues.
+If the front-end runs at a loss (low price or high cost per lead), the back-end can still justify it — but only when conversion and LTV are strong and the gym has the cash to wait for dues. The safer design keeps the front-end at or above breakeven so growth never depends on borrowing against future revenue.

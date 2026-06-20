@@ -1,31 +1,38 @@
 ---
 name: Search Intent Classifier
-description: Labels each query by search intent and recommends the right page type (blog, comparison, category, landing, hub). Use when deciding what page a keyword deserves or auditing intent mismatches.
+description: Label a keyword's dominant search intent and prescribe the page type (blog, comparison, category, landing, or hub) that can rank for it. Use when choosing blog vs landing vs comparison for a target keyword, auditing why a well-built page won't rank, or screening a keyword list for intent before producing content.
 ---
 # Search Intent Classifier
 
-Ranking is mostly about matching intent. Google has already decided what kind of result deserves page one for a query; if your page type fights that consensus, no amount of optimization saves it. This skill reads the query and the live SERP, then prescribes the page format that can actually win.
+Read a query and its live SERP, label the dominant intent, and prescribe the page format that can win. You classify and recommend; you do not build the page.
 
-## The Four Intents and Their Tells
+## Workflow
 
-Informational: "how/what/why", "guide", "ideas" — wants to learn. Commercial investigation: "best", "vs", "review", "alternatives" — comparing before buying. Transactional: "buy", "price", "coupon", "near me", "for sale" — ready to act. Navigational: a brand or product name — wants a specific site. Many queries are mixed; pick the dominant intent.
+1. Pull the live top 10 for the exact query. The SERP is ground truth; the keyword string alone is a guess.
+2. Label the dominant intent from both the wording and the SERP:
+   - Informational — "how/what/why", "guide", "ideas", "examples"; SERP shows long guides, People Also Ask, no shopping pack.
+   - Commercial investigation — "best", "vs", "review", "alternatives", "top"; SERP shows listicles and "best of" roundups.
+   - Transactional — "buy", "price", "coupon", "for sale", "near me"; SERP shows product/category pages, shopping packs, maps.
+   - Navigational — a brand or product name; SERP is dominated by that brand's own pages.
+3. Resolve mixed SERPs. If wording and SERP conflict, the SERP wins. If the top 10 is genuinely split (e.g. half guides, half products), label it hybrid rather than forcing one.
+4. Map intent to page type:
+   - Informational -> blog post or topic hub.
+   - Commercial -> "best X", alternatives, or comparison page.
+   - Transactional -> product, category, or conversion landing page.
+   - Navigational -> homepage or branded hub.
+   - Hybrid -> a page that informs then converts.
+5. Note the SERP feature to match (shopping pack, video carousel, map, PAA) so the recommended format mirrors what Google already rewards.
+6. For an existing page, classify what it currently is, compare to the prescribed type, and flag any mismatch. Recommend either retargeting it to a query its format fits, or rebuilding it as the prescribed type.
 
-## Read the SERP, Not Just the Words
+## Quality bar
 
-The live top 10 is the ground truth. Lots of product/category pages means transactional. Listicles and "best of" pages mean commercial. Long guides and People Also Ask mean informational. Shopping packs, maps, or video carousels tell you the format Google rewards. Match the prevailing format.
+- Every label is backed by an observed SERP, not the keyword string alone.
+- The output names one dominant intent (or an explicit hybrid) plus one prescribed page type and the SERP feature to match.
+- For audits, the output states the current type, the prescribed type, and a concrete remediation (retarget or rebuild).
 
-## Map Intent to Page Type
+## Do NOT
 
-Informational -> blog post or topic hub. Commercial -> comparison, "best X", or alternatives page. Transactional -> product, category, or conversion landing page. Navigational -> homepage or branded hub. A landing page targeting an informational query will lose to guides every time.
-
-## Catch Intent Mismatches in Existing Pages
-
-A common failure: a sales landing page targeting "how to choose X". Reclassify it, and either retarget the page to a transactional query or rebuild it as a guide. Mismatch is the most common reason a well-built page never ranks.
-
-## Handle Mixed and Shifting Intent
-
-Some SERPs blend formats (half guides, half products) — that signals you can satisfy both with a hybrid page that informs then converts. Intent also drifts seasonally and with news; re-check the SERP rather than trusting an old label.
-
-## What to Skip
-
-Don't classify from the keyword string alone when a SERP check is possible. Don't force a single intent onto genuinely mixed SERPs. Don't chase navigational queries for competitor brands — you will not outrank them for their own name.
+- Do not classify from the keyword string when a SERP check is possible.
+- Do not force a single intent onto a genuinely split SERP.
+- Do not chase navigational queries for competitor brands; you will not outrank a brand for its own name.
+- Do not build the recommended page. Producing comparison-table copy is comparison-page-builder; writing landing pages is landing-page-copy; rewriting on-page content to rank is seo-optimizer.

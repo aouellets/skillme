@@ -1,6 +1,6 @@
 ---
 name: Skill Pack Curator
-description: Curates a coherent pack of skills by resolving persona vs workflow conflicts and enforcing overlap limits. Use when assembling, auditing, or pruning a skill bundle or catalog pack.
+description: Composes a coherent pack of skills by resolving persona vs workflow conflicts and enforcing overlap limits. Use when assembling, choosing members for, or pruning a skill bundle or catalog pack. Do NOT use to grade or rewrite a pack to a quality bar (use Skill Auditor) — this designs membership.
 ---
 
 # Skill Pack Curator

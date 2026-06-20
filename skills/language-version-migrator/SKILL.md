@@ -1,24 +1,32 @@
 ---
 name: Language Version Migrator
-description: Ports a codebase across breaking language or runtime versions using shims, automated transforms, and layered verification. Use when migrating Python 2 to 3, jumping Node majors, moving across Java LTS versions, or any runtime upgrade with breaking syntax or semantics.
+description: Ports a codebase across a breaking language or runtime version using compatibility shims, automated transforms, and old-vs-new verification. Use when migrating Python 2 to 3, jumping Node major versions, moving across Java LTS releases, or any runtime upgrade where source must change to keep compiling or behaving correctly. Do NOT use when upgrading an application framework's major version (React, Rails, Spring) — use framework-upgrader instead; and skip this when the runtime change is purely operational (base image, CI matrix, deploy target) with no syntax or semantic breaks.
 ---
 # Language Version Migrator
-A language migration is a contract change against every line you wrote and every dependency you didn't. The winning move is to run on both versions at once for as long as possible, shrinking the leap to a flag flip.
 
-## Inventory the Breaking Surface
-Enumerate what actually breaks: removed syntax, changed semantics (Python 3 str/bytes split, integer division; Java module system and removed javax APIs; Node ESM/CommonJS, removed globals). Run the official analyzers — 2to3/python-modernize/pyupgrade, jdeps and the JDK migration guide, Node's deprecation list and your linter's target-version rules. Produce a categorized list: mechanical, semantic, and dependency-blocked.
+Port code across a breaking language or runtime version by making it run on both versions first, then flipping the interpreter.
 
-## Make the Code Dual-Compatible First
-The lowest-risk path is code that runs on BOTH old and new before you switch the interpreter. Use compatibility shims (six or __future__ imports for Python; conditional polyfills; multi-release JARs) so a single codebase passes tests on both runtimes. Land these dual-compat changes incrementally on the current version. Cutover then becomes flipping the runtime in CI, not a rewrite.
+## Workflow
 
-## Automate the Mechanical, Hand-Carve the Semantic
-Run automated transforms (2to3, pyupgrade, jscodeshift, OpenRewrite recipes for Java) per module in isolated commits. These handle print, imports, and renames cleanly. Semantic changes — encoding boundaries, division, hash/ordering stability, default charset, timezone handling — must be read and fixed by hand; codemods cannot see intent. Treat any I/O or serialization boundary as suspect.
+1. **Inventory the breaking surface.** Run the official analyzers — 2to3, python-modernize, pyupgrade for Python; jdeps and the JDK migration guide for Java; Node's deprecation list plus your linter's target-version rule for Node. Produce a categorized list: mechanical (renames, removed syntax), semantic (Python 3 str/bytes split and integer division; Java module system and removed javax APIs; Node ESM/CommonJS and removed globals), and dependency-blocked.
+2. **Sequence dependencies before the interpreter.** Resolve the dependency graph for the target runtime first: find compatible versions, upgrade them on the OLD runtime where possible, and flag any library with no compatible release as a separate blocker. Flip the interpreter only once the tree supports it.
+3. **Pin behavior where tests are thin.** Add characterization tests on the old runtime first so you can prove behavior is preserved after the move. For data-affecting changes (encoding, numeric, locale), capture real-sample outputs now to diff against later.
+4. **Make the code dual-compatible.** Land changes that pass on BOTH runtimes while still on the old interpreter: `__future__` imports or six for Python, conditional polyfills, multi-release JARs for Java. Ship these incrementally. This turns cutover into a flag flip, not a rewrite.
+5. **Automate the mechanical, hand-carve the semantic.** Run transforms (2to3, pyupgrade, jscodeshift, OpenRewrite recipes) per module in isolated commits for print, imports, and renames. Read and fix semantic changes by hand — encoding boundaries, division, hash/ordering stability, default charset, timezone handling — because codemods cannot see intent. Treat every I/O and serialization boundary as suspect.
+6. **Run both runtimes in CI throughout.** Keep the suite green on old and new until cutover. For data-affecting changes, gate on actual output comparison old-vs-new on real samples, not just pass/fail.
+7. **Cut over and remove the shims.** Flip the runtime in CI, confirm green, then delete the compatibility shims in a final pass so they don't ossify.
 
-## Pin Behavior Before You Move
-Where tests are thin, add characterization tests on the old runtime first so you can prove behavior is preserved after. Run the suite on both runtimes in CI throughout the migration. For data-affecting changes (encoding, numeric, locale), compare actual outputs old-vs-new on real samples, not just pass/fail.
+## Quality bar
 
-## Sequence Dependencies and the Interpreter
-A runtime jump usually also forces dependency upgrades. Resolve the dependency graph first: find versions compatible with the target runtime, upgrade them on the old runtime where possible, and identify any library with no compatible release as a blocker to solve separately. Flip the interpreter only when the tree supports it.
+- A single codebase passes its full suite on both the old and new runtime before the interpreter is flipped.
+- Every automated transform lands in its own reviewable commit, separate from hand-written semantic fixes.
+- Encoding, numeric, locale, and serialization changes are validated by diffing real outputs, not by green tests alone.
+- Each dependency is either confirmed compatible with the target runtime or recorded as a tracked blocker.
 
-## When This Isn't a Code Migration
-If the runtime change is mostly operational (base image, CI matrix, deploy target) with no syntax/semantic breaks, this is a config and infra task — skip the codemod ceremony. Reach for this skill when source must change to keep compiling or behaving correctly.
+## Do NOT
+
+- Do NOT blind-merge codemod output — review every hunk; transforms miss dynamic usage and rewrite intent wrong.
+- Do NOT flip the interpreter before the dependency tree and shims are in place; a big-bang cutover is the failure mode this skill exists to avoid.
+- Do NOT trust pass/fail tests for str/bytes, division, charset, ordering, or timezone changes — diff actual outputs.
+- Do NOT apply the full codemod ceremony when no source changes are required; an operational-only runtime bump is a config/infra task.
+- Do NOT use this for framework major-version upgrades — that is framework-upgrader's job.

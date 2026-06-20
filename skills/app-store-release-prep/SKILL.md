@@ -1,24 +1,52 @@
 ---
 name: App Store Release Prep
-description: Prepares signing, build config, and store metadata for App Store and Play submission including provisioning, versioning, Fastlane, and common rejection reasons. Use when preparing a mobile release or submission.
+description: Produce a reproducible signing, versioning, and store-declaration pipeline so an iOS or Android build passes App Store Connect / Play Console submission. Use when building or uploading a distribution .ipa/.aab, fixing signing/provisioning-profile or entitlement errors, bumping CFBundleVersion/versionCode, filling App Privacy / Data safety forms or PrivacyInfo.xcprivacy, wiring Fastlane lanes, or diagnosing a store rejection. Do NOT use for general (non-mobile) release steps like changelogs, tagging, or backend deploys — use prepare-release instead; do NOT use for store listing titles, descriptions, or keywords — use app-store-copy instead.
 ---
 # App Store Release Prep
-Shipping fails on the boring parts: a mismatched provisioning profile, a forgotten version bump, a privacy declaration. Treat release as a reproducible pipeline, not a manual ritual you rediscover under deadline pressure.
 
-## Signing Is the Most Common Blocker
-On iOS, a distribution build needs a distribution certificate plus a provisioning profile whose app id, capabilities, and entitlements all match the build. Mismatch is the #1 build failure. Use Fastlane match to store and sync signing assets in a shared encrypted repo so the whole team and CI sign identically — stop emailing .p12 files. On Android, sign with an upload key and enroll in Play App Signing so Google manages the app signing key; losing the upload key is recoverable, losing the app signing key historically was not.
+Turn a mobile release into a reproducible pipeline — correct signing, monotonic build numbers, complete privacy declarations — so submission to App Store Connect or Play Console succeeds on the first upload.
 
-## Versioning Has Two Numbers, Use Both Right
-The marketing version (CFBundleShortVersionString / versionName) is human-facing and can repeat across builds. The build number (CFBundleVersion / versionCode) must strictly increase for every upload to App Store Connect or Play, even for a rejected build. Automate the bump (Fastlane increment_build_number, or derive from CI build count) so you never collide with an already-uploaded build.
+## Workflow
 
-## Automate the Pipeline with Fastlane
-Define lanes: build, beta (TestFlight / Play internal track), and release. gym/build_app produces the signed artifact, pilot/upload_to_testflight and supply/upload_to_play_store push it, deliver handles metadata and screenshots. CI runs the lane on a tagged commit so releases are reproducible and auditable, not laptop-dependent.
+1. **Establish identity and signing first; it is the most common blocker.**
+   - iOS: a distribution build needs a distribution certificate plus a provisioning profile whose app id, capabilities, and entitlements all match the build. Store and sync these with Fastlane `match` in a shared encrypted repo so every machine and CI sign identically. Verify the profile matches the bundle id and enabled capabilities before building.
+   - Android: sign with an upload key and enroll in Play App Signing so Google holds the app signing key. A lost upload key is recoverable via the Play Console; protect the app signing key regardless.
 
-## Metadata and Privacy Are Gating
-Apple requires accurate App Privacy "nutrition labels" and a privacy manifest (PrivacyInfo.xcprivacy) declaring data use and required-reason APIs. Google requires the Data safety form and a target API level that meets the current Play deadline. Screenshots must match required device sizes. Wrong or missing declarations are a rejection, not a warning.
+2. **Set both version numbers correctly.**
+   - Marketing version (`CFBundleShortVersionString` / `versionName`) is human-facing and may repeat across uploads.
+   - Build number (`CFBundleVersion` / `versionCode`) must strictly increase on every upload — including re-uploads of a rejected build. Automate it with `increment_build_number` or derive it from the CI build count so you never collide with an existing upload.
 
-## Pre-Empt Common Rejections
-Apple guideline 4.3 (spam/duplicate), 2.1 (crashes on review, broken demo account, placeholder content), 5.1.1 (data collected before consent or for no reason), and missing account-deletion for apps with accounts are frequent rejections. Provide working demo credentials and reviewer notes. On Play, watch background-location justification and the data-safety mismatch.
+3. **Build the signed artifact through a defined lane.**
+   - Define Fastlane lanes: `build`, `beta`, `release`. Use `gym`/`build_app` to produce the signed `.ipa`/`.aab`, `pilot`/`upload_to_testflight` and `supply`/`upload_to_play_store` to push it, `deliver` for metadata/screenshots.
+   - Run the lane on a tagged commit in CI so releases are reproducible, not laptop-dependent.
 
-## When to Cut Corners (and Not)
-For an internal or TestFlight-only build you can skip store metadata polish — but never skip signing correctness or the build-number bump. Those break the pipeline for everyone downstream.
+4. **Complete gating declarations — they cause rejection, not warnings.**
+   - iOS: fill the App Privacy "nutrition labels" and ship `PrivacyInfo.xcprivacy` declaring data use and required-reason API usage.
+   - Android: complete the Data safety form and target an API level meeting the Play requirement for the submission window (check the Play Console for the enforced minimum).
+   - Provide screenshots in every required device size.
+   - Confirm each declaration matches actual runtime behavior; a mismatch between the form and the code is a rejection.
+
+5. **Pre-empt the frequent rejection reasons before submitting.**
+   - Provide working demo credentials and reviewer notes; ensure the app does not crash on review and has no placeholder content (Apple 2.1).
+   - Remove duplicate/spam-like clones (Apple 4.3).
+   - Collect no data before consent or without a stated reason (Apple 5.1.1).
+   - Ship in-app account deletion if the app supports account creation.
+   - Android: justify background-location use and ensure no Data safety mismatch.
+
+6. **Tier the rigor by track.**
+   - For internal/TestFlight/Play-internal builds you may skip store-metadata polish — but never skip signing correctness or the build-number bump, since both break the pipeline for every downstream upload.
+
+## Quality bar
+
+- Signing assets are version-controlled and reproducible (e.g. `match`), not emailed `.p12` files.
+- Build number is monotonic and incremented automatically, verified greater than the last uploaded build.
+- Privacy/Data-safety declarations and `PrivacyInfo.xcprivacy` exactly match what the code does at runtime.
+- A clean checkout on CI can produce and upload the build from a tag with no manual signing steps.
+
+## Do NOT
+
+- Do not hand-manage signing certificates or share `.p12`/keystores by email or chat.
+- Do not reuse or hand-pick a build number; never upload with a number equal to or below an existing one.
+- Do not declare privacy/data usage that contradicts the shipped code, or omit required-reason API entries.
+- Do not submit without working demo credentials, reviewer notes, and account deletion (when accounts exist).
+- Do not run the release from a developer laptop when a CI lane on a tagged commit is the auditable path.

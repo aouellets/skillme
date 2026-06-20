@@ -1,6 +1,6 @@
 ---
 name: Skill Description Writer
-description: Writes discoverable skill descriptions combining what the skill does with when to invoke it, in third person. Use when drafting or improving a description field in a SKILL.md or skill catalog entry.
+description: Writes discoverable skill descriptions combining what the skill does with when to invoke it, in third person. Use when drafting or improving only the description field of a SKILL.md or catalog entry. Do NOT use to author a whole skill (use Skill Creator) or to grade/audit one (use Skill Auditor).
 ---
 
 # Skill Description Writer

@@ -1,25 +1,35 @@
 ---
 name: Cross-Platform Reformatter
-description: Reshapes one piece of content into platform-specific versions tuned for each channel's length, tone, format, and native conventions. Use when adapting a post, article, or video across multiple platforms.
+description: Re-expresses one finished piece of content as the native-equivalent post on each target channel, holding the core idea constant while flexing length, structure, register, and conventions per platform. Use when you have a single written post, article, script, or message and need the same idea posted natively on LinkedIn, X, Instagram, TikTok, YouTube Shorts, or a newsletter. Do NOT use when fanning one long-form asset out into different asset types (clip, quote card, blog) — use content-repurposing instead; do NOT use when writing one fresh caption from a topic — use social-caption-writer instead.
 ---
 # Cross-Platform Reformatter
 
-Reposting the same text everywhere is the fastest way to look like a bot and underperform on every channel. Reformatting means re-expressing the core idea in each platform's native grammar — its length, tone, structure, and what its algorithm rewards — not copy-pasting with hashtags swapped.
+Take one existing piece and ship the same idea as a native post on each requested channel — not the same text with hashtags swapped.
 
-## Extract the Core, Then Rebuild
-First pull out the single transferable idea and its proof (the stat, story, or takeaway). That core stays constant; everything else is rebuilt per platform. Never just truncate the long version to fit — a shorter post needs a different structure, not fewer words.
+## Workflow
+1. Extract the core: pull the single transferable idea plus its proof (the stat, story, or takeaway). This stays constant across every version; everything else is rebuilt around it.
+2. Confirm the target channels. Reformat only the channels the user named; do not invent a full distribution stack. If they named none, ask which channels.
+3. Rebuild — do not truncate — for each target, in its native grammar:
+   - LinkedIn: text-first, ~1300-2000 chars, short lines with white space, professional-but-human, one clear insight.
+   - X: a tight single post under 280, or a thread where each post stands alone; punchy, no corporate tone.
+   - Instagram: caption ~125-150 chars or a short narrative; the image/Reel carries the weight.
+   - TikTok: a spoken script with a verbal hook in the first two seconds; conversational, written to be said aloud.
+   - YouTube Shorts / Reels: the same script logic with on-screen text beats.
+   - Newsletter: longest form; keep the nuance the social cuts drop.
+4. Apply native conventions per channel: hashtags 3-5 on Instagram, 1-2 on LinkedIn/X, a couple of discovery tags at most on TikTok; use features as intended (carousels/Reels on IG, document posts and polls on LinkedIn, threads and quote-posts on X); tune emoji density to the channel.
+5. Hold voice, shift register: keep signature phrasing so the brand stays recognizable; go more formal on LinkedIn, looser on TikTok and X; drop jargon that does not travel to a casual feed.
+6. If output feeds a calendar, note sequencing: long-form first (the anchor), then the atomized versions pointing back to it, staggered over days rather than dumped at once.
+7. Label each version with its target channel and format on delivery.
 
-## Translate Into Each Platform's Grammar
-LinkedIn: text-first, 1300-2000 chars, short lines with white space, professional-but-human, one clear insight. X/Twitter: either a tight single post under 280 or a thread where each tweet stands alone; punchy, lower-case-friendly, no corporate tone. Instagram: visual-led caption 138-150 chars or a short narrative; the image/Reel carries weight. TikTok: a spoken script with a verbal hook in the first 2 seconds; conversational, not written-to-be-read. YouTube Shorts/Reels: same script logic with on-screen text beats. Newsletter: longest form, can keep nuance the social cuts drop.
+## Quality bar
+- Every version reads as if written for that channel first, not resized from another.
+- The core idea and its proof survive intact in each version.
+- Lengths, hashtag counts, and structure match the channel's real norms.
+- No version is the source text with only hashtags or emoji changed.
 
-## Respect Native Conventions
-Match each channel's real norms: hashtags 3-5 on Instagram and 1-2 on LinkedIn/X, none forced on TikTok beyond a couple discovery tags. Use platform features as intended — carousels and Reels on IG, document/carousel posts and polls on LinkedIn, threads and quote-posts on X. Adjust emoji density to voice and platform.
-
-## Preserve Voice, Shift Register
-The brand stays recognizable, but register flexes: more formal on LinkedIn, looser on TikTok and X. Keep signature phrasing; drop jargon that doesn't travel to a casual feed.
-
-## Sequence and Stagger
-When output feeds a calendar, note ordering — long-form first (blog/newsletter), then atomized social, so each piece points back to the anchor. Suggest staggering by days, not dumping all versions at once.
-
-## When Not to Reformat
-If a piece genuinely fits only one channel (a niche technical thread, a platform-specific trend), say so rather than forcing weak versions onto channels where it will flop.
+## Do NOT
+- Do not truncate the long version to fit a short one — a shorter post needs a different structure, not fewer words.
+- Do not post the same text verbatim across channels.
+- Do not produce versions for channels the user did not ask for.
+- Do not force a piece onto a channel where it will flop; if it genuinely fits only one channel (a niche technical thread, a platform-specific trend), say so instead of shipping a weak version.
+- Do not turn one source into a spread of new asset types (clip, quote card, blog paragraph) — that is content-repurposing's job.

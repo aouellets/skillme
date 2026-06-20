@@ -1,25 +1,41 @@
 ---
 name: Engagement Reply Drafter
-description: Drafts on-brand replies to comments and DMs at scale, including graceful handling of criticism and complaints. Use when responding to an inbox or comment section in the brand's voice.
+description: Drafts short, on-brand replies to public social comments and DMs, including graceful handling of praise, questions, complaints, and criticism. Use when asked to reply to a comment section or inbox — a batch of Instagram, X, TikTok, LinkedIn, YouTube, or Facebook comments or DMs — in the brand's voice. Do NOT use when answering an inbound support ticket or help-desk message — use support-ticket-reply instead.
 ---
+
 # Engagement Reply Drafter
 
-Replies are the most underrated growth lever on social — early comment engagement signals the algorithm and turns followers into a community. But canned, identical replies read as bot behavior and erode trust. Every reply should sound like a specific human on the brand team responding to a specific person.
+Turn a comment section or DM inbox into specific, human, on-brand replies that grow the thread without sounding like a bot.
 
-## Triage Before Drafting
-Sort each item into a lane and reply accordingly: genuine praise (acknowledge specifically, don't just "thanks!"), a question (answer it directly, then optionally invite more), a complaint or bug (empathize, own it, move to DM/support), criticism or trolling (assess fair vs. bad-faith), spam/abuse (don't engage — hide or block). Mismatched lane equals wrong tone.
+## Workflow
 
-## Make Replies Specific and Short
-Reference what the person actually said — name their detail, not a generic platitude. Keep most replies to 1-2 sentences; social comments aren't email. Ask a light return question on positive comments to extend the thread (more comments = more reach), but only when it's natural, never forced.
+1. Triage each item into one lane: praise, question, complaint/bug, criticism, troll/bad-faith, or spam/abuse. The lane sets the tone; a mismatched lane produces the wrong reply.
+2. Read what the person actually said and name a concrete detail from it. Never open with a generic platitude ("Thanks so much!").
+3. Draft per lane:
+   - Praise: acknowledge the specific thing they liked; add one natural return question only if it extends the thread without forcing it.
+   - Question: answer it directly first, then optionally invite more.
+   - Complaint/bug: empathize, own it in one line, and if it involves private details (orders, accounts), reply publicly with brief empathy then move it to DM.
+   - Criticism: if fair, acknowledge sincerely, take responsibility, state what you'll do, and stop — do not over-explain. If bad-faith, write a brief unbothered reply or recommend no reply.
+   - Spam/abuse: do not engage; recommend hide or block.
+4. Keep length to 1-2 sentences. Social comments are not email.
+5. Vary the wording across every reply so the comment section never shows the same phrase twice, while holding the brand voice constant. Mirror given voice traits; default to warm, concise, human.
+6. Match the commenter's energy within brand bounds — playful to playful, calm to upset.
+7. Flag for human review (draft a holding reply, do not fire it) anything legal, safety-related, a refund or financial dispute, a press/influencer account, or a viral pile-on. Mark it as needing review.
+8. Output each reply labeled with its lane, or "no reply" with a one-line reason when staying silent is the right call.
 
-## Handle Criticism Gracefully
-For fair criticism: acknowledge it sincerely, take responsibility without defensiveness, state what you'll do, and resist the urge to over-explain. Never argue publicly or get sarcastic — screenshots are forever. For complaints with private details (orders, accounts), reply publicly with brief empathy then take it to DMs. For bad-faith trolling, the brand-safe move is usually a brief, unbothered reply or no reply at all — do not feed it. Recommend deletion only for harassment or slurs, not for negative-but-honest feedback.
+## Quality bar
 
-## Keep Voice Consistent, Replies Varied
-The brand voice stays constant; the wording must vary across replies so a comment section doesn't show the same phrase ten times. If given voice traits, mirror them; default to warm, concise, and human. Match the commenter's energy within brand bounds — playful to playful, calm to upset.
+- Every reply references a specific detail from the original comment, not a template.
+- No two replies in the same batch repeat a phrase or sentence shape.
+- Brand voice is recognizably consistent across the batch.
+- Complaints with private data are moved off the public thread.
+- Items needing escalation are flagged, never auto-sent.
 
-## Know the Escalation Line
-Flag anything legal, safety-related, a refund/financial dispute, a press or influencer account, or a viral pile-on for a human decision-maker — draft a holding reply but mark it for review, don't fire it blind.
+## Do NOT
 
-## When Not to Reply
-Some comments are best left alone: pure trolling, obvious bait, and arguments you can't win. Saying "no reply" is a valid, often correct recommendation — note it explicitly.
+- Do not ship identical or near-identical replies across a comment section — it reads as a bot and erodes trust.
+- Do not argue publicly, get sarcastic, or over-explain; screenshots are permanent.
+- Do not feed trolls or take obvious bait; "no reply" is a valid, often correct recommendation — state it explicitly.
+- Do not recommend deleting comments for honest negative feedback; recommend deletion only for harassment or slurs.
+- Do not resolve a support issue here — empathize publicly and hand off; full resolution belongs in support-ticket-reply.
+- Do not force a return question onto a reply when none fits naturally.

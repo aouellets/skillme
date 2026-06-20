@@ -1,90 +1,62 @@
 ---
 name: objection-handling-and-speed-to-lead
-description: Use when a gym owner is losing leads to slow follow-up or to objections. Triggers on "respond to leads faster", "speed to lead", "my leads go cold", "follow-up sequence", "handle the price objection", "they want to ask their spouse", "let me think about it", "no-show follow-up". Encodes speed-to-lead, the four-objection response framework, and the multi-touch follow-up cadence.
+description: Builds the speed-to-lead system, multi-touch follow-up cadence, and four-objection response framework that stop a gym from losing leads to slow contact or stalled consults. Use when a gym owner or coach says leads go cold, follow-up is slow or inconsistent, or a consumer prospect stalls on price, time, "ask my spouse," or "let me think about it" — and when building a follow-up sequence, no-show rebooking, or drilling objection responses with the team. Do NOT use when the buyer is a B2B account and the objection is incumbent competitor or organizational status quo — use objection-handler instead.
 ---
 
 # Objection Handling and Speed to Lead
 
-Two things lose gym leads: contacting them too slowly, and folding at the first
-objection. This skill fixes both. It sets the speed-to-lead system that reaches
-every lead within minutes, the multi-touch cadence that follows up for days, and
-the response framework that dissolves the four objections every gym hears.
+Two things lose gym leads: contacting them too slowly and folding at the first objection. This skill installs the speed-to-lead system, the multi-touch cadence, and the four-objection framework that fix both, scoped to gym and consumer-buyer prospects.
 
-It receives leads from gym-meta-ads-funnel and core-four-lead-engine, and it
-feeds booked consults into closer-sales-script.
-
-## When to use this skill
-
-Use it when leads go cold, follow-up is slow or inconsistent, or consults stall
-on price, time, the spouse, or "let me think about it." Use it to build the
-follow-up sequence and to drill the objection responses with the team.
-
-## The operating procedure
+## Workflow
 
 ### Step 1: Contact every lead within minutes
-
-The single biggest lever in lead conversion is response time. A lead is hottest
-the moment they submit. Minutes later they are browsing competitors or back to
-their day.
-
-- Target first contact within 5 minutes, every time, during business hours.
-- First touch is a call. If no answer, text immediately, then email. All three
-  within the first few minutes.
-- Use an alert or rotation so a lead never waits. If the owner cannot answer,
-  someone owns it.
-
-Run speed_to_lead_impact.js to see what current response time costs in lost
-members. See references/followup-cadence for the full sequence.
+Response time is the biggest lever in lead conversion. A lead is hottest the second they submit; minutes later they are browsing competitors.
+1. Target first contact within 5 minutes during business hours, every time.
+2. First touch is a call. No answer → text, then email — all three inside the first few minutes.
+3. Assign an owner per lead with an alert or rotation so no lead waits. If the owner cannot answer, it routes to someone who can.
+4. Run the calculator below to quantify what current response time costs in lost members, then set the 5-minute target against that number.
 
 ### Step 2: Run the multi-touch cadence by lead state
+Most leads do not convert on the first touch. Persistence, not pressure, wins. Build one cadence per lead state and run it until they book, buy, or opt out.
+1. **Unbooked** (submitted, not booked): aggressive first day (call, text, email), then daily for several days, then spaced out.
+2. **No-show** (booked, did not attend): contact within minutes of the missed time — warm, non-judgmental — and rebook on that contact.
+3. **Unsold** (consulted, did not buy): follow up over days leading with value and a clear path back, not "are you ready yet."
+4. Track touches per lead so none falls through, and set an explicit end point with a final-offer touch.
 
-Most leads do not convert on the first touch. Persistence, not pressure, wins.
-Build a cadence per lead state and run it until they book, buy, or opt out.
-
-- Unbooked lead (submitted, not booked): aggressive first day (call, text,
-  email), then daily for several days, then spaced out.
-- No-show (booked, did not attend): contact within minutes of the missed time,
-  warm and non-judgmental, rebook immediately.
-- Unsold (consulted, did not buy): follow up over days with value and a clear
-  path back, not just "are you ready yet."
-
-Use the followup-sequence template for ready scripts mapped to each state.
+Use the follow-up sequence template below for ready scripts per state.
 
 ### Step 3: Handle the four objections with one framework
+Almost every gym objection is money, time, spouse, or "let me think about it." Run the same four moves on each: **acknowledge, reframe, isolate, close.**
+1. **Acknowledge** the concern so they feel heard.
+2. **Reframe** toward the cost of inaction or the real value.
+3. **Isolate**: ask the question that confirms it is the only thing in the way.
+4. **Close**: once isolated and answered, ask for the decision again.
 
-Almost every gym objection is price, time, spouse, or "let me think about it."
-Run the same four moves on each: acknowledge, reframe, isolate, close.
-
-- Acknowledge: validate the concern so they feel heard.
-- Reframe: shift the frame to the cost of inaction or the real value.
-- Isolate: ask the question that confirms it is the only thing in the way.
-- Close: once isolated and answered, ask for the decision again.
-
-See references/objection-playbook for the real concern behind each and multiple
-scripts. The quick versions:
-
-- Money: acknowledge, reframe price against the cost of staying stuck and the
-  value of the result, isolate ("if the investment worked, is this the right
-  fit?"), offer a payment plan, close.
-- Time: acknowledge, reframe that the program is built for busy people and saves
-  time by removing guesswork, isolate, close on a start date.
-- Spouse: acknowledge, reframe that their health is a shared win, isolate ("if
-  your partner is on board, are you in?"), offer to include the partner in the
-  conversation, close.
-- Think about it: acknowledge, reframe that "thinking about it" is usually one
-  specific unanswered question, isolate that question, answer it, close.
+The real concern behind each, and the move that works:
+- **Money** — usually doubt it will work, not the dollars. Raise perceived likelihood (proof, guarantee); if it is truly cash flow, offer a payment plan. Isolate: "If the money worked, is this the right program for you?"
+- **Time** — fear of one more thing they cannot keep up. Reframe the program as the thing that removes effort: done-for-you plans, short sessions, fits a real week. Close on a start date.
+- **Spouse** — sometimes real, sometimes a soft no. Isolate: "If your partner is on board, are you in?" If yes, bring the partner onto a quick call. If they still hesitate, surface the other concern.
+- **Think about it** — almost always one specific unanswered question. Surface it ("What specifically do you want to think through?"), answer it now while desire is high, then close.
 
 ### Step 4: Drill it and put it on the floor
+Run the team through each objection until the responses are natural. A scripted response delivered warmly beats an improvised one. Keep the quick-reference cards below visible during consults and follow-up.
 
-Print objection-cards for quick reference during consults and follow-up. Run the
-team through each objection until the responses are natural. A scripted response
-delivered warmly beats an improvised one every time.
+## Quality bar
+- First-contact target is 5 minutes and is measured, not assumed.
+- Every lead state (unbooked, no-show, unsold) has a written cadence with exact timing and channel, and touches are tracked per lead.
+- Every objection response runs acknowledge → reframe → isolate → close, and isolates before closing.
+- Later touches lead with value, and every cadence has a defined end point.
+
+## Do NOT
+- Do not discount price first — it confirms the price was inflated. Raise perceived likelihood of success before touching the number.
+- Do not close before isolating; closing on a concern you have not confirmed is the only blocker just earns a new objection.
+- Do not stop after one or two touches — most sales come after several. Run the full cadence.
+- Do not nag ("are you ready yet"); lead with a useful tip or a matching result.
+- Do not let response time slip past minutes during business hours; speed gets the contact, persistence gets the sale.
 
 ## Calculator
 
-Self-contained Node script. Save as `speed_to_lead_impact.js` and run with
-`node speed_to_lead_impact.js`. The contact-rate assumptions are illustrative;
-edit them to match the gym's own data. No dependencies.
+Self-contained Node script. Save the block as `speed_to_lead_impact.js` and run `node speed_to_lead_impact.js`. Contact-rate assumptions are illustrative; edit them to the gym's own data. No dependencies.
 
 ```javascript
 // Speed-to-lead impact. ILLUSTRATIVE assumptions. Edit to your data.
@@ -126,7 +98,7 @@ console.log('Extra members / month: ', r.extraMembers.toFixed(1))
 console.log('Extra value / month:   ', '$' + Math.round(r.extraValue).toLocaleString('en-US'))
 ```
 
-### Worked example output
+Example output with the illustrative numbers:
 
 ```
 Current contact rate:   40% at 120 min
@@ -137,16 +109,11 @@ Extra members / month:  15.0
 Extra value / month:    $23,370
 ```
 
-Read it, with the illustrative numbers: cutting first response from two hours to
-five minutes lifts contact rate from 40 to 90 percent, which on 100 leads is 15
-extra members a month worth over 23,000 in lifetime contribution. The exact
-figures depend on the gym's real contact curve, but the shape always holds:
-faster response, more contacted, more members. Replace the buckets with your own
-data to make it precise.
+Cutting first response from two hours to five minutes lifts contact rate from 40 to 90 percent — on 100 leads, 15 extra members a month. Exact figures depend on the gym's real contact curve, but the shape holds: faster response, more contacted, more members. Replace the buckets with the gym's data to make it precise.
 
-## Template: followup-sequence
+## Follow-up sequence (scripts per state)
 
-Ready scripts mapped to the cadence. Replace FILL fields.
+Replace `FILL` fields.
 
 ```
 UNBOOKED LEAD
@@ -172,9 +139,7 @@ UNSOLD (consulted, didn't join)
   Day 14: final offer / deadline reminder.
 ```
 
-## Template: objection-cards
-
-Quick-reference cards for the sales floor.
+## Objection cards (quick reference for the floor)
 
 ```
 MONEY
@@ -202,43 +167,4 @@ THINK ABOUT IT
   Close:       "Now that that's clear, let's get you going."
 ```
 
-## references/objection-playbook
-
-The real concern behind each objection and why the framework works:
-
-- Money. The real concern is usually doubt it will work, not the dollars. Raise
-  perceived likelihood (proof, guarantee) and the price objection often
-  dissolves. If it is truly cash flow, a payment plan solves it. Never discount
-  first; that confirms the price was inflated.
-- Time. The real concern is fear of one more thing they cannot keep up. Reframe
-  the program as the thing that removes effort, with done-for-you plans and short
-  sessions. Show how it fits a real week.
-- Spouse or partner. Sometimes real, sometimes a soft no. Isolate to find out: if
-  partner approval is the only blocker, bring the partner into the conversation.
-  If they still hesitate, there is another concern to surface.
-- Think about it. Almost always a single unanswered question or unspoken doubt.
-  Your job is to find it. "What specifically do you want to think through?"
-  surfaces the real objection so you can address it now, while desire is high.
-
-Give two or three scripts per objection so the team can vary tone and not sound
-canned. The framework stays constant: acknowledge, reframe, isolate, close.
-
-## references/followup-cadence
-
-The follow-up math: most sales happen after multiple touches, yet most gyms quit
-after one or two. The gap between a gym that follows up twice and one that
-follows up eight times over two weeks is enormous, and it costs nothing but
-discipline.
-
-Build it as a system, not willpower:
-
-- Define the cadence per lead state (unbooked, no-show, unsold) with exact timing
-  and channel.
-- Make each touch easy to send: pre-written scripts in the followup-sequence
-  template.
-- Track touches per lead so none falls through.
-- Lead with value on later touches, not just "are you ready." A useful tip or a
-  matching result keeps the door open without nagging.
-- Set an end point and a final-offer touch, then close the loop.
-
-Speed gets the contact; persistence gets the sale. Run both.
+Give the team two or three variants per objection so it does not sound canned. The framework stays constant: acknowledge, reframe, isolate, close.

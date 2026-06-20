@@ -1,24 +1,34 @@
 ---
 name: Dead Code Eliminator
-description: Finds unreachable, unused, and orphaned code with hard evidence and removes it safely without breaking dynamic callers. Use when reducing a bloated codebase, cleaning up after a migration, or before estimating work on an unfamiliar module.
+description: Proves code is unreachable with converging evidence, then removes it and its tests, fixtures, and flags in reversible slices without breaking dynamic callers. Use when deleting suspected dead code, cleaning up after a migration or feature retirement, trimming a bloated module, or before estimating work on unfamiliar code. Do NOT use when you want to survey and rank an area's debt without committing to deletion — use find-tech-debt instead.
 ---
 # Dead Code Eliminator
-Deleting code is the highest-return refactor there is, but 'I can't find a caller' is not proof of death. Gather converging evidence, then remove in reversible steps.
 
-## Demand Converging Evidence, Not One Signal
-No single tool is trustworthy alone. Combine static analysis (ts-prune, knip, vulture, deadcode, IDE 'find usages', dependency graphers like madge), production coverage or profiling data over a representative window, and runtime telemetry (was this endpoint hit this quarter?). A symbol is a deletion candidate only when static analysis AND runtime evidence agree. One signal alone produces false positives that take down prod.
+Delete code only after converging evidence proves it dead, then remove it in reversible slices that include its tests, fixtures, config, and flags.
 
-## Hunt the Dynamic Callers That Static Tools Miss
-The code that bites you is invoked by reflection, string-keyed dispatch, dependency injection, serialization, ORM hooks, cron/queue workers, feature flags, or external API clients. Before deleting, grep for the symbol name as a string, check DI/registry config, search infra repos and other services, and confirm no flag still gates a path to it. Public API surface and library exports are reachable by definition unless you control all consumers.
+## Workflow
 
-## Distinguish the Four Kinds of Dead
-Unreachable (no path can call it), unused (callable but never called), redundant (duplicates a live path), and dormant-behind-a-flag (a flag that's been off for a year). Each is removed differently: dormant flag code needs the flag retired first; redundant code needs callers repointed. Name which kind you're removing so the removal is correct.
+1. **Scope one cluster.** Pick a single symbol, file, or feature to prove dead. Do not batch unrelated removals — a regression must point to one change.
+2. **Gather static evidence.** Run the language's dead-code detector (ts-prune or knip for TS/JS, vulture for Python, `deadcode` for Go) and a dependency grapher (madge) or IDE "find usages". Record what each reports unreachable.
+3. **Gather runtime evidence.** Check production coverage or profiling data over a representative window and telemetry: was this endpoint, job, or branch hit this quarter? A symbol is a deletion candidate only when static analysis AND runtime evidence agree. One signal alone produces false positives that take down prod.
+4. **Hunt the dynamic callers static tools miss.** Grep the symbol name as a *string* (reflection, string-keyed dispatch, serialization). Check DI containers, registries, ORM hooks, cron/queue workers, and feature-flag config. Search infra repos and other services. Public API surface and library exports are reachable by definition unless you control every consumer.
+5. **Classify the kind of dead, because each is removed differently.** Unreachable (no path calls it) → delete. Unused (callable, never called) → delete. Redundant (duplicates a live path) → repoint callers first. Dormant-behind-a-flag (flag off for a cycle) → retire the flag first, then delete its branch.
+6. **Soft-delete risky removals first.** Replace the suspect path with log-and-throw, or gate it behind a kill flag while keeping the code, for one full business cycle. If nothing fires the log, proceed. For low-risk leaf code, skip to step 7.
+7. **Delete in a focused PR.** Remove the code AND its tests, fixtures, config, flags, and now-orphaned imports. Let CI and the type-checker catch references the search missed. No formatting or refactors in the same diff.
 
-## Remove in Small Reversible Slices
-Delete in focused PRs, one cluster at a time, so a regression points to a single change. Delete the code AND its tests, fixtures, config, and flags — leaving orphaned tests is just relocating the dead code. Let CI and type-checking catch broken references the search missed.
+## Quality bar
 
-## Prove It Stayed Dead
-For risky removals, ship behind a soft-delete first: log-and-throw or a flag that disables the path while keeping the code for one cycle. If nothing fires the log in a full business cycle, delete for real. For low-risk leaf code, delete directly and rely on the suite.
+- Every deletion cites at least two independent converging signals (static + runtime).
+- The PR removes the dead symbol's entire footprint, leaving no orphaned test, fixture, or flag.
+- The removal names which of the four kinds of dead it is.
+- Reverting the PR cleanly restores the prior behavior.
 
-## What Not to Touch
-Don't delete code you only suspect is dead, public API without consumer proof, or recently added code (it may be ahead of its caller). Don't fold formatting or refactors into a deletion PR. If evidence is ambiguous, mark it deprecated and instrument it rather than guessing.
+## Do NOT
+
+- Treat "I can't find a caller" as proof of death — absence of a static caller is not absence of a dynamic one.
+- Delete code you only suspect is dead, public API without consumer proof, or recently added code (it may be ahead of its caller).
+- Skip the string-grep and DI/flag/registry check for anything invoked indirectly.
+- Fold formatting or refactors into a deletion PR.
+- Batch many clusters into one PR.
+
+When evidence is ambiguous, mark the symbol deprecated and instrument it rather than guessing.
