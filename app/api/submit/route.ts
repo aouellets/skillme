@@ -3,6 +3,7 @@ import { getServiceSupabase } from '@/lib/supabase'
 import { isCategory } from '@/lib/categories'
 import { classifySafe } from '@/lib/safety'
 import { checkRateLimit } from '@/lib/mcp/rateLimit'
+import { sendEmail, sendAdminAlert, submissionReceivedEmail } from '@/lib/email'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -127,6 +128,19 @@ export async function POST(req: NextRequest) {
     console.error('[submit] insert error:', error.message)
     return Response.json({ error: 'Could not save your submission. Try again.' }, { status: 500 })
   }
+
+  // Best-effort notifications — never block or fail the response on a mail error.
+  if (email) {
+    const tpl = submissionReceivedEmail(name, 'skill')
+    await sendEmail({ to: email, subject: tpl.subject, html: tpl.html, text: tpl.text })
+  }
+  await sendAdminAlert(`New skill submission: ${name}`, [
+    `Category: ${category}`,
+    `Author: ${body.author?.trim() || '—'}`,
+    `From: ${email ?? '(no email)'}`,
+    `Safety: ${safety.verdict}${safety.reason ? ` — ${safety.reason}` : ''}`,
+    `Review it: ${process.env.NEXT_PUBLIC_SITE_URL ?? ''}/admin/submissions`,
+  ])
 
   return Response.json({
     ok: true,

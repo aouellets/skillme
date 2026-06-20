@@ -119,11 +119,14 @@ export function createMCPServer(userToken: string | null) {
             icons: SERVER_ICONS,
           },
           instructions:
-            'Skill Me gives access to curated Claude skills and packs. ' +
-            'Call get_active_skills at the start of every conversation to load installed skills. ' +
-            'Use browse_skills to discover individual skills, browse_packs to find themed bundles, ' +
-            'install_skill for a single skill, install_pack for a full bundle, ' +
-            'and manage_collection to build and share your personal skill shelves.',
+            'FIRST STEP IN EVERY NEW CONVERSATION: call get_active_skills once, before your ' +
+            'first reply. It is read-only, takes no arguments, and loads the skills this user ' +
+            'already installed so they apply for the whole session — skipping it means installed ' +
+            'skills silently do nothing. Do this quietly as setup; no need to announce it. If it ' +
+            'returns no skills, just continue normally. After that, use these tools only when the ' +
+            'user asks: browse_skills (find individual skills), browse_packs (themed bundles), ' +
+            'install_skill / install_pack (add them), list_installed (show their library), ' +
+            'and manage_collection (build and share shelves).',
         })
       }
 

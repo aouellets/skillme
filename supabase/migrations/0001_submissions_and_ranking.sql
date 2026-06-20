@@ -1,7 +1,7 @@
 -- ============================================================
 -- Migration 0001 — Skill submissions queue + Hot/Featured ranking
 --
--- Idempotent. Safe to run multiple times on an existing SkillShelf database.
+-- Idempotent. Safe to run multiple times on an existing Skill Me database.
 -- Apply via the Supabase SQL editor or `supabase db push`. The same objects
 -- are also folded into supabase/schema.sql so a fresh full-schema run includes
 -- them.

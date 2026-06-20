@@ -109,10 +109,10 @@ export default function PrivacyPage() {
         <p>
           Questions or data requests:{' '}
           <a
-            href="mailto:support@skillshelf.ai"
+            href="mailto:support@skillme.dev"
             className="text-accent transition-colors hover:text-accent-hover"
           >
-            support@skillshelf.ai
+            support@skillme.dev
           </a>
           .
         </p>

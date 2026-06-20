@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server'
 import { getServiceSupabase } from '@/lib/supabase'
 import { isPackCategory } from '@/lib/categories'
 import { checkRateLimit } from '@/lib/mcp/rateLimit'
+import { sendEmail, sendAdminAlert, submissionReceivedEmail } from '@/lib/email'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -127,6 +128,19 @@ export async function POST(req: NextRequest) {
     console.error('[submit-pack] insert error:', error.message)
     return Response.json({ error: 'Could not save your submission. Try again.' }, { status: 500 })
   }
+
+  // Best-effort notifications — never block or fail the response on a mail error.
+  if (email) {
+    const tpl = submissionReceivedEmail(name, 'pack')
+    await sendEmail({ to: email, subject: tpl.subject, html: tpl.html, text: tpl.text })
+  }
+  await sendAdminAlert(`New pack submission: ${name}`, [
+    `Tagline: ${tagline}`,
+    `Category: ${category}`,
+    `Skills (${slugs.length}): ${slugs.join(', ')}`,
+    `From: ${email ?? '(no email)'}`,
+    `Review it: ${process.env.NEXT_PUBLIC_SITE_URL ?? ''}/admin/packs`,
+  ])
 
   return Response.json({
     ok: true,

@@ -1,5 +1,5 @@
 {
-  "name": "skillshelf",
+  "name": "skillme",
   "version": "0.1.0",
   "private": true,
   "description": "The App Store for Claude Skills. Install intelligence.",
@@ -13,6 +13,8 @@
     "build:catalog": "tsx scripts/build-expansion.ts && tsx scripts/export-skill-files.ts",
     "build:art": "tsx scripts/generate-category-art.ts",
     "setup:email": "tsx scripts/setup-email-forwarding.ts",
+    "preview:emails": "tsx scripts/preview-emails.ts",
+    "send:newsletter": "tsx scripts/send-newsletter.ts",
     "db:seed": "tsx scripts/seed-manual.ts",
     "db:seed-packs": "tsx scripts/seed-packs.ts",
     "publish:packs": "tsx scripts/publish-pack-repos.ts",

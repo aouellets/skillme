@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server'
 import { getServiceSupabase } from '@/lib/supabase'
 import { checkRateLimit } from '@/lib/mcp/rateLimit'
+import { sendEmail, newsletterWelcomeEmail } from '@/lib/email'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -35,8 +36,18 @@ export async function POST(req: NextRequest) {
 
   // Store the signup. We never reveal DB state to the caller — signing up is
   // always reported as success so the form can't be used to probe membership.
+  // `isNew` gates the welcome email so repeat submits don't re-welcome (and so
+  // the form can't be used to spam an inbox via repeated POSTs).
+  let isNew = true
   const supabase = getServiceSupabase()
   if (supabase) {
+    const { data: existing } = await supabase
+      .from('newsletter_signups')
+      .select('email')
+      .eq('email', email)
+      .maybeSingle()
+    isNew = !existing
+
     const { error } = await supabase
       .from('newsletter_signups')
       .upsert({ email, created_at: new Date().toISOString() }, { onConflict: 'email' })
@@ -48,6 +59,12 @@ export async function POST(req: NextRequest) {
   }
 
   console.log('[newsletter] signup:', email)
+
+  // Best-effort welcome — only on a genuinely new signup; never blocks success.
+  if (isNew) {
+    const tpl = newsletterWelcomeEmail()
+    await sendEmail({ to: email, subject: tpl.subject, html: tpl.html, text: tpl.text })
+  }
 
   return Response.json({
     ok: true,

@@ -12,7 +12,7 @@ npm run build && npm run start   # or: npm run dev
 npm run test:mcp                 # drives http://localhost:3000/api/mcp
 ```
 
-The install/uninstall steps require a configured skillshelf Supabase
+The install/uninstall steps require a configured Skill Me Supabase
 (`schema.sql` applied + `npm run db:seed`). Without it, browse still works via
 the bundled seed catalog but the DB write paths will report failures.
 

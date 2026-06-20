@@ -1,6 +1,8 @@
 import { NextRequest } from 'next/server'
 import { getAdminEmail } from '@/lib/admin'
 import { getServiceSupabase } from '@/lib/supabase'
+import { sendEmail, submissionDecisionEmail } from '@/lib/email'
+import { SITE_URL } from '@/lib/site'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -105,6 +107,17 @@ export async function POST(req: NextRequest) {
       .update({ status, reviewer_note: body.note ?? null, reviewed_at: now, updated_at: now })
       .eq('id', body.id)
     if (error) return Response.json({ error: error.message }, { status: 500 })
+
+    if (sub.submitter_email) {
+      const tpl = submissionDecisionEmail({
+        name: sub.name,
+        kind: 'skill',
+        decision: body.action === 'reject' ? 'rejected' : 'needs_changes',
+        note: body.note,
+      })
+      await sendEmail({ to: sub.submitter_email, subject: tpl.subject, html: tpl.html, text: tpl.text })
+    }
+
     return Response.json({ ok: true, status })
   }
 
@@ -158,6 +171,17 @@ export async function POST(req: NextRequest) {
 
   if (updErr) {
     console.error('[admin] submission update failed after publish:', updErr.message)
+  }
+
+  if (sub.submitter_email) {
+    const tpl = submissionDecisionEmail({
+      name: sub.name,
+      kind: 'skill',
+      decision: 'approved',
+      note: body.note,
+      url: `${SITE_URL}/skill/${skill.slug}`,
+    })
+    await sendEmail({ to: sub.submitter_email, subject: tpl.subject, html: tpl.html, text: tpl.text })
   }
 
   return Response.json({ ok: true, status: 'approved', skill_id: skill.id, slug: skill.slug })

@@ -43,7 +43,7 @@ To feature a skill: approve a submission with "Feature" checked, or set
 
 ## Setup / keeping it live
 
-1. **Apply the schema/migration** to the SkillShelf Supabase project:
+1. **Apply the schema/migration** to the Skill Me Supabase project:
    - Fresh DB: run `supabase/schema.sql` (idempotent).
    - Existing DB: run `supabase/migrations/0001_submissions_and_ranking.sql`.
 2. **Seed** the catalog: `npm run db:seed` (and `npm run db:seed-packs`).

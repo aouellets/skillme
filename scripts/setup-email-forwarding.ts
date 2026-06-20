@@ -1,10 +1,16 @@
 /**
- * Sets up Cloudflare Email Routing for skillshelf.ai so support@ and security@
- * forward to the operator inbox. DNS for skillshelf.ai is on Cloudflare, so this
- * is the native, free path.
+ * Sets up Cloudflare Email Routing for skillme.dev so support@ and security@
+ * forward to the operator inbox.
  *
- * Operator steps:
- *   1. Create a Cloudflare API token scoped to the skillshelf.ai zone with:
+ * ⚠️  PREREQUISITE: skillme.dev currently runs on Vercel DNS (ns1/ns2.vercel-dns.com)
+ * with no MX records, so inbound mail is NOT configured yet. Cloudflare Email
+ * Routing requires the zone to be on Cloudflare. Either move skillme.dev's DNS to
+ * Cloudflare first (then this script works as-is), or set up inbound forwarding
+ * with another provider and add the MX records on Vercel manually. Until then,
+ * support@/security@skillme.dev and the email Reply-To will bounce.
+ *
+ * Operator steps (once skillme.dev DNS is on Cloudflare):
+ *   1. Create a Cloudflare API token scoped to the skillme.dev zone with:
  *        - Account → Email Routing Addresses → Edit
  *        - Zone    → Email Routing Rules     → Edit
  *        - Zone    → DNS                      → Edit
@@ -23,9 +29,9 @@ config()
 const API = 'https://api.cloudflare.com/client/v4'
 const TOKEN = process.env.CLOUDFLARE_API_TOKEN
 
-const DOMAIN = 'skillshelf.ai'
+const DOMAIN = 'skillme.dev'
 const DESTINATION = 'alexander.ouellet@icloud.com'
-const ADDRESSES = ['support', 'security'] // → support@skillshelf.ai, security@skillshelf.ai
+const ADDRESSES = ['support', 'security'] // → support@skillme.dev, security@skillme.dev
 
 interface CfResponse<T = unknown> {
   success: boolean

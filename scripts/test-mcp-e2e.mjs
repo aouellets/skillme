@@ -79,7 +79,7 @@ let firstSkillId = null
 // 6. install_skill — the DB-backed write path
 let installOk = false
 {
-  const r = await callTool('install_skill', { skill_id: firstSkillId ?? 'skillshelf' })
+  const r = await callTool('install_skill', { skill_id: firstSkillId ?? 'skillme' })
   const t = textOf(r)
   installOk = !isError(r) && /Installed/.test(t)
   log(installOk, 'install_skill writes to library', t.split('\n')[0].slice(0, 90))
@@ -135,7 +135,7 @@ if (firstSkillId) {
 // 12. State-changing tools must reject an unidentified caller (no token header).
 {
   const r = await rawPost(
-    { jsonrpc: '2.0', id: 1001, method: 'tools/call', params: { name: 'install_skill', arguments: { skill_id: firstSkillId ?? 'skillshelf' } } },
+    { jsonrpc: '2.0', id: 1001, method: 'tools/call', params: { name: 'install_skill', arguments: { skill_id: firstSkillId ?? 'skillme' } } },
     {} // no X-User-Token / session headers
   )
   const t = r.body?.result?.content?.map((c) => c.text).join('\n') ?? ''

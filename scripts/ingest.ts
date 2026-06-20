@@ -51,7 +51,7 @@ async function fetchSkillMd(target: RepoTarget): Promise<string> {
   const candidates = [target.path, 'SKILL.md', 'skill.md', '.claude/SKILL.md']
   const headers: Record<string, string> = {
     Accept: 'application/vnd.github.raw+json',
-    'User-Agent': 'skillshelf-ingest',
+    'User-Agent': 'skillme-ingest',
   }
   if (process.env.GITHUB_TOKEN) {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`

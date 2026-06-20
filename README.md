@@ -49,7 +49,7 @@ User identity is a token derived from the MCP connection headers
 
 ```bash
 git clone https://github.com/aouellets/skillme
-cd skillshelf
+cd skillme
 cp .env.example .env.local
 # Fill in your Supabase + Anthropic keys (optional — the catalog works without them)
 npm install

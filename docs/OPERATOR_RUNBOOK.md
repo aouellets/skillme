@@ -9,17 +9,17 @@ Legend: 🟢 automated for you (just run it) · 🟠 operator action required ·
 
 ---
 
-## 1. Support email forwarding — `support@` / `security@skillshelf.ai` → iCloud
+## 1. Support email forwarding — `support@` / `security@skillme.dev` → iCloud
 
 **Why:** the directory submission needs a support inbox; `SECURITY.md` points at
-`security@skillshelf.ai`. **Domain facts:** `skillshelf.ai` DNS is on
+`security@skillme.dev`. **Domain facts:** `skillme.dev` DNS is on
 **Cloudflare** (native Email Routing, free); `skillme.dev` is on Vercel DNS with
-no MX, so the email stays on `skillshelf.ai`. Destination:
+no MX, so the email stays on `skillme.dev`. Destination:
 `alexander.ouellet@icloud.com`.
 
 ### Path A — run the script (recommended)
 1. 🟠 Create a Cloudflare API token (My Profile → API Tokens → Create → Custom),
-   scoped to the **skillshelf.ai** zone with:
+   scoped to the **skillme.dev** zone with:
    - Account → **Email Routing Addresses → Edit**
    - Zone → **Email Routing Rules → Edit**
    - Zone → **DNS → Edit**
@@ -32,21 +32,21 @@ no MX, so the email stays on `skillshelf.ai`. Destination:
    the destination owner to confirm. Forwarding is live within minutes after.
 
 ### Path B — Cloudflare dashboard (no token)
-🟠 Dashboard → **skillshelf.ai → Email → Email Routing → Get started** (adds the
+🟠 Dashboard → **skillme.dev → Email → Email Routing → Get started** (adds the
 DNS records) → **Add destination** `alexander.ouellet@icloud.com` (🔴 verify via
 the emailed link) → **Create address** `support@` → forward to iCloud → repeat
 for `security@`. Optionally enable a catch-all → iCloud.
 
 ### Verify
 ```
-dig +short MX skillshelf.ai      # expect route1/2/3.mx.cloudflare.net
+dig +short MX skillme.dev      # expect route1/2/3.mx.cloudflare.net
 ```
-Then send a test email to `support@skillshelf.ai` and confirm it lands in iCloud.
+Then send a test email to `support@skillme.dev` and confirm it lands in iCloud.
 
 > **Optional decision:** if you'd rather use `support@skillme.dev` to match the
 > app domain, that requires adding MX records on Vercel DNS plus a forwarding
 > service (ImprovMX, Forward Email, or moving the zone to Cloudflare). Not set up
-> here — the draft and `SECURITY.md` currently use `@skillshelf.ai`.
+> here — the draft and `SECURITY.md` currently use `@skillme.dev`.
 
 ---
 
@@ -82,7 +82,7 @@ Per the project notes, `skillme.dev` is now canonical (Vercel project renamed,
      `https://zfbmtnglxksutwjkuoqd.supabase.co/auth/v1/callback`.
   2. Paste its **Client ID** + **Client Secret** into the Supabase GitHub provider
      and toggle it **enabled**. The Client ID is a token like `Ov23li…` / `Iv1…`
-     with **no spaces** — a human-readable placeholder (e.g. `skill shelf db`)
+     with **no spaces** — a human-readable placeholder (e.g. `skill me db`)
      makes Supabase redirect to GitHub with `client_id=skill+shelf+db`, and GitHub
      returns a **404** (no OAuth app matches). This reads as a broken GitHub
      sign-in even though the provider is "enabled".
@@ -128,7 +128,7 @@ Remaining operator actions:
 |---|---|
 | Live app | `https://skillme.dev` (old `skillshelf-ten.vercel.app` still resolves) |
 | MCP endpoint | `https://skillme.dev/api/mcp` |
-| Email domain | `skillshelf.ai` (Cloudflare Email Routing) |
-| Support / security | `support@skillshelf.ai` · `security@skillshelf.ai` → `alexander.ouellet@icloud.com` |
+| Email domain | `skillme.dev` (Cloudflare Email Routing) |
+| Support / security | `support@skillme.dev` · `security@skillme.dev` → `alexander.ouellet@icloud.com` |
 | Repo | `github.com/aouellets/skillme` (MIT) |
 | Setup scripts | `npm run setup:email` · `npm run build:catalog` · `npm run build:art` |

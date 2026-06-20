@@ -11,7 +11,7 @@ export const installSkill: Tool<InstallArgs> = {
     name: 'install_skill',
     annotations: { title: 'Install skill', readOnlyHint: false, destructiveHint: false, idempotentHint: true },
     description:
-      'Install a skill from Skill Me so it activates in future Claude sessions. Returns confirmation and the skill content that will be loaded automatically going forward.',
+      'Install a skill from Skill Me so it activates in future Claude sessions. Returns confirmation and the skill content. Note: installed skills only load when get_active_skills is called at the start of a session — so call get_active_skills now to apply it immediately.',
     inputSchema: {
       type: 'object',
       required: ['skill_id'],

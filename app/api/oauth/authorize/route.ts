@@ -7,9 +7,31 @@ import {
   isAllowedRedirectUri,
 } from '@/lib/mcp/oauth'
 import { getUserToken } from '@/lib/userToken'
+import { mergeAnonLibrary } from '@/lib/mcp/mergeAnonLibrary'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
+
+/**
+ * First-party cookie recording the anonymous subject minted for this browser, so
+ * a later authorize while signed in can reclaim that anonymous library (see
+ * mergeAnonLibrary). Scoped to /api/oauth and short-of-credential: it only names
+ * an already-anonymous library. SameSite=Lax so it rides the top-level redirect
+ * navigation the connector uses to reach this endpoint.
+ */
+const ANON_SUB_COOKIE = 'skillme_anon_sub'
+const ANON_SUB_COOKIE_MAX_AGE = 90 * 24 * 60 * 60 // 90 days
+
+function serializeCookie(name: string, value: string, maxAgeSec: number): string {
+  return [
+    `${name}=${value}`,
+    'Path=/api/oauth',
+    'HttpOnly',
+    'Secure',
+    'SameSite=Lax',
+    `Max-Age=${maxAgeSec}`,
+  ].join('; ')
+}
 
 /**
  * OAuth 2.1 authorization endpoint.
@@ -66,6 +88,25 @@ export async function GET(req: NextRequest) {
   // with the website. `auth:<id>` or null.
   const accountSub = await getUserToken()
 
+  // If this browser previously connected anonymously, reclaim that anonymous
+  // library into the now-signed-in account so those installs aren't stranded.
+  const anonCookie = req.cookies.get(ANON_SUB_COOKIE)?.value ?? null
+  let merged = 0
+  if (accountSub && anonCookie) {
+    merged = await mergeAnonLibrary(anonCookie, accountSub)
+  }
+
+  // Diagnostics: which identity path fired and whether a Supabase auth cookie was
+  // even present on the request. This is the single fact that distinguishes "user
+  // not signed in" from "signed in but the cookie never reached authorize". Never
+  // log the subject itself — it is a bearer credential for the user's library.
+  const hasAuthCookie = req.cookies.getAll().some((c) => /^sb-.*-auth-token/.test(c.name))
+  const identityKind = accountSub ? 'account' : p.get('anon') === '1' ? 'anon' : 'consent'
+  console.log(
+    `[oauth/authorize] identity=${identityKind} authCookie=${hasAuthCookie}` +
+      (merged ? ` mergedInstalls=${merged}` : '')
+  )
+
   // Not signed in and hasn't opted into anonymous yet: recommend signing in.
   // Signed-in callers skip this entirely and are approved silently.
   if (!accountSub && p.get('anon') !== '1') {
@@ -85,7 +126,17 @@ export async function GET(req: NextRequest) {
   dest.searchParams.set('code', code)
   if (state) dest.searchParams.set('state', state)
 
-  return Response.redirect(dest.toString(), 302)
+  // Build the redirect manually (Response.redirect() yields immutable headers) so
+  // we can attach the anon-library linkage cookie:
+  //  - anonymous grant  → remember this subject for later reclamation
+  //  - signed-in grant  → clear any now-merged anon cookie
+  const headers = new Headers({ Location: dest.toString() })
+  if (!accountSub) {
+    headers.append('Set-Cookie', serializeCookie(ANON_SUB_COOKIE, sub, ANON_SUB_COOKIE_MAX_AGE))
+  } else if (anonCookie) {
+    headers.append('Set-Cookie', serializeCookie(ANON_SUB_COOKIE, '', 0))
+  }
+  return new Response(null, { status: 302, headers })
 }
 
 function badRequest(message: string): Response {

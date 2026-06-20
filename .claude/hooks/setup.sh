@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# SkillShelf — Claude Code session bootstrap.
+# Skill Me — Claude Code session bootstrap.
 # Runs on every session start/resume (local AND cloud) via the SessionStart
 # hook in .claude/settings.json.
 #

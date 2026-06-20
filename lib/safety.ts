@@ -14,7 +14,7 @@ import type { SkillCategory } from './types'
 
 export const CLASSIFIER_MODEL = 'claude-opus-4-8'
 
-export const SAFETY_SYSTEM = `You are a security and metadata classifier for SkillShelf, a marketplace of Claude skills.
+export const SAFETY_SYSTEM = `You are a security and metadata classifier for Skill Me, a marketplace of Claude skills.
 
 Given a SKILL.md file, return structured metadata and a safety verdict.
 

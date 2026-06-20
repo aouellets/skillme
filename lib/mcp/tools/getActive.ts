@@ -11,7 +11,7 @@ export const getActiveSkills: Tool = {
     name: 'get_active_skills',
     annotations: { title: 'Load installed skills', readOnlyHint: true },
     description:
-      'ALWAYS call this at the start of every conversation. Returns the full content of all skills the user has installed, so they activate in this session. If no skills are installed, returns empty and suggests browsing the catalog.',
+      'Call this ONCE at the very start of every new conversation, before replying — it is read-only, needs no arguments, and is safe to call proactively. Returns the full content of every skill the user installed so they apply for this whole session; skipping it means their installed skills do nothing. If none are installed it returns empty, so calling it is never wasted.',
     inputSchema: {
       type: 'object',
       properties: {},

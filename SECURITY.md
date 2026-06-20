@@ -6,7 +6,7 @@ security research.
 
 ## Reporting a vulnerability
 
-Email **security@skillshelf.ai** (routes to the maintainers). Please do **not**
+Email **security@skillme.dev** (routes to the maintainers). Please do **not**
 open a public GitHub issue for security reports.
 
 Include where you can:
@@ -35,7 +35,7 @@ through remediation. We'll credit you on request once a fix ships.
   Claude-powered safety classifier before listing, but a skill is instructional
   text, not executable code we run. If you find a skill whose instructions are
   unsafe, deceptive, or attempt prompt-injection/exfiltration, report it to
-  security@skillshelf.ai and we'll remove it.
+  security@skillme.dev and we'll remove it.
 - Findings that require a compromised user device or MITM of TLS.
 - Volumetric DoS / brute-force without a concrete underlying vulnerability.
 
@@ -50,7 +50,7 @@ faith:
 - Give us reasonable time to remediate before public disclosure.
 
 If in doubt about whether an action is authorized, ask first at
-security@skillshelf.ai.
+security@skillme.dev.
 
 ## Supported versions
 

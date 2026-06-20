@@ -1,7 +1,7 @@
-# support@skillshelf.ai — inbox setup
+# support@skillme.dev — inbox setup
 
 Paste-ready content for the support inbox the connector directory submission
-requires. Set up `support@skillshelf.ai` (and alias `security@skillshelf.ai` to
+requires. Set up `support@skillme.dev` (and alias `security@skillme.dev` to
 the same inbox, or a separate one) before submitting.
 
 ---
@@ -22,7 +22,7 @@ the same inbox, or a separate one) before submitting.
 > - **Connect / setup:** https://skillme.dev/connect
 > - **Browse the catalog:** https://skillme.dev
 > - **Report a bug:** https://github.com/aouellets/skillme/issues
-> - **Security issue?** Email security@skillshelf.ai (please don't post security
+> - **Security issue?** Email security@skillme.dev (please don't post security
 >   reports publicly).
 > - **Privacy / delete my data:** reply to this email with "data deletion" and
 >   the request will be handled — see https://skillme.dev/privacy.
@@ -73,7 +73,7 @@ Short, on-brand templates for the common cases.
 
 > Thanks for flagging it — that's exactly the kind of report we want. Send the
 > skill name or URL and what looks off (misleading instructions, anything that
-> tries prompt-injection or data exfiltration) to security@skillshelf.ai and
+> tries prompt-injection or data exfiltration) to security@skillme.dev and
 > we'll review and remove it if warranted.
 
 ### "Billing / pricing"
