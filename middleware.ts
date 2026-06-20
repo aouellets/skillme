@@ -38,5 +38,14 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)'],
+  // Exclude /api broadly so the high-traffic MCP endpoint stays fast and
+  // untouched — EXCEPT /api/oauth/authorize, which must see a current session to
+  // bind the connector to the signed-in account (auth:<id>) rather than silently
+  // falling back to an anonymous identity when the access-token cookie is stale.
+  // Running the refresh here rotates that cookie (onto request + response) before
+  // the authorize handler reads it.
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)',
+    '/api/oauth/authorize',
+  ],
 }

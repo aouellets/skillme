@@ -242,10 +242,20 @@ export function isAllowedRedirectUri(uri: string, registered?: string[]): boolea
   return false
 }
 
-/** Intersect requested scopes with what we support; default to "mcp". */
+/**
+ * Intersect requested scopes with what we support, then force the two scopes the
+ * connector always needs: `mcp` (the tools) and `offline_access`. We grant
+ * offline_access even when the client doesn't ask for it because the token
+ * endpoint only issues a refresh token when that scope is present — and without
+ * a refresh token the 30-day access token simply expires, the connector starts
+ * 401ing, and the user's library appears to "vanish after a month" (and a forced
+ * re-auth can silently re-bind them to a fresh anonymous identity). It is
+ * already advertised in scopes_supported, so granting it is no surprise.
+ */
 export function normalizeScope(requested: string | null | undefined): string {
   const req = (requested ?? '').split(/\s+/).filter(Boolean)
   const allowed = req.filter((s) => (SUPPORTED_SCOPES as readonly string[]).includes(s))
   if (!allowed.includes('mcp')) allowed.unshift('mcp')
+  if (!allowed.includes('offline_access')) allowed.push('offline_access')
   return allowed.join(' ')
 }
