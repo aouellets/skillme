@@ -47,6 +47,12 @@ const config: Config = {
       maxWidth: {
         content: '88rem',
       },
+      boxShadow: {
+        card: 'var(--shadow-card)',
+        raised: 'var(--shadow-raised)',
+        glow: 'var(--shadow-glow)',
+        modal: 'var(--shadow-modal)',
+      },
     },
   },
   plugins: [],

@@ -279,6 +279,144 @@
   mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 35%, transparent 75%);
 }
 
+/* === Premium motion system — spotlight, marquee, word rotator, glow line === */
+
+/* Group spotlight: a soft lime field tracks the cursor across a card cluster,
+   lighting whichever tile is being read. Driven by --mx/--my written from
+   components/Spotlight (no React state). Decoration only, pointer-events off. */
+.spotlight {
+  position: relative;
+}
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, -20%),
+    rgba(180, 243, 62, 0.1),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+.spotlight[data-active='true']::before {
+  opacity: 1;
+}
+.spotlight > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* The page's single marquee — a seamless -50% loop over two copies, paused on
+   hover, edge-masked into the gutter. */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Word rotator — a vertical slot machine for a single word inside a headline.
+   The hidden sizer reserves the widest word's width so the line never reflows. */
+.word-rotator {
+  position: relative;
+  display: inline-grid;
+  overflow: hidden;
+  height: 1.08em;
+  vertical-align: bottom;
+  color: var(--shelf-accent);
+}
+.word-rotator-sizer {
+  visibility: hidden;
+  height: 0;
+  white-space: nowrap;
+}
+.word-rotator-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.word-rotator-item {
+  height: 1.08em;
+  line-height: 1.08em;
+  white-space: nowrap;
+}
+
+/* Animated accent hairline that sweeps along a section's top edge (storytelling:
+   marks a live, moving surface). */
+.glow-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--shelf-accent-border) 25%,
+    var(--shelf-accent) 50%,
+    var(--shelf-accent-border) 75%,
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: glowSweep 7s linear infinite;
+  opacity: 0.5;
+}
+@keyframes glowSweep {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Magnetic CTA easing — the rAF in components/MagneticCTA writes transform; this
+   just smooths the return-to-rest so release feels sprung, not snapped. */
+.magnetic {
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease,
+    box-shadow 0.15s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.magnetic:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+/* Subtle parallax drift for the hero showcase, only where the browser supports
+   scroll-driven animations — degrades to static everywhere else. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .parallax-rise {
+      animation: parallaxRise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 60%;
+    }
+  }
+}
+@keyframes parallaxRise {
+  from {
+    transform: translateY(28px);
+  }
+  to {
+    transform: translateY(-28px);
+  }
+}
+
 /* === Motion: entrance reveal (motivated — storytelling on scroll) ===
    Driven by IntersectionObserver in components/Reveal.tsx. Default-visible so
    non-JS / unsupported environments never hide content. */
@@ -416,5 +554,20 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .word-rotator-track {
+    transition: none;
+  }
+  .glow-line {
+    animation: none;
+  }
+  .spotlight::before {
+    display: none;
+  }
+  .magnetic {
+    transform: none !important;
   }
 }
