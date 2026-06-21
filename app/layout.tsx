@@ -63,10 +63,14 @@ function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-shelf-border/80 bg-shelf-void/70 backdrop-blur-xl supports-[backdrop-filter]:bg-shelf-void/55">
       <div className="mx-auto flex h-16 max-w-content items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" aria-label="Skill Me home" className="transition-opacity hover:opacity-80">
+        <Link
+          href="/"
+          aria-label="Skill Me home"
+          className="shrink-0 transition-opacity hover:opacity-80"
+        >
           <Wordmark />
         </Link>
-        <nav className="flex items-center gap-1 sm:gap-2">
+        <nav className="flex min-w-0 items-center gap-0.5 sm:gap-2">
           <Link
             href="/browse"
             className="rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:px-3"

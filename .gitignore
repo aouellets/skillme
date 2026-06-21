@@ -40,3 +40,8 @@ supabase/.temp/
 
 # Local email template previews
 emails-preview/
+
+# Remotion demo-video project — separate toolchain with its own package.json and
+# node_modules; not part of the Next build. Keep it out of the web repo (init it
+# as its own git repo if you want history).
+remotion-skillme-ai-engineer/

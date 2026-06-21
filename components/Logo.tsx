@@ -48,7 +48,7 @@ export function Wordmark({
   return (
     <span className={`inline-flex items-center gap-2 ${className}`}>
       {withMark && <LogoMark className="h-7 w-7" />}
-      <span className="font-display text-lg font-semibold tracking-tight text-shelf-text-primary">
+      <span className="whitespace-nowrap font-display text-lg font-semibold tracking-tight text-shelf-text-primary">
         Skill<span className="text-accent"> Me</span>
       </span>
     </span>

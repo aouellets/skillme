@@ -179,7 +179,7 @@ export default async function HomePage() {
   )
 
   return (
-    <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-content overflow-x-clip px-4 sm:px-6 lg:px-8">
       {/* HERO — asymmetric split. One eyebrow for the whole page lives here. */}
       <section className="relative grid grid-cols-1 items-center gap-12 py-16 sm:py-24 lg:grid-cols-[1.04fr_1fr] lg:gap-14">
         <div className="aurora" aria-hidden />

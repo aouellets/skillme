@@ -31,6 +31,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'ss01', 'cv01', 'cv03';
+    /* Decorative absolutes (aurora) and full-bleed rails must never add a
+       horizontal scrollbar. `clip` (not `hidden`) so the sticky header keeps
+       working. */
+    overflow-x: clip;
   }
 
   h1,
