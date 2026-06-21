@@ -29,12 +29,17 @@ export function SkillCard({ skill }: { skill: SkillCardData }) {
       )}
       <FavoriteButton skillId={skill.id} variant="icon" />
       <SkillThumbnail skill={skill} size="card" />
-      <div className="flex flex-1 flex-col gap-3 p-5">
+      <div className="flex flex-1 flex-col gap-2.5 p-3.5 sm:gap-3 sm:p-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-base font-semibold leading-snug text-shelf-text-primary transition-colors group-hover:text-accent-hover">
+          <h3 className="min-w-0 font-display text-base font-semibold leading-snug text-shelf-text-primary transition-colors group-hover:text-accent-hover">
             {skill.name}
           </h3>
-          <CategoryBadge category={skill.category} />
+          {/* The compact 2-col mobile tile already carries the category via the
+              thumbnail label; hide the redundant inline badge below sm to keep
+              the header clean. Reappears at sm+ (desktop unchanged). */}
+          <span className="hidden sm:contents">
+            <CategoryBadge category={skill.category} />
+          </span>
         </div>
 
         <p className="line-clamp-2 flex-1 text-sm leading-relaxed text-shelf-text-secondary">

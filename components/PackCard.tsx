@@ -28,7 +28,7 @@ export function PackCard({ pack }: { pack: PackCardData }) {
         size="card"
       />
 
-      <div className="flex flex-1 flex-col gap-3 p-5">
+      <div className="flex flex-1 flex-col gap-2.5 p-3.5 sm:gap-3 sm:p-5">
         {/* Pack badge */}
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-1 rounded-xs border border-accent-border bg-accent-dim px-2 py-0.5 font-mono text-xs text-accent">

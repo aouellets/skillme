@@ -45,7 +45,6 @@ export function DemoVideo({
       ([entry]) => {
         if (entry.isIntersecting) {
           setNear(true)
-          if (playMode === 'inview' && !active) el.play().catch(() => {})
         } else if (!active) {
           el.pause()
         }
@@ -54,7 +53,17 @@ export function DemoVideo({
     )
     io.observe(el)
     return () => io.disconnect()
-  }, [playMode, active])
+  }, [active])
+
+  // Autoplay once the source is actually attached (setNear triggers the render
+  // that sets src). Playing inside the observer callback races the src attach —
+  // the element is already in view on load, so the observer never re-fires and
+  // play() silently fails on a source-less element.
+  useEffect(() => {
+    if (near && playMode === 'inview' && !active) {
+      ref.current?.play().catch(() => {})
+    }
+  }, [near, playMode, active])
 
   function handleClick() {
     const el = ref.current

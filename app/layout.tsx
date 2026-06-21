@@ -10,6 +10,7 @@ import { AdminNav } from '@/components/AdminNav'
 import { FavoritesProvider } from '@/components/FavoritesProvider'
 import { Wordmark } from '@/components/Logo'
 import { EmailCapture } from '@/components/EmailCapture'
+import { MobileTabBar } from '@/components/MobileTabBar'
 import './globals.css'
 
 // Display: Space Grotesk — a technical grotesk for headlines + wordmark.
@@ -71,22 +72,25 @@ async function Header() {
         >
           <Wordmark />
         </Link>
+        {/* Browse / Packs / Connect live in the bottom tab bar on mobile, so the
+            mobile header stays calm (wordmark + account). They reappear here at
+            lg+, where the bottom bar is hidden — desktop nav is unchanged. */}
         <nav className="flex min-w-0 items-center gap-0.5 sm:gap-2">
           <Link
             href="/browse"
-            className="rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:px-3"
+            className="hidden rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:px-3 lg:inline-flex"
           >
             Browse
           </Link>
           <Link
             href="/packs"
-            className="rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:px-3"
+            className="hidden rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:px-3 lg:inline-flex"
           >
             Packs
           </Link>
           <AdminNav />
           <AuthButton />
-          <Link href="/connect" className="btn btn-primary ml-1">
+          <Link href="/connect" className="btn btn-primary ml-1 hidden lg:inline-flex">
             <span className="sm:hidden">Connect</span>
             <span className="hidden sm:inline">Connect to Claude</span>
           </Link>
@@ -98,8 +102,10 @@ async function Header() {
 
 function Footer() {
   return (
-    <footer className="mt-28 border-t border-shelf-border">
-      <div className="mx-auto max-w-content px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="mt-16 border-t border-shelf-border sm:mt-28">
+      {/* Extra bottom padding on mobile clears the fixed bottom tab bar (plus the
+          home-indicator safe area); desktop has no bar, so it resets at lg. */}
+      <div className="mx-auto max-w-content px-4 pt-12 pb-[calc(5rem+env(safe-area-inset-bottom))] sm:px-6 lg:px-8 lg:pb-12">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-xs">
             <Wordmark />
@@ -170,11 +176,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body>
         <FavoritesProvider>
-          <div className="flex min-h-screen flex-col">
+          <div className="flex min-h-dvh flex-col">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <MobileTabBar />
         </FavoritesProvider>
         <Analytics />
       </body>

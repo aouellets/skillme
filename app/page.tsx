@@ -181,12 +181,12 @@ export default async function HomePage() {
   return (
     <div className="mx-auto max-w-content overflow-x-clip px-4 sm:px-6 lg:px-8">
       {/* HERO — asymmetric split. One eyebrow for the whole page lives here. */}
-      <section className="relative grid grid-cols-1 items-center gap-12 py-16 sm:py-24 lg:grid-cols-[1.04fr_1fr] lg:gap-14">
+      <section className="relative grid grid-cols-1 items-center gap-8 py-10 sm:gap-12 sm:py-24 lg:grid-cols-[1.04fr_1fr] lg:gap-14">
         <div className="aurora" aria-hidden />
         <div aria-hidden className="grid-texture absolute inset-x-0 top-0 -z-10 h-[420px]" />
         <div className="fade-up">
           <span className="eyebrow">The App Store for Claude</span>
-          <h1 className="mt-5 font-display text-6xl font-semibold leading-[0.95] tracking-tight text-shelf-text-primary sm:text-7xl">
+          <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.95] tracking-tight text-shelf-text-primary sm:text-7xl">
             Install
             <br />
             intelligence.
@@ -232,7 +232,7 @@ export default async function HomePage() {
       </section>
 
       {/* HOW IT WORKS — the recommender flow as three lit, connected steps. */}
-      <section className="relative py-16 sm:py-20">
+      <section className="relative py-10 sm:py-20">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">How it works</span>
           <h2 className="mt-5 font-display text-3xl font-semibold leading-tight tracking-tight text-shelf-text-primary sm:text-4xl">
@@ -245,7 +245,7 @@ export default async function HomePage() {
         </Reveal>
 
         <Reveal>
-          <Spotlight className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-shelf-border bg-shelf-border md:grid-cols-3">
+          <Spotlight className="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-shelf-border bg-shelf-border sm:mt-12 md:grid-cols-3">
             {STEPS.map((step, i) => (
               <div key={step.title} className="bg-shelf-surface p-7 sm:p-8">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full border border-accent-border bg-accent-dim font-mono text-sm font-semibold text-accent">
@@ -272,7 +272,7 @@ export default async function HomePage() {
 
       {/* FEATURED SKILLS — horizontal carousel. */}
       {featured.length > 0 && (
-        <section className="py-10">
+        <section className="py-8 sm:py-10">
           <Reveal>
             <FeaturedCarousel skills={featured} title="Featured this week" href="/browse" />
           </Reveal>
@@ -281,7 +281,7 @@ export default async function HomePage() {
 
       {/* BECOME ANYTHING — rotating-role headline over a lit grid of roles. */}
       {becomeAnything.length > 0 && (
-        <section className="py-14 sm:py-16">
+        <section className="py-10 sm:py-16">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="font-display text-3xl font-semibold leading-[1.1] tracking-tight text-shelf-text-primary sm:text-4xl">
               In one chat, become{' '}
@@ -310,7 +310,7 @@ export default async function HomePage() {
 
       {/* PACKS — one standout pack per discipline, labeled, to convey breadth. */}
       {showcase.length > 0 && (
-        <section className="py-14 sm:py-16">
+        <section className="py-10 sm:py-16">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-xl">
               <h2 className="font-display text-3xl font-semibold tracking-tight text-shelf-text-primary sm:text-4xl">
@@ -345,7 +345,7 @@ export default async function HomePage() {
 
       {/* OFFICIAL PARTNER PACKS — skills straight from the source. */}
       {partnerShowcase.length > 0 && (
-        <section className="py-14 sm:py-16">
+        <section className="py-10 sm:py-16">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-xl">
               <h2 className="font-display text-3xl font-semibold tracking-tight text-shelf-text-primary sm:text-4xl">
@@ -374,7 +374,7 @@ export default async function HomePage() {
       )}
 
       {/* AUTHOR — bring your own skill (the authoring story). Split feature. */}
-      <section className="py-16 sm:py-20">
+      <section className="py-10 sm:py-20">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <span className="eyebrow">Bring your own</span>
@@ -419,7 +419,7 @@ export default async function HomePage() {
       </section>
 
       {/* CATEGORIES — chip cloud. */}
-      <section className="py-12">
+      <section className="py-8 sm:py-12">
         <Reveal>
           <h2 className="font-display text-2xl font-semibold tracking-tight text-shelf-text-primary">
             Browse by category
@@ -440,9 +440,9 @@ export default async function HomePage() {
       </section>
 
       {/* OPEN SOURCE — plain text columns under a live accent rule. */}
-      <section className="py-16">
+      <section className="py-10 sm:py-16">
         <div className="glow-line" />
-        <Reveal className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <Reveal className="mt-8 grid grid-cols-1 gap-8 sm:mt-10 sm:grid-cols-3">
           <div>
             <h3 className="font-display text-base font-semibold text-shelf-text-primary">
               Open source
@@ -488,7 +488,7 @@ export default async function HomePage() {
       </section>
 
       {/* FINAL CTA — centered closing band. */}
-      <section className="relative py-20 text-center sm:py-28">
+      <section className="relative py-14 text-center sm:py-28">
         <div className="aurora" aria-hidden />
         <Reveal>
           <h2 className="mx-auto max-w-2xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-shelf-text-primary sm:text-5xl">

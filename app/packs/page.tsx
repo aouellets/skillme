@@ -52,12 +52,12 @@ export default async function PacksPage() {
       </div>
 
       {/* Install hint */}
-      <div className="mt-4 card p-4 flex items-center gap-4">
+      <div className="mt-4 card flex flex-col items-start gap-3 p-4 sm:flex-row sm:items-center sm:gap-4">
         <div className="font-mono text-xs text-shelf-text-tertiary">
           Install a full pack in Claude: say{' '}
           <span className="text-accent">&quot;install the [Pack Name] pack&quot;</span>
         </div>
-        <Link href="/connect" className="btn btn-primary ml-auto flex-shrink-0">
+        <Link href="/connect" className="btn btn-primary flex-shrink-0 sm:ml-auto">
           Connect to Claude
         </Link>
       </div>
@@ -76,7 +76,7 @@ export default async function PacksPage() {
               </p>
             </div>
           </div>
-          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
             {officialPacks.map((pack) => (
               <PackCard key={pack.id} pack={pack} />
             ))}
@@ -101,7 +101,7 @@ export default async function PacksPage() {
               All packs
             </h2>
           )}
-          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
             {restPacks.map((pack) => (
               <PackCard key={pack.id} pack={pack} />
             ))}

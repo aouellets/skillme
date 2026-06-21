@@ -147,7 +147,7 @@ export function BrowseClient({
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
               {skills.map((skill) => (
                 <SkillCard key={skill.id} skill={skill} />
               ))}
@@ -174,11 +174,11 @@ export function BrowseClient({
 function SkeletonGrid() {
   // Skeleton mirrors the real SkillCard shape: media banner + title + body + meta.
   return (
-    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
       {Array.from({ length: 6 }).map((_, i) => (
         <div key={i} className="card animate-pulse overflow-hidden">
           <div className="aspect-[16/9] w-full bg-shelf-elevated" />
-          <div className="p-5">
+          <div className="p-3.5 sm:p-5">
             <div className="h-4 w-2/3 rounded-xs bg-shelf-elevated" />
             <div className="mt-3 h-3 w-full rounded-xs bg-shelf-elevated" />
             <div className="mt-2 h-3 w-5/6 rounded-xs bg-shelf-elevated" />
