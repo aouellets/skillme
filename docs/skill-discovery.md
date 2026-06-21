@@ -18,6 +18,10 @@ Every path into the catalog goes through `ingestRepo()`. For a GitHub repo it:
    (`lib/safety-core.ts`); unsafe skills are skipped.
 4. **Upsert** — writes verified skills to Supabase (`onConflict: slug`,
    idempotent). Multi-skill repos can be grouped into a **pack**.
+5. **Embed** — each upserted skill/pack is embedded inline (best-effort) so it is
+   immediately recommendable by `recommend_skills` without waiting for a
+   backfill. No-op when no embedding credential is set; `npm run embed:catalog`
+   covers any that were missed. See [recommender.md](recommender.md).
 
 The classifier core lives in `lib/safety-core.ts` (runtime-agnostic) so both tsx
 scripts and Next routes share it; `lib/safety.ts` is the `server-only` wrapper
