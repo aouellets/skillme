@@ -29,6 +29,22 @@ function clientIp(req: NextRequest): string {
   return req.headers.get('x-real-ip') ?? 'unknown'
 }
 
+// Sentinel distinguishing "no URL given" (-> null) from "given but malformed".
+const INVALID_URL = Symbol('invalid-url')
+
+/** Returns null when empty, the normalized URL when valid, or INVALID_URL. */
+function normalizeUrl(raw: string | undefined): string | null | typeof INVALID_URL {
+  const trimmed = raw?.trim()
+  if (!trimmed) return null
+  try {
+    const u = new URL(trimmed)
+    if (u.protocol !== 'http:' && u.protocol !== 'https:') return INVALID_URL
+    return u.toString()
+  } catch {
+    return INVALID_URL
+  }
+}
+
 function normalizeTags(tags: SubmitBody['tags']): string[] {
   const raw = Array.isArray(tags) ? tags : (tags ?? '').split(',')
   return raw
@@ -88,6 +104,16 @@ export async function POST(req: NextRequest) {
     return Response.json({ error: 'That email address looks invalid.' }, { status: 400 })
   }
 
+  // Optional source link. When provided it must be a real http(s) URL — it
+  // surfaces publicly as the "Source" link on the skill page.
+  const sourceUrl = normalizeUrl(body.source_url)
+  if (sourceUrl === INVALID_URL) {
+    return Response.json(
+      { error: 'The source URL must be a valid http(s) link.' },
+      { status: 400 }
+    )
+  }
+
   // Best-effort automated safety + metadata pass. Never blocks the submission —
   // everything lands in the review queue regardless of verdict.
   const safety = await classifySafe(skill_content)
@@ -105,7 +131,7 @@ export async function POST(req: NextRequest) {
     name,
     description,
     category,
-    source_url: body.source_url?.trim() || null,
+    source_url: sourceUrl,
     author: body.author?.trim() || null,
     skill_content,
     tags: normalizeTags(body.tags),

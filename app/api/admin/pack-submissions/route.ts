@@ -144,6 +144,7 @@ export async function POST(req: NextRequest) {
       description: sub.description,
       author: sub.author ?? 'Community',
       author_url: sub.author_url ?? null,
+      repo_url: sub.repo_url ?? null,
       category: sub.category,
       tags: sub.tags ?? [],
       thumbnail_url: sub.thumbnail_url ?? null,

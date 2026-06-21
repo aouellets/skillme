@@ -40,6 +40,7 @@ export function PackSubmitForm() {
           description: fd.get('description'),
           author: fd.get('author'),
           author_url: fd.get('author_url'),
+          repo_url: fd.get('repo_url'),
           category: fd.get('category'),
           tags: fd.get('tags'),
           skill_slugs: selected.map((s) => s.slug),
@@ -135,6 +136,18 @@ export function PackSubmitForm() {
           <input name="author_url" type="url" className="input w-full" placeholder="https://yoursite.com" />
         </Field>
       </div>
+
+      <Field
+        label="Pack repo URL"
+        hint="Link to the repo or page where this pack lives (optional)"
+      >
+        <input
+          name="repo_url"
+          type="url"
+          className="input w-full"
+          placeholder="https://github.com/you/your-pack"
+        />
+      </Field>
 
       <Field label="Tags" hint="Comma-separated, e.g. react, frontend, ui">
         <input name="tags" className="input w-full" placeholder="react, frontend, ui" />

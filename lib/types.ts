@@ -164,6 +164,7 @@ export interface PackSubmission {
   description: string
   author?: string
   author_url?: string
+  repo_url?: string
   category: PackCategory
   tags?: string[]
   skill_slugs: string[]
@@ -181,4 +182,28 @@ export interface PackSubmission {
 export interface MCPToolResult {
   content: Array<{ type: 'text'; text: string }>
   isError?: boolean
+}
+
+// ── Demo media ──────────────────────────────────────────────────────────────
+// One rendered demo video per subject + orientation. Populated by the
+// skillme-demos publish pipeline (see migration 0009). Packs/skills have a
+// single landscape row; the platform has both landscape and portrait.
+export type MediaSubjectType = 'platform' | 'pack' | 'skill'
+export type MediaOrientation = 'landscape' | 'portrait'
+
+export interface MediaAsset {
+  id: string
+  subject_type: MediaSubjectType
+  subject_slug: string
+  orientation: MediaOrientation
+  kind: 'demo'
+  url: string
+  poster_url: string | null
+  width: number
+  height: number
+  duration_ms: number
+  bytes: number | null
+  render_hash: string | null
+  created_at: string
+  updated_at: string
 }
