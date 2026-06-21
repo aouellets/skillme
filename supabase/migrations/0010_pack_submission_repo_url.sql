@@ -1,0 +1,11 @@
+-- ------------------------------------------------------------
+-- Pack submissions: capture an optional repository / source URL.
+--
+-- public.packs already has repo_url (migration 0004) and the pack
+-- detail page renders a "Star on GitHub" CTA from it. Until now the
+-- submission flow had no way to provide that link, so community
+-- submitters could not point at where their pack actually lives.
+-- This column closes that gap; admin approval copies it onto the
+-- published pack.
+-- ------------------------------------------------------------
+alter table public.pack_submissions add column if not exists repo_url text;

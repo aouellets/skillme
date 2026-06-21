@@ -63,6 +63,16 @@ function ReviewCard({ sub, onDone }: { sub: PackSubmission; onDone: () => void }
             {sub.author ? ` · ${sub.author}` : ''}
             {sub.submitter_email ? ` · ${sub.submitter_email}` : ''}
           </p>
+          {sub.repo_url && (
+            <a
+              href={sub.repo_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 block break-all font-mono text-xs text-accent hover:text-accent-hover"
+            >
+              {sub.repo_url}
+            </a>
+          )}
         </div>
         <span className="shrink-0 rounded-full border border-shelf-border px-2.5 py-1 font-mono text-xs text-shelf-text-tertiary">
           {sub.skill_slugs.length} skills

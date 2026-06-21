@@ -13,6 +13,7 @@ interface PackSubmitBody {
   description?: string
   author?: string
   author_url?: string
+  repo_url?: string
   category?: string
   tags?: string | string[]
   skill_slugs?: string[]
@@ -25,6 +26,22 @@ function clientIp(req: NextRequest): string {
   const fwd = req.headers.get('x-forwarded-for')
   if (fwd) return fwd.split(',')[0].trim()
   return req.headers.get('x-real-ip') ?? 'unknown'
+}
+
+// Sentinel distinguishing "no URL given" (-> null) from "given but malformed".
+const INVALID_URL = Symbol('invalid-url')
+
+/** Returns null when empty, the normalized URL when valid, or INVALID_URL. */
+function normalizeUrl(raw: string | undefined): string | null | typeof INVALID_URL {
+  const trimmed = raw?.trim()
+  if (!trimmed) return null
+  try {
+    const u = new URL(trimmed)
+    if (u.protocol !== 'http:' && u.protocol !== 'https:') return INVALID_URL
+    return u.toString()
+  } catch {
+    return INVALID_URL
+  }
 }
 
 function normalizeTags(tags: PackSubmitBody['tags']): string[] {
@@ -85,6 +102,23 @@ export async function POST(req: NextRequest) {
     return Response.json({ error: 'That email address looks invalid.' }, { status: 400 })
   }
 
+  // Optional repo/source link. When provided it must be a real http(s) URL —
+  // it surfaces publicly as a "Star on GitHub" / source CTA on the pack page.
+  const repoUrl = normalizeUrl(body.repo_url)
+  if (repoUrl === INVALID_URL) {
+    return Response.json(
+      { error: 'The repo URL must be a valid http(s) link.' },
+      { status: 400 }
+    )
+  }
+  const authorUrl = normalizeUrl(body.author_url)
+  if (authorUrl === INVALID_URL) {
+    return Response.json(
+      { error: 'The author URL must be a valid http(s) link.' },
+      { status: 400 }
+    )
+  }
+
   const supabase = getServiceSupabase()
   if (!supabase) {
     return Response.json(
@@ -111,7 +145,8 @@ export async function POST(req: NextRequest) {
     tagline,
     description,
     author: body.author?.trim() || null,
-    author_url: body.author_url?.trim() || null,
+    author_url: authorUrl,
+    repo_url: repoUrl,
     category,
     tags: normalizeTags(body.tags),
     skill_slugs: slugs,
@@ -138,6 +173,7 @@ export async function POST(req: NextRequest) {
     `Tagline: ${tagline}`,
     `Category: ${category}`,
     `Skills (${slugs.length}): ${slugs.join(', ')}`,
+    `Repo: ${repoUrl ?? '—'}`,
     `From: ${email ?? '(no email)'}`,
     `Review it: ${process.env.NEXT_PUBLIC_SITE_URL ?? ''}/admin/packs`,
   ])
