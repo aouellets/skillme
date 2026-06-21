@@ -18,7 +18,8 @@
     "db:seed": "tsx scripts/seed-manual.ts",
     "db:seed-packs": "tsx scripts/seed-packs.ts",
     "publish:packs": "tsx scripts/publish-pack-repos.ts",
-    "ingest": "tsx scripts/ingest.ts"
+    "ingest": "tsx scripts/ingest.ts",
+    "scout:seed": "tsx scripts/scout-seed.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.2",

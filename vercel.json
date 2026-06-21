@@ -9,6 +9,10 @@
     {
       "path": "/api/cron/telemetry",
       "schedule": "*/15 * * * *"
+    },
+    {
+      "path": "/api/cron/scout",
+      "schedule": "0 14 * * 1"
     }
   ]
 }
