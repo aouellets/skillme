@@ -25,6 +25,7 @@ export const MCP_TOOLS = [
   'list_installed',
   'manage_collection',
   'rate_skill',
+  'recommend_skills',
 ] as const
 export type McpTool = (typeof MCP_TOOLS)[number]
 
@@ -76,6 +77,15 @@ export const EVENT_SCHEMAS = {
   // when an installed skill is actually loaded into a session.
   skill_activated: z.object({ skill_id: skillId }),
   user_signed_up: z.object({ method: z.string().max(40) }),
+  // Semantic recommender: one row per recommend_skills call. `mode` records
+  // whether vector search or the lexical fallback produced the candidates, and
+  // `used_rerank` whether the LLM rerank stage ran — both surface how often the
+  // tool runs degraded.
+  skill_recommended: z.object({
+    result_count: z.number().int().nonnegative(),
+    used_rerank: z.boolean(),
+    mode: z.enum(['semantic', 'lexical']),
+  }),
 } as const
 
 /** First-party cookie holding the pre-auth anonymous id. Shared by the client

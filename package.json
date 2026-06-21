@@ -17,11 +17,13 @@
     "send:newsletter": "tsx scripts/send-newsletter.ts",
     "db:seed": "tsx scripts/seed-manual.ts",
     "db:seed-packs": "tsx scripts/seed-packs.ts",
+    "embed:catalog": "tsx scripts/embed-catalog.ts",
     "publish:packs": "tsx scripts/publish-pack-repos.ts",
     "ingest": "tsx scripts/ingest.ts",
     "scout:seed": "tsx scripts/scout-seed.ts"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.73",
     "@anthropic-ai/sdk": "^0.104.2",
     "@supabase/ssr": "^0.12.0",
     "@supabase/supabase-js": "^2.47.10",
