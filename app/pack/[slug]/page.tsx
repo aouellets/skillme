@@ -5,10 +5,14 @@ import { SkillCard } from '@/components/SkillCard'
 import { SkillThumbnail } from '@/components/SkillThumbnail'
 import { VerifiedMark } from '@/components/VerifiedMark'
 import { OfficialBadge } from '@/components/OfficialBadge'
+import { PartnerLogo } from '@/components/PartnerLogo'
 import { isOfficial } from '@/lib/skill-source'
+import { isPartner } from '@/lib/partners'
 import { CopyButton } from '@/components/CopyButton'
 import { installLabel } from '@/lib/categories'
 import { getPackBySlug } from '@/lib/packs'
+import { getDemo, getDemosForSkillSlugs } from '@/lib/media'
+import { DemoSection, DemoGallery } from '@/components/DemoSection'
 import { getRepoStars } from '@/lib/github'
 import { MCP_URL } from '@/lib/site'
 
@@ -50,6 +54,15 @@ export default async function PackDetailPage({
 
   const stars = await getRepoStars(pack.repo_url)
 
+  // Demo videos: this pack's own landscape demo + each member skill's demo.
+  const demo = await getDemo('pack', slug)
+  const memberSlugs = (pack.skills ?? []).map((s) => s.slug)
+  const memberDemos = await getDemosForSkillSlugs(memberSlugs)
+  const galleryItems = (pack.skills ?? []).flatMap((s) => {
+    const d = memberDemos.get(s.slug)
+    return d ? [{ slug: s.slug, name: s.name, demo: d }] : []
+  })
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       {/* Breadcrumb */}
@@ -73,7 +86,8 @@ export default async function PackDetailPage({
             Pack · {pack.skill_count ?? 0} skills
           </span>
           {isOfficial(pack) && <OfficialBadge />}
-          {pack.verified && <VerifiedMark />}
+          {isPartner(pack.author) && <PartnerLogo author={pack.author} size={16} withLabel asLink />}
+          {pack.verified && !isPartner(pack.author) && <VerifiedMark />}
         </div>
         <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-shelf-text-primary sm:text-5xl">
           {pack.name}
@@ -81,13 +95,23 @@ export default async function PackDetailPage({
         <p className="mt-3 text-lg leading-relaxed text-shelf-text-secondary">{pack.tagline}</p>
         <div className="mt-3 flex flex-wrap items-center gap-4 font-mono text-sm text-shelf-text-tertiary">
           {installLabel(pack.install_count) && <span>{installLabel(pack.install_count)}</span>}
-          {pack.author && <span>by {pack.author}</span>}
+          {pack.author &&
+            (isPartner(pack.author) ? (
+              <span className="inline-flex items-center gap-1.5">
+                by <PartnerLogo author={pack.author} size={14} withLabel asLink />
+              </span>
+            ) : (
+              <span>by {pack.author}</span>
+            ))}
         </div>
       </header>
 
       <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_300px]">
         <div>
           <p className="text-shelf-text-secondary leading-relaxed">{pack.description}</p>
+
+          {/* Pack demo video (when published) */}
+          <DemoSection demo={demo} />
 
           {/* Skills in this pack */}
           {pack.skills && pack.skills.length > 0 && (
@@ -102,6 +126,9 @@ export default async function PackDetailPage({
               </div>
             </section>
           )}
+
+          {/* Per-skill demo breakdown gallery (members that have a video) */}
+          <DemoGallery items={galleryItems} />
         </div>
 
         {/* Sidebar */}
