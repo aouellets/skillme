@@ -808,5 +808,21 @@ export const PACK_DEFINITIONS: PackDefinition[] = [
     repo_url: "https://github.com/aouellets/gym-growth-engine",
     skill_slugs: ["gym-money-model","grand-slam-offer-builder","gym-pricing-and-guarantees","core-four-lead-engine","gym-transformation-challenge","gym-meta-ads-funnel","closer-sales-script","objection-handling-and-speed-to-lead","retention-and-churn-killer","referral-and-affiliate-system","kpi-scoreboard-and-cadence","hiring-a-players-and-sops"],
   },
+  {
+    slug: "remotion-video-production",
+    name: "Remotion Video Production",
+    tagline: "Turn natural language briefs into rendered MP4s using Claude Code and Remotion — covers project setup, composition generation, and the render/iterate loop.",
+    description: "Produce software product demos, feature-announcement videos, and marketing animations without a video editor or motion-design background. Three skills that work in sequence — Remotion Setup scaffolds a project wired for Claude Code Agent Skills, Remotion Compose turns a natural-language brief into a complete React/TypeScript composition, and Remotion Render handles export plus the feedback-and-re-render loop — and each is independently useful once a project is underway. Built for developers, product teams, and solo founders who want to describe a video and get a rendered MP4 back.",
+    author: "Skill Me",
+    category: "coding",
+    tags: ["remotion", "video", "react", "claude-code"],
+    featured: true,
+    verified: true,
+    free: true,
+    install_count: 0,
+    skill_slugs: [
+      "remotion-setup", "remotion-compose", "remotion-render",
+    ],
+  },
 
 ]
