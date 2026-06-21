@@ -1,0 +1,282 @@
+[
+  {
+    "slug": "threejs-interaction",
+    "name": "Three.js Interaction",
+    "category": "coding",
+    "description": "Add pointer, touch, and selection to Three.js scenes — raycasting for click detection, OrbitControls for camera, and interaction state for hover and drag in 3D experiences.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-interaction",
+    "tags": ["frontend-development", "interaction", "raycasting", "threejs"],
+    "skill_content": "---\nname: threejs-interaction\ndescription: Reference for input and selection in Three.js — raycasting, camera controls, mouse/touch handling, object picking. Use when wiring up click detection, hover/drag state, or interactive 3D scenes.\n---\n\nA practical recipe set for making Three.js scenes respond to user input.\n\n## How to use\n1. Add camera controls with `OrbitControls` from `three/addons`; set `enableDamping = true` and call `controls.update()` each frame.\n2. For picking, create a `THREE.Raycaster` and a `THREE.Vector2`; on a pointer event, convert screen coords to NDC (`x = clientX/innerWidth*2-1`, `y = -(clientY/innerHeight*2-1)`), using `getBoundingClientRect()` for canvases that aren't full-window.\n3. Call `raycaster.setFromCamera(mouse, camera)` then `intersectObjects(scene.children, true)`; the first hit gives `point`, `face`, `object`, `uv`, and `instanceId`.\n4. Reuse the same flow for touch via `touchstart`/`touchmove`, and track hover/selection state to drive highlights, drag, or transforms.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-interaction"
+  },
+  {
+    "slug": "threejs-lighting",
+    "name": "Three.js Lighting",
+    "category": "coding",
+    "description": "Build Three.js lighting rigs — ambient, hemisphere, directional, point, spot, and area lights, plus shadow maps and image-based environment lighting, with notes on cost and performance.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-lighting",
+    "tags": ["frontend-development", "lighting", "rendering", "threejs"],
+    "skill_content": "---\nname: threejs-lighting\ndescription: Reference for Three.js lighting — light types, shadows, and environment/IBL setup with performance tradeoffs. Use when adding lights, configuring shadows, or tuning illumination.\n---\n\nGuide to choosing and configuring lights in Three.js.\n\n## How to use\n1. Pick light types by cost and need: `AmbientLight`/`HemisphereLight` (cheap, no shadows) for fill; `DirectionalLight` (sun) for cheap shadows; `PointLight`/`SpotLight` for localized sources; `RectAreaLight` for soft area light.\n2. Combine a low-intensity ambient or hemisphere fill with a key directional light positioned off-axis for natural depth.\n3. Enable shadows with `light.castShadow = true`, set `shadow.mapSize` (e.g. 2048) for sharpness, and tune the shadow camera frustum (`near`/`far`/bounds) to fit the scene.\n4. For realism, load an HDR environment and use it via the scene environment / IBL so PBR materials pick up reflections; keep shadow-casting lights few to control GPU cost.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-lighting"
+  },
+  {
+    "slug": "threejs-loaders",
+    "name": "Three.js Loaders",
+    "category": "coding",
+    "description": "Load 3D assets in Three.js — GLTF/GLB models, textures, and HDR environments — with LoadingManager progress tracking, correct color space, and async load patterns.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-loaders",
+    "tags": ["3d-assets", "frontend-development", "loaders", "threejs"],
+    "skill_content": "---\nname: threejs-loaders\ndescription: Reference for loading assets in Three.js — GLTFLoader, TextureLoader, HDR environments, and LoadingManager progress. Use when loading models, textures, or tracking load state.\n---\n\nPatterns for loading and configuring 3D assets in Three.js.\n\n## How to use\n1. Load models with `GLTFLoader` from `three/addons/loaders/GLTFLoader.js`; add `gltf.scene` to your scene in the onLoad callback.\n2. Coordinate multiple assets with a single `THREE.LoadingManager`, wiring `onProgress` to a progress bar and `onLoad` to start the app only when everything is ready.\n3. Load textures via `TextureLoader`; set `colorSpace = THREE.SRGBColorSpace` for albedo maps and linear for data maps (normal/roughness), plus wrapping and `repeat`/`offset`.\n4. Use the loader callbacks (onLoad/onError) to diagnose failures, and remember image loads don't report fine-grained progress.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-loaders"
+  },
+  {
+    "slug": "threejs-materials",
+    "name": "Three.js Materials",
+    "category": "coding",
+    "description": "Select and configure Three.js materials — Basic, Lambert, Phong, Standard/Physical PBR, Toon, and ShaderMaterial — plus texture maps and PBR settings for realistic or stylized meshes.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-materials",
+    "tags": ["frontend-development", "materials", "pbr", "threejs"],
+    "skill_content": "---\nname: threejs-materials\ndescription: Reference for Three.js materials — choosing among Basic/Lambert/Phong/Standard/Physical/Toon/Shader materials and configuring texture maps and PBR. Use when styling meshes or building custom shaders.\n---\n\nGuide to picking and tuning Three.js materials.\n\n## How to use\n1. Choose the material by need: `MeshBasicMaterial` (unlit), `MeshStandardMaterial` (default PBR with `roughness`/`metalness`), `MeshPhysicalMaterial` (clearcoat, transmission), `MeshToonMaterial` (cel), or `ShaderMaterial` for custom GLSL.\n2. For realistic surfaces, drive a Standard/Physical material with texture maps: `map`, `normalMap`, `roughnessMap`, `metalnessMap`, `aoMap`, and `envMap`.\n3. Set the correct color space on color maps (sRGB) and keep data maps linear; mark `needsUpdate = true` after late texture assignment.\n4. Control transparency (`transparent`, `opacity`, `alphaMap`), `side`, and reuse material instances across meshes to limit draw cost.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-materials"
+  },
+  {
+    "slug": "threejs-postprocessing",
+    "name": "Three.js Postprocessing",
+    "category": "coding",
+    "description": "Build Three.js post-processing pipelines with EffectComposer — bloom, depth-of-field, color grading, and custom screen-space shader passes — with resize handling and performance tradeoffs.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-postprocessing",
+    "tags": ["frontend-development", "postprocessing", "threejs", "webgl"],
+    "skill_content": "---\nname: threejs-postprocessing\ndescription: Reference for Three.js post-processing — EffectComposer pipelines, bloom/DOF/screen effects, and custom shader passes. Use when adding glow, color grading, blur, or screen-space effects.\n---\n\nHow to assemble a post-processing chain in Three.js.\n\n## How to use\n1. Create an `EffectComposer(renderer)` and add a `RenderPass(scene, camera)` as the first pass; render with `composer.render()` instead of `renderer.render()` in your loop.\n2. Add effect passes such as `UnrealBloomPass` (strength, radius, threshold) for glow, or shader passes for color grading and blur; the last pass renders to screen.\n3. Use selective bloom (layers + a luminance/composite ShaderPass) to glow only chosen objects.\n4. On resize, update camera aspect, `renderer.setSize`, and `composer.setSize`; order passes deliberately and budget passes for performance.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-postprocessing"
+  },
+  {
+    "slug": "excalidraw-diagram-skill",
+    "name": "Excalidraw Diagram",
+    "category": "design",
+    "description": "Generate editable .excalidraw JSON diagrams that argue visually — architectures, workflows, and concepts — using a single color palette and concrete evidence artifacts rather than labeled boxes.",
+    "author": "coleam00",
+    "source_url": "https://github.com/coleam00/excalidraw-diagram-skill/tree/8646fcc9f74f38539c6cdb4c969723336a96ddcd",
+    "tags": ["diagram", "excalidraw", "presentation-creation", "visualization"],
+    "skill_content": "---\nname: excalidraw-diagram\ndescription: Create .excalidraw JSON files that make a visual argument, not just a labeled diagram. Use when visualizing workflows, architectures, or concepts as editable Excalidraw graphics.\n---\n\nGenerates editable Excalidraw diagrams whose structure carries the meaning.\n\n## Workflow\n1. Run the Depth Assessment first: decide whether the diagram is conceptual (abstract shapes) or technical (concrete examples), since technical diagrams must include real evidence artifacts (actual formats, event names, examples).\n2. Apply the design philosophy — diagrams should ARGUE, not DISPLAY. Use the Isomorphism Test (would structure alone communicate?) and Education Test (does it teach something concrete?).\n3. Read `references/color-palette.md` as the single source of truth for all fills, strokes, and text colors before generating anything.\n4. Emit valid `.excalidraw` JSON with explicit element coordinates, bindings, and arrows expressing relationships, causality, and flow.\n5. Optionally render via the included renderer (see README) to verify the output.\n\nFull skill & source: https://github.com/coleam00/excalidraw-diagram-skill/tree/8646fcc9f74f38539c6cdb4c969723336a96ddcd"
+  },
+  {
+    "slug": "seedance2-skill",
+    "name": "Seedance 2 Video Generation",
+    "category": "design",
+    "description": "Write effective prompts for ByteDance's Jimeng Seedance 2.0 multimodal video model — using the @ reference system for images, video, and audio, plus camera moves, effects, and beat-matching.",
+    "author": "dexhunter",
+    "source_url": "https://github.com/dexhunter/seedance2-skill/tree/e06c7c63a766d623004a2807881c30685ce517af",
+    "tags": ["creative", "seedance", "video-and-media-workflows", "video-generation"],
+    "skill_content": "---\nname: seedance-prompt-en\ndescription: Write prompts for Jimeng Seedance 2.0 multimodal video generation. Use when crafting text/image/video/audio prompts with the @ reference system for camera moves, effects, video extension, and music beat-matching.\n---\n\nPrompt-engineering guide for ByteDance's Jimeng Seedance 2.0 AI video model.\n\n## How to use\n1. Respect input limits: up to 9 images, 3 videos (2-15s total), 3 audio clips (<=15s), 12 files combined; output 4-15s at 480p-720p with auto sound. No realistic human faces allowed.\n2. Use the `@` reference system to assign a role to each asset, e.g. `@Image1 as the first frame`, `@Image2 as the last frame`, `@Video1` for motion reference, `@Audio1` for beat.\n3. State the role of every reference explicitly, then describe camera movement, subject action, style, and timing in natural language.\n4. Apply the recipes for common jobs — effect replication, video extension/editing, music beat-matching, e-commerce ads, short dramas, and educational content.\n\nFull skill & source: https://github.com/dexhunter/seedance2-skill/tree/e06c7c63a766d623004a2807881c30685ce517af"
+  },
+  {
+    "slug": "brave-search",
+    "name": "Brave Search",
+    "category": "research",
+    "description": "Search the web and extract page content via the official Brave Search API — no browser required. Supports result counts, freshness filters, country targeting, and markdown content extraction.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/brave-search",
+    "tags": ["research", "search", "web"],
+    "skill_content": "---\nname: brave-search\ndescription: Web search and content extraction via the official Brave Search API. Use for searching docs, facts, or any web content — lightweight, no browser required.\n---\n\nLightweight web research using the Brave Search API through bundled Node scripts.\n\n## How to use\n1. One-time setup: create a free Brave Search API account, export `BRAVE_API_KEY` in your shell profile, and run `npm install` in the skill directory.\n2. Search with `search.js \"query\"`; add `-n 10` for more results (max 20), `--freshness pw` (or a `YYYY-MM-DDtoYYYY-MM-DD` range) to filter by time, and `--country DE` to localize.\n3. Add `--content` to fetch and inline each result's page as markdown in one pass.\n4. Extract a single page with `content.js <url>`, which returns readable markdown for citation or summarization.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/brave-search"
+  },
+  {
+    "slug": "browser-tools",
+    "name": "Browser Tools",
+    "category": "coding",
+    "description": "Drive a real Chrome via the DevTools Protocol — navigate, evaluate JS, screenshot, pick DOM elements interactively, and inspect cookies — for frontend testing and automation needing a visible browser.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/browser-tools",
+    "tags": ["automation", "browser", "browser-and-web-automation", "web"],
+    "skill_content": "---\nname: browser-tools\ndescription: Interactive browser automation via the Chrome DevTools Protocol. Use to interact with web pages, test frontends, or when a visible browser and human interaction are required.\n---\n\nCDP-based browser automation through bundled Node scripts, connecting to Chrome on port 9222.\n\n## How to use\n1. Run `npm install` once, then launch Chrome with remote debugging via `browser-start.js` (add `--profile` to reuse the user's cookies and logins).\n2. Navigate with `browser-nav.js <url>` (`--new` for a new tab) and run code in the page with `browser-eval.js '<js>'` to extract data or inspect state.\n3. Capture the viewport with `browser-screenshot.js` to verify UI; read cookies with `browser-cookies.js`.\n4. When selectors are ambiguous, run `browser-pick.js \"<instruction>\"` to let the user click elements interactively and return their CSS selectors.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/browser-tools"
+  },
+  {
+    "slug": "gccli",
+    "name": "Calendar CLI",
+    "category": "productivity",
+    "description": "Manage Google Calendar from the command line with gccli — list calendars, view, create, and update events, and check free/busy availability across accounts via OAuth.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gccli",
+    "tags": ["calendar", "cli", "personal-productivity", "productivity"],
+    "skill_content": "---\nname: gccli\ndescription: Google Calendar CLI for listing calendars, viewing/creating/updating events, and checking availability. Use to inspect or modify a Google Calendar from the shell.\n---\n\nDrives Google Calendar through the `gccli` command-line tool.\n\n## How to use\n1. Install with `npm install -g @mariozechner/gccli`.\n2. First-time setup: create a Google Cloud project, enable the Calendar API, create a Desktop OAuth client, then run `gccli accounts credentials <creds.json>` and `gccli accounts add <email>` (check `gccli accounts list` first).\n3. Common operations: `gccli <email> calendars` to list; `gccli <email> events <calendarId> --from <dt> --to <dt>` to read; `gccli <email> create <calendarId> --summary <s> --start <dt> --end <dt>` to add; `gccli <email> freebusy <ids> --from --to` to check availability.\n4. Use `primary` as the main calendar ID; timed events use ISO datetimes, all-day events use `YYYY-MM-DD` with `--all-day`.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gccli"
+  },
+  {
+    "slug": "gdcli",
+    "name": "Drive CLI",
+    "category": "productivity",
+    "description": "Manage Google Drive from the command line with gdcli — list, full-text search, upload, download, create folders, and share files, using Drive query syntax for precise filtering.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gdcli",
+    "tags": ["cli", "drive", "files", "knowledge-management"],
+    "skill_content": "---\nname: gdcli\ndescription: Google Drive CLI for listing, searching, uploading, downloading, and sharing files and folders. Use to locate, organize, or retrieve cloud-hosted Drive files from the shell.\n---\n\nDrives Google Drive through the `gdcli` command-line tool.\n\n## How to use\n1. Install with `npm install -g @mariozechner/gdcli`.\n2. First-time setup: create a Google Cloud project, enable the Drive API, create a Desktop OAuth client, then run `gdcli accounts credentials <creds.json>` and `gdcli accounts add <email>`.\n3. List and find files: `gdcli <email> ls [folderId]`, `gdcli <email> search \"<text>\"` for full-text content, and `gdcli <email> ls --query \"name contains 'report'\"` for metadata/filename filters.\n4. Move data: `download <fileId>`, `upload <localPath> --folder <id>`, `mkdir <name>`, and `share <fileId> --anyone`. Query syntax supports `=`, `contains`, date and owner filters combined with `and`/`or`.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gdcli"
+  },
+  {
+    "slug": "gmcli",
+    "name": "Mail CLI",
+    "category": "productivity",
+    "description": "Manage Gmail from the command line with gmcli — search with Gmail query syntax, read threads, send mail, manage drafts, and handle labels and attachments via OAuth.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gmcli",
+    "tags": ["cli", "email", "personal-productivity", "productivity"],
+    "skill_content": "---\nname: gmcli\ndescription: Gmail CLI for searching emails, reading threads, sending messages, managing drafts, and handling labels/attachments. Use for focused mailbox workflows from the shell.\n---\n\nDrives Gmail through the `gmcli` command-line tool.\n\n## How to use\n1. Install with `npm install -g @mariozechner/gmcli`.\n2. First-time setup: create a Google Cloud project, enable the Gmail API, create a Desktop OAuth client, then run `gmcli accounts credentials <creds.json>` and `gmcli accounts add <email>`.\n3. Search and read: `gmcli <email> search \"<gmail query>\"` (supports the full Gmail query syntax) and `gmcli <email> thread <threadId>` to read a whole thread.\n4. Act on mail: `gmcli <email> send --to <emails> --subject <s> --body <b>`, plus `labels list` and `drafts list`; attachments download to `~/.gmcli/attachments/`.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gmcli"
+  },
+  {
+    "slug": "transcribe",
+    "name": "Audio Transcription",
+    "category": "design",
+    "description": "Transcribe audio to timestamped text locally on Apple Silicon macOS using parakeet-cpp-transcribe — handles WAV directly and other formats via ffmpeg, with no cloud upload.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/transcribe",
+    "tags": ["audio", "media", "transcription", "video-and-media-workflows"],
+    "skill_content": "---\nname: transcribe\ndescription: Local speech-to-text on Apple Silicon macOS. Use to transcribe audio to timestamped text offline — WAV directly, other formats via ffmpeg.\n---\n\nLocal, offline transcription using `parakeet-cpp-transcribe` on Apple Silicon macOS.\n\n## How to use\n1. Run `transcribe.sh <audio-file>`; the first run downloads the arm64 binary from the latest `badlogic/pibot` GitHub release into the extension's `bin` directory and fetches its GGUF model automatically.\n2. Feed WAV directly; for other formats install ffmpeg (`brew install ffmpeg`) so it can convert first.\n3. Output is plain text timestamped in 15-second chunks on stdout (`[00:00-00:15] ...`); diagnostic logs go to stderr (`2>/dev/null` to hide them).\n4. Requires Apple Silicon macOS plus `curl` and `tar`; everything runs locally with no cloud upload.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/transcribe"
+  },
+  {
+    "slug": "vscode",
+    "name": "Visual Studio Code",
+    "category": "coding",
+    "description": "Show file differences in VS Code from the shell — open side-by-side diffs of two files or git revisions using the code CLI, ideal for reviewing changes visually with the user.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/vscode",
+    "tags": ["development", "editor", "software-engineering", "vscode"],
+    "skill_content": "---\nname: vscode\ndescription: VS Code integration for viewing diffs and comparing files. Use when showing file differences or git changes to the user side by side.\n---\n\nUses the VS Code `code` CLI to present diffs visually.\n\n## How to use\n1. Ensure VS Code is installed with the `code` command on PATH.\n2. Compare two files side by side with `code -d <file1> <file2>`.\n3. For git diffs without extra config, dump the old version to a temp file and diff it, e.g. `git show HEAD~1:path/to/file > /tmp/old && code -d /tmp/old path/to/file`; use `git show :path` for the staged version.\n4. Verify a file has history first with `git log --oneline -5 -- path/to/file`; the file must exist and differ between revisions.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/vscode"
+  },
+  {
+    "slug": "youtube-transcript",
+    "name": "YouTube Transcript",
+    "category": "design",
+    "description": "Fetch timestamped transcripts from YouTube videos by ID or URL for summarization, citation, and content analysis — works with both auto-generated and manual captions.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/youtube-transcript",
+    "tags": ["research", "transcript", "video-and-media-workflows", "youtube"],
+    "skill_content": "---\nname: youtube-transcript\ndescription: Fetch transcripts from YouTube videos for summarization and analysis. Use to retrieve timestamped captions from a video ID or URL.\n---\n\nPulls timestamped transcripts from YouTube videos via a bundled Node script.\n\n## How to use\n1. Run `npm install` in the skill directory once.\n2. Run `transcript.js <video-id-or-url>`; it accepts a bare ID, a full `youtube.com/watch?v=` URL, or a `youtu.be/` short link.\n3. Output is timestamped transcript entries (`[0:00] ...`), ready to summarize, cite, or analyze.\n4. Works with both auto-generated and manual captions; the video must have captions available.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/youtube-transcript"
+  },
+  {
+    "slug": "geek-skills-notion-infographic",
+    "name": "Notion Infographic",
+    "category": "design",
+    "description": "Turn an outline into polished visuals via an agent pipeline — either a PptxGenJS presentation or a set of Notion-hand-drawn-style infographic prompts — with parallel research sub-agents and design QA.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-notion-infographic",
+    "tags": ["image-workflows", "infographic", "notion", "visualization"],
+    "skill_content": "---\nname: Geek-skills-notion-infographic\ndescription: Agent pipeline that researches an outline and produces high-quality visuals — either a PPTX deck (PptxGenJS) or Notion hand-drawn-style infographic prompts. Use when a user gives an outline/article and asks to make slides, an infographic, or a visual summary.\n---\n\nA lead-agent pipeline that turns a topic outline into a presentation or infographic set; you plan and review while sub-agents research.\n\n## Workflow\n1. P0 — detect environment (Claude Code/Cowork allow parallel sub-agents; Claude.ai degrades to single-thread), parse input, and decide output mode A (PPTX) or B (infographic prompts).\n2. P1 — as the lead agent, break the outline into a research task board; dispatch expert sub-agents that each write notes to `workspace/research-notes/`.\n3. P2-P3 — read the notes, distill core points, then make design decisions: style, color palette, and layout.\n4. P4 — generate output: Mode A builds a `.pptx` via Node + `pptxgenjs` with a full design system; Mode B emits image prompts (Notion hand-drawn or other styles) for imageGen/DALL-E.\n5. P5 — run QA against the design system and deliver.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-notion-infographic"
+  },
+  {
+    "slug": "web-access",
+    "name": "Web Access",
+    "category": "coding",
+    "description": "Route all networked work — search, scraping, logged-in actions, dynamic pages, and social platforms like Xiaohongshu or Weibo — through a real browser via a Chrome DevTools Protocol proxy.",
+    "author": "eze-is",
+    "source_url": "https://github.com/eze-is/web-access/tree/7af34af6a25940d917905f0e5f2a7ef056952971",
+    "tags": ["browser-and-web-automation", "research", "retrieval", "web"],
+    "skill_content": "---\nname: web-access\ndescription: Handle all online operations through a real browser — search, web scraping, logged-in actions, dynamic pages, and social platforms (Xiaohongshu, Weibo, Twitter). Use whenever a task needs a genuine browser environment.\n---\n\nA goal-driven web workflow that drives a real browser over the Chrome DevTools Protocol (CDP).\n\n## Workflow\n1. Pre-flight: run `scripts/check-deps.mjs` (needs Node.js 22+ for native WebSocket); follow its exit codes — continue, prompt for a browser preference into `config.env`, or self-heal per the printed steps. Switch browsers with `--browser chrome|edge` after killing the long-lived `cdp-proxy.mjs`.\n2. Show the user the built-in automation-risk notice, then start the CDP proxy.\n3. Browse like a human: define success criteria, pick the most direct starting point, and choose CDP directly for pages needing interaction, login state, or platforms known to block static fetches.\n4. Treat each step's result as evidence — adapt, go deeper when content is thin, and keep deciding against the goal rather than a fixed script.\n\nFull skill & source: https://github.com/eze-is/web-access/tree/7af34af6a25940d917905f0e5f2a7ef056952971"
+  },
+  {
+    "slug": "stop-slop",
+    "name": "Stop Slop",
+    "category": "writing",
+    "description": "Strip predictable AI tells from prose — filler openers, adverbs, binary contrasts, em dashes, vague declaratives, and pull-quotes — with a checklist and a 50-point scoring rubric for revision.",
+    "author": "hardikpandya",
+    "source_url": "https://github.com/hardikpandya/stop-slop/tree/8da1f030185bdfe8471220585162991eaeb970e9",
+    "tags": ["anti-slop", "editing", "style", "writing-and-editing"],
+    "skill_content": "---\nname: stop-slop\ndescription: Remove AI writing patterns from prose. Use when drafting, editing, or reviewing text to eliminate predictable AI tells.\n---\n\nAn editing pass that hunts and removes the patterns that make prose read as AI-generated.\n\n## How to use\n1. Apply the core rules: cut filler openers and adverbs, break formulaic structures (binary \"not X but Y\" contrasts, negative listings, rhetorical setups), and write in active voice with a human subject doing something.\n2. Be specific over vague — name the actual thing instead of \"the reasons are structural\"; avoid lazy extremes like every/always/never.\n3. Vary rhythm: mix sentence lengths, prefer two items over three, remove em dashes, and don't end every paragraph on a punchy one-liner.\n4. Run the Quick Checks list, then score the draft 1-10 across Directness, Rhythm, Trust, Authenticity, and Density; revise if below 35/50. See `references/phrases.md`, `structures.md`, and `examples.md`.\n\nFull skill & source: https://github.com/hardikpandya/stop-slop/tree/8da1f030185bdfe8471220585162991eaeb970e9"
+  },
+  {
+    "slug": "alphaear-news",
+    "name": "AlphaEar News",
+    "category": "business",
+    "description": "Pull real-time finance news and trend reports from multiple Chinese sources (CLS, Weibo, WallstreetCN) plus Polymarket prediction-market data into a structured market-research workflow.",
+    "author": "RKiding",
+    "source_url": "https://github.com/RKiding/Awesome-finance-skills/tree/853f09b4d0baae747759ed31e21ed5c5b2316a5f/skills/alphaear-news",
+    "tags": ["finance", "finance-and-investing", "markets", "news"],
+    "skill_content": "---\nname: alphaear-news\ndescription: Fetch hot finance news, unified trend reports, and Polymarket prediction data. Use when the user needs real-time financial news, multi-source trend reports, or finance market prediction data.\n---\n\nAggregates real-time finance news and prediction-market data via bundled Python tools.\n\n## How to use\n1. Use `scripts/news_tools.py` with `NewsNowTools.fetch_hot_news(source_id, count)` to pull hot news from a source; valid source IDs (e.g. `cls`, `weibo`) are listed in `references/sources.md`.\n2. Call `get_unified_trends(sources)` to aggregate the top stories across multiple sources into one trend report.\n3. Use `PolymarketTools.get_market_summary(limit)` to fetch a formatted summary of active prediction markets.\n4. Requires `requests` and `loguru`; results are persisted via `scripts/database_manager.py` (local DB) for reuse.\n\nFull skill & source: https://github.com/RKiding/Awesome-finance-skills/tree/853f09b4d0baae747759ed31e21ed5c5b2316a5f/skills/alphaear-news"
+  },
+  {
+    "slug": "geek-skills-a-share-analyst",
+    "name": "A-Share Analyst",
+    "category": "business",
+    "description": "Analyze China A-share equities using free AKShare data — daily pre-market scans, technical indicators (MACD/KDJ/RSI/Bollinger), fundamentals and valuation, sector rotation, and stock screening.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-a-share-analyst",
+    "tags": ["a-shares", "equities", "finance", "finance-and-investing"],
+    "skill_content": "---\nname: Geek-skills-a-share-analyst\ndescription: China A-share market analyst — real-time and historical quotes, technical and fundamental analysis, sector tracking, and stock screening. Use for A-share analysis, daily stock picks, or technical/fundamental review.\n---\n\nA structured A-share analysis toolkit built on free, open data.\n\n## Workflow\n1. Pull data with AKShare (no token needed): `stock_zh_a_spot_em()` for live quotes, `stock_zh_a_hist()` for K-line history, `stock_board_concept_name_em()`/`stock_board_industry_name_em()` for sectors, plus 龙虎榜 and fund-flow helpers.\n2. Pre-market routine: read the major indices, analyze sector rotation, screen limit-up and consecutive-limit stocks, check northbound flows, and build a daily watchlist.\n3. Technical analysis: fetch >=60 days of K-line, compute indicators and candlestick patterns (see `references/`), and score trend plus support/resistance.\n4. Fundamental analysis: pull financials (revenue, net profit, ROE), compute PE/PB/PS valuation, assess growth and margin of safety, then run screening strategies and generate a report.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-a-share-analyst"
+  },
+  {
+    "slug": "geek-skills-ai-sales-champion",
+    "name": "AI Sales Champion",
+    "category": "business",
+    "description": "Help technical people sell AI internally and to clients — translating model jargon into business value (cost saved, revenue gained, risk controlled), with discovery, objection handling, and next-step plans.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-ai-sales-champion",
+    "tags": ["ai", "discovery", "sales"],
+    "skill_content": "---\nname: Geek-skills-ai-sales-champion\ndescription: Conversation strategy for selling/consulting on AI. Use when preparing an AI pitch, talking adoption with business teams, writing a proposal, handling \"AI is unreliable\" objections, or planning next steps after a demo.\n---\n\nHelps technical people pitch AI in language business buyers understand and act on.\n\n## How to use\n1. Anchor everything to the iron rule: business teams care about three things only — how much money is saved, how much more is earned, and whether risk is controllable. Any tech term without a business translation is noise.\n2. Mode A (conversation prep): build a profile of the counterpart (priorities, fears, decision chain), open with their pain not AI capability, give 3 landing scenarios ordered easiest-first, and prepare objection responses.\n3. Always meet the acceptance checklist: translate every AI concept (e.g. RAG -> \"AI answers from your own knowledge base\"), include an industry-relevant scenario, quantify expected impact, name risks/limits, and propose a concrete next step (e.g. a 2-hour POC).\n4. Stay in scope: give frameworks and ammunition, not architecture docs, market research, or contracts; the user makes the final call.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-ai-sales-champion"
+  },
+  {
+    "slug": "geek-skills-deep-research",
+    "name": "Deep Research",
+    "category": "research",
+    "description": "Produce evidence-rich research memos and decision briefs with cited sources, verified claims, and explicit limitations — single-agent-first, fanning out only when parallel work clearly helps.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-deep-research",
+    "tags": ["research", "sources", "synthesis"],
+    "skill_content": "---\nname: deep-research\ndescription: Evidence-based research memos, literature reviews, and multi-source decision briefs with citations, trade-offs, and a clear conclusion. Use for synthesis across many sources; not for quick lookups or single-source summaries.\n---\n\nA disciplined research workflow (V8) that separates evidence from analysis and keeps the run diagnosable.\n\n## Workflow\n1. Scope first: write a `research-plan.md` and pick the lightest artifact that satisfies the task (brief memo, review, or full report).\n2. Go single-agent first; only fan out to parallel sub-agents when that clearly helps. Keep the harness thin and the judgment in the skill.\n3. Gather grounded notes into `workspace/research-notes/*.md` and track every source in a `registry.md`, verifying citations rather than trusting recall.\n4. Synthesize a `draft.md` that explicitly separates evidence from analysis, states limitations, and ends with a clear conclusion; record an `evaluation.md` and `run-summary.json` for observability.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-deep-research"
+  },
+  {
+    "slug": "geek-skills-gaokao-expert",
+    "name": "Gaokao Expert",
+    "category": "personal",
+    "description": "Author and review Chinese Gaokao exam questions to professional standards — applying the \"one-core four-layer four-wing\" framework, current item-design trends, scoring rubrics, and paper-structure analysis.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-gaokao-expert",
+    "tags": ["education", "gaokao", "planning"],
+    "skill_content": "---\nname: Geek-skills-gaokao-expert\ndescription: Senior Gaokao item-writing expert — author exam questions, review item quality, and analyze paper structure against current standards. Use when creating or evaluating Gaokao-style questions or papers.\n---\n\nA professional aide for authoring and reviewing China's Gaokao exam items.\n\n## Workflow\n1. Clarify the goal first: real exam vs. mock, target grade and subject; if the user uploaded material, extract it with the view tool or docx/pdf skills, and use web_search for the latest trends.\n2. Study the standards: read `references/命题标准.md` for the \"one-core four-layer four-wing\" (一核四层四翼) evaluation system, item-design principles, scenario requirements, and difficulty control.\n3. Author items across the full flow — from scenario design to scoring rubric — following question-type norms and 2025 item-design trends.\n4. Review quality on multiple dimensions and analyze overall paper structure, giving standards-grounded recommendations.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-gaokao-expert"
+  },
+  {
+    "slug": "geek-skills-mineru-pdf-parser",
+    "name": "MinerU PDF Parser",
+    "category": "productivity",
+    "description": "Convert complex PDFs into LLM-friendly Markdown/JSON with MinerU — extracting text, tables, formulas, and images, with pipeline/VLM/hybrid backends for RAG-ready document data.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-mineru-pdf-parser",
+    "tags": ["mineru", "parser", "pdf", "pdf-and-document-processing"],
+    "skill_content": "---\nname: Geek-skills-mineru-pdf-parser\ndescription: Convert complex PDFs to LLM-friendly Markdown/JSON with MinerU — extract text, tables, formulas, and images. Use to parse academic papers, technical docs, or reports, or to prep data for RAG.\n---\n\nTurns complex PDFs into machine-readable Markdown/JSON using the MinerU tool.\n\n## How to use\n1. Install with uv: `uv pip install -U \"mineru[all]\"`, then run `mineru-models-download` on first use.\n2. Parse from the CLI: `mineru -p input.pdf -o output_dir` (or a folder for batch); pick a backend with `--backend pipeline` (fast), `vlm` (high accuracy for formulas/complex layout), or `hybrid` (balanced).\n3. Or use the Python API: `MinerU().parse(\"document.pdf\")` then `.to_markdown()` / `.to_json()`.\n4. Outputs include `{filename}.md` and a `{filename}_content_list.json`; see `references/api_reference.md` for the full API.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-mineru-pdf-parser"
+  },
+  {
+    "slug": "geek-skills-pair-programming",
+    "name": "Pair Programming",
+    "category": "coding",
+    "description": "Act as a self-reviewing pair-programming partner — after generating code, automatically scan correctness, security, performance, readability, and robustness, then surface prioritized improvements.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-pair-programming",
+    "tags": ["coding", "pair-programming", "review", "software-engineering"],
+    "skill_content": "---\nname: Geek-skills-pair-programming\ndescription: Pair-programming partner that self-reviews generated code. Use when writing, modifying, or generating code (new features, bug fixes, refactors, APIs) to automatically check quality, security, performance, and best practices.\n---\n\nAfter producing code, the skill reviews its own work like a responsible senior developer.\n\n## Workflow\n1. Trigger review automatically after generating new code (>10 lines), refactoring, fixing bugs, or implementing features/APIs.\n2. Run a 5-dimension scan: correctness (logic, edge cases), security (injection, data handling), performance (O(n^2), needless loops), readability (naming, structure), and robustness (error handling).\n3. Apply the blocking checklist: null/empty handling, input validation, parameterized queries against SQL/command injection, and no hardcoded secrets.\n4. Attach structured feedback after the code — what was done well, what needs attention, and optional optimization suggestions.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-pair-programming"
+  },
+  {
+    "slug": "geek-skills-podcast-generator",
+    "name": "Podcast Generator",
+    "category": "design",
+    "description": "Generate multi-speaker AI podcast audio from text using Volcano Engine's Podcast AI Model — Chinese dual-speaker conversation with configurable voices, format, sample rate, and speech rate.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-podcast-generator",
+    "tags": ["audio", "content", "podcast", "video-and-media-workflows"],
+    "skill_content": "---\nname: Geek-skills-podcast-generator\ndescription: Generate AI podcasts using Volcano Engine's Podcast AI Model. Use to turn text into conversational, multi-speaker podcast audio, with customizable voices (Chinese dual-speaker).\n---\n\nTurns text into dual-speaker podcast audio via Volcano Engine's Podcast AI Model.\n\n## Workflow\n1. Prepare inputs: the podcast topic/content text (Chinese, up to 25,000 chars) plus Volcano Engine `APP_ID` and `ACCESS_KEY` credentials.\n2. Choose optional settings: audio format (mp3/ogg_opus/pcm/aac), sample rate (default 24000 Hz), speech rate (-50 to 100), speaker voices (default male+female duo), and opening music.\n3. Generate from the CLI: `python scripts/generate_podcast.py --text \"...\" --output out.mp3 --app-id ... --access-key ... --format mp3 --sample-rate 24000 --speech-rate 0`.\n4. Or use it as a Python module via the `PodcastGenerator` class (async) to receive the audio file in your chosen format.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-podcast-generator"
+  },
+  {
+    "slug": "geek-skills-security-audit",
+    "name": "Security Audit",
+    "category": "coding",
+    "description": "Run a comprehensive code and server security audit — SAST, dependency/SCA scanning, secret detection, and config review — using Bandit, Semgrep, Safety, and pip-audit with a prioritized findings report.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-security-audit",
+    "tags": ["audit", "code", "cybersecurity", "security"],
+    "skill_content": "---\nname: Geek-skills-security-audit\ndescription: Comprehensive code and server security audit — SAST, dependency (SCA) checks, secret detection, and config review. Use for vulnerability scanning, code audits, CVE/dependency checks, and OWASP Top 10 review.\n---\n\nA staged security audit covering static analysis, dependencies, secrets, and configuration.\n\n## Workflow\n1. Detect the environment and tech stack, then prioritize a dependency check (highest priority) for vulnerable third-party libraries and known CVEs.\n2. Run static analysis (SAST) over the source for OWASP Top 10 issues like SQL injection, XSS, and SSRF.\n3. Scan for hardcoded secrets (API keys, passwords, tokens) and audit security-relevant configuration.\n4. Tooling: `pip install safety bandit semgrep pip-audit`; run `python3 scripts/full_scan.py /path/to/project` for a one-shot scan, then summarize findings with severity and remediation steps.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-security-audit"
+  },
+  {
+    "slug": "llm-wiki",
+    "name": "LLM Wiki",
+    "category": "productivity",
+    "description": "Build and maintain a persistent, interlinked markdown wiki of a codebase in .llm-wiki/ — capturing architecture, modules, patterns, and APIs, with full-build and incremental update modes.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/llm-wiki",
+    "tags": ["documentation", "knowledge", "knowledge-management", "wiki"],
+    "skill_content": "---\nname: llm-wiki\ndescription: Build and maintain a structured LLM-generated wiki for any codebase. Use to analyze/understand/document a codebase, create project docs from source, or update an existing .llm-wiki.\n---\n\nBuilds a persistent, interlinked markdown wiki in `.llm-wiki/` that compounds over time (based on Karpathy's LLM Wiki pattern).\n\n## Workflow\n1. Detect mode: no `.llm-wiki/` means Full Build; an existing one means Update (diff and refresh).\n2. Phase 1 reconnaissance: read top-level manifests (README, package.json, Cargo.toml, etc.), map the tree (ignoring node_modules/.git/dist), and identify languages, frameworks, build system, entry points, and CLAUDE.md/AGENTS.md context.\n3. Phase 2 skeleton: create `.llm-wiki/` with `_schema.md` (conventions/metadata), `_index.md` (catalog by category), and `_log.md` (changelog).\n4. Fill in interlinked pages for architecture, modules, patterns, and APIs; the human curates and directs while the LLM handles bookkeeping and keeps the wiki updated.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/llm-wiki"
+  }
+]

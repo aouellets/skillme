@@ -1,0 +1,282 @@
+[
+  {
+    "slug": "skill-security-auditor",
+    "name": "Skill Security Auditor",
+    "category": "coding",
+    "description": "Statically audits Agent Skills for dangerous code, prompt injection, exfiltration, privilege escalation, and supply-chain risk before you install them, returning a PASS/WARN/FAIL verdict.",
+    "author": "alirezarezvani",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/4a3c05b69e64f4925f7fc65c88890f614f79caf0/engineering/skills/skill-security-auditor",
+    "tags": ["cybersecurity", "prompt-injection", "security", "skill-audit"],
+    "skill_content": "---\nname: skill-security-auditor\ndescription: Security gate that statically scans an Agent Skill (local dir or git repo) for malicious code before installation — command injection, eval/exec, network exfiltration, credential harvesting, prompt injection in SKILL.md, and dependency risk. Use before installing any skill from an untrusted source.\n---\n\n# Skill Security Auditor\n\nProduces a clear PASS / WARN / FAIL verdict with findings and remediation for an AI agent skill, using static analysis only (it never executes the code).\n\n## How to use\n1. Run `python3 scripts/skill_security_auditor.py /path/to/skill/` on a local directory, or pass a git URL with `--skill <name>`.\n2. It scans `.py/.sh/.js/.ts` for code-execution and exfiltration patterns (`os.system`, `eval`, `subprocess(shell=True)`, `requests.post`, reads of `~/.ssh`/`~/.aws`), plus base64/hex obfuscation and privilege escalation.\n3. It scans SKILL.md and reference `.md` files for prompt injection (\"ignore previous instructions\", role hijacking, safety bypass, hidden zero-width text).\n4. It checks `requirements.txt`/`package.json` for typosquatting, unpinned versions, and inline installs; flags binaries, symlinks, and out-of-boundary file access.\n5. Read the severity-grouped report; use `--strict` (WARN becomes FAIL) and `--json` for CI gating.\n\nWhen in doubt after an audit, don't install.\n\nFull skill & source: https://github.com/alirezarezvani/claude-skills/tree/4a3c05b69e64f4925f7fc65c88890f614f79caf0/engineering/skills/skill-security-auditor"
+  },
+  {
+    "slug": "hf-cli",
+    "name": "Hugging Face CLI",
+    "category": "coding",
+    "description": "Drives the Hugging Face Hub CLI (`hf`) for auth, downloads/uploads, repos, datasets, spaces, buckets, jobs, papers, and inference endpoints — the modern replacement for huggingface-cli.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/hf-cli",
+    "tags": ["automation", "cli", "devops", "huggingface"],
+    "skill_content": "---\nname: hf-cli\ndescription: Use the Hugging Face Hub CLI (`hf`) for any Hugging Face ecosystem task — authentication, downloading/uploading models, datasets and spaces, managing repos, buckets, collections, jobs, papers, webhooks, and inference endpoints. Triggers whenever the user mentions hf, huggingface, or huggingface-cli.\n---\n\n# Hugging Face CLI\n\nThe `hf` command is the current Hub CLI and replaces the deprecated `huggingface-cli`. Install with `curl -LsSf https://hf.co/cli/install.sh | bash -s`.\n\n## How to use\n1. Authenticate: `hf auth login` (token from huggingface.co/settings/tokens); confirm with `hf auth whoami`.\n2. Move files: `hf download <repo>` and `hf upload <repo>` (use `--type model|dataset|space`, `upload-large-folder` for resumable big uploads).\n3. Browse and manage: `hf models|datasets|spaces list/info`, `hf repos`, `hf collections`, `hf discussions`.\n4. Query datasets directly: `hf datasets parquet <id>` and `hf datasets sql \"<query>\"` (DuckDB over parquet URLs).\n5. Run cloud compute and storage: `hf jobs`, `hf buckets`, `hf endpoints`; add `--format json` for machine-readable output.\n6. Run `hf --help` (and `hf <command> --help`) to discover the full surface.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/hf-cli"
+  },
+  {
+    "slug": "huggingface-community-evals",
+    "name": "Hugging Face Community Evaluations",
+    "category": "coding",
+    "description": "Runs reproducible model evaluations against Hugging Face Hub models on local hardware using inspect-ai or lighteval, with guidance on choosing vLLM, Transformers, or accelerate backends.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-community-evals",
+    "tags": ["benchmarks", "evaluation", "models", "testing-and-qa"],
+    "skill_content": "---\nname: huggingface-community-evals\ndescription: Run evaluations for Hugging Face Hub models on local hardware with inspect-ai and lighteval. Use for backend selection (vLLM / Transformers / accelerate), local GPU evals, and smoke-testing benchmarks before scaling. Not for HF Jobs orchestration or results publishing.\n---\n\n# Hugging Face Community Evaluations\n\nRun benchmark evaluations against Hub models locally, choosing the right framework and inference backend.\n\n## Workflow\n1. Pick the framework: `inspect-ai` for explicit task control, `lighteval` for leaderboard-style task strings (`suite|task|num_fewshot`).\n2. Pick the backend: prefer `vllm` for throughput; fall back to Transformers (`--backend hf`) or `accelerate` for unsupported architectures; use the providers-backed `inspect_eval_uv.py` when you don't need direct GPU control.\n3. Verify prerequisites with `uv --version`, `printenv HF_TOKEN`, and `nvidia-smi`.\n4. Always start with a smoke test (`--limit 10` for inspect-ai, `--max-samples 10` for lighteval), then scale up.\n5. Run scripts via `uv run scripts/inspect_eval_uv.py` / `inspect_vllm_uv.py` / `lighteval_vllm_uv.py`.\n6. For remote compute, hand off the same script and args to the `hugging-face-jobs` skill.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-community-evals"
+  },
+  {
+    "slug": "huggingface-datasets",
+    "name": "Hugging Face Datasets",
+    "category": "data",
+    "description": "Explores and extracts Hugging Face datasets through the read-only Dataset Viewer API — splits, paginated rows, search, filter, parquet links, and stats — plus zero/low-dependency upload flows.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-datasets",
+    "tags": ["data", "data-science", "datasets", "huggingface"],
+    "skill_content": "---\nname: huggingface-datasets\ndescription: Use for Hugging Face Dataset Viewer API workflows — fetch subset/split metadata, paginate rows, search text, apply filters, get parquet URLs, and read size/statistics. Also covers uploading datasets and agent traces to the Hub.\n---\n\n# Hugging Face Dataset Viewer\n\nRead-only exploration and extraction of datasets via `https://datasets-server.huggingface.co`.\n\n## Workflow\n1. Optionally validate with `/is-valid?dataset=<ns/repo>`.\n2. Resolve config + split with `/splits`.\n3. Preview with `/first-rows`, then paginate with `/rows?...&offset=&length=` (length max 100, offset 0-based).\n4. Use `/search?query=` for text matching and `/filter?where=` for row predicates.\n5. Get download links and totals via `/parquet`, `/size`, and `/statistics`.\n6. Pass `Authorization: Bearer <HF_TOKEN>` for gated/private datasets; use response fields like `num_rows_total` and `partial` to drive continuation.\n\nTo create/upload, use the Hub UI or `npx @huggingface/hub upload datasets/<ns>/<repo> ./folder data`. Agent session traces (Claude Code, Codex) can be uploaded as raw JSONL and auto-detected by the Hub — keep them private.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-datasets"
+  },
+  {
+    "slug": "huggingface-gradio",
+    "name": "Hugging Face Gradio",
+    "category": "coding",
+    "description": "Builds interactive Python web UIs and ML demos with Gradio — Interface, Blocks, ChatInterface, event listeners, layouts, and streaming — with accurate component signatures.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-gradio",
+    "tags": ["frontend-development", "gradio", "ml", "ui"],
+    "skill_content": "---\nname: huggingface-gradio\ndescription: Build Gradio web UIs and demos in Python. Use when creating or editing Gradio apps, components, event listeners, layouts, or chatbots.\n---\n\n# Gradio\n\nGradio is a Python library for building interactive web UIs and ML demos. This skill covers the core API, component signatures, and patterns.\n\n## How to use\n1. For a quick demo, use the high-level `gr.Interface(fn=..., inputs=\"text\", outputs=\"text\").launch()` to wrap a function.\n2. For custom layouts, use `gr.Blocks()` with explicit components and event wiring (`btn.click(fn=..., inputs=..., outputs=...)`).\n3. For chatbots, use `gr.ChatInterface(fn=respond)` where `respond(message, history)` returns the reply.\n4. Configure components from their real signatures (`Textbox`, `Number`, etc.) for labels, types, streaming, and interactivity.\n5. Add streaming outputs/inputs and control layout with rows, columns, and tabs; reference the linked Gradio guides for advanced features.\n6. Share with `launch(share=True)` or deploy to Hugging Face Spaces.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-gradio"
+  },
+  {
+    "slug": "huggingface-llm-trainer",
+    "name": "Hugging Face LLM Trainer",
+    "category": "data",
+    "description": "Fine-tunes language models (SFT, DPO, GRPO, reward modeling) on managed Hugging Face Jobs cloud GPUs using TRL or Unsloth, with dataset prep, cost estimation, Trackio monitoring, and GGUF export.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-llm-trainer",
+    "tags": ["huggingface", "llm", "machine-learning", "training"],
+    "skill_content": "---\nname: huggingface-llm-trainer\ndescription: Train or fine-tune language models with TRL or Unsloth on Hugging Face Jobs cloud GPUs — SFT, DPO, GRPO, and reward modeling — plus GGUF conversion for local deployment. Use for cloud GPU training when the user has no local GPU.\n---\n\n# LLM Training on Hugging Face Jobs\n\nTrain models on fully managed cloud GPUs; results are saved automatically to the Hub. No local GPU required.\n\n## Workflow\n1. Choose the method: SFT (instruction tuning), DPO (preference alignment), GRPO (online RL), or reward modeling.\n2. Prepare and validate the dataset; estimate cost and pick hardware via the PEP 723 helper scripts (`uv run scripts/estimate_cost.py`, `dataset_inspector.py`).\n3. Submit the job with the `hf_jobs(\"uv\", {...})` MCP tool, passing the training script as a string — do not run bash `trl-jobs` commands.\n4. Always include Trackio in the script for real-time monitoring; use the example scripts (`train_sft_example.py`, `train_dpo_example.py`) as templates.\n5. Use Unsloth (`references/unsloth.md`) for low-VRAM, faster, or large/VLM training.\n6. After submission, report job ID, monitoring URL, and ETA; convert to GGUF for Ollama/LM Studio/llama.cpp when needed.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-llm-trainer"
+  },
+  {
+    "slug": "huggingface-local-models",
+    "name": "Hugging Face Local Models",
+    "category": "data",
+    "description": "Finds llama.cpp-compatible GGUF models on the Hugging Face Hub, picks the right quantization, and runs them locally with llama-cli or an OpenAI-compatible llama-server on CPU, Metal, CUDA, or ROCm.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-local-models",
+    "tags": ["huggingface", "inference", "local-models", "machine-learning"],
+    "skill_content": "---\nname: huggingface-local-models\ndescription: Select and run models locally with llama.cpp and GGUF on CPU, Mac Metal, CUDA, or ROCm. Covers finding GGUF repos, quant selection, exact file lookup, conversion, and OpenAI-compatible local serving.\n---\n\n# Hugging Face Local Models\n\nSearch the Hub for llama.cpp-compatible GGUF repos, choose a quant, and launch with `llama-cli` or `llama-server`.\n\n## Workflow\n1. Install llama.cpp (`brew install llama.cpp`, winget, or build from source).\n2. Search the Hub with `apps=llama.cpp` (e.g. `https://huggingface.co/models?apps=llama.cpp&sort=trending`); prefer the repo's own local-app snippet and quant recommendation.\n3. Confirm exact `.gguf` filenames via `https://huggingface.co/api/models/<repo>/tree/main?recursive=true`.\n4. Run directly: `llama-cli -hf <repo>:<QUANT>` or `llama-server -hf <repo>:<QUANT>`; fall back to `--hf-repo` + `--hf-file` for custom naming.\n5. Pick quant by hardware — default `Q4_K_M`, `Q5_K_M`/`Q6_K` for code/technical work, smaller `IQ`/`UD-*` variants for tight memory.\n6. Convert with `convert_hf_to_gguf.py` + `llama-quantize` only when no GGUF exists; smoke-test the server's `/v1/chat/completions` endpoint.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-local-models"
+  },
+  {
+    "slug": "huggingface-paper-publisher",
+    "name": "Hugging Face Paper Publisher",
+    "category": "research",
+    "description": "Publishes and manages research papers on the Hugging Face Hub — indexing from arXiv, claiming authorship, linking papers to models/datasets, and generating polished markdown research articles.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-paper-publisher",
+    "tags": ["academic-work", "papers", "publishing", "reproducibility"],
+    "skill_content": "---\nname: huggingface-paper-publisher\ndescription: Publish and manage research papers on the Hugging Face Hub — create paper pages, index from arXiv, claim authorship, link papers to models and datasets, and generate professional markdown research articles. Use for publishing or connecting research artifacts.\n---\n\n# Hugging Face Paper Publisher\n\nStreamlines the workflow from paper creation to publication and keeps papers, models, datasets, and demos linked.\n\n## Workflow\n1. Set up auth: run scripts with `uv run` (PEP 723 inline deps) and export an `HF_TOKEN` with write access.\n2. Index a paper from its arXiv ID to create or surface its Hugging Face Paper page.\n3. Claim authorship so the paper appears on your HF profile/organization.\n4. Link papers to artifacts by adding the HF/arXiv URL to model cards, dataset cards, or Space READMEs — the Hub auto-tags `arxiv:<id>`.\n5. Generate a professional research article with the markdown template (dynamic TOC, standard sections, LaTeX math) and manage YAML frontmatter/citations.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-paper-publisher"
+  },
+  {
+    "slug": "huggingface-papers",
+    "name": "Hugging Face Papers",
+    "category": "research",
+    "description": "Looks up and reads Hugging Face / arXiv paper pages as markdown and queries the papers API for structured metadata (authors, linked models/datasets/spaces, GitHub repo) to summarize AI research.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-papers",
+    "tags": ["machine-learning", "papers", "research"],
+    "skill_content": "---\nname: huggingface-papers\ndescription: Look up and read Hugging Face paper pages as markdown and use the papers API for structured metadata (authors, linked models/datasets/spaces, GitHub repo, project page). Use when the user shares an HF paper URL, an arXiv URL or ID, or asks to summarize or analyze an AI paper.\n---\n\n# Hugging Face Paper Pages\n\nhf.co/papers is built on top of arXiv for AI/CS research, with daily-papers feeds, upvotes, and links to model checkpoints, datasets, and Spaces.\n\n## Workflow\n1. Parse the paper ID (arXiv ID) from whatever the user provides — HF URL, arXiv abs/pdf URL, or a bare ID like `2602.08025`.\n2. Fetch the paper as markdown: `curl -s \"https://huggingface.co/papers/{ID}.md\"` (falls back to the HF page HTML when no arXiv HTML exists).\n3. Fetch structured metadata as JSON: `curl -s \"https://huggingface.co/api/papers/{ID}\"` for authors and linked models/datasets/spaces, GitHub, and project page.\n4. Handle a 404 as \"not yet indexed on hf.co/papers\" and follow the skill's error-handling guidance.\n5. Summarize or analyze using the fetched content and metadata.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-papers"
+  },
+  {
+    "slug": "huggingface-spaces",
+    "name": "Hugging Face Spaces",
+    "category": "coding",
+    "description": "Creates, deploys, debugs, and maintains apps on Hugging Face Spaces across Gradio, Docker, and Static SDKs — choosing hardware tiers (cpu-basic, ZeroGPU, dedicated GPU), model sourcing, and grants.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-spaces",
+    "tags": ["apps", "cloud-infrastructure", "deployment", "spaces"],
+    "skill_content": "---\nname: huggingface-spaces\ndescription: Build, deploy, and maintain applications on Hugging Face Spaces — Gradio / Docker / Static SDKs, ZeroGPU and dedicated hardware, model loading, debugging, and community grants. Use to create or host an app on HF, port code onto ZeroGPU, or fix a Space that won't build or run.\n---\n\n# Hugging Face Spaces\n\nEach Space is a git repo hosting an ML app. This skill covers creating, building, debugging, and maintaining them.\n\n## Workflow\n1. Get ready: confirm `hf` is installed and the user is logged in (`hf auth whoami`); note `canPay`/`isPro` flags, which gate hardware.\n2. Search for prior art first: `hf spaces search \"<model or task>\" --sdk gradio` and read a working `app.py`/`requirements.txt`.\n3. Pick the SDK — Gradio (default, supports ZeroGPU), Docker (non-Python stacks), or Static (in-browser ML, project pages).\n4. Pick hardware — `cpu-basic` (free) or ZeroGPU `zero-a10g` (free for creator, PRO-gated, Gradio-only) by default; dedicated GPU (T4/L4/A10G/A100/H200) only when ZeroGPU doesn't fit.\n5. Source the model (GitHub repo, HF model repo, or Inference Providers), estimate VRAM, write the app, and push.\n6. For ZeroGPU on a non-PRO account, build on cpu-basic and request a community grant.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-spaces"
+  },
+  {
+    "slug": "huggingface-tool-builder",
+    "name": "Hugging Face Tool Builder",
+    "category": "coding",
+    "description": "Builds reusable command-line scripts and utilities around the Hugging Face API and `hf` CLI — composable, pipeable tools that fetch, enrich, and process Hub data with proper auth.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-tool-builder",
+    "tags": ["agents", "ai-agent-development", "huggingface", "tools"],
+    "skill_content": "---\nname: huggingface-tool-builder\ndescription: Create reusable CLI scripts and utilities that use the Hugging Face API, especially when chaining/combining API calls or automating repeated tasks. The skill builds composable tools that fetch, enrich, or process Hub data.\n---\n\n# Hugging Face API Tool Builder\n\nBuilds reusable command-line scripts for the Hugging Face API, favoring chaining, piping, and intermediate processing.\n\n## Workflow\n1. Investigate the API shape first — endpoints live at `https://huggingface.co/api/{models,datasets,spaces,collections,daily_papers,trending,...}`; query the OpenAPI spec with `jq` (never read it whole).\n2. Authenticate with the `HF_TOKEN` env var as a bearer header: `curl -H \"Authorization: Bearer ${HF_TOKEN}\" ...` for higher limits and gated access.\n3. Prefer shell scripts (Python or TSX only when complexity warrants); each script must support `--help` and emit shell-friendly JSON/NDJSON for piping.\n4. Compose tools — e.g. fetch trending models, pipe IDs into an enrichment script, then `jq` to sort by downloads.\n5. Use the `hf` CLI for repo content and infrastructure; test non-destructive scripts and share usage examples before handoff.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-tool-builder"
+  },
+  {
+    "slug": "huggingface-trackio",
+    "name": "Hugging Face Trackio",
+    "category": "data",
+    "description": "Adds experiment tracking to ML training with Trackio — log metrics via the Python API, fire structured alerts on diagnostic conditions, and query runs/metrics/alerts via CLI with JSON output for agents.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-trackio",
+    "tags": ["experiments", "machine-learning", "mlops", "tracking"],
+    "skill_content": "---\nname: huggingface-trackio\ndescription: Track and visualize ML training experiments with Trackio. Use when logging metrics during training (Python API), firing alerts for training diagnostics, or retrieving/analyzing logged metrics (CLI). Syncs to HF Spaces for real-time dashboards and supports JSON output for automation.\n---\n\n# Trackio — Experiment Tracking\n\nTrackio logs and visualizes ML training metrics and syncs to Hugging Face Spaces for monitoring dashboards.\n\n## How to use\n1. Log metrics in your training script: `trackio.init(project=..., space_id=...)`, then `trackio.log({\"loss\": ..., \"accuracy\": ...})`, finishing with `trackio.finish()`. Pass `space_id` so remote runs persist after the instance terminates.\n2. Fire alerts on diagnostic conditions with `trackio.alert(title=..., text=..., level=trackio.AlertLevel.WARN|ERROR)` — useful for loss spikes, NaN gradients, or stalls.\n3. Retrieve data via the CLI: `trackio list projects/runs/metrics/alerts` and `trackio get metric ...`; add `--json` for agent-friendly output.\n4. Launch the dashboard with `trackio show` and sync to a Space with `trackio sync`.\n5. For autonomous runs: insert alerts, launch in background, poll `trackio list alerts --json --since <ts>`, read metrics, then iterate hyperparameters.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-trackio"
+  },
+  {
+    "slug": "huggingface-vision-trainer",
+    "name": "Hugging Face Vision Trainer",
+    "category": "data",
+    "description": "Fine-tunes vision models — object detection (D-FINE, RT-DETR, DETR, YOLOS), image classification (timm/Transformers), and SAM/SAM2 segmentation — on Hugging Face Jobs GPUs with dataset validation and mAP/accuracy metrics.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-vision-trainer",
+    "tags": ["computer-vision", "images", "machine-learning", "training"],
+    "skill_content": "---\nname: huggingface-vision-trainer\ndescription: Train and fine-tune vision models on Hugging Face Jobs cloud GPUs — object detection (D-FINE, RT-DETR v2, DETR, YOLOS), image classification (timm and Transformers classifiers), and SAM/SAM2 segmentation. Use when fine-tuning detectors, classifiers, or segmentation models on custom datasets.\n---\n\n# Vision Model Training on Hugging Face Jobs\n\nTrain detection, classification, and SAM/SAM2 segmentation models on managed cloud GPUs; results save to the Hub automatically.\n\n## Workflow\n1. Verify prerequisites: a paid HF plan (Jobs require it), a write-scoped token passed in job secrets, and an existing Hub dataset.\n2. Confirm dataset shape — detection needs an `objects` column (bbox/category, xywh or xyxy auto-detected); classification needs `image` + `label`; SAM needs `image` + `mask` + a bbox/point prompt.\n3. Always validate unknown datasets first with `uv run scripts/dataset_inspector.py --dataset <id> --split train` and estimate cost with `estimate_cost.py`.\n4. Configure Albumentations augmentation and the right metrics (mAP/mAR for detection, accuracy for classification, DiceCE for SAM).\n5. Submit the training job to HF Jobs with Trackio monitoring; report job ID and monitoring URL, and ensure the trained model is pushed to the Hub.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-vision-trainer"
+  },
+  {
+    "slug": "huggingface-zerogpu",
+    "name": "Hugging Face ZeroGPU",
+    "category": "coding",
+    "description": "Writes and debugs Gradio Spaces code for Hugging Face ZeroGPU — @spaces.GPU decorators, duration/quota tuning, process-isolation pitfalls, the CUDA availability model, and CUDA-wheel build constraints.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-zerogpu",
+    "tags": ["cloud-infrastructure", "deployment", "gpu", "spaces"],
+    "skill_content": "---\nname: huggingface-zerogpu\ndescription: Write and review Gradio Spaces code that runs on Hugging Face ZeroGPU. Use when working with `@spaces.GPU`, configuring requirements for a ZeroGPU Space, or hitting ZeroGPU-specific errors (PicklingError across the worker boundary, illegal duration, flash-attn wheel-build failures). Triggers on `import spaces`.\n---\n\n# Hugging Face ZeroGPU\n\nRules and patterns for ML demos on Gradio Spaces with ZeroGPU dynamic per-request GPU allocation. Docker/Static Spaces cannot use ZeroGPU.\n\n## Key rules\n1. Instantiate models at module scope and call `.to(\"cuda\")` eagerly — `import spaces` monkey-patches torch so `cuda.is_available()` returns True globally, but real GPU access exists only inside decorated functions.\n2. Decorate GPU functions with `@spaces.GPU` (a no-op off-platform, safe everywhere).\n3. Set `duration` to the realistic worst case — the platform pre-checks requested duration against remaining quota, so an over-large default 60s can fail short tasks with `quota exceeded`; smaller durations also queue better.\n4. Do not use `torch.compile`; use ahead-of-time compilation (AoTI) on torch 2.8+ instead.\n5. Pick `large` (half GPU, 1x quota) by default and `xlarge` (full, 2x) sparingly; handle process-isolation/pickling and CUDA-wheel-only build constraints per the references.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-zerogpu"
+  },
+  {
+    "slug": "train-sentence-transformers",
+    "name": "Train Sentence Transformers",
+    "category": "data",
+    "description": "Trains sentence-transformers models — bi-encoders, CrossEncoder rerankers, and SPLADE sparse encoders — covering loss selection, hard-negative mining, evaluators, LoRA, Matryoshka, and Hub publishing.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/train-sentence-transformers",
+    "tags": ["embeddings", "machine-learning", "sentence-transformers", "training"],
+    "skill_content": "---\nname: train-sentence-transformers\ndescription: Train or fine-tune sentence-transformers models — SentenceTransformer bi-encoders (retrieval, similarity, clustering), CrossEncoder rerankers (two-stage retrieval, pair classification), and SparseEncoder/SPLADE (learned-sparse retrieval). Covers loss selection, hard-negative mining, evaluators, distillation, LoRA, and Matryoshka.\n---\n\n# Train a sentence-transformers Model\n\nThis SKILL.md is a router: it tells you which references and example scripts to load. Do not synthesize a training script from this file alone — copy the per-type production template.\n\n## Workflow\n1. Identify the model type: bi-encoder (\"embedding\"/\"vector search\"), CrossEncoder (\"rerank\"/\"two-stage\"), or SparseEncoder (\"SPLADE\"/\"inverted index\").\n2. Read the required per-type references in full — losses (data-shape mapping), evaluators (metric-key construction), and architectures.\n3. Read the cross-cutting references — `training_args.md` (precision: load fp32 + autocast, not torch_dtype), `dataset_formats.md`, and `base_model_selection.md`.\n4. Copy the matching production template (`scripts/train_<type>_example.py`) and adapt it; use variant scripts for Matryoshka, LoRA, distillation, or multilingual.\n5. Mine hard negatives with `scripts/mine_hard_negatives.py` when needed; default to local execution, single run, and a public Hub push wrapped in try-except.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/train-sentence-transformers"
+  },
+  {
+    "slug": "trl-training",
+    "name": "TRL Training",
+    "category": "data",
+    "description": "Post-trains transformer language models with the TRL CLI — SFT, DPO, GRPO, KTO, RLOO, and reward modeling — covering dataset preparation, configuration, and the right command per method.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/trl-training",
+    "tags": ["llm", "machine-learning", "training", "trl"],
+    "skill_content": "---\nname: trl-training\ndescription: Train and fine-tune transformer language models with TRL (Transformers Reinforcement Learning) CLI commands — SFT, DPO, GRPO, KTO, RLOO, and reward model training. Use for post-training/alignment workflows with TRL.\n---\n\n# TRL Training\n\nTRL provides CLI commands for post-training foundation models with state-of-the-art techniques.\n\n## Methods\n- `trl sft` — supervised fine-tuning on instruction/conversational datasets.\n- `trl dpo` — Direct Preference Optimization to align from preference data.\n- `trl grpo` — Group Relative Policy Optimization (rank multiple sampled outputs by comparative reward).\n- `trl rloo` — REINFORCE Leave-One-Out online RL with generation-based rewards.\n- `trl kto` — Kahneman-Tversky preference optimization.\n- `trl reward` — train reward models for RLHF.\n\n## Workflow\n1. Pick the method that matches your data (instructions, preference pairs, or reward signals).\n2. Prepare and format the dataset for that method.\n3. Run the matching `trl <method>` command with model, dataset, and training-config arguments.\n4. Evaluate and push the resulting model to the Hub; see the TRL docs (huggingface.co/docs/trl/en/clis) for per-method options.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/trl-training"
+  },
+  {
+    "slug": "api-designer",
+    "name": "API Designer",
+    "category": "coding",
+    "description": "Designs REST and GraphQL APIs with resource modeling, OpenAPI 3.1 specs, versioning, pagination, and RFC 7807 error handling — validating contracts with redocly lint and mocking with Prism.",
+    "author": "Jeffallan",
+    "source_url": "https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/api-designer",
+    "tags": ["api", "api-development", "architecture", "openapi"],
+    "skill_content": "---\nname: api-designer\ndescription: Use when designing REST or GraphQL APIs, creating OpenAPI specifications, or planning API architecture — resource modeling, versioning strategies, pagination patterns, and error handling standards.\n---\n\n# API Designer\n\nA senior API architect for REST and GraphQL APIs with comprehensive OpenAPI 3.1 specifications.\n\n## Workflow\n1. Analyze the domain — business requirements, data models, client needs.\n2. Model resources — identify resources, relationships, and operations; sketch the entity diagram before writing any spec.\n3. Design endpoints — URI patterns, HTTP methods, request/response schemas (no verbs in URIs).\n4. Specify the contract in OpenAPI 3.1 and validate: `npx @redocly/cli lint openapi.yaml`.\n5. Mock and verify: `npx @stoplight/prism-cli mock openapi.yaml`.\n6. Plan evolution — versioning, deprecation, and backward-compatibility.\n\nEnforces RFC 7807 problem-details errors (`application/problem+json`), cursor pagination on all collections, consistent naming, and documented auth. Deliverables include the resource model, OpenAPI YAML, error catalog, and pagination/versioning strategy.\n\nFull skill & source: https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/api-designer"
+  },
+  {
+    "slug": "kubernetes-specialist",
+    "name": "Kubernetes Specialist",
+    "category": "coding",
+    "description": "Designs, secures, and troubleshoots Kubernetes workloads — declarative manifests with resource limits, probes, RBAC, and NetworkPolicies — plus Helm, GitOps, service mesh, and cost optimization.",
+    "author": "Jeffallan",
+    "source_url": "https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/kubernetes-specialist",
+    "tags": ["gitops", "helm", "kubernetes", "kubernetes-and-containers"],
+    "skill_content": "---\nname: kubernetes-specialist\ndescription: Use when deploying or managing Kubernetes workloads — deployment manifests, pod security, service accounts, NetworkPolicies, debugging crashes, right-sizing, Helm charts, RBAC, GitOps, and multi-cluster. Triggers on K8s, kubectl, Helm, RBAC, Ingress, ArgoCD, and service mesh tasks.\n---\n\n# Kubernetes Specialist\n\nDesign, deploy, secure, and troubleshoot Kubernetes workloads with declarative manifests and security best practices.\n\n## Workflow\n1. Analyze requirements — workload characteristics, scaling, and security needs.\n2. Design architecture — choose workload types, networking, and storage.\n3. Implement manifests — declarative YAML with resource requests/limits, liveness/readiness probes, non-root security context, and secrets (never ConfigMaps for credentials).\n4. Secure — least-privilege RBAC (dedicated ServiceAccount, never default), default-deny NetworkPolicies, Pod Security Standards.\n5. Validate — `kubectl rollout status`, `kubectl get pods -w`, `kubectl describe pod`, `kubectl top`, `kubectl auth can-i --list`; roll back with `kubectl rollout undo`.\n\nDeep references cover Helm charts, custom operators/CRDs, service mesh (Istio/Linkerd), GitOps (ArgoCD/Flux), and cost optimization (VPA/HPA, spot instances).\n\nFull skill & source: https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/kubernetes-specialist"
+  },
+  {
+    "slug": "sre-engineer",
+    "name": "SRE Engineer",
+    "category": "coding",
+    "description": "Defines SLIs/SLOs and error budgets, builds golden-signal monitoring and multiwindow burn-rate alerts in Prometheus, automates toil, and runs chaos experiments to validate resilience.",
+    "author": "Jeffallan",
+    "source_url": "https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/sre-engineer",
+    "tags": ["devops", "reliability", "slo", "sre"],
+    "skill_content": "---\nname: sre-engineer\ndescription: Use when defining SLIs/SLOs, managing error budgets, building reliable systems at scale, incident management, chaos engineering, toil reduction, or capacity planning. Produces SLO definitions, monitoring/alerting config, and automation.\n---\n\n# SRE Engineer\n\nDefine service-level objectives, error-budget policies, monitoring, and reliability automation for production systems.\n\n## Workflow\n1. Assess reliability — review architecture, current SLOs, incidents, and toil levels.\n2. Define SLOs — pick meaningful SLIs and set targets justified by user impact; calculate error budgets from them.\n3. Implement monitoring — golden-signal dashboards (latency, traffic, errors, saturation) with PromQL.\n4. Build alerts — multiwindow burn-rate rules in Prometheus (fast and slow burn) with runbook links.\n5. Automate toil — replace recurring manual work (e.g. auto-remediation scripts that query Prometheus and restart deployments).\n6. Test resilience — design chaos experiments and verify recovery meets RTO/RPO before marking them complete.\n\nWrites blameless postmortems and balances reliability with feature velocity.\n\nFull skill & source: https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/sre-engineer"
+  },
+  {
+    "slug": "obsidian-markdown",
+    "name": "Obsidian Markdown",
+    "category": "writing",
+    "description": "Creates and edits Obsidian Flavored Markdown — wikilinks, embeds, callouts, properties/frontmatter, tags, block IDs, comments, math, and Mermaid — with vault-aware linking conventions.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/a1dc48e68138490d522c04cbf5822214c6eb1202/skills/obsidian-markdown",
+    "tags": ["markdown", "notes", "obsidian", "writing-and-editing"],
+    "skill_content": "---\nname: obsidian-markdown\ndescription: Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.\n---\n\n# Obsidian Flavored Markdown\n\nObsidian extends CommonMark/GFM with wikilinks, embeds, callouts, properties, and comments. This skill covers those extensions (standard Markdown is assumed).\n\n## Workflow\n1. Add frontmatter properties at the top (`title`, `tags`, `aliases`, `cssclasses`).\n2. Write content in standard Markdown plus Obsidian syntax.\n3. Link notes with wikilinks — `[[Note]]`, `[[Note|Display]]`, `[[Note#Heading]]`, `[[Note#^block-id]]` — and use plain `[text](url)` only for external URLs.\n4. Embed content by prefixing a wikilink with `!` — `![[Note]]`, `![[image.png|300]]`, `![[doc.pdf#page=3]]`.\n5. Add callouts with `> [!type]` (note, tip, warning, etc.; `-`/`+` for foldable).\n6. Use highlights (`==text==`), comments (`%%hidden%%`), tags (`#nested/tag`), LaTeX math (`$...$`, `$$...$$`), Mermaid diagrams, and footnotes; verify rendering in reading view.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/a1dc48e68138490d522c04cbf5822214c6eb1202/skills/obsidian-markdown"
+  },
+  {
+    "slug": "brand",
+    "name": "Brand Context",
+    "category": "business",
+    "description": "Manages brand voice, visual identity, and messaging frameworks — injecting brand context into prompts, validating assets, and syncing brand guidelines to design tokens for consistency.",
+    "author": "nextlevelbuilder",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/brand",
+    "tags": ["assets", "brand", "design", "marketing"],
+    "skill_content": "---\nname: brand\ndescription: Brand voice, visual identity, messaging frameworks, asset management, and brand consistency. Activate for branded content, tone of voice, marketing assets, brand compliance, and style guides.\n---\n\n# Brand\n\nDefine and enforce brand identity, voice, messaging, and asset standards, keeping a single source of truth in sync with design tokens.\n\n## How to use\n1. Inject brand context into prompts so generated content stays on-brand: `node scripts/inject-brand-context.cjs` (add `--json` for structured output).\n2. Edit `docs/brand-guidelines.md` (the source of truth) or use `/brand update`.\n3. Sync guidelines to design tokens: `node scripts/sync-brand-to-tokens.cjs` writes `assets/design-tokens.json` and `.css`.\n4. Validate assets for naming, size, and format: `node scripts/validate-asset.cjs <path>`.\n5. Extract and compare colors against the palette: `node scripts/extract-colors.cjs --palette` or `<image-path>`.\n6. Reference voice, visual identity, messaging, consistency-checklist, and logo-usage docs as needed.\n\nFull skill & source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/brand"
+  },
+  {
+    "slug": "design-system",
+    "name": "Design System",
+    "category": "design",
+    "description": "Builds three-layer design token architectures (primitive → semantic → component), component specs, and Tailwind themes, plus brand-compliant HTML slides with Chart.js and a contextual layout decision system.",
+    "author": "nextlevelbuilder",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/design-system",
+    "tags": ["components", "design-system", "tokens", "ui-and-visual-design"],
+    "skill_content": "---\nname: design-system\ndescription: Token architecture, component specifications, and slide generation. Three-layer tokens (primitive to semantic to component), CSS variables, spacing/typography scales, component specs, and strategic brand-compliant slides. Use for design tokens, systematic design, and presentations.\n---\n\n# Design System\n\nA token architecture and component-spec system with a strategic slide generator.\n\n## How to use\n1. Structure tokens in three layers — primitive (raw values) to semantic (purpose aliases) to component (component-specific) — exposed as CSS variables.\n2. Generate tokens from JSON config: `node scripts/generate-tokens.cjs --config tokens.json -o tokens.css`; check for hardcoded values with `validate-tokens.cjs --dir src/`.\n3. Define component specs as state tables (default/hover/active/disabled) and integrate tokens into the Tailwind theme.\n4. For slides, search the BM25 decision base (`python scripts/search-slides.py \"<goal>\" --context`) which selects strategy, layout, typography, color, and background from CSV decision tables.\n5. Generate slide HTML that imports `design-tokens.css`, uses `var()` exclusively, and renders charts with Chart.js; validate with `slide-token-validator.py`.\n\nFull skill & source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/design-system"
+  },
+  {
+    "slug": "slides",
+    "name": "Presentation Slides",
+    "category": "design",
+    "description": "Creates strategic HTML presentations with Chart.js data visualization, design tokens, responsive layouts, copywriting formulas (PAS, AIDA, FAB), and contextual slide-strategy patterns.",
+    "author": "nextlevelbuilder",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/slides",
+    "tags": ["design", "presentation-creation", "presentations", "slides"],
+    "skill_content": "---\nname: slides\ndescription: Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies. Use for marketing presentations, pitch decks, and data-driven slides.\n---\n\n# Slides\n\nStrategic HTML presentation design with data visualization and conversion-focused copy.\n\n## How to use\n1. Provide a topic and slide count (the skill takes `[topic] [slide-count]` arguments).\n2. Run the `create` subcommand, which loads `references/create.md` to build the deck.\n3. Choose layouts from the layout-patterns knowledge base and build on the shared HTML template.\n4. Apply copywriting formulas (PAS, AIDA, FAB) and slide-strategy patterns for persuasive structure.\n5. Use design tokens and Chart.js for consistent styling and data-driven charts.\n\nFull skill & source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/slides"
+  },
+  {
+    "slug": "ui-styling",
+    "name": "UI Styling",
+    "category": "coding",
+    "description": "Builds accessible, responsive UIs with shadcn/ui (Radix + Tailwind), utility-first Tailwind styling, dark mode and theming, plus canvas-based visual design — including CLI scripts for component installation.",
+    "author": "nextlevelbuilder",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/ui-styling",
+    "tags": ["frontend", "frontend-development", "styling", "ui"],
+    "skill_content": "---\nname: ui-styling\ndescription: Create beautiful, accessible user interfaces with shadcn/ui (Radix UI + Tailwind), utility-first Tailwind CSS, and canvas-based visual designs. Use when building UIs, adding accessible components, customizing themes and dark mode, or establishing consistent styling.\n---\n\n# UI Styling\n\nCombine shadcn/ui components, Tailwind utility styling, and canvas-based visual design into accessible, responsive interfaces.\n\n## How to use\n1. Initialize the stack: `npx shadcn@latest init` (configures shadcn/ui + Tailwind), then add components with `npx shadcn@latest add button card dialog form`.\n2. Compose UIs from accessible Radix primitives and style them directly with Tailwind utility classes; extract components only for true repetition.\n3. Implement dark mode and theme customization via CSS variables (next-themes) per the theming reference.\n4. Follow accessibility patterns — keyboard navigation, focus management, ARIA, and form-validation feedback.\n5. Build responsive, mobile-first layouts with the breakpoint system; use the canvas design system for posters/visual compositions.\n6. Automate with helper scripts: `python scripts/shadcn_add.py ...` and `tailwind_config_gen.py`.\n\nFull skill & source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/ui-styling"
+  },
+  {
+    "slug": "planning-with-files",
+    "name": "Planning with Files",
+    "category": "productivity",
+    "description": "Manus-style persistent planning that keeps task_plan.md, findings.md, and progress.md on disk so multi-step work survives context loss and /clear, with automatic session recovery.",
+    "author": "OthmanAdi",
+    "source_url": "https://github.com/OthmanAdi/planning-with-files/tree/8f5a3c2e1c347635cf94debde033b3c1ac97e4ab/skills/planning-with-files",
+    "tags": ["continuity", "files", "planning", "project-management"],
+    "skill_content": "---\nname: planning-with-files\ndescription: Manus-style persistent file-based planning for AI coding agents — keeps task_plan.md, findings.md, and progress.md on disk so work survives context loss and /clear. Use when asked to plan, break down, or organize a multi-step project or any work needing 5+ tool calls. Supports automatic session recovery.\n---\n\n# Planning with Files\n\nUse persistent markdown files as \"working memory on disk\" so long-running work survives compaction and /clear.\n\n## Workflow\n1. Restore context first — if `task_plan.md` exists, read it plus `progress.md` and `findings.md`, then run the `session-catchup.py` script to detect unsynced context from a prior session.\n2. Before any complex task, create the three files in your project directory (templates live in the skill dir): `task_plan.md` (phased plan), `findings.md` (discoveries), `progress.md` (what's done).\n3. Re-read the plan before key decisions to refresh goals in the attention window.\n4. Update `progress.md` after each step and mark phases complete in `task_plan.md`.\n5. Bundled hooks (UserPromptSubmit, PreToolUse, Stop, PreCompact) auto-inject the plan and gate completion so progress stays current across the session.\n\nFull skill & source: https://github.com/OthmanAdi/planning-with-files/tree/8f5a3c2e1c347635cf94debde033b3c1ac97e4ab/skills/planning-with-files"
+  },
+  {
+    "slug": "blueprint",
+    "name": "WordPress Blueprint",
+    "category": "coding",
+    "description": "Authors and reviews WordPress Playground blueprint JSON — declarative configs that install plugins/themes, set options, run PHP/SQL, and manipulate files to spin up reproducible WordPress demo environments.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/blueprint",
+    "tags": ["blueprint", "devops", "playground", "wordpress"],
+    "skill_content": "---\nname: blueprint\ndescription: Use when creating, editing, or reviewing WordPress Playground blueprint JSON files. Triggers on mentions of blueprints, playground configuration, or requests to set up a WordPress demo environment.\n---\n\n# WordPress Playground Blueprints\n\nA Blueprint is a trusted JSON-only file that declaratively configures a WordPress Playground instance — installing plugins/themes, setting options, running PHP/SQL, and manipulating files. No arbitrary JavaScript; works on web, Node.js, and CLI.\n\n## How to use\n1. Start from the template with `$schema` set to `https://playground.wordpress.net/blueprint-schema.json`, a `landingPage`, and `preferredVersions` (php major.minor or `latest`; wp major or `latest`/`nightly`).\n2. Use top-level shorthands — `login`, `plugins` (wp.org slugs), `siteOptions`, `constants` — for common setup; only documented keys are allowed (the schema rejects unknown properties).\n3. Use the `steps` pipeline when execution order matters (shorthands are prepended in unspecified order).\n4. Reference resources by type: `wordpress.org/plugins|themes` (slug), `url`, `git:directory` (url+ref), `literal`, `bundled`, or `zip`.\n5. Run via the Playground CLI or browser; validate against the schema.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/blueprint"
+  },
+  {
+    "slug": "wp-abilities-api",
+    "name": "WordPress Abilities API",
+    "category": "coding",
+    "description": "Implements the WordPress Abilities API — registering abilities and categories in PHP, exposing them over REST (wp-abilities/v1), consuming via @wordpress/abilities, and getting permissions and schemas right.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-abilities-api",
+    "tags": ["abilities-api", "api", "api-development", "wordpress"],
+    "skill_content": "---\nname: wp-abilities-api\ndescription: Use when working with the WordPress Abilities API (wp_register_ability, wp_register_ability_category, /wp-json/wp-abilities/v1/*, @wordpress/abilities) — defining abilities, categories, meta, REST exposure, and permission checks. Targets WordPress 6.9+.\n---\n\n# WP Abilities API\n\nRegister, expose, and consume WordPress abilities, keeping the domain capability layer separate from REST/MCP/Command-Palette projections.\n\n## Workflow\n1. Confirm version constraints — for WP < 6.9 use the Abilities API plugin/package rather than core.\n2. Search the repo for existing usage: `wp_register_ability(`, `wp_register_ability_category(`, `wp-abilities/v1`, `@wordpress/abilities`.\n3. Register categories (optional) and abilities in PHP via the documented init hooks, with a stable namespaced `id`, label/description, `category`, and `meta` (`readonly: true` for informational, `show_in_rest: true` for client-visible).\n4. Make registrations thin adapters over a shared core service so REST handlers, CLI, and UI stay in sync; group abilities sensibly instead of one per REST operation.\n5. Confirm REST exposure under `wp-abilities/v1`, then consume from JS with `@wordpress/abilities`.\n6. Debug \"ability doesn't appear\" by checking hook timing, `meta.show_in_rest`, and category/ID mismatches.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-abilities-api"
+  },
+  {
+    "slug": "wp-abilities-verify",
+    "name": "WordPress Abilities Verification",
+    "category": "coding",
+    "description": "Verifies a WordPress plugin's Abilities API registrations — the adversarial readonly-but-writes check, permission-gate and schema lints, and optional runtime execution against a live environment.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-abilities-verify",
+    "tags": ["abilities-api", "testing-and-qa", "verification", "wordpress"],
+    "skill_content": "---\nname: wp-abilities-verify\ndescription: Verify a WordPress plugin's Abilities API registrations — enumerate abilities, check that callback behavior matches each annotation's claim (the adversarial readonly-but-writes detection), validate permissions and schemas, and validate audit documents. Targets WordPress 6.9+ plugins.\n---\n\n# WP Abilities Verify\n\nVerify that a plugin's registered abilities actually behave as annotated. The centerpiece is the adversarial annotation-correctness check: a `readonly: true` ability that actually writes is a security/UX hazard because agents plan actions from the annotations they introspect.\n\n## Workflow\n1. Choose a mode — static (from the plugin checkout, no env) or runtime (requires a running env; adds authoritative enumeration and execution).\n2. If an audit doc is provided, validate it against the canonical schema first.\n3. Enumerate abilities statically via `wp_register_ability(` calls (use `rg --multiline --pcre2`); in runtime mode cross-check against `wp_get_abilities()` over wp-cli.\n4. Run the adversarial correctness check: read each callback body and confirm `readonly`/`destructive`/`idempotent` claims match (no `$wpdb->update`, `update_option`, deletes, etc.).\n5. Lint permission gates (prefer `current_user_can(...)`; fail literal `true`) and input schemas.\n6. Emit a structured PASS/WARN/FAIL report; suppress false positives with `// verify-ignore:` comments.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-abilities-verify"
+  }
+]

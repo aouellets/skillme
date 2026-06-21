@@ -1,0 +1,292 @@
+[
+  {
+    "slug": "obsidian-cli",
+    "name": "Obsidian CLI",
+    "category": "productivity",
+    "description": "Drive a running Obsidian vault from the command line — read, create, search, and manage notes, tasks, and properties, plus reload and debug plugins and themes.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/main/skills/obsidian-cli",
+    "tags": ["obsidian", "notes", "cli", "knowledge-management"],
+    "skill_content": "---\nname: Obsidian CLI\ndescription: Use the `obsidian` CLI to read, create, search, and manage notes, tasks, and properties in a running Obsidian vault — and to reload, screenshot, and debug plugins and themes. Use when the user asks to operate their vault from the terminal or develop Obsidian extensions.\n---\n\nDrive a running Obsidian instance with the `obsidian` CLI. Requires Obsidian to be open; run `obsidian help` for the live command list (docs: https://help.obsidian.md/cli).\n\n## How to use\n\n1. Target a file with `file=<name>` (wikilink-style) or `path=<vault/path.md>`; omit both to act on the active file. Prefix `vault=\"<name>\"` to target a specific vault.\n2. Read/write notes: `obsidian read file=\"My Note\"`, `obsidian create name=\"New\" content=\"# Hi\" silent`, `obsidian append file=\"My Note\" content=\"line\"` (use `\\n`/`\\t` for multiline).\n3. Search and navigate: `obsidian search query=\"term\" limit=10`, `obsidian backlinks`, `obsidian tags counts`, daily notes via `obsidian daily:read` / `daily:append`.\n4. Manage metadata and tasks: `obsidian property:set name=\"status\" value=\"done\"`, `obsidian tasks daily todo`.\n5. Develop plugins/themes: reload with `obsidian plugin:reload id=...`, check `obsidian dev:errors`, then verify via `dev:screenshot`, `dev:dom`, `dev:console`, or `eval code=\"...\"`.\n\nParameters use `key=value` (quote spaces); flags like `silent`, `overwrite`, and `--copy` are bare switches.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/main/skills/obsidian-cli"
+  },
+  {
+    "slug": "json-canvas",
+    "name": "JSON Canvas",
+    "category": "design",
+    "description": "Create and edit JSON Canvas (.canvas) files — text/file/link/group nodes and labeled edges — for mind maps and flowcharts following the JSON Canvas 1.0 spec.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/main/skills/json-canvas",
+    "tags": ["obsidian", "canvas", "mind-map", "diagrams"],
+    "skill_content": "---\nname: JSON Canvas\ndescription: Create and edit JSON Canvas (.canvas) files with nodes, edges, groups, and connections following the JSON Canvas 1.0 spec. Use when building visual canvases, mind maps, or flowcharts, or when the user mentions Canvas files in Obsidian.\n---\n\nAuthor `.canvas` files per the [JSON Canvas 1.0 spec](https://jsoncanvas.org/spec/1.0/). A canvas is JSON with two top-level arrays: `nodes` and `edges`.\n\n## Workflow\n\n1. Start from the base structure `{\"nodes\": [], \"edges\": []}`.\n2. Add nodes — each needs a unique 16-char hex `id`, a `type` (`text`, `file`, `link`, or `group`), and `x`/`y`/`width`/`height`. Text nodes take `text` (Markdown, real `\\n` for newlines), file nodes take `file`, link nodes take `url`. Optional `color` is preset `\"1\"`–`\"6\"` or a hex value.\n3. Position nodes to avoid overlap (leave 50–100px spacing). Array order sets z-index: first = bottom layer.\n4. Connect nodes with edges: unique `id`, plus `fromNode`/`toNode` referencing real node ids; optionally `fromSide`/`toSide` (top/right/bottom/left) and a `label`.\n5. Validate: confirm the JSON parses, all ids are unique, and every `fromNode`/`toNode` resolves to an existing node.\n\nPitfall: in JSON strings use `\\n`, not literal `\\\\n` — Obsidian renders the latter as the characters `\\` and `n`.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/main/skills/json-canvas"
+  },
+  {
+    "slug": "defuddle",
+    "name": "Defuddle",
+    "category": "research",
+    "description": "Extract clean Markdown from web pages with the Defuddle CLI — strips nav, ads, and clutter to save tokens. A token-efficient alternative to raw WebFetch for standard pages.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/main/skills/defuddle",
+    "tags": ["web-scraping", "markdown", "content-extraction", "reading"],
+    "skill_content": "---\nname: Defuddle\ndescription: Extract clean Markdown from web pages with the Defuddle CLI, stripping navigation, ads, and clutter to save tokens. Use instead of raw WebFetch when given a URL to read or analyze (articles, docs, blog posts). Do NOT use for .md URLs — fetch those directly.\n---\n\nUse the Defuddle CLI to pull clean, readable content from standard web pages, removing boilerplate so you spend fewer tokens reading.\n\n## How to use\n\n1. Install if needed: `npm install -g defuddle`.\n2. Get Markdown (the default choice): `defuddle parse <url> --md`.\n3. Save to disk: `defuddle parse <url> --md -o content.md`.\n4. Pull a single metadata field: `defuddle parse <url> -p title` (also `description`, `domain`).\n5. Need both HTML and Markdown? Use `--json`; omit format flags for raw HTML.\n\nReach for Defuddle over WebFetch on normal HTML pages; for URLs that already end in `.md`, fetch them directly instead.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/main/skills/defuddle"
+  },
+  {
+    "slug": "obsidian-bases",
+    "name": "Obsidian Bases",
+    "category": "productivity",
+    "description": "Create and edit Obsidian Bases (.base) files — YAML-defined views, filters, formulas, and summaries that turn notes into database-like table, card, list, and map views.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/main/skills/obsidian-bases",
+    "tags": ["obsidian", "database", "filters", "notes"],
+    "skill_content": "---\nname: Obsidian Bases\ndescription: Create and edit Obsidian Bases (.base) files with views, filters, formulas, and summaries. Use when building database-like views of notes or when the user mentions Bases, table/card views, filters, or formulas in Obsidian.\n---\n\nAuthor `.base` files (valid YAML) that render notes as table, card, list, or map views inside Obsidian.\n\n## Workflow\n\n1. Create a `.base` file with valid YAML in the vault.\n2. Set `filters` to select which notes appear — a single string, or a recursive object with exactly one `and`/`or`/`not` key, using operators like `==`, `!=`, `>`, `<` and helpers such as `file.hasTag(...)`, `file.inFolder(...)`.\n3. Optionally add `formulas` (computed properties referenced as `formula.<name>`) and `summaries` (e.g. `values.mean().round(3)`).\n4. Define one or more `views` with a `type` (table/cards/list/map), optional `groupBy` and `limit`, and an `order` list of properties to display (note props, `file.*` props, or `formula.*`).\n5. Validate the YAML and confirm every referenced property/formula exists; watch quoting pitfalls (special chars, formula expressions). Open it in Obsidian to confirm it renders.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/main/skills/obsidian-bases"
+  },
+  {
+    "slug": "dev-browser",
+    "name": "Dev Browser",
+    "category": "coding",
+    "description": "Control a real browser with persistent page state via the dev-browser CLI and sandboxed JavaScript scripts — navigate, fill forms, screenshot, scrape, and test web apps.",
+    "author": "SawyerHood",
+    "source_url": "https://github.com/SawyerHood/dev-browser/tree/main/skills/dev-browser",
+    "tags": ["browser-automation", "scraping", "testing", "playwright"],
+    "skill_content": "---\nname: Dev Browser\ndescription: Automate a browser with persistent page state using the dev-browser CLI. Use when the user asks to navigate sites, fill forms, take screenshots, scrape data, log in, or test/automate web apps — trigger phrases like \"go to [url]\", \"click on\", \"fill out the form\", \"take a screenshot\", or \"scrape\".\n---\n\nThe `dev-browser` CLI controls a browser through sandboxed JavaScript scripts, keeping page state across calls so multi-step flows persist.\n\n## How to use\n\n1. Install once: `npm install -g dev-browser` then `dev-browser install` (downloads the browser).\n2. Run `dev-browser --help` to see the available commands and scripting interface.\n3. Drive the page with sandboxed JS scripts to navigate, click, fill forms, extract data, and capture screenshots.\n4. Lean on the persistent page state to chain steps — log in, then operate on authenticated pages without re-navigating.\n5. Use it for browser testing, scraping, and form automation where you need a real, stateful browser session.\n\nFull skill & source: https://github.com/SawyerHood/dev-browser/tree/main/skills/dev-browser"
+  },
+  {
+    "slug": "webgpu-threejs-tsl",
+    "name": "WebGPU Three.js (TSL)",
+    "category": "coding",
+    "description": "Build WebGPU-enabled Three.js apps with TSL (Three.js Shading Language) — node materials, compute shaders, post-processing, and WGSL integration written in JavaScript instead of GLSL strings.",
+    "author": "dgreenheck",
+    "source_url": "https://github.com/dgreenheck/webgpu-claude-skill/tree/main/skills/webgpu-threejs-tsl",
+    "tags": ["webgpu", "threejs", "shaders", "graphics"],
+    "skill_content": "---\nname: WebGPU Three.js (TSL)\ndescription: Develop WebGPU-enabled Three.js apps using TSL (Three.js Shading Language) — renderer setup, node materials, compute shaders, post-processing, and WGSL integration. Use when working with Three.js WebGPU, TSL shaders, node materials, or GPU compute in Three.js.\n---\n\nTSL is a node-based shader abstraction that lets you write GPU shaders in JavaScript rather than GLSL/WGSL strings, targeting the Three.js WebGPU renderer.\n\n## How to use\n\n1. Import from the WebGPU entry points: `import * as THREE from 'three/webgpu'` and TSL helpers from `three/tsl`. Create a `WebGPURenderer` and `await renderer.init()`.\n2. Build node materials (e.g. `MeshStandardNodeMaterial`) and assign TSL nodes to properties: `colorNode`, `roughnessNode`, `positionNode` for vertex displacement.\n3. Compose operations with method chaining — `time.mul(2).add(offset).sin()` — instead of GLSL expressions.\n4. Extract reusable shader logic with `Fn(([params]) => ...)`; integrate custom WGSL where needed.\n5. For GPU compute, post-processing pipelines, device-loss handling, and limits, follow the skill's bundled docs, examples, and templates.\n\nNamed tools: Three.js WebGPU renderer + TSL. See the Three.js TSL wiki and the `webgpu_*` examples in the Three.js repo.\n\nFull skill & source: https://github.com/dgreenheck/webgpu-claude-skill/tree/main/skills/webgpu-threejs-tsl"
+  },
+  {
+    "slug": "visual-explainer",
+    "name": "Visual Explainer",
+    "category": "design",
+    "description": "Generate self-contained HTML pages that visually explain systems, code changes, plans, and data — architecture diagrams, diff reviews, visual plans, and styled comparison tables instead of ASCII art.",
+    "author": "nicobailon",
+    "source_url": "https://github.com/nicobailon/visual-explainer/tree/main/plugins/visual-explainer",
+    "tags": ["html", "diagrams", "visualization", "documentation"],
+    "skill_content": "---\nname: Visual Explainer\ndescription: Generate beautiful, self-contained HTML pages that visually explain systems, code changes, plans, and data. Use when the user asks for a diagram, architecture overview, diff review, plan review, comparison table, or any visual explanation — and proactively instead of rendering a complex ASCII table (4+ rows or 3+ columns).\n---\n\nProduce self-contained HTML files for technical diagrams, visualizations, and data tables, then open the result in the browser. When loaded, never fall back to ASCII art.\n\n## Workflow\n\n1. Decide the direction first (~5 seconds): who's looking (developer, PM, team) and what content type — architecture, flowchart, sequence, data flow, schema/ER, state machine, timeline, dashboard, or prose-first page.\n2. Pick an aesthetic deliberately rather than defaulting to dark-theme-with-blue every time.\n3. Treat visual as the default — even essays and articles get structured into cards, grids, and diagrams; use prose elements (pull quotes, callouts) only as accents.\n4. Emit a single self-contained HTML page and tell the user the file path.\n5. For richer flows, use the bundled commands: diagram/visual-plan/slides generation, diff-review, plan-review, project-recap, fact-check, and share-page (deploy to Vercel).\n\nProactive rule: any table with 4+ rows or 3+ columns should be rendered as an HTML page, not ASCII.\n\nFull skill & source: https://github.com/nicobailon/visual-explainer/tree/main/plugins/visual-explainer"
+  },
+  {
+    "slug": "notebooklm",
+    "name": "NotebookLM",
+    "category": "research",
+    "description": "Drive Google NotebookLM programmatically via the notebooklm-py CLI — create notebooks, add sources, chat, generate podcasts and other artifacts, and download in multiple formats.",
+    "author": "teng-lin",
+    "source_url": "https://github.com/teng-lin/notebooklm-py/tree/main",
+    "tags": ["notebooklm", "research", "podcast", "automation"],
+    "skill_content": "---\nname: NotebookLM\ndescription: Programmatic access to Google NotebookLM via the notebooklm-py CLI, including capabilities not in the web UI — create notebooks, add sources, chat with content, generate artifacts, and download results. Activates on /notebooklm or intent like \"create a podcast about X\".\n---\n\nDrive Google NotebookLM end-to-end with the `notebooklm` CLI (Python package `notebooklm-py`).\n\n## How to use\n\n1. Install: `pip install \"notebooklm-py[browser]\"` (the `[cookies]` extra fails to build on Python 3.13+ — skip it there and use interactive login). Install from PyPI or a release tag, never `main`.\n2. Authenticate before any command: `notebooklm login` (Google OAuth), then verify with `notebooklm list`. For CI/parallel agents, set `NOTEBOOKLM_AUTH_JSON`, `NOTEBOOKLM_PROFILE`, or `NOTEBOOKLM_HOME`.\n3. Create notebooks and add sources — URLs, YouTube, PDFs, audio, video, images.\n4. Chat with the notebook's content and generate artifacts, including a podcast/audio overview.\n5. Download results in multiple formats for downstream use.\n\nNamed tool: the `notebooklm` CLI. Re-run `notebooklm login` if commands fail with auth errors.\n\nFull skill & source: https://github.com/teng-lin/notebooklm-py/tree/main"
+  },
+  {
+    "slug": "guizang-ppt",
+    "name": "Guizang PPT",
+    "category": "design",
+    "description": "Generate single-file horizontal-swipe HTML slide decks with WebGL backgrounds — two looks: editorial magazine x e-ink, or Swiss International style. For shares, talks, and launch decks.",
+    "author": "op7418",
+    "source_url": "https://github.com/op7418/guizang-ppt-skill/tree/main",
+    "tags": ["slides", "html", "presentation", "webgl"],
+    "skill_content": "---\nname: Guizang PPT\ndescription: Generate a single-file HTML presentation with horizontal page-swipe navigation, WebGL backgrounds, chapter covers, big-number data slides, and image grids. Use for share/talk/launch-style web decks, or when the user asks for a magazine-style, Swiss-style, or horizontal-swipe deck.\n---\n\nProduce one self-contained HTML deck that swipes horizontally (keyboard, wheel, touch, ESC index) in one of two visual moods.\n\n## Workflow\n\n1. Clarify requirements before building — if the user gave only a vague topic, align on style, audience, source material, and screenshot handling first; wrong structure is expensive to rework.\n2. Choose a style: A) Editorial magazine x e-ink — WebGL fluid/contour backgrounds, serif headings (Noto Serif SC + Playfair), warm tones; or B) Swiss International — fine grid + dot-matrix WebGL, all sans-serif (Inter/Helvetica), one high-contrast accent (Klein blue / lemon yellow / lemon green / safety orange).\n3. Build from the matching template (`assets/template.html` or `assets/template-swiss.html`) and theme/layout reference files.\n4. Both styles share Lucide icons and Motion One entrance animations (local + CDN fallback).\n5. Avoid this skill for dense tables/overlaid charts, training courseware, or multi-person collaborative editing — it outputs static HTML.\n\nFull skill & source: https://github.com/op7418/guizang-ppt-skill/tree/main"
+  },
+  {
+    "slug": "drawio",
+    "name": "Draw.io Diagrams",
+    "category": "design",
+    "description": "Generate editable .drawio XML diagrams — flowcharts, architecture, ER, UML, network, and ML/DL model figures — and export to PNG/SVG/PDF/JPG via the native draw.io desktop CLI.",
+    "author": "Agents365-ai",
+    "source_url": "https://github.com/Agents365-ai/drawio-skill/tree/main/skills/drawio-skill",
+    "tags": ["diagrams", "drawio", "flowchart", "visualization"],
+    "skill_content": "---\nname: Draw.io Diagrams\ndescription: Generate .drawio XML and export to PNG/SVG/PDF/JPG using the native draw.io desktop CLI. Use for flowcharts, architecture, ER, UML/sequence/class, network topology, ML/DL model figures, and mind maps — especially when the diagram needs custom styling, rich shape vocabulary, swimlanes, or editable exports.\n---\n\nProduce precise, polished `.drawio` diagrams and export them locally with the draw.io desktop app CLI (no browser automation).\n\n## Workflow\n\n1. Confirm draw.io fits: use it for architecture, network, strict UML/ERD, swimlanes, opaque fills, and 10k+ branded shapes. Route casual sketches to excalidraw/tldraw and diagrams-as-code to mermaid/plantuml.\n2. Build the `.drawio` XML for the requested diagram type; consult `references/diagram-types.md` for type-specific patterns (ERD, UML, sequence, ML/DL).\n3. For specific shapes, run `scripts/shapesearch.py \"<keywords>\"` to get the exact official `style=` string; for AI/LLM brand icons use `scripts/aiicons.py \"<brand>\"`.\n4. Export with the draw.io CLI to PNG/SVG/PDF/JPG; add `--embed-diagram` (`-e`) and a double extension like `name.drawio.png` to keep the file editable.\n5. Optionally run `scripts/autolayout.py` (needs Graphviz `dot`) and a vision-model self-check of the rendered image.\n\nRequires the draw.io desktop CLI on PATH.\n\nFull skill & source: https://github.com/Agents365-ai/drawio-skill/tree/main/skills/drawio-skill"
+  },
+  {
+    "slug": "context-compression",
+    "name": "Context Compression",
+    "category": "coding",
+    "description": "Compress long agent sessions with structured summarization — choose between anchored iterative, opaque, or regenerative strategies, optimizing for tokens-per-task rather than tokens-per-request.",
+    "author": "muratcankoylan",
+    "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-compression",
+    "tags": ["agents", "context-engineering", "summarization"],
+    "skill_content": "---\nname: Context Compression\ndescription: Use when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.\n---\n\nWhen sessions or codebases blow past the context window, compress deliberately — optimizing for total tokens-per-task (including re-fetch costs when compression drops something critical), not tokens-per-request.\n\n## How to use\n\n1. Optimize for tokens-per-task: aggressive compression that loses file paths, errors, or decision rationale forces re-exploration that costs more than it saved.\n2. Pick a strategy by session shape:\n   - Anchored Iterative Summarization — for long sessions where file tracking matters; keep a structured persistent summary (intent, file changes, decisions, next steps) and only summarize the newly-truncated span, merging it in to avoid drift.\n   - Opaque Compression — for short sessions with low re-fetch cost; maximal token savings but no interpretability, so never use it when debugging or artifact tracking matters.\n   - Regenerative Full Summary — when readability is critical and sessions have clear phase boundaries; accepts cumulative detail loss across cycles.\n3. Use structured sections as checklists so the summarizer is forced to preserve decisions, modified files, risks, and next actions.\n4. Build probe-based evaluation to verify what a compression strategy actually preserved.\n\nFull skill & source: https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-compression"
+  },
+  {
+    "slug": "harness-engineering",
+    "name": "Harness Engineering",
+    "category": "coding",
+    "description": "Design the control system around an autonomous agent — locked vs editable surfaces, tight ungameable feedback loops, durable append-only logs, novelty gates, rollback, and human approval boundaries.",
+    "author": "muratcankoylan",
+    "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/harness-engineering",
+    "tags": ["agents", "harness", "evaluation", "architecture"],
+    "skill_content": "---\nname: Harness Engineering\ndescription: Use when designing autonomous agent harnesses — research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.\n---\n\nHarness engineering designs the control system around an agent: what it may edit, how it gets feedback, where it persists state, how it recovers, and who approves irreversible actions.\n\n## Workflow\n\n1. Define the harness boundary with four surface classes: Locked (eval metric, rubric, merge policy — readable, never self-scorable), Editable (drafts, prompts, configs under test), Append-only (results logs, rejected ideas), and Human-controlled (merge, deploy, credentials, destructive ops).\n2. Build tight feedback loops that are fast, unambiguous, and hard to game — Karpathy's autoresearch pattern: one editable file, one locked eval, fixed wall-clock budget, one scalar metric, git rollback, durable log. For open-ended work, swap the scalar for locked rubrics, structure checks, source traceability, and human-review thresholds.\n3. Externalize durable state to files (plans, source queues, results, failures, handoffs) so future agents resume without chat history.\n4. Enforce search discipline so the agent can't exploit the nearest surface — add novelty gates, ablation, pruning, and rollback.\n5. Gate irreversible actions behind explicit human approval.\n\nFull skill & source: https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/harness-engineering"
+  },
+  {
+    "slug": "customer-journey-map",
+    "name": "Customer Journey Map",
+    "category": "business",
+    "description": "Map a customer journey across stages — awareness to loyalty — documenting actions, touchpoints, emotions, KPIs, business goals, and owning teams to diagnose pain points and align cross-functional teams.",
+    "author": "deanpeters",
+    "source_url": "https://github.com/deanpeters/Product-Manager-Skills/tree/main/skills/customer-journey-map",
+    "tags": ["product-management", "ux", "customer-journey", "strategy"],
+    "skill_content": "---\nname: Customer Journey Map\ndescription: Create a comprehensive customer journey map across stages, touchpoints, actions, emotions, KPIs, business goals, and teams. Use when diagnosing a broken experience, aligning cross-functional teams on the end-to-end flow, or prioritizing improvements by stage.\n---\n\nBuild a strategic customer journey map (adapted from NNGroup and Carnegie Mellon PM curricula) that pairs customer empathy with business metrics — not a user-flow diagram or service blueprint.\n\n## Workflow\n\n1. Lay out the horizontal stages: Awareness, Consideration, Decision, Service, Loyalty.\n2. For each stage, document the vertical layers: Customer Actions, Touchpoints, Customer Experience (emotions/thoughts), KPIs, Business Goals, and Teams Involved.\n3. Center customer emotion at each stage, then tie it to measurable KPIs so the map drives prioritization.\n4. Surface pain points and opportunities where experience dips or ownership is unclear, and map which teams affect which stages.\n5. Use the result to align marketing, sales, product, and support, and to onboard people to the customer perspective.\n\nNot a static artifact — revisit it as customer behavior changes.\n\nFull skill & source: https://github.com/deanpeters/Product-Manager-Skills/tree/main/skills/customer-journey-map"
+  },
+  {
+    "slug": "discovery-interview-prep",
+    "name": "Discovery Interview Prep",
+    "category": "business",
+    "description": "Plan customer discovery interviews adaptively — set the research goal, segment, and constraints, pick the right method (JTBD, problem validation, switch interviews), and avoid bias.",
+    "author": "deanpeters",
+    "source_url": "https://github.com/deanpeters/Product-Manager-Skills/tree/main/skills/discovery-interview-prep",
+    "tags": ["product-management", "discovery", "interviews", "research"],
+    "skill_content": "---\nname: Discovery Interview Prep\ndescription: Plan customer discovery interviews by aligning research goals, customer segment, constraints, and method. Use when preparing interviews for problem validation, churn research, or new product ideas — to produce a tailored interview plan rather than just a script.\n---\n\nGuide a PM through preparing discovery interviews so they yield actionable insight, not confirmation bias or surface feedback. The output is a strategic interview plan, not a script.\n\n## Workflow\n\n1. Gather product/problem context — marketing materials, current assumptions.\n2. Define the research goal: what you're actually trying to learn.\n3. Identify the target segment and access constraints (e.g. enterprise churned accounts, cold outreach, 2-week deadline).\n4. Recommend a methodology matched to stage and goal — Jobs-to-be-Done, problem validation, switch interviews, retention/churn interviews.\n5. Produce the interview framework: questions, biases to avoid (leading questions, confirmation bias, solution-first thinking), and success metrics.\n\nDiscovery is for learning problems (5–10 deep qualitative interviews) — not prototype usability testing, large-scale surveys, or sales demos.\n\nFull skill & source: https://github.com/deanpeters/Product-Manager-Skills/tree/main/skills/discovery-interview-prep"
+  },
+  {
+    "slug": "sop-creator",
+    "name": "SOP Creator",
+    "category": "writing",
+    "description": "Create runbooks, playbooks, and technical docs people actually follow — scannable, action-first, specific, and testable, with a Definition of Done checklist near the top.",
+    "author": "coleam00",
+    "source_url": "https://github.com/coleam00/second-brain-skills/tree/main/.claude/skills/sop-creator",
+    "tags": ["documentation", "runbook", "playbook", "process"],
+    "skill_content": "---\nname: SOP Creator\ndescription: Create runbooks, playbooks, and technical documentation for engineering and ops teams. Use when the user wants to document a process, create a runbook, build operational docs, or formalize any repeatable procedure — triggers like \"create a runbook for...\", \"document this process\", or \"write a playbook\".\n---\n\nCreate practical SOPs people actually follow. Core principles: scannable (headers, bullets, tables — no walls of text), actionable, specific (numbers, names, thresholds), testable, and maintained (owner, last updated, review schedule).\n\n## Workflow\n\n1. Pick the format for the use case: Runbook (incidents/on-call), Deployment Playbook, Troubleshooting Guide, How-To, ADR, Process SOP, Checklist, Decision Tree, Handoff Doc, or Onboarding Guide.\n2. Use the universal structure: title + one-line TL;DR, then Definition of Done, When to Use, Prerequisites, The Process (numbered steps), Verify Completion, and When Things Go Wrong.\n3. Make Definition of Done the most important section — put it near the top as a specific checklist.\n4. Write action-first steps and replace vague phrasing with concrete specifics (\"Message @sarah in #ops-team\", \"If value > 100\", \"Within 2 hours\").\n5. Put warnings before the step they apply to, and keep every step something you DO.\n\nFull skill & source: https://github.com/coleam00/second-brain-skills/tree/main/.claude/skills/sop-creator"
+  },
+  {
+    "slug": "offensive-jwt",
+    "name": "Offensive JWT",
+    "category": "coding",
+    "description": "JWT attack methodology for authorized pentesting — alg:none and RS256→HS256 confusion, weak-secret brute force, kid/jku/jwk header injection, JWS/JWE confusion, and validation gaps.",
+    "author": "SnailSploit",
+    "source_url": "https://github.com/SnailSploit/Claude-Red/tree/main/Skills/auth/offensive-jwt",
+    "tags": ["security", "pentest", "jwt", "red-team"],
+    "skill_content": "---\nname: Offensive JWT\ndescription: JWT attack methodology for authorized penetration testing — algorithm confusion (alg:none, RS256→HS256), weak HMAC secret brute force, kid/jku/jwk/x5u header injection, JWKS cache poisoning, and JWS/JWE confusion. Use when testing JWT auth, hunting auth bypass via token manipulation, or evaluating JWT implementation security.\n---\n\nA JWT attack checklist for authorized offensive security engagements only. Work through steps in order against the in-scope target and track what you've covered.\n\n## Workflow\n\n1. Identify JWT usage: inspect `Authorization: Bearer` headers, cookies, and local/session storage for `eyJ...` tokens; decode and note header params (`kid`, `jku`, `jwk`, `x5u`).\n2. Test algorithm bypass: `alg:none` and case variants, and RS256→HS256 confusion (using the RSA public key as the HMAC secret).\n3. Brute-force weak/guessable HMAC secrets.\n4. Probe header injection: SQLi/path traversal via `kid`, inline fake `jwk`, attacker-controlled `jku`/`x5u` (SSRF), and JWKS cache poisoning.\n5. Check broken validation: tokens accepted without signature check, expired tokens accepted, and missing `iss`/`aud`/`exp` checks; consider JWS/JWE confusion and token-binding (DPoP/mTLS) replay.\n\nReference tooling: jwt_tool (ticarpi/jwt_tool). Only test assets you are authorized to assess.\n\nFull skill & source: https://github.com/SnailSploit/Claude-Red/tree/main/Skills/auth/offensive-jwt"
+  },
+  {
+    "slug": "osint-methodology",
+    "name": "OSINT Methodology",
+    "category": "research",
+    "description": "A 5-stage external recon methodology for authorized red-team and attack-surface work — asset-graph discipline, severity and confidence rubrics, breach correlation, CDN/WAF bypass, and client deliverables.",
+    "author": "elementalsouls",
+    "source_url": "https://github.com/elementalsouls/Claude-OSINT/tree/main/skills/osint-methodology",
+    "tags": ["osint", "security", "recon", "red-team"],
+    "skill_content": "---\nname: OSINT Methodology\ndescription: Comprehensive OSINT methodology for authorized external red-team operations and attack-surface assessments — the recon pipeline, asset-graph discipline, severity rubric, breach correlation, CDN/WAF bypass, vulnerability prioritization, and client deliverables. Use when planning or executing recon against authorized targets or producing client reports.\n---\n\nA disciplined methodology for external reconnaissance and attack-surface mapping on assets you own or have written authorization to assess. Not for active exploitation, post-exploitation, or blue-team work.\n\n## Workflow\n\n1. Confirm authorization: do a soft scope check once if it isn't established; never weaken auth, rate limits, or safety controls, run destructive probes outside an explicit aggressive mode, or paste real PII/credentials into cloud LLMs.\n2. Run the recon pipeline: asset discovery and triage, building an asset graph; map the identity fabric (SSO/IdP/tenant fingerprinting, M365), APIs, and mobile/cloud surfaces.\n3. Correlate breach data with identities and hunt leaked secrets; tag findings for detectability and use detection-aware probing with back-off.\n4. Prioritize vulnerabilities with a severity rubric and confidence-upgrade workflow (EPSS, CISA KEV); discover origins behind CDN/WAF.\n5. Produce client deliverables — exec summary, risk translation, and submission-ready findings.\n\nFull skill & source: https://github.com/elementalsouls/Claude-OSINT/tree/main/skills/osint-methodology"
+  },
+  {
+    "slug": "last30days",
+    "name": "Last 30 Days",
+    "category": "research",
+    "description": "Research what people actually say about a topic in the last 30 days — pulling posts and engagement from Reddit, X, YouTube, TikTok, Hacker News, GitHub, Polymarket, and the web, with citations.",
+    "author": "mvanhorn",
+    "source_url": "https://github.com/mvanhorn/last30days-skill/tree/main/skills/last30days",
+    "tags": ["research", "social-media", "trends", "synthesis"],
+    "skill_content": "---\nname: Last 30 Days\ndescription: Research what people actually say about any topic in the last 30 days, pulling posts and engagement from Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub, and the web. Use for recency-focused sentiment, trend, and reaction research with citations.\n---\n\nGather and synthesize what real people said about a topic recently across many social and web sources, with engagement signals and citations.\n\n## How to use\n\n1. Invoke with a focused query, e.g. \"last30days nvidia earnings reaction\" or \"last30days what users want in react\".\n2. The skill runs Node/Python scripts to pull recent posts and engagement from Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub, Bluesky, and the web.\n3. Configure optional API keys via env (e.g. SCRAPECREATORS_API_KEY as the primary, plus optional X/Bluesky/search provider keys) to widen and deepen coverage.\n4. It filters to the recent window, weighs engagement, and synthesizes themes — what people praise, complain about, and want.\n5. Output is a cited summary of recent sentiment and trends; check `--help` for flags like competitor comparison.\n\nRequires `node` and `python3`; many sources work without keys but coverage improves with them.\n\nFull skill & source: https://github.com/mvanhorn/last30days-skill/tree/main/skills/last30days"
+  },
+  {
+    "slug": "chrome-devtools-puppeteer",
+    "name": "Chrome DevTools (Puppeteer)",
+    "category": "coding",
+    "description": "Browser automation, debugging, and performance analysis via executable Puppeteer CLI scripts that output JSON — navigate, screenshot, fill forms, monitor console/network, and measure Core Web Vitals.",
+    "author": "mrgoonie",
+    "source_url": "https://github.com/mrgoonie/claudekit-skills/tree/main/.claude/skills/chrome-devtools",
+    "tags": ["browser", "puppeteer", "debugging", "performance"],
+    "skill_content": "---\nname: Chrome DevTools (Puppeteer)\ndescription: Browser automation, debugging, and performance analysis using executable Puppeteer CLI scripts that output JSON. Use for automating browsers, taking screenshots, analyzing performance, monitoring network traffic, web scraping, form automation, and JavaScript debugging.\n---\n\nDrive Chrome via standalone Puppeteer scripts; every script emits JSON for easy parsing.\n\n## How to use\n\n1. Always check `pwd` first, then `cd` into the skill's `scripts/` directory.\n2. Install deps: on Linux/WSL run `./install-deps.sh` for system libraries; everywhere run `npm install`. Optionally install ImageMagick so screenshots over 5MB auto-compress.\n3. Core automation scripts: `navigate.js`, `screenshot.js`, `click.js`, `fill.js`, `evaluate.js` (run JS in page context).\n4. Analysis scripts: `snapshot.js` (interactive elements), `console.js` (messages/errors), `network.js` (HTTP traffic), `performance.js` (Core Web Vitals + traces).\n5. Example: `node screenshot.js --url https://example.com --output ./docs/screenshots/page.png` — save screenshots under `./docs/screenshots`.\n\nNamed tool: Puppeteer CLI scripts. Screenshots auto-compress above 5MB when ImageMagick is present.\n\nFull skill & source: https://github.com/mrgoonie/claudekit-skills/tree/main/.claude/skills/chrome-devtools"
+  },
+  {
+    "slug": "csv-data-summarizer",
+    "name": "CSV Data Summarizer",
+    "category": "data",
+    "description": "Automatically analyze a CSV with Python and pandas — inspect structure, run type-aware statistics, flag missing data, and plot only the visualizations that fit the dataset, no questions asked.",
+    "author": "coffeefuelbump",
+    "source_url": "https://github.com/coffeefuelbump/csv-data-summarizer-claude-skill/tree/main",
+    "tags": ["csv", "pandas", "data-analysis", "visualization"],
+    "skill_content": "---\nname: CSV Data Summarizer\ndescription: Analyze CSV files and generate summary statistics plus quick visualizations using Python and pandas. Use whenever the user uploads or references a CSV, or asks to summarize, analyze, or visualize tabular data.\n---\n\nRun a full, automatic analysis of a CSV the moment one is provided — do not ask the user what they want or offer options; just produce the complete analysis.\n\n## Workflow\n\n1. Load the CSV into a pandas DataFrame and inspect structure — column types, date columns, numeric columns, categories.\n2. Determine which analyses fit the data (sales/e-commerce, customer, financial, operational, survey, or generic tabular) by looking at the actual columns.\n3. Compute a data overview (rows, columns, types), key statistics, and a missing-data analysis.\n4. Generate only the visualizations that make sense: time-series if date columns exist, correlation heatmaps if multiple numeric columns exist, category distributions for categorical columns, histograms for numeric ones.\n5. Present everything in one pass with actionable insights tied to patterns in this specific dataset.\n\nRequires Python with pandas, matplotlib, and seaborn.\n\nFull skill & source: https://github.com/coffeefuelbump/csv-data-summarizer-claude-skill/tree/main"
+  },
+  {
+    "slug": "youtube-to-ebook",
+    "name": "YouTube to Ebook",
+    "category": "writing",
+    "description": "Turn a YouTube channel's latest videos into a magazine-style EPUB — fetch videos (filtering out Shorts), extract transcripts, and rewrite them into polished articles.",
+    "author": "zarazhangrui",
+    "source_url": "https://github.com/zarazhangrui/youtube-to-ebook/tree/main",
+    "tags": ["youtube", "transcripts", "ebook", "content"],
+    "skill_content": "---\nname: YouTube to Ebook\ndescription: Transform YouTube videos into beautifully formatted, magazine-style ebook articles with transcripts, packaged as an EPUB. Use when the user wants to turn channel videos into readable articles or an ebook for any device.\n---\n\nA Python pipeline that converts a channel's latest videos into polished articles and packages them as an EPUB.\n\n## Workflow\n\n1. Set up a project folder and configure access: a YouTube Data API key and an Anthropic API key in `.env`, plus a `channels.txt` list (Python 3.8+).\n2. Fetch the latest videos per channel via the channel's uploads playlist (`playlistItems`) for true chronological order, filtering out Shorts by checking whether the `/shorts/` URL resolves.\n3. Extract transcripts with `YouTubeTranscriptApi().fetch(video_id)`, adding ~2s delays between requests to avoid rate limits.\n4. Rewrite each transcript into a polished magazine-style article using Claude.\n5. Package the articles into an EPUB. Run the whole pipeline with `python main.py` (or `--channels` to edit the list, `dashboard.py` for the web UI).\n\nFull skill & source: https://github.com/zarazhangrui/youtube-to-ebook/tree/main"
+  },
+  {
+    "slug": "home-assistant-manager",
+    "name": "Home Assistant Manager",
+    "category": "personal",
+    "description": "Manage Home Assistant config with safe deployment workflows — git and rapid scp iteration, SSH/hass-cli remote control, config validation, automation verification, log analysis, and Lovelace dashboards.",
+    "author": "komal-SkyNET",
+    "source_url": "https://github.com/komal-SkyNET/claude-skill-homeassistant/tree/main",
+    "tags": ["home-assistant", "smart-home", "automation", "config"],
+    "skill_content": "---\nname: Home Assistant Manager\ndescription: Manage Home Assistant configuration with efficient deployment workflows (git and rapid scp iteration), remote CLI access via SSH and hass-cli, automation verification, log analysis, reload-vs-restart optimization, and Lovelace dashboard management. Use when editing or deploying Home Assistant config, automations, or dashboards.\n---\n\nExpert Home Assistant config management with safe deployment and verification workflows.\n\n## How to use\n\n1. Verify the environment: SSH access to the HA host, `hass-cli` installed, `HASS_SERVER`/`HASS_TOKEN` set, and git connected to HA's `/config`.\n2. Use `hass-cli` for REST-API operations — `hass-cli state list`, `state get sensor.x`, `service call automation.reload` — and SSH for HA CLI: `ssh root@homeassistant.local \"ha core check\"`, `ha core restart`, `ha core logs`.\n3. For finalized changes use the git workflow: edit, `ha core check`, commit/push, then `cd /config && git pull` on the host, then reload or restart.\n4. For fast iteration use `scp` to push a file to `/config`, reload, test, repeat — then commit once it's working.\n5. Prefer reload over restart when sufficient; verify via entity state and `ha core logs | grep -i error | tail`. Build tablet-optimized Lovelace dashboards with appropriate card types.\n\nFull skill & source: https://github.com/komal-SkyNET/claude-skill-homeassistant/tree/main"
+  },
+  {
+    "slug": "web-asset-generator",
+    "name": "Web Asset Generator",
+    "category": "design",
+    "description": "Generate web assets from a logo or text slogan — favicons, PWA app icons, and Open Graph social images for Facebook, Twitter, WhatsApp, and LinkedIn — plus the matching HTML meta tags.",
+    "author": "alonw0",
+    "source_url": "https://github.com/alonw0/web-asset-generator/tree/main/skills/web-asset-generator",
+    "tags": ["favicon", "icons", "open-graph", "assets"],
+    "skill_content": "---\nname: Web Asset Generator\ndescription: Generate web assets — favicons, PWA app icons, and Open Graph social images for Facebook, Twitter, WhatsApp, and LinkedIn — from a logo image or text slogan, with the correct HTML meta tags. Use when the user needs icons, favicons, or social sharing images.\n---\n\nProduce professional favicons, app icons, and social meta images from a source logo or text, including ready-to-paste HTML tags.\n\n## Workflow\n\n1. Clarify needs with the AskUserQuestion tool: which assets (favicons, app icons, social images, or everything) and the source (an uploaded logo vs text/slogan, plus color preferences for text-based images).\n2. Determine the source material — use an uploaded image directly, or generate text-based images from a provided slogan.\n3. Run the right script: `scripts/generate_favicons.py` for favicons/app icons, `scripts/generate_og_images.py` for social images.\n4. Generate the standard sizes — favicons (16/32/96 + favicon.ico), PWA app icons (180/192/512), and Open Graph images per platform.\n5. Return the generated files plus the proper HTML `<link>`/meta tags for the user to drop into their site.\n\nFull skill & source: https://github.com/alonw0/web-asset-generator/tree/main/skills/web-asset-generator"
+  },
+  {
+    "slug": "llm-council",
+    "name": "LLM Council",
+    "category": "productivity",
+    "description": "Pressure-test a high-stakes decision through a council of independent AI advisors who analyze from different thinking lenses, peer-review each other anonymously, then a chairman synthesizes a verdict.",
+    "author": "aiwithremy",
+    "source_url": "https://github.com/aiwithremy/claude-skills-llm-council/tree/main",
+    "tags": ["decision-making", "multi-agent", "advisors", "reasoning"],
+    "skill_content": "---\nname: LLM Council\ndescription: Run a question, idea, or decision through a council of independent AI advisors who analyze it from different thinking lenses, peer-review each other anonymously, then a chairman synthesizes a final verdict. Use for genuine decisions with stakes and tradeoffs — triggers like \"council this\", \"pressure-test this\", \"should I X or Y\". Do NOT trigger on simple lookups or creation tasks.\n---\n\nAdapted from Karpathy's LLM Council: instead of one answer from one model, run the decision through several advisors with conflicting thinking styles, have them review each other, and synthesize. Best when being wrong is expensive.\n\n## Workflow\n\n1. Confirm it's a real council question — genuine uncertainty, multiple options, high cost of a bad call. Skip factual lookups and pure creation tasks.\n2. Dispatch the question to independent advisors (sub-agents), each using a distinct lens — e.g. the Contrarian (hunts the fatal flaw), the First-Principles Thinker, and others that naturally create tension.\n3. Have advisors anonymously peer-review each other's analyses.\n4. A chairman synthesizes everything into a final recommendation that names where advisors agree, where they clash, and what to actually do.\n5. Present the verdict honestly — the point is to surface uncomfortable truths, not validate.\n\nFull skill & source: https://github.com/aiwithremy/claude-skills-llm-council/tree/main"
+  },
+  {
+    "slug": "academic-pptx",
+    "name": "Academic PPTX",
+    "category": "writing",
+    "description": "Plan and build presentations for academic contexts — conference talks, thesis defenses, grant briefings, seminars — prioritizing argument structure and evidence, with a ghost-deck action-title test.",
+    "author": "Gabberflast",
+    "source_url": "https://github.com/Gabberflast/academic-pptx-skill/tree/main",
+    "tags": ["academic", "presentation", "slides", "research"],
+    "skill_content": "---\nname: Academic PPTX\ndescription: Create or improve presentations for academic contexts — conference talks, seminar slides, thesis defenses, grant briefings, lab meetings, lectures — where the audience evaluates reasoning and evidence. Use for \"conference talk\", \"thesis defense\", \"research presentation\", or \"make slides\" combined with academic content.\n---\n\nGovern the content and structure of academic decks (argument before aesthetics). This skill pairs with a PPTX-authoring skill for the technical .pptx work — read both before building.\n\n## Workflow\n\n1. Identify the presentation mode: Structured Argument (default for papers, defenses, grants, lab/seminar talks) or Visual/Narrative (public engagement, lay panels). When in doubt, default to Structured Argument.\n2. For structured work, follow the priority order: argument structure → data → layout → aesthetics.\n3. Plan the deck before creating slides — a slide-by-slide outline (title, action title, exhibit type); confirm with the user if it exceeds ~10 slides or is complex.\n4. Apply the ghost-deck test: reading only the action titles in sequence must tell the complete argument; fix the outline if it doesn't.\n5. Apply the skill's design standards and per-slide-type patterns, then build the .pptx via the companion PPTX skill.\n\nFull skill & source: https://github.com/Gabberflast/academic-pptx-skill/tree/main"
+  },
+  {
+    "slug": "power-design",
+    "name": "Power Design",
+    "category": "design",
+    "description": "Generate self-contained HTML slide decks in any brand's design language — extract brand DNA via Firecrawl, then apply 20 codified, threshold-based design principles to every slide.",
+    "author": "ItsssssJack",
+    "source_url": "https://github.com/ItsssssJack/power-design/tree/main",
+    "tags": ["slides", "branding", "html", "presentation"],
+    "skill_content": "---\nname: Power Design\ndescription: Generate beautiful self-contained HTML presentation slides in any brand's design language, combining brand DNA extracted via Firecrawl with 20 codified design principles. Use when the user wants an on-brand HTML deck.\n---\n\nCompose HTML decks that satisfy two pillars: a brand's visual DNA (colors, fonts, logo, voice) and 20 research-backed, threshold-based design principles every slide must respect.\n\n## Workflow\n\n1. Ask two questions, then go. Q1 — what brand? Offer (a) paste a URL, (b) pick from the library, or (c) neutral default. Q2 — what's the deck about (headline + 3–5 key points + audience).\n2. For a URL, extract brand DNA with the Firecrawl MCP (`formats: [\"branding\",\"screenshot\",\"rawHtml\",\"links\"]`) and save it as `brands/<slug>/brand-style.md`.\n3. Confirm logo placement once (default: small wordmark, bottom-left, every slide), then generate without further wizardry.\n4. Before emitting HTML, read `principles/design-principles.md` (all 20 rules are non-negotiable) and the chosen `brand-style.md`.\n5. Emit a single self-contained, valid HTML5 file using the brand's real colors and type, passing the 20-principle pre-emit checklist.\n\nFull skill & source: https://github.com/ItsssssJack/power-design/tree/main"
+  },
+  {
+    "slug": "quarto-authoring",
+    "name": "Quarto Authoring",
+    "category": "writing",
+    "description": "Author Quarto documents and projects (.qmd, _quarto.yml) — callouts, cross-references, citations, diagrams, layouts, websites, books, and presentations; includes migration from R Markdown and others.",
+    "author": "posit-dev",
+    "source_url": "https://github.com/posit-dev/skills/tree/main/quarto/quarto-authoring",
+    "tags": ["quarto", "publishing", "markdown", "data-science"],
+    "skill_content": "---\nname: Quarto Authoring\ndescription: Author Quarto documents and projects — .qmd files, _quarto.yml, callouts, cross-references, citations, diagrams, layouts, websites, books, presentations, and reports. Use when explicitly working with Quarto, or migrating from R Markdown, bookdown, blogdown, xaringan, distill, or Jupyter to Quarto.\n---\n\nWrite Quarto content following the current Quarto CLI conventions. A `.qmd` starts with YAML front matter (`title`, `author`, `date`, `format`) followed by Markdown content.\n\n## How to use\n\n1. For a new document, start from the QMD essentials — front matter plus Markdown body — then pull in the specific reference for the feature you need.\n2. Add features via the bundled references: cross-references, code cells, figures, tables, citations/bibliography, callouts, diagrams (Mermaid/Graphviz), layout, shortcodes, conditional content, and YAML front matter.\n3. Choose the compute engine (knitr, jupyter, julia) per the engines reference when the doc runs code.\n4. For websites, books, and presentations, configure `_quarto.yml` as the project file.\n5. Only when explicitly migrating an existing project, read the matching conversion reference (R Markdown, bookdown, xaringan, distill, blogdown, or Jupyter) — not when writing new docs.\n\nNamed tool: the Quarto CLI.\n\nFull skill & source: https://github.com/posit-dev/skills/tree/main/quarto/quarto-authoring"
+  },
+  {
+    "slug": "shiny-bslib",
+    "name": "Shiny bslib",
+    "category": "data",
+    "description": "Build modern Shiny dashboards with bslib (Bootstrap 5) — page layouts, column grids, cards, value boxes, sidebars, navigation, theming — and modernize legacy fluidPage/fluidRow apps.",
+    "author": "posit-dev",
+    "source_url": "https://github.com/posit-dev/skills/tree/main/shiny/shiny-bslib",
+    "tags": ["shiny", "r", "dashboard", "bslib"],
+    "skill_content": "---\nname: Shiny bslib\ndescription: Build modern Shiny dashboards and apps using bslib (Bootstrap 5) — page layouts, grids, cards, value boxes, sidebars, navigation, theming, accordions, tooltips, and bslib inputs. Use when creating new Shiny apps or modernizing legacy ones (fluidPage, fluidRow/column, tabsetPanel, shinythemes).\n---\n\nBuild professional Shiny UIs with bslib's Bootstrap 5 components, replacing legacy Shiny layout patterns. Assumes familiarity with basic Shiny.\n\n## How to use\n\n1. Pick a page layout: `page_sidebar()` (single-page dashboard, most common), `page_navbar()` (multi-page), `page_fillable()` (viewport-filling), or `page_fluid()` (long-form scrolling). Set a theme with `bs_theme(version = 5)`.\n2. Lay out content with grids — `layout_column_wrap()` for an auto-wrapping uniform grid, or `layout_columns()` for the 12-column Bootstrap grid.\n3. Use `card()` (with headers/footers and `full_screen = TRUE`) as the primary container and `value_box()` for KPIs with icons and theming.\n4. Add navigation via `page_navbar()`/`nav_panel()` or component-level `navset_*` tabs, and sidebars via `page_sidebar()` or `layout_sidebar()` inside cards.\n5. Consult the bundled references (page-layouts, grid-layouts, cards, value-boxes, navigation) for detailed patterns.\n\nFull skill & source: https://github.com/posit-dev/skills/tree/main/shiny/shiny-bslib"
+  },
+  {
+    "slug": "layered-rails",
+    "name": "Layered Rails",
+    "category": "coding",
+    "description": "Write, refactor, and review Rails code with layered architecture — presentation, application, domain, and infrastructure layers with unidirectional flow; spot fat controllers, anemic models, and layer violations.",
+    "author": "palkan",
+    "source_url": "https://github.com/palkan/skills/tree/master/layered-rails/skills/layered-rails",
+    "tags": ["rails", "ruby", "architecture", "refactoring"],
+    "skill_content": "---\nname: Layered Rails\ndescription: Write, refactor, and review Rails code using layered architecture principles from \"Layered Design for Ruby on Rails Applications\". Use when building or refactoring models, controllers, services, jobs, forms, policies, query objects, or presenters, and when reviewing Rails PRs for layer violations, fat controllers/models, anemic models, or callback misuse.\n---\n\nDesign and review Rails apps as four architecture layers with strict unidirectional data flow.\n\n## How to use\n\n1. Place each concern in the right layer: Presentation (controllers, views, channels, mailers) → Application (service objects, form objects) → Domain (models, value objects, domain events) → Infrastructure (Active Record, APIs, storage).\n2. Enforce the core rule: lower layers must never depend on higher layers.\n3. When writing or refactoring, choose the correct pattern — service, form, policy, query, value object, presenter, view component, state machine — instead of stuffing logic into controllers or models.\n4. When reviewing, hunt for layer violations, fat controllers/models, anemic models, callback misuse, and god objects; route findings to the matching pattern.\n5. Consult the bundled references and workflows (architecture-layers reference, analyze workflow) for full layer responsibilities and audits.\n\nFull skill & source: https://github.com/palkan/skills/tree/master/layered-rails/skills/layered-rails"
+  }
+]

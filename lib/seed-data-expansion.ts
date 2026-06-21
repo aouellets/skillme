@@ -4,6 +4,326 @@ import type { SeedSkill } from './seed-data'
 
 export const EXPANSION_SKILLS: SeedSkill[] = [
   {
+    "slug": "algorithmic-art",
+    "name": "Algorithmic Art",
+    "category": "design",
+    "description": "Create generative, algorithmic art with p5.js — flow fields, particle systems, and seeded randomness with interactive parameter exploration.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/algorithmic-art",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "generative-art",
+      "p5js",
+      "creative-coding",
+      "design"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: algorithmic-art\ndescription: Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.\nlicense: Complete terms in LICENSE.txt\n---\n\nAlgorithmic philosophies are computational aesthetic movements that are then expressed through code. Output .md files (philosophy), .html files (interactive viewer), and .js files (generative algorithms).\n\nThis happens in two steps:\n1. Algorithmic Philosophy Creation (.md file)\n2. Express by creating p5.js generative art (.html + .js files)\n\nFirst, undertake this task:\n\n## ALGORITHMIC PHILOSOPHY CREATION\n\nTo begin, create an ALGORITHMIC PHILOSOPHY (not static images or templates) that will be interpreted through:\n- Computational processes, emergent behavior, mathematical beauty\n- Seeded randomness, noise fields, organic systems\n- Particles, flows, fields, forces\n- Parametric variation and controlled chaos\n\n### THE CRITICAL UNDERSTANDING\n- What is received: Some subtle input or instructions by the user to take into account, but use as a foundation; it should not constrain creative freedom.\n- What is created: An algorithmic philosophy/generative aesthetic movement.\n- What happens next: The same version receives the philosophy and EXPRESSES IT IN CODE - creating p5.js sketches that are 90% algorithmic generation, 10% essential parameters.\n\nConsider this approach:\n- Write a manifesto for a generative art movement\n- The next phase involves writing the algorithm that brings it to life\n\nThe philosophy must emphasize: Algorithmic expression. Emergent behavior. Computational beauty. Seeded variation.\n\n### HOW TO GENERATE AN ALGORITHMIC PHILOSOPHY\n\n**Name the movement** (1-2 words): \"Organic Turbulence\" / \"Quantum Harmonics\" / \"Emergent Stillness\"\n\n**Articulate the philosophy** (4-6 paragraphs - concise but complete):\n\nTo capture the ALGORITHMIC essence, express how this philosophy manifests through:\n- Computational processes and mathematical relationships?\n- Noise functions and randomness patterns?\n- Particle behaviors and field dynamics?\n- Temporal evolution and system states?\n- Parametric variation and emergent complexity?\n\n**CRITICAL GUIDELINES:**\n- **Avoid redundancy**: Each algorithmic aspect should be mentioned once. Avoid repeating concepts about noise theory, particle dynamics, or mathematical principles unless adding new depth.\n- **Emphasize craftsmanship REPEATEDLY**: The philosophy MUST stress multiple times that the final algorithm should appear as though it took countless hours to develop, was refined with care, and comes from someone at the absolute top of their field. This framing is essential - repeat phrases like \"meticulously crafted algorithm,\" \"the product of deep computational expertise,\" \"painstaking optimization,\" \"master-level implementation.\"\n- **Leave creative space**: Be specific about the algorithmic direction, but concise enough that the next Claude has room to make interpretive implementation choices at an extremely high level of craftsmanship.\n\nThe philosophy must guide the next version to express ideas ALGORITHMICALLY, not through static images. Beauty lives in the process, not the final frame.\n\n### PHILOSOPHY EXAMPLES\n\n**\"Organic Turbulence\"**\nPhilosophy: Chaos constrained by natural law, order emerging from disorder.\nAlgorithmic expression: Flow fields driven by layered Perlin noise. Thousands of particles following vector forces, their trails accumulating into organic density maps. Multiple noise octaves create turbulent regions and calm zones. Color emerges from velocity and density - fast particles burn bright, slow ones fade to shadow. The algorithm runs until equilibrium - a meticulously tuned balance where every parameter was refined through countless iterations by a master of computational aesthetics.\n\n**\"Quantum Harmonics\"**\nPhilosophy: Discrete entities exhibiting wave-like interference patterns.\nAlgorithmic expression: Particles initialized on a grid, each carrying a phase value that evolves through sine waves. When particles are near, their phases interfere - constructive interference creates bright nodes, destructive creates voids. Simple harmonic motion generates complex emergent mandalas. The result of painstaking frequency calibration where every ratio was carefully chosen to produce resonant beauty.\n\n**\"Recursive Whispers\"**\nPhilosophy: Self-similarity across scales, infinite depth in finite space.\nAlgorithmic expression: Branching structures that subdivide recursively. Each branch slightly randomized but constrained by golden ratios. L-systems or recursive subdivision generate tree-like forms that feel both mathematical and organic. Subtle noise perturbations break perfect symmetry. Line weights diminish with each recursion level. Every branching angle the product of deep mathematical exploration.\n\n**\"Field Dynamics\"**\nPhilosophy: Invisible forces made visible through their effects on matter.\nAlgorithmic expression: Vector fields constructed from mathematical functions or noise. Particles born at edges, flowing along field lines, dying when they reach equilibrium or boundaries. Multiple fields can attract, repel, or rotate particles. The visualization shows only the traces - ghost-like evidence of invisible forces. A computational dance meticulously choreographed through force balance.\n\n**\"Stochastic Crystallization\"**\nPhilosophy: Random processes crystallizing into ordered structures.\nAlgorithmic expression: Randomized circle packing or Voronoi tessellation. Start with random points, let them evolve through relaxation algorithms. Cells push apart until equilibrium. Color based on cell size, neighbor count, or distance from center. The organic tiling that emerges feels both random and inevitable. Every seed produces unique crystalline beauty - the mark of a master-level generative algorithm.\n\n*These are condensed examples. The actual algorithmic philosophy should be 4-6 substantial paragraphs.*\n\n### ESSENTIAL PRINCIPLES\n- **ALGORITHMIC PHILOSOPHY**: Creating a computational worldview to be expressed through code\n- **PROCESS OVER PRODUCT**: Always emphasize that beauty emerges from the algorithm's execution - each run is unique\n- **PARAMETRIC EXPRESSION**: Ideas communicate through mathematical relationships, forces, behaviors - not static composition\n- **ARTISTIC FREEDOM**: The next Claude interprets the philosophy algorithmically - provide creative implementation room\n- **PURE GENERATIVE ART**: This is about making LIVING ALGORITHMS, not static images with randomness\n- **EXPERT CRAFTSMANSHIP**: Repeatedly emphasize the final algorithm must feel meticulously crafted, refined through countless iterations, the product of deep expertise by someone at the absolute top of their field in computational aesthetics\n\n**The algorithmic philosophy should be 4-6 paragraphs long.** Fill it with poetic computational philosophy that brings together the intended vision. Avoid repeating the same points. Output this algorithmic philosophy as a .md file.\n\n---\n\n## DEDUCING THE CONCEPTUAL SEED\n\n**CRITICAL STEP**: Before implementing the algorithm, identify the subtle conceptual thread from the original request.\n\n**THE ESSENTIAL PRINCIPLE**:\nThe concept is a **subtle, niche reference embedded within the algorithm itself** - not always literal, always sophisticated. Someone familiar with the subject should feel it intuitively, while others simply experience a masterful generative composition. The algorithmic philosophy provides the computational language. The deduced concept provides the soul - the quiet conceptual DNA woven invisibly into parameters, behaviors, and emergence patterns.\n\nThis is **VERY IMPORTANT**: The reference must be so refined that it enhances the work's depth without announcing itself. Think like a jazz musician quoting another song through algorithmic harmony - only those who know will catch it, but everyone appreciates the generative beauty.\n\n---\n\n## P5.JS IMPLEMENTATION\n\nWith the philosophy AND conceptual framework established, express it through code. Pause to gather thoughts before proceeding. Use only the algorithmic philosophy created and the instructions below.\n\n### ⚠️ STEP 0: READ THE TEMPLATE FIRST ⚠️\n\n**CRITICAL: BEFORE writing any HTML:**\n\n1. **Read** `templates/viewer.html` using the Read tool\n2. **Study** the exact structure, styling, and Anthropic branding\n3. **Use that file as the LITERAL STARTING POINT** - not just inspiration\n4. **Keep all FIXED sections exactly as shown** (header, sidebar structure, Anthropic colors/fonts, seed controls, action buttons)\n5. **Replace only the VARIABLE sections** marked in the file's comments (algorithm, parameters, UI controls for parameters)\n\n**Avoid:**\n- ❌ Creating HTML from scratch\n- ❌ Inventing custom styling or color schemes\n- ❌ Using system fonts or dark themes\n- ❌ Changing the sidebar structure\n\n**Follow these practices:**\n- ✅ Copy the template's exact HTML structure\n- ✅ Keep Anthropic branding (Poppins/Lora fonts, light colors, gradient backdrop)\n- ✅ Maintain the sidebar layout (Seed → Parameters → Colors? → Actions)\n- ✅ Replace only the p5.js algorithm and parameter controls\n\nThe template is the foundation. Build on it, don't rebuild it.\n\n---\n\nTo create gallery-quality computational art that lives and breathes, use the algorithmic philosophy as the foundation.\n\n### TECHNICAL REQUIREMENTS\n\n**Seeded Randomness (Art Blocks Pattern)**:\n```javascript\n// ALWAYS use a seed for reproducibility\nlet seed = 12345; // or hash from user input\nrandomSeed(seed);\nnoiseSeed(seed);\n```\n\n**Parameter Structure - FOLLOW THE PHILOSOPHY**:\n\nTo establish parameters that emerge naturally from the algorithmic philosophy, consider: \"What qualities of this system can be adjusted?\"\n\n```javascript\nlet params = {\n  seed: 12345,  // Always include seed for reproducibility\n  // colors\n  // Add parameters that control YOUR algorithm:\n  // - Quantities (how many?)\n  // - Scales (how big? how fast?)\n  // - Probabilities (how likely?)\n  // - Ratios (what proportions?)\n  // - Angles (what direction?)\n  // - Thresholds (when does behavior change?)\n};\n```\n\n**To design effective parameters, focus on the properties the system needs to be tunable rather than thinking in terms of \"pattern types\".**\n\n**Core Algorithm - EXPRESS THE PHILOSOPHY**:\n\n**CRITICAL**: The algorithmic philosophy should dictate what to build.\n\nTo express the philosophy through code, avoid thinking \"which pattern should I use?\" and instead think \"how to express this philosophy through code?\"\n\nIf the philosophy is about **organic emergence**, consider using:\n- Elements that accumulate or grow over time\n- Random processes constrained by natural rules\n- Feedback loops and interactions\n\nIf the philosophy is about **mathematical beauty**, consider using:\n- Geometric relationships and ratios\n- Trigonometric functions and harmonics\n- Precise calculations creating unexpected patterns\n\nIf the philosophy is about **controlled chaos**, consider using:\n- Random variation within strict boundaries\n- Bifurcation and phase transitions\n- Order emerging from disorder\n\n**The algorithm flows from the philosophy, not from a menu of options.**\n\nTo guide the implementation, let the conceptual essence inform creative and original choices. Build something that expresses the vision for this particular request.\n\n**Canvas Setup**: Standard p5.js structure:\n```javascript\nfunction setup() {\n  createCanvas(1200, 1200);\n  // Initialize your system\n}\n\nfunction draw() {\n  // Your generative algorithm\n  // Can be static (noLoop) or animated\n}\n```\n\n### CRAFTSMANSHIP REQUIREMENTS\n\n**CRITICAL**: To achieve mastery, create algorithms that feel like they emerged through countless iterations by a master generative artist. Tune every parameter carefully. Ensure every pattern emerges with purpose. This is NOT random noise - this is CONTROLLED CHAOS refined through deep expertise.\n\n- **Balance**: Complexity without visual noise, order without rigidity\n- **Color Harmony**: Thoughtful palettes, not random RGB values\n- **Composition**: Even in randomness, maintain visual hierarchy and flow\n- **Performance**: Smooth execution, optimized for real-time if animated\n- **Reproducibility**: Same seed ALWAYS produces identical output\n\n### OUTPUT FORMAT\n\nOutput:\n1. **Algorithmic Philosophy** - As markdown or text explaining the generative aesthetic\n2. **Single HTML Artifact** - Self-contained interactive generative art built from `templates/viewer.html` (see STEP 0 and next section)\n\nThe HTML artifact contains everything: p5.js (from CDN), the algorithm, parameter controls, and UI - all in one file that works immediately in claude.ai artifacts or any browser. Start from the template file, not from scratch.\n\n---\n\n## INTERACTIVE ARTIFACT CREATION\n\n**REMINDER: `templates/viewer.html` should have already been read (see STEP 0). Use that file as the starting point.**\n\nTo allow exploration of the generative art, create a single, self-contained HTML artifact. Ensure this artifact works immediately in claude.ai or any browser - no setup required. Embed everything inline.\n\n### CRITICAL: WHAT'S FIXED VS VARIABLE\n\nThe `templates/viewer.html` file is the foundation. It contains the exact structure and styling needed.\n\n**FIXED (always include exactly as shown):**\n- Layout structure (header, sidebar, main canvas area)\n- Anthropic branding (UI colors, fonts, gradients)\n- Seed section in sidebar:\n  - Seed display\n  - Previous/Next buttons\n  - Random button\n  - Jump to seed input + Go button\n- Actions section in sidebar:\n  - Regenerate button\n  - Reset button\n\n**VARIABLE (customize for each artwork):**\n- The entire p5.js algorithm (setup/draw/classes)\n- The parameters object (define what the art needs)\n- The Parameters section in sidebar:\n  - Number of parameter controls\n  - Parameter names\n  - Min/max/step values for sliders\n  - Control types (sliders, inputs, etc.)\n- Colors section (optional):\n  - Some art needs color pickers\n  - Some art might use fixed colors\n  - Some art might be monochrome (no color controls needed)\n  - Decide based on the art's needs\n\n**Every artwork should have unique parameters and algorithm!** The fixed parts provide consistent UX - everything else expresses the unique vision.\n\n### REQUIRED FEATURES\n\n**1. Parameter Controls**\n- Sliders for numeric parameters (particle count, noise scale, speed, etc.)\n- Color pickers for palette colors\n- Real-time updates when parameters change\n- Reset button to restore defaults\n\n**2. Seed Navigation**\n- Display current seed number\n- \"Previous\" and \"Next\" buttons to cycle through seeds\n- \"Random\" button for random seed\n- Input field to jump to specific seed\n- Generate 100 variations when requested (seeds 1-100)\n\n**3. Single Artifact Structure**\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <!-- p5.js from CDN - always available -->\n  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js\"></script>\n  <style>\n    /* All styling inline - clean, minimal */\n    /* Canvas on top, controls below */\n  </style>\n</head>\n<body>\n  <div id=\"canvas-container\"></div>\n  <div id=\"controls\">\n    <!-- All parameter controls -->\n  </div>\n  <script>\n    // ALL p5.js code inline here\n    // Parameter objects, classes, functions\n    // setup() and draw()\n    // UI handlers\n    // Everything self-contained\n  </script>\n</body>\n</html>\n```\n\n**CRITICAL**: This is a single artifact. No external files, no imports (except p5.js CDN). Everything inline.\n\n**4. Implementation Details - BUILD THE SIDEBAR**\n\nThe sidebar structure:\n\n**1. Seed (FIXED)** - Always include exactly as shown:\n- Seed display\n- Prev/Next/Random/Jump buttons\n\n**2. Parameters (VARIABLE)** - Create controls for the art:\n```html\n<div class=\"control-group\">\n    <label>Parameter Name</label>\n    <input type=\"range\" id=\"param\" min=\"...\" max=\"...\" step=\"...\" value=\"...\" oninput=\"updateParam('param', this.value)\">\n    <span class=\"value-display\" id=\"param-value\">...</span>\n</div>\n```\nAdd as many control-group divs as there are parameters.\n\n**3. Colors (OPTIONAL/VARIABLE)** - Include if the art needs adjustable colors:\n- Add color pickers if users should control palette\n- Skip this section if the art uses fixed colors\n- Skip if the art is monochrome\n\n**4. Actions (FIXED)** - Always include exactly as shown:\n- Regenerate button\n- Reset button\n- Download PNG button\n\n**Requirements**:\n- Seed controls must work (prev/next/random/jump/display)\n- All parameters must have UI controls\n- Regenerate, Reset, Download buttons must work\n- Keep Anthropic branding (UI styling, not art colors)\n\n### USING THE ARTIFACT\n\nThe HTML artifact works immediately:\n1. **In claude.ai**: Displayed as an interactive artifact - runs instantly\n2. **As a file**: Save and open in any browser - no server needed\n3. **Sharing**: Send the HTML file - it's completely self-contained\n\n---\n\n## VARIATIONS & EXPLORATION\n\nThe artifact includes seed navigation by default (prev/next/random buttons), allowing users to explore variations without creating multiple files. If the user wants specific variations highlighted:\n\n- Include seed presets (buttons for \"Variation 1: Seed 42\", \"Variation 2: Seed 127\", etc.)\n- Add a \"Gallery Mode\" that shows thumbnails of multiple seeds side-by-side\n- All within the same single artifact\n\nThis is like creating a series of prints from the same plate - the algorithm is consistent, but each seed reveals different facets of its potential. The interactive nature means users discover their own favorites by exploring the seed space.\n\n---\n\n## THE CREATIVE PROCESS\n\n**User request** → **Algorithmic philosophy** → **Implementation**\n\nEach request is unique. The process involves:\n\n1. **Interpret the user's intent** - What aesthetic is being sought?\n2. **Create an algorithmic philosophy** (4-6 paragraphs) describing the computational approach\n3. **Implement it in code** - Build the algorithm that expresses this philosophy\n4. **Design appropriate parameters** - What should be tunable?\n5. **Build matching UI controls** - Sliders/inputs for those parameters\n\n**The constants**:\n- Anthropic branding (colors, fonts, layout)\n- Seed navigation (always present)\n- Self-contained HTML artifact\n\n**Everything else is variable**:\n- The algorithm itself\n- The parameters\n- The UI controls\n- The visual outcome\n\nTo achieve the best results, trust creativity and let the philosophy guide the implementation.\n\n---\n\n## RESOURCES\n\nThis skill includes helpful templates and documentation:\n\n- **templates/viewer.html**: REQUIRED STARTING POINT for all HTML artifacts.\n  - This is the foundation - contains the exact structure and Anthropic branding\n  - **Keep unchanged**: Layout structure, sidebar organization, Anthropic colors/fonts, seed controls, action buttons\n  - **Replace**: The p5.js algorithm, parameter definitions, and UI controls in Parameters section\n  - The extensive comments in the file mark exactly what to keep vs replace\n\n- **templates/generator_template.js**: Reference for p5.js best practices and code structure principles.\n  - Shows how to organize parameters, use seeded randomness, structure classes\n  - NOT a pattern menu - use these principles to build unique algorithms\n  - Embed algorithms inline in the HTML artifact (don't create separate .js files)\n\n**Critical reminder**:\n- The **template is the STARTING POINT**, not inspiration\n- The **algorithm is where to create** something unique\n- Don't copy the flow field example - build what the philosophy demands\n- But DO keep the exact UI structure and Anthropic branding from the template"
+  },
+  {
+    "slug": "anthropic-brand-guidelines",
+    "name": "Anthropic Brand Guidelines",
+    "category": "design",
+    "description": "Apply Anthropic's official brand colors and typography to any artifact that benefits from the company look-and-feel.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/brand-guidelines",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "brand",
+      "design-system",
+      "typography",
+      "anthropic"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: brand-guidelines\ndescription: Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.\nlicense: Complete terms in LICENSE.txt\n---\n\n# Anthropic Brand Styling\n\n## Overview\n\nTo access Anthropic's official brand identity and style resources, use this skill.\n\n**Keywords**: branding, corporate identity, visual identity, post-processing, styling, brand colors, typography, Anthropic brand, visual formatting, visual design\n\n## Brand Guidelines\n\n### Colors\n\n**Main Colors:**\n\n- Dark: `#141413` - Primary text and dark backgrounds\n- Light: `#faf9f5` - Light backgrounds and text on dark\n- Mid Gray: `#b0aea5` - Secondary elements\n- Light Gray: `#e8e6dc` - Subtle backgrounds\n\n**Accent Colors:**\n\n- Orange: `#d97757` - Primary accent\n- Blue: `#6a9bcc` - Secondary accent\n- Green: `#788c5d` - Tertiary accent\n\n### Typography\n\n- **Headings**: Poppins (with Arial fallback)\n- **Body Text**: Lora (with Georgia fallback)\n- **Note**: Fonts should be pre-installed in your environment for best results\n\n## Features\n\n### Smart Font Application\n\n- Applies Poppins font to headings (24pt and larger)\n- Applies Lora font to body text\n- Automatically falls back to Arial/Georgia if custom fonts unavailable\n- Preserves readability across all systems\n\n### Text Styling\n\n- Headings (24pt+): Poppins font\n- Body text: Lora font\n- Smart color selection based on background\n- Preserves text hierarchy and formatting\n\n### Shape and Accent Colors\n\n- Non-text shapes use accent colors\n- Cycles through orange, blue, and green accents\n- Maintains visual interest while staying on-brand\n\n## Technical Details\n\n### Font Management\n\n- Uses system-installed Poppins and Lora fonts when available\n- Provides automatic fallback to Arial (headings) and Georgia (body)\n- No font installation required - works with existing system fonts\n- For best results, pre-install Poppins and Lora fonts in your environment\n\n### Color Application\n\n- Uses RGB color values for precise brand matching\n- Applied via python-pptx's RGBColor class\n- Maintains color fidelity across different systems\n"
+  },
+  {
+    "slug": "canvas-design",
+    "name": "Canvas Design",
+    "category": "design",
+    "description": "Create beautiful visual art in .png and .pdf documents using design philosophy — posters, art, and static pieces.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/canvas-design",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "poster",
+      "visual-design",
+      "pdf",
+      "art"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: canvas-design\ndescription: Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.\nlicense: Complete terms in LICENSE.txt\n---\n\nThese are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.\n\nComplete this in two steps:\n1. Design Philosophy Creation (.md file)\n2. Express by creating it on a canvas (.pdf file or .png file)\n\nFirst, undertake this task:\n\n## DESIGN PHILOSOPHY CREATION\n\nTo begin, create a VISUAL PHILOSOPHY (not layouts or templates) that will be interpreted through:\n- Form, space, color, composition\n- Images, graphics, shapes, patterns\n- Minimal text as visual accent\n\n### THE CRITICAL UNDERSTANDING\n- What is received: Some subtle input or instructions by the user that should be taken into account, but used as a foundation; it should not constrain creative freedom.\n- What is created: A design philosophy/aesthetic movement.\n- What happens next: Then, the same version receives the philosophy and EXPRESSES IT VISUALLY - creating artifacts that are 90% visual design, 10% essential text.\n\nConsider this approach:\n- Write a manifesto for an art movement\n- The next phase involves making the artwork\n\nThe philosophy must emphasize: Visual expression. Spatial communication. Artistic interpretation. Minimal words.\n\n### HOW TO GENERATE A VISUAL PHILOSOPHY\n\n**Name the movement** (1-2 words): \"Brutalist Joy\" / \"Chromatic Silence\" / \"Metabolist Dreams\"\n\n**Articulate the philosophy** (4-6 paragraphs - concise but complete):\n\nTo capture the VISUAL essence, express how the philosophy manifests through:\n- Space and form\n- Color and material\n- Scale and rhythm\n- Composition and balance\n- Visual hierarchy\n\n**CRITICAL GUIDELINES:**\n- **Avoid redundancy**: Each design aspect should be mentioned once. Avoid repeating points about color theory, spatial relationships, or typographic principles unless adding new depth.\n- **Emphasize craftsmanship REPEATEDLY**: The philosophy MUST stress multiple times that the final work should appear as though it took countless hours to create, was labored over with care, and comes from someone at the absolute top of their field. This framing is essential - repeat phrases like \"meticulously crafted,\" \"the product of deep expertise,\" \"painstaking attention,\" \"master-level execution.\"\n- **Leave creative space**: Remain specific about the aesthetic direction, but concise enough that the next Claude has room to make interpretive choices also at a extremely high level of craftmanship.\n\nThe philosophy must guide the next version to express ideas VISUALLY, not through text. Information lives in design, not paragraphs.\n\n### PHILOSOPHY EXAMPLES\n\n**\"Concrete Poetry\"**\nPhilosophy: Communication through monumental form and bold geometry.\nVisual expression: Massive color blocks, sculptural typography (huge single words, tiny labels), Brutalist spatial divisions, Polish poster energy meets Le Corbusier. Ideas expressed through visual weight and spatial tension, not explanation. Text as rare, powerful gesture - never paragraphs, only essential words integrated into the visual architecture. Every element placed with the precision of a master craftsman.\n\n**\"Chromatic Language\"**\nPhilosophy: Color as the primary information system.\nVisual expression: Geometric precision where color zones create meaning. Typography minimal - small sans-serif labels letting chromatic fields communicate. Think Josef Albers' interaction meets data visualization. Information encoded spatially and chromatically. Words only to anchor what color already shows. The result of painstaking chromatic calibration.\n\n**\"Analog Meditation\"**\nPhilosophy: Quiet visual contemplation through texture and breathing room.\nVisual expression: Paper grain, ink bleeds, vast negative space. Photography and illustration dominate. Typography whispered (small, restrained, serving the visual). Japanese photobook aesthetic. Images breathe across pages. Text appears sparingly - short phrases, never explanatory blocks. Each composition balanced with the care of a meditation practice.\n\n**\"Organic Systems\"**\nPhilosophy: Natural clustering and modular growth patterns.\nVisual expression: Rounded forms, organic arrangements, color from nature through architecture. Information shown through visual diagrams, spatial relationships, iconography. Text only for key labels floating in space. The composition tells the story through expert spatial orchestration.\n\n**\"Geometric Silence\"**\nPhilosophy: Pure order and restraint.\nVisual expression: Grid-based precision, bold photography or stark graphics, dramatic negative space. Typography precise but minimal - small essential text, large quiet zones. Swiss formalism meets Brutalist material honesty. Structure communicates, not words. Every alignment the work of countless refinements.\n\n*These are condensed examples. The actual design philosophy should be 4-6 substantial paragraphs.*\n\n### ESSENTIAL PRINCIPLES\n- **VISUAL PHILOSOPHY**: Create an aesthetic worldview to be expressed through design\n- **MINIMAL TEXT**: Always emphasize that text is sparse, essential-only, integrated as visual element - never lengthy\n- **SPATIAL EXPRESSION**: Ideas communicate through space, form, color, composition - not paragraphs\n- **ARTISTIC FREEDOM**: The next Claude interprets the philosophy visually - provide creative room\n- **PURE DESIGN**: This is about making ART OBJECTS, not documents with decoration\n- **EXPERT CRAFTSMANSHIP**: Repeatedly emphasize the final work must look meticulously crafted, labored over with care, the product of countless hours by someone at the top of their field\n\n**The design philosophy should be 4-6 paragraphs long.** Fill it with poetic design philosophy that brings together the core vision. Avoid repeating the same points. Keep the design philosophy generic without mentioning the intention of the art, as if it can be used wherever. Output the design philosophy as a .md file.\n\n---\n\n## DEDUCING THE SUBTLE REFERENCE\n\n**CRITICAL STEP**: Before creating the canvas, identify the subtle conceptual thread from the original request.\n\n**THE ESSENTIAL PRINCIPLE**:\nThe topic is a **subtle, niche reference embedded within the art itself** - not always literal, always sophisticated. Someone familiar with the subject should feel it intuitively, while others simply experience a masterful abstract composition. The design philosophy provides the aesthetic language. The deduced topic provides the soul - the quiet conceptual DNA woven invisibly into form, color, and composition.\n\nThis is **VERY IMPORTANT**: The reference must be refined so it enhances the work's depth without announcing itself. Think like a jazz musician quoting another song - only those who know will catch it, but everyone appreciates the music.\n\n---\n\n## CANVAS CREATION\n\nWith both the philosophy and the conceptual framework established, express it on a canvas. Take a moment to gather thoughts and clear the mind. Use the design philosophy created and the instructions below to craft a masterpiece, embodying all aspects of the philosophy with expert craftsmanship.\n\n**IMPORTANT**: For any type of content, even if the user requests something for a movie/game/book, the approach should still be sophisticated. Never lose sight of the idea that this should be art, not something that's cartoony or amateur.\n\nTo create museum or magazine quality work, use the design philosophy as the foundation. Create one single page, highly visual, design-forward PDF or PNG output (unless asked for more pages). Generally use repeating patterns and perfect shapes. Treat the abstract philosophical design as if it were a scientific bible, borrowing the visual language of systematic observation—dense accumulation of marks, repeated elements, or layered patterns that build meaning through patient repetition and reward sustained viewing. Add sparse, clinical typography and systematic reference markers that suggest this could be a diagram from an imaginary discipline, treating the invisible subject with the same reverence typically reserved for documenting observable phenomena. Anchor the piece with simple phrase(s) or details positioned subtly, using a limited color palette that feels intentional and cohesive. Embrace the paradox of using analytical visual language to express ideas about human experience: the result should feel like an artifact that proves something ephemeral can be studied, mapped, and understood through careful attention. This is true art. \n\n**Text as a contextual element**: Text is always minimal and visual-first, but let context guide whether that means whisper-quiet labels or bold typographic gestures. A punk venue poster might have larger, more aggressive type than a minimalist ceramics studio identity. Most of the time, font should be thin. All use of fonts must be design-forward and prioritize visual communication. Regardless of text scale, nothing falls off the page and nothing overlaps. Every element must be contained within the canvas boundaries with proper margins. Check carefully that all text, graphics, and visual elements have breathing room and clear separation. This is non-negotiable for professional execution. **IMPORTANT: Use different fonts if writing text. Search the `./canvas-fonts` directory. Regardless of approach, sophistication is non-negotiable.**\n\nDownload and use whatever fonts are needed to make this a reality. Get creative by making the typography actually part of the art itself -- if the art is abstract, bring the font onto the canvas, not typeset digitally.\n\nTo push boundaries, follow design instinct/intuition while using the philosophy as a guiding principle. Embrace ultimate design freedom and choice. Push aesthetics and design to the frontier. \n\n**CRITICAL**: To achieve human-crafted quality (not AI-generated), create work that looks like it took countless hours. Make it appear as though someone at the absolute top of their field labored over every detail with painstaking care. Ensure the composition, spacing, color choices, typography - everything screams expert-level craftsmanship. Double-check that nothing overlaps, formatting is flawless, every detail perfect. Create something that could be shown to people to prove expertise and rank as undeniably impressive.\n\nOutput the final result as a single, downloadable .pdf or .png file, alongside the design philosophy used as a .md file.\n\n---\n\n## FINAL STEP\n\n**IMPORTANT**: The user ALREADY said \"It isn't perfect enough. It must be pristine, a masterpiece if craftsmanship, as if it were about to be displayed in a museum.\"\n\n**CRITICAL**: To refine the work, avoid adding more graphics; instead refine what has been created and make it extremely crisp, respecting the design philosophy and the principles of minimalism entirely. Rather than adding a fun filter or refactoring a font, consider how to make the existing composition more cohesive with the art. If the instinct is to call a new function or draw a new shape, STOP and instead ask: \"How can I make what's already here more of a piece of art?\"\n\nTake a second pass. Go back to the code and refine/polish further to make this a philosophically designed masterpiece.\n\n## MULTI-PAGE OPTION\n\nTo create additional pages when requested, create more creative pages along the same lines as the design philosophy but distinctly different as well. Bundle those pages in the same .pdf or many .pngs. Treat the first page as just a single page in a whole coffee table book waiting to be filled. Make the next pages unique twists and memories of the original. Have them almost tell a story in a very tasteful way. Exercise full creative freedom."
+  },
+  {
+    "slug": "claude-api",
+    "name": "Claude API Reference",
+    "category": "coding",
+    "description": "Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, and model migration.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "claude",
+      "api",
+      "llm",
+      "reference"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: claude-api\ndescription: |-\n  Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration.\n  TRIGGER — read BEFORE opening the target file; don't skip because it \"looks like a one-liner\" — whenever: the prompt names Claude/Anthropic in any form (Claude, Anthropic, Fable, Opus, Sonnet, Haiku, `anthropic`, `@anthropic-ai`, `claude-*`, `us.anthropic.*`, `[1m]`); the user asks about an LLM (pricing/model choice/limits/caching) — never answer from memory; OR the task is LLM-shaped with provider unstated (agent/MCP/tool-definition/multi-agent/RAG/LLM-judge/computer-use; generate/summarize/extract/classify/rewrite/converse over NL; debugging refusals/cutoffs/streaming/tool-calls/tokens).\n  SKIP only when another provider is being worked on (overrides all triggers): OpenAI/GPT/Gemini/Llama/Mistral/Cohere/Ollama named in the query; OR `grep -rE 'openai|langchain_openai|google.generativeai|genai|mistralai|cohere|ollama'` over the project hits (run this grep FIRST if no provider named — don't Read the file).\nlicense: Complete terms in LICENSE.txt\n---\n\n# Building LLM-Powered Applications with Claude\n\nThis skill helps you build LLM-powered applications with Claude. Choose the right surface based on your needs, detect the project language, then read the relevant language-specific documentation.\n\n## Before You Start\n\nScan the target file (or, if no target file, the prompt and project) for non-Anthropic provider markers — `import openai`, `from openai`, `langchain_openai`, `OpenAI(`, `gpt-4`, `gpt-5`, file names like `agent-openai.py` or `*-generic.py`, or any explicit instruction to keep the code provider-neutral. If you find any, stop and tell the user that this skill produces Claude/Anthropic SDK code; ask whether they want to switch the file to Claude or want a non-Claude implementation. Do not edit a non-Anthropic file with Anthropic SDK calls.\n\n## Output Requirement\n\nWhen the user asks you to add, modify, or implement a Claude feature, your code must call Claude through one of:\n\n1. **The official Anthropic SDK** for the project's language (`anthropic`, `@anthropic-ai/sdk`, `com.anthropic.*`, etc.). This is the default whenever a supported SDK exists for the project.\n2. **Raw HTTP** (`curl`, `requests`, `fetch`, `httpx`, etc.) — only when the user explicitly asks for cURL/REST/raw HTTP, the project is a shell/cURL project, or the language has no official SDK.\n\nNever mix the two — don't reach for `requests`/`fetch` in a Python or TypeScript project just because it feels lighter. Never fall back to OpenAI-compatible shims.\n\n**Never guess SDK usage.** Function names, class names, namespaces, method signatures, and import paths must come from explicit documentation — either the `{lang}/` files in this skill or the official SDK repositories or documentation links listed in `shared/live-sources.md`. If the binding you need is not explicitly documented in the skill files, WebFetch the relevant SDK repo from `shared/live-sources.md` before writing code. Do not infer Ruby/Java/Go/PHP/C# APIs from cURL shapes or from another language's SDK.\n\n## Defaults\n\nUnless the user requests otherwise:\n\nFor the Claude model version, please use Claude Opus 4.8, which you can access via the exact model string `claude-opus-4-8`. Please default to using adaptive thinking (`thinking: {type: \"adaptive\"}`) for anything remotely complicated. And finally, please default to streaming for any request that may involve long input, long output, or high `max_tokens` — it prevents hitting request timeouts. Use the SDK's `.get_final_message()` / `.finalMessage()` helper to get the complete response if you don't need to handle individual stream events\n\n---\n\n## Subcommands\n\nIf the User Request at the bottom of this prompt is a bare subcommand string (no prose), search every **Subcommands** table in this document — including any in sections appended below — and follow the matching Action column directly. This lets users invoke specific flows via `/claude-api <subcommand>`. If no table in the document matches, treat the request as normal prose.\n\n| Subcommand | Action |\n|---|---|\n| `migrate` | Migrate existing Claude API code to a newer model. **Read `shared/model-migration.md` immediately** and follow it in order: Step 0 (confirm scope — ask which files/directories before any edit), Step 1 (classify each file), then the per-target breaking-changes section. Do not summarize the guide — execute it. If the user did not name a target model, ask which model to migrate to in the same turn as the scope question. |\n\n---\n\n## Language Detection\n\nBefore reading code examples, determine which language the user is working in:\n\n1. **Look at project files** to infer the language:\n\n   - `*.py`, `requirements.txt`, `pyproject.toml`, `setup.py`, `Pipfile` → **Python** — read from `python/`\n   - `*.ts`, `*.tsx`, `package.json`, `tsconfig.json` → **TypeScript** — read from `typescript/`\n   - `*.js`, `*.jsx` (no `.ts` files present) → **TypeScript** — JS uses the same SDK, read from `typescript/`\n   - `*.java`, `pom.xml`, `build.gradle` → **Java** — read from `java/`\n   - `*.kt`, `*.kts`, `build.gradle.kts` → **Java** — Kotlin uses the Java SDK, read from `java/`\n   - `*.scala`, `build.sbt` → **Java** — Scala uses the Java SDK, read from `java/`\n   - `*.go`, `go.mod` → **Go** — read from `go/`\n   - `*.rb`, `Gemfile` → **Ruby** — read from `ruby/`\n   - `*.cs`, `*.csproj` → **C#** — read from `csharp/`\n   - `*.php`, `composer.json` → **PHP** — read from `php/`\n\n2. **If multiple languages detected** (e.g., both Python and TypeScript files):\n\n   - Check which language the user's current file or question relates to\n   - If still ambiguous, ask: \"I detected both Python and TypeScript files. Which language are you using for the Claude API integration?\"\n\n3. **If language can't be inferred** (empty project, no source files, or unsupported language):\n\n   - Use AskUserQuestion with options: Python, TypeScript, Java, Go, Ruby, cURL/raw HTTP, C#, PHP\n   - If AskUserQuestion is unavailable, default to Python examples and note: \"Showing Python examples. Let me know if you need a different language.\"\n\n4. **If unsupported language detected** (Rust, Swift, C++, Elixir, etc.):\n\n   - Suggest cURL/raw HTTP examples from `curl/` and note that community SDKs may exist\n   - Offer to show Python or TypeScript examples as reference implementations\n\n5. **If user needs cURL/raw HTTP examples**, read from `curl/`.\n\n### Language-Specific Feature Support\n\n| Language   | Tool Runner | Managed Agents | Notes                                 |\n| ---------- | ----------- | -------------- | ------------------------------------- |\n| Python     | Yes (beta)  | Yes (beta)     | Full support — `@beta_tool` decorator |\n| TypeScript | Yes (beta)  | Yes (beta)     | Full support — `betaZodTool` + Zod    |\n| Java       | Yes (beta)  | Yes (beta)     | Beta tool use with annotated classes  |\n| Go         | Yes (beta)  | Yes (beta)     | `BetaToolRunner` in `toolrunner` pkg  |\n| Ruby       | Yes (beta)  | Yes (beta)     | `BaseTool` + `tool_runner` in beta    |\n| C#         | Yes (beta)  | Yes (beta)     | `BetaToolRunner` + raw JSON schema    |\n| PHP        | Yes (beta)  | Yes (beta)     | `BetaRunnableTool` + `toolRunner()`   |\n| cURL       | N/A         | Yes (beta)     | Raw HTTP, no SDK features             |\n\n> **Managed Agents code examples**: dedicated language-specific READMEs are provided for Python, TypeScript, Go, Ruby, PHP, Java, and cURL (`{lang}/managed-agents/README.md`, `curl/managed-agents.md`). Read your language's README plus the language-agnostic `shared/managed-agents-*.md` concept files. **Agents are persistent — create once, reference by ID.** Store the agent ID returned by `agents.create` and pass it to every subsequent `sessions.create`; do not call `agents.create` in the request path. The Anthropic CLI (`ant`) is one convenient way to create agents and environments from version-controlled YAML — see `shared/anthropic-cli.md`. If a binding you need isn't shown in the README, WebFetch the relevant entry from `shared/live-sources.md` rather than guess. C# has beta Managed Agents support via `client.Beta.Agents` and related namespaces.\n\n---\n\n## Which Surface Should I Use?\n\n> **Start simple.** Default to the simplest tier that meets your needs. Single API calls and workflows handle most use cases — only reach for agents when the task genuinely requires open-ended, model-driven exploration.\n\n| Use Case                                        | Tier            | Recommended Surface       | Why                                                          |\n| ----------------------------------------------- | --------------- | ------------------------- | ------------------------------------------------------------ |\n| Classification, summarization, extraction, Q&A  | Single LLM call | **Claude API**            | One request, one response                                    |\n| Batch processing or embeddings                  | Single LLM call | **Claude API**            | Specialized endpoints                                        |\n| Multi-step pipelines with code-controlled logic | Workflow        | **Claude API + tool use** | You orchestrate the loop                                     |\n| Custom agent with your own tools                | Agent           | **Claude API + tool use** | Maximum flexibility                                          |\n| Server-managed stateful agent with workspace    | Agent           | **Managed Agents**        | Anthropic runs the loop and hosts the tool-execution sandbox |\n| Persisted, versioned agent configs              | Agent           | **Managed Agents**        | Agents are stored objects; sessions pin to a version         |\n| Long-running multi-turn agent with file mounts  | Agent           | **Managed Agents**        | Per-session containers, SSE event stream, Skills + MCP       |\n\n> **Note:** Managed Agents is the right choice when you want Anthropic to run the agent loop *and* host the container where tools execute — file ops, bash, code execution all run in the per-session workspace. If you want to host the compute yourself or run your own custom tool runtime, Claude API + tool use is the right choice — use the tool runner for automatic loop handling, or the manual loop for fine-grained control (approval gates, custom logging, conditional execution).\n\n> **Cloud-provider access.** **Claude Platform on AWS** is Anthropic-operated with same-day API parity — Managed Agents and every feature in this skill work there, **except self-hosted sandboxes** (see `shared/claude-platform-on-aws.md`). **Amazon Bedrock**, **Google Vertex AI**, and **Microsoft Foundry** do **not** support Managed Agents or Anthropic server-side tools; use **Claude API + tool use** on those.\n\n### Decision Tree\n\n```\nWhat does your application need?\n\n0. Which provider?\n   ├── First-party API or Claude Platform on AWS → continue (full surface available).\n   └── Amazon Bedrock, Google Vertex AI, or Microsoft Foundry → Claude API (+ tool use for agents); Managed Agents not available there.\n\n1. Single LLM call (classification, summarization, extraction, Q&A)\n   └── Claude API — one request, one response\n\n2. Do you want Anthropic to run the agent loop and host a per-session\n   container where Claude executes tools (bash, file ops, code)?\n   └── Yes → Managed Agents — server-managed sessions, persisted agent configs,\n       SSE event stream, Skills + MCP, file mounts.\n       Examples: \"stateful coding agent with a workspace per task\",\n                 \"long-running research agent that streams events to a UI\",\n                 \"agent with persisted, versioned config used across many sessions\"\n\n3. Workflow (multi-step, code-orchestrated, with your own tools)\n   └── Claude API with tool use — you control the loop\n\n4. Open-ended agent (model decides its own trajectory, your own tools, you host the compute)\n   └── Claude API agentic loop (maximum flexibility)\n```\n\n### Should I Build an Agent?\n\nBefore choosing the agent tier, check all four criteria:\n\n- **Complexity** — Is the task multi-step and hard to fully specify in advance? (e.g., \"turn this design doc into a PR\" vs. \"extract the title from this PDF\")\n- **Value** — Does the outcome justify higher cost and latency?\n- **Viability** — Is Claude capable at this task type?\n- **Cost of error** — Can errors be caught and recovered from? (tests, review, rollback)\n\nIf the answer is \"no\" to any of these, stay at a simpler tier (single call or workflow).\n\n---\n\n## Architecture\n\nEverything goes through `POST /v1/messages`. Tools and output constraints are features of this single endpoint — not separate APIs.\n\n**User-defined tools** — You define tools (via decorators, Zod schemas, or raw JSON), and the SDK's tool runner handles calling the API, executing your functions, and looping until Claude is done. For full control, you can write the loop manually.\n\n**Server-side tools** — Anthropic-hosted tools that run on Anthropic's infrastructure. Code execution is fully server-side (declare it in `tools`, Claude runs code automatically). Computer use can be server-hosted or self-hosted.\n\n**Structured outputs** — Constrains the Messages API response format (`output_config.format`) and/or tool parameter validation (`strict: true`). The recommended approach is `client.messages.parse()` which validates responses against your schema automatically. Note: the old `output_format` parameter is deprecated; use `output_config: {format: {...}}` on `messages.create()`.\n\n**Supporting endpoints** — Batches (`POST /v1/messages/batches`), Files (`POST /v1/files`), Token Counting (`POST /v1/messages/count_tokens` — see `shared/token-counting.md`), and Models (`GET /v1/models`, `GET /v1/models/{id}` — live capability/context-window discovery) feed into or support Messages API requests.\n\n---\n\n## Current Models (cached: 2026-06-04)\n\n| Model             | Model ID            | Context        | Input $/1M | Output $/1M |\n| ----------------- | ------------------- | -------------- | ---------- | ----------- |\n| Claude Fable 5    | `claude-fable-5`      | 1M             | $10.00     | $50.00      |\n| Claude Mythos 5 (Project Glasswing only) | `claude-mythos-5` | 1M | $10.00     | $50.00      |\n| Claude Opus 4.8   | `claude-opus-4-8`   | 1M             | $5.00      | $25.00      |\n| Claude Opus 4.7   | `claude-opus-4-7`   | 1M             | $5.00      | $25.00      |\n| Claude Opus 4.6   | `claude-opus-4-6`   | 1M             | $5.00      | $25.00      |\n| Claude Sonnet 4.6 | `claude-sonnet-4-6` | 1M             | $3.00      | $15.00      |\n| Claude Haiku 4.5  | `claude-haiku-4-5`  | 200K           | $1.00      | $5.00       |\n\n**ALWAYS use `claude-opus-4-8` unless the user explicitly names a different model.** This is non-negotiable. Do not use `claude-sonnet-4-6`, `claude-sonnet-4-5`, or any other model unless the user literally says \"use sonnet\" or \"use haiku\". Never downgrade for cost — that's the user's decision, not yours. Use `claude-fable-5` only when the user explicitly asks for Claude Fable 5, \"fable\", or Anthropic's most capable model — it has different API behavior than the Opus family (see below) and pricing that exceeds Opus-tier.\n\n### Claude Fable 5 (`claude-fable-5`) — most capable widely released model\n\nClaude Fable 5 is Anthropic's most capable widely released model, for the most demanding reasoning and long-horizon agentic work. **Claude Mythos 5** (`claude-mythos-5`) offers the same capabilities, pricing, and API surface through Project Glasswing (participation is the only way to access it), succeeding the invitation-only Claude Mythos Preview (`claude-mythos-preview`) — everything below applies to both models. 1M context window (the maximum is also the default), 128K max output. Key API differences from Opus-tier — see `shared/model-migration.md` → Migrating to Claude Fable 5 for details:\n\n- **Thinking is always on** — omit the `thinking` parameter entirely (or send `{type: \"adaptive\"}`). Any other explicit configuration is rejected: `{type: \"disabled\"}` and `{type: \"enabled\", budget_tokens: N}` both return a 400. Control depth with `output_config.effort` (supports `low` through `xhigh` and `max`).\n- **Protected thinking = the raw chain of thought, not the summary** — responses carry regular `thinking` blocks (not `redacted_thinking`): `display: \"summarized\"` returns a readable summary, `\"omitted\"` (the default) leaves the `thinking` field as an empty string; the raw chain of thought is never exposed on any model. Replay rules: pass thinking blocks back exactly as received on the same model (including empty-text blocks — the API rejects *modified* blocks, not read ones); a **different** model **silently ignores** them (not an error), but ignored blocks still bill input tokens — strip them when switching models for good.\n- **New tokenizer** — the same content tokenizes to roughly 30% more tokens than on Opus-tier models. Don't reuse token counts or `max_tokens` settings measured on other models; re-baseline with `count_tokens`.\n- **`refusal` stop reason** — safety classifiers may decline a request (HTTP 200, `stop_reason: \"refusal\"`, with a `stop_details` category). A pre-output refusal has an empty `content` array and is not billed at all; a mid-stream refusal bills the already-streamed output — discard the partial output. Always check `stop_reason` before reading `content`. To retry on another model: the beta `fallbacks` parameter (Claude API and Claude Platform on AWS) retries server-side in one round trip; the GA SDKs' `BetaRefusalFallbackMiddleware` + `BetaFallbackState` handle client-side retry everywhere else (incl. Bedrock/Vertex); fallback credit refunds the cache-switch cost of client-side retries. See the migration guide's refusal section.\n- **No assistant prefill** — same as the rest of the 4.6+ family.\n- **30-day data retention required** — Claude Fable 5 is not available under zero data retention; requests from an org whose retention configuration doesn't meet the requirement return `400 invalid_request_error`.\n- **Longer turns, different prompting** — single requests on hard tasks can run many minutes (plan timeouts/streaming/progress UX); effort sweeps should include low/medium for routine work; prompts written for prior models are often too prescriptive and reduce output quality. See `shared/model-migration.md` → Migrating to Claude Fable 5 → Behavioral shifts (prompt-tunable) for the recommended prompt snippets (anti-overplanning, no-tidying, grounded progress claims, boundaries, async sub-agents, memory, `send_to_user`).\n\n**CRITICAL: Use only the exact model ID strings from the table above — they are complete as-is. Do not append date suffixes.** For example, use `claude-sonnet-4-6`, never `claude-sonnet-4-6-20251114` or any other date-suffixed variant you might recall from training data. If the user requests an older model not in the table (e.g., \"opus 4.5\", \"sonnet 3.7\"), read `shared/models.md` for the exact ID — do not construct one yourself.\n\nA note: if any of the model strings above look unfamiliar to you, that's to be expected — that just means they were released after your training data cutoff. Rest assured they are real models; we wouldn't mess with you like that.\n\n**Live capability lookup:** The table above is cached. When the user asks \"what's the context window for X\", \"does X support vision/thinking/effort\", or \"which models support Y\", query the Models API (`client.models.retrieve(id)` / `client.models.list()`) — see `shared/models.md` for the field reference and capability-filter examples.\n\n---\n\n## Thinking & Effort (Quick Reference)\n\n**Fable 5 / Opus 4.8 / 4.7 — Adaptive thinking only:** Use `thinking: {type: \"adaptive\"}`. `thinking: {type: \"enabled\", budget_tokens: N}` returns a 400 — adaptive is the only on-mode. On Opus 4.8 and 4.7, `{type: \"disabled\"}` and omitting `thinking` both work; on Fable 5, an explicit `{type: \"disabled\"}` returns a 400 — omit the `thinking` param entirely instead. Sampling parameters (`temperature`, `top_p`, `top_k`) are also removed and will 400. Opus 4.8 keeps the same request surface as 4.7 (no new breaking changes) — see `shared/model-migration.md` → Migrating to Opus 4.8 for the behavioral re-tuning, and → Migrating to Opus 4.7 for the full breaking-change list when coming from 4.6 or earlier. Note: with `thinking` disabled, Opus 4.8 may write longer reasoning into the visible response — leave adaptive thinking on, or add a final-answer-only instruction (see the migration guide).\n**Opus 4.6 — Adaptive thinking (recommended):** Use `thinking: {type: \"adaptive\"}`. Claude dynamically decides when and how much to think. No `budget_tokens` needed — `budget_tokens` is deprecated on Opus 4.6 and Sonnet 4.6 and should not be used for new code. Adaptive thinking also automatically enables interleaved thinking (no beta header needed). **When the user asks for \"extended thinking\", a \"thinking budget\", or `budget_tokens`: always use Fable 5, Opus 4.8, 4.7, or 4.6 with `thinking: {type: \"adaptive\"}`. The concept of a fixed token budget for thinking is deprecated — adaptive thinking replaces it. Do NOT use `budget_tokens` for new 4.6/4.7/4.8 code and do NOT switch to an older model.** *Gradual-migration carve-out:* `budget_tokens` is still functional on Opus 4.6 and Sonnet 4.6 as a transitional escape hatch — if you're migrating existing code and need a hard token ceiling before you've tuned `effort`, see `shared/model-migration.md` → Transitional escape hatch. Note: this carve-out does **not** apply to Fable 5, Opus 4.7 or 4.8 — `budget_tokens` is fully removed there.\n**Effort parameter (GA, no beta header):** Controls thinking depth and overall token spend via `output_config: {effort: \"low\"|\"medium\"|\"high\"|\"max\"}` (inside `output_config`, not top-level). Default is `high` (equivalent to omitting it). `max` is supported on Fable 5, Opus 4.6 and later, and Sonnet 4.6 (not Haiku or earlier Sonnets). Opus 4.7 added `\"xhigh\"` (between `high` and `max`) — the best setting for most coding and agentic use cases on Fable 5 / Opus 4.7/4.8, and the default in Claude Code; use a minimum of `high` for most intelligence-sensitive work. Works on Fable 5, Opus 4.5, Opus 4.6, Opus 4.7, Opus 4.8, and Sonnet 4.6. Will error on Sonnet 4.5 / Haiku 4.5. On Fable 5, Opus 4.7 and 4.8, effort matters more than on any prior Opus — re-tune it when migrating, and run long-horizon/agentic tasks at `high`/`xhigh` with the full task spec given up front. Combine with adaptive thinking for the best cost-quality tradeoffs. Lower effort means fewer and more-consolidated tool calls, less preamble, and terser confirmations — `high` is often the sweet spot balancing quality and token efficiency; use `max` when correctness matters more than cost; use `low` for subagents or simple tasks.\n\n**Thinking display — `\"omitted\"` by default on Fable 5 / Mythos 5 / Opus 4.8 / 4.7:** `display: \"summarized\"` returns a readable summary of the reasoning; `\"omitted\"` (the default on all four — a silent change from Opus 4.6, where it was `\"summarized\"`) streams `thinking` blocks with empty text. `display` controls visibility only — thinking happens and is billed the same under every setting; the raw chain of thought is never exposed on any model. If you stream reasoning to users, the default looks like a long pause before output — set `thinking: {type: \"adaptive\", display: \"summarized\"}` explicitly. (Independent of display, echo thinking blocks back unchanged when continuing on the same model; other models silently ignore them — see the migration guide.)\n\n**Task Budgets (beta, Fable 5 / Opus 4.7 / 4.8):** `output_config: {task_budget: {type: \"tokens\", total: N}}` tells the model how many tokens it has for a full agentic loop — it sees a running countdown and self-moderates (minimum 20,000; beta header `task-budgets-2026-03-13`). Distinct from `max_tokens`, which is an enforced per-response ceiling the model is not aware of. See `shared/model-migration.md` → Task Budgets.\n\n**Sonnet 4.6:** Supports adaptive thinking (`thinking: {type: \"adaptive\"}`). `budget_tokens` is deprecated on Sonnet 4.6 — use adaptive thinking instead.\n\n**Older models (only if explicitly requested):** If the user specifically asks for Sonnet 4.5 or another older model, use `thinking: {type: \"enabled\", budget_tokens: N}`. `budget_tokens` must be less than `max_tokens` (minimum 1024). Never choose an older model just because the user mentions `budget_tokens` — use Opus 4.8 with adaptive thinking instead.\n\n---\n\n## Compaction (Quick Reference)\n\n**Beta, Fable 5, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6.** For long-running conversations that may exceed the 1M context window, enable server-side compaction. The API automatically summarizes earlier context when it approaches the trigger threshold (default: 150K tokens). Requires beta header `compact-2026-01-12`.\n\n**Critical:** Append `response.content` (not just the text) back to your messages on every turn. Compaction blocks in the response must be preserved — the API uses them to replace the compacted history on the next request. Extracting only the text string and appending that will silently lose the compaction state.\n\nSee `{lang}/claude-api/README.md` (Compaction section) for code examples. Full docs via WebFetch in `shared/live-sources.md`.\n\n---\n\n## Prompt Caching (Quick Reference)\n\n**Prefix match.** Any byte change anywhere in the prefix invalidates everything after it. Render order is `tools` → `system` → `messages`. Keep stable content first (frozen system prompt, deterministic tool list), put volatile content (timestamps, per-request IDs, varying questions) after the last `cache_control` breakpoint.\n\n**Mid-conversation operator instructions** (beta header `mid-conversation-system-2026-04-07`, on supporting models): append `{\"role\": \"system\", ...}` to `messages[]` instead of editing top-level `system`. Preserves the cached history prefix and is the prompt-injection-safe operator channel. See `shared/prompt-caching.md` § Mid-conversation system messages.\n\n**Top-level auto-caching** (`cache_control: {type: \"ephemeral\"}` on `messages.create()`) is the simplest option when you don't need fine-grained placement. Max 4 breakpoints per request. Minimum cacheable prefix is ~1024 tokens — shorter prefixes silently won't cache.\n\n**Verify with `usage.cache_read_input_tokens`** — if it's zero across repeated requests, a silent invalidator is at work (`datetime.now()` in system prompt, unsorted JSON, varying tool set).\n\nFor placement patterns, architectural guidance, and the silent-invalidator audit checklist: read `shared/prompt-caching.md`. Language-specific syntax: `{lang}/claude-api/README.md` (Prompt Caching section).\n\n---\n\n## Managed Agents (Beta)\n\n**Managed Agents** is a third surface: server-managed stateful agents with Anthropic-hosted tool execution. You create a persisted, versioned Agent config (`POST /v1/agents`), then start Sessions that reference it. Each session provisions a container as the agent's workspace — bash, file ops, and code execution run there; the agent loop itself runs on Anthropic's orchestration layer and acts on the container via tools. The session streams events; you send messages and tool results back.\n\n**Managed Agents is available on the first-party API and Claude Platform on AWS.** It is **not** available on Amazon Bedrock, Google Vertex AI, or Microsoft Foundry — for agents there, use Claude API + tool use.\n\n**Mandatory flow:** Agent (once) → Session (every run). `model`/`system`/`tools` live on the agent, never the session. See `shared/managed-agents-overview.md` for the full reading guide, beta headers, and pitfalls.\n\n**Beta headers:** `managed-agents-2026-04-01` — the SDK sets this automatically for all `client.beta.{agents,environments,sessions,vaults,memory_stores,deployments,deployment_runs}.*` calls. Skills API uses `skills-2025-10-02` and Files API uses `files-api-2025-04-14`, but you don't need to explicitly pass those in for endpoints other than `/v1/skills` and `/v1/files`.\n\n**Subcommands** — invoke directly with `/claude-api <subcommand>`:\n\n| Subcommand | Action |\n|---|---|\n| `managed-agents-onboard` | Walk the user through setting up a Managed Agent from scratch. **Read `shared/managed-agents-onboarding.md` immediately** and follow its interview script: mental model → know-or-explore branch → template config → session setup → **pre-flight viability check** → emit code. The viability check (reconcile the stated job against configured tools/credentials/data) catches under-resourced setups — missing a tool, credential, or data access — before the agent burns budget. Do not summarize — run the interview. |\n\n**Reading guide:** Start with `shared/managed-agents-overview.md`, then the topical `shared/managed-agents-*.md` files (core, environments, tools, events, outcomes, multiagent, webhooks, memory, scheduled-deployments, client-patterns, onboarding, api-reference). For Python, TypeScript, Go, Ruby, PHP, and Java, read `{lang}/managed-agents/README.md` for code examples. For cURL, read `curl/managed-agents.md`. **Agents are persistent — create once, reference by ID.** Store the agent ID returned by `agents.create` and pass it to every subsequent `sessions.create`; do not call `agents.create` in the request path. The Anthropic CLI (`ant`) is one convenient way to create agents and environments from version-controlled YAML — see `shared/anthropic-cli.md`. If a binding you need isn't shown in the language README, WebFetch the relevant entry from `shared/live-sources.md` rather than guess. C# has beta Managed Agents support via `client.Beta.Agents` and related namespaces.\n\n**When the user wants to set up a Managed Agent from scratch** (e.g. \"how do I get started\", \"walk me through creating one\", \"set up a new agent\"): read `shared/managed-agents-onboarding.md` and run its interview — same flow as the `managed-agents-onboard` subcommand.\n\n**When the user asks \"how do I write the client code for X\":** reach for `shared/managed-agents-client-patterns.md` — covers lossless stream reconnect, `processed_at` queued/processed gate, interrupt, `tool_confirmation` round-trip, the correct idle/terminated break gate, post-idle status race, stream-first ordering, file-mount gotchas, keeping credentials host-side via custom tools, etc.\n\n**When the user wants the agent to run on a schedule** (cron, \"every night\", \"weekly report\"): read `shared/managed-agents-scheduled-deployments.md` — deployments fire sessions autonomously on a cron cadence, with run records, retries, and auto-pause.\n\n\n---\n\n## Reading Guide\n\nAfter detecting the language, read the relevant files based on what the user needs:\n\n### Quick Task Reference\n\n**Single text classification/summarization/extraction/Q&A:**\n→ Read only `{lang}/claude-api/README.md`\n\n**Chat UI or real-time response display:**\n→ Read `{lang}/claude-api/README.md` + `{lang}/claude-api/streaming.md`\n\n**Long-running conversations (may exceed context window):**\n→ Read `{lang}/claude-api/README.md` — see Compaction section\n**Migrating to a newer model (Fable 5 / Opus 4.8 / Opus 4.7 / Opus 4.6 / Sonnet 4.6) or replacing a retired model:**\n→ Read `shared/model-migration.md`\n**Prompting or tuning Fable 5 (long turns, effort, verbosity, autonomous runs, sub-agents):**\n→ Read `shared/model-migration.md` → Migrating to Fable 5 → Behavioral shifts (prompt-tunable) + Long-running agent recommendations\n**Prompt caching / optimize caching / \"why is my cache hit rate low\":**\n→ Read `shared/prompt-caching.md` + `{lang}/claude-api/README.md` (Prompt Caching section)\n**Count tokens in a file / prompt / diff (\"how many tokens is X\"):**\n→ Read `shared/token-counting.md` — use `messages.count_tokens`, never `tiktoken`\n\n**Function calling / tool use / agents:**\n→ Read `{lang}/claude-api/README.md` + `shared/tool-use-concepts.md` + `{lang}/claude-api/tool-use.md`\n\n**Agent design (tool surface, context management, caching strategy):**\n→ Read `shared/agent-design.md`\n\n**Batch processing (non-latency-sensitive):**\n→ Read `{lang}/claude-api/README.md` + `{lang}/claude-api/batches.md`\n\n**File uploads across multiple requests:**\n→ Read `{lang}/claude-api/README.md` + `{lang}/claude-api/files-api.md`\n\n**Managed Agents (server-managed stateful agents with workspace):**\n→ Read `shared/managed-agents-overview.md` + the rest of the `shared/managed-agents-*.md` files. For Python, TypeScript, Go, Ruby, PHP, and Java, read `{lang}/managed-agents/README.md` for code examples. For cURL, read `curl/managed-agents.md`. **Agents are persistent — create once, reference by ID.** Store the agent ID returned by `agents.create` and pass it to every subsequent `sessions.create`; do not call `agents.create` in the request path. The Anthropic CLI (`ant`) is one convenient way to create agents and environments from version-controlled YAML — see `shared/anthropic-cli.md`. If a binding you need isn't shown in the language README, WebFetch the relevant entry from `shared/live-sources.md` rather than guess. C# has beta Managed Agents support — see `csharp/claude-api.md` for details, or `curl/managed-agents.md` for raw HTTP reference.\n\n### Claude API (Full File Reference)\n\nRead the **language-specific Claude API folder** (`{language}/claude-api/`):\n\n1. **`{language}/claude-api/README.md`** — **Read this first.** Installation, quick start, common patterns, error handling.\n2. **`shared/tool-use-concepts.md`** — Read when the user needs function calling, code execution, memory, or structured outputs. Covers conceptual foundations.\n3. **`shared/agent-design.md`** — Read when designing an agent: bash vs. dedicated tools, programmatic tool calling, tool search/skills, context editing vs. compaction vs. memory, caching principles.\n4. **`{language}/claude-api/tool-use.md`** — Read for language-specific tool use code examples (tool runner, manual loop, code execution, memory, structured outputs).\n5. **`{language}/claude-api/streaming.md`** — Read when building chat UIs or interfaces that display responses incrementally.\n6. **`{language}/claude-api/batches.md`** — Read when processing many requests offline (not latency-sensitive). Runs asynchronously at 50% cost.\n7. **`{language}/claude-api/files-api.md`** — Read when sending the same file across multiple requests without re-uploading.\n8. **`shared/prompt-caching.md`** — Read when adding or optimizing prompt caching. Covers prefix-stability design, breakpoint placement, and anti-patterns that silently invalidate cache.\n9. **`shared/error-codes.md`** — Read when debugging HTTP errors or implementing error handling.\n10. **`shared/model-migration.md`** — Read when upgrading to newer models, replacing retired models, or translating `budget_tokens` / prefill patterns to the current API.\n11. **`shared/live-sources.md`** — WebFetch URLs for fetching the latest official documentation.\n\n> **Note:** For Java, Go, Ruby, C#, PHP, and cURL — these have a single file each covering all basics. Read that file plus `shared/tool-use-concepts.md` and `shared/error-codes.md` as needed.\n\n> **Note:** For the Managed Agents file reference, see the `## Managed Agents (Beta)` section above — it lists every `shared/managed-agents-*.md` file and the language-specific READMEs.\n\n---\n\n## When to Use WebFetch\n\nUse WebFetch to get the latest documentation when:\n\n- User asks for \"latest\" or \"current\" information\n- Cached data seems incorrect\n- User asks about features not covered here\n\nLive documentation URLs are in `shared/live-sources.md`.\n\n## Common Pitfalls\n\n- Don't truncate inputs when passing files or content to the API. If the content is too long to fit in the context window, notify the user and discuss options (chunking, summarization, etc.) rather than silently truncating.\n- **Fable 5 / Opus 4.8 / 4.7 thinking:** Adaptive only. `thinking: {type: \"enabled\", budget_tokens: N}` returns 400 — `budget_tokens` is fully removed (along with `temperature`, `top_p`, `top_k`). Use `thinking: {type: \"adaptive\"}`. Opus 4.8 inherits this surface from 4.7 with no new breaking changes; Fable 5 adds one — an explicit `thinking: {type: \"disabled\"}` returns a 400 (accepted on 4.7/4.8); omit the param instead.\n- **Opus 4.6 / Sonnet 4.6 thinking:** Use `thinking: {type: \"adaptive\"}` — do NOT use `budget_tokens` for new 4.6 code (deprecated on both Opus 4.6 and Sonnet 4.6; for gradual migration of existing code, see the transitional escape hatch in `shared/model-migration.md` — note this carve-out does not apply to Fable 5, Opus 4.7 or 4.8). For older models, `budget_tokens` must be less than `max_tokens` (minimum 1024). This will throw an error if you get it wrong.\n- **Prefill removed (Fable 5 and the 4.6/4.7/4.8 family):** Assistant message prefills (last-assistant-turn prefills) return a 400 error on Fable 5, Opus 4.6, Opus 4.7, Opus 4.8, and Sonnet 4.6. Use structured outputs (`output_config.format`) or system prompt instructions to control response format instead. (One exception: the fallback-credit prefill claim — when redeeming a credit with `fallback_has_prefill_claim: true`, the server accepts the echoed assistant message; see the migration guide's refusal section.)\n- **Fable 5 `refusal` stop reason:** Safety classifiers may decline a request — a successful HTTP 200 with `stop_reason: \"refusal\"` (pre-output: empty `content`, nothing billed; mid-stream: partial output billed — discard it). Check `stop_reason` before reading `response.content[0]`, or you'll hit index errors on refused requests. To retry on another model, replaying history as-is works — other models silently ignore the refused model's thinking blocks — but ignored blocks still bill input tokens, so strip them when switching for good (exception: a fallback-credit redemption must echo the refused body exactly, thinking blocks included).\n- **Fable 5 tokenizer:** ~30% more tokens for the same content vs Opus-tier models. Token counts, context-window budgets, and `max_tokens` values measured on other models don't transfer — re-measure with `count_tokens` passing `model: \"claude-fable-5\"` (the response includes counts under both tokenizers).\n- **Confirm migration scope before editing:** When a user asks to migrate code to a newer Claude model without naming a specific file, directory, or file list, **ask which scope to apply first** — the entire working directory, a specific subdirectory, or a specific set of files. Do not start editing until the user confirms. Imperative phrasings like \"migrate my codebase\", \"move my project to X\", \"upgrade to Sonnet 4.6\", or bare \"migrate to Opus 4.8\" are **still ambiguous** — they tell you what to do but not where, so ask. Proceed without asking only when the prompt names an exact file, a specific directory, or an explicit file list (\"migrate `app.py`\", \"migrate everything under `services/`\", \"update `a.py` and `b.py`\"). See `shared/model-migration.md` Step 0.\n- **`max_tokens` defaults:** Don't lowball `max_tokens` — hitting the cap truncates output mid-thought and requires a retry. For non-streaming requests, default to `~16000` (keeps responses under SDK HTTP timeouts). For streaming requests, default to `~64000` (timeouts aren't a concern, so give the model room). Only go lower when you have a hard reason: classification (`~256`), cost caps, deliberately short outputs, or **`max_tokens: 0`** for cache pre-warming (see `shared/prompt-caching.md` → Pre-warming).\n- **128K output tokens:** Fable 5, Opus 4.6, Opus 4.7, and Opus 4.8 support up to 128K `max_tokens`, but the SDKs require streaming for values that large to avoid HTTP timeouts. Use `.stream()` with `.get_final_message()` / `.finalMessage()`.\n- **Tool call JSON parsing (Fable 5 and the 4.6/4.7/4.8 family):** Fable 5, Opus 4.6, Opus 4.7, Opus 4.8, and Sonnet 4.6 may produce different JSON string escaping in tool call `input` fields (e.g., Unicode or forward-slash escaping). Always parse tool inputs with `json.loads()` / `JSON.parse()` — never do raw string matching on the serialized input.\n- **Structured outputs (all models):** Use `output_config: {format: {...}}` instead of the deprecated `output_format` parameter on `messages.create()`. This is a general API change, not 4.6-specific.\n- **Don't reimplement SDK functionality:** The SDK provides high-level helpers — use them instead of building from scratch. Specifically: use `stream.finalMessage()` instead of wrapping `.on()` events in `new Promise()`; use typed exception classes (`Anthropic.RateLimitError`, etc.) instead of string-matching error messages; use SDK types (`Anthropic.MessageParam`, `Anthropic.Tool`, `Anthropic.Message`, etc.) instead of redefining equivalent interfaces.\n- **Don't define custom types for SDK data structures:** The SDK exports types for all API objects. Use `Anthropic.MessageParam` for messages, `Anthropic.Tool` for tool definitions, `Anthropic.ToolUseBlock` / `Anthropic.ToolResultBlockParam` for tool results, `Anthropic.Message` for responses. Defining your own `interface ChatMessage { role: string; content: unknown }` duplicates what the SDK already provides and loses type safety.\n- **Report and document output:** For tasks that produce reports, documents, or visualizations, the code execution sandbox has `python-docx`, `python-pptx`, `matplotlib`, `pillow`, and `pypdf` pre-installed. Claude can generate formatted files (DOCX, PDF, charts) and return them via the Files API — consider this for \"report\" or \"document\" type requests instead of plain stdout text.\n"
+  },
+  {
+    "slug": "doc-coauthoring",
+    "name": "Doc Co-Authoring",
+    "category": "writing",
+    "description": "Structured workflow for co-authoring documentation, proposals, specs, and decision docs — context gathering, refinement, and reader testing.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "documentation",
+      "writing",
+      "collaboration",
+      "specs"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: doc-coauthoring\ndescription: Structured workflow for co-authoring documentation, proposals, specs, and decision docs — context gathering, refinement, and reader testing.\n---\n\n# Doc Co-Authoring\n\nThis is an official Anthropic skill, distributed by Anthropic in the\n[anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring) repository.\n\nSkill Me lists it for discovery and provenance, but does not redistribute its\nbody (it ships without an open license upstream).\n\n## Get the full skill\n\n- Install from source: `npx skills add anthropics/skills`\n- Or browse it directly: https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring\n- Several Anthropic skills also ship built-in with Claude Code and claude.ai.\n"
+  },
+  {
+    "slug": "docx",
+    "name": "Word Documents (docx)",
+    "category": "productivity",
+    "description": "Create, read, edit, and manipulate Word (.docx) documents — formatting, tables of contents, tracked changes, comments, and find-and-replace.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/docx",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "word",
+      "docx",
+      "documents",
+      "office"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: docx\ndescription: Create, read, edit, and manipulate Word (.docx) documents — formatting, tables of contents, tracked changes, comments, and find-and-replace.\n---\n\n# Word Documents (docx)\n\nThis is an official Anthropic skill, distributed by Anthropic in the\n[anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/docx) repository.\n\nSkill Me lists it for discovery and provenance, but does not redistribute its\nbody (it is proprietary — © Anthropic, PBC, all rights reserved).\n\n## Get the full skill\n\n- Install from source: `npx skills add anthropics/skills`\n- Or browse it directly: https://github.com/anthropics/skills/tree/main/skills/docx\n- Several Anthropic skills also ship built-in with Claude Code and claude.ai.\n"
+  },
+  {
+    "slug": "internal-comms",
+    "name": "Internal Comms",
+    "category": "writing",
+    "description": "Write internal communications — status reports, leadership updates, newsletters, FAQs, incident reports — in the formats teams expect.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/internal-comms",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "internal-comms",
+      "status-updates",
+      "writing",
+      "business"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: internal-comms\ndescription: A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).\nlicense: Complete terms in LICENSE.txt\n---\n\n## When to use this skill\nTo write internal communications, use this skill for:\n- 3P updates (Progress, Plans, Problems)\n- Company newsletters\n- FAQ responses\n- Status reports\n- Leadership updates\n- Project updates\n- Incident reports\n\n## How to use this skill\n\nTo write any internal communication:\n\n1. **Identify the communication type** from the request\n2. **Load the appropriate guideline file** from the `examples/` directory:\n    - `examples/3p-updates.md` - For Progress/Plans/Problems team updates\n    - `examples/company-newsletter.md` - For company-wide newsletters\n    - `examples/faq-answers.md` - For answering frequently asked questions\n    - `examples/general-comms.md` - For anything else that doesn't explicitly match one of the above\n3. **Follow the specific instructions** in that file for formatting, tone, and content gathering\n\nIf the communication type doesn't match any existing guideline, ask for clarification or more context about the desired format.\n\n## Keywords\n3P updates, company newsletter, company comms, weekly update, faqs, common questions, updates, internal comms\n"
+  },
+  {
+    "slug": "anthropic-mcp-builder",
+    "name": "MCP Builder (Anthropic)",
+    "category": "coding",
+    "description": "Build high-quality MCP servers that let LLMs interact with external services through well-designed tools (Python FastMCP or Node/TypeScript SDK).",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "mcp",
+      "tools",
+      "integration",
+      "servers"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: mcp-builder\ndescription: Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).\nlicense: Complete terms in LICENSE.txt\n---\n\n# MCP Server Development Guide\n\n## Overview\n\nCreate MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. The quality of an MCP server is measured by how well it enables LLMs to accomplish real-world tasks.\n\n---\n\n# Process\n\n## 🚀 High-Level Workflow\n\nCreating a high-quality MCP server involves four main phases:\n\n### Phase 1: Deep Research and Planning\n\n#### 1.1 Understand Modern MCP Design\n\n**API Coverage vs. Workflow Tools:**\nBalance comprehensive API endpoint coverage with specialized workflow tools. Workflow tools can be more convenient for specific tasks, while comprehensive coverage gives agents flexibility to compose operations. Performance varies by client—some clients benefit from code execution that combines basic tools, while others work better with higher-level workflows. When uncertain, prioritize comprehensive API coverage.\n\n**Tool Naming and Discoverability:**\nClear, descriptive tool names help agents find the right tools quickly. Use consistent prefixes (e.g., `github_create_issue`, `github_list_repos`) and action-oriented naming.\n\n**Context Management:**\nAgents benefit from concise tool descriptions and the ability to filter/paginate results. Design tools that return focused, relevant data. Some clients support code execution which can help agents filter and process data efficiently.\n\n**Actionable Error Messages:**\nError messages should guide agents toward solutions with specific suggestions and next steps.\n\n#### 1.2 Study MCP Protocol Documentation\n\n**Navigate the MCP specification:**\n\nStart with the sitemap to find relevant pages: `https://modelcontextprotocol.io/sitemap.xml`\n\nThen fetch specific pages with `.md` suffix for markdown format (e.g., `https://modelcontextprotocol.io/specification/draft.md`).\n\nKey pages to review:\n- Specification overview and architecture\n- Transport mechanisms (streamable HTTP, stdio)\n- Tool, resource, and prompt definitions\n\n#### 1.3 Study Framework Documentation\n\n**Recommended stack:**\n- **Language**: TypeScript (high-quality SDK support and good compatibility in many execution environments e.g. MCPB. Plus AI models are good at generating TypeScript code, benefiting from its broad usage, static typing and good linting tools)\n- **Transport**: Streamable HTTP for remote servers, using stateless JSON (simpler to scale and maintain, as opposed to stateful sessions and streaming responses). stdio for local servers.\n\n**Load framework documentation:**\n\n- **MCP Best Practices**: [📋 View Best Practices](./reference/mcp_best_practices.md) - Core guidelines\n\n**For TypeScript (recommended):**\n- **TypeScript SDK**: Use WebFetch to load `https://raw.githubusercontent.com/modelcontextprotocol/typescript-sdk/main/README.md`\n- [⚡ TypeScript Guide](./reference/node_mcp_server.md) - TypeScript patterns and examples\n\n**For Python:**\n- **Python SDK**: Use WebFetch to load `https://raw.githubusercontent.com/modelcontextprotocol/python-sdk/main/README.md`\n- [🐍 Python Guide](./reference/python_mcp_server.md) - Python patterns and examples\n\n#### 1.4 Plan Your Implementation\n\n**Understand the API:**\nReview the service's API documentation to identify key endpoints, authentication requirements, and data models. Use web search and WebFetch as needed.\n\n**Tool Selection:**\nPrioritize comprehensive API coverage. List endpoints to implement, starting with the most common operations.\n\n---\n\n### Phase 2: Implementation\n\n#### 2.1 Set Up Project Structure\n\nSee language-specific guides for project setup:\n- [⚡ TypeScript Guide](./reference/node_mcp_server.md) - Project structure, package.json, tsconfig.json\n- [🐍 Python Guide](./reference/python_mcp_server.md) - Module organization, dependencies\n\n#### 2.2 Implement Core Infrastructure\n\nCreate shared utilities:\n- API client with authentication\n- Error handling helpers\n- Response formatting (JSON/Markdown)\n- Pagination support\n\n#### 2.3 Implement Tools\n\nFor each tool:\n\n**Input Schema:**\n- Use Zod (TypeScript) or Pydantic (Python)\n- Include constraints and clear descriptions\n- Add examples in field descriptions\n\n**Output Schema:**\n- Define `outputSchema` where possible for structured data\n- Use `structuredContent` in tool responses (TypeScript SDK feature)\n- Helps clients understand and process tool outputs\n\n**Tool Description:**\n- Concise summary of functionality\n- Parameter descriptions\n- Return type schema\n\n**Implementation:**\n- Async/await for I/O operations\n- Proper error handling with actionable messages\n- Support pagination where applicable\n- Return both text content and structured data when using modern SDKs\n\n**Annotations:**\n- `readOnlyHint`: true/false\n- `destructiveHint`: true/false\n- `idempotentHint`: true/false\n- `openWorldHint`: true/false\n\n---\n\n### Phase 3: Review and Test\n\n#### 3.1 Code Quality\n\nReview for:\n- No duplicated code (DRY principle)\n- Consistent error handling\n- Full type coverage\n- Clear tool descriptions\n\n#### 3.2 Build and Test\n\n**TypeScript:**\n- Run `npm run build` to verify compilation\n- Test with MCP Inspector: `npx @modelcontextprotocol/inspector`\n\n**Python:**\n- Verify syntax: `python -m py_compile your_server.py`\n- Test with MCP Inspector\n\nSee language-specific guides for detailed testing approaches and quality checklists.\n\n---\n\n### Phase 4: Create Evaluations\n\nAfter implementing your MCP server, create comprehensive evaluations to test its effectiveness.\n\n**Load [✅ Evaluation Guide](./reference/evaluation.md) for complete evaluation guidelines.**\n\n#### 4.1 Understand Evaluation Purpose\n\nUse evaluations to test whether LLMs can effectively use your MCP server to answer realistic, complex questions.\n\n#### 4.2 Create 10 Evaluation Questions\n\nTo create effective evaluations, follow the process outlined in the evaluation guide:\n\n1. **Tool Inspection**: List available tools and understand their capabilities\n2. **Content Exploration**: Use READ-ONLY operations to explore available data\n3. **Question Generation**: Create 10 complex, realistic questions\n4. **Answer Verification**: Solve each question yourself to verify answers\n\n#### 4.3 Evaluation Requirements\n\nEnsure each question is:\n- **Independent**: Not dependent on other questions\n- **Read-only**: Only non-destructive operations required\n- **Complex**: Requiring multiple tool calls and deep exploration\n- **Realistic**: Based on real use cases humans would care about\n- **Verifiable**: Single, clear answer that can be verified by string comparison\n- **Stable**: Answer won't change over time\n\n#### 4.4 Output Format\n\nCreate an XML file with this structure:\n\n```xml\n<evaluation>\n  <qa_pair>\n    <question>Find discussions about AI model launches with animal codenames. One model needed a specific safety designation that uses the format ASL-X. What number X was being determined for the model named after a spotted wild cat?</question>\n    <answer>3</answer>\n  </qa_pair>\n<!-- More qa_pairs... -->\n</evaluation>\n```\n\n---\n\n# Reference Files\n\n## 📚 Documentation Library\n\nLoad these resources as needed during development:\n\n### Core MCP Documentation (Load First)\n- **MCP Protocol**: Start with sitemap at `https://modelcontextprotocol.io/sitemap.xml`, then fetch specific pages with `.md` suffix\n- [📋 MCP Best Practices](./reference/mcp_best_practices.md) - Universal MCP guidelines including:\n  - Server and tool naming conventions\n  - Response format guidelines (JSON vs Markdown)\n  - Pagination best practices\n  - Transport selection (streamable HTTP vs stdio)\n  - Security and error handling standards\n\n### SDK Documentation (Load During Phase 1/2)\n- **Python SDK**: Fetch from `https://raw.githubusercontent.com/modelcontextprotocol/python-sdk/main/README.md`\n- **TypeScript SDK**: Fetch from `https://raw.githubusercontent.com/modelcontextprotocol/typescript-sdk/main/README.md`\n\n### Language-Specific Implementation Guides (Load During Phase 2)\n- [🐍 Python Implementation Guide](./reference/python_mcp_server.md) - Complete Python/FastMCP guide with:\n  - Server initialization patterns\n  - Pydantic model examples\n  - Tool registration with `@mcp.tool`\n  - Complete working examples\n  - Quality checklist\n\n- [⚡ TypeScript Implementation Guide](./reference/node_mcp_server.md) - Complete TypeScript guide with:\n  - Project structure\n  - Zod schema patterns\n  - Tool registration with `server.registerTool`\n  - Complete working examples\n  - Quality checklist\n\n### Evaluation Guide (Load During Phase 4)\n- [✅ Evaluation Guide](./reference/evaluation.md) - Complete evaluation creation guide with:\n  - Question creation guidelines\n  - Answer verification strategies\n  - XML format specifications\n  - Example questions and answers\n  - Running an evaluation with the provided scripts\n"
+  },
+  {
+    "slug": "pdf",
+    "name": "PDF Processing",
+    "category": "productivity",
+    "description": "Do anything with PDFs — extract text/tables, merge/split, rotate, watermark, fill forms, encrypt/decrypt, extract images, and OCR scanned files.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/pdf",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "pdf",
+      "documents",
+      "forms",
+      "ocr"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: pdf\ndescription: Do anything with PDFs — extract text/tables, merge/split, rotate, watermark, fill forms, encrypt/decrypt, extract images, and OCR scanned files.\n---\n\n# PDF Processing\n\nThis is an official Anthropic skill, distributed by Anthropic in the\n[anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/pdf) repository.\n\nSkill Me lists it for discovery and provenance, but does not redistribute its\nbody (it is proprietary — © Anthropic, PBC, all rights reserved).\n\n## Get the full skill\n\n- Install from source: `npx skills add anthropics/skills`\n- Or browse it directly: https://github.com/anthropics/skills/tree/main/skills/pdf\n- Several Anthropic skills also ship built-in with Claude Code and claude.ai.\n"
+  },
+  {
+    "slug": "pptx",
+    "name": "PowerPoint (pptx)",
+    "category": "productivity",
+    "description": "Create, read, edit, and combine PowerPoint (.pptx) decks — slides, layouts, templates, speaker notes, and comments.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/pptx",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "powerpoint",
+      "pptx",
+      "slides",
+      "presentations"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: pptx\ndescription: Create, read, edit, and combine PowerPoint (.pptx) decks — slides, layouts, templates, speaker notes, and comments.\n---\n\n# PowerPoint (pptx)\n\nThis is an official Anthropic skill, distributed by Anthropic in the\n[anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/pptx) repository.\n\nSkill Me lists it for discovery and provenance, but does not redistribute its\nbody (it is proprietary — © Anthropic, PBC, all rights reserved).\n\n## Get the full skill\n\n- Install from source: `npx skills add anthropics/skills`\n- Or browse it directly: https://github.com/anthropics/skills/tree/main/skills/pptx\n- Several Anthropic skills also ship built-in with Claude Code and claude.ai.\n"
+  },
+  {
+    "slug": "anthropic-skill-creator",
+    "name": "Skill Creator (Anthropic)",
+    "category": "productivity",
+    "description": "Create, modify, and measure Agent Skills — scaffold a skill from scratch, optimize its triggering description, and benchmark performance.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "skills",
+      "meta",
+      "authoring",
+      "evals"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: skill-creator\ndescription: Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.\n---\n\n# Skill Creator\n\nA skill for creating new skills and iteratively improving them.\n\nAt a high level, the process of creating a skill goes like this:\n\n- Decide what you want the skill to do and roughly how it should do it\n- Write a draft of the skill\n- Create a few test prompts and run claude-with-access-to-the-skill on them\n- Help the user evaluate the results both qualitatively and quantitatively\n  - While the runs happen in the background, draft some quantitative evals if there aren't any (if there are some, you can either use as is or modify if you feel something needs to change about them). Then explain them to the user (or if they already existed, explain the ones that already exist)\n  - Use the `eval-viewer/generate_review.py` script to show the user the results for them to look at, and also let them look at the quantitative metrics\n- Rewrite the skill based on feedback from the user's evaluation of the results (and also if there are any glaring flaws that become apparent from the quantitative benchmarks)\n- Repeat until you're satisfied\n- Expand the test set and try again at larger scale\n\nYour job when using this skill is to figure out where the user is in this process and then jump in and help them progress through these stages. So for instance, maybe they're like \"I want to make a skill for X\". You can help narrow down what they mean, write a draft, write the test cases, figure out how they want to evaluate, run all the prompts, and repeat.\n\nOn the other hand, maybe they already have a draft of the skill. In this case you can go straight to the eval/iterate part of the loop.\n\nOf course, you should always be flexible and if the user is like \"I don't need to run a bunch of evaluations, just vibe with me\", you can do that instead.\n\nThen after the skill is done (but again, the order is flexible), you can also run the skill description improver, which we have a whole separate script for, to optimize the triggering of the skill.\n\nCool? Cool.\n\n## Communicating with the user\n\nThe skill creator is liable to be used by people across a wide range of familiarity with coding jargon. If you haven't heard (and how could you, it's only very recently that it started), there's a trend now where the power of Claude is inspiring plumbers to open up their terminals, parents and grandparents to google \"how to install npm\". On the other hand, the bulk of users are probably fairly computer-literate.\n\nSo please pay attention to context cues to understand how to phrase your communication! In the default case, just to give you some idea:\n\n- \"evaluation\" and \"benchmark\" are borderline, but OK\n- for \"JSON\" and \"assertion\" you want to see serious cues from the user that they know what those things are before using them without explaining them\n\nIt's OK to briefly explain terms if you're in doubt, and feel free to clarify terms with a short definition if you're unsure if the user will get it.\n\n---\n\n## Creating a skill\n\n### Capture Intent\n\nStart by understanding the user's intent. The current conversation might already contain a workflow the user wants to capture (e.g., they say \"turn this into a skill\"). If so, extract answers from the conversation history first — the tools used, the sequence of steps, corrections the user made, input/output formats observed. The user may need to fill the gaps, and should confirm before proceeding to the next step.\n\n1. What should this skill enable Claude to do?\n2. When should this skill trigger? (what user phrases/contexts)\n3. What's the expected output format?\n4. Should we set up test cases to verify the skill works? Skills with objectively verifiable outputs (file transforms, data extraction, code generation, fixed workflow steps) benefit from test cases. Skills with subjective outputs (writing style, art) often don't need them. Suggest the appropriate default based on the skill type, but let the user decide.\n\n### Interview and Research\n\nProactively ask questions about edge cases, input/output formats, example files, success criteria, and dependencies. Wait to write test prompts until you've got this part ironed out.\n\nCheck available MCPs - if useful for research (searching docs, finding similar skills, looking up best practices), research in parallel via subagents if available, otherwise inline. Come prepared with context to reduce burden on the user.\n\n### Write the SKILL.md\n\nBased on the user interview, fill in these components:\n\n- **name**: Skill identifier\n- **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All \"when to use\" info goes here, not in the body. Note: currently Claude has a tendency to \"undertrigger\" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit \"pushy\". So for instance, instead of \"How to build a simple fast dashboard to display internal Anthropic data.\", you might write \"How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'\"\n- **compatibility**: Required tools, dependencies (optional, rarely needed)\n- **the rest of the skill :)**\n\n### Skill Writing Guide\n\n#### Anatomy of a Skill\n\n```\nskill-name/\n├── SKILL.md (required)\n│   ├── YAML frontmatter (name, description required)\n│   └── Markdown instructions\n└── Bundled Resources (optional)\n    ├── scripts/    - Executable code for deterministic/repetitive tasks\n    ├── references/ - Docs loaded into context as needed\n    └── assets/     - Files used in output (templates, icons, fonts)\n```\n\n#### Progressive Disclosure\n\nSkills use a three-level loading system:\n1. **Metadata** (name + description) - Always in context (~100 words)\n2. **SKILL.md body** - In context whenever skill triggers (<500 lines ideal)\n3. **Bundled resources** - As needed (unlimited, scripts can execute without loading)\n\nThese word counts are approximate and you can feel free to go longer if needed.\n\n**Key patterns:**\n- Keep SKILL.md under 500 lines; if you're approaching this limit, add an additional layer of hierarchy along with clear pointers about where the model using the skill should go next to follow up.\n- Reference files clearly from SKILL.md with guidance on when to read them\n- For large reference files (>300 lines), include a table of contents\n\n**Domain organization**: When a skill supports multiple domains/frameworks, organize by variant:\n```\ncloud-deploy/\n├── SKILL.md (workflow + selection)\n└── references/\n    ├── aws.md\n    ├── gcp.md\n    └── azure.md\n```\nClaude reads only the relevant reference file.\n\n#### Principle of Lack of Surprise\n\nThis goes without saying, but skills must not contain malware, exploit code, or any content that could compromise system security. A skill's contents should not surprise the user in their intent if described. Don't go along with requests to create misleading skills or skills designed to facilitate unauthorized access, data exfiltration, or other malicious activities. Things like a \"roleplay as an XYZ\" are OK though.\n\n#### Writing Patterns\n\nPrefer using the imperative form in instructions.\n\n**Defining output formats** - You can do it like this:\n```markdown\n## Report structure\nALWAYS use this exact template:\n# [Title]\n## Executive summary\n## Key findings\n## Recommendations\n```\n\n**Examples pattern** - It's useful to include examples. You can format them like this (but if \"Input\" and \"Output\" are in the examples you might want to deviate a little):\n```markdown\n## Commit message format\n**Example 1:**\nInput: Added user authentication with JWT tokens\nOutput: feat(auth): implement JWT-based authentication\n```\n\n### Writing Style\n\nTry to explain to the model why things are important in lieu of heavy-handed musty MUSTs. Use theory of mind and try to make the skill general and not super-narrow to specific examples. Start by writing a draft and then look at it with fresh eyes and improve it.\n\n### Test Cases\n\nAfter writing the skill draft, come up with 2-3 realistic test prompts — the kind of thing a real user would actually say. Share them with the user: [you don't have to use this exact language] \"Here are a few test cases I'd like to try. Do these look right, or do you want to add more?\" Then run them.\n\nSave test cases to `evals/evals.json`. Don't write assertions yet — just the prompts. You'll draft assertions in the next step while the runs are in progress.\n\n```json\n{\n  \"skill_name\": \"example-skill\",\n  \"evals\": [\n    {\n      \"id\": 1,\n      \"prompt\": \"User's task prompt\",\n      \"expected_output\": \"Description of expected result\",\n      \"files\": []\n    }\n  ]\n}\n```\n\nSee `references/schemas.md` for the full schema (including the `assertions` field, which you'll add later).\n\n## Running and evaluating test cases\n\nThis section is one continuous sequence — don't stop partway through. Do NOT use `/skill-test` or any other testing skill.\n\nPut results in `<skill-name>-workspace/` as a sibling to the skill directory. Within the workspace, organize results by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test case gets a directory (`eval-0/`, `eval-1/`, etc.). Don't create all of this upfront — just create directories as you go.\n\n### Step 1: Spawn all runs (with-skill AND baseline) in the same turn\n\nFor each test case, spawn two subagents in the same turn — one with the skill, one without. This is important: don't spawn the with-skill runs first and then come back for baselines later. Launch everything at once so it all finishes around the same time.\n\n**With-skill run:**\n\n```\nExecute this task:\n- Skill path: <path-to-skill>\n- Task: <eval prompt>\n- Input files: <eval files if any, or \"none\">\n- Save outputs to: <workspace>/iteration-<N>/eval-<ID>/with_skill/outputs/\n- Outputs to save: <what the user cares about — e.g., \"the .docx file\", \"the final CSV\">\n```\n\n**Baseline run** (same prompt, but the baseline depends on context):\n- **Creating a new skill**: no skill at all. Same prompt, no skill path, save to `without_skill/outputs/`.\n- **Improving an existing skill**: the old version. Before editing, snapshot the skill (`cp -r <skill-path> <workspace>/skill-snapshot/`), then point the baseline subagent at the snapshot. Save to `old_skill/outputs/`.\n\nWrite an `eval_metadata.json` for each test case (assertions can be empty for now). Give each eval a descriptive name based on what it's testing — not just \"eval-0\". Use this name for the directory too. If this iteration uses new or modified eval prompts, create these files for each new eval directory — don't assume they carry over from previous iterations.\n\n```json\n{\n  \"eval_id\": 0,\n  \"eval_name\": \"descriptive-name-here\",\n  \"prompt\": \"The user's task prompt\",\n  \"assertions\": []\n}\n```\n\n### Step 2: While runs are in progress, draft assertions\n\nDon't just wait for the runs to finish — you can use this time productively. Draft quantitative assertions for each test case and explain them to the user. If assertions already exist in `evals/evals.json`, review them and explain what they check.\n\nGood assertions are objectively verifiable and have descriptive names — they should read clearly in the benchmark viewer so someone glancing at the results immediately understands what each one checks. Subjective skills (writing style, design quality) are better evaluated qualitatively — don't force assertions onto things that need human judgment.\n\nUpdate the `eval_metadata.json` files and `evals/evals.json` with the assertions once drafted. Also explain to the user what they'll see in the viewer — both the qualitative outputs and the quantitative benchmark.\n\n### Step 3: As runs complete, capture timing data\n\nWhen each subagent task completes, you receive a notification containing `total_tokens` and `duration_ms`. Save this data immediately to `timing.json` in the run directory:\n\n```json\n{\n  \"total_tokens\": 84852,\n  \"duration_ms\": 23332,\n  \"total_duration_seconds\": 23.3\n}\n```\n\nThis is the only opportunity to capture this data — it comes through the task notification and isn't persisted elsewhere. Process each notification as it arrives rather than trying to batch them.\n\n### Step 4: Grade, aggregate, and launch the viewer\n\nOnce all runs are done:\n\n1. **Grade each run** — spawn a grader subagent (or grade inline) that reads `agents/grader.md` and evaluates each assertion against the outputs. Save results to `grading.json` in each run directory. The grading.json expectations array must use the fields `text`, `passed`, and `evidence` (not `name`/`met`/`details` or other variants) — the viewer depends on these exact field names. For assertions that can be checked programmatically, write and run a script rather than eyeballing it — scripts are faster, more reliable, and can be reused across iterations.\n\n2. **Aggregate into benchmark** — run the aggregation script from the skill-creator directory:\n   ```bash\n   python -m scripts.aggregate_benchmark <workspace>/iteration-N --skill-name <name>\n   ```\n   This produces `benchmark.json` and `benchmark.md` with pass_rate, time, and tokens for each configuration, with mean ± stddev and the delta. If generating benchmark.json manually, see `references/schemas.md` for the exact schema the viewer expects.\nPut each with_skill version before its baseline counterpart.\n\n3. **Do an analyst pass** — read the benchmark data and surface patterns the aggregate stats might hide. See `agents/analyzer.md` (the \"Analyzing Benchmark Results\" section) for what to look for — things like assertions that always pass regardless of skill (non-discriminating), high-variance evals (possibly flaky), and time/token tradeoffs.\n\n4. **Launch the viewer** with both qualitative outputs and quantitative data:\n   ```bash\n   nohup python <skill-creator-path>/eval-viewer/generate_review.py \\\n     <workspace>/iteration-N \\\n     --skill-name \"my-skill\" \\\n     --benchmark <workspace>/iteration-N/benchmark.json \\\n     > /dev/null 2>&1 &\n   VIEWER_PID=$!\n   ```\n   For iteration 2+, also pass `--previous-workspace <workspace>/iteration-<N-1>`.\n\n   **Cowork / headless environments:** If `webbrowser.open()` is not available or the environment has no display, use `--static <output_path>` to write a standalone HTML file instead of starting a server. Feedback will be downloaded as a `feedback.json` file when the user clicks \"Submit All Reviews\". After download, copy `feedback.json` into the workspace directory for the next iteration to pick up.\n\nNote: please use generate_review.py to create the viewer; there's no need to write custom HTML.\n\n5. **Tell the user** something like: \"I've opened the results in your browser. There are two tabs — 'Outputs' lets you click through each test case and leave feedback, 'Benchmark' shows the quantitative comparison. When you're done, come back here and let me know.\"\n\n### What the user sees in the viewer\n\nThe \"Outputs\" tab shows one test case at a time:\n- **Prompt**: the task that was given\n- **Output**: the files the skill produced, rendered inline where possible\n- **Previous Output** (iteration 2+): collapsed section showing last iteration's output\n- **Formal Grades** (if grading was run): collapsed section showing assertion pass/fail\n- **Feedback**: a textbox that auto-saves as they type\n- **Previous Feedback** (iteration 2+): their comments from last time, shown below the textbox\n\nThe \"Benchmark\" tab shows the stats summary: pass rates, timing, and token usage for each configuration, with per-eval breakdowns and analyst observations.\n\nNavigation is via prev/next buttons or arrow keys. When done, they click \"Submit All Reviews\" which saves all feedback to `feedback.json`.\n\n### Step 5: Read the feedback\n\nWhen the user tells you they're done, read `feedback.json`:\n\n```json\n{\n  \"reviews\": [\n    {\"run_id\": \"eval-0-with_skill\", \"feedback\": \"the chart is missing axis labels\", \"timestamp\": \"...\"},\n    {\"run_id\": \"eval-1-with_skill\", \"feedback\": \"\", \"timestamp\": \"...\"},\n    {\"run_id\": \"eval-2-with_skill\", \"feedback\": \"perfect, love this\", \"timestamp\": \"...\"}\n  ],\n  \"status\": \"complete\"\n}\n```\n\nEmpty feedback means the user thought it was fine. Focus your improvements on the test cases where the user had specific complaints.\n\nKill the viewer server when you're done with it:\n\n```bash\nkill $VIEWER_PID 2>/dev/null\n```\n\n---\n\n## Improving the skill\n\nThis is the heart of the loop. You've run the test cases, the user has reviewed the results, and now you need to make the skill better based on their feedback.\n\n### How to think about improvements\n\n1. **Generalize from the feedback.** The big picture thing that's happening here is that we're trying to create skills that can be used a million times (maybe literally, maybe even more who knows) across many different prompts. Here you and the user are iterating on only a few examples over and over again because it helps move faster. The user knows these examples in and out and it's quick for them to assess new outputs. But if the skill you and the user are codeveloping works only for those examples, it's useless. Rather than put in fiddly overfitty changes, or oppressively constrictive MUSTs, if there's some stubborn issue, you might try branching out and using different metaphors, or recommending different patterns of working. It's relatively cheap to try and maybe you'll land on something great.\n\n2. **Keep the prompt lean.** Remove things that aren't pulling their weight. Make sure to read the transcripts, not just the final outputs — if it looks like the skill is making the model waste a bunch of time doing things that are unproductive, you can try getting rid of the parts of the skill that are making it do that and seeing what happens.\n\n3. **Explain the why.** Try hard to explain the **why** behind everything you're asking the model to do. Today's LLMs are *smart*. They have good theory of mind and when given a good harness can go beyond rote instructions and really make things happen. Even if the feedback from the user is terse or frustrated, try to actually understand the task and why the user is writing what they wrote, and what they actually wrote, and then transmit this understanding into the instructions. If you find yourself writing ALWAYS or NEVER in all caps, or using super rigid structures, that's a yellow flag — if possible, reframe and explain the reasoning so that the model understands why the thing you're asking for is important. That's a more humane, powerful, and effective approach.\n\n4. **Look for repeated work across test cases.** Read the transcripts from the test runs and notice if the subagents all independently wrote similar helper scripts or took the same multi-step approach to something. If all 3 test cases resulted in the subagent writing a `create_docx.py` or a `build_chart.py`, that's a strong signal the skill should bundle that script. Write it once, put it in `scripts/`, and tell the skill to use it. This saves every future invocation from reinventing the wheel.\n\nThis task is pretty important (we are trying to create billions a year in economic value here!) and your thinking time is not the blocker; take your time and really mull things over. I'd suggest writing a draft revision and then looking at it anew and making improvements. Really do your best to get into the head of the user and understand what they want and need.\n\n### The iteration loop\n\nAfter improving the skill:\n\n1. Apply your improvements to the skill\n2. Rerun all test cases into a new `iteration-<N+1>/` directory, including baseline runs. If you're creating a new skill, the baseline is always `without_skill` (no skill) — that stays the same across iterations. If you're improving an existing skill, use your judgment on what makes sense as the baseline: the original version the user came in with, or the previous iteration.\n3. Launch the reviewer with `--previous-workspace` pointing at the previous iteration\n4. Wait for the user to review and tell you they're done\n5. Read the new feedback, improve again, repeat\n\nKeep going until:\n- The user says they're happy\n- The feedback is all empty (everything looks good)\n- You're not making meaningful progress\n\n---\n\n## Advanced: Blind comparison\n\nFor situations where you want a more rigorous comparison between two versions of a skill (e.g., the user asks \"is the new version actually better?\"), there's a blind comparison system. Read `agents/comparator.md` and `agents/analyzer.md` for the details. The basic idea is: give two outputs to an independent agent without telling it which is which, and let it judge quality. Then analyze why the winner won.\n\nThis is optional, requires subagents, and most users won't need it. The human review loop is usually sufficient.\n\n---\n\n## Description Optimization\n\nThe description field in SKILL.md frontmatter is the primary mechanism that determines whether Claude invokes a skill. After creating or improving a skill, offer to optimize the description for better triggering accuracy.\n\n### Step 1: Generate trigger eval queries\n\nCreate 20 eval queries — a mix of should-trigger and should-not-trigger. Save as JSON:\n\n```json\n[\n  {\"query\": \"the user prompt\", \"should_trigger\": true},\n  {\"query\": \"another prompt\", \"should_trigger\": false}\n]\n```\n\nThe queries must be realistic and something a Claude Code or Claude.ai user would actually type. Not abstract requests, but requests that are concrete and specific and have a good amount of detail. For instance, file paths, personal context about the user's job or situation, column names and values, company names, URLs. A little bit of backstory. Some might be in lowercase or contain abbreviations or typos or casual speech. Use a mix of different lengths, and focus on edge cases rather than making them clear-cut (the user will get a chance to sign off on them).\n\nBad: `\"Format this data\"`, `\"Extract text from PDF\"`, `\"Create a chart\"`\n\nGood: `\"ok so my boss just sent me this xlsx file (its in my downloads, called something like 'Q4 sales final FINAL v2.xlsx') and she wants me to add a column that shows the profit margin as a percentage. The revenue is in column C and costs are in column D i think\"`\n\nFor the **should-trigger** queries (8-10), think about coverage. You want different phrasings of the same intent — some formal, some casual. Include cases where the user doesn't explicitly name the skill or file type but clearly needs it. Throw in some uncommon use cases and cases where this skill competes with another but should win.\n\nFor the **should-not-trigger** queries (8-10), the most valuable ones are the near-misses — queries that share keywords or concepts with the skill but actually need something different. Think adjacent domains, ambiguous phrasing where a naive keyword match would trigger but shouldn't, and cases where the query touches on something the skill does but in a context where another tool is more appropriate.\n\nThe key thing to avoid: don't make should-not-trigger queries obviously irrelevant. \"Write a fibonacci function\" as a negative test for a PDF skill is too easy — it doesn't test anything. The negative cases should be genuinely tricky.\n\n### Step 2: Review with user\n\nPresent the eval set to the user for review using the HTML template:\n\n1. Read the template from `assets/eval_review.html`\n2. Replace the placeholders:\n   - `__EVAL_DATA_PLACEHOLDER__` → the JSON array of eval items (no quotes around it — it's a JS variable assignment)\n   - `__SKILL_NAME_PLACEHOLDER__` → the skill's name\n   - `__SKILL_DESCRIPTION_PLACEHOLDER__` → the skill's current description\n3. Write to a temp file (e.g., `/tmp/eval_review_<skill-name>.html`) and open it: `open /tmp/eval_review_<skill-name>.html`\n4. The user can edit queries, toggle should-trigger, add/remove entries, then click \"Export Eval Set\"\n5. The file downloads to `~/Downloads/eval_set.json` — check the Downloads folder for the most recent version in case there are multiple (e.g., `eval_set (1).json`)\n\nThis step matters — bad eval queries lead to bad descriptions.\n\n### Step 3: Run the optimization loop\n\nTell the user: \"This will take some time — I'll run the optimization loop in the background and check on it periodically.\"\n\nSave the eval set to the workspace, then run in the background:\n\n```bash\npython -m scripts.run_loop \\\n  --eval-set <path-to-trigger-eval.json> \\\n  --skill-path <path-to-skill> \\\n  --model <model-id-powering-this-session> \\\n  --max-iterations 5 \\\n  --verbose\n```\n\nUse the model ID from your system prompt (the one powering the current session) so the triggering test matches what the user actually experiences.\n\nWhile it runs, periodically tail the output to give the user updates on which iteration it's on and what the scores look like.\n\nThis handles the full optimization loop automatically. It splits the eval set into 60% train and 40% held-out test, evaluates the current description (running each query 3 times to get a reliable trigger rate), then calls Claude to propose improvements based on what failed. It re-evaluates each new description on both train and test, iterating up to 5 times. When it's done, it opens an HTML report in the browser showing the results per iteration and returns JSON with `best_description` — selected by test score rather than train score to avoid overfitting.\n\n### How skill triggering works\n\nUnderstanding the triggering mechanism helps design better eval queries. Skills appear in Claude's `available_skills` list with their name + description, and Claude decides whether to consult a skill based on that description. The important thing to know is that Claude only consults skills for tasks it can't easily handle on its own — simple, one-step queries like \"read this PDF\" may not trigger a skill even if the description matches perfectly, because Claude can handle them directly with basic tools. Complex, multi-step, or specialized queries reliably trigger skills when the description matches.\n\nThis means your eval queries should be substantive enough that Claude would actually benefit from consulting a skill. Simple queries like \"read file X\" are poor test cases — they won't trigger skills regardless of description quality.\n\n### Step 4: Apply the result\n\nTake `best_description` from the JSON output and update the skill's SKILL.md frontmatter. Show the user before/after and report the scores.\n\n---\n\n### Package and Present (only if `present_files` tool is available)\n\nCheck whether you have access to the `present_files` tool. If you don't, skip this step. If you do, package the skill and present the .skill file to the user:\n\n```bash\npython -m scripts.package_skill <path/to/skill-folder>\n```\n\nAfter packaging, direct the user to the resulting `.skill` file path so they can install it.\n\n---\n\n## Claude.ai-specific instructions\n\nIn Claude.ai, the core workflow is the same (draft → test → review → improve → repeat), but because Claude.ai doesn't have subagents, some mechanics change. Here's what to adapt:\n\n**Running test cases**: No subagents means no parallel execution. For each test case, read the skill's SKILL.md, then follow its instructions to accomplish the test prompt yourself. Do them one at a time. This is less rigorous than independent subagents (you wrote the skill and you're also running it, so you have full context), but it's a useful sanity check — and the human review step compensates. Skip the baseline runs — just use the skill to complete the task as requested.\n\n**Reviewing results**: If you can't open a browser (e.g., Claude.ai's VM has no display, or you're on a remote server), skip the browser reviewer entirely. Instead, present results directly in the conversation. For each test case, show the prompt and the output. If the output is a file the user needs to see (like a .docx or .xlsx), save it to the filesystem and tell them where it is so they can download and inspect it. Ask for feedback inline: \"How does this look? Anything you'd change?\"\n\n**Benchmarking**: Skip the quantitative benchmarking — it relies on baseline comparisons which aren't meaningful without subagents. Focus on qualitative feedback from the user.\n\n**The iteration loop**: Same as before — improve the skill, rerun the test cases, ask for feedback — just without the browser reviewer in the middle. You can still organize results into iteration directories on the filesystem if you have one.\n\n**Description optimization**: This section requires the `claude` CLI tool (specifically `claude -p`) which is only available in Claude Code. Skip it if you're on Claude.ai.\n\n**Blind comparison**: Requires subagents. Skip it.\n\n**Packaging**: The `package_skill.py` script works anywhere with Python and a filesystem. On Claude.ai, you can run it and the user can download the resulting `.skill` file.\n\n**Updating an existing skill**: The user might be asking you to update an existing skill, not create a new one. In this case:\n- **Preserve the original name.** Note the skill's directory name and `name` frontmatter field -- use them unchanged. E.g., if the installed skill is `research-helper`, output `research-helper.skill` (not `research-helper-v2`).\n- **Copy to a writeable location before editing.** The installed skill path may be read-only. Copy to `/tmp/skill-name/`, edit there, and package from the copy.\n- **If packaging manually, stage in `/tmp/` first**, then copy to the output directory -- direct writes may fail due to permissions.\n\n---\n\n## Cowork-Specific Instructions\n\nIf you're in Cowork, the main things to know are:\n\n- You have subagents, so the main workflow (spawn test cases in parallel, run baselines, grade, etc.) all works. (However, if you run into severe problems with timeouts, it's OK to run the test prompts in series rather than parallel.)\n- You don't have a browser or display, so when generating the eval viewer, use `--static <output_path>` to write a standalone HTML file instead of starting a server. Then proffer a link that the user can click to open the HTML in their browser.\n- For whatever reason, the Cowork setup seems to disincline Claude from generating the eval viewer after running the tests, so just to reiterate: whether you're in Cowork or in Claude Code, after running tests, you should always generate the eval viewer for the human to look at examples before revising the skill yourself and trying to make corrections, using `generate_review.py` (not writing your own boutique html code). Sorry in advance but I'm gonna go all caps here: GENERATE THE EVAL VIEWER *BEFORE* evaluating inputs yourself. You want to get them in front of the human ASAP!\n- Feedback works differently: since there's no running server, the viewer's \"Submit All Reviews\" button will download `feedback.json` as a file. You can then read it from there (you may have to request access first).\n- Packaging works — `package_skill.py` just needs Python and a filesystem.\n- Description optimization (`run_loop.py` / `run_eval.py`) should work in Cowork just fine since it uses `claude -p` via subprocess, not a browser, but please save it until you've fully finished making the skill and the user agrees it's in good shape.\n- **Updating an existing skill**: The user might be asking you to update an existing skill, not create a new one. Follow the update guidance in the claude.ai section above.\n\n---\n\n## Reference files\n\nThe agents/ directory contains instructions for specialized subagents. Read them when you need to spawn the relevant subagent.\n\n- `agents/grader.md` — How to evaluate assertions against outputs\n- `agents/comparator.md` — How to do blind A/B comparison between two outputs\n- `agents/analyzer.md` — How to analyze why one version beat another\n\nThe references/ directory has additional documentation:\n- `references/schemas.md` — JSON structures for evals.json, grading.json, etc.\n\n---\n\nRepeating one more time the core loop here for emphasis:\n\n- Figure out what the skill is about\n- Draft or edit the skill\n- Run claude-with-access-to-the-skill on test prompts\n- With the user, evaluate the outputs:\n  - Create benchmark.json and run `eval-viewer/generate_review.py` to help the user review them\n  - Run quantitative evals\n- Repeat until you and the user are satisfied\n- Package the final skill and return it to the user.\n\nPlease add steps to your TodoList, if you have such a thing, to make sure you don't forget. If you're in Cowork, please specifically put \"Create evals JSON and run `eval-viewer/generate_review.py` so human can review test cases\" in your TodoList to make sure it happens.\n\nGood luck!\n"
+  },
+  {
+    "slug": "slack-gif-creator",
+    "name": "Slack GIF Creator",
+    "category": "design",
+    "description": "Create animated GIFs optimized for Slack — constraints, validation tools, and animation concepts for \"make me a GIF of X\" requests.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "slack",
+      "gif",
+      "animation",
+      "design"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: slack-gif-creator\ndescription: Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.\"\nlicense: Complete terms in LICENSE.txt\n---\n\n# Slack GIF Creator\n\nA toolkit providing utilities and knowledge for creating animated GIFs optimized for Slack.\n\n## Slack Requirements\n\n**Dimensions:**\n- Emoji GIFs: 128x128 (recommended)\n- Message GIFs: 480x480\n\n**Parameters:**\n- FPS: 10-30 (lower is smaller file size)\n- Colors: 48-128 (fewer = smaller file size)\n- Duration: Keep under 3 seconds for emoji GIFs\n\n## Core Workflow\n\n```python\nfrom core.gif_builder import GIFBuilder\nfrom PIL import Image, ImageDraw\n\n# 1. Create builder\nbuilder = GIFBuilder(width=128, height=128, fps=10)\n\n# 2. Generate frames\nfor i in range(12):\n    frame = Image.new('RGB', (128, 128), (240, 248, 255))\n    draw = ImageDraw.Draw(frame)\n\n    # Draw your animation using PIL primitives\n    # (circles, polygons, lines, etc.)\n\n    builder.add_frame(frame)\n\n# 3. Save with optimization\nbuilder.save('output.gif', num_colors=48, optimize_for_emoji=True)\n```\n\n## Drawing Graphics\n\n### Working with User-Uploaded Images\nIf a user uploads an image, consider whether they want to:\n- **Use it directly** (e.g., \"animate this\", \"split this into frames\")\n- **Use it as inspiration** (e.g., \"make something like this\")\n\nLoad and work with images using PIL:\n```python\nfrom PIL import Image\n\nuploaded = Image.open('file.png')\n# Use directly, or just as reference for colors/style\n```\n\n### Drawing from Scratch\nWhen drawing graphics from scratch, use PIL ImageDraw primitives:\n\n```python\nfrom PIL import ImageDraw\n\ndraw = ImageDraw.Draw(frame)\n\n# Circles/ovals\ndraw.ellipse([x1, y1, x2, y2], fill=(r, g, b), outline=(r, g, b), width=3)\n\n# Stars, triangles, any polygon\npoints = [(x1, y1), (x2, y2), (x3, y3), ...]\ndraw.polygon(points, fill=(r, g, b), outline=(r, g, b), width=3)\n\n# Lines\ndraw.line([(x1, y1), (x2, y2)], fill=(r, g, b), width=5)\n\n# Rectangles\ndraw.rectangle([x1, y1, x2, y2], fill=(r, g, b), outline=(r, g, b), width=3)\n```\n\n**Don't use:** Emoji fonts (unreliable across platforms) or assume pre-packaged graphics exist in this skill.\n\n### Making Graphics Look Good\n\nGraphics should look polished and creative, not basic. Here's how:\n\n**Use thicker lines** - Always set `width=2` or higher for outlines and lines. Thin lines (width=1) look choppy and amateurish.\n\n**Add visual depth**:\n- Use gradients for backgrounds (`create_gradient_background`)\n- Layer multiple shapes for complexity (e.g., a star with a smaller star inside)\n\n**Make shapes more interesting**:\n- Don't just draw a plain circle - add highlights, rings, or patterns\n- Stars can have glows (draw larger, semi-transparent versions behind)\n- Combine multiple shapes (stars + sparkles, circles + rings)\n\n**Pay attention to colors**:\n- Use vibrant, complementary colors\n- Add contrast (dark outlines on light shapes, light outlines on dark shapes)\n- Consider the overall composition\n\n**For complex shapes** (hearts, snowflakes, etc.):\n- Use combinations of polygons and ellipses\n- Calculate points carefully for symmetry\n- Add details (a heart can have a highlight curve, snowflakes have intricate branches)\n\nBe creative and detailed! A good Slack GIF should look polished, not like placeholder graphics.\n\n## Available Utilities\n\n### GIFBuilder (`core.gif_builder`)\nAssembles frames and optimizes for Slack:\n```python\nbuilder = GIFBuilder(width=128, height=128, fps=10)\nbuilder.add_frame(frame)  # Add PIL Image\nbuilder.add_frames(frames)  # Add list of frames\nbuilder.save('out.gif', num_colors=48, optimize_for_emoji=True, remove_duplicates=True)\n```\n\n### Validators (`core.validators`)\nCheck if GIF meets Slack requirements:\n```python\nfrom core.validators import validate_gif, is_slack_ready\n\n# Detailed validation\npasses, info = validate_gif('my.gif', is_emoji=True, verbose=True)\n\n# Quick check\nif is_slack_ready('my.gif'):\n    print(\"Ready!\")\n```\n\n### Easing Functions (`core.easing`)\nSmooth motion instead of linear:\n```python\nfrom core.easing import interpolate\n\n# Progress from 0.0 to 1.0\nt = i / (num_frames - 1)\n\n# Apply easing\ny = interpolate(start=0, end=400, t=t, easing='ease_out')\n\n# Available: linear, ease_in, ease_out, ease_in_out,\n#           bounce_out, elastic_out, back_out\n```\n\n### Frame Helpers (`core.frame_composer`)\nConvenience functions for common needs:\n```python\nfrom core.frame_composer import (\n    create_blank_frame,         # Solid color background\n    create_gradient_background,  # Vertical gradient\n    draw_circle,                # Helper for circles\n    draw_text,                  # Simple text rendering\n    draw_star                   # 5-pointed star\n)\n```\n\n## Animation Concepts\n\n### Shake/Vibrate\nOffset object position with oscillation:\n- Use `math.sin()` or `math.cos()` with frame index\n- Add small random variations for natural feel\n- Apply to x and/or y position\n\n### Pulse/Heartbeat\nScale object size rhythmically:\n- Use `math.sin(t * frequency * 2 * math.pi)` for smooth pulse\n- For heartbeat: two quick pulses then pause (adjust sine wave)\n- Scale between 0.8 and 1.2 of base size\n\n### Bounce\nObject falls and bounces:\n- Use `interpolate()` with `easing='bounce_out'` for landing\n- Use `easing='ease_in'` for falling (accelerating)\n- Apply gravity by increasing y velocity each frame\n\n### Spin/Rotate\nRotate object around center:\n- PIL: `image.rotate(angle, resample=Image.BICUBIC)`\n- For wobble: use sine wave for angle instead of linear\n\n### Fade In/Out\nGradually appear or disappear:\n- Create RGBA image, adjust alpha channel\n- Or use `Image.blend(image1, image2, alpha)`\n- Fade in: alpha from 0 to 1\n- Fade out: alpha from 1 to 0\n\n### Slide\nMove object from off-screen to position:\n- Start position: outside frame bounds\n- End position: target location\n- Use `interpolate()` with `easing='ease_out'` for smooth stop\n- For overshoot: use `easing='back_out'`\n\n### Zoom\nScale and position for zoom effect:\n- Zoom in: scale from 0.1 to 2.0, crop center\n- Zoom out: scale from 2.0 to 1.0\n- Can add motion blur for drama (PIL filter)\n\n### Explode/Particle Burst\nCreate particles radiating outward:\n- Generate particles with random angles and velocities\n- Update each particle: `x += vx`, `y += vy`\n- Add gravity: `vy += gravity_constant`\n- Fade out particles over time (reduce alpha)\n\n## Optimization Strategies\n\nOnly when asked to make the file size smaller, implement a few of the following methods:\n\n1. **Fewer frames** - Lower FPS (10 instead of 20) or shorter duration\n2. **Fewer colors** - `num_colors=48` instead of 128\n3. **Smaller dimensions** - 128x128 instead of 480x480\n4. **Remove duplicates** - `remove_duplicates=True` in save()\n5. **Emoji mode** - `optimize_for_emoji=True` auto-optimizes\n\n```python\n# Maximum optimization for emoji\nbuilder.save(\n    'emoji.gif',\n    num_colors=48,\n    optimize_for_emoji=True,\n    remove_duplicates=True\n)\n```\n\n## Philosophy\n\nThis skill provides:\n- **Knowledge**: Slack's requirements and animation concepts\n- **Utilities**: GIFBuilder, validators, easing functions\n- **Flexibility**: Create the animation logic using PIL primitives\n\nIt does NOT provide:\n- Rigid animation templates or pre-made functions\n- Emoji font rendering (unreliable across platforms)\n- A library of pre-packaged graphics built into the skill\n\n**Note on user uploads**: This skill doesn't include pre-built graphics, but if a user uploads an image, use PIL to load and work with it - interpret based on their request whether they want it used directly or just as inspiration.\n\nBe creative! Combine concepts (bouncing + rotating, pulsing + sliding, etc.) and use PIL's full capabilities.\n\n## Dependencies\n\n```bash\npip install pillow imageio numpy\n```\n"
+  },
+  {
+    "slug": "theme-factory",
+    "name": "Theme Factory",
+    "category": "design",
+    "description": "Style artifacts (slides, docs, HTML pages) with a theme — 10 preset color/font themes or generate a new one on the fly.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/theme-factory",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "theming",
+      "design-system",
+      "artifacts",
+      "branding"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: theme-factory\ndescription: Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.\nlicense: Complete terms in LICENSE.txt\n---\n\n\n# Theme Factory Skill\n\nThis skill provides a curated collection of professional font and color themes themes, each with carefully selected color palettes and font pairings. Once a theme is chosen, it can be applied to any artifact.\n\n## Purpose\n\nTo apply consistent, professional styling to presentation slide decks, use this skill. Each theme includes:\n- A cohesive color palette with hex codes\n- Complementary font pairings for headers and body text\n- A distinct visual identity suitable for different contexts and audiences\n\n## Usage Instructions\n\nTo apply styling to a slide deck or other artifact:\n\n1. **Show the theme showcase**: Display the `theme-showcase.pdf` file to allow users to see all available themes visually. Do not make any modifications to it; simply show the file for viewing.\n2. **Ask for their choice**: Ask which theme to apply to the deck\n3. **Wait for selection**: Get explicit confirmation about the chosen theme\n4. **Apply the theme**: Once a theme has been chosen, apply the selected theme's colors and fonts to the deck/artifact\n\n## Themes Available\n\nThe following 10 themes are available, each showcased in `theme-showcase.pdf`:\n\n1. **Ocean Depths** - Professional and calming maritime theme\n2. **Sunset Boulevard** - Warm and vibrant sunset colors\n3. **Forest Canopy** - Natural and grounded earth tones\n4. **Modern Minimalist** - Clean and contemporary grayscale\n5. **Golden Hour** - Rich and warm autumnal palette\n6. **Arctic Frost** - Cool and crisp winter-inspired theme\n7. **Desert Rose** - Soft and sophisticated dusty tones\n8. **Tech Innovation** - Bold and modern tech aesthetic\n9. **Botanical Garden** - Fresh and organic garden colors\n10. **Midnight Galaxy** - Dramatic and cosmic deep tones\n\n## Theme Details\n\nEach theme is defined in the `themes/` directory with complete specifications including:\n- Cohesive color palette with hex codes\n- Complementary font pairings for headers and body text\n- Distinct visual identity suitable for different contexts and audiences\n\n## Application Process\n\nAfter a preferred theme is selected:\n1. Read the corresponding theme file from the `themes/` directory\n2. Apply the specified colors and fonts consistently throughout the deck\n3. Ensure proper contrast and readability\n4. Maintain the theme's visual identity across all slides\n\n## Create your Own Theme\nTo handle cases where none of the existing themes work for an artifact, create a custom theme. Based on provided inputs, generate a new theme similar to the ones above. Give the theme a similar name describing what the font/color combinations represent. Use any basic description provided to choose appropriate colors/fonts. After generating the theme, show it for review and verification. Following that, apply the theme as described above.\n"
+  },
+  {
+    "slug": "web-artifacts-builder",
+    "name": "Web Artifacts Builder",
+    "category": "coding",
+    "description": "Build elaborate, multi-component claude.ai HTML artifacts with React, Tailwind, and shadcn/ui — state, routing, and rich UI.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "react",
+      "artifacts",
+      "frontend",
+      "shadcn"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: web-artifacts-builder\ndescription: Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.\nlicense: Complete terms in LICENSE.txt\n---\n\n# Web Artifacts Builder\n\nTo build powerful frontend claude.ai artifacts, follow these steps:\n1. Initialize the frontend repo using `scripts/init-artifact.sh`\n2. Develop your artifact by editing the generated code\n3. Bundle all code into a single HTML file using `scripts/bundle-artifact.sh`\n4. Display artifact to user\n5. (Optional) Test the artifact\n\n**Stack**: React 18 + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui\n\n## Design & Style Guidelines\n\nVERY IMPORTANT: To avoid what is often referred to as \"AI slop\", avoid using excessive centered layouts, purple gradients, uniform rounded corners, and Inter font.\n\n## Quick Start\n\n### Step 1: Initialize Project\n\nRun the initialization script to create a new React project:\n```bash\nbash scripts/init-artifact.sh <project-name>\ncd <project-name>\n```\n\nThis creates a fully configured project with:\n- ✅ React + TypeScript (via Vite)\n- ✅ Tailwind CSS 3.4.1 with shadcn/ui theming system\n- ✅ Path aliases (`@/`) configured\n- ✅ 40+ shadcn/ui components pre-installed\n- ✅ All Radix UI dependencies included\n- ✅ Parcel configured for bundling (via .parcelrc)\n- ✅ Node 18+ compatibility (auto-detects and pins Vite version)\n\n### Step 2: Develop Your Artifact\n\nTo build the artifact, edit the generated files. See **Common Development Tasks** below for guidance.\n\n### Step 3: Bundle to Single HTML File\n\nTo bundle the React app into a single HTML artifact:\n```bash\nbash scripts/bundle-artifact.sh\n```\n\nThis creates `bundle.html` - a self-contained artifact with all JavaScript, CSS, and dependencies inlined. This file can be directly shared in Claude conversations as an artifact.\n\n**Requirements**: Your project must have an `index.html` in the root directory.\n\n**What the script does**:\n- Installs bundling dependencies (parcel, @parcel/config-default, parcel-resolver-tspaths, html-inline)\n- Creates `.parcelrc` config with path alias support\n- Builds with Parcel (no source maps)\n- Inlines all assets into single HTML using html-inline\n\n### Step 4: Share Artifact with User\n\nFinally, share the bundled HTML file in conversation with the user so they can view it as an artifact.\n\n### Step 5: Testing/Visualizing the Artifact (Optional)\n\nNote: This is a completely optional step. Only perform if necessary or requested.\n\nTo test/visualize the artifact, use available tools (including other Skills or built-in tools like Playwright or Puppeteer). In general, avoid testing the artifact upfront as it adds latency between the request and when the finished artifact can be seen. Test later, after presenting the artifact, if requested or if issues arise.\n\n## Reference\n\n- **shadcn/ui components**: https://ui.shadcn.com/docs/components"
+  },
+  {
+    "slug": "webapp-testing",
+    "name": "Web App Testing",
+    "category": "coding",
+    "description": "Test local web apps with Playwright — verify frontend behavior, debug UI, capture screenshots, and read browser logs.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "testing",
+      "playwright",
+      "qa",
+      "frontend"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: webapp-testing\ndescription: Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.\nlicense: Complete terms in LICENSE.txt\n---\n\n# Web Application Testing\n\nTo test local web applications, write native Python Playwright scripts.\n\n**Helper Scripts Available**:\n- `scripts/with_server.py` - Manages server lifecycle (supports multiple servers)\n\n**Always run scripts with `--help` first** to see usage. DO NOT read the source until you try running the script first and find that a customized solution is abslutely necessary. These scripts can be very large and thus pollute your context window. They exist to be called directly as black-box scripts rather than ingested into your context window.\n\n## Decision Tree: Choosing Your Approach\n\n```\nUser task → Is it static HTML?\n    ├─ Yes → Read HTML file directly to identify selectors\n    │         ├─ Success → Write Playwright script using selectors\n    │         └─ Fails/Incomplete → Treat as dynamic (below)\n    │\n    └─ No (dynamic webapp) → Is the server already running?\n        ├─ No → Run: python scripts/with_server.py --help\n        │        Then use the helper + write simplified Playwright script\n        │\n        └─ Yes → Reconnaissance-then-action:\n            1. Navigate and wait for networkidle\n            2. Take screenshot or inspect DOM\n            3. Identify selectors from rendered state\n            4. Execute actions with discovered selectors\n```\n\n## Example: Using with_server.py\n\nTo start a server, run `--help` first, then use the helper:\n\n**Single server:**\n```bash\npython scripts/with_server.py --server \"npm run dev\" --port 5173 -- python your_automation.py\n```\n\n**Multiple servers (e.g., backend + frontend):**\n```bash\npython scripts/with_server.py \\\n  --server \"cd backend && python server.py\" --port 3000 \\\n  --server \"cd frontend && npm run dev\" --port 5173 \\\n  -- python your_automation.py\n```\n\nTo create an automation script, include only Playwright logic (servers are managed automatically):\n```python\nfrom playwright.sync_api import sync_playwright\n\nwith sync_playwright() as p:\n    browser = p.chromium.launch(headless=True) # Always launch chromium in headless mode\n    page = browser.new_page()\n    page.goto('http://localhost:5173') # Server already running and ready\n    page.wait_for_load_state('networkidle') # CRITICAL: Wait for JS to execute\n    # ... your automation logic\n    browser.close()\n```\n\n## Reconnaissance-Then-Action Pattern\n\n1. **Inspect rendered DOM**:\n   ```python\n   page.screenshot(path='/tmp/inspect.png', full_page=True)\n   content = page.content()\n   page.locator('button').all()\n   ```\n\n2. **Identify selectors** from inspection results\n\n3. **Execute actions** using discovered selectors\n\n## Common Pitfall\n\n❌ **Don't** inspect the DOM before waiting for `networkidle` on dynamic apps\n✅ **Do** wait for `page.wait_for_load_state('networkidle')` before inspection\n\n## Best Practices\n\n- **Use bundled scripts as black boxes** - To accomplish a task, consider whether one of the scripts available in `scripts/` can help. These scripts handle common, complex workflows reliably without cluttering the context window. Use `--help` to see usage, then invoke directly. \n- Use `sync_playwright()` for synchronous scripts\n- Always close the browser when done\n- Use descriptive selectors: `text=`, `role=`, CSS selectors, or IDs\n- Add appropriate waits: `page.wait_for_selector()` or `page.wait_for_timeout()`\n\n## Reference Files\n\n- **examples/** - Examples showing common patterns:\n  - `element_discovery.py` - Discovering buttons, links, and inputs on a page\n  - `static_html_automation.py` - Using file:// URLs for local HTML\n  - `console_logging.py` - Capturing console logs during automation"
+  },
+  {
+    "slug": "xlsx",
+    "name": "Spreadsheets (xlsx)",
+    "category": "data",
+    "description": "Open, read, edit, and create spreadsheets (.xlsx/.csv/.tsv) — formulas, formatting, charts, and cleaning messy tabular data.",
+    "author": "Anthropic",
+    "source_url": "https://github.com/anthropics/skills/tree/main/skills/xlsx",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "excel",
+      "xlsx",
+      "spreadsheets",
+      "data"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: xlsx\ndescription: Open, read, edit, and create spreadsheets (.xlsx/.csv/.tsv) — formulas, formatting, charts, and cleaning messy tabular data.\n---\n\n# Spreadsheets (xlsx)\n\nThis is an official Anthropic skill, distributed by Anthropic in the\n[anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/xlsx) repository.\n\nSkill Me lists it for discovery and provenance, but does not redistribute its\nbody (it is proprietary — © Anthropic, PBC, all rights reserved).\n\n## Get the full skill\n\n- Install from source: `npx skills add anthropics/skills`\n- Or browse it directly: https://github.com/anthropics/skills/tree/main/skills/xlsx\n- Several Anthropic skills also ship built-in with Claude Code and claude.ai.\n"
+  },
+  {
     "slug": "idempotency-enforcer",
     "name": "Idempotency Enforcer",
     "category": "coding",
@@ -2213,6 +2533,2259 @@ export const EXPANSION_SKILLS: SeedSkill[] = [
     "rating_avg": 0,
     "rating_count": 0,
     "skill_content": "---\nname: Carousel Scripter\ndescription: Scripts a multi-slide Instagram or LinkedIn carousel as a hook slide, one-idea-per-slide value frames, and a single-CTA closing slide, with per-slide copy and design direction. Use when the user asks to write, script, or outline a carousel, turn a post/idea/listicle into swipeable slides, or build an Instagram carousel or LinkedIn document (PDF) post.\n---\n# Carousel Scripter\n\nTurn one idea into an ordered slide deck where slide one earns the swipe and every slide after earns the next.\n\n## Workflow\n1. Confirm the format fits. A carousel earns its keep on multi-step, list, or framework content. If the idea is a single quick tip or a time-sensitive moment, say so and recommend a Reel, single image, or text post instead — do not script a carousel for a one-liner.\n2. Confirm platform, audience, and the one outcome the post should drive (follow, save, comment, click). Default to Instagram if unstated and ask once.\n3. Draft 2-3 cover (slide 1) options. Each is a short headline that stops the scroll and promises a payoff — a number (\"7 mistakes…\"), a contrarian claim, or a clear transformation — plus a swipe cue. Spend disproportionate effort here.\n4. Lay out the spine: Hook (slide 1), Stakes / why-it-matters (slide 2), Value slides (3 through n-1, one point each), CTA (final slide). Target 6-10 slides total.\n5. Write each value slide as one point: a punchy headline (the layer skimmers read) plus 1-2 short support sentences. Front-load the point in the first words. Number each slide.\n6. End most value slides with a tiny open loop or forward cue so the reader wants the next slide.\n7. Write the closing slide with exactly one ask, tied to the value delivered (\"Save this before your next launch\").\n8. Add a one-line design direction per slide (what the visual shows), since copy and layout are inseparable.\n9. Write a caption that restates the hook and adds context the slides could not hold.\n\n## Platform calibration\n- LinkedIn (PDF / document post): educational, framework-driven, more text tolerated, cleaner design.\n- Instagram: punchier text, stronger visual dependency, fewer words per frame.\n\n## Quality bar\n- Slide 1 alone makes someone want to swipe; reading only the headlines still delivers the full payoff.\n- 6-10 slides; exactly one idea per slide and one CTA on the final slide.\n- Every slide's point lands in its first words at phone-glance speed.\n- Each slide carries a copy block and a design note; a caption ships with the deck.\n\n## Do NOT\n- Do not script a carousel for a single tip, one-liner, or time-sensitive moment — recommend a Reel, single image, or text post.\n- Do not dump a paragraph onto a slide or put more than one idea on a frame.\n- Do not stack multiple asks on the closing slide.\n- Do not ship a weak cover; if slide 1 is weak, nothing downstream matters.\n- Do not bury the point — lead each slide with it, never with throat-clearing.\n"
+  },
+  {
+    "slug": "skill-security-auditor",
+    "name": "Skill Security Auditor",
+    "category": "coding",
+    "description": "Statically audits Agent Skills for dangerous code, prompt injection, exfiltration, privilege escalation, and supply-chain risk before you install them, returning a PASS/WARN/FAIL verdict.",
+    "author": "alirezarezvani",
+    "source_url": "https://github.com/alirezarezvani/claude-skills/tree/4a3c05b69e64f4925f7fc65c88890f614f79caf0/engineering/skills/skill-security-auditor",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "cybersecurity",
+      "prompt-injection",
+      "security",
+      "skill-audit"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: skill-security-auditor\ndescription: Security gate that statically scans an Agent Skill (local dir or git repo) for malicious code before installation — command injection, eval/exec, network exfiltration, credential harvesting, prompt injection in SKILL.md, and dependency risk. Use before installing any skill from an untrusted source.\n---\n\n# Skill Security Auditor\n\nProduces a clear PASS / WARN / FAIL verdict with findings and remediation for an AI agent skill, using static analysis only (it never executes the code).\n\n## How to use\n1. Run `python3 scripts/skill_security_auditor.py /path/to/skill/` on a local directory, or pass a git URL with `--skill <name>`.\n2. It scans `.py/.sh/.js/.ts` for code-execution and exfiltration patterns (`os.system`, `eval`, `subprocess(shell=True)`, `requests.post`, reads of `~/.ssh`/`~/.aws`), plus base64/hex obfuscation and privilege escalation.\n3. It scans SKILL.md and reference `.md` files for prompt injection (\"ignore previous instructions\", role hijacking, safety bypass, hidden zero-width text).\n4. It checks `requirements.txt`/`package.json` for typosquatting, unpinned versions, and inline installs; flags binaries, symlinks, and out-of-boundary file access.\n5. Read the severity-grouped report; use `--strict` (WARN becomes FAIL) and `--json` for CI gating.\n\nWhen in doubt after an audit, don't install.\n\nFull skill & source: https://github.com/alirezarezvani/claude-skills/tree/4a3c05b69e64f4925f7fc65c88890f614f79caf0/engineering/skills/skill-security-auditor"
+  },
+  {
+    "slug": "hf-cli",
+    "name": "Hugging Face CLI",
+    "category": "coding",
+    "description": "Drives the Hugging Face Hub CLI (`hf`) for auth, downloads/uploads, repos, datasets, spaces, buckets, jobs, papers, and inference endpoints — the modern replacement for huggingface-cli.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/hf-cli",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "automation",
+      "cli",
+      "devops",
+      "huggingface"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: hf-cli\ndescription: Use the Hugging Face Hub CLI (`hf`) for any Hugging Face ecosystem task — authentication, downloading/uploading models, datasets and spaces, managing repos, buckets, collections, jobs, papers, webhooks, and inference endpoints. Triggers whenever the user mentions hf, huggingface, or huggingface-cli.\n---\n\n# Hugging Face CLI\n\nThe `hf` command is the current Hub CLI and replaces the deprecated `huggingface-cli`. Install with `curl -LsSf https://hf.co/cli/install.sh | bash -s`.\n\n## How to use\n1. Authenticate: `hf auth login` (token from huggingface.co/settings/tokens); confirm with `hf auth whoami`.\n2. Move files: `hf download <repo>` and `hf upload <repo>` (use `--type model|dataset|space`, `upload-large-folder` for resumable big uploads).\n3. Browse and manage: `hf models|datasets|spaces list/info`, `hf repos`, `hf collections`, `hf discussions`.\n4. Query datasets directly: `hf datasets parquet <id>` and `hf datasets sql \"<query>\"` (DuckDB over parquet URLs).\n5. Run cloud compute and storage: `hf jobs`, `hf buckets`, `hf endpoints`; add `--format json` for machine-readable output.\n6. Run `hf --help` (and `hf <command> --help`) to discover the full surface.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/hf-cli"
+  },
+  {
+    "slug": "huggingface-community-evals",
+    "name": "Hugging Face Community Evaluations",
+    "category": "coding",
+    "description": "Runs reproducible model evaluations against Hugging Face Hub models on local hardware using inspect-ai or lighteval, with guidance on choosing vLLM, Transformers, or accelerate backends.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-community-evals",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "benchmarks",
+      "evaluation",
+      "models",
+      "testing-and-qa"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-community-evals\ndescription: Run evaluations for Hugging Face Hub models on local hardware with inspect-ai and lighteval. Use for backend selection (vLLM / Transformers / accelerate), local GPU evals, and smoke-testing benchmarks before scaling. Not for HF Jobs orchestration or results publishing.\n---\n\n# Hugging Face Community Evaluations\n\nRun benchmark evaluations against Hub models locally, choosing the right framework and inference backend.\n\n## Workflow\n1. Pick the framework: `inspect-ai` for explicit task control, `lighteval` for leaderboard-style task strings (`suite|task|num_fewshot`).\n2. Pick the backend: prefer `vllm` for throughput; fall back to Transformers (`--backend hf`) or `accelerate` for unsupported architectures; use the providers-backed `inspect_eval_uv.py` when you don't need direct GPU control.\n3. Verify prerequisites with `uv --version`, `printenv HF_TOKEN`, and `nvidia-smi`.\n4. Always start with a smoke test (`--limit 10` for inspect-ai, `--max-samples 10` for lighteval), then scale up.\n5. Run scripts via `uv run scripts/inspect_eval_uv.py` / `inspect_vllm_uv.py` / `lighteval_vllm_uv.py`.\n6. For remote compute, hand off the same script and args to the `hugging-face-jobs` skill.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-community-evals"
+  },
+  {
+    "slug": "huggingface-datasets",
+    "name": "Hugging Face Datasets",
+    "category": "data",
+    "description": "Explores and extracts Hugging Face datasets through the read-only Dataset Viewer API — splits, paginated rows, search, filter, parquet links, and stats — plus zero/low-dependency upload flows.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-datasets",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "data",
+      "data-science",
+      "datasets",
+      "huggingface"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-datasets\ndescription: Use for Hugging Face Dataset Viewer API workflows — fetch subset/split metadata, paginate rows, search text, apply filters, get parquet URLs, and read size/statistics. Also covers uploading datasets and agent traces to the Hub.\n---\n\n# Hugging Face Dataset Viewer\n\nRead-only exploration and extraction of datasets via `https://datasets-server.huggingface.co`.\n\n## Workflow\n1. Optionally validate with `/is-valid?dataset=<ns/repo>`.\n2. Resolve config + split with `/splits`.\n3. Preview with `/first-rows`, then paginate with `/rows?...&offset=&length=` (length max 100, offset 0-based).\n4. Use `/search?query=` for text matching and `/filter?where=` for row predicates.\n5. Get download links and totals via `/parquet`, `/size`, and `/statistics`.\n6. Pass `Authorization: Bearer <HF_TOKEN>` for gated/private datasets; use response fields like `num_rows_total` and `partial` to drive continuation.\n\nTo create/upload, use the Hub UI or `npx @huggingface/hub upload datasets/<ns>/<repo> ./folder data`. Agent session traces (Claude Code, Codex) can be uploaded as raw JSONL and auto-detected by the Hub — keep them private.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-datasets"
+  },
+  {
+    "slug": "huggingface-gradio",
+    "name": "Hugging Face Gradio",
+    "category": "coding",
+    "description": "Builds interactive Python web UIs and ML demos with Gradio — Interface, Blocks, ChatInterface, event listeners, layouts, and streaming — with accurate component signatures.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-gradio",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "frontend-development",
+      "gradio",
+      "ml",
+      "ui"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-gradio\ndescription: Build Gradio web UIs and demos in Python. Use when creating or editing Gradio apps, components, event listeners, layouts, or chatbots.\n---\n\n# Gradio\n\nGradio is a Python library for building interactive web UIs and ML demos. This skill covers the core API, component signatures, and patterns.\n\n## How to use\n1. For a quick demo, use the high-level `gr.Interface(fn=..., inputs=\"text\", outputs=\"text\").launch()` to wrap a function.\n2. For custom layouts, use `gr.Blocks()` with explicit components and event wiring (`btn.click(fn=..., inputs=..., outputs=...)`).\n3. For chatbots, use `gr.ChatInterface(fn=respond)` where `respond(message, history)` returns the reply.\n4. Configure components from their real signatures (`Textbox`, `Number`, etc.) for labels, types, streaming, and interactivity.\n5. Add streaming outputs/inputs and control layout with rows, columns, and tabs; reference the linked Gradio guides for advanced features.\n6. Share with `launch(share=True)` or deploy to Hugging Face Spaces.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-gradio"
+  },
+  {
+    "slug": "huggingface-llm-trainer",
+    "name": "Hugging Face LLM Trainer",
+    "category": "data",
+    "description": "Fine-tunes language models (SFT, DPO, GRPO, reward modeling) on managed Hugging Face Jobs cloud GPUs using TRL or Unsloth, with dataset prep, cost estimation, Trackio monitoring, and GGUF export.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-llm-trainer",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "huggingface",
+      "llm",
+      "machine-learning",
+      "training"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-llm-trainer\ndescription: Train or fine-tune language models with TRL or Unsloth on Hugging Face Jobs cloud GPUs — SFT, DPO, GRPO, and reward modeling — plus GGUF conversion for local deployment. Use for cloud GPU training when the user has no local GPU.\n---\n\n# LLM Training on Hugging Face Jobs\n\nTrain models on fully managed cloud GPUs; results are saved automatically to the Hub. No local GPU required.\n\n## Workflow\n1. Choose the method: SFT (instruction tuning), DPO (preference alignment), GRPO (online RL), or reward modeling.\n2. Prepare and validate the dataset; estimate cost and pick hardware via the PEP 723 helper scripts (`uv run scripts/estimate_cost.py`, `dataset_inspector.py`).\n3. Submit the job with the `hf_jobs(\"uv\", {...})` MCP tool, passing the training script as a string — do not run bash `trl-jobs` commands.\n4. Always include Trackio in the script for real-time monitoring; use the example scripts (`train_sft_example.py`, `train_dpo_example.py`) as templates.\n5. Use Unsloth (`references/unsloth.md`) for low-VRAM, faster, or large/VLM training.\n6. After submission, report job ID, monitoring URL, and ETA; convert to GGUF for Ollama/LM Studio/llama.cpp when needed.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-llm-trainer"
+  },
+  {
+    "slug": "huggingface-local-models",
+    "name": "Hugging Face Local Models",
+    "category": "data",
+    "description": "Finds llama.cpp-compatible GGUF models on the Hugging Face Hub, picks the right quantization, and runs them locally with llama-cli or an OpenAI-compatible llama-server on CPU, Metal, CUDA, or ROCm.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-local-models",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "huggingface",
+      "inference",
+      "local-models",
+      "machine-learning"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-local-models\ndescription: Select and run models locally with llama.cpp and GGUF on CPU, Mac Metal, CUDA, or ROCm. Covers finding GGUF repos, quant selection, exact file lookup, conversion, and OpenAI-compatible local serving.\n---\n\n# Hugging Face Local Models\n\nSearch the Hub for llama.cpp-compatible GGUF repos, choose a quant, and launch with `llama-cli` or `llama-server`.\n\n## Workflow\n1. Install llama.cpp (`brew install llama.cpp`, winget, or build from source).\n2. Search the Hub with `apps=llama.cpp` (e.g. `https://huggingface.co/models?apps=llama.cpp&sort=trending`); prefer the repo's own local-app snippet and quant recommendation.\n3. Confirm exact `.gguf` filenames via `https://huggingface.co/api/models/<repo>/tree/main?recursive=true`.\n4. Run directly: `llama-cli -hf <repo>:<QUANT>` or `llama-server -hf <repo>:<QUANT>`; fall back to `--hf-repo` + `--hf-file` for custom naming.\n5. Pick quant by hardware — default `Q4_K_M`, `Q5_K_M`/`Q6_K` for code/technical work, smaller `IQ`/`UD-*` variants for tight memory.\n6. Convert with `convert_hf_to_gguf.py` + `llama-quantize` only when no GGUF exists; smoke-test the server's `/v1/chat/completions` endpoint.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-local-models"
+  },
+  {
+    "slug": "huggingface-paper-publisher",
+    "name": "Hugging Face Paper Publisher",
+    "category": "research",
+    "description": "Publishes and manages research papers on the Hugging Face Hub — indexing from arXiv, claiming authorship, linking papers to models/datasets, and generating polished markdown research articles.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-paper-publisher",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "academic-work",
+      "papers",
+      "publishing",
+      "reproducibility"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-paper-publisher\ndescription: Publish and manage research papers on the Hugging Face Hub — create paper pages, index from arXiv, claim authorship, link papers to models and datasets, and generate professional markdown research articles. Use for publishing or connecting research artifacts.\n---\n\n# Hugging Face Paper Publisher\n\nStreamlines the workflow from paper creation to publication and keeps papers, models, datasets, and demos linked.\n\n## Workflow\n1. Set up auth: run scripts with `uv run` (PEP 723 inline deps) and export an `HF_TOKEN` with write access.\n2. Index a paper from its arXiv ID to create or surface its Hugging Face Paper page.\n3. Claim authorship so the paper appears on your HF profile/organization.\n4. Link papers to artifacts by adding the HF/arXiv URL to model cards, dataset cards, or Space READMEs — the Hub auto-tags `arxiv:<id>`.\n5. Generate a professional research article with the markdown template (dynamic TOC, standard sections, LaTeX math) and manage YAML frontmatter/citations.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-paper-publisher"
+  },
+  {
+    "slug": "huggingface-papers",
+    "name": "Hugging Face Papers",
+    "category": "research",
+    "description": "Looks up and reads Hugging Face / arXiv paper pages as markdown and queries the papers API for structured metadata (authors, linked models/datasets/spaces, GitHub repo) to summarize AI research.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-papers",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "machine-learning",
+      "papers",
+      "research"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-papers\ndescription: Look up and read Hugging Face paper pages as markdown and use the papers API for structured metadata (authors, linked models/datasets/spaces, GitHub repo, project page). Use when the user shares an HF paper URL, an arXiv URL or ID, or asks to summarize or analyze an AI paper.\n---\n\n# Hugging Face Paper Pages\n\nhf.co/papers is built on top of arXiv for AI/CS research, with daily-papers feeds, upvotes, and links to model checkpoints, datasets, and Spaces.\n\n## Workflow\n1. Parse the paper ID (arXiv ID) from whatever the user provides — HF URL, arXiv abs/pdf URL, or a bare ID like `2602.08025`.\n2. Fetch the paper as markdown: `curl -s \"https://huggingface.co/papers/{ID}.md\"` (falls back to the HF page HTML when no arXiv HTML exists).\n3. Fetch structured metadata as JSON: `curl -s \"https://huggingface.co/api/papers/{ID}\"` for authors and linked models/datasets/spaces, GitHub, and project page.\n4. Handle a 404 as \"not yet indexed on hf.co/papers\" and follow the skill's error-handling guidance.\n5. Summarize or analyze using the fetched content and metadata.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-papers"
+  },
+  {
+    "slug": "huggingface-spaces",
+    "name": "Hugging Face Spaces",
+    "category": "coding",
+    "description": "Creates, deploys, debugs, and maintains apps on Hugging Face Spaces across Gradio, Docker, and Static SDKs — choosing hardware tiers (cpu-basic, ZeroGPU, dedicated GPU), model sourcing, and grants.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-spaces",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "apps",
+      "cloud-infrastructure",
+      "deployment",
+      "spaces"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-spaces\ndescription: Build, deploy, and maintain applications on Hugging Face Spaces — Gradio / Docker / Static SDKs, ZeroGPU and dedicated hardware, model loading, debugging, and community grants. Use to create or host an app on HF, port code onto ZeroGPU, or fix a Space that won't build or run.\n---\n\n# Hugging Face Spaces\n\nEach Space is a git repo hosting an ML app. This skill covers creating, building, debugging, and maintaining them.\n\n## Workflow\n1. Get ready: confirm `hf` is installed and the user is logged in (`hf auth whoami`); note `canPay`/`isPro` flags, which gate hardware.\n2. Search for prior art first: `hf spaces search \"<model or task>\" --sdk gradio` and read a working `app.py`/`requirements.txt`.\n3. Pick the SDK — Gradio (default, supports ZeroGPU), Docker (non-Python stacks), or Static (in-browser ML, project pages).\n4. Pick hardware — `cpu-basic` (free) or ZeroGPU `zero-a10g` (free for creator, PRO-gated, Gradio-only) by default; dedicated GPU (T4/L4/A10G/A100/H200) only when ZeroGPU doesn't fit.\n5. Source the model (GitHub repo, HF model repo, or Inference Providers), estimate VRAM, write the app, and push.\n6. For ZeroGPU on a non-PRO account, build on cpu-basic and request a community grant.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-spaces"
+  },
+  {
+    "slug": "huggingface-tool-builder",
+    "name": "Hugging Face Tool Builder",
+    "category": "coding",
+    "description": "Builds reusable command-line scripts and utilities around the Hugging Face API and `hf` CLI — composable, pipeable tools that fetch, enrich, and process Hub data with proper auth.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-tool-builder",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "agents",
+      "ai-agent-development",
+      "huggingface",
+      "tools"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-tool-builder\ndescription: Create reusable CLI scripts and utilities that use the Hugging Face API, especially when chaining/combining API calls or automating repeated tasks. The skill builds composable tools that fetch, enrich, or process Hub data.\n---\n\n# Hugging Face API Tool Builder\n\nBuilds reusable command-line scripts for the Hugging Face API, favoring chaining, piping, and intermediate processing.\n\n## Workflow\n1. Investigate the API shape first — endpoints live at `https://huggingface.co/api/{models,datasets,spaces,collections,daily_papers,trending,...}`; query the OpenAPI spec with `jq` (never read it whole).\n2. Authenticate with the `HF_TOKEN` env var as a bearer header: `curl -H \"Authorization: Bearer ${HF_TOKEN}\" ...` for higher limits and gated access.\n3. Prefer shell scripts (Python or TSX only when complexity warrants); each script must support `--help` and emit shell-friendly JSON/NDJSON for piping.\n4. Compose tools — e.g. fetch trending models, pipe IDs into an enrichment script, then `jq` to sort by downloads.\n5. Use the `hf` CLI for repo content and infrastructure; test non-destructive scripts and share usage examples before handoff.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-tool-builder"
+  },
+  {
+    "slug": "huggingface-trackio",
+    "name": "Hugging Face Trackio",
+    "category": "data",
+    "description": "Adds experiment tracking to ML training with Trackio — log metrics via the Python API, fire structured alerts on diagnostic conditions, and query runs/metrics/alerts via CLI with JSON output for agents.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-trackio",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "experiments",
+      "machine-learning",
+      "mlops",
+      "tracking"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-trackio\ndescription: Track and visualize ML training experiments with Trackio. Use when logging metrics during training (Python API), firing alerts for training diagnostics, or retrieving/analyzing logged metrics (CLI). Syncs to HF Spaces for real-time dashboards and supports JSON output for automation.\n---\n\n# Trackio — Experiment Tracking\n\nTrackio logs and visualizes ML training metrics and syncs to Hugging Face Spaces for monitoring dashboards.\n\n## How to use\n1. Log metrics in your training script: `trackio.init(project=..., space_id=...)`, then `trackio.log({\"loss\": ..., \"accuracy\": ...})`, finishing with `trackio.finish()`. Pass `space_id` so remote runs persist after the instance terminates.\n2. Fire alerts on diagnostic conditions with `trackio.alert(title=..., text=..., level=trackio.AlertLevel.WARN|ERROR)` — useful for loss spikes, NaN gradients, or stalls.\n3. Retrieve data via the CLI: `trackio list projects/runs/metrics/alerts` and `trackio get metric ...`; add `--json` for agent-friendly output.\n4. Launch the dashboard with `trackio show` and sync to a Space with `trackio sync`.\n5. For autonomous runs: insert alerts, launch in background, poll `trackio list alerts --json --since <ts>`, read metrics, then iterate hyperparameters.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-trackio"
+  },
+  {
+    "slug": "huggingface-vision-trainer",
+    "name": "Hugging Face Vision Trainer",
+    "category": "data",
+    "description": "Fine-tunes vision models — object detection (D-FINE, RT-DETR, DETR, YOLOS), image classification (timm/Transformers), and SAM/SAM2 segmentation — on Hugging Face Jobs GPUs with dataset validation and mAP/accuracy metrics.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-vision-trainer",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "computer-vision",
+      "images",
+      "machine-learning",
+      "training"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-vision-trainer\ndescription: Train and fine-tune vision models on Hugging Face Jobs cloud GPUs — object detection (D-FINE, RT-DETR v2, DETR, YOLOS), image classification (timm and Transformers classifiers), and SAM/SAM2 segmentation. Use when fine-tuning detectors, classifiers, or segmentation models on custom datasets.\n---\n\n# Vision Model Training on Hugging Face Jobs\n\nTrain detection, classification, and SAM/SAM2 segmentation models on managed cloud GPUs; results save to the Hub automatically.\n\n## Workflow\n1. Verify prerequisites: a paid HF plan (Jobs require it), a write-scoped token passed in job secrets, and an existing Hub dataset.\n2. Confirm dataset shape — detection needs an `objects` column (bbox/category, xywh or xyxy auto-detected); classification needs `image` + `label`; SAM needs `image` + `mask` + a bbox/point prompt.\n3. Always validate unknown datasets first with `uv run scripts/dataset_inspector.py --dataset <id> --split train` and estimate cost with `estimate_cost.py`.\n4. Configure Albumentations augmentation and the right metrics (mAP/mAR for detection, accuracy for classification, DiceCE for SAM).\n5. Submit the training job to HF Jobs with Trackio monitoring; report job ID and monitoring URL, and ensure the trained model is pushed to the Hub.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-vision-trainer"
+  },
+  {
+    "slug": "huggingface-zerogpu",
+    "name": "Hugging Face ZeroGPU",
+    "category": "coding",
+    "description": "Writes and debugs Gradio Spaces code for Hugging Face ZeroGPU — @spaces.GPU decorators, duration/quota tuning, process-isolation pitfalls, the CUDA availability model, and CUDA-wheel build constraints.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-zerogpu",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "cloud-infrastructure",
+      "deployment",
+      "gpu",
+      "spaces"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: huggingface-zerogpu\ndescription: Write and review Gradio Spaces code that runs on Hugging Face ZeroGPU. Use when working with `@spaces.GPU`, configuring requirements for a ZeroGPU Space, or hitting ZeroGPU-specific errors (PicklingError across the worker boundary, illegal duration, flash-attn wheel-build failures). Triggers on `import spaces`.\n---\n\n# Hugging Face ZeroGPU\n\nRules and patterns for ML demos on Gradio Spaces with ZeroGPU dynamic per-request GPU allocation. Docker/Static Spaces cannot use ZeroGPU.\n\n## Key rules\n1. Instantiate models at module scope and call `.to(\"cuda\")` eagerly — `import spaces` monkey-patches torch so `cuda.is_available()` returns True globally, but real GPU access exists only inside decorated functions.\n2. Decorate GPU functions with `@spaces.GPU` (a no-op off-platform, safe everywhere).\n3. Set `duration` to the realistic worst case — the platform pre-checks requested duration against remaining quota, so an over-large default 60s can fail short tasks with `quota exceeded`; smaller durations also queue better.\n4. Do not use `torch.compile`; use ahead-of-time compilation (AoTI) on torch 2.8+ instead.\n5. Pick `large` (half GPU, 1x quota) by default and `xlarge` (full, 2x) sparingly; handle process-isolation/pickling and CUDA-wheel-only build constraints per the references.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/huggingface-zerogpu"
+  },
+  {
+    "slug": "train-sentence-transformers",
+    "name": "Train Sentence Transformers",
+    "category": "data",
+    "description": "Trains sentence-transformers models — bi-encoders, CrossEncoder rerankers, and SPLADE sparse encoders — covering loss selection, hard-negative mining, evaluators, LoRA, Matryoshka, and Hub publishing.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/train-sentence-transformers",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "embeddings",
+      "machine-learning",
+      "sentence-transformers",
+      "training"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: train-sentence-transformers\ndescription: Train or fine-tune sentence-transformers models — SentenceTransformer bi-encoders (retrieval, similarity, clustering), CrossEncoder rerankers (two-stage retrieval, pair classification), and SparseEncoder/SPLADE (learned-sparse retrieval). Covers loss selection, hard-negative mining, evaluators, distillation, LoRA, and Matryoshka.\n---\n\n# Train a sentence-transformers Model\n\nThis SKILL.md is a router: it tells you which references and example scripts to load. Do not synthesize a training script from this file alone — copy the per-type production template.\n\n## Workflow\n1. Identify the model type: bi-encoder (\"embedding\"/\"vector search\"), CrossEncoder (\"rerank\"/\"two-stage\"), or SparseEncoder (\"SPLADE\"/\"inverted index\").\n2. Read the required per-type references in full — losses (data-shape mapping), evaluators (metric-key construction), and architectures.\n3. Read the cross-cutting references — `training_args.md` (precision: load fp32 + autocast, not torch_dtype), `dataset_formats.md`, and `base_model_selection.md`.\n4. Copy the matching production template (`scripts/train_<type>_example.py`) and adapt it; use variant scripts for Matryoshka, LoRA, distillation, or multilingual.\n5. Mine hard negatives with `scripts/mine_hard_negatives.py` when needed; default to local execution, single run, and a public Hub push wrapped in try-except.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/train-sentence-transformers"
+  },
+  {
+    "slug": "trl-training",
+    "name": "TRL Training",
+    "category": "data",
+    "description": "Post-trains transformer language models with the TRL CLI — SFT, DPO, GRPO, KTO, RLOO, and reward modeling — covering dataset preparation, configuration, and the right command per method.",
+    "author": "Hugging Face",
+    "source_url": "https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/trl-training",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "llm",
+      "machine-learning",
+      "training",
+      "trl"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: trl-training\ndescription: Train and fine-tune transformer language models with TRL (Transformers Reinforcement Learning) CLI commands — SFT, DPO, GRPO, KTO, RLOO, and reward model training. Use for post-training/alignment workflows with TRL.\n---\n\n# TRL Training\n\nTRL provides CLI commands for post-training foundation models with state-of-the-art techniques.\n\n## Methods\n- `trl sft` — supervised fine-tuning on instruction/conversational datasets.\n- `trl dpo` — Direct Preference Optimization to align from preference data.\n- `trl grpo` — Group Relative Policy Optimization (rank multiple sampled outputs by comparative reward).\n- `trl rloo` — REINFORCE Leave-One-Out online RL with generation-based rewards.\n- `trl kto` — Kahneman-Tversky preference optimization.\n- `trl reward` — train reward models for RLHF.\n\n## Workflow\n1. Pick the method that matches your data (instructions, preference pairs, or reward signals).\n2. Prepare and format the dataset for that method.\n3. Run the matching `trl <method>` command with model, dataset, and training-config arguments.\n4. Evaluate and push the resulting model to the Hub; see the TRL docs (huggingface.co/docs/trl/en/clis) for per-method options.\n\nFull skill & source: https://github.com/huggingface/skills/tree/ea9a24f38a98baf2430dab3bcb31a89753ae9e6d/skills/trl-training"
+  },
+  {
+    "slug": "api-designer",
+    "name": "API Designer",
+    "category": "coding",
+    "description": "Designs REST and GraphQL APIs with resource modeling, OpenAPI 3.1 specs, versioning, pagination, and RFC 7807 error handling — validating contracts with redocly lint and mocking with Prism.",
+    "author": "Jeffallan",
+    "source_url": "https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/api-designer",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "api",
+      "api-development",
+      "architecture",
+      "openapi"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: api-designer\ndescription: Use when designing REST or GraphQL APIs, creating OpenAPI specifications, or planning API architecture — resource modeling, versioning strategies, pagination patterns, and error handling standards.\n---\n\n# API Designer\n\nA senior API architect for REST and GraphQL APIs with comprehensive OpenAPI 3.1 specifications.\n\n## Workflow\n1. Analyze the domain — business requirements, data models, client needs.\n2. Model resources — identify resources, relationships, and operations; sketch the entity diagram before writing any spec.\n3. Design endpoints — URI patterns, HTTP methods, request/response schemas (no verbs in URIs).\n4. Specify the contract in OpenAPI 3.1 and validate: `npx @redocly/cli lint openapi.yaml`.\n5. Mock and verify: `npx @stoplight/prism-cli mock openapi.yaml`.\n6. Plan evolution — versioning, deprecation, and backward-compatibility.\n\nEnforces RFC 7807 problem-details errors (`application/problem+json`), cursor pagination on all collections, consistent naming, and documented auth. Deliverables include the resource model, OpenAPI YAML, error catalog, and pagination/versioning strategy.\n\nFull skill & source: https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/api-designer"
+  },
+  {
+    "slug": "kubernetes-specialist",
+    "name": "Kubernetes Specialist",
+    "category": "coding",
+    "description": "Designs, secures, and troubleshoots Kubernetes workloads — declarative manifests with resource limits, probes, RBAC, and NetworkPolicies — plus Helm, GitOps, service mesh, and cost optimization.",
+    "author": "Jeffallan",
+    "source_url": "https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/kubernetes-specialist",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "gitops",
+      "helm",
+      "kubernetes",
+      "kubernetes-and-containers"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: kubernetes-specialist\ndescription: Use when deploying or managing Kubernetes workloads — deployment manifests, pod security, service accounts, NetworkPolicies, debugging crashes, right-sizing, Helm charts, RBAC, GitOps, and multi-cluster. Triggers on K8s, kubectl, Helm, RBAC, Ingress, ArgoCD, and service mesh tasks.\n---\n\n# Kubernetes Specialist\n\nDesign, deploy, secure, and troubleshoot Kubernetes workloads with declarative manifests and security best practices.\n\n## Workflow\n1. Analyze requirements — workload characteristics, scaling, and security needs.\n2. Design architecture — choose workload types, networking, and storage.\n3. Implement manifests — declarative YAML with resource requests/limits, liveness/readiness probes, non-root security context, and secrets (never ConfigMaps for credentials).\n4. Secure — least-privilege RBAC (dedicated ServiceAccount, never default), default-deny NetworkPolicies, Pod Security Standards.\n5. Validate — `kubectl rollout status`, `kubectl get pods -w`, `kubectl describe pod`, `kubectl top`, `kubectl auth can-i --list`; roll back with `kubectl rollout undo`.\n\nDeep references cover Helm charts, custom operators/CRDs, service mesh (Istio/Linkerd), GitOps (ArgoCD/Flux), and cost optimization (VPA/HPA, spot instances).\n\nFull skill & source: https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/kubernetes-specialist"
+  },
+  {
+    "slug": "sre-engineer",
+    "name": "SRE Engineer",
+    "category": "coding",
+    "description": "Defines SLIs/SLOs and error budgets, builds golden-signal monitoring and multiwindow burn-rate alerts in Prometheus, automates toil, and runs chaos experiments to validate resilience.",
+    "author": "Jeffallan",
+    "source_url": "https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/sre-engineer",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "devops",
+      "reliability",
+      "slo",
+      "sre"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: sre-engineer\ndescription: Use when defining SLIs/SLOs, managing error budgets, building reliable systems at scale, incident management, chaos engineering, toil reduction, or capacity planning. Produces SLO definitions, monitoring/alerting config, and automation.\n---\n\n# SRE Engineer\n\nDefine service-level objectives, error-budget policies, monitoring, and reliability automation for production systems.\n\n## Workflow\n1. Assess reliability — review architecture, current SLOs, incidents, and toil levels.\n2. Define SLOs — pick meaningful SLIs and set targets justified by user impact; calculate error budgets from them.\n3. Implement monitoring — golden-signal dashboards (latency, traffic, errors, saturation) with PromQL.\n4. Build alerts — multiwindow burn-rate rules in Prometheus (fast and slow burn) with runbook links.\n5. Automate toil — replace recurring manual work (e.g. auto-remediation scripts that query Prometheus and restart deployments).\n6. Test resilience — design chaos experiments and verify recovery meets RTO/RPO before marking them complete.\n\nWrites blameless postmortems and balances reliability with feature velocity.\n\nFull skill & source: https://github.com/Jeffallan/claude-skills/tree/e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319/skills/sre-engineer"
+  },
+  {
+    "slug": "obsidian-markdown",
+    "name": "Obsidian Markdown",
+    "category": "writing",
+    "description": "Creates and edits Obsidian Flavored Markdown — wikilinks, embeds, callouts, properties/frontmatter, tags, block IDs, comments, math, and Mermaid — with vault-aware linking conventions.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/a1dc48e68138490d522c04cbf5822214c6eb1202/skills/obsidian-markdown",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "markdown",
+      "notes",
+      "obsidian",
+      "writing-and-editing"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: obsidian-markdown\ndescription: Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.\n---\n\n# Obsidian Flavored Markdown\n\nObsidian extends CommonMark/GFM with wikilinks, embeds, callouts, properties, and comments. This skill covers those extensions (standard Markdown is assumed).\n\n## Workflow\n1. Add frontmatter properties at the top (`title`, `tags`, `aliases`, `cssclasses`).\n2. Write content in standard Markdown plus Obsidian syntax.\n3. Link notes with wikilinks — `[[Note]]`, `[[Note|Display]]`, `[[Note#Heading]]`, `[[Note#^block-id]]` — and use plain `[text](url)` only for external URLs.\n4. Embed content by prefixing a wikilink with `!` — `![[Note]]`, `![[image.png|300]]`, `![[doc.pdf#page=3]]`.\n5. Add callouts with `> [!type]` (note, tip, warning, etc.; `-`/`+` for foldable).\n6. Use highlights (`==text==`), comments (`%%hidden%%`), tags (`#nested/tag`), LaTeX math (`$...$`, `$$...$$`), Mermaid diagrams, and footnotes; verify rendering in reading view.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/a1dc48e68138490d522c04cbf5822214c6eb1202/skills/obsidian-markdown"
+  },
+  {
+    "slug": "brand",
+    "name": "Brand Context",
+    "category": "business",
+    "description": "Manages brand voice, visual identity, and messaging frameworks — injecting brand context into prompts, validating assets, and syncing brand guidelines to design tokens for consistency.",
+    "author": "nextlevelbuilder",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/brand",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "assets",
+      "brand",
+      "design",
+      "marketing"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: brand\ndescription: Brand voice, visual identity, messaging frameworks, asset management, and brand consistency. Activate for branded content, tone of voice, marketing assets, brand compliance, and style guides.\n---\n\n# Brand\n\nDefine and enforce brand identity, voice, messaging, and asset standards, keeping a single source of truth in sync with design tokens.\n\n## How to use\n1. Inject brand context into prompts so generated content stays on-brand: `node scripts/inject-brand-context.cjs` (add `--json` for structured output).\n2. Edit `docs/brand-guidelines.md` (the source of truth) or use `/brand update`.\n3. Sync guidelines to design tokens: `node scripts/sync-brand-to-tokens.cjs` writes `assets/design-tokens.json` and `.css`.\n4. Validate assets for naming, size, and format: `node scripts/validate-asset.cjs <path>`.\n5. Extract and compare colors against the palette: `node scripts/extract-colors.cjs --palette` or `<image-path>`.\n6. Reference voice, visual identity, messaging, consistency-checklist, and logo-usage docs as needed.\n\nFull skill & source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/brand"
+  },
+  {
+    "slug": "design-system",
+    "name": "Design System",
+    "category": "design",
+    "description": "Builds three-layer design token architectures (primitive → semantic → component), component specs, and Tailwind themes, plus brand-compliant HTML slides with Chart.js and a contextual layout decision system.",
+    "author": "nextlevelbuilder",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/design-system",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "components",
+      "design-system",
+      "tokens",
+      "ui-and-visual-design"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: design-system\ndescription: Token architecture, component specifications, and slide generation. Three-layer tokens (primitive to semantic to component), CSS variables, spacing/typography scales, component specs, and strategic brand-compliant slides. Use for design tokens, systematic design, and presentations.\n---\n\n# Design System\n\nA token architecture and component-spec system with a strategic slide generator.\n\n## How to use\n1. Structure tokens in three layers — primitive (raw values) to semantic (purpose aliases) to component (component-specific) — exposed as CSS variables.\n2. Generate tokens from JSON config: `node scripts/generate-tokens.cjs --config tokens.json -o tokens.css`; check for hardcoded values with `validate-tokens.cjs --dir src/`.\n3. Define component specs as state tables (default/hover/active/disabled) and integrate tokens into the Tailwind theme.\n4. For slides, search the BM25 decision base (`python scripts/search-slides.py \"<goal>\" --context`) which selects strategy, layout, typography, color, and background from CSV decision tables.\n5. Generate slide HTML that imports `design-tokens.css`, uses `var()` exclusively, and renders charts with Chart.js; validate with `slide-token-validator.py`.\n\nFull skill & source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/design-system"
+  },
+  {
+    "slug": "slides",
+    "name": "Presentation Slides",
+    "category": "design",
+    "description": "Creates strategic HTML presentations with Chart.js data visualization, design tokens, responsive layouts, copywriting formulas (PAS, AIDA, FAB), and contextual slide-strategy patterns.",
+    "author": "nextlevelbuilder",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/slides",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "design",
+      "presentation-creation",
+      "presentations",
+      "slides"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: slides\ndescription: Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies. Use for marketing presentations, pitch decks, and data-driven slides.\n---\n\n# Slides\n\nStrategic HTML presentation design with data visualization and conversion-focused copy.\n\n## How to use\n1. Provide a topic and slide count (the skill takes `[topic] [slide-count]` arguments).\n2. Run the `create` subcommand, which loads `references/create.md` to build the deck.\n3. Choose layouts from the layout-patterns knowledge base and build on the shared HTML template.\n4. Apply copywriting formulas (PAS, AIDA, FAB) and slide-strategy patterns for persuasive structure.\n5. Use design tokens and Chart.js for consistent styling and data-driven charts.\n\nFull skill & source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/slides"
+  },
+  {
+    "slug": "ui-styling",
+    "name": "UI Styling",
+    "category": "coding",
+    "description": "Builds accessible, responsive UIs with shadcn/ui (Radix + Tailwind), utility-first Tailwind styling, dark mode and theming, plus canvas-based visual design — including CLI scripts for component installation.",
+    "author": "nextlevelbuilder",
+    "source_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/ui-styling",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "frontend",
+      "frontend-development",
+      "styling",
+      "ui"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: ui-styling\ndescription: Create beautiful, accessible user interfaces with shadcn/ui (Radix UI + Tailwind), utility-first Tailwind CSS, and canvas-based visual designs. Use when building UIs, adding accessible components, customizing themes and dark mode, or establishing consistent styling.\n---\n\n# UI Styling\n\nCombine shadcn/ui components, Tailwind utility styling, and canvas-based visual design into accessible, responsive interfaces.\n\n## How to use\n1. Initialize the stack: `npx shadcn@latest init` (configures shadcn/ui + Tailwind), then add components with `npx shadcn@latest add button card dialog form`.\n2. Compose UIs from accessible Radix primitives and style them directly with Tailwind utility classes; extract components only for true repetition.\n3. Implement dark mode and theme customization via CSS variables (next-themes) per the theming reference.\n4. Follow accessibility patterns — keyboard navigation, focus management, ARIA, and form-validation feedback.\n5. Build responsive, mobile-first layouts with the breakpoint system; use the canvas design system for posters/visual compositions.\n6. Automate with helper scripts: `python scripts/shadcn_add.py ...` and `tailwind_config_gen.py`.\n\nFull skill & source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/5e2c0a2b5ec81bf5733ddcee2d7db4c34dc71aa3/.claude/skills/ui-styling"
+  },
+  {
+    "slug": "planning-with-files",
+    "name": "Planning with Files",
+    "category": "productivity",
+    "description": "Manus-style persistent planning that keeps task_plan.md, findings.md, and progress.md on disk so multi-step work survives context loss and /clear, with automatic session recovery.",
+    "author": "OthmanAdi",
+    "source_url": "https://github.com/OthmanAdi/planning-with-files/tree/8f5a3c2e1c347635cf94debde033b3c1ac97e4ab/skills/planning-with-files",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "continuity",
+      "files",
+      "planning",
+      "project-management"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: planning-with-files\ndescription: Manus-style persistent file-based planning for AI coding agents — keeps task_plan.md, findings.md, and progress.md on disk so work survives context loss and /clear. Use when asked to plan, break down, or organize a multi-step project or any work needing 5+ tool calls. Supports automatic session recovery.\n---\n\n# Planning with Files\n\nUse persistent markdown files as \"working memory on disk\" so long-running work survives compaction and /clear.\n\n## Workflow\n1. Restore context first — if `task_plan.md` exists, read it plus `progress.md` and `findings.md`, then run the `session-catchup.py` script to detect unsynced context from a prior session.\n2. Before any complex task, create the three files in your project directory (templates live in the skill dir): `task_plan.md` (phased plan), `findings.md` (discoveries), `progress.md` (what's done).\n3. Re-read the plan before key decisions to refresh goals in the attention window.\n4. Update `progress.md` after each step and mark phases complete in `task_plan.md`.\n5. Bundled hooks (UserPromptSubmit, PreToolUse, Stop, PreCompact) auto-inject the plan and gate completion so progress stays current across the session.\n\nFull skill & source: https://github.com/OthmanAdi/planning-with-files/tree/8f5a3c2e1c347635cf94debde033b3c1ac97e4ab/skills/planning-with-files"
+  },
+  {
+    "slug": "blueprint",
+    "name": "WordPress Blueprint",
+    "category": "coding",
+    "description": "Authors and reviews WordPress Playground blueprint JSON — declarative configs that install plugins/themes, set options, run PHP/SQL, and manipulate files to spin up reproducible WordPress demo environments.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/blueprint",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "blueprint",
+      "devops",
+      "playground",
+      "wordpress"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: blueprint\ndescription: Use when creating, editing, or reviewing WordPress Playground blueprint JSON files. Triggers on mentions of blueprints, playground configuration, or requests to set up a WordPress demo environment.\n---\n\n# WordPress Playground Blueprints\n\nA Blueprint is a trusted JSON-only file that declaratively configures a WordPress Playground instance — installing plugins/themes, setting options, running PHP/SQL, and manipulating files. No arbitrary JavaScript; works on web, Node.js, and CLI.\n\n## How to use\n1. Start from the template with `$schema` set to `https://playground.wordpress.net/blueprint-schema.json`, a `landingPage`, and `preferredVersions` (php major.minor or `latest`; wp major or `latest`/`nightly`).\n2. Use top-level shorthands — `login`, `plugins` (wp.org slugs), `siteOptions`, `constants` — for common setup; only documented keys are allowed (the schema rejects unknown properties).\n3. Use the `steps` pipeline when execution order matters (shorthands are prepended in unspecified order).\n4. Reference resources by type: `wordpress.org/plugins|themes` (slug), `url`, `git:directory` (url+ref), `literal`, `bundled`, or `zip`.\n5. Run via the Playground CLI or browser; validate against the schema.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/blueprint"
+  },
+  {
+    "slug": "wp-abilities-api",
+    "name": "WordPress Abilities API",
+    "category": "coding",
+    "description": "Implements the WordPress Abilities API — registering abilities and categories in PHP, exposing them over REST (wp-abilities/v1), consuming via @wordpress/abilities, and getting permissions and schemas right.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-abilities-api",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "abilities-api",
+      "api",
+      "api-development",
+      "wordpress"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-abilities-api\ndescription: Use when working with the WordPress Abilities API (wp_register_ability, wp_register_ability_category, /wp-json/wp-abilities/v1/*, @wordpress/abilities) — defining abilities, categories, meta, REST exposure, and permission checks. Targets WordPress 6.9+.\n---\n\n# WP Abilities API\n\nRegister, expose, and consume WordPress abilities, keeping the domain capability layer separate from REST/MCP/Command-Palette projections.\n\n## Workflow\n1. Confirm version constraints — for WP < 6.9 use the Abilities API plugin/package rather than core.\n2. Search the repo for existing usage: `wp_register_ability(`, `wp_register_ability_category(`, `wp-abilities/v1`, `@wordpress/abilities`.\n3. Register categories (optional) and abilities in PHP via the documented init hooks, with a stable namespaced `id`, label/description, `category`, and `meta` (`readonly: true` for informational, `show_in_rest: true` for client-visible).\n4. Make registrations thin adapters over a shared core service so REST handlers, CLI, and UI stay in sync; group abilities sensibly instead of one per REST operation.\n5. Confirm REST exposure under `wp-abilities/v1`, then consume from JS with `@wordpress/abilities`.\n6. Debug \"ability doesn't appear\" by checking hook timing, `meta.show_in_rest`, and category/ID mismatches.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-abilities-api"
+  },
+  {
+    "slug": "wp-abilities-verify",
+    "name": "WordPress Abilities Verification",
+    "category": "coding",
+    "description": "Verifies a WordPress plugin's Abilities API registrations — the adversarial readonly-but-writes check, permission-gate and schema lints, and optional runtime execution against a live environment.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-abilities-verify",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "abilities-api",
+      "testing-and-qa",
+      "verification",
+      "wordpress"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-abilities-verify\ndescription: Verify a WordPress plugin's Abilities API registrations — enumerate abilities, check that callback behavior matches each annotation's claim (the adversarial readonly-but-writes detection), validate permissions and schemas, and validate audit documents. Targets WordPress 6.9+ plugins.\n---\n\n# WP Abilities Verify\n\nVerify that a plugin's registered abilities actually behave as annotated. The centerpiece is the adversarial annotation-correctness check: a `readonly: true` ability that actually writes is a security/UX hazard because agents plan actions from the annotations they introspect.\n\n## Workflow\n1. Choose a mode — static (from the plugin checkout, no env) or runtime (requires a running env; adds authoritative enumeration and execution).\n2. If an audit doc is provided, validate it against the canonical schema first.\n3. Enumerate abilities statically via `wp_register_ability(` calls (use `rg --multiline --pcre2`); in runtime mode cross-check against `wp_get_abilities()` over wp-cli.\n4. Run the adversarial correctness check: read each callback body and confirm `readonly`/`destructive`/`idempotent` claims match (no `$wpdb->update`, `update_option`, deletes, etc.).\n5. Lint permission gates (prefer `current_user_can(...)`; fail literal `true`) and input schemas.\n6. Emit a structured PASS/WARN/FAIL report; suppress false positives with `// verify-ignore:` comments.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-abilities-verify"
+  },
+  {
+    "slug": "wp-block-development",
+    "name": "WordPress Block Development",
+    "category": "coding",
+    "description": "Build and fix Gutenberg blocks — block.json metadata, registration, attributes/serialization, static vs dynamic rendering, deprecations, and the @wordpress/scripts build workflow.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-block-development",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "blocks",
+      "gutenberg",
+      "wordpress",
+      "frontend-development"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-block-development\ndescription: Use when developing or fixing WordPress (Gutenberg) blocks — block.json metadata, register_block_type, attributes/serialization, supports, dynamic rendering, deprecations/migrations, and the @wordpress/scripts and @wordpress/create-block build/test workflow. Targets WordPress 6.9+.\n---\n\nDevelop and debug Gutenberg blocks the WordPress-native way, avoiding the classic \"Invalid block\" trap.\n\n## Workflow\n1. Triage and locate blocks by scanning for `block.json` (the skill ships `detect_wp_project.mjs` and `list_blocks.mjs`).\n2. Scaffold new blocks with `@wordpress/create-block` (use the interactive template if you need the Interactivity API); ensure `apiVersion: 3` for WP 6.9+/iframed editor.\n3. Pick a model: static block (implement `save()`) vs dynamic block (`render` / `render_callback`, minimal `save`).\n4. Register server-side via metadata; use `useBlockProps()`, `useInnerBlocksProps()`, and `get_block_wrapper_attributes()` for wrappers.\n5. When changing saved markup/attributes, add a `deprecated` entry (+ `migrate`) so existing content stays valid.\n6. Verify in the inserter, save/reload without \"Invalid block\", and run the repo's lint/build/E2E (wp-env).\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-block-development"
+  },
+  {
+    "slug": "wp-block-themes",
+    "name": "WordPress Block Themes",
+    "category": "coding",
+    "description": "Develop WordPress block themes — theme.json settings and styles, HTML templates and parts, patterns, style variations, and Site Editor troubleshooting when styles won't apply.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-block-themes",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "block-themes",
+      "theme-json",
+      "wordpress",
+      "frontend-development"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-block-themes\ndescription: Use when developing WordPress block themes — theme.json global settings/styles, templates and template parts, patterns, style variations, and Site Editor troubleshooting (style hierarchy, overrides, caching). Targets WordPress 6.9+.\n---\n\nBuild and maintain block themes while respecting WordPress's style hierarchy.\n\n## Workflow\n1. Run triage (`detect_wp_project.mjs`) then `detect_block_themes.mjs`; scope all edits to one theme root if several exist.\n2. Decide whether you're changing `theme.json` **settings** (what the UI allows: presets, scales, colors) or **styles** (default appearance).\n3. Edit templates under `templates/*.html` and parts under `parts/*.html` (parts must not be nested).\n4. Add theme-owned patterns under `patterns/*.php` and style variations under `styles/*.json`.\n5. Remember the cascade: core defaults → theme.json → child theme → user customizations — user edits stored in the DB can make theme.json changes look ignored.\n6. Verify in the Site Editor and on the frontend; rebuild assets if fonts/JS/CSS are involved.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-block-themes"
+  },
+  {
+    "slug": "wp-interactivity-api",
+    "name": "WordPress Interactivity API",
+    "category": "coding",
+    "description": "Build and debug WordPress Interactivity API features — data-wp-* directives, @wordpress/interactivity stores, server-side rendering with wp_interactivity_state(), and hydration fixes.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-interactivity-api",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "interactivity",
+      "wordpress",
+      "frontend",
+      "hydration"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-interactivity-api\ndescription: Use when building or debugging WordPress Interactivity API features — data-wp-* directives, @wordpress/interactivity store/state/actions, block viewScriptModule integration, wp_interactivity_*() server APIs, hydration, and directive behavior. Targets WordPress 6.9+.\n---\n\nWire up interactive WordPress frontends with correct server pre-rendering and clean hydration.\n\n## Workflow\n1. Detect existing usage by searching for `data-wp-interactive`, `@wordpress/interactivity`, and `viewScriptModule`; for new blocks use `@wordpress/create-block-interactive-template`.\n2. Locate the store(s) and confirm state shape, actions, and event callbacks used by `data-wp-on--*`.\n3. Pre-render on the server: set `supports.interactivity` in block.json (or call `wp_interactivity_process_directives()`), and seed state with `wp_interactivity_state()` / `wp_interactivity_data_wp_context()`, replicating derived state in PHP to avoid layout shift.\n4. Keep directives minimal and scoped; note WP 6.9 changes (`data-wp-ignore` deprecated, unique directive IDs via `---`).\n5. Debug inert directives: confirm the view module loads, the element has `data-wp-interactive`, and store namespaces match.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-interactivity-api"
+  },
+  {
+    "slug": "wp-performance",
+    "name": "WordPress Performance",
+    "category": "coding",
+    "description": "Profile and speed up WordPress from the backend — WP-CLI doctor/profile, Query Monitor via REST headers, then fix the dominant bottleneck across queries, autoloaded options, object cache, cron, or HTTP calls.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-performance",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "performance",
+      "wordpress",
+      "wp-cli",
+      "optimization"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-performance\ndescription: Use when investigating or improving WordPress performance from the backend — profiling with WP-CLI (profile/doctor), Server-Timing, Query Monitor via REST headers, plus database/query optimization, autoloaded options, object caching, cron, and HTTP API calls. Targets WordPress 6.9+.\n---\n\nA measure-first, browser-free approach to WordPress speed. Capture a baseline before touching anything.\n\n## Workflow\n1. Set guardrails: confirm whether writes (plugin installs, cache flush) are allowed, pick a reproducible URL/REST route, and capture baseline TTFB with `curl`.\n2. Run the deterministic report `perf_inspect.mjs --path=<path>` to detect WP-CLI, autoload size, and the object-cache drop-in.\n3. Fast wins first: `wp doctor check` for common foot-guns.\n4. Deep profile in order: `wp profile stage`, then `wp profile hook`, then `wp profile eval`; inspect Query Monitor headlessly via `x-qm-*` REST headers or `?_envelope`.\n5. Fix ONE dominant category — DB N+1s, oversized autoloaded options, object-cache misses, slow remote HTTP, or cron spikes.\n6. Re-run the same measurement to confirm the delta with behavior unchanged.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-performance"
+  },
+  {
+    "slug": "wp-phpstan",
+    "name": "WordPress PHPStan",
+    "category": "coding",
+    "description": "Set up and fix PHPStan static analysis on WordPress code — phpstan.neon config, WordPress core stubs, baselines, WP-aware PHPDoc typing, and safe handling of third-party plugin classes.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-phpstan",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "phpstan",
+      "static-analysis",
+      "wordpress",
+      "php"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-phpstan\ndescription: Use when configuring, running, or fixing PHPStan static analysis in WordPress projects — phpstan.neon setup, baselines, WordPress-specific PHPDoc typing (REST requests, hooks, query results), and handling third-party plugin/theme classes via stubs. Requires Composer-based PHPStan.\n---\n\nGet PHPStan green on WordPress codebases by typing correctly rather than ignoring.\n\n## Workflow\n1. Discover the PHPStan setup with `phpstan_inspect.mjs`; prefer the repo's existing `composer run phpstan`.\n2. Load WordPress core stubs (`szepeviktor/phpstan-wordpress` or `php-stubs/wordpress-stubs`) so core functions resolve.\n3. Keep `phpstan.neon` focused: `paths` on first-party code, exclude `vendor/` and build artifacts, and keep `ignoreErrors` narrow and documented.\n4. Fix with WP-specific PHPDoc — type `WP_REST_Request<...>`, hook callback `@param`s, and array/object shapes for query results — instead of suppressing.\n5. For unresolved plugin classes (WooCommerce, ACF), add plugin stubs or a targeted vendor-prefix ignore.\n6. Use the baseline only as a migration tool for legacy code; never baseline newly introduced errors.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-phpstan"
+  },
+  {
+    "slug": "wp-playground",
+    "name": "WordPress Playground",
+    "category": "coding",
+    "description": "Spin up disposable WordPress instances with @wp-playground/cli — auto-mount plugins/themes, run Blueprints, build shareable snapshots, switch WP/PHP versions, and debug with Xdebug.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-playground",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "playground",
+      "wordpress",
+      "testing",
+      "wasm"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-playground\ndescription: Use for WordPress Playground workflows — fast disposable WP instances locally via @wp-playground/cli (server, run-blueprint, build-snapshot), auto-mounting plugins/themes, switching WP/PHP versions, Blueprints, and Xdebug debugging. Requires Node.js 20.18+; runs WP in WebAssembly with SQLite.\n---\n\nDisposable, SQLite-backed WordPress for testing, demos, and bug repros — never point it at production data.\n\n## Workflow\n1. Confirm Node >= 20.18 (`node -v`) and pick the project path to mount.\n2. Quick spin-up: `npx @wp-playground/cli@latest server --auto-mount` (opens on localhost:9400, auto-detects the plugin/theme); add `--wp=` / `--php=` to pin versions.\n3. Use repeatable `--mount=/host:/vfs` mappings for multi-plugin or mu-plugin setups.\n4. Run scripted setups with `run-blueprint --blueprint=<file-or-url>` for CI validation.\n5. Share repros via `build-snapshot --blueprint=<file> --outfile=site.zip`.\n6. Debug with `--xdebug` and connect VS Code/PhpStorm; for browser-only, use playground.wordpress.net Blueprint links.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-playground"
+  },
+  {
+    "slug": "wp-plugin-development",
+    "name": "WordPress Plugin Development",
+    "category": "coding",
+    "description": "Build WordPress plugins the right way — predictable architecture and hooks, activation/uninstall lifecycle, the Settings API, the security baseline (nonces, capabilities, sanitization, $wpdb->prepare), and release packaging.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-plugin-development",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "plugins",
+      "wordpress",
+      "php",
+      "backend-development"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-plugin-development\ndescription: Use when developing WordPress plugins — architecture and hooks, activation/deactivation/uninstall, admin UI and the Settings API, data storage, cron/tasks, security (nonces, capabilities, sanitization, escaping, SQL safety), and release packaging. Targets WordPress 6.9+.\n---\n\nWrite WordPress plugins that activate cleanly and pass a security review.\n\n## Workflow\n1. Triage the repo (`detect_wp_project.mjs`) then locate plugin entrypoints with `detect_plugins.mjs`.\n2. Follow a predictable architecture: one bootstrap file, no heavy side effects at load, a loader/class to register hooks, admin-only code behind `is_admin()`.\n3. Handle lifecycle carefully — register activation/deactivation hooks at top level, flush rewrite rules only after registering CPTs, and provide a safe `uninstall.php`.\n4. Use the Settings API (`register_setting`, `add_settings_section/field`) with `sanitize_callback`.\n5. Apply the security baseline: sanitize input early, escape output late, nonces for CSRF plus capability checks for authorization, `wp_unslash()`, and `$wpdb->prepare()` for all SQL.\n6. Verify activation without fatals, settings round-trips, and run PHPUnit/PHPCS if present.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-plugin-development"
+  },
+  {
+    "slug": "wp-plugin-directory-guidelines",
+    "name": "WordPress Plugin Directory Guidelines",
+    "category": "business",
+    "description": "Review WordPress plugins against the 18 WordPress.org Plugin Directory guidelines — GPL license compliance, trialware/freemium rules, naming and trademark constraints, and why a submission was rejected.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-plugin-directory-guidelines",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "compliance",
+      "wordpress",
+      "gpl",
+      "plugins"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-plugin-directory-guidelines\ndescription: Use when reviewing WordPress plugins for GPL compliance, checking license headers/compatibility, evaluating upsell/freemium/trialware patterns, validating naming or trademark rules, or understanding why a plugin was rejected from WordPress.org — the authoritative reference for the 18 Plugin Directory guidelines.\n---\n\nAn authoritative checklist for getting a plugin accepted to the WordPress.org directory.\n\n## How to use\n1. Check the main plugin file's `License:` and `License URI:` headers against the valid header list (e.g. `GPL-2.0-or-later`).\n2. Walk the 18-guideline checklist (per-guideline detail in `references/guideline-review-checklist.md`), paying special attention to Guidelines 1, 4, 5, 7, 8, and 17.\n3. Confirm trialware/freemium compliance — flag split licensing where distributed code is restricted (Guideline 5).\n4. Verify bundled third-party code is GPL-compatible (MIT/BSD/ISC safe; Apache-2.0 and MPL-2.0 need care); cite the file path and exact license string for every issue.\n5. Screen the name (Guideline 17): >=5 alphanumeric chars, header matches readme, trademarks only after `for`/`with`, slug lowercase-hyphenated and <=50 chars.\n6. For ambiguous licenses, defer to the GNU license list rather than guessing.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-plugin-directory-guidelines"
+  },
+  {
+    "slug": "wp-project-triage",
+    "name": "WordPress Project Triage",
+    "category": "productivity",
+    "description": "Run a deterministic inspection of any WordPress repo (plugin, theme, block theme, core, Gutenberg, or full site) to detect kind, tooling, tests, and version hints as structured JSON before making changes.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-project-triage",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "triage",
+      "wordpress",
+      "project-management",
+      "tooling"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-project-triage\ndescription: Use when you need a deterministic inspection of a WordPress repository (plugin/theme/block theme/WP core/Gutenberg/full site) — project kind, tooling/tests, version hints — emitted as a structured JSON report to guide workflows and guardrails before making changes. Targets WordPress 6.9+.\n---\n\nA fast, deterministic detector that tells you what kind of WordPress repo you're in before you change anything. It underpins the other WordPress agent skills.\n\n## Workflow\n1. Run the detector from the repo root: `node skills/wp-project-triage/scripts/detect_wp_project.mjs` (prints JSON to stdout).\n2. Read `references/triage.schema.json` if you need the exact output contract.\n3. Use the report to pick guardrails: project kind(s), PHP/Node tooling present, tests present, and version hints with their sources.\n4. Confirm the JSON parses and includes `project.kind`, `signals`, and `tooling`; re-run after structural changes like adding `theme.json` or `block.json`.\n5. If a needed signal is missing, extend the detector rather than guessing; if it reports `unknown`, verify the repo root is correct.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-project-triage"
+  },
+  {
+    "slug": "wp-rest-api",
+    "name": "WordPress REST API",
+    "category": "coding",
+    "description": "Build, extend, and debug WordPress REST API endpoints — register_rest_route, controller classes, schema/argument validation, permission_callback and auth, custom fields/meta, and exposing CPTs via show_in_rest.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-rest-api",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "rest-api",
+      "wordpress",
+      "api-development",
+      "php"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-rest-api\ndescription: Use when building, extending, or debugging WordPress REST API endpoints — register_rest_route, WP_REST_Controller classes, schema/argument validation, permission_callback/authentication, response shaping, register_rest_field/register_meta, or exposing CPTs/taxonomies via show_in_rest. Targets WordPress 6.9+.\n---\n\nDesign and troubleshoot WordPress REST endpoints with proper validation and auth.\n\n## Workflow\n1. Triage, then search for existing REST usage (`register_rest_route`, `WP_REST_Controller`, `rest_api_init`, `show_in_rest`).\n2. Choose an approach: expose a CPT/taxonomy via `show_in_rest` + `rest_base`, or register custom routes on `rest_api_init` (prefer a `WP_REST_Controller` subclass for non-trivial work).\n3. Register safely: unique `vendor/v1` namespace, always provide a `permission_callback` (`__return_true` for public), `WP_REST_Server` method constants, and return via `rest_ensure_response()` / `WP_Error` with a status.\n4. Validate args with `type`/`required`/`validate_callback`/`sanitize_callback`; never read `$_GET`/`$_POST` directly — use `WP_REST_Request`.\n5. Add computed fields with `register_rest_field` and meta with `register_meta` (+ schema); use capability checks for authorization, cookie+`X-WP-Nonce` or application passwords for auth.\n6. Verify your namespace appears in `/wp-json/`; debug 404 (rest_api_init/permalinks) and 401/403 (nonce/auth) systematically.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-rest-api"
+  },
+  {
+    "slug": "wp-wpcli-and-ops",
+    "name": "WP-CLI and Operations",
+    "category": "coding",
+    "description": "Run WordPress operations with WP-CLI — safe search-replace and domain migration, db export/import, plugin/theme/user management, cron, cache flushing, multisite, and repeatable automation via wp-cli.yml.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-wpcli-and-ops",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "wp-cli",
+      "wordpress",
+      "operations",
+      "devops"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wp-wpcli-and-ops\ndescription: Use when working with WP-CLI (wp) for WordPress operations — safe search-replace, db export/import, plugin/theme/user/content management, cron, cache flushing, multisite, and scripting/automation with wp-cli.yml. Requires WP-CLI in the execution environment.\n---\n\nRun WordPress ops via WP-CLI with explicit blast-radius guardrails — these commands can be destructive.\n\n## Workflow\n1. Guardrails first: confirm the environment (dev/staging/prod) and targeting (`--path`, multisite `--url`), and back up before any write.\n2. Inspect WP-CLI and targeting deterministically with `wpcli_inspect.mjs --path=<path> [--url=<url>]`.\n3. For URL/domain migration: `wp db export`, then `wp search-replace --dry-run` to review, then the real replace, then flush caches/rewrite.\n4. Manage packages with `wp plugin *` / `wp theme *`; inspect and run individual cron events rather than blindly running everything.\n5. For multisite, decide single-site (`--url=`) vs network-wide (`--network`) before each command.\n6. Make ops repeatable with `wp-cli.yml` defaults and scripts that log commands and stop on error; re-run the inspector after changes.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-wpcli-and-ops"
+  },
+  {
+    "slug": "wpds",
+    "name": "WordPress Design System",
+    "category": "design",
+    "description": "Build and review WordPress UIs with the WordPress Design System — components, design tokens, color primitives, spacing/typography scales, and @wordpress/components, sourced from the canonical WPDS MCP server.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wpds",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "design-system",
+      "wordpress",
+      "ui",
+      "design-tokens"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: wpds\ndescription: Use when building or reviewing any UI in a WordPress context (Gutenberg, WooCommerce, WordPress.com, Jetpack) with the WordPress Design System (WPDS) — components, design tokens, color primitives, spacing/typography scales, and packages like @wordpress/components. Works best with the WPDS MCP server configured.\n---\n\nBuild WordPress UI that adheres to the WordPress Design System, treating its MCP server as the source of truth.\n\n## How to use\n1. Use the WPDS MCP server for canonical docs — `wpds://pages` (reference site), `wpds://components` and `wpds://components/:name`, and `wpds://design-tokens`. Do not web-search for WPDS docs.\n2. Read the relevant reference-site docs before starting; they take precedence over assumptions.\n3. Build UI from the most fitting WPDS components, tokens, and patterns; assume a TypeScript/React/CSS stack unless told otherwise.\n4. Stay within UI scope — skip data fetching and string localization, and call out what you left out and why.\n5. Validate with the project's lint scripts when available, and recap each design decision with its rationale.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wpds"
+  },
+  {
+    "slug": "backlink-analyzer",
+    "name": "Backlink Analyzer",
+    "category": "business",
+    "description": "Analyze a backlink profile — referring domains, anchor-text mix, toxic-link share, profile health, and competitor link gaps — then recommend concrete link-building or disavow actions.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/monitor/backlink-analyzer",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "backlinks",
+      "seo",
+      "link-building",
+      "audit"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: backlink-analyzer\ndescription: Use when the user asks to analyze backlinks or a link profile — profiles external referring domains, anchor-text distribution, toxic links, and competitor link gaps. Not for internal links. Uses WebFetch and optional SEO-tool exports.\n---\n\nProfile a domain's backlinks for quality, risk, and competitive gaps, with every metric source-tagged.\n\n## Workflow\n1. If no backlink data is provided and no link database is connected, stop and ask for a referring-domain export or a tool connection — never estimate link volume from the domain alone.\n2. Generate a profile overview: key metrics, link velocity, authority distribution, and a profile health score.\n3. Analyze link quality — top backlinks, link-type mix, anchor-text distribution, and geography.\n4. Identify toxic links, compute the toxic ratio as a labeled figure, and produce disavow recommendations.\n5. Find competitor link gaps (top 3 by overlap) and name at least 3 link-building or disavow actions.\n6. Tag each metric as tool-export, user-provided, or estimated, and emit a handoff summary for `memory/monitoring/`.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/monitor/backlink-analyzer"
+  },
+  {
+    "slug": "content-gap-analysis",
+    "name": "Content Gap Analysis",
+    "category": "business",
+    "description": "Build a competitor-relative coverage map — missing topics, keyword gaps, and format gaps — bucketed into Quick Wins, Strategic Builds, and Long-term, with a dated content-calendar entry per quick win.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/research/content-gap-analysis",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "content-strategy",
+      "seo",
+      "marketing",
+      "research"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: content-gap-analysis\ndescription: Use when the user asks to find content gaps or plan topics — builds a competitor-relative coverage map of missing topics, keyword gaps, and editorial-calendar opportunities. Not for raw keyword demand discovery (use keyword-research).\n---\n\nFind the topics competitors cover that you don't, then rank the gaps worth closing first.\n\n## Workflow\n1. Gap analysis is competitor-relative — if no competitors are given or inferable, ask the user to name 1-3 (or switch to keyword-research for demand-side discovery).\n2. Define scope: your site, competitors, topic focus, content types, audience, and business goals.\n3. Audit your existing content — indexed pages, content types, topic clusters, winners, and weaknesses.\n4. Analyze competitor content — volume, traffic, type mix, topic coverage, and unique assets.\n5. Identify keyword and topic gaps, bucketing into Quick Wins / Strategic Builds / Long-term by volume, difficulty, and relevance.\n6. Compare format gaps (guides, comparisons, tools, video) and emit a dated calendar entry per Quick Win plus a handoff summary for `memory/research/`.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/research/content-gap-analysis"
+  },
+  {
+    "slug": "content-quality-auditor",
+    "name": "Content Quality Auditor",
+    "category": "writing",
+    "description": "Audit content for publish readiness with the 80-item CORE-EEAT benchmark — per-item Pass/Partial/Fail, dimension and GEO/SEO system scores, critical-trust veto checks, and a prioritized fix plan.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/cross-cutting/content-quality-auditor",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "content-quality",
+      "e-e-a-t",
+      "seo",
+      "editing"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: content-quality-auditor\ndescription: Use when auditing content quality, E-E-A-T, or publish readiness — runs 80-item CORE-EEAT scoring with veto checks and a fix plan. Not for structural on-page tags (use on-page-seo-auditor) or domain/citation trust (use domain-authority-auditor). Uses WebFetch.\n---\n\nGrade an article against a standardized 80-item content benchmark and return a publish verdict.\n\n## Workflow\n1. Run the full 80-item audit, scoring every CORE-EEAT check item as Pass / Partial / Fail (when hook-triggered after writing, skip setup and audit the latest content).\n2. Score all 8 dimensions (0-100 each) and compute the GEO Score (CORE) and SEO Score (EEAT).\n3. Apply content-type-specific weights for a final weighted total.\n4. Run veto detection for critical trust violations (T04, C01, R10) that block publishing regardless of score.\n5. Rank the Top 5 improvements by impact and generate a specific, actionable fix plan.\n6. Finish with a publish verdict and a handoff summary in the repository Skill Contract format.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/cross-cutting/content-quality-auditor"
+  },
+  {
+    "slug": "memory-management",
+    "name": "SEO Memory Management",
+    "category": "productivity",
+    "description": "Manage a three-tier (HOT/WARM/COLD) memory lifecycle for long-running SEO/GEO programs — capture, promote, demote, and archive findings, track open loops, and run privacy cleanup.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/cross-cutting/memory-management",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "memory",
+      "knowledge-management",
+      "seo",
+      "context"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: memory-management\ndescription: Use when the user asks to remember project context, check saved findings, manage hot cache, or archive/purge data across SEO/GEO sessions — manages the HOT/WARM/COLD memory lifecycle with promotion, demotion, archival, and privacy cleanup. Not for content or domain scoring (use the auditors).\n---\n\nMaintain durable cross-session memory for SEO/GEO campaigns using a three-tier system.\n\n## How to use\n1. Understand the tiers: HOT (<=80 lines, auto-loads each session via the SessionStart hook), WARM (loads on demand per skill), and COLD (archived, queried only on request).\n2. Initialize the memory structure for a new project (industry, hero keywords, competitors).\n3. After each analysis, capture findings and promote durable facts/decisions into the hot cache and `memory/open-loops.md`.\n4. Demote and archive stale data from HOT to WARM to COLD to keep the hot cache lean.\n5. Answer context queries (\"what are our hero keywords?\", \"what did we decide last time?\") from stored memory.\n6. Run privacy cleanup to purge personal data on request, and finish with a hot-cache update plan and handoff summary.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/cross-cutting/memory-management"
+  },
+  {
+    "slug": "meta-tags-optimizer",
+    "name": "Meta Tags Optimizer",
+    "category": "business",
+    "description": "Write and improve title tags, meta descriptions, Open Graph, and Twitter Cards for CTR and sharing — three on-spec options each within character limits, plus a complete social/canonical tag block.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/build/meta-tags-optimizer",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "meta-tags",
+      "seo",
+      "ctr",
+      "open-graph"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: meta-tags-optimizer\ndescription: Use when the user asks to optimize meta tags — improves titles, descriptions, Open Graph, Twitter Cards, and CTR test variants. Not for JSON-LD structured data (use schema-markup-generator) or body copy (use seo-content-writer).\n---\n\nProduce a ready-to-use metadata package that lifts click-through and social sharing.\n\n## Workflow\n1. Gather page info — URL, page type, primary/secondary keywords, audience, CTA, and value proposition.\n2. Create the title tag at ~50-60 chars with the keyword front-loaded; generate three options using the supported title formulas.\n3. Write the meta description at ~150-160 chars including the keyword and CTA; generate three options.\n4. Build the Open Graph, Twitter Card, canonical, robots, viewport, author, and article tags as a complete block.\n5. Run the CORE-EEAT alignment check (C01 Intent Alignment, C02 Direct Answer) and give CTR/A-B-test tips.\n6. Label each metric Measured / User-provided / Estimated; mark unavailable metrics N/A rather than inventing them.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/build/meta-tags-optimizer"
+  },
+  {
+    "slug": "performance-reporter",
+    "name": "SEO Performance Reporter",
+    "category": "data",
+    "description": "Build multi-metric SEO/GEO stakeholder reports — executive summary, organic traffic, rankings, GEO/AI citations, authority, and content quality — each metric source-tagged and compared to a prior period.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/monitor/performance-reporter",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "reporting",
+      "seo",
+      "data-analysis",
+      "kpi-dashboard"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: performance-reporter\ndescription: Use when the user asks to generate an SEO report or dashboard — builds multi-metric stakeholder reports spanning traffic, rankings, authority, and content progress with period-over-period comparison. Not for raw ranking deltas (use rank-tracker).\n---\n\nAggregate SEO/GEO data into a stakeholder report with prioritized recommendations.\n\n## Workflow\n1. A period comparison is required — if none can be determined, offer last-30-vs-prior-30, last-month-vs-prior, or a custom range.\n2. Define parameters: domain, period, comparison period, report type, audience, and focus areas.\n3. Write the executive summary — rating, wins, watch areas, required actions, metrics at a glance, and SEO ROI.\n4. Report sections: organic traffic, keyword rankings (defer raw position deltas to rank-tracker), GEO/AI citations, domain authority (CITE), and content quality (CORE-EEAT).\n5. Mark any section without source data as \"Not yet evaluated\" — never fabricate; tag every figure Measured / User-provided / Estimated.\n6. Turn deltas into recommendations with owner, priority, and expected impact, and emit a handoff summary for `memory/monitoring/`.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/monitor/performance-reporter"
+  },
+  {
+    "slug": "technical-seo-checker",
+    "name": "Technical SEO Checker",
+    "category": "business",
+    "description": "Audit technical SEO health — crawlability, indexing, Core Web Vitals, robots.txt, sitemaps, canonicals, redirects, HTTPS, and structured data — with scored results and a prioritized fix roadmap.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/optimize/technical-seo-checker",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "technical-seo",
+      "core-web-vitals",
+      "seo",
+      "crawlability"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: technical-seo-checker\ndescription: Use when the user asks to check technical SEO — audits crawlability, indexing, Core Web Vitals, robots.txt, sitemaps, canonicals, redirects, and migrations. Not for on-page tags or content (use on-page-seo-auditor). Uses WebFetch.\n---\n\nFind the technical issues that stop search engines from crawling, indexing, and ranking a site.\n\n## Workflow\n1. Run a full audit for a URL/domain, or scope to a specific check (e.g. Core Web Vitals, crawlability).\n2. Audit crawlability and indexability — robots.txt, sitemaps, canonical tags, redirects, and index status.\n3. Measure Core Web Vitals (LCP, INP) and mobile-friendliness.\n4. Check HTTPS/security (HSTS), URL structure, structured data, and international SEO signals.\n5. Score the results and produce a prioritized fix roadmap; for site migrations, apply the migration checklist.\n6. Finish with the standard handoff summary from the repository Skill Contract.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/optimize/technical-seo-checker"
+  },
+  {
+    "slug": "humanizer",
+    "name": "Humanizer",
+    "category": "writing",
+    "description": "Rewrite AI-sounding prose into natural, human writing — detect and fix em-dash overuse, the rule of three, AI vocabulary, vague attributions, negative parallelisms, and filler, while preserving meaning and matching voice.",
+    "author": "blader",
+    "source_url": "https://github.com/blader/humanizer/tree/9600f2b7241cb4eed6ad803abee5ea01d67fe8e4",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "editing",
+      "writing",
+      "style",
+      "humanizing"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: humanizer\ndescription: Remove signs of AI-generated writing from text. Use when editing or reviewing text to make it sound natural and human-written — detects inflated symbolism, promotional language, vague attributions, em-dash overuse, the rule of three, AI vocabulary, passive voice, negative parallelisms, and filler. Based on Wikipedia's \"Signs of AI writing\" guide.\n---\n\nAn editor that strips telltale AI patterns while keeping the message and the author's voice intact.\n\n## How to use\n1. Scan for AI patterns — em-dash overuse, rule-of-three lists, vague attributions (\"experts say\"), AI vocabulary, negative parallelisms (\"not X, but Y\"), promotional language, and filler phrases.\n2. Rewrite rather than delete — replace AI-isms with natural alternatives and cover everything the original covered (five paragraphs in, five out).\n3. Calibrate voice — if the user supplies a writing sample, match its sentence length, word level, and punctuation habits; otherwise use a natural, varied, opinionated default.\n4. Add personality (the \"soul\" pass) only for blog/essay/opinion writing; keep technical, legal, and reference text plain.\n5. Run the draft -> audit -> final loop, re-scanning the rewrite for any patterns that crept back in.\n\nFull skill & source: https://github.com/blader/humanizer/tree/9600f2b7241cb4eed6ad803abee5ea01d67fe8e4"
+  },
+  {
+    "slug": "interface-design",
+    "name": "Interface Design",
+    "category": "design",
+    "description": "Craft-first product UI design for dashboards, admin panels, and SaaS tools — intent-first briefs, product-domain exploration, a signature element, systemic tokens, and a generic-output test to escape templated defaults.",
+    "author": "Dammyjay93",
+    "source_url": "https://github.com/Dammyjay93/interface-design/tree/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "interface",
+      "ui",
+      "design",
+      "product-design"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: interface-design\ndescription: Craft-first interface design for dashboards, admin panels, SaaS apps, tools, settings pages, and data interfaces. Use when designing, building, reviewing, or refining product UI where visual craft, layout hierarchy, tokens, states, or design-system consistency matter. Not for marketing/landing pages or brand-only work.\n---\n\nDesign product interfaces with the craft of teams like Linear, Vercel, and Stripe — by deciding every detail instead of falling back to defaults.\n\n## Workflow\n1. State intent first — who the actual human is, the verb they must accomplish, and what it should feel like in concrete words (not \"clean and modern\"); make the intent systemic across color, type, spacing, and density.\n2. Explore the product domain before any visual thinking: list 5+ domain concepts, 5+ natural colors, one signature element unique to this product, and 3 obvious defaults to avoid.\n3. Catch defaults where they hide — typography, navigation, data presentation, and token names (`--ink` evokes a world; `--gray-700` evokes a template).\n4. Build a real design system (primitive -> semantic -> component tokens) and define states, hierarchy, polish, and motion.\n5. Apply the test: with the product name removed, could someone identify what it's for? If another AI would produce substantially the same output, iterate.\n\nFull skill & source: https://github.com/Dammyjay93/interface-design/tree/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design"
+  },
+  {
+    "slug": "guard",
+    "name": "Guard",
+    "category": "coding",
+    "description": "Full safety mode for risky work — warns before destructive commands (rm -rf, DROP TABLE, force-push) via a PreToolUse hook and restricts file edits to a chosen directory boundary. Combines /careful and /freeze.",
+    "author": "garrytan",
+    "source_url": "https://github.com/garrytan/gstack/tree/a861c00cfac6e2376d26c7d3ba5207cdc5aefc49/guard",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "safety",
+      "guardrails",
+      "hooks",
+      "engineering"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: guard\ndescription: \"Full safety mode: destructive-command warnings plus directory-scoped edits. Use when touching prod or debugging live systems, or when asked for guard mode, full safety, lock it down, or maximum safety. Part of gstack; depends on sibling /careful and /freeze skills.\"\n---\n\nMaximum-safety mode that combines destructive-command warnings (/careful) with a directory edit boundary (/freeze) via PreToolUse hooks.\n\n## How to use\n1. On activation, ask the user (text input) which directory to restrict edits to — destructive-command warnings are always on.\n2. Resolve the path to absolute, ensure a trailing slash, and write it to the gstack freeze state file (`$GSTACK_STATE_ROOT/freeze-dir.txt`).\n3. The PreToolUse Bash hook (`check-careful.sh`) warns before patterns like `rm -rf`, `DROP TABLE`, and force-push; the user can override.\n4. The PreToolUse Edit/Write hook (`check-freeze.sh`) blocks any edit to files outside the chosen directory.\n5. Confirm both protections to the user; `/unfreeze` removes the edit boundary, and ending the session deactivates everything.\n\nNote: requires the sibling /careful and /freeze skills (installed together by gstack setup).\n\nFull skill & source: https://github.com/garrytan/gstack/tree/a861c00cfac6e2376d26c7d3ba5207cdc5aefc49/guard"
+  },
+  {
+    "slug": "playwright-skill",
+    "name": "Playwright Browser Testing",
+    "category": "coding",
+    "description": "General-purpose browser automation with Playwright — auto-detects running dev servers, writes throwaway test scripts to /tmp, runs them via a universal executor, and captures screenshots and UX evidence.",
+    "author": "lackeyjb",
+    "source_url": "https://github.com/lackeyjb/playwright-skill/tree/bb7e920d376022958214e349ef25498a2644e189/skills/playwright-skill",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "playwright",
+      "browser",
+      "testing",
+      "automation"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: playwright-skill\ndescription: Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to /tmp. Test pages, fill forms, take screenshots, check responsive design, validate UX, test login flows, and check links. Use when the user wants to test websites, automate browser interactions, or validate web functionality.\n---\n\nWrite and run custom Playwright scripts on demand without cluttering the project.\n\n## Workflow\n1. For localhost work, ALWAYS detect dev servers first via the bundled helper (`detectDevServers()`); use the one found, ask which if several, or ask for a URL if none.\n2. Write the test script to `/tmp/playwright-test-*.js` — never into the skill directory — with the target URL parameterized at the top.\n3. Default to a visible browser (`headless: false`) so the user can watch, unless headless is requested.\n4. Execute via the universal runner: `cd $SKILL_DIR && node run.js /tmp/playwright-test-*.js`.\n5. First-time setup installs Playwright and Chromium with `npm run setup` in the skill directory.\n6. Report results in real time; /tmp scripts are auto-cleaned by the OS.\n\nFull skill & source: https://github.com/lackeyjb/playwright-skill/tree/bb7e920d376022958214e349ef25498a2644e189/skills/playwright-skill"
+  },
+  {
+    "slug": "research-paper-writing",
+    "name": "Research Paper Writing",
+    "category": "research",
+    "description": "Rewrite ML/CV/NLP papers into reviewer-friendly drafts — one-message-per-paragraph clarity, reverse outlining, claim-evidence alignment, clean teaser/pipeline figures, and adversarial self-review before submission.",
+    "author": "Master-cai",
+    "source_url": "https://github.com/Master-cai/Research-Paper-Writing-Skills/tree/9ee5eddc10068cc52590b3a68a827d3a387f5af9/research-paper-writing",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "academic-writing",
+      "research",
+      "papers",
+      "editing"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: research-paper-writing\ndescription: Improve academic paper writing for ML/CV/NLP-style papers with clear section structure, paragraph flow, and reviewer-facing presentation. Use when drafting or revising Abstract, Introduction, Related Work, Method, Experiments, or Conclusion; polishing figures/tables; checking claim-support alignment; or self-review before submission.\n---\n\nTurn a paper into a high-clarity, reviewer-friendly draft prioritizing first impression, logical flow, and evidence-backed claims.\n\n## Workflow\n1. Clarify the paper story before sentence-level edits and build a mini-outline per subsection.\n2. Rewrite paragraph-by-paragraph: one message per paragraph, stated in the first sentence, with self-contained nouns and clear sentence-to-sentence relations.\n3. Run reverse outlining after each section — map every topic sentence to the thesis and every evidence point to its topic sentence; cut paragraphs that don't map.\n4. Treat figures/tables as core content: clean teaser and pipeline figures, readable minimal-ink tables.\n5. Check every major Abstract/Introduction claim against experimental evidence; weaken or remove unsupported claims.\n6. Finish with an adversarial five-dimension self-review (contribution, clarity, experimental strength, evaluation, method soundness) and a claim-evidence map; load only the needed `references/<section>.md`.\n\nFull skill & source: https://github.com/Master-cai/Research-Paper-Writing-Skills/tree/9ee5eddc10068cc52590b3a68a827d3a387f5af9/research-paper-writing"
+  },
+  {
+    "slug": "code-review",
+    "name": "Code Review",
+    "category": "coding",
+    "description": "Rigorous code-review discipline — evaluate feedback technically instead of agreeing performatively, request reviews via a code-reviewer subagent, and gate any completion claim behind fresh verification evidence.",
+    "author": "mrgoonie",
+    "source_url": "https://github.com/mrgoonie/claudekit-skills/tree/80113d86bc4407f105af40a2c4ea58194f7c370a/.claude/skills/code-review",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "code-review",
+      "verification",
+      "engineering"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: code-review\ndescription: Use when receiving code-review feedback (especially if unclear or technically questionable), when completing tasks or major features that need review, or before making any completion/success claims. Covers receiving feedback with technical rigor, requesting reviews via a code-reviewer subagent, and verification gates requiring evidence before status claims.\n---\n\nThree code-review practices anchored on one principle: technical correctness over social comfort — verify before implementing, ask before assuming, evidence before claims.\n\n## How to use\n1. Receiving feedback: READ -> UNDERSTAND -> VERIFY -> EVALUATE -> RESPOND -> IMPLEMENT; stop and ask when items are unclear, and verify external-reviewer suggestions technically before applying.\n2. Requesting review: invoke the code-reviewer subagent after each task in subagent-driven work, on finishing a major feature/refactor, and before merging to main.\n3. Verification gates: before claiming tests pass, the build succeeds, or work is done, run the verification command and state the claim WITH evidence — no fresh evidence means no claim.\n4. Use the quick decision tree to route each situation; consult the matching `references/` file (reception, requesting, verification-before-completion) for the full protocol.\n\nFull skill & source: https://github.com/mrgoonie/claudekit-skills/tree/80113d86bc4407f105af40a2c4ea58194f7c370a/.claude/skills/code-review"
+  },
+  {
+    "slug": "threejs-shaders",
+    "name": "Three.js Shaders",
+    "category": "coding",
+    "description": "Write custom Three.js shaders — ShaderMaterial vs RawShaderMaterial, uniforms and built-in attributes, GLSL vertex/fragment structure, extending built-in materials, debugging, and performance.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-shaders",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "shaders",
+      "glsl",
+      "threejs",
+      "frontend-development"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: threejs-shaders\ndescription: Three.js shaders — GLSL, ShaderMaterial, uniforms, custom effects. Use when creating custom visual effects, modifying vertices, writing fragment shaders, or extending built-in materials.\n---\n\nBuild custom GLSL shaders in Three.js with correctly wired uniforms and attributes.\n\n## How to use\n1. Start from `ShaderMaterial` with a `uniforms` object (e.g. `time`, `color`), a `vertexShader`, and a `fragmentShader`.\n2. Use `ShaderMaterial` to inherit Three.js built-ins (`projectionMatrix`, `modelViewMatrix`, `normalMatrix`, `position`, `normal`, `uv`); switch to `RawShaderMaterial` only when you must declare everything yourself.\n3. Compute `gl_Position` in the vertex shader and `gl_FragColor` in the fragment shader; pass data vertex-to-fragment with `varying`.\n4. Drive animation by updating uniforms in the render loop (`material.uniforms.time.value = clock.getElapsedTime()`).\n5. Debug by visualizing values as color, and keep fragment-shader work cheap for performance.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-shaders"
+  },
+  {
+    "slug": "threejs-animation",
+    "name": "Three.js Animation",
+    "category": "coding",
+    "description": "Animate in Three.js — keyframe clips, the AnimationMixer/AnimationAction system, GLTF and skeletal animation, morph targets, procedural motion with Clock, and blending between animations.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-animation",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "animation",
+      "threejs",
+      "3d",
+      "frontend-development"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: threejs-animation\ndescription: Three.js animation — keyframe animation, skeletal animation, morph targets, animation mixing. Use when animating objects, playing GLTF animations, creating procedural motion, or blending animations.\n---\n\nCoordinate motion in Three.js, from simple procedural tweens to blended skeletal clips.\n\n## How to use\n1. For procedural motion, drive transforms in the render loop using a `THREE.Clock` (`getDelta()` for frame-rate-independent steps, `getElapsedTime()` for oscillation).\n2. For keyframed motion, learn the three pieces: `AnimationClip` (keyframe data), `AnimationMixer` (plays clips on a root object), and `AnimationAction` (controls playback).\n3. Build clips from `KeyframeTrack`s — `NumberKeyframeTrack`, `VectorKeyframeTrack`, `QuaternionKeyframeTrack` — targeting property paths like `.position[y]`.\n4. Play GLTF/skeletal animations by creating a mixer on the loaded scene and running each `gltf.animations` clip as an action.\n5. Advance the mixer every frame with `mixer.update(delta)`, and blend with `crossFadeTo` / action weights.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-animation"
+  },
+  {
+    "slug": "threejs-geometry",
+    "name": "Three.js Geometry",
+    "category": "coding",
+    "description": "Create and optimize Three.js geometry — built-in primitives, custom BufferGeometry with position/normal/uv attributes, indexed meshes, and InstancedMesh for rendering many objects efficiently.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-geometry",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "geometry",
+      "threejs",
+      "meshes",
+      "frontend-development"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: threejs-geometry\ndescription: Three.js geometry creation — built-in shapes, BufferGeometry, custom geometry, instancing. Use when creating 3D shapes, working with vertices, building custom meshes, or optimizing with instanced rendering.\n---\n\nBuild and optimize Three.js geometry from primitives up to custom and instanced meshes.\n\n## How to use\n1. Reach for built-in geometries first — `BoxGeometry`, `SphereGeometry`, `PlaneGeometry`, `CylinderGeometry` (a cone with `radiusTop: 0`), `TorusGeometry`, `TorusKnotGeometry`, etc., tuning their segment counts.\n2. Pair geometry with a material (e.g. `MeshStandardMaterial`) into a `THREE.Mesh` and add it to the scene.\n3. For custom shapes, build a `BufferGeometry` and set `position`, `normal`, and `uv` attributes via `BufferAttribute`.\n4. Use indexed geometry (`setIndex`) to share vertices, and `computeVertexNormals()` when you generate positions by hand.\n5. To render many copies efficiently, use `InstancedMesh` and set per-instance transforms with `setMatrixAt`.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-geometry"
+  },
+  {
+    "slug": "threejs-interaction",
+    "name": "Three.js Interaction",
+    "category": "coding",
+    "description": "Add pointer, touch, and selection to Three.js scenes — raycasting for click detection, OrbitControls for camera, and interaction state for hover and drag in 3D experiences.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-interaction",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "frontend-development",
+      "interaction",
+      "raycasting",
+      "threejs"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: threejs-interaction\ndescription: Reference for input and selection in Three.js — raycasting, camera controls, mouse/touch handling, object picking. Use when wiring up click detection, hover/drag state, or interactive 3D scenes.\n---\n\nA practical recipe set for making Three.js scenes respond to user input.\n\n## How to use\n1. Add camera controls with `OrbitControls` from `three/addons`; set `enableDamping = true` and call `controls.update()` each frame.\n2. For picking, create a `THREE.Raycaster` and a `THREE.Vector2`; on a pointer event, convert screen coords to NDC (`x = clientX/innerWidth*2-1`, `y = -(clientY/innerHeight*2-1)`), using `getBoundingClientRect()` for canvases that aren't full-window.\n3. Call `raycaster.setFromCamera(mouse, camera)` then `intersectObjects(scene.children, true)`; the first hit gives `point`, `face`, `object`, `uv`, and `instanceId`.\n4. Reuse the same flow for touch via `touchstart`/`touchmove`, and track hover/selection state to drive highlights, drag, or transforms.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-interaction"
+  },
+  {
+    "slug": "threejs-lighting",
+    "name": "Three.js Lighting",
+    "category": "coding",
+    "description": "Build Three.js lighting rigs — ambient, hemisphere, directional, point, spot, and area lights, plus shadow maps and image-based environment lighting, with notes on cost and performance.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-lighting",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "frontend-development",
+      "lighting",
+      "rendering",
+      "threejs"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: threejs-lighting\ndescription: Reference for Three.js lighting — light types, shadows, and environment/IBL setup with performance tradeoffs. Use when adding lights, configuring shadows, or tuning illumination.\n---\n\nGuide to choosing and configuring lights in Three.js.\n\n## How to use\n1. Pick light types by cost and need: `AmbientLight`/`HemisphereLight` (cheap, no shadows) for fill; `DirectionalLight` (sun) for cheap shadows; `PointLight`/`SpotLight` for localized sources; `RectAreaLight` for soft area light.\n2. Combine a low-intensity ambient or hemisphere fill with a key directional light positioned off-axis for natural depth.\n3. Enable shadows with `light.castShadow = true`, set `shadow.mapSize` (e.g. 2048) for sharpness, and tune the shadow camera frustum (`near`/`far`/bounds) to fit the scene.\n4. For realism, load an HDR environment and use it via the scene environment / IBL so PBR materials pick up reflections; keep shadow-casting lights few to control GPU cost.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-lighting"
+  },
+  {
+    "slug": "threejs-loaders",
+    "name": "Three.js Loaders",
+    "category": "coding",
+    "description": "Load 3D assets in Three.js — GLTF/GLB models, textures, and HDR environments — with LoadingManager progress tracking, correct color space, and async load patterns.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-loaders",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "3d-assets",
+      "frontend-development",
+      "loaders",
+      "threejs"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: threejs-loaders\ndescription: Reference for loading assets in Three.js — GLTFLoader, TextureLoader, HDR environments, and LoadingManager progress. Use when loading models, textures, or tracking load state.\n---\n\nPatterns for loading and configuring 3D assets in Three.js.\n\n## How to use\n1. Load models with `GLTFLoader` from `three/addons/loaders/GLTFLoader.js`; add `gltf.scene` to your scene in the onLoad callback.\n2. Coordinate multiple assets with a single `THREE.LoadingManager`, wiring `onProgress` to a progress bar and `onLoad` to start the app only when everything is ready.\n3. Load textures via `TextureLoader`; set `colorSpace = THREE.SRGBColorSpace` for albedo maps and linear for data maps (normal/roughness), plus wrapping and `repeat`/`offset`.\n4. Use the loader callbacks (onLoad/onError) to diagnose failures, and remember image loads don't report fine-grained progress.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-loaders"
+  },
+  {
+    "slug": "threejs-materials",
+    "name": "Three.js Materials",
+    "category": "coding",
+    "description": "Select and configure Three.js materials — Basic, Lambert, Phong, Standard/Physical PBR, Toon, and ShaderMaterial — plus texture maps and PBR settings for realistic or stylized meshes.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-materials",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "frontend-development",
+      "materials",
+      "pbr",
+      "threejs"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: threejs-materials\ndescription: Reference for Three.js materials — choosing among Basic/Lambert/Phong/Standard/Physical/Toon/Shader materials and configuring texture maps and PBR. Use when styling meshes or building custom shaders.\n---\n\nGuide to picking and tuning Three.js materials.\n\n## How to use\n1. Choose the material by need: `MeshBasicMaterial` (unlit), `MeshStandardMaterial` (default PBR with `roughness`/`metalness`), `MeshPhysicalMaterial` (clearcoat, transmission), `MeshToonMaterial` (cel), or `ShaderMaterial` for custom GLSL.\n2. For realistic surfaces, drive a Standard/Physical material with texture maps: `map`, `normalMap`, `roughnessMap`, `metalnessMap`, `aoMap`, and `envMap`.\n3. Set the correct color space on color maps (sRGB) and keep data maps linear; mark `needsUpdate = true` after late texture assignment.\n4. Control transparency (`transparent`, `opacity`, `alphaMap`), `side`, and reuse material instances across meshes to limit draw cost.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-materials"
+  },
+  {
+    "slug": "threejs-postprocessing",
+    "name": "Three.js Postprocessing",
+    "category": "coding",
+    "description": "Build Three.js post-processing pipelines with EffectComposer — bloom, depth-of-field, color grading, and custom screen-space shader passes — with resize handling and performance tradeoffs.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-postprocessing",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "frontend-development",
+      "postprocessing",
+      "threejs",
+      "webgl"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: threejs-postprocessing\ndescription: Reference for Three.js post-processing — EffectComposer pipelines, bloom/DOF/screen effects, and custom shader passes. Use when adding glow, color grading, blur, or screen-space effects.\n---\n\nHow to assemble a post-processing chain in Three.js.\n\n## How to use\n1. Create an `EffectComposer(renderer)` and add a `RenderPass(scene, camera)` as the first pass; render with `composer.render()` instead of `renderer.render()` in your loop.\n2. Add effect passes such as `UnrealBloomPass` (strength, radius, threshold) for glow, or shader passes for color grading and blur; the last pass renders to screen.\n3. Use selective bloom (layers + a luminance/composite ShaderPass) to glow only chosen objects.\n4. On resize, update camera aspect, `renderer.setSize`, and `composer.setSize`; order passes deliberately and budget passes for performance.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-postprocessing"
+  },
+  {
+    "slug": "excalidraw-diagram-skill",
+    "name": "Excalidraw Diagram",
+    "category": "design",
+    "description": "Generate editable .excalidraw JSON diagrams that argue visually — architectures, workflows, and concepts — using a single color palette and concrete evidence artifacts rather than labeled boxes.",
+    "author": "coleam00",
+    "source_url": "https://github.com/coleam00/excalidraw-diagram-skill/tree/8646fcc9f74f38539c6cdb4c969723336a96ddcd",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "diagram",
+      "excalidraw",
+      "presentation-creation",
+      "visualization"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: excalidraw-diagram\ndescription: Create .excalidraw JSON files that make a visual argument, not just a labeled diagram. Use when visualizing workflows, architectures, or concepts as editable Excalidraw graphics.\n---\n\nGenerates editable Excalidraw diagrams whose structure carries the meaning.\n\n## Workflow\n1. Run the Depth Assessment first: decide whether the diagram is conceptual (abstract shapes) or technical (concrete examples), since technical diagrams must include real evidence artifacts (actual formats, event names, examples).\n2. Apply the design philosophy — diagrams should ARGUE, not DISPLAY. Use the Isomorphism Test (would structure alone communicate?) and Education Test (does it teach something concrete?).\n3. Read `references/color-palette.md` as the single source of truth for all fills, strokes, and text colors before generating anything.\n4. Emit valid `.excalidraw` JSON with explicit element coordinates, bindings, and arrows expressing relationships, causality, and flow.\n5. Optionally render via the included renderer (see README) to verify the output.\n\nFull skill & source: https://github.com/coleam00/excalidraw-diagram-skill/tree/8646fcc9f74f38539c6cdb4c969723336a96ddcd"
+  },
+  {
+    "slug": "seedance2-skill",
+    "name": "Seedance 2 Video Generation",
+    "category": "design",
+    "description": "Write effective prompts for ByteDance's Jimeng Seedance 2.0 multimodal video model — using the @ reference system for images, video, and audio, plus camera moves, effects, and beat-matching.",
+    "author": "dexhunter",
+    "source_url": "https://github.com/dexhunter/seedance2-skill/tree/e06c7c63a766d623004a2807881c30685ce517af",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "creative",
+      "seedance",
+      "video-and-media-workflows",
+      "video-generation"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: seedance-prompt-en\ndescription: Write prompts for Jimeng Seedance 2.0 multimodal video generation. Use when crafting text/image/video/audio prompts with the @ reference system for camera moves, effects, video extension, and music beat-matching.\n---\n\nPrompt-engineering guide for ByteDance's Jimeng Seedance 2.0 AI video model.\n\n## How to use\n1. Respect input limits: up to 9 images, 3 videos (2-15s total), 3 audio clips (<=15s), 12 files combined; output 4-15s at 480p-720p with auto sound. No realistic human faces allowed.\n2. Use the `@` reference system to assign a role to each asset, e.g. `@Image1 as the first frame`, `@Image2 as the last frame`, `@Video1` for motion reference, `@Audio1` for beat.\n3. State the role of every reference explicitly, then describe camera movement, subject action, style, and timing in natural language.\n4. Apply the recipes for common jobs — effect replication, video extension/editing, music beat-matching, e-commerce ads, short dramas, and educational content.\n\nFull skill & source: https://github.com/dexhunter/seedance2-skill/tree/e06c7c63a766d623004a2807881c30685ce517af"
+  },
+  {
+    "slug": "brave-search",
+    "name": "Brave Search",
+    "category": "research",
+    "description": "Search the web and extract page content via the official Brave Search API — no browser required. Supports result counts, freshness filters, country targeting, and markdown content extraction.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/brave-search",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "research",
+      "search",
+      "web"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: brave-search\ndescription: Web search and content extraction via the official Brave Search API. Use for searching docs, facts, or any web content — lightweight, no browser required.\n---\n\nLightweight web research using the Brave Search API through bundled Node scripts.\n\n## How to use\n1. One-time setup: create a free Brave Search API account, export `BRAVE_API_KEY` in your shell profile, and run `npm install` in the skill directory.\n2. Search with `search.js \"query\"`; add `-n 10` for more results (max 20), `--freshness pw` (or a `YYYY-MM-DDtoYYYY-MM-DD` range) to filter by time, and `--country DE` to localize.\n3. Add `--content` to fetch and inline each result's page as markdown in one pass.\n4. Extract a single page with `content.js <url>`, which returns readable markdown for citation or summarization.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/brave-search"
+  },
+  {
+    "slug": "browser-tools",
+    "name": "Browser Tools",
+    "category": "coding",
+    "description": "Drive a real Chrome via the DevTools Protocol — navigate, evaluate JS, screenshot, pick DOM elements interactively, and inspect cookies — for frontend testing and automation needing a visible browser.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/browser-tools",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "automation",
+      "browser",
+      "browser-and-web-automation",
+      "web"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: browser-tools\ndescription: Interactive browser automation via the Chrome DevTools Protocol. Use to interact with web pages, test frontends, or when a visible browser and human interaction are required.\n---\n\nCDP-based browser automation through bundled Node scripts, connecting to Chrome on port 9222.\n\n## How to use\n1. Run `npm install` once, then launch Chrome with remote debugging via `browser-start.js` (add `--profile` to reuse the user's cookies and logins).\n2. Navigate with `browser-nav.js <url>` (`--new` for a new tab) and run code in the page with `browser-eval.js '<js>'` to extract data or inspect state.\n3. Capture the viewport with `browser-screenshot.js` to verify UI; read cookies with `browser-cookies.js`.\n4. When selectors are ambiguous, run `browser-pick.js \"<instruction>\"` to let the user click elements interactively and return their CSS selectors.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/browser-tools"
+  },
+  {
+    "slug": "gccli",
+    "name": "Calendar CLI",
+    "category": "productivity",
+    "description": "Manage Google Calendar from the command line with gccli — list calendars, view, create, and update events, and check free/busy availability across accounts via OAuth.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gccli",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "calendar",
+      "cli",
+      "personal-productivity",
+      "productivity"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: gccli\ndescription: Google Calendar CLI for listing calendars, viewing/creating/updating events, and checking availability. Use to inspect or modify a Google Calendar from the shell.\n---\n\nDrives Google Calendar through the `gccli` command-line tool.\n\n## How to use\n1. Install with `npm install -g @mariozechner/gccli`.\n2. First-time setup: create a Google Cloud project, enable the Calendar API, create a Desktop OAuth client, then run `gccli accounts credentials <creds.json>` and `gccli accounts add <email>` (check `gccli accounts list` first).\n3. Common operations: `gccli <email> calendars` to list; `gccli <email> events <calendarId> --from <dt> --to <dt>` to read; `gccli <email> create <calendarId> --summary <s> --start <dt> --end <dt>` to add; `gccli <email> freebusy <ids> --from --to` to check availability.\n4. Use `primary` as the main calendar ID; timed events use ISO datetimes, all-day events use `YYYY-MM-DD` with `--all-day`.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gccli"
+  },
+  {
+    "slug": "gdcli",
+    "name": "Drive CLI",
+    "category": "productivity",
+    "description": "Manage Google Drive from the command line with gdcli — list, full-text search, upload, download, create folders, and share files, using Drive query syntax for precise filtering.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gdcli",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "cli",
+      "drive",
+      "files",
+      "knowledge-management"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: gdcli\ndescription: Google Drive CLI for listing, searching, uploading, downloading, and sharing files and folders. Use to locate, organize, or retrieve cloud-hosted Drive files from the shell.\n---\n\nDrives Google Drive through the `gdcli` command-line tool.\n\n## How to use\n1. Install with `npm install -g @mariozechner/gdcli`.\n2. First-time setup: create a Google Cloud project, enable the Drive API, create a Desktop OAuth client, then run `gdcli accounts credentials <creds.json>` and `gdcli accounts add <email>`.\n3. List and find files: `gdcli <email> ls [folderId]`, `gdcli <email> search \"<text>\"` for full-text content, and `gdcli <email> ls --query \"name contains 'report'\"` for metadata/filename filters.\n4. Move data: `download <fileId>`, `upload <localPath> --folder <id>`, `mkdir <name>`, and `share <fileId> --anyone`. Query syntax supports `=`, `contains`, date and owner filters combined with `and`/`or`.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gdcli"
+  },
+  {
+    "slug": "gmcli",
+    "name": "Mail CLI",
+    "category": "productivity",
+    "description": "Manage Gmail from the command line with gmcli — search with Gmail query syntax, read threads, send mail, manage drafts, and handle labels and attachments via OAuth.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gmcli",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "cli",
+      "email",
+      "personal-productivity",
+      "productivity"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: gmcli\ndescription: Gmail CLI for searching emails, reading threads, sending messages, managing drafts, and handling labels/attachments. Use for focused mailbox workflows from the shell.\n---\n\nDrives Gmail through the `gmcli` command-line tool.\n\n## How to use\n1. Install with `npm install -g @mariozechner/gmcli`.\n2. First-time setup: create a Google Cloud project, enable the Gmail API, create a Desktop OAuth client, then run `gmcli accounts credentials <creds.json>` and `gmcli accounts add <email>`.\n3. Search and read: `gmcli <email> search \"<gmail query>\"` (supports the full Gmail query syntax) and `gmcli <email> thread <threadId>` to read a whole thread.\n4. Act on mail: `gmcli <email> send --to <emails> --subject <s> --body <b>`, plus `labels list` and `drafts list`; attachments download to `~/.gmcli/attachments/`.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/gmcli"
+  },
+  {
+    "slug": "transcribe",
+    "name": "Audio Transcription",
+    "category": "design",
+    "description": "Transcribe audio to timestamped text locally on Apple Silicon macOS using parakeet-cpp-transcribe — handles WAV directly and other formats via ffmpeg, with no cloud upload.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/transcribe",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "audio",
+      "media",
+      "transcription",
+      "video-and-media-workflows"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: transcribe\ndescription: Local speech-to-text on Apple Silicon macOS. Use to transcribe audio to timestamped text offline — WAV directly, other formats via ffmpeg.\n---\n\nLocal, offline transcription using `parakeet-cpp-transcribe` on Apple Silicon macOS.\n\n## How to use\n1. Run `transcribe.sh <audio-file>`; the first run downloads the arm64 binary from the latest `badlogic/pibot` GitHub release into the extension's `bin` directory and fetches its GGUF model automatically.\n2. Feed WAV directly; for other formats install ffmpeg (`brew install ffmpeg`) so it can convert first.\n3. Output is plain text timestamped in 15-second chunks on stdout (`[00:00-00:15] ...`); diagnostic logs go to stderr (`2>/dev/null` to hide them).\n4. Requires Apple Silicon macOS plus `curl` and `tar`; everything runs locally with no cloud upload.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/transcribe"
+  },
+  {
+    "slug": "vscode",
+    "name": "Visual Studio Code",
+    "category": "coding",
+    "description": "Show file differences in VS Code from the shell — open side-by-side diffs of two files or git revisions using the code CLI, ideal for reviewing changes visually with the user.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/vscode",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "development",
+      "editor",
+      "software-engineering",
+      "vscode"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: vscode\ndescription: VS Code integration for viewing diffs and comparing files. Use when showing file differences or git changes to the user side by side.\n---\n\nUses the VS Code `code` CLI to present diffs visually.\n\n## How to use\n1. Ensure VS Code is installed with the `code` command on PATH.\n2. Compare two files side by side with `code -d <file1> <file2>`.\n3. For git diffs without extra config, dump the old version to a temp file and diff it, e.g. `git show HEAD~1:path/to/file > /tmp/old && code -d /tmp/old path/to/file`; use `git show :path` for the staged version.\n4. Verify a file has history first with `git log --oneline -5 -- path/to/file`; the file must exist and differ between revisions.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/vscode"
+  },
+  {
+    "slug": "youtube-transcript",
+    "name": "YouTube Transcript",
+    "category": "design",
+    "description": "Fetch timestamped transcripts from YouTube videos by ID or URL for summarization, citation, and content analysis — works with both auto-generated and manual captions.",
+    "author": "badlogic",
+    "source_url": "https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/youtube-transcript",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "research",
+      "transcript",
+      "video-and-media-workflows",
+      "youtube"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: youtube-transcript\ndescription: Fetch transcripts from YouTube videos for summarization and analysis. Use to retrieve timestamped captions from a video ID or URL.\n---\n\nPulls timestamped transcripts from YouTube videos via a bundled Node script.\n\n## How to use\n1. Run `npm install` in the skill directory once.\n2. Run `transcript.js <video-id-or-url>`; it accepts a bare ID, a full `youtube.com/watch?v=` URL, or a `youtu.be/` short link.\n3. Output is timestamped transcript entries (`[0:00] ...`), ready to summarize, cite, or analyze.\n4. Works with both auto-generated and manual captions; the video must have captions available.\n\nFull skill & source: https://github.com/badlogic/pi-skills/tree/90bb51cae36515a648515b633a81c0c6efc8c74d/youtube-transcript"
+  },
+  {
+    "slug": "geek-skills-notion-infographic",
+    "name": "Notion Infographic",
+    "category": "design",
+    "description": "Turn an outline into polished visuals via an agent pipeline — either a PptxGenJS presentation or a set of Notion-hand-drawn-style infographic prompts — with parallel research sub-agents and design QA.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-notion-infographic",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "image-workflows",
+      "infographic",
+      "notion",
+      "visualization"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Geek-skills-notion-infographic\ndescription: Agent pipeline that researches an outline and produces high-quality visuals — either a PPTX deck (PptxGenJS) or Notion hand-drawn-style infographic prompts. Use when a user gives an outline/article and asks to make slides, an infographic, or a visual summary.\n---\n\nA lead-agent pipeline that turns a topic outline into a presentation or infographic set; you plan and review while sub-agents research.\n\n## Workflow\n1. P0 — detect environment (Claude Code/Cowork allow parallel sub-agents; Claude.ai degrades to single-thread), parse input, and decide output mode A (PPTX) or B (infographic prompts).\n2. P1 — as the lead agent, break the outline into a research task board; dispatch expert sub-agents that each write notes to `workspace/research-notes/`.\n3. P2-P3 — read the notes, distill core points, then make design decisions: style, color palette, and layout.\n4. P4 — generate output: Mode A builds a `.pptx` via Node + `pptxgenjs` with a full design system; Mode B emits image prompts (Notion hand-drawn or other styles) for imageGen/DALL-E.\n5. P5 — run QA against the design system and deliver.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-notion-infographic"
+  },
+  {
+    "slug": "web-access",
+    "name": "Web Access",
+    "category": "coding",
+    "description": "Route all networked work — search, scraping, logged-in actions, dynamic pages, and social platforms like Xiaohongshu or Weibo — through a real browser via a Chrome DevTools Protocol proxy.",
+    "author": "eze-is",
+    "source_url": "https://github.com/eze-is/web-access/tree/7af34af6a25940d917905f0e5f2a7ef056952971",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "browser-and-web-automation",
+      "research",
+      "retrieval",
+      "web"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: web-access\ndescription: Handle all online operations through a real browser — search, web scraping, logged-in actions, dynamic pages, and social platforms (Xiaohongshu, Weibo, Twitter). Use whenever a task needs a genuine browser environment.\n---\n\nA goal-driven web workflow that drives a real browser over the Chrome DevTools Protocol (CDP).\n\n## Workflow\n1. Pre-flight: run `scripts/check-deps.mjs` (needs Node.js 22+ for native WebSocket); follow its exit codes — continue, prompt for a browser preference into `config.env`, or self-heal per the printed steps. Switch browsers with `--browser chrome|edge` after killing the long-lived `cdp-proxy.mjs`.\n2. Show the user the built-in automation-risk notice, then start the CDP proxy.\n3. Browse like a human: define success criteria, pick the most direct starting point, and choose CDP directly for pages needing interaction, login state, or platforms known to block static fetches.\n4. Treat each step's result as evidence — adapt, go deeper when content is thin, and keep deciding against the goal rather than a fixed script.\n\nFull skill & source: https://github.com/eze-is/web-access/tree/7af34af6a25940d917905f0e5f2a7ef056952971"
+  },
+  {
+    "slug": "stop-slop",
+    "name": "Stop Slop",
+    "category": "writing",
+    "description": "Strip predictable AI tells from prose — filler openers, adverbs, binary contrasts, em dashes, vague declaratives, and pull-quotes — with a checklist and a 50-point scoring rubric for revision.",
+    "author": "hardikpandya",
+    "source_url": "https://github.com/hardikpandya/stop-slop/tree/8da1f030185bdfe8471220585162991eaeb970e9",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "anti-slop",
+      "editing",
+      "style",
+      "writing-and-editing"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: stop-slop\ndescription: Remove AI writing patterns from prose. Use when drafting, editing, or reviewing text to eliminate predictable AI tells.\n---\n\nAn editing pass that hunts and removes the patterns that make prose read as AI-generated.\n\n## How to use\n1. Apply the core rules: cut filler openers and adverbs, break formulaic structures (binary \"not X but Y\" contrasts, negative listings, rhetorical setups), and write in active voice with a human subject doing something.\n2. Be specific over vague — name the actual thing instead of \"the reasons are structural\"; avoid lazy extremes like every/always/never.\n3. Vary rhythm: mix sentence lengths, prefer two items over three, remove em dashes, and don't end every paragraph on a punchy one-liner.\n4. Run the Quick Checks list, then score the draft 1-10 across Directness, Rhythm, Trust, Authenticity, and Density; revise if below 35/50. See `references/phrases.md`, `structures.md`, and `examples.md`.\n\nFull skill & source: https://github.com/hardikpandya/stop-slop/tree/8da1f030185bdfe8471220585162991eaeb970e9"
+  },
+  {
+    "slug": "alphaear-news",
+    "name": "AlphaEar News",
+    "category": "business",
+    "description": "Pull real-time finance news and trend reports from multiple Chinese sources (CLS, Weibo, WallstreetCN) plus Polymarket prediction-market data into a structured market-research workflow.",
+    "author": "RKiding",
+    "source_url": "https://github.com/RKiding/Awesome-finance-skills/tree/853f09b4d0baae747759ed31e21ed5c5b2316a5f/skills/alphaear-news",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "finance",
+      "finance-and-investing",
+      "markets",
+      "news"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: alphaear-news\ndescription: Fetch hot finance news, unified trend reports, and Polymarket prediction data. Use when the user needs real-time financial news, multi-source trend reports, or finance market prediction data.\n---\n\nAggregates real-time finance news and prediction-market data via bundled Python tools.\n\n## How to use\n1. Use `scripts/news_tools.py` with `NewsNowTools.fetch_hot_news(source_id, count)` to pull hot news from a source; valid source IDs (e.g. `cls`, `weibo`) are listed in `references/sources.md`.\n2. Call `get_unified_trends(sources)` to aggregate the top stories across multiple sources into one trend report.\n3. Use `PolymarketTools.get_market_summary(limit)` to fetch a formatted summary of active prediction markets.\n4. Requires `requests` and `loguru`; results are persisted via `scripts/database_manager.py` (local DB) for reuse.\n\nFull skill & source: https://github.com/RKiding/Awesome-finance-skills/tree/853f09b4d0baae747759ed31e21ed5c5b2316a5f/skills/alphaear-news"
+  },
+  {
+    "slug": "geek-skills-a-share-analyst",
+    "name": "A-Share Analyst",
+    "category": "business",
+    "description": "Analyze China A-share equities using free AKShare data — daily pre-market scans, technical indicators (MACD/KDJ/RSI/Bollinger), fundamentals and valuation, sector rotation, and stock screening.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-a-share-analyst",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "a-shares",
+      "equities",
+      "finance",
+      "finance-and-investing"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Geek-skills-a-share-analyst\ndescription: China A-share market analyst — real-time and historical quotes, technical and fundamental analysis, sector tracking, and stock screening. Use for A-share analysis, daily stock picks, or technical/fundamental review.\n---\n\nA structured A-share analysis toolkit built on free, open data.\n\n## Workflow\n1. Pull data with AKShare (no token needed): `stock_zh_a_spot_em()` for live quotes, `stock_zh_a_hist()` for K-line history, `stock_board_concept_name_em()`/`stock_board_industry_name_em()` for sectors, plus 龙虎榜 and fund-flow helpers.\n2. Pre-market routine: read the major indices, analyze sector rotation, screen limit-up and consecutive-limit stocks, check northbound flows, and build a daily watchlist.\n3. Technical analysis: fetch >=60 days of K-line, compute indicators and candlestick patterns (see `references/`), and score trend plus support/resistance.\n4. Fundamental analysis: pull financials (revenue, net profit, ROE), compute PE/PB/PS valuation, assess growth and margin of safety, then run screening strategies and generate a report.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-a-share-analyst"
+  },
+  {
+    "slug": "geek-skills-ai-sales-champion",
+    "name": "AI Sales Champion",
+    "category": "business",
+    "description": "Help technical people sell AI internally and to clients — translating model jargon into business value (cost saved, revenue gained, risk controlled), with discovery, objection handling, and next-step plans.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-ai-sales-champion",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "ai",
+      "discovery",
+      "sales"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Geek-skills-ai-sales-champion\ndescription: Conversation strategy for selling/consulting on AI. Use when preparing an AI pitch, talking adoption with business teams, writing a proposal, handling \"AI is unreliable\" objections, or planning next steps after a demo.\n---\n\nHelps technical people pitch AI in language business buyers understand and act on.\n\n## How to use\n1. Anchor everything to the iron rule: business teams care about three things only — how much money is saved, how much more is earned, and whether risk is controllable. Any tech term without a business translation is noise.\n2. Mode A (conversation prep): build a profile of the counterpart (priorities, fears, decision chain), open with their pain not AI capability, give 3 landing scenarios ordered easiest-first, and prepare objection responses.\n3. Always meet the acceptance checklist: translate every AI concept (e.g. RAG -> \"AI answers from your own knowledge base\"), include an industry-relevant scenario, quantify expected impact, name risks/limits, and propose a concrete next step (e.g. a 2-hour POC).\n4. Stay in scope: give frameworks and ammunition, not architecture docs, market research, or contracts; the user makes the final call.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-ai-sales-champion"
+  },
+  {
+    "slug": "geek-skills-deep-research",
+    "name": "Deep Research",
+    "category": "research",
+    "description": "Produce evidence-rich research memos and decision briefs with cited sources, verified claims, and explicit limitations — single-agent-first, fanning out only when parallel work clearly helps.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-deep-research",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "research",
+      "sources",
+      "synthesis"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: deep-research\ndescription: Evidence-based research memos, literature reviews, and multi-source decision briefs with citations, trade-offs, and a clear conclusion. Use for synthesis across many sources; not for quick lookups or single-source summaries.\n---\n\nA disciplined research workflow (V8) that separates evidence from analysis and keeps the run diagnosable.\n\n## Workflow\n1. Scope first: write a `research-plan.md` and pick the lightest artifact that satisfies the task (brief memo, review, or full report).\n2. Go single-agent first; only fan out to parallel sub-agents when that clearly helps. Keep the harness thin and the judgment in the skill.\n3. Gather grounded notes into `workspace/research-notes/*.md` and track every source in a `registry.md`, verifying citations rather than trusting recall.\n4. Synthesize a `draft.md` that explicitly separates evidence from analysis, states limitations, and ends with a clear conclusion; record an `evaluation.md` and `run-summary.json` for observability.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-deep-research"
+  },
+  {
+    "slug": "geek-skills-gaokao-expert",
+    "name": "Gaokao Expert",
+    "category": "personal",
+    "description": "Author and review Chinese Gaokao exam questions to professional standards — applying the \"one-core four-layer four-wing\" framework, current item-design trends, scoring rubrics, and paper-structure analysis.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-gaokao-expert",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "education",
+      "gaokao",
+      "planning"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Geek-skills-gaokao-expert\ndescription: Senior Gaokao item-writing expert — author exam questions, review item quality, and analyze paper structure against current standards. Use when creating or evaluating Gaokao-style questions or papers.\n---\n\nA professional aide for authoring and reviewing China's Gaokao exam items.\n\n## Workflow\n1. Clarify the goal first: real exam vs. mock, target grade and subject; if the user uploaded material, extract it with the view tool or docx/pdf skills, and use web_search for the latest trends.\n2. Study the standards: read `references/命题标准.md` for the \"one-core four-layer four-wing\" (一核四层四翼) evaluation system, item-design principles, scenario requirements, and difficulty control.\n3. Author items across the full flow — from scenario design to scoring rubric — following question-type norms and 2025 item-design trends.\n4. Review quality on multiple dimensions and analyze overall paper structure, giving standards-grounded recommendations.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-gaokao-expert"
+  },
+  {
+    "slug": "geek-skills-mineru-pdf-parser",
+    "name": "MinerU PDF Parser",
+    "category": "productivity",
+    "description": "Convert complex PDFs into LLM-friendly Markdown/JSON with MinerU — extracting text, tables, formulas, and images, with pipeline/VLM/hybrid backends for RAG-ready document data.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-mineru-pdf-parser",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "mineru",
+      "parser",
+      "pdf",
+      "pdf-and-document-processing"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Geek-skills-mineru-pdf-parser\ndescription: Convert complex PDFs to LLM-friendly Markdown/JSON with MinerU — extract text, tables, formulas, and images. Use to parse academic papers, technical docs, or reports, or to prep data for RAG.\n---\n\nTurns complex PDFs into machine-readable Markdown/JSON using the MinerU tool.\n\n## How to use\n1. Install with uv: `uv pip install -U \"mineru[all]\"`, then run `mineru-models-download` on first use.\n2. Parse from the CLI: `mineru -p input.pdf -o output_dir` (or a folder for batch); pick a backend with `--backend pipeline` (fast), `vlm` (high accuracy for formulas/complex layout), or `hybrid` (balanced).\n3. Or use the Python API: `MinerU().parse(\"document.pdf\")` then `.to_markdown()` / `.to_json()`.\n4. Outputs include `{filename}.md` and a `{filename}_content_list.json`; see `references/api_reference.md` for the full API.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-mineru-pdf-parser"
+  },
+  {
+    "slug": "geek-skills-pair-programming",
+    "name": "Pair Programming",
+    "category": "coding",
+    "description": "Act as a self-reviewing pair-programming partner — after generating code, automatically scan correctness, security, performance, readability, and robustness, then surface prioritized improvements.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-pair-programming",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "coding",
+      "pair-programming",
+      "review",
+      "software-engineering"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Geek-skills-pair-programming\ndescription: Pair-programming partner that self-reviews generated code. Use when writing, modifying, or generating code (new features, bug fixes, refactors, APIs) to automatically check quality, security, performance, and best practices.\n---\n\nAfter producing code, the skill reviews its own work like a responsible senior developer.\n\n## Workflow\n1. Trigger review automatically after generating new code (>10 lines), refactoring, fixing bugs, or implementing features/APIs.\n2. Run a 5-dimension scan: correctness (logic, edge cases), security (injection, data handling), performance (O(n^2), needless loops), readability (naming, structure), and robustness (error handling).\n3. Apply the blocking checklist: null/empty handling, input validation, parameterized queries against SQL/command injection, and no hardcoded secrets.\n4. Attach structured feedback after the code — what was done well, what needs attention, and optional optimization suggestions.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-pair-programming"
+  },
+  {
+    "slug": "geek-skills-podcast-generator",
+    "name": "Podcast Generator",
+    "category": "design",
+    "description": "Generate multi-speaker AI podcast audio from text using Volcano Engine's Podcast AI Model — Chinese dual-speaker conversation with configurable voices, format, sample rate, and speech rate.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-podcast-generator",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "audio",
+      "content",
+      "podcast",
+      "video-and-media-workflows"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Geek-skills-podcast-generator\ndescription: Generate AI podcasts using Volcano Engine's Podcast AI Model. Use to turn text into conversational, multi-speaker podcast audio, with customizable voices (Chinese dual-speaker).\n---\n\nTurns text into dual-speaker podcast audio via Volcano Engine's Podcast AI Model.\n\n## Workflow\n1. Prepare inputs: the podcast topic/content text (Chinese, up to 25,000 chars) plus Volcano Engine `APP_ID` and `ACCESS_KEY` credentials.\n2. Choose optional settings: audio format (mp3/ogg_opus/pcm/aac), sample rate (default 24000 Hz), speech rate (-50 to 100), speaker voices (default male+female duo), and opening music.\n3. Generate from the CLI: `python scripts/generate_podcast.py --text \"...\" --output out.mp3 --app-id ... --access-key ... --format mp3 --sample-rate 24000 --speech-rate 0`.\n4. Or use it as a Python module via the `PodcastGenerator` class (async) to receive the audio file in your chosen format.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-podcast-generator"
+  },
+  {
+    "slug": "geek-skills-security-audit",
+    "name": "Security Audit",
+    "category": "coding",
+    "description": "Run a comprehensive code and server security audit — SAST, dependency/SCA scanning, secret detection, and config review — using Bandit, Semgrep, Safety, and pip-audit with a prioritized findings report.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-security-audit",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "audit",
+      "code",
+      "cybersecurity",
+      "security"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Geek-skills-security-audit\ndescription: Comprehensive code and server security audit — SAST, dependency (SCA) checks, secret detection, and config review. Use for vulnerability scanning, code audits, CVE/dependency checks, and OWASP Top 10 review.\n---\n\nA staged security audit covering static analysis, dependencies, secrets, and configuration.\n\n## Workflow\n1. Detect the environment and tech stack, then prioritize a dependency check (highest priority) for vulnerable third-party libraries and known CVEs.\n2. Run static analysis (SAST) over the source for OWASP Top 10 issues like SQL injection, XSS, and SSRF.\n3. Scan for hardcoded secrets (API keys, passwords, tokens) and audit security-relevant configuration.\n4. Tooling: `pip install safety bandit semgrep pip-audit`; run `python3 scripts/full_scan.py /path/to/project` for a one-shot scan, then summarize findings with severity and remediation steps.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/skills/Geek-skills-security-audit"
+  },
+  {
+    "slug": "llm-wiki",
+    "name": "LLM Wiki",
+    "category": "productivity",
+    "description": "Build and maintain a persistent, interlinked markdown wiki of a codebase in .llm-wiki/ — capturing architecture, modules, patterns, and APIs, with full-build and incremental update modes.",
+    "author": "staruhub",
+    "source_url": "https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/llm-wiki",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "documentation",
+      "knowledge",
+      "knowledge-management",
+      "wiki"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: llm-wiki\ndescription: Build and maintain a structured LLM-generated wiki for any codebase. Use to analyze/understand/document a codebase, create project docs from source, or update an existing .llm-wiki.\n---\n\nBuilds a persistent, interlinked markdown wiki in `.llm-wiki/` that compounds over time (based on Karpathy's LLM Wiki pattern).\n\n## Workflow\n1. Detect mode: no `.llm-wiki/` means Full Build; an existing one means Update (diff and refresh).\n2. Phase 1 reconnaissance: read top-level manifests (README, package.json, Cargo.toml, etc.), map the tree (ignoring node_modules/.git/dist), and identify languages, frameworks, build system, entry points, and CLAUDE.md/AGENTS.md context.\n3. Phase 2 skeleton: create `.llm-wiki/` with `_schema.md` (conventions/metadata), `_index.md` (catalog by category), and `_log.md` (changelog).\n4. Fill in interlinked pages for architecture, modules, patterns, and APIs; the human curates and directs while the LLM handles bookkeeping and keeps the wiki updated.\n\nFull skill & source: https://github.com/staruhub/ClaudeSkills/tree/9ed9d5c2d1ded8d2b401bf3eac09168d62f44bbd/llm-wiki"
+  },
+  {
+    "slug": "obsidian-cli",
+    "name": "Obsidian CLI",
+    "category": "productivity",
+    "description": "Drive a running Obsidian vault from the command line — read, create, search, and manage notes, tasks, and properties, plus reload and debug plugins and themes.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/main/skills/obsidian-cli",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "obsidian",
+      "notes",
+      "cli",
+      "knowledge-management"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Obsidian CLI\ndescription: Use the `obsidian` CLI to read, create, search, and manage notes, tasks, and properties in a running Obsidian vault — and to reload, screenshot, and debug plugins and themes. Use when the user asks to operate their vault from the terminal or develop Obsidian extensions.\n---\n\nDrive a running Obsidian instance with the `obsidian` CLI. Requires Obsidian to be open; run `obsidian help` for the live command list (docs: https://help.obsidian.md/cli).\n\n## How to use\n\n1. Target a file with `file=<name>` (wikilink-style) or `path=<vault/path.md>`; omit both to act on the active file. Prefix `vault=\"<name>\"` to target a specific vault.\n2. Read/write notes: `obsidian read file=\"My Note\"`, `obsidian create name=\"New\" content=\"# Hi\" silent`, `obsidian append file=\"My Note\" content=\"line\"` (use `\\n`/`\\t` for multiline).\n3. Search and navigate: `obsidian search query=\"term\" limit=10`, `obsidian backlinks`, `obsidian tags counts`, daily notes via `obsidian daily:read` / `daily:append`.\n4. Manage metadata and tasks: `obsidian property:set name=\"status\" value=\"done\"`, `obsidian tasks daily todo`.\n5. Develop plugins/themes: reload with `obsidian plugin:reload id=...`, check `obsidian dev:errors`, then verify via `dev:screenshot`, `dev:dom`, `dev:console`, or `eval code=\"...\"`.\n\nParameters use `key=value` (quote spaces); flags like `silent`, `overwrite`, and `--copy` are bare switches.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/main/skills/obsidian-cli"
+  },
+  {
+    "slug": "json-canvas",
+    "name": "JSON Canvas",
+    "category": "design",
+    "description": "Create and edit JSON Canvas (.canvas) files — text/file/link/group nodes and labeled edges — for mind maps and flowcharts following the JSON Canvas 1.0 spec.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/main/skills/json-canvas",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "obsidian",
+      "canvas",
+      "mind-map",
+      "diagrams"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: JSON Canvas\ndescription: Create and edit JSON Canvas (.canvas) files with nodes, edges, groups, and connections following the JSON Canvas 1.0 spec. Use when building visual canvases, mind maps, or flowcharts, or when the user mentions Canvas files in Obsidian.\n---\n\nAuthor `.canvas` files per the [JSON Canvas 1.0 spec](https://jsoncanvas.org/spec/1.0/). A canvas is JSON with two top-level arrays: `nodes` and `edges`.\n\n## Workflow\n\n1. Start from the base structure `{\"nodes\": [], \"edges\": []}`.\n2. Add nodes — each needs a unique 16-char hex `id`, a `type` (`text`, `file`, `link`, or `group`), and `x`/`y`/`width`/`height`. Text nodes take `text` (Markdown, real `\\n` for newlines), file nodes take `file`, link nodes take `url`. Optional `color` is preset `\"1\"`–`\"6\"` or a hex value.\n3. Position nodes to avoid overlap (leave 50–100px spacing). Array order sets z-index: first = bottom layer.\n4. Connect nodes with edges: unique `id`, plus `fromNode`/`toNode` referencing real node ids; optionally `fromSide`/`toSide` (top/right/bottom/left) and a `label`.\n5. Validate: confirm the JSON parses, all ids are unique, and every `fromNode`/`toNode` resolves to an existing node.\n\nPitfall: in JSON strings use `\\n`, not literal `\\\\n` — Obsidian renders the latter as the characters `\\` and `n`.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/main/skills/json-canvas"
+  },
+  {
+    "slug": "defuddle",
+    "name": "Defuddle",
+    "category": "research",
+    "description": "Extract clean Markdown from web pages with the Defuddle CLI — strips nav, ads, and clutter to save tokens. A token-efficient alternative to raw WebFetch for standard pages.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/main/skills/defuddle",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "web-scraping",
+      "markdown",
+      "content-extraction",
+      "reading"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Defuddle\ndescription: Extract clean Markdown from web pages with the Defuddle CLI, stripping navigation, ads, and clutter to save tokens. Use instead of raw WebFetch when given a URL to read or analyze (articles, docs, blog posts). Do NOT use for .md URLs — fetch those directly.\n---\n\nUse the Defuddle CLI to pull clean, readable content from standard web pages, removing boilerplate so you spend fewer tokens reading.\n\n## How to use\n\n1. Install if needed: `npm install -g defuddle`.\n2. Get Markdown (the default choice): `defuddle parse <url> --md`.\n3. Save to disk: `defuddle parse <url> --md -o content.md`.\n4. Pull a single metadata field: `defuddle parse <url> -p title` (also `description`, `domain`).\n5. Need both HTML and Markdown? Use `--json`; omit format flags for raw HTML.\n\nReach for Defuddle over WebFetch on normal HTML pages; for URLs that already end in `.md`, fetch them directly instead.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/main/skills/defuddle"
+  },
+  {
+    "slug": "obsidian-bases",
+    "name": "Obsidian Bases",
+    "category": "productivity",
+    "description": "Create and edit Obsidian Bases (.base) files — YAML-defined views, filters, formulas, and summaries that turn notes into database-like table, card, list, and map views.",
+    "author": "kepano",
+    "source_url": "https://github.com/kepano/obsidian-skills/tree/main/skills/obsidian-bases",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "obsidian",
+      "database",
+      "filters",
+      "notes"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Obsidian Bases\ndescription: Create and edit Obsidian Bases (.base) files with views, filters, formulas, and summaries. Use when building database-like views of notes or when the user mentions Bases, table/card views, filters, or formulas in Obsidian.\n---\n\nAuthor `.base` files (valid YAML) that render notes as table, card, list, or map views inside Obsidian.\n\n## Workflow\n\n1. Create a `.base` file with valid YAML in the vault.\n2. Set `filters` to select which notes appear — a single string, or a recursive object with exactly one `and`/`or`/`not` key, using operators like `==`, `!=`, `>`, `<` and helpers such as `file.hasTag(...)`, `file.inFolder(...)`.\n3. Optionally add `formulas` (computed properties referenced as `formula.<name>`) and `summaries` (e.g. `values.mean().round(3)`).\n4. Define one or more `views` with a `type` (table/cards/list/map), optional `groupBy` and `limit`, and an `order` list of properties to display (note props, `file.*` props, or `formula.*`).\n5. Validate the YAML and confirm every referenced property/formula exists; watch quoting pitfalls (special chars, formula expressions). Open it in Obsidian to confirm it renders.\n\nFull skill & source: https://github.com/kepano/obsidian-skills/tree/main/skills/obsidian-bases"
+  },
+  {
+    "slug": "dev-browser",
+    "name": "Dev Browser",
+    "category": "coding",
+    "description": "Control a real browser with persistent page state via the dev-browser CLI and sandboxed JavaScript scripts — navigate, fill forms, screenshot, scrape, and test web apps.",
+    "author": "SawyerHood",
+    "source_url": "https://github.com/SawyerHood/dev-browser/tree/main/skills/dev-browser",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "browser-automation",
+      "scraping",
+      "testing",
+      "playwright"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Dev Browser\ndescription: Automate a browser with persistent page state using the dev-browser CLI. Use when the user asks to navigate sites, fill forms, take screenshots, scrape data, log in, or test/automate web apps — trigger phrases like \"go to [url]\", \"click on\", \"fill out the form\", \"take a screenshot\", or \"scrape\".\n---\n\nThe `dev-browser` CLI controls a browser through sandboxed JavaScript scripts, keeping page state across calls so multi-step flows persist.\n\n## How to use\n\n1. Install once: `npm install -g dev-browser` then `dev-browser install` (downloads the browser).\n2. Run `dev-browser --help` to see the available commands and scripting interface.\n3. Drive the page with sandboxed JS scripts to navigate, click, fill forms, extract data, and capture screenshots.\n4. Lean on the persistent page state to chain steps — log in, then operate on authenticated pages without re-navigating.\n5. Use it for browser testing, scraping, and form automation where you need a real, stateful browser session.\n\nFull skill & source: https://github.com/SawyerHood/dev-browser/tree/main/skills/dev-browser"
+  },
+  {
+    "slug": "webgpu-threejs-tsl",
+    "name": "WebGPU Three.js (TSL)",
+    "category": "coding",
+    "description": "Build WebGPU-enabled Three.js apps with TSL (Three.js Shading Language) — node materials, compute shaders, post-processing, and WGSL integration written in JavaScript instead of GLSL strings.",
+    "author": "dgreenheck",
+    "source_url": "https://github.com/dgreenheck/webgpu-claude-skill/tree/main/skills/webgpu-threejs-tsl",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "webgpu",
+      "threejs",
+      "shaders",
+      "graphics"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: WebGPU Three.js (TSL)\ndescription: Develop WebGPU-enabled Three.js apps using TSL (Three.js Shading Language) — renderer setup, node materials, compute shaders, post-processing, and WGSL integration. Use when working with Three.js WebGPU, TSL shaders, node materials, or GPU compute in Three.js.\n---\n\nTSL is a node-based shader abstraction that lets you write GPU shaders in JavaScript rather than GLSL/WGSL strings, targeting the Three.js WebGPU renderer.\n\n## How to use\n\n1. Import from the WebGPU entry points: `import * as THREE from 'three/webgpu'` and TSL helpers from `three/tsl`. Create a `WebGPURenderer` and `await renderer.init()`.\n2. Build node materials (e.g. `MeshStandardNodeMaterial`) and assign TSL nodes to properties: `colorNode`, `roughnessNode`, `positionNode` for vertex displacement.\n3. Compose operations with method chaining — `time.mul(2).add(offset).sin()` — instead of GLSL expressions.\n4. Extract reusable shader logic with `Fn(([params]) => ...)`; integrate custom WGSL where needed.\n5. For GPU compute, post-processing pipelines, device-loss handling, and limits, follow the skill's bundled docs, examples, and templates.\n\nNamed tools: Three.js WebGPU renderer + TSL. See the Three.js TSL wiki and the `webgpu_*` examples in the Three.js repo.\n\nFull skill & source: https://github.com/dgreenheck/webgpu-claude-skill/tree/main/skills/webgpu-threejs-tsl"
+  },
+  {
+    "slug": "visual-explainer",
+    "name": "Visual Explainer",
+    "category": "design",
+    "description": "Generate self-contained HTML pages that visually explain systems, code changes, plans, and data — architecture diagrams, diff reviews, visual plans, and styled comparison tables instead of ASCII art.",
+    "author": "nicobailon",
+    "source_url": "https://github.com/nicobailon/visual-explainer/tree/main/plugins/visual-explainer",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "html",
+      "diagrams",
+      "visualization",
+      "documentation"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Visual Explainer\ndescription: Generate beautiful, self-contained HTML pages that visually explain systems, code changes, plans, and data. Use when the user asks for a diagram, architecture overview, diff review, plan review, comparison table, or any visual explanation — and proactively instead of rendering a complex ASCII table (4+ rows or 3+ columns).\n---\n\nProduce self-contained HTML files for technical diagrams, visualizations, and data tables, then open the result in the browser. When loaded, never fall back to ASCII art.\n\n## Workflow\n\n1. Decide the direction first (~5 seconds): who's looking (developer, PM, team) and what content type — architecture, flowchart, sequence, data flow, schema/ER, state machine, timeline, dashboard, or prose-first page.\n2. Pick an aesthetic deliberately rather than defaulting to dark-theme-with-blue every time.\n3. Treat visual as the default — even essays and articles get structured into cards, grids, and diagrams; use prose elements (pull quotes, callouts) only as accents.\n4. Emit a single self-contained HTML page and tell the user the file path.\n5. For richer flows, use the bundled commands: diagram/visual-plan/slides generation, diff-review, plan-review, project-recap, fact-check, and share-page (deploy to Vercel).\n\nProactive rule: any table with 4+ rows or 3+ columns should be rendered as an HTML page, not ASCII.\n\nFull skill & source: https://github.com/nicobailon/visual-explainer/tree/main/plugins/visual-explainer"
+  },
+  {
+    "slug": "notebooklm",
+    "name": "NotebookLM",
+    "category": "research",
+    "description": "Drive Google NotebookLM programmatically via the notebooklm-py CLI — create notebooks, add sources, chat, generate podcasts and other artifacts, and download in multiple formats.",
+    "author": "teng-lin",
+    "source_url": "https://github.com/teng-lin/notebooklm-py/tree/main",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "notebooklm",
+      "research",
+      "podcast",
+      "automation"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: NotebookLM\ndescription: Programmatic access to Google NotebookLM via the notebooklm-py CLI, including capabilities not in the web UI — create notebooks, add sources, chat with content, generate artifacts, and download results. Activates on /notebooklm or intent like \"create a podcast about X\".\n---\n\nDrive Google NotebookLM end-to-end with the `notebooklm` CLI (Python package `notebooklm-py`).\n\n## How to use\n\n1. Install: `pip install \"notebooklm-py[browser]\"` (the `[cookies]` extra fails to build on Python 3.13+ — skip it there and use interactive login). Install from PyPI or a release tag, never `main`.\n2. Authenticate before any command: `notebooklm login` (Google OAuth), then verify with `notebooklm list`. For CI/parallel agents, set `NOTEBOOKLM_AUTH_JSON`, `NOTEBOOKLM_PROFILE`, or `NOTEBOOKLM_HOME`.\n3. Create notebooks and add sources — URLs, YouTube, PDFs, audio, video, images.\n4. Chat with the notebook's content and generate artifacts, including a podcast/audio overview.\n5. Download results in multiple formats for downstream use.\n\nNamed tool: the `notebooklm` CLI. Re-run `notebooklm login` if commands fail with auth errors.\n\nFull skill & source: https://github.com/teng-lin/notebooklm-py/tree/main"
+  },
+  {
+    "slug": "guizang-ppt",
+    "name": "Guizang PPT",
+    "category": "design",
+    "description": "Generate single-file horizontal-swipe HTML slide decks with WebGL backgrounds — two looks: editorial magazine x e-ink, or Swiss International style. For shares, talks, and launch decks.",
+    "author": "op7418",
+    "source_url": "https://github.com/op7418/guizang-ppt-skill/tree/main",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "slides",
+      "html",
+      "presentation",
+      "webgl"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Guizang PPT\ndescription: Generate a single-file HTML presentation with horizontal page-swipe navigation, WebGL backgrounds, chapter covers, big-number data slides, and image grids. Use for share/talk/launch-style web decks, or when the user asks for a magazine-style, Swiss-style, or horizontal-swipe deck.\n---\n\nProduce one self-contained HTML deck that swipes horizontally (keyboard, wheel, touch, ESC index) in one of two visual moods.\n\n## Workflow\n\n1. Clarify requirements before building — if the user gave only a vague topic, align on style, audience, source material, and screenshot handling first; wrong structure is expensive to rework.\n2. Choose a style: A) Editorial magazine x e-ink — WebGL fluid/contour backgrounds, serif headings (Noto Serif SC + Playfair), warm tones; or B) Swiss International — fine grid + dot-matrix WebGL, all sans-serif (Inter/Helvetica), one high-contrast accent (Klein blue / lemon yellow / lemon green / safety orange).\n3. Build from the matching template (`assets/template.html` or `assets/template-swiss.html`) and theme/layout reference files.\n4. Both styles share Lucide icons and Motion One entrance animations (local + CDN fallback).\n5. Avoid this skill for dense tables/overlaid charts, training courseware, or multi-person collaborative editing — it outputs static HTML.\n\nFull skill & source: https://github.com/op7418/guizang-ppt-skill/tree/main"
+  },
+  {
+    "slug": "drawio",
+    "name": "Draw.io Diagrams",
+    "category": "design",
+    "description": "Generate editable .drawio XML diagrams — flowcharts, architecture, ER, UML, network, and ML/DL model figures — and export to PNG/SVG/PDF/JPG via the native draw.io desktop CLI.",
+    "author": "Agents365-ai",
+    "source_url": "https://github.com/Agents365-ai/drawio-skill/tree/main/skills/drawio-skill",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "diagrams",
+      "drawio",
+      "flowchart",
+      "visualization"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Draw.io Diagrams\ndescription: Generate .drawio XML and export to PNG/SVG/PDF/JPG using the native draw.io desktop CLI. Use for flowcharts, architecture, ER, UML/sequence/class, network topology, ML/DL model figures, and mind maps — especially when the diagram needs custom styling, rich shape vocabulary, swimlanes, or editable exports.\n---\n\nProduce precise, polished `.drawio` diagrams and export them locally with the draw.io desktop app CLI (no browser automation).\n\n## Workflow\n\n1. Confirm draw.io fits: use it for architecture, network, strict UML/ERD, swimlanes, opaque fills, and 10k+ branded shapes. Route casual sketches to excalidraw/tldraw and diagrams-as-code to mermaid/plantuml.\n2. Build the `.drawio` XML for the requested diagram type; consult `references/diagram-types.md` for type-specific patterns (ERD, UML, sequence, ML/DL).\n3. For specific shapes, run `scripts/shapesearch.py \"<keywords>\"` to get the exact official `style=` string; for AI/LLM brand icons use `scripts/aiicons.py \"<brand>\"`.\n4. Export with the draw.io CLI to PNG/SVG/PDF/JPG; add `--embed-diagram` (`-e`) and a double extension like `name.drawio.png` to keep the file editable.\n5. Optionally run `scripts/autolayout.py` (needs Graphviz `dot`) and a vision-model self-check of the rendered image.\n\nRequires the draw.io desktop CLI on PATH.\n\nFull skill & source: https://github.com/Agents365-ai/drawio-skill/tree/main/skills/drawio-skill"
+  },
+  {
+    "slug": "context-compression",
+    "name": "Context Compression",
+    "category": "coding",
+    "description": "Compress long agent sessions with structured summarization — choose between anchored iterative, opaque, or regenerative strategies, optimizing for tokens-per-task rather than tokens-per-request.",
+    "author": "muratcankoylan",
+    "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-compression",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "agents",
+      "context-engineering",
+      "summarization"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Context Compression\ndescription: Use when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions.\n---\n\nWhen sessions or codebases blow past the context window, compress deliberately — optimizing for total tokens-per-task (including re-fetch costs when compression drops something critical), not tokens-per-request.\n\n## How to use\n\n1. Optimize for tokens-per-task: aggressive compression that loses file paths, errors, or decision rationale forces re-exploration that costs more than it saved.\n2. Pick a strategy by session shape:\n   - Anchored Iterative Summarization — for long sessions where file tracking matters; keep a structured persistent summary (intent, file changes, decisions, next steps) and only summarize the newly-truncated span, merging it in to avoid drift.\n   - Opaque Compression — for short sessions with low re-fetch cost; maximal token savings but no interpretability, so never use it when debugging or artifact tracking matters.\n   - Regenerative Full Summary — when readability is critical and sessions have clear phase boundaries; accepts cumulative detail loss across cycles.\n3. Use structured sections as checklists so the summarizer is forced to preserve decisions, modified files, risks, and next actions.\n4. Build probe-based evaluation to verify what a compression strategy actually preserved.\n\nFull skill & source: https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-compression"
+  },
+  {
+    "slug": "harness-engineering",
+    "name": "Harness Engineering",
+    "category": "coding",
+    "description": "Design the control system around an autonomous agent — locked vs editable surfaces, tight ungameable feedback loops, durable append-only logs, novelty gates, rollback, and human approval boundaries.",
+    "author": "muratcankoylan",
+    "source_url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/harness-engineering",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "agents",
+      "harness",
+      "evaluation",
+      "architecture"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Harness Engineering\ndescription: Use when designing autonomous agent harnesses — research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.\n---\n\nHarness engineering designs the control system around an agent: what it may edit, how it gets feedback, where it persists state, how it recovers, and who approves irreversible actions.\n\n## Workflow\n\n1. Define the harness boundary with four surface classes: Locked (eval metric, rubric, merge policy — readable, never self-scorable), Editable (drafts, prompts, configs under test), Append-only (results logs, rejected ideas), and Human-controlled (merge, deploy, credentials, destructive ops).\n2. Build tight feedback loops that are fast, unambiguous, and hard to game — Karpathy's autoresearch pattern: one editable file, one locked eval, fixed wall-clock budget, one scalar metric, git rollback, durable log. For open-ended work, swap the scalar for locked rubrics, structure checks, source traceability, and human-review thresholds.\n3. Externalize durable state to files (plans, source queues, results, failures, handoffs) so future agents resume without chat history.\n4. Enforce search discipline so the agent can't exploit the nearest surface — add novelty gates, ablation, pruning, and rollback.\n5. Gate irreversible actions behind explicit human approval.\n\nFull skill & source: https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/harness-engineering"
+  },
+  {
+    "slug": "customer-journey-map",
+    "name": "Customer Journey Map",
+    "category": "business",
+    "description": "Map a customer journey across stages — awareness to loyalty — documenting actions, touchpoints, emotions, KPIs, business goals, and owning teams to diagnose pain points and align cross-functional teams.",
+    "author": "deanpeters",
+    "source_url": "https://github.com/deanpeters/Product-Manager-Skills/tree/main/skills/customer-journey-map",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "product-management",
+      "ux",
+      "customer-journey",
+      "strategy"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Customer Journey Map\ndescription: Create a comprehensive customer journey map across stages, touchpoints, actions, emotions, KPIs, business goals, and teams. Use when diagnosing a broken experience, aligning cross-functional teams on the end-to-end flow, or prioritizing improvements by stage.\n---\n\nBuild a strategic customer journey map (adapted from NNGroup and Carnegie Mellon PM curricula) that pairs customer empathy with business metrics — not a user-flow diagram or service blueprint.\n\n## Workflow\n\n1. Lay out the horizontal stages: Awareness, Consideration, Decision, Service, Loyalty.\n2. For each stage, document the vertical layers: Customer Actions, Touchpoints, Customer Experience (emotions/thoughts), KPIs, Business Goals, and Teams Involved.\n3. Center customer emotion at each stage, then tie it to measurable KPIs so the map drives prioritization.\n4. Surface pain points and opportunities where experience dips or ownership is unclear, and map which teams affect which stages.\n5. Use the result to align marketing, sales, product, and support, and to onboard people to the customer perspective.\n\nNot a static artifact — revisit it as customer behavior changes.\n\nFull skill & source: https://github.com/deanpeters/Product-Manager-Skills/tree/main/skills/customer-journey-map"
+  },
+  {
+    "slug": "discovery-interview-prep",
+    "name": "Discovery Interview Prep",
+    "category": "business",
+    "description": "Plan customer discovery interviews adaptively — set the research goal, segment, and constraints, pick the right method (JTBD, problem validation, switch interviews), and avoid bias.",
+    "author": "deanpeters",
+    "source_url": "https://github.com/deanpeters/Product-Manager-Skills/tree/main/skills/discovery-interview-prep",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "product-management",
+      "discovery",
+      "interviews",
+      "research"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Discovery Interview Prep\ndescription: Plan customer discovery interviews by aligning research goals, customer segment, constraints, and method. Use when preparing interviews for problem validation, churn research, or new product ideas — to produce a tailored interview plan rather than just a script.\n---\n\nGuide a PM through preparing discovery interviews so they yield actionable insight, not confirmation bias or surface feedback. The output is a strategic interview plan, not a script.\n\n## Workflow\n\n1. Gather product/problem context — marketing materials, current assumptions.\n2. Define the research goal: what you're actually trying to learn.\n3. Identify the target segment and access constraints (e.g. enterprise churned accounts, cold outreach, 2-week deadline).\n4. Recommend a methodology matched to stage and goal — Jobs-to-be-Done, problem validation, switch interviews, retention/churn interviews.\n5. Produce the interview framework: questions, biases to avoid (leading questions, confirmation bias, solution-first thinking), and success metrics.\n\nDiscovery is for learning problems (5–10 deep qualitative interviews) — not prototype usability testing, large-scale surveys, or sales demos.\n\nFull skill & source: https://github.com/deanpeters/Product-Manager-Skills/tree/main/skills/discovery-interview-prep"
+  },
+  {
+    "slug": "sop-creator",
+    "name": "SOP Creator",
+    "category": "writing",
+    "description": "Create runbooks, playbooks, and technical docs people actually follow — scannable, action-first, specific, and testable, with a Definition of Done checklist near the top.",
+    "author": "coleam00",
+    "source_url": "https://github.com/coleam00/second-brain-skills/tree/main/.claude/skills/sop-creator",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "documentation",
+      "runbook",
+      "playbook",
+      "process"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: SOP Creator\ndescription: Create runbooks, playbooks, and technical documentation for engineering and ops teams. Use when the user wants to document a process, create a runbook, build operational docs, or formalize any repeatable procedure — triggers like \"create a runbook for...\", \"document this process\", or \"write a playbook\".\n---\n\nCreate practical SOPs people actually follow. Core principles: scannable (headers, bullets, tables — no walls of text), actionable, specific (numbers, names, thresholds), testable, and maintained (owner, last updated, review schedule).\n\n## Workflow\n\n1. Pick the format for the use case: Runbook (incidents/on-call), Deployment Playbook, Troubleshooting Guide, How-To, ADR, Process SOP, Checklist, Decision Tree, Handoff Doc, or Onboarding Guide.\n2. Use the universal structure: title + one-line TL;DR, then Definition of Done, When to Use, Prerequisites, The Process (numbered steps), Verify Completion, and When Things Go Wrong.\n3. Make Definition of Done the most important section — put it near the top as a specific checklist.\n4. Write action-first steps and replace vague phrasing with concrete specifics (\"Message @sarah in #ops-team\", \"If value > 100\", \"Within 2 hours\").\n5. Put warnings before the step they apply to, and keep every step something you DO.\n\nFull skill & source: https://github.com/coleam00/second-brain-skills/tree/main/.claude/skills/sop-creator"
+  },
+  {
+    "slug": "offensive-jwt",
+    "name": "Offensive JWT",
+    "category": "coding",
+    "description": "JWT attack methodology for authorized pentesting — alg:none and RS256→HS256 confusion, weak-secret brute force, kid/jku/jwk header injection, JWS/JWE confusion, and validation gaps.",
+    "author": "SnailSploit",
+    "source_url": "https://github.com/SnailSploit/Claude-Red/tree/main/Skills/auth/offensive-jwt",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "security",
+      "pentest",
+      "jwt",
+      "red-team"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Offensive JWT\ndescription: JWT attack methodology for authorized penetration testing — algorithm confusion (alg:none, RS256→HS256), weak HMAC secret brute force, kid/jku/jwk/x5u header injection, JWKS cache poisoning, and JWS/JWE confusion. Use when testing JWT auth, hunting auth bypass via token manipulation, or evaluating JWT implementation security.\n---\n\nA JWT attack checklist for authorized offensive security engagements only. Work through steps in order against the in-scope target and track what you've covered.\n\n## Workflow\n\n1. Identify JWT usage: inspect `Authorization: Bearer` headers, cookies, and local/session storage for `eyJ...` tokens; decode and note header params (`kid`, `jku`, `jwk`, `x5u`).\n2. Test algorithm bypass: `alg:none` and case variants, and RS256→HS256 confusion (using the RSA public key as the HMAC secret).\n3. Brute-force weak/guessable HMAC secrets.\n4. Probe header injection: SQLi/path traversal via `kid`, inline fake `jwk`, attacker-controlled `jku`/`x5u` (SSRF), and JWKS cache poisoning.\n5. Check broken validation: tokens accepted without signature check, expired tokens accepted, and missing `iss`/`aud`/`exp` checks; consider JWS/JWE confusion and token-binding (DPoP/mTLS) replay.\n\nReference tooling: jwt_tool (ticarpi/jwt_tool). Only test assets you are authorized to assess.\n\nFull skill & source: https://github.com/SnailSploit/Claude-Red/tree/main/Skills/auth/offensive-jwt"
+  },
+  {
+    "slug": "osint-methodology",
+    "name": "OSINT Methodology",
+    "category": "research",
+    "description": "A 5-stage external recon methodology for authorized red-team and attack-surface work — asset-graph discipline, severity and confidence rubrics, breach correlation, CDN/WAF bypass, and client deliverables.",
+    "author": "elementalsouls",
+    "source_url": "https://github.com/elementalsouls/Claude-OSINT/tree/main/skills/osint-methodology",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "osint",
+      "security",
+      "recon",
+      "red-team"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: OSINT Methodology\ndescription: Comprehensive OSINT methodology for authorized external red-team operations and attack-surface assessments — the recon pipeline, asset-graph discipline, severity rubric, breach correlation, CDN/WAF bypass, vulnerability prioritization, and client deliverables. Use when planning or executing recon against authorized targets or producing client reports.\n---\n\nA disciplined methodology for external reconnaissance and attack-surface mapping on assets you own or have written authorization to assess. Not for active exploitation, post-exploitation, or blue-team work.\n\n## Workflow\n\n1. Confirm authorization: do a soft scope check once if it isn't established; never weaken auth, rate limits, or safety controls, run destructive probes outside an explicit aggressive mode, or paste real PII/credentials into cloud LLMs.\n2. Run the recon pipeline: asset discovery and triage, building an asset graph; map the identity fabric (SSO/IdP/tenant fingerprinting, M365), APIs, and mobile/cloud surfaces.\n3. Correlate breach data with identities and hunt leaked secrets; tag findings for detectability and use detection-aware probing with back-off.\n4. Prioritize vulnerabilities with a severity rubric and confidence-upgrade workflow (EPSS, CISA KEV); discover origins behind CDN/WAF.\n5. Produce client deliverables — exec summary, risk translation, and submission-ready findings.\n\nFull skill & source: https://github.com/elementalsouls/Claude-OSINT/tree/main/skills/osint-methodology"
+  },
+  {
+    "slug": "last30days",
+    "name": "Last 30 Days",
+    "category": "research",
+    "description": "Research what people actually say about a topic in the last 30 days — pulling posts and engagement from Reddit, X, YouTube, TikTok, Hacker News, GitHub, Polymarket, and the web, with citations.",
+    "author": "mvanhorn",
+    "source_url": "https://github.com/mvanhorn/last30days-skill/tree/main/skills/last30days",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "research",
+      "social-media",
+      "trends",
+      "synthesis"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Last 30 Days\ndescription: Research what people actually say about any topic in the last 30 days, pulling posts and engagement from Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub, and the web. Use for recency-focused sentiment, trend, and reaction research with citations.\n---\n\nGather and synthesize what real people said about a topic recently across many social and web sources, with engagement signals and citations.\n\n## How to use\n\n1. Invoke with a focused query, e.g. \"last30days nvidia earnings reaction\" or \"last30days what users want in react\".\n2. The skill runs Node/Python scripts to pull recent posts and engagement from Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub, Bluesky, and the web.\n3. Configure optional API keys via env (e.g. SCRAPECREATORS_API_KEY as the primary, plus optional X/Bluesky/search provider keys) to widen and deepen coverage.\n4. It filters to the recent window, weighs engagement, and synthesizes themes — what people praise, complain about, and want.\n5. Output is a cited summary of recent sentiment and trends; check `--help` for flags like competitor comparison.\n\nRequires `node` and `python3`; many sources work without keys but coverage improves with them.\n\nFull skill & source: https://github.com/mvanhorn/last30days-skill/tree/main/skills/last30days"
+  },
+  {
+    "slug": "chrome-devtools-puppeteer",
+    "name": "Chrome DevTools (Puppeteer)",
+    "category": "coding",
+    "description": "Browser automation, debugging, and performance analysis via executable Puppeteer CLI scripts that output JSON — navigate, screenshot, fill forms, monitor console/network, and measure Core Web Vitals.",
+    "author": "mrgoonie",
+    "source_url": "https://github.com/mrgoonie/claudekit-skills/tree/main/.claude/skills/chrome-devtools",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "browser",
+      "puppeteer",
+      "debugging",
+      "performance"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Chrome DevTools (Puppeteer)\ndescription: Browser automation, debugging, and performance analysis using executable Puppeteer CLI scripts that output JSON. Use for automating browsers, taking screenshots, analyzing performance, monitoring network traffic, web scraping, form automation, and JavaScript debugging.\n---\n\nDrive Chrome via standalone Puppeteer scripts; every script emits JSON for easy parsing.\n\n## How to use\n\n1. Always check `pwd` first, then `cd` into the skill's `scripts/` directory.\n2. Install deps: on Linux/WSL run `./install-deps.sh` for system libraries; everywhere run `npm install`. Optionally install ImageMagick so screenshots over 5MB auto-compress.\n3. Core automation scripts: `navigate.js`, `screenshot.js`, `click.js`, `fill.js`, `evaluate.js` (run JS in page context).\n4. Analysis scripts: `snapshot.js` (interactive elements), `console.js` (messages/errors), `network.js` (HTTP traffic), `performance.js` (Core Web Vitals + traces).\n5. Example: `node screenshot.js --url https://example.com --output ./docs/screenshots/page.png` — save screenshots under `./docs/screenshots`.\n\nNamed tool: Puppeteer CLI scripts. Screenshots auto-compress above 5MB when ImageMagick is present.\n\nFull skill & source: https://github.com/mrgoonie/claudekit-skills/tree/main/.claude/skills/chrome-devtools"
+  },
+  {
+    "slug": "csv-data-summarizer",
+    "name": "CSV Data Summarizer",
+    "category": "data",
+    "description": "Automatically analyze a CSV with Python and pandas — inspect structure, run type-aware statistics, flag missing data, and plot only the visualizations that fit the dataset, no questions asked.",
+    "author": "coffeefuelbump",
+    "source_url": "https://github.com/coffeefuelbump/csv-data-summarizer-claude-skill/tree/main",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "csv",
+      "pandas",
+      "data-analysis",
+      "visualization"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: CSV Data Summarizer\ndescription: Analyze CSV files and generate summary statistics plus quick visualizations using Python and pandas. Use whenever the user uploads or references a CSV, or asks to summarize, analyze, or visualize tabular data.\n---\n\nRun a full, automatic analysis of a CSV the moment one is provided — do not ask the user what they want or offer options; just produce the complete analysis.\n\n## Workflow\n\n1. Load the CSV into a pandas DataFrame and inspect structure — column types, date columns, numeric columns, categories.\n2. Determine which analyses fit the data (sales/e-commerce, customer, financial, operational, survey, or generic tabular) by looking at the actual columns.\n3. Compute a data overview (rows, columns, types), key statistics, and a missing-data analysis.\n4. Generate only the visualizations that make sense: time-series if date columns exist, correlation heatmaps if multiple numeric columns exist, category distributions for categorical columns, histograms for numeric ones.\n5. Present everything in one pass with actionable insights tied to patterns in this specific dataset.\n\nRequires Python with pandas, matplotlib, and seaborn.\n\nFull skill & source: https://github.com/coffeefuelbump/csv-data-summarizer-claude-skill/tree/main"
+  },
+  {
+    "slug": "youtube-to-ebook",
+    "name": "YouTube to Ebook",
+    "category": "writing",
+    "description": "Turn a YouTube channel's latest videos into a magazine-style EPUB — fetch videos (filtering out Shorts), extract transcripts, and rewrite them into polished articles.",
+    "author": "zarazhangrui",
+    "source_url": "https://github.com/zarazhangrui/youtube-to-ebook/tree/main",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "youtube",
+      "transcripts",
+      "ebook",
+      "content"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: YouTube to Ebook\ndescription: Transform YouTube videos into beautifully formatted, magazine-style ebook articles with transcripts, packaged as an EPUB. Use when the user wants to turn channel videos into readable articles or an ebook for any device.\n---\n\nA Python pipeline that converts a channel's latest videos into polished articles and packages them as an EPUB.\n\n## Workflow\n\n1. Set up a project folder and configure access: a YouTube Data API key and an Anthropic API key in `.env`, plus a `channels.txt` list (Python 3.8+).\n2. Fetch the latest videos per channel via the channel's uploads playlist (`playlistItems`) for true chronological order, filtering out Shorts by checking whether the `/shorts/` URL resolves.\n3. Extract transcripts with `YouTubeTranscriptApi().fetch(video_id)`, adding ~2s delays between requests to avoid rate limits.\n4. Rewrite each transcript into a polished magazine-style article using Claude.\n5. Package the articles into an EPUB. Run the whole pipeline with `python main.py` (or `--channels` to edit the list, `dashboard.py` for the web UI).\n\nFull skill & source: https://github.com/zarazhangrui/youtube-to-ebook/tree/main"
+  },
+  {
+    "slug": "home-assistant-manager",
+    "name": "Home Assistant Manager",
+    "category": "personal",
+    "description": "Manage Home Assistant config with safe deployment workflows — git and rapid scp iteration, SSH/hass-cli remote control, config validation, automation verification, log analysis, and Lovelace dashboards.",
+    "author": "komal-SkyNET",
+    "source_url": "https://github.com/komal-SkyNET/claude-skill-homeassistant/tree/main",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "home-assistant",
+      "smart-home",
+      "automation",
+      "config"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Home Assistant Manager\ndescription: Manage Home Assistant configuration with efficient deployment workflows (git and rapid scp iteration), remote CLI access via SSH and hass-cli, automation verification, log analysis, reload-vs-restart optimization, and Lovelace dashboard management. Use when editing or deploying Home Assistant config, automations, or dashboards.\n---\n\nExpert Home Assistant config management with safe deployment and verification workflows.\n\n## How to use\n\n1. Verify the environment: SSH access to the HA host, `hass-cli` installed, `HASS_SERVER`/`HASS_TOKEN` set, and git connected to HA's `/config`.\n2. Use `hass-cli` for REST-API operations — `hass-cli state list`, `state get sensor.x`, `service call automation.reload` — and SSH for HA CLI: `ssh root@homeassistant.local \"ha core check\"`, `ha core restart`, `ha core logs`.\n3. For finalized changes use the git workflow: edit, `ha core check`, commit/push, then `cd /config && git pull` on the host, then reload or restart.\n4. For fast iteration use `scp` to push a file to `/config`, reload, test, repeat — then commit once it's working.\n5. Prefer reload over restart when sufficient; verify via entity state and `ha core logs | grep -i error | tail`. Build tablet-optimized Lovelace dashboards with appropriate card types.\n\nFull skill & source: https://github.com/komal-SkyNET/claude-skill-homeassistant/tree/main"
+  },
+  {
+    "slug": "web-asset-generator",
+    "name": "Web Asset Generator",
+    "category": "design",
+    "description": "Generate web assets from a logo or text slogan — favicons, PWA app icons, and Open Graph social images for Facebook, Twitter, WhatsApp, and LinkedIn — plus the matching HTML meta tags.",
+    "author": "alonw0",
+    "source_url": "https://github.com/alonw0/web-asset-generator/tree/main/skills/web-asset-generator",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "favicon",
+      "icons",
+      "open-graph",
+      "assets"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Web Asset Generator\ndescription: Generate web assets — favicons, PWA app icons, and Open Graph social images for Facebook, Twitter, WhatsApp, and LinkedIn — from a logo image or text slogan, with the correct HTML meta tags. Use when the user needs icons, favicons, or social sharing images.\n---\n\nProduce professional favicons, app icons, and social meta images from a source logo or text, including ready-to-paste HTML tags.\n\n## Workflow\n\n1. Clarify needs with the AskUserQuestion tool: which assets (favicons, app icons, social images, or everything) and the source (an uploaded logo vs text/slogan, plus color preferences for text-based images).\n2. Determine the source material — use an uploaded image directly, or generate text-based images from a provided slogan.\n3. Run the right script: `scripts/generate_favicons.py` for favicons/app icons, `scripts/generate_og_images.py` for social images.\n4. Generate the standard sizes — favicons (16/32/96 + favicon.ico), PWA app icons (180/192/512), and Open Graph images per platform.\n5. Return the generated files plus the proper HTML `<link>`/meta tags for the user to drop into their site.\n\nFull skill & source: https://github.com/alonw0/web-asset-generator/tree/main/skills/web-asset-generator"
+  },
+  {
+    "slug": "llm-council",
+    "name": "LLM Council",
+    "category": "productivity",
+    "description": "Pressure-test a high-stakes decision through a council of independent AI advisors who analyze from different thinking lenses, peer-review each other anonymously, then a chairman synthesizes a verdict.",
+    "author": "aiwithremy",
+    "source_url": "https://github.com/aiwithremy/claude-skills-llm-council/tree/main",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "decision-making",
+      "multi-agent",
+      "advisors",
+      "reasoning"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: LLM Council\ndescription: Run a question, idea, or decision through a council of independent AI advisors who analyze it from different thinking lenses, peer-review each other anonymously, then a chairman synthesizes a final verdict. Use for genuine decisions with stakes and tradeoffs — triggers like \"council this\", \"pressure-test this\", \"should I X or Y\". Do NOT trigger on simple lookups or creation tasks.\n---\n\nAdapted from Karpathy's LLM Council: instead of one answer from one model, run the decision through several advisors with conflicting thinking styles, have them review each other, and synthesize. Best when being wrong is expensive.\n\n## Workflow\n\n1. Confirm it's a real council question — genuine uncertainty, multiple options, high cost of a bad call. Skip factual lookups and pure creation tasks.\n2. Dispatch the question to independent advisors (sub-agents), each using a distinct lens — e.g. the Contrarian (hunts the fatal flaw), the First-Principles Thinker, and others that naturally create tension.\n3. Have advisors anonymously peer-review each other's analyses.\n4. A chairman synthesizes everything into a final recommendation that names where advisors agree, where they clash, and what to actually do.\n5. Present the verdict honestly — the point is to surface uncomfortable truths, not validate.\n\nFull skill & source: https://github.com/aiwithremy/claude-skills-llm-council/tree/main"
+  },
+  {
+    "slug": "academic-pptx",
+    "name": "Academic PPTX",
+    "category": "writing",
+    "description": "Plan and build presentations for academic contexts — conference talks, thesis defenses, grant briefings, seminars — prioritizing argument structure and evidence, with a ghost-deck action-title test.",
+    "author": "Gabberflast",
+    "source_url": "https://github.com/Gabberflast/academic-pptx-skill/tree/main",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "academic",
+      "presentation",
+      "slides",
+      "research"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Academic PPTX\ndescription: Create or improve presentations for academic contexts — conference talks, seminar slides, thesis defenses, grant briefings, lab meetings, lectures — where the audience evaluates reasoning and evidence. Use for \"conference talk\", \"thesis defense\", \"research presentation\", or \"make slides\" combined with academic content.\n---\n\nGovern the content and structure of academic decks (argument before aesthetics). This skill pairs with a PPTX-authoring skill for the technical .pptx work — read both before building.\n\n## Workflow\n\n1. Identify the presentation mode: Structured Argument (default for papers, defenses, grants, lab/seminar talks) or Visual/Narrative (public engagement, lay panels). When in doubt, default to Structured Argument.\n2. For structured work, follow the priority order: argument structure → data → layout → aesthetics.\n3. Plan the deck before creating slides — a slide-by-slide outline (title, action title, exhibit type); confirm with the user if it exceeds ~10 slides or is complex.\n4. Apply the ghost-deck test: reading only the action titles in sequence must tell the complete argument; fix the outline if it doesn't.\n5. Apply the skill's design standards and per-slide-type patterns, then build the .pptx via the companion PPTX skill.\n\nFull skill & source: https://github.com/Gabberflast/academic-pptx-skill/tree/main"
+  },
+  {
+    "slug": "power-design",
+    "name": "Power Design",
+    "category": "design",
+    "description": "Generate self-contained HTML slide decks in any brand's design language — extract brand DNA via Firecrawl, then apply 20 codified, threshold-based design principles to every slide.",
+    "author": "ItsssssJack",
+    "source_url": "https://github.com/ItsssssJack/power-design/tree/main",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "slides",
+      "branding",
+      "html",
+      "presentation"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Power Design\ndescription: Generate beautiful self-contained HTML presentation slides in any brand's design language, combining brand DNA extracted via Firecrawl with 20 codified design principles. Use when the user wants an on-brand HTML deck.\n---\n\nCompose HTML decks that satisfy two pillars: a brand's visual DNA (colors, fonts, logo, voice) and 20 research-backed, threshold-based design principles every slide must respect.\n\n## Workflow\n\n1. Ask two questions, then go. Q1 — what brand? Offer (a) paste a URL, (b) pick from the library, or (c) neutral default. Q2 — what's the deck about (headline + 3–5 key points + audience).\n2. For a URL, extract brand DNA with the Firecrawl MCP (`formats: [\"branding\",\"screenshot\",\"rawHtml\",\"links\"]`) and save it as `brands/<slug>/brand-style.md`.\n3. Confirm logo placement once (default: small wordmark, bottom-left, every slide), then generate without further wizardry.\n4. Before emitting HTML, read `principles/design-principles.md` (all 20 rules are non-negotiable) and the chosen `brand-style.md`.\n5. Emit a single self-contained, valid HTML5 file using the brand's real colors and type, passing the 20-principle pre-emit checklist.\n\nFull skill & source: https://github.com/ItsssssJack/power-design/tree/main"
+  },
+  {
+    "slug": "quarto-authoring",
+    "name": "Quarto Authoring",
+    "category": "writing",
+    "description": "Author Quarto documents and projects (.qmd, _quarto.yml) — callouts, cross-references, citations, diagrams, layouts, websites, books, and presentations; includes migration from R Markdown and others.",
+    "author": "posit-dev",
+    "source_url": "https://github.com/posit-dev/skills/tree/main/quarto/quarto-authoring",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "quarto",
+      "publishing",
+      "markdown",
+      "data-science"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Quarto Authoring\ndescription: Author Quarto documents and projects — .qmd files, _quarto.yml, callouts, cross-references, citations, diagrams, layouts, websites, books, presentations, and reports. Use when explicitly working with Quarto, or migrating from R Markdown, bookdown, blogdown, xaringan, distill, or Jupyter to Quarto.\n---\n\nWrite Quarto content following the current Quarto CLI conventions. A `.qmd` starts with YAML front matter (`title`, `author`, `date`, `format`) followed by Markdown content.\n\n## How to use\n\n1. For a new document, start from the QMD essentials — front matter plus Markdown body — then pull in the specific reference for the feature you need.\n2. Add features via the bundled references: cross-references, code cells, figures, tables, citations/bibliography, callouts, diagrams (Mermaid/Graphviz), layout, shortcodes, conditional content, and YAML front matter.\n3. Choose the compute engine (knitr, jupyter, julia) per the engines reference when the doc runs code.\n4. For websites, books, and presentations, configure `_quarto.yml` as the project file.\n5. Only when explicitly migrating an existing project, read the matching conversion reference (R Markdown, bookdown, xaringan, distill, blogdown, or Jupyter) — not when writing new docs.\n\nNamed tool: the Quarto CLI.\n\nFull skill & source: https://github.com/posit-dev/skills/tree/main/quarto/quarto-authoring"
+  },
+  {
+    "slug": "shiny-bslib",
+    "name": "Shiny bslib",
+    "category": "data",
+    "description": "Build modern Shiny dashboards with bslib (Bootstrap 5) — page layouts, column grids, cards, value boxes, sidebars, navigation, theming — and modernize legacy fluidPage/fluidRow apps.",
+    "author": "posit-dev",
+    "source_url": "https://github.com/posit-dev/skills/tree/main/shiny/shiny-bslib",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "shiny",
+      "r",
+      "dashboard",
+      "bslib"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Shiny bslib\ndescription: Build modern Shiny dashboards and apps using bslib (Bootstrap 5) — page layouts, grids, cards, value boxes, sidebars, navigation, theming, accordions, tooltips, and bslib inputs. Use when creating new Shiny apps or modernizing legacy ones (fluidPage, fluidRow/column, tabsetPanel, shinythemes).\n---\n\nBuild professional Shiny UIs with bslib's Bootstrap 5 components, replacing legacy Shiny layout patterns. Assumes familiarity with basic Shiny.\n\n## How to use\n\n1. Pick a page layout: `page_sidebar()` (single-page dashboard, most common), `page_navbar()` (multi-page), `page_fillable()` (viewport-filling), or `page_fluid()` (long-form scrolling). Set a theme with `bs_theme(version = 5)`.\n2. Lay out content with grids — `layout_column_wrap()` for an auto-wrapping uniform grid, or `layout_columns()` for the 12-column Bootstrap grid.\n3. Use `card()` (with headers/footers and `full_screen = TRUE`) as the primary container and `value_box()` for KPIs with icons and theming.\n4. Add navigation via `page_navbar()`/`nav_panel()` or component-level `navset_*` tabs, and sidebars via `page_sidebar()` or `layout_sidebar()` inside cards.\n5. Consult the bundled references (page-layouts, grid-layouts, cards, value-boxes, navigation) for detailed patterns.\n\nFull skill & source: https://github.com/posit-dev/skills/tree/main/shiny/shiny-bslib"
+  },
+  {
+    "slug": "layered-rails",
+    "name": "Layered Rails",
+    "category": "coding",
+    "description": "Write, refactor, and review Rails code with layered architecture — presentation, application, domain, and infrastructure layers with unidirectional flow; spot fat controllers, anemic models, and layer violations.",
+    "author": "palkan",
+    "source_url": "https://github.com/palkan/skills/tree/master/layered-rails/skills/layered-rails",
+    "featured": false,
+    "verified": true,
+    "tags": [
+      "rails",
+      "ruby",
+      "architecture",
+      "refactoring"
+    ],
+    "install_count": 0,
+    "rating_avg": 0,
+    "rating_count": 0,
+    "skill_content": "---\nname: Layered Rails\ndescription: Write, refactor, and review Rails code using layered architecture principles from \"Layered Design for Ruby on Rails Applications\". Use when building or refactoring models, controllers, services, jobs, forms, policies, query objects, or presenters, and when reviewing Rails PRs for layer violations, fat controllers/models, anemic models, or callback misuse.\n---\n\nDesign and review Rails apps as four architecture layers with strict unidirectional data flow.\n\n## How to use\n\n1. Place each concern in the right layer: Presentation (controllers, views, channels, mailers) → Application (service objects, form objects) → Domain (models, value objects, domain events) → Infrastructure (Active Record, APIs, storage).\n2. Enforce the core rule: lower layers must never depend on higher layers.\n3. When writing or refactoring, choose the correct pattern — service, form, policy, query, value object, presenter, view component, state machine — instead of stuffing logic into controllers or models.\n4. When reviewing, hunt for layer violations, fat controllers/models, anemic models, callback misuse, and god objects; route findings to the matching pattern.\n5. Consult the bundled references and workflows (architecture-layers reference, analyze workflow) for full layer responsibilities and audits.\n\nFull skill & source: https://github.com/palkan/skills/tree/master/layered-rails/skills/layered-rails"
   },
   {
     "slug": "vercel-deploy-pipeline",

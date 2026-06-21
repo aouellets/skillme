@@ -31,6 +31,9 @@ interface RawSkill {
   description: string
   author: string
   tags: string[]
+  // Real upstream URL for third-party skills (e.g. anthropics/skills). Omit for
+  // in-house skills, which default to this repo's skills/<slug> path below.
+  source_url?: string
   install_count?: number
   rating_avg?: number
   rating_count?: number
@@ -74,7 +77,9 @@ function main() {
         category: s.category,
         description: s.description,
         author: s.author || 'Skill Me',
-        source_url: `${REPO}/tree/main/skills/${s.slug}`,
+        // Third-party skills carry their real upstream URL; in-house skills
+        // resolve to this repo's hosted copy at skills/<slug>.
+        source_url: s.source_url || `${REPO}/tree/main/skills/${s.slug}`,
         featured: false,
         verified: true,
         tags: s.tags,

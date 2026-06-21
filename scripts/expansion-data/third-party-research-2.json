@@ -1,0 +1,282 @@
+[
+  {
+    "slug": "wp-block-development",
+    "name": "WordPress Block Development",
+    "category": "coding",
+    "description": "Build and fix Gutenberg blocks — block.json metadata, registration, attributes/serialization, static vs dynamic rendering, deprecations, and the @wordpress/scripts build workflow.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-block-development",
+    "tags": ["blocks", "gutenberg", "wordpress", "frontend-development"],
+    "skill_content": "---\nname: wp-block-development\ndescription: Use when developing or fixing WordPress (Gutenberg) blocks — block.json metadata, register_block_type, attributes/serialization, supports, dynamic rendering, deprecations/migrations, and the @wordpress/scripts and @wordpress/create-block build/test workflow. Targets WordPress 6.9+.\n---\n\nDevelop and debug Gutenberg blocks the WordPress-native way, avoiding the classic \"Invalid block\" trap.\n\n## Workflow\n1. Triage and locate blocks by scanning for `block.json` (the skill ships `detect_wp_project.mjs` and `list_blocks.mjs`).\n2. Scaffold new blocks with `@wordpress/create-block` (use the interactive template if you need the Interactivity API); ensure `apiVersion: 3` for WP 6.9+/iframed editor.\n3. Pick a model: static block (implement `save()`) vs dynamic block (`render` / `render_callback`, minimal `save`).\n4. Register server-side via metadata; use `useBlockProps()`, `useInnerBlocksProps()`, and `get_block_wrapper_attributes()` for wrappers.\n5. When changing saved markup/attributes, add a `deprecated` entry (+ `migrate`) so existing content stays valid.\n6. Verify in the inserter, save/reload without \"Invalid block\", and run the repo's lint/build/E2E (wp-env).\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-block-development"
+  },
+  {
+    "slug": "wp-block-themes",
+    "name": "WordPress Block Themes",
+    "category": "coding",
+    "description": "Develop WordPress block themes — theme.json settings and styles, HTML templates and parts, patterns, style variations, and Site Editor troubleshooting when styles won't apply.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-block-themes",
+    "tags": ["block-themes", "theme-json", "wordpress", "frontend-development"],
+    "skill_content": "---\nname: wp-block-themes\ndescription: Use when developing WordPress block themes — theme.json global settings/styles, templates and template parts, patterns, style variations, and Site Editor troubleshooting (style hierarchy, overrides, caching). Targets WordPress 6.9+.\n---\n\nBuild and maintain block themes while respecting WordPress's style hierarchy.\n\n## Workflow\n1. Run triage (`detect_wp_project.mjs`) then `detect_block_themes.mjs`; scope all edits to one theme root if several exist.\n2. Decide whether you're changing `theme.json` **settings** (what the UI allows: presets, scales, colors) or **styles** (default appearance).\n3. Edit templates under `templates/*.html` and parts under `parts/*.html` (parts must not be nested).\n4. Add theme-owned patterns under `patterns/*.php` and style variations under `styles/*.json`.\n5. Remember the cascade: core defaults → theme.json → child theme → user customizations — user edits stored in the DB can make theme.json changes look ignored.\n6. Verify in the Site Editor and on the frontend; rebuild assets if fonts/JS/CSS are involved.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-block-themes"
+  },
+  {
+    "slug": "wp-interactivity-api",
+    "name": "WordPress Interactivity API",
+    "category": "coding",
+    "description": "Build and debug WordPress Interactivity API features — data-wp-* directives, @wordpress/interactivity stores, server-side rendering with wp_interactivity_state(), and hydration fixes.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-interactivity-api",
+    "tags": ["interactivity", "wordpress", "frontend", "hydration"],
+    "skill_content": "---\nname: wp-interactivity-api\ndescription: Use when building or debugging WordPress Interactivity API features — data-wp-* directives, @wordpress/interactivity store/state/actions, block viewScriptModule integration, wp_interactivity_*() server APIs, hydration, and directive behavior. Targets WordPress 6.9+.\n---\n\nWire up interactive WordPress frontends with correct server pre-rendering and clean hydration.\n\n## Workflow\n1. Detect existing usage by searching for `data-wp-interactive`, `@wordpress/interactivity`, and `viewScriptModule`; for new blocks use `@wordpress/create-block-interactive-template`.\n2. Locate the store(s) and confirm state shape, actions, and event callbacks used by `data-wp-on--*`.\n3. Pre-render on the server: set `supports.interactivity` in block.json (or call `wp_interactivity_process_directives()`), and seed state with `wp_interactivity_state()` / `wp_interactivity_data_wp_context()`, replicating derived state in PHP to avoid layout shift.\n4. Keep directives minimal and scoped; note WP 6.9 changes (`data-wp-ignore` deprecated, unique directive IDs via `---`).\n5. Debug inert directives: confirm the view module loads, the element has `data-wp-interactive`, and store namespaces match.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-interactivity-api"
+  },
+  {
+    "slug": "wp-performance",
+    "name": "WordPress Performance",
+    "category": "coding",
+    "description": "Profile and speed up WordPress from the backend — WP-CLI doctor/profile, Query Monitor via REST headers, then fix the dominant bottleneck across queries, autoloaded options, object cache, cron, or HTTP calls.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-performance",
+    "tags": ["performance", "wordpress", "wp-cli", "optimization"],
+    "skill_content": "---\nname: wp-performance\ndescription: Use when investigating or improving WordPress performance from the backend — profiling with WP-CLI (profile/doctor), Server-Timing, Query Monitor via REST headers, plus database/query optimization, autoloaded options, object caching, cron, and HTTP API calls. Targets WordPress 6.9+.\n---\n\nA measure-first, browser-free approach to WordPress speed. Capture a baseline before touching anything.\n\n## Workflow\n1. Set guardrails: confirm whether writes (plugin installs, cache flush) are allowed, pick a reproducible URL/REST route, and capture baseline TTFB with `curl`.\n2. Run the deterministic report `perf_inspect.mjs --path=<path>` to detect WP-CLI, autoload size, and the object-cache drop-in.\n3. Fast wins first: `wp doctor check` for common foot-guns.\n4. Deep profile in order: `wp profile stage`, then `wp profile hook`, then `wp profile eval`; inspect Query Monitor headlessly via `x-qm-*` REST headers or `?_envelope`.\n5. Fix ONE dominant category — DB N+1s, oversized autoloaded options, object-cache misses, slow remote HTTP, or cron spikes.\n6. Re-run the same measurement to confirm the delta with behavior unchanged.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-performance"
+  },
+  {
+    "slug": "wp-phpstan",
+    "name": "WordPress PHPStan",
+    "category": "coding",
+    "description": "Set up and fix PHPStan static analysis on WordPress code — phpstan.neon config, WordPress core stubs, baselines, WP-aware PHPDoc typing, and safe handling of third-party plugin classes.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-phpstan",
+    "tags": ["phpstan", "static-analysis", "wordpress", "php"],
+    "skill_content": "---\nname: wp-phpstan\ndescription: Use when configuring, running, or fixing PHPStan static analysis in WordPress projects — phpstan.neon setup, baselines, WordPress-specific PHPDoc typing (REST requests, hooks, query results), and handling third-party plugin/theme classes via stubs. Requires Composer-based PHPStan.\n---\n\nGet PHPStan green on WordPress codebases by typing correctly rather than ignoring.\n\n## Workflow\n1. Discover the PHPStan setup with `phpstan_inspect.mjs`; prefer the repo's existing `composer run phpstan`.\n2. Load WordPress core stubs (`szepeviktor/phpstan-wordpress` or `php-stubs/wordpress-stubs`) so core functions resolve.\n3. Keep `phpstan.neon` focused: `paths` on first-party code, exclude `vendor/` and build artifacts, and keep `ignoreErrors` narrow and documented.\n4. Fix with WP-specific PHPDoc — type `WP_REST_Request<...>`, hook callback `@param`s, and array/object shapes for query results — instead of suppressing.\n5. For unresolved plugin classes (WooCommerce, ACF), add plugin stubs or a targeted vendor-prefix ignore.\n6. Use the baseline only as a migration tool for legacy code; never baseline newly introduced errors.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-phpstan"
+  },
+  {
+    "slug": "wp-playground",
+    "name": "WordPress Playground",
+    "category": "coding",
+    "description": "Spin up disposable WordPress instances with @wp-playground/cli — auto-mount plugins/themes, run Blueprints, build shareable snapshots, switch WP/PHP versions, and debug with Xdebug.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-playground",
+    "tags": ["playground", "wordpress", "testing", "wasm"],
+    "skill_content": "---\nname: wp-playground\ndescription: Use for WordPress Playground workflows — fast disposable WP instances locally via @wp-playground/cli (server, run-blueprint, build-snapshot), auto-mounting plugins/themes, switching WP/PHP versions, Blueprints, and Xdebug debugging. Requires Node.js 20.18+; runs WP in WebAssembly with SQLite.\n---\n\nDisposable, SQLite-backed WordPress for testing, demos, and bug repros — never point it at production data.\n\n## Workflow\n1. Confirm Node >= 20.18 (`node -v`) and pick the project path to mount.\n2. Quick spin-up: `npx @wp-playground/cli@latest server --auto-mount` (opens on localhost:9400, auto-detects the plugin/theme); add `--wp=` / `--php=` to pin versions.\n3. Use repeatable `--mount=/host:/vfs` mappings for multi-plugin or mu-plugin setups.\n4. Run scripted setups with `run-blueprint --blueprint=<file-or-url>` for CI validation.\n5. Share repros via `build-snapshot --blueprint=<file> --outfile=site.zip`.\n6. Debug with `--xdebug` and connect VS Code/PhpStorm; for browser-only, use playground.wordpress.net Blueprint links.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-playground"
+  },
+  {
+    "slug": "wp-plugin-development",
+    "name": "WordPress Plugin Development",
+    "category": "coding",
+    "description": "Build WordPress plugins the right way — predictable architecture and hooks, activation/uninstall lifecycle, the Settings API, the security baseline (nonces, capabilities, sanitization, $wpdb->prepare), and release packaging.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-plugin-development",
+    "tags": ["plugins", "wordpress", "php", "backend-development"],
+    "skill_content": "---\nname: wp-plugin-development\ndescription: Use when developing WordPress plugins — architecture and hooks, activation/deactivation/uninstall, admin UI and the Settings API, data storage, cron/tasks, security (nonces, capabilities, sanitization, escaping, SQL safety), and release packaging. Targets WordPress 6.9+.\n---\n\nWrite WordPress plugins that activate cleanly and pass a security review.\n\n## Workflow\n1. Triage the repo (`detect_wp_project.mjs`) then locate plugin entrypoints with `detect_plugins.mjs`.\n2. Follow a predictable architecture: one bootstrap file, no heavy side effects at load, a loader/class to register hooks, admin-only code behind `is_admin()`.\n3. Handle lifecycle carefully — register activation/deactivation hooks at top level, flush rewrite rules only after registering CPTs, and provide a safe `uninstall.php`.\n4. Use the Settings API (`register_setting`, `add_settings_section/field`) with `sanitize_callback`.\n5. Apply the security baseline: sanitize input early, escape output late, nonces for CSRF plus capability checks for authorization, `wp_unslash()`, and `$wpdb->prepare()` for all SQL.\n6. Verify activation without fatals, settings round-trips, and run PHPUnit/PHPCS if present.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-plugin-development"
+  },
+  {
+    "slug": "wp-plugin-directory-guidelines",
+    "name": "WordPress Plugin Directory Guidelines",
+    "category": "business",
+    "description": "Review WordPress plugins against the 18 WordPress.org Plugin Directory guidelines — GPL license compliance, trialware/freemium rules, naming and trademark constraints, and why a submission was rejected.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-plugin-directory-guidelines",
+    "tags": ["compliance", "wordpress", "gpl", "plugins"],
+    "skill_content": "---\nname: wp-plugin-directory-guidelines\ndescription: Use when reviewing WordPress plugins for GPL compliance, checking license headers/compatibility, evaluating upsell/freemium/trialware patterns, validating naming or trademark rules, or understanding why a plugin was rejected from WordPress.org — the authoritative reference for the 18 Plugin Directory guidelines.\n---\n\nAn authoritative checklist for getting a plugin accepted to the WordPress.org directory.\n\n## How to use\n1. Check the main plugin file's `License:` and `License URI:` headers against the valid header list (e.g. `GPL-2.0-or-later`).\n2. Walk the 18-guideline checklist (per-guideline detail in `references/guideline-review-checklist.md`), paying special attention to Guidelines 1, 4, 5, 7, 8, and 17.\n3. Confirm trialware/freemium compliance — flag split licensing where distributed code is restricted (Guideline 5).\n4. Verify bundled third-party code is GPL-compatible (MIT/BSD/ISC safe; Apache-2.0 and MPL-2.0 need care); cite the file path and exact license string for every issue.\n5. Screen the name (Guideline 17): >=5 alphanumeric chars, header matches readme, trademarks only after `for`/`with`, slug lowercase-hyphenated and <=50 chars.\n6. For ambiguous licenses, defer to the GNU license list rather than guessing.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-plugin-directory-guidelines"
+  },
+  {
+    "slug": "wp-project-triage",
+    "name": "WordPress Project Triage",
+    "category": "productivity",
+    "description": "Run a deterministic inspection of any WordPress repo (plugin, theme, block theme, core, Gutenberg, or full site) to detect kind, tooling, tests, and version hints as structured JSON before making changes.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-project-triage",
+    "tags": ["triage", "wordpress", "project-management", "tooling"],
+    "skill_content": "---\nname: wp-project-triage\ndescription: Use when you need a deterministic inspection of a WordPress repository (plugin/theme/block theme/WP core/Gutenberg/full site) — project kind, tooling/tests, version hints — emitted as a structured JSON report to guide workflows and guardrails before making changes. Targets WordPress 6.9+.\n---\n\nA fast, deterministic detector that tells you what kind of WordPress repo you're in before you change anything. It underpins the other WordPress agent skills.\n\n## Workflow\n1. Run the detector from the repo root: `node skills/wp-project-triage/scripts/detect_wp_project.mjs` (prints JSON to stdout).\n2. Read `references/triage.schema.json` if you need the exact output contract.\n3. Use the report to pick guardrails: project kind(s), PHP/Node tooling present, tests present, and version hints with their sources.\n4. Confirm the JSON parses and includes `project.kind`, `signals`, and `tooling`; re-run after structural changes like adding `theme.json` or `block.json`.\n5. If a needed signal is missing, extend the detector rather than guessing; if it reports `unknown`, verify the repo root is correct.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-project-triage"
+  },
+  {
+    "slug": "wp-rest-api",
+    "name": "WordPress REST API",
+    "category": "coding",
+    "description": "Build, extend, and debug WordPress REST API endpoints — register_rest_route, controller classes, schema/argument validation, permission_callback and auth, custom fields/meta, and exposing CPTs via show_in_rest.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-rest-api",
+    "tags": ["rest-api", "wordpress", "api-development", "php"],
+    "skill_content": "---\nname: wp-rest-api\ndescription: Use when building, extending, or debugging WordPress REST API endpoints — register_rest_route, WP_REST_Controller classes, schema/argument validation, permission_callback/authentication, response shaping, register_rest_field/register_meta, or exposing CPTs/taxonomies via show_in_rest. Targets WordPress 6.9+.\n---\n\nDesign and troubleshoot WordPress REST endpoints with proper validation and auth.\n\n## Workflow\n1. Triage, then search for existing REST usage (`register_rest_route`, `WP_REST_Controller`, `rest_api_init`, `show_in_rest`).\n2. Choose an approach: expose a CPT/taxonomy via `show_in_rest` + `rest_base`, or register custom routes on `rest_api_init` (prefer a `WP_REST_Controller` subclass for non-trivial work).\n3. Register safely: unique `vendor/v1` namespace, always provide a `permission_callback` (`__return_true` for public), `WP_REST_Server` method constants, and return via `rest_ensure_response()` / `WP_Error` with a status.\n4. Validate args with `type`/`required`/`validate_callback`/`sanitize_callback`; never read `$_GET`/`$_POST` directly — use `WP_REST_Request`.\n5. Add computed fields with `register_rest_field` and meta with `register_meta` (+ schema); use capability checks for authorization, cookie+`X-WP-Nonce` or application passwords for auth.\n6. Verify your namespace appears in `/wp-json/`; debug 404 (rest_api_init/permalinks) and 401/403 (nonce/auth) systematically.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-rest-api"
+  },
+  {
+    "slug": "wp-wpcli-and-ops",
+    "name": "WP-CLI and Operations",
+    "category": "coding",
+    "description": "Run WordPress operations with WP-CLI — safe search-replace and domain migration, db export/import, plugin/theme/user management, cron, cache flushing, multisite, and repeatable automation via wp-cli.yml.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-wpcli-and-ops",
+    "tags": ["wp-cli", "wordpress", "operations", "devops"],
+    "skill_content": "---\nname: wp-wpcli-and-ops\ndescription: Use when working with WP-CLI (wp) for WordPress operations — safe search-replace, db export/import, plugin/theme/user/content management, cron, cache flushing, multisite, and scripting/automation with wp-cli.yml. Requires WP-CLI in the execution environment.\n---\n\nRun WordPress ops via WP-CLI with explicit blast-radius guardrails — these commands can be destructive.\n\n## Workflow\n1. Guardrails first: confirm the environment (dev/staging/prod) and targeting (`--path`, multisite `--url`), and back up before any write.\n2. Inspect WP-CLI and targeting deterministically with `wpcli_inspect.mjs --path=<path> [--url=<url>]`.\n3. For URL/domain migration: `wp db export`, then `wp search-replace --dry-run` to review, then the real replace, then flush caches/rewrite.\n4. Manage packages with `wp plugin *` / `wp theme *`; inspect and run individual cron events rather than blindly running everything.\n5. For multisite, decide single-site (`--url=`) vs network-wide (`--network`) before each command.\n6. Make ops repeatable with `wp-cli.yml` defaults and scripts that log commands and stop on error; re-run the inspector after changes.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wp-wpcli-and-ops"
+  },
+  {
+    "slug": "wpds",
+    "name": "WordPress Design System",
+    "category": "design",
+    "description": "Build and review WordPress UIs with the WordPress Design System — components, design tokens, color primitives, spacing/typography scales, and @wordpress/components, sourced from the canonical WPDS MCP server.",
+    "author": "WordPress",
+    "source_url": "https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wpds",
+    "tags": ["design-system", "wordpress", "ui", "design-tokens"],
+    "skill_content": "---\nname: wpds\ndescription: Use when building or reviewing any UI in a WordPress context (Gutenberg, WooCommerce, WordPress.com, Jetpack) with the WordPress Design System (WPDS) — components, design tokens, color primitives, spacing/typography scales, and packages like @wordpress/components. Works best with the WPDS MCP server configured.\n---\n\nBuild WordPress UI that adheres to the WordPress Design System, treating its MCP server as the source of truth.\n\n## How to use\n1. Use the WPDS MCP server for canonical docs — `wpds://pages` (reference site), `wpds://components` and `wpds://components/:name`, and `wpds://design-tokens`. Do not web-search for WPDS docs.\n2. Read the relevant reference-site docs before starting; they take precedence over assumptions.\n3. Build UI from the most fitting WPDS components, tokens, and patterns; assume a TypeScript/React/CSS stack unless told otherwise.\n4. Stay within UI scope — skip data fetching and string localization, and call out what you left out and why.\n5. Validate with the project's lint scripts when available, and recap each design decision with its rationale.\n\nFull skill & source: https://github.com/WordPress/agent-skills/tree/aa735ea7111c7924ee988306bcef70439e17dec9/skills/wpds"
+  },
+  {
+    "slug": "backlink-analyzer",
+    "name": "Backlink Analyzer",
+    "category": "business",
+    "description": "Analyze a backlink profile — referring domains, anchor-text mix, toxic-link share, profile health, and competitor link gaps — then recommend concrete link-building or disavow actions.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/monitor/backlink-analyzer",
+    "tags": ["backlinks", "seo", "link-building", "audit"],
+    "skill_content": "---\nname: backlink-analyzer\ndescription: Use when the user asks to analyze backlinks or a link profile — profiles external referring domains, anchor-text distribution, toxic links, and competitor link gaps. Not for internal links. Uses WebFetch and optional SEO-tool exports.\n---\n\nProfile a domain's backlinks for quality, risk, and competitive gaps, with every metric source-tagged.\n\n## Workflow\n1. If no backlink data is provided and no link database is connected, stop and ask for a referring-domain export or a tool connection — never estimate link volume from the domain alone.\n2. Generate a profile overview: key metrics, link velocity, authority distribution, and a profile health score.\n3. Analyze link quality — top backlinks, link-type mix, anchor-text distribution, and geography.\n4. Identify toxic links, compute the toxic ratio as a labeled figure, and produce disavow recommendations.\n5. Find competitor link gaps (top 3 by overlap) and name at least 3 link-building or disavow actions.\n6. Tag each metric as tool-export, user-provided, or estimated, and emit a handoff summary for `memory/monitoring/`.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/monitor/backlink-analyzer"
+  },
+  {
+    "slug": "content-gap-analysis",
+    "name": "Content Gap Analysis",
+    "category": "business",
+    "description": "Build a competitor-relative coverage map — missing topics, keyword gaps, and format gaps — bucketed into Quick Wins, Strategic Builds, and Long-term, with a dated content-calendar entry per quick win.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/research/content-gap-analysis",
+    "tags": ["content-strategy", "seo", "marketing", "research"],
+    "skill_content": "---\nname: content-gap-analysis\ndescription: Use when the user asks to find content gaps or plan topics — builds a competitor-relative coverage map of missing topics, keyword gaps, and editorial-calendar opportunities. Not for raw keyword demand discovery (use keyword-research).\n---\n\nFind the topics competitors cover that you don't, then rank the gaps worth closing first.\n\n## Workflow\n1. Gap analysis is competitor-relative — if no competitors are given or inferable, ask the user to name 1-3 (or switch to keyword-research for demand-side discovery).\n2. Define scope: your site, competitors, topic focus, content types, audience, and business goals.\n3. Audit your existing content — indexed pages, content types, topic clusters, winners, and weaknesses.\n4. Analyze competitor content — volume, traffic, type mix, topic coverage, and unique assets.\n5. Identify keyword and topic gaps, bucketing into Quick Wins / Strategic Builds / Long-term by volume, difficulty, and relevance.\n6. Compare format gaps (guides, comparisons, tools, video) and emit a dated calendar entry per Quick Win plus a handoff summary for `memory/research/`.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/research/content-gap-analysis"
+  },
+  {
+    "slug": "content-quality-auditor",
+    "name": "Content Quality Auditor",
+    "category": "writing",
+    "description": "Audit content for publish readiness with the 80-item CORE-EEAT benchmark — per-item Pass/Partial/Fail, dimension and GEO/SEO system scores, critical-trust veto checks, and a prioritized fix plan.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/cross-cutting/content-quality-auditor",
+    "tags": ["content-quality", "e-e-a-t", "seo", "editing"],
+    "skill_content": "---\nname: content-quality-auditor\ndescription: Use when auditing content quality, E-E-A-T, or publish readiness — runs 80-item CORE-EEAT scoring with veto checks and a fix plan. Not for structural on-page tags (use on-page-seo-auditor) or domain/citation trust (use domain-authority-auditor). Uses WebFetch.\n---\n\nGrade an article against a standardized 80-item content benchmark and return a publish verdict.\n\n## Workflow\n1. Run the full 80-item audit, scoring every CORE-EEAT check item as Pass / Partial / Fail (when hook-triggered after writing, skip setup and audit the latest content).\n2. Score all 8 dimensions (0-100 each) and compute the GEO Score (CORE) and SEO Score (EEAT).\n3. Apply content-type-specific weights for a final weighted total.\n4. Run veto detection for critical trust violations (T04, C01, R10) that block publishing regardless of score.\n5. Rank the Top 5 improvements by impact and generate a specific, actionable fix plan.\n6. Finish with a publish verdict and a handoff summary in the repository Skill Contract format.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/cross-cutting/content-quality-auditor"
+  },
+  {
+    "slug": "memory-management",
+    "name": "SEO Memory Management",
+    "category": "productivity",
+    "description": "Manage a three-tier (HOT/WARM/COLD) memory lifecycle for long-running SEO/GEO programs — capture, promote, demote, and archive findings, track open loops, and run privacy cleanup.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/cross-cutting/memory-management",
+    "tags": ["memory", "knowledge-management", "seo", "context"],
+    "skill_content": "---\nname: memory-management\ndescription: Use when the user asks to remember project context, check saved findings, manage hot cache, or archive/purge data across SEO/GEO sessions — manages the HOT/WARM/COLD memory lifecycle with promotion, demotion, archival, and privacy cleanup. Not for content or domain scoring (use the auditors).\n---\n\nMaintain durable cross-session memory for SEO/GEO campaigns using a three-tier system.\n\n## How to use\n1. Understand the tiers: HOT (<=80 lines, auto-loads each session via the SessionStart hook), WARM (loads on demand per skill), and COLD (archived, queried only on request).\n2. Initialize the memory structure for a new project (industry, hero keywords, competitors).\n3. After each analysis, capture findings and promote durable facts/decisions into the hot cache and `memory/open-loops.md`.\n4. Demote and archive stale data from HOT to WARM to COLD to keep the hot cache lean.\n5. Answer context queries (\"what are our hero keywords?\", \"what did we decide last time?\") from stored memory.\n6. Run privacy cleanup to purge personal data on request, and finish with a hot-cache update plan and handoff summary.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/cross-cutting/memory-management"
+  },
+  {
+    "slug": "meta-tags-optimizer",
+    "name": "Meta Tags Optimizer",
+    "category": "business",
+    "description": "Write and improve title tags, meta descriptions, Open Graph, and Twitter Cards for CTR and sharing — three on-spec options each within character limits, plus a complete social/canonical tag block.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/build/meta-tags-optimizer",
+    "tags": ["meta-tags", "seo", "ctr", "open-graph"],
+    "skill_content": "---\nname: meta-tags-optimizer\ndescription: Use when the user asks to optimize meta tags — improves titles, descriptions, Open Graph, Twitter Cards, and CTR test variants. Not for JSON-LD structured data (use schema-markup-generator) or body copy (use seo-content-writer).\n---\n\nProduce a ready-to-use metadata package that lifts click-through and social sharing.\n\n## Workflow\n1. Gather page info — URL, page type, primary/secondary keywords, audience, CTA, and value proposition.\n2. Create the title tag at ~50-60 chars with the keyword front-loaded; generate three options using the supported title formulas.\n3. Write the meta description at ~150-160 chars including the keyword and CTA; generate three options.\n4. Build the Open Graph, Twitter Card, canonical, robots, viewport, author, and article tags as a complete block.\n5. Run the CORE-EEAT alignment check (C01 Intent Alignment, C02 Direct Answer) and give CTR/A-B-test tips.\n6. Label each metric Measured / User-provided / Estimated; mark unavailable metrics N/A rather than inventing them.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/build/meta-tags-optimizer"
+  },
+  {
+    "slug": "performance-reporter",
+    "name": "SEO Performance Reporter",
+    "category": "data",
+    "description": "Build multi-metric SEO/GEO stakeholder reports — executive summary, organic traffic, rankings, GEO/AI citations, authority, and content quality — each metric source-tagged and compared to a prior period.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/monitor/performance-reporter",
+    "tags": ["reporting", "seo", "data-analysis", "kpi-dashboard"],
+    "skill_content": "---\nname: performance-reporter\ndescription: Use when the user asks to generate an SEO report or dashboard — builds multi-metric stakeholder reports spanning traffic, rankings, authority, and content progress with period-over-period comparison. Not for raw ranking deltas (use rank-tracker).\n---\n\nAggregate SEO/GEO data into a stakeholder report with prioritized recommendations.\n\n## Workflow\n1. A period comparison is required — if none can be determined, offer last-30-vs-prior-30, last-month-vs-prior, or a custom range.\n2. Define parameters: domain, period, comparison period, report type, audience, and focus areas.\n3. Write the executive summary — rating, wins, watch areas, required actions, metrics at a glance, and SEO ROI.\n4. Report sections: organic traffic, keyword rankings (defer raw position deltas to rank-tracker), GEO/AI citations, domain authority (CITE), and content quality (CORE-EEAT).\n5. Mark any section without source data as \"Not yet evaluated\" — never fabricate; tag every figure Measured / User-provided / Estimated.\n6. Turn deltas into recommendations with owner, priority, and expected impact, and emit a handoff summary for `memory/monitoring/`.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/monitor/performance-reporter"
+  },
+  {
+    "slug": "technical-seo-checker",
+    "name": "Technical SEO Checker",
+    "category": "business",
+    "description": "Audit technical SEO health — crawlability, indexing, Core Web Vitals, robots.txt, sitemaps, canonicals, redirects, HTTPS, and structured data — with scored results and a prioritized fix roadmap.",
+    "author": "aaron-he-zhu",
+    "source_url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/optimize/technical-seo-checker",
+    "tags": ["technical-seo", "core-web-vitals", "seo", "crawlability"],
+    "skill_content": "---\nname: technical-seo-checker\ndescription: Use when the user asks to check technical SEO — audits crawlability, indexing, Core Web Vitals, robots.txt, sitemaps, canonicals, redirects, and migrations. Not for on-page tags or content (use on-page-seo-auditor). Uses WebFetch.\n---\n\nFind the technical issues that stop search engines from crawling, indexing, and ranking a site.\n\n## Workflow\n1. Run a full audit for a URL/domain, or scope to a specific check (e.g. Core Web Vitals, crawlability).\n2. Audit crawlability and indexability — robots.txt, sitemaps, canonical tags, redirects, and index status.\n3. Measure Core Web Vitals (LCP, INP) and mobile-friendliness.\n4. Check HTTPS/security (HSTS), URL structure, structured data, and international SEO signals.\n5. Score the results and produce a prioritized fix roadmap; for site migrations, apply the migration checklist.\n6. Finish with the standard handoff summary from the repository Skill Contract.\n\nFull skill & source: https://github.com/aaron-he-zhu/seo-geo-claude-skills/tree/dea9f4d6efaa886ddc5dcef5b597dd2b8650ff18/optimize/technical-seo-checker"
+  },
+  {
+    "slug": "humanizer",
+    "name": "Humanizer",
+    "category": "writing",
+    "description": "Rewrite AI-sounding prose into natural, human writing — detect and fix em-dash overuse, the rule of three, AI vocabulary, vague attributions, negative parallelisms, and filler, while preserving meaning and matching voice.",
+    "author": "blader",
+    "source_url": "https://github.com/blader/humanizer/tree/9600f2b7241cb4eed6ad803abee5ea01d67fe8e4",
+    "tags": ["editing", "writing", "style", "humanizing"],
+    "skill_content": "---\nname: humanizer\ndescription: Remove signs of AI-generated writing from text. Use when editing or reviewing text to make it sound natural and human-written — detects inflated symbolism, promotional language, vague attributions, em-dash overuse, the rule of three, AI vocabulary, passive voice, negative parallelisms, and filler. Based on Wikipedia's \"Signs of AI writing\" guide.\n---\n\nAn editor that strips telltale AI patterns while keeping the message and the author's voice intact.\n\n## How to use\n1. Scan for AI patterns — em-dash overuse, rule-of-three lists, vague attributions (\"experts say\"), AI vocabulary, negative parallelisms (\"not X, but Y\"), promotional language, and filler phrases.\n2. Rewrite rather than delete — replace AI-isms with natural alternatives and cover everything the original covered (five paragraphs in, five out).\n3. Calibrate voice — if the user supplies a writing sample, match its sentence length, word level, and punctuation habits; otherwise use a natural, varied, opinionated default.\n4. Add personality (the \"soul\" pass) only for blog/essay/opinion writing; keep technical, legal, and reference text plain.\n5. Run the draft -> audit -> final loop, re-scanning the rewrite for any patterns that crept back in.\n\nFull skill & source: https://github.com/blader/humanizer/tree/9600f2b7241cb4eed6ad803abee5ea01d67fe8e4"
+  },
+  {
+    "slug": "interface-design",
+    "name": "Interface Design",
+    "category": "design",
+    "description": "Craft-first product UI design for dashboards, admin panels, and SaaS tools — intent-first briefs, product-domain exploration, a signature element, systemic tokens, and a generic-output test to escape templated defaults.",
+    "author": "Dammyjay93",
+    "source_url": "https://github.com/Dammyjay93/interface-design/tree/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design",
+    "tags": ["interface", "ui", "design", "product-design"],
+    "skill_content": "---\nname: interface-design\ndescription: Craft-first interface design for dashboards, admin panels, SaaS apps, tools, settings pages, and data interfaces. Use when designing, building, reviewing, or refining product UI where visual craft, layout hierarchy, tokens, states, or design-system consistency matter. Not for marketing/landing pages or brand-only work.\n---\n\nDesign product interfaces with the craft of teams like Linear, Vercel, and Stripe — by deciding every detail instead of falling back to defaults.\n\n## Workflow\n1. State intent first — who the actual human is, the verb they must accomplish, and what it should feel like in concrete words (not \"clean and modern\"); make the intent systemic across color, type, spacing, and density.\n2. Explore the product domain before any visual thinking: list 5+ domain concepts, 5+ natural colors, one signature element unique to this product, and 3 obvious defaults to avoid.\n3. Catch defaults where they hide — typography, navigation, data presentation, and token names (`--ink` evokes a world; `--gray-700` evokes a template).\n4. Build a real design system (primitive -> semantic -> component tokens) and define states, hierarchy, polish, and motion.\n5. Apply the test: with the product name removed, could someone identify what it's for? If another AI would produce substantially the same output, iterate.\n\nFull skill & source: https://github.com/Dammyjay93/interface-design/tree/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design"
+  },
+  {
+    "slug": "guard",
+    "name": "Guard",
+    "category": "coding",
+    "description": "Full safety mode for risky work — warns before destructive commands (rm -rf, DROP TABLE, force-push) via a PreToolUse hook and restricts file edits to a chosen directory boundary. Combines /careful and /freeze.",
+    "author": "garrytan",
+    "source_url": "https://github.com/garrytan/gstack/tree/a861c00cfac6e2376d26c7d3ba5207cdc5aefc49/guard",
+    "tags": ["safety", "guardrails", "hooks", "engineering"],
+    "skill_content": "---\nname: guard\ndescription: \"Full safety mode: destructive-command warnings plus directory-scoped edits. Use when touching prod or debugging live systems, or when asked for guard mode, full safety, lock it down, or maximum safety. Part of gstack; depends on sibling /careful and /freeze skills.\"\n---\n\nMaximum-safety mode that combines destructive-command warnings (/careful) with a directory edit boundary (/freeze) via PreToolUse hooks.\n\n## How to use\n1. On activation, ask the user (text input) which directory to restrict edits to — destructive-command warnings are always on.\n2. Resolve the path to absolute, ensure a trailing slash, and write it to the gstack freeze state file (`$GSTACK_STATE_ROOT/freeze-dir.txt`).\n3. The PreToolUse Bash hook (`check-careful.sh`) warns before patterns like `rm -rf`, `DROP TABLE`, and force-push; the user can override.\n4. The PreToolUse Edit/Write hook (`check-freeze.sh`) blocks any edit to files outside the chosen directory.\n5. Confirm both protections to the user; `/unfreeze` removes the edit boundary, and ending the session deactivates everything.\n\nNote: requires the sibling /careful and /freeze skills (installed together by gstack setup).\n\nFull skill & source: https://github.com/garrytan/gstack/tree/a861c00cfac6e2376d26c7d3ba5207cdc5aefc49/guard"
+  },
+  {
+    "slug": "playwright-skill",
+    "name": "Playwright Browser Testing",
+    "category": "coding",
+    "description": "General-purpose browser automation with Playwright — auto-detects running dev servers, writes throwaway test scripts to /tmp, runs them via a universal executor, and captures screenshots and UX evidence.",
+    "author": "lackeyjb",
+    "source_url": "https://github.com/lackeyjb/playwright-skill/tree/bb7e920d376022958214e349ef25498a2644e189/skills/playwright-skill",
+    "tags": ["playwright", "browser", "testing", "automation"],
+    "skill_content": "---\nname: playwright-skill\ndescription: Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to /tmp. Test pages, fill forms, take screenshots, check responsive design, validate UX, test login flows, and check links. Use when the user wants to test websites, automate browser interactions, or validate web functionality.\n---\n\nWrite and run custom Playwright scripts on demand without cluttering the project.\n\n## Workflow\n1. For localhost work, ALWAYS detect dev servers first via the bundled helper (`detectDevServers()`); use the one found, ask which if several, or ask for a URL if none.\n2. Write the test script to `/tmp/playwright-test-*.js` — never into the skill directory — with the target URL parameterized at the top.\n3. Default to a visible browser (`headless: false`) so the user can watch, unless headless is requested.\n4. Execute via the universal runner: `cd $SKILL_DIR && node run.js /tmp/playwright-test-*.js`.\n5. First-time setup installs Playwright and Chromium with `npm run setup` in the skill directory.\n6. Report results in real time; /tmp scripts are auto-cleaned by the OS.\n\nFull skill & source: https://github.com/lackeyjb/playwright-skill/tree/bb7e920d376022958214e349ef25498a2644e189/skills/playwright-skill"
+  },
+  {
+    "slug": "research-paper-writing",
+    "name": "Research Paper Writing",
+    "category": "research",
+    "description": "Rewrite ML/CV/NLP papers into reviewer-friendly drafts — one-message-per-paragraph clarity, reverse outlining, claim-evidence alignment, clean teaser/pipeline figures, and adversarial self-review before submission.",
+    "author": "Master-cai",
+    "source_url": "https://github.com/Master-cai/Research-Paper-Writing-Skills/tree/9ee5eddc10068cc52590b3a68a827d3a387f5af9/research-paper-writing",
+    "tags": ["academic-writing", "research", "papers", "editing"],
+    "skill_content": "---\nname: research-paper-writing\ndescription: Improve academic paper writing for ML/CV/NLP-style papers with clear section structure, paragraph flow, and reviewer-facing presentation. Use when drafting or revising Abstract, Introduction, Related Work, Method, Experiments, or Conclusion; polishing figures/tables; checking claim-support alignment; or self-review before submission.\n---\n\nTurn a paper into a high-clarity, reviewer-friendly draft prioritizing first impression, logical flow, and evidence-backed claims.\n\n## Workflow\n1. Clarify the paper story before sentence-level edits and build a mini-outline per subsection.\n2. Rewrite paragraph-by-paragraph: one message per paragraph, stated in the first sentence, with self-contained nouns and clear sentence-to-sentence relations.\n3. Run reverse outlining after each section — map every topic sentence to the thesis and every evidence point to its topic sentence; cut paragraphs that don't map.\n4. Treat figures/tables as core content: clean teaser and pipeline figures, readable minimal-ink tables.\n5. Check every major Abstract/Introduction claim against experimental evidence; weaken or remove unsupported claims.\n6. Finish with an adversarial five-dimension self-review (contribution, clarity, experimental strength, evaluation, method soundness) and a claim-evidence map; load only the needed `references/<section>.md`.\n\nFull skill & source: https://github.com/Master-cai/Research-Paper-Writing-Skills/tree/9ee5eddc10068cc52590b3a68a827d3a387f5af9/research-paper-writing"
+  },
+  {
+    "slug": "code-review",
+    "name": "Code Review",
+    "category": "coding",
+    "description": "Rigorous code-review discipline — evaluate feedback technically instead of agreeing performatively, request reviews via a code-reviewer subagent, and gate any completion claim behind fresh verification evidence.",
+    "author": "mrgoonie",
+    "source_url": "https://github.com/mrgoonie/claudekit-skills/tree/80113d86bc4407f105af40a2c4ea58194f7c370a/.claude/skills/code-review",
+    "tags": ["code-review", "verification", "engineering"],
+    "skill_content": "---\nname: code-review\ndescription: Use when receiving code-review feedback (especially if unclear or technically questionable), when completing tasks or major features that need review, or before making any completion/success claims. Covers receiving feedback with technical rigor, requesting reviews via a code-reviewer subagent, and verification gates requiring evidence before status claims.\n---\n\nThree code-review practices anchored on one principle: technical correctness over social comfort — verify before implementing, ask before assuming, evidence before claims.\n\n## How to use\n1. Receiving feedback: READ -> UNDERSTAND -> VERIFY -> EVALUATE -> RESPOND -> IMPLEMENT; stop and ask when items are unclear, and verify external-reviewer suggestions technically before applying.\n2. Requesting review: invoke the code-reviewer subagent after each task in subagent-driven work, on finishing a major feature/refactor, and before merging to main.\n3. Verification gates: before claiming tests pass, the build succeeds, or work is done, run the verification command and state the claim WITH evidence — no fresh evidence means no claim.\n4. Use the quick decision tree to route each situation; consult the matching `references/` file (reception, requesting, verification-before-completion) for the full protocol.\n\nFull skill & source: https://github.com/mrgoonie/claudekit-skills/tree/80113d86bc4407f105af40a2c4ea58194f7c370a/.claude/skills/code-review"
+  },
+  {
+    "slug": "threejs-shaders",
+    "name": "Three.js Shaders",
+    "category": "coding",
+    "description": "Write custom Three.js shaders — ShaderMaterial vs RawShaderMaterial, uniforms and built-in attributes, GLSL vertex/fragment structure, extending built-in materials, debugging, and performance.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-shaders",
+    "tags": ["shaders", "glsl", "threejs", "frontend-development"],
+    "skill_content": "---\nname: threejs-shaders\ndescription: Three.js shaders — GLSL, ShaderMaterial, uniforms, custom effects. Use when creating custom visual effects, modifying vertices, writing fragment shaders, or extending built-in materials.\n---\n\nBuild custom GLSL shaders in Three.js with correctly wired uniforms and attributes.\n\n## How to use\n1. Start from `ShaderMaterial` with a `uniforms` object (e.g. `time`, `color`), a `vertexShader`, and a `fragmentShader`.\n2. Use `ShaderMaterial` to inherit Three.js built-ins (`projectionMatrix`, `modelViewMatrix`, `normalMatrix`, `position`, `normal`, `uv`); switch to `RawShaderMaterial` only when you must declare everything yourself.\n3. Compute `gl_Position` in the vertex shader and `gl_FragColor` in the fragment shader; pass data vertex-to-fragment with `varying`.\n4. Drive animation by updating uniforms in the render loop (`material.uniforms.time.value = clock.getElapsedTime()`).\n5. Debug by visualizing values as color, and keep fragment-shader work cheap for performance.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-shaders"
+  },
+  {
+    "slug": "threejs-animation",
+    "name": "Three.js Animation",
+    "category": "coding",
+    "description": "Animate in Three.js — keyframe clips, the AnimationMixer/AnimationAction system, GLTF and skeletal animation, morph targets, procedural motion with Clock, and blending between animations.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-animation",
+    "tags": ["animation", "threejs", "3d", "frontend-development"],
+    "skill_content": "---\nname: threejs-animation\ndescription: Three.js animation — keyframe animation, skeletal animation, morph targets, animation mixing. Use when animating objects, playing GLTF animations, creating procedural motion, or blending animations.\n---\n\nCoordinate motion in Three.js, from simple procedural tweens to blended skeletal clips.\n\n## How to use\n1. For procedural motion, drive transforms in the render loop using a `THREE.Clock` (`getDelta()` for frame-rate-independent steps, `getElapsedTime()` for oscillation).\n2. For keyframed motion, learn the three pieces: `AnimationClip` (keyframe data), `AnimationMixer` (plays clips on a root object), and `AnimationAction` (controls playback).\n3. Build clips from `KeyframeTrack`s — `NumberKeyframeTrack`, `VectorKeyframeTrack`, `QuaternionKeyframeTrack` — targeting property paths like `.position[y]`.\n4. Play GLTF/skeletal animations by creating a mixer on the loaded scene and running each `gltf.animations` clip as an action.\n5. Advance the mixer every frame with `mixer.update(delta)`, and blend with `crossFadeTo` / action weights.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-animation"
+  },
+  {
+    "slug": "threejs-geometry",
+    "name": "Three.js Geometry",
+    "category": "coding",
+    "description": "Create and optimize Three.js geometry — built-in primitives, custom BufferGeometry with position/normal/uv attributes, indexed meshes, and InstancedMesh for rendering many objects efficiently.",
+    "author": "CloudAI-X",
+    "source_url": "https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-geometry",
+    "tags": ["geometry", "threejs", "meshes", "frontend-development"],
+    "skill_content": "---\nname: threejs-geometry\ndescription: Three.js geometry creation — built-in shapes, BufferGeometry, custom geometry, instancing. Use when creating 3D shapes, working with vertices, building custom meshes, or optimizing with instanced rendering.\n---\n\nBuild and optimize Three.js geometry from primitives up to custom and instanced meshes.\n\n## How to use\n1. Reach for built-in geometries first — `BoxGeometry`, `SphereGeometry`, `PlaneGeometry`, `CylinderGeometry` (a cone with `radiusTop: 0`), `TorusGeometry`, `TorusKnotGeometry`, etc., tuning their segment counts.\n2. Pair geometry with a material (e.g. `MeshStandardMaterial`) into a `THREE.Mesh` and add it to the scene.\n3. For custom shapes, build a `BufferGeometry` and set `position`, `normal`, and `uv` attributes via `BufferAttribute`.\n4. Use indexed geometry (`setIndex`) to share vertices, and `computeVertexNormals()` when you generate positions by hand.\n5. To render many copies efficiently, use `InstancedMesh` and set per-instance transforms with `setMatrixAt`.\n\nFull skill & source: https://github.com/CloudAI-X/threejs-skills/tree/b1c623076c661fc9b03dac19292e825a5d106823/skills/threejs-geometry"
+  }
+]
