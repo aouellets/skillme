@@ -4,10 +4,12 @@ import Link from 'next/link'
 import { CategoryBadge } from './CategoryBadge'
 import { VerifiedMark } from './VerifiedMark'
 import { OfficialBadge } from './OfficialBadge'
+import { PartnerLogo } from './PartnerLogo'
 import { SkillThumbnail } from './SkillThumbnail'
 import { FavoriteButton } from './FavoriteButton'
 import { installLabel, isNewSkill } from '@/lib/categories'
 import { isOfficial } from '@/lib/skill-source'
+import { isPartner } from '@/lib/partners'
 import { track } from '@/lib/analytics'
 import type { Skill } from '@/lib/types'
 
@@ -49,6 +51,8 @@ export function SkillCard({ skill }: { skill: SkillCardData }) {
             )}
             {isOfficial(skill) ? (
               <OfficialBadge label={false} />
+            ) : isPartner(skill.author) ? (
+              <PartnerLogo author={skill.author} size={15} />
             ) : (
               skill.verified && <VerifiedMark label={false} />
             )}

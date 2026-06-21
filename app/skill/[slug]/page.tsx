@@ -4,7 +4,9 @@ import type { Metadata } from 'next'
 import { CategoryBadge } from '@/components/CategoryBadge'
 import { VerifiedMark } from '@/components/VerifiedMark'
 import { OfficialBadge } from '@/components/OfficialBadge'
+import { PartnerLogo } from '@/components/PartnerLogo'
 import { isOfficial } from '@/lib/skill-source'
+import { isPartner } from '@/lib/partners'
 import { InstallInstructions } from '@/components/InstallInstructions'
 import { ShareButton } from '@/components/ShareButton'
 import { StarRating } from '@/components/StarRating'
@@ -15,6 +17,8 @@ import { SkillThumbnail } from '@/components/SkillThumbnail'
 import { SkillViewTracker } from '@/components/SkillViewTracker'
 import { CATEGORY_MAP, installLabel } from '@/lib/categories'
 import { getSkillBySlug } from '@/lib/data'
+import { getDemo } from '@/lib/media'
+import { DemoSection } from '@/components/DemoSection'
 import { SITE_URL } from '@/lib/site'
 
 export const dynamic = 'force-dynamic'
@@ -56,6 +60,7 @@ export default async function SkillDetailPage({
   const skill = await getSkillBySlug(slug)
   if (!skill) notFound()
 
+  const demo = await getDemo('skill', slug)
   const category = CATEGORY_MAP[skill.category]
   const preview = skill.skill_content.split('\n').slice(0, PREVIEW_LINES).join('\n')
   const truncated = skill.skill_content.split('\n').length > PREVIEW_LINES
@@ -90,7 +95,8 @@ export default async function SkillDetailPage({
         <div className="flex flex-wrap items-center gap-3">
           <CategoryBadge category={skill.category} size="md" />
           {isOfficial(skill) && <OfficialBadge />}
-          {skill.verified && <VerifiedMark />}
+          {isPartner(skill.author) && <PartnerLogo author={skill.author} size={16} withLabel asLink />}
+          {skill.verified && !isPartner(skill.author) && <VerifiedMark />}
         </div>
         <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-shelf-text-primary sm:text-5xl">
           {skill.name}
@@ -103,7 +109,14 @@ export default async function SkillDetailPage({
               {skill.rating_count})
             </span>
           )}
-          {skill.author && <span>by {skill.author}</span>}
+          {skill.author &&
+            (isPartner(skill.author) ? (
+              <span className="inline-flex items-center gap-1.5">
+                by <PartnerLogo author={skill.author} size={14} withLabel asLink />
+              </span>
+            ) : (
+              <span>by {skill.author}</span>
+            ))}
         </div>
       </header>
 
@@ -125,6 +138,9 @@ export default async function SkillDetailPage({
               ))}
             </div>
           )}
+
+          {/* Demo video (when published) */}
+          <DemoSection demo={demo} />
 
           {/* SKILL.md preview */}
           <section className="mt-8">

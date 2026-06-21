@@ -2,8 +2,10 @@ import Link from 'next/link'
 import { SkillThumbnail } from './SkillThumbnail'
 import { VerifiedMark } from './VerifiedMark'
 import { OfficialBadge } from './OfficialBadge'
+import { PartnerLogo } from './PartnerLogo'
 import { installLabel } from '@/lib/categories'
 import { isOfficial } from '@/lib/skill-source'
+import { isPartner } from '@/lib/partners'
 import type { Pack } from '@/lib/types'
 
 type PackCardData = Omit<Pack, 'skills'>
@@ -33,6 +35,8 @@ export function PackCard({ pack }: { pack: PackCardData }) {
           </span>
           {isOfficial(pack) ? (
             <OfficialBadge label={false} />
+          ) : isPartner(pack.author) ? (
+            <PartnerLogo author={pack.author} size={15} withLabel />
           ) : (
             pack.verified && <VerifiedMark label={false} />
           )}
