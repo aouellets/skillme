@@ -132,3 +132,5 @@ Remaining operator actions:
 | Support / security | `support@skillme.dev` · `security@skillme.dev` → `alexander.ouellet@icloud.com` |
 | Repo | `github.com/aouellets/skillme` (MIT) |
 | Setup scripts | `npm run setup:email` · `npm run build:catalog` · `npm run build:art` |
+| After any seed | `npm run embed:catalog` — refresh recommender embeddings (incremental; [docs](recommender.md)) |
+| Recommender key | `OPENAI_API_KEY` in Vercel prod — required for `recommend_skills` semantic mode |

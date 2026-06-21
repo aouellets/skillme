@@ -14,7 +14,8 @@ MCP once and your installed skills load automatically in every future session.
 
 1. Go to **claude.ai → Settings → Integrations**
 2. Add the MCP URL: `https://skillme.dev/api/mcp`
-3. Say **"show me skills"** in any conversation
+3. Just **describe what you're working on** — Claude finds and installs the
+   right skill for the task (or say **"show me skills"** to browse)
 
 Skills you install activate automatically in your next session, across every
 conversation. See [the connect guide](https://skillme.dev/connect)
@@ -29,13 +30,17 @@ for the step-by-step.
 Skill Me is a hosted **MCP server** plus a **web catalog**, backed by Supabase.
 
 - The MCP server (`app/api/mcp/route.ts`) speaks JSON-RPC 2.0 over Streamable
-  HTTP and exposes five tools:
+  HTTP. Its headline tools:
   - `get_active_skills` — called at the start of every conversation; returns the
     full content of every skill the user has installed.
-  - `browse_skills` — full-text search across the catalog.
-  - `install_skill` — adds a skill to the user's library.
-  - `uninstall_skill` — deactivates a skill.
-  - `list_installed` — lists the user's active skills.
+  - `recommend_skills` — the smart entry point: describe a task in natural
+    language and it semantically matches it (pgvector embeddings + rerank) to the
+    best skills and pack, each with a reason and an install id. Claude calls this
+    proactively at the start of a non-trivial task. See
+    [docs/recommender.md](docs/recommender.md).
+  - `browse_skills` / `browse_packs` — keyword search across the catalog.
+  - `install_skill` / `install_pack` — add a skill or a whole pack.
+  - `uninstall_skill`, `list_installed`, `manage_collection`, `rate_skill`.
 - The web catalog (`/`, `/browse`, `/skill/[slug]`, `/connect`) is a browse-only
   companion built with Next.js 15 and the App Router.
 
@@ -65,7 +70,13 @@ npm run dev
 
 ```bash
 npm run db:seed
+npm run db:seed-packs    # packs
+npm run embed:catalog    # embeddings for the semantic recommender
 ```
+
+`embed:catalog` is incremental (it skips unchanged rows), so re-run it after any
+seed or content change to keep `recommend_skills` complete. See
+[docs/recommender.md](docs/recommender.md).
 
 ### Ingest skills from GitHub (optional)
 

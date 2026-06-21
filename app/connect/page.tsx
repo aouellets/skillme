@@ -5,7 +5,7 @@ import { MCP_URL } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Connect to Claude',
   description:
-    'Add Skill Me to claude.ai in 30 seconds. Connect the MCP once and browse, install, and manage 300+ Claude skills from inside any Claude conversation.',
+    'Add Skill Me to claude.ai in 30 seconds. Connect the MCP once and Claude recommends, installs, and uses the right skill for whatever you ask — from 500+ curated Claude skills.',
   twitter: {
     card: 'summary_large_image',
   },
@@ -37,8 +37,8 @@ const STEPS: Array<{ title: string; body: React.ReactNode }> = [
     body: 'Click Connect. You will see Skill Me appear in your integrations list.',
   },
   {
-    title: 'Start a conversation',
-    body: 'Open a new conversation and say "show me skills". Claude will search the catalog for you.',
+    title: 'Start working',
+    body: 'Open a new conversation and just describe what you\'re doing. Claude finds the right skill for the task, installs it, and uses it — or say "show me skills" to browse.',
   },
 ]
 

@@ -107,12 +107,12 @@ const STEPS = [
     body: 'Add the Skill Me endpoint in claude.ai under Settings, Integrations. Thirty seconds, and you never do it again.',
   },
   {
-    title: 'Ask in plain English',
-    body: 'Say "show me writing skills" in any conversation. Claude searches the catalog and reads back what fits.',
+    title: 'Just describe your task',
+    body: 'Tell Claude what you\'re working on — "help me make a launch video." It reads the task and finds the skills that fit, so you don\'t have to know they exist.',
   },
   {
-    title: 'Say "install it"',
-    body: 'The skill activates in your next session and every one after, across every conversation. No reinstalling.',
+    title: 'It installs and sticks',
+    body: 'Claude installs the right skill and uses it on the spot, then it\'s there in every future conversation. No reinstalling.',
   },
 ]
 
@@ -139,14 +139,15 @@ export default async function HomePage() {
       <section className="relative grid grid-cols-1 items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
         <div className="aurora" aria-hidden />
         <div className="fade-up">
-          <span className="eyebrow">The App Store for Claude</span>
+          <span className="eyebrow">Install intelligence</span>
           <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-shelf-text-primary sm:text-6xl">
-            Install
+            The right skill,
             <br />
-            intelligence.
+            automatically.
           </h1>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-shelf-text-secondary">
-            {countLabel}. Connect once, install anything. No ZIP files, no terminal, no setup.
+            Describe what you&apos;re working on and Claude finds the right skill from {countLabel},
+            installs it, and puts it to work — no browsing, no setup.
           </p>
 
           {/* Live stats */}
@@ -191,11 +192,12 @@ export default async function HomePage() {
                 <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-shelf-text-primary sm:text-4xl">
                   No code.
                   <br />
-                  No terminal. Just ask.
+                  No browsing. Just ask.
                 </h2>
                 <p className="mt-5 max-w-md text-base leading-relaxed text-shelf-text-secondary">
-                  You never touch a config file or download a thing. If you can send a message in
-                  Claude, you can install a skill. It is live in your very next conversation.
+                  You don&apos;t even pick the skill. Describe the task and Claude finds the right
+                  one, installs it, and uses it on the spot. If you can send a message in Claude,
+                  you&apos;re set — and it is live in your very next conversation.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link href="/connect" className="btn btn-primary">
@@ -382,7 +384,7 @@ export default async function HomePage() {
             Your next conversation just got an upgrade.
           </h2>
           <p className="mx-auto mt-5 max-w-md text-lg leading-relaxed text-shelf-text-secondary">
-            Connect once and every Claude chat can reach the whole catalog.
+            Connect once and every Claude chat finds the right skill for whatever you&apos;re doing.
           </p>
           <div className="mt-8 flex justify-center">
             <Link href="/connect" className="btn btn-primary">

@@ -1,5 +1,12 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { classify } from './safety-core'
+import {
+  skillEmbeddingInput,
+  packEmbeddingInput,
+  embeddingHash,
+  embedTexts,
+  isEmbeddingConfigured,
+} from './embeddings'
 import type { PackCategory } from './types'
 
 /**
@@ -294,11 +301,44 @@ async function ingestOneSkill(
       free: true,
     }
 
-    const { error } = await supabase.from('skills').upsert(row, { onConflict: 'slug' })
-    if (error) return { slug, path, name: row.name, status: 'error', reason: error.message }
+    const { data: upserted, error } = await supabase
+      .from('skills')
+      .upsert(row, { onConflict: 'slug' })
+      .select('id')
+      .single()
+    if (error || !upserted) {
+      return { slug, path, name: row.name, status: 'error', reason: error?.message ?? 'upsert failed' }
+    }
+    // Embed inline so the new skill is recommendable right away (best-effort).
+    await embedRow(supabase, 'skills', upserted.id, skillEmbeddingInput(row))
     return { slug, path, name: row.name, status: existing ? 'updated' : 'added' }
   } catch (err) {
     return { slug, path, status: 'error', reason: err instanceof Error ? err.message : 'unknown error' }
+  }
+}
+
+/**
+ * Best-effort: embed a freshly upserted row so it is immediately recommendable
+ * by the semantic recommender, instead of waiting for the next `embed:catalog`
+ * pass. Never throws — the row stays browsable even if embedding fails, and
+ * `embed:catalog` backfills it later. No-op when no embedding credential is set.
+ */
+async function embedRow(
+  supabase: SupabaseClient,
+  table: 'skills' | 'packs',
+  id: string,
+  input: string
+): Promise<void> {
+  if (!isEmbeddingConfigured()) return
+  try {
+    const [vec] = await embedTexts([input])
+    if (!vec) return
+    await supabase
+      .from(table)
+      .update({ embedding: JSON.stringify(vec), embedding_hash: embeddingHash(input) })
+      .eq('id', id)
+  } catch (err) {
+    console.warn(`[ingest] embed ${table} ${id} failed:`, err instanceof Error ? err.message : err)
   }
 }
 
@@ -381,8 +421,12 @@ async function upsertPack(
     return { slug: pack.slug, status: 'error', reason: packErr?.message ?? 'pack upsert failed', members: 0 }
   }
 
-  const { data: skillRows } = await supabase.from('skills').select('id, slug').in('slug', memberSlugs)
-  const rows = (skillRows ?? []).map((s: { id: string; slug: string }) => ({
+  const { data: skillRows } = await supabase
+    .from('skills')
+    .select('id, slug, name')
+    .in('slug', memberSlugs)
+  const members = (skillRows ?? []) as Array<{ id: string; slug: string; name: string }>
+  const rows = members.map((s) => ({
     pack_id: packRow.id,
     skill_id: s.id,
     position: memberSlugs.indexOf(s.slug),
@@ -393,6 +437,11 @@ async function upsertPack(
     const { error: psErr } = await supabase.from('pack_skills').insert(rows)
     if (psErr) return { slug: pack.slug, status: 'error', reason: psErr.message, members: 0 }
   }
+  // Embed the pack (member names give it its semantic footprint), best-effort.
+  const memberNames = memberSlugs
+    .map((slug) => members.find((m) => m.slug === slug)?.name)
+    .filter((n): n is string => Boolean(n))
+  await embedRow(supabase, 'packs', packRow.id, packEmbeddingInput(pack, memberNames))
   return { slug: pack.slug, status: 'added', members: rows.length }
 }
 

@@ -1,97 +1,103 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { CATEGORIES, CATEGORY_MAP } from '@/lib/categories'
+import { CATEGORY_MAP } from '@/lib/categories'
 import type { SkillCategory } from '@/lib/types'
 
 /**
- * A looping, self-running "app store" demo for the hero. Each cycle it browses a
- * random category, types it into a search bar, slides in 1–2 real skills from
- * that category, and installs one with an amber
- * confirmation. Categories rotate in a shuffled order so every pass shows the
- * full breadth of the catalog. Pure state + CSS — no animation library.
- * Respects prefers-reduced-motion by rendering a static, representative state.
+ * A looping, self-running demo for the hero that shows the recommender, not a
+ * catalog browser: each cycle it types a real-world task into a prompt, then
+ * slides in the skills Claude recommends for it (each with a one-line reason)
+ * and applies the top one. The task→skill pairs are real catalog skills and
+ * mirror what `recommend_skills` actually returns. Pure state + CSS — no
+ * animation library. Respects prefers-reduced-motion with a static state.
  */
 
-interface PoolSkill {
+interface Rec {
   name: string
+  cat: SkillCategory
+  why: string
 }
 
-// 2–3 real catalog skills per category. The component randomly shows 1–2 each
-// cycle, so over time visitors see something from every category.
-const POOL: Record<SkillCategory, PoolSkill[]> = {
-  coding: [
-    { name: 'Karpathy Behavioral Rules' },
-    { name: 'Code Review Checklist' },
-    { name: 'Next.js App Router' },
-  ],
-  writing: [
-    { name: 'LinkedIn Post Writer' },
-    { name: 'Cold Email Craft' },
-    { name: 'Tweet Thread Builder' },
-  ],
-  research: [
-    { name: 'Deep Research' },
-    { name: 'Fact Checker' },
-    { name: 'Literature Review' },
-  ],
-  productivity: [
-    { name: 'GTD System' },
-    { name: 'Email Triage' },
-    { name: 'Weekly Review' },
-  ],
-  data: [
-    { name: 'SQL to Insights' },
-    { name: 'Pandas Expert' },
-    { name: 'SQL Query Optimizer' },
-  ],
-  design: [
-    { name: 'UI/UX Pro Max' },
-    { name: 'Color Accessibility' },
-  ],
-  business: [
-    { name: 'Investor Update Writer' },
-    { name: 'Go-to-Market Planner' },
-    { name: 'Pricing Strategy' },
-  ],
-  personal: [
-    { name: 'Meal Planner' },
-    { name: 'Fitness Program' },
-    { name: 'Life Coach' },
-  ],
+interface Task {
+  task: string
+  recs: Rec[]
 }
+
+// Real tasks → real catalog skills, matching the live recommender's output.
+const TASKS: Task[] = [
+  {
+    task: 'make my demo video less janky',
+    recs: [
+      { name: 'Motion Design Principles', cat: 'design', why: 'easing & timing that kill the jank' },
+      { name: 'Product Demo Director', cat: 'design', why: 'cursor & zoom choreography' },
+      { name: 'Video Storyboard', cat: 'design', why: 'a tight beat sheet first' },
+    ],
+  },
+  {
+    task: 'raise a seed round',
+    recs: [
+      { name: 'Fundraising Stage Selector', cat: 'business', why: 'size the round & valuation' },
+      { name: 'Pitch Deck Builder', cat: 'business', why: 'the narrative and the deck' },
+      { name: 'Investor Targeting', cat: 'business', why: 'a ranked list of the right VCs' },
+    ],
+  },
+  {
+    task: 'ship CI/CD on Vercel',
+    recs: [
+      { name: 'Vercel Deploy Pipeline', cat: 'coding', why: 'preview → prod, with rollbacks' },
+      { name: 'GitHub Actions', cat: 'coding', why: 'wire up the pipeline' },
+    ],
+  },
+  {
+    task: 'find my first customers',
+    recs: [
+      { name: 'Cold Email Craft', cat: 'writing', why: 'outreach that actually converts' },
+      { name: 'Go-to-Market Planner', cat: 'business', why: 'a 30-day launch plan' },
+    ],
+  },
+  {
+    task: "analyze last quarter's sales",
+    recs: [
+      { name: 'SQL to Insights', cat: 'data', why: 'query → plain-English findings' },
+      { name: 'Pandas Expert', cat: 'data', why: 'wrangle the numbers' },
+    ],
+  },
+  {
+    task: 'plan a week of healthy meals',
+    recs: [{ name: 'Meal Planner', cat: 'personal', why: 'a full week, macro-aware' }],
+  },
+]
 
 interface View {
-  cat: SkillCategory
+  task: string
   query: string
   caret: boolean
-  cards: PoolSkill[]
+  recs: Rec[]
   shown: number
-  installedIdx: number | null
+  addedIdx: number | null
   cycle: number
   fading: boolean
 }
 
-const FIRST: SkillCategory = 'coding'
-
 const INITIAL: View = {
-  cat: FIRST,
+  task: TASKS[0].task,
   query: '',
   caret: false,
-  cards: [],
+  recs: [],
   shown: 0,
-  installedIdx: null,
+  addedIdx: null,
   cycle: 0,
   fading: false,
 }
 
 const STATIC: View = {
-  cat: FIRST,
-  query: 'coding skills',
+  task: TASKS[0].task,
+  query: TASKS[0].task,
   caret: false,
-  cards: POOL.coding.slice(0, 2),
-  shown: 2,
-  installedIdx: 0,
+  recs: TASKS[0].recs,
+  shown: TASKS[0].recs.length,
+  addedIdx: 0,
   cycle: 0,
   fading: false,
 }
@@ -125,7 +131,7 @@ export function HeroDemo() {
         timers.add(t)
       })
 
-    const typeQuery = async (text: string, per = 48) => {
+    const typeQuery = async (text: string, per = 46) => {
       for (let i = 1; i <= text.length; i++) {
         if (ctrl.cancelled) return
         setV((p) => ({ ...p, query: text.slice(0, i) }))
@@ -134,46 +140,43 @@ export function HeroDemo() {
     }
 
     const run = async () => {
-      const slugs = CATEGORIES.map((c) => c.slug)
-      let order = shuffle(slugs)
+      let order = shuffle(TASKS)
       let idx = 0
       let cycle = 0
 
       while (!ctrl.cancelled) {
         if (idx >= order.length) {
-          order = shuffle(slugs)
+          order = shuffle(TASKS)
           idx = 0
         }
-        const cat = order[idx++]
-        const count = Math.random() < 0.45 ? 1 : 2
-        const picks = shuffle(POOL[cat]).slice(0, count)
+        const t = order[idx++]
 
         setV({
-          cat,
+          task: t.task,
           query: '',
           caret: true,
-          cards: picks,
+          recs: t.recs,
           shown: 0,
-          installedIdx: null,
+          addedIdx: null,
           cycle: ++cycle,
           fading: false,
         })
-        await wait(450)
-        await typeQuery(`${CATEGORY_MAP[cat].label.toLowerCase()} skills`)
+        await wait(420)
+        await typeQuery(t.task)
         if (ctrl.cancelled) return
         setV((p) => ({ ...p, caret: false }))
-        await wait(280)
+        await wait(520) // brief "matching" beat
 
-        for (let i = 0; i < picks.length; i++) {
+        for (let i = 0; i < t.recs.length; i++) {
           if (ctrl.cancelled) return
           setV((p) => ({ ...p, shown: i + 1 }))
-          await wait(380)
+          await wait(360)
         }
 
-        await wait(650)
+        await wait(640)
         if (ctrl.cancelled) return
-        setV((p) => ({ ...p, installedIdx: 0 }))
-        await wait(2100)
+        setV((p) => ({ ...p, addedIdx: 0 }))
+        await wait(2200)
 
         if (ctrl.cancelled) return
         setV((p) => ({ ...p, fading: true }))
@@ -189,7 +192,7 @@ export function HeroDemo() {
     }
   }, [])
 
-  const activeColor = CATEGORY_MAP[v.cat].color
+  const matching = v.query.length > 0 && v.shown === 0
 
   return (
     <div
@@ -206,7 +209,7 @@ export function HeroDemo() {
         </div>
         <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-shelf-text-tertiary">
           <span className="demo-live inline-block h-1.5 w-1.5 rounded-full bg-success" />
-          Browsing
+          Recommending
         </span>
       </div>
 
@@ -215,82 +218,67 @@ export function HeroDemo() {
           v.fading ? 'opacity-0' : 'opacity-100'
         }`}
       >
-        {/* search bar */}
-        <div className="flex items-center gap-2 rounded-md border border-shelf-border bg-shelf-void px-3 py-2.5">
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="shrink-0 text-shelf-text-tertiary"
-          >
-            <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
-            <path d="m20 20-3-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-          <span className="text-sm text-shelf-text-primary">{v.query}</span>
-          {v.caret && <span className="demo-caret" />}
+        {/* the task, framed as a prompt to Claude */}
+        <div className="flex items-start gap-2 rounded-md border border-shelf-border bg-shelf-void px-3 py-2.5">
+          <span className="select-none font-mono text-sm text-accent">›</span>
+          <span className="text-sm leading-relaxed text-shelf-text-primary">
+            {v.query}
+            {v.caret && <span className="demo-caret" />}
+          </span>
         </div>
 
-        {/* category rail */}
-        <div className="flex flex-wrap gap-1.5">
-          {CATEGORIES.map((c) => {
-            const active = c.slug === v.cat
-            return (
-              <span
-                key={c.slug}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-1 text-[11px] transition-colors duration-300 ${
-                  active
-                    ? 'border-accent-border bg-accent-dim text-accent-hover'
-                    : 'border-shelf-border text-shelf-text-tertiary'
-                }`}
-              >
-                <span
-                  className="inline-block h-1.5 w-1.5 rounded-full"
-                  style={{ backgroundColor: c.color, opacity: active ? 1 : 0.5 }}
-                />
-                {c.label}
-              </span>
-            )
-          })}
+        {/* recommender label */}
+        <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-shelf-text-tertiary">
+          {matching ? (
+            <>
+              <span className="demo-live inline-block h-1.5 w-1.5 rounded-full bg-accent" />
+              Matching skills to your task…
+            </>
+          ) : v.shown > 0 ? (
+            'Recommended for your task'
+          ) : (
+            ' '
+          )}
         </div>
 
-        {/* results */}
+        {/* recommended skills */}
         <div className="flex flex-col gap-2">
-          {v.cards.slice(0, v.shown).map((skill, i) => {
-            const installed = v.installedIdx === i
+          {v.recs.slice(0, v.shown).map((rec, i) => {
+            const added = v.addedIdx === i
+            const color = CATEGORY_MAP[rec.cat]?.color
             return (
               <div
                 key={`${v.cycle}-${i}`}
                 className={`demo-result flex items-center justify-between gap-3 rounded-md border bg-shelf-elevated px-3 py-2.5 transition-colors duration-300 ${
-                  installed ? 'border-accent-border' : 'border-shelf-border'
+                  added ? 'border-accent-border' : 'border-shelf-border'
                 }`}
                 style={{
                   animationDelay: `${i * 60}ms`,
-                  boxShadow: installed ? 'var(--shadow-glow)' : undefined,
+                  boxShadow: added ? 'var(--shadow-glow)' : undefined,
                 }}
               >
                 <div className="flex min-w-0 flex-col gap-1">
                   <div className="flex items-center gap-2">
                     <span
                       className="inline-block h-2 w-2 shrink-0 rounded-full"
-                      style={{ backgroundColor: activeColor }}
+                      style={{ backgroundColor: color }}
                     />
                     <span className="truncate text-sm font-medium text-shelf-text-primary">
-                      {skill.name}
+                      {rec.name}
                     </span>
                   </div>
-                  <div className="pl-4 font-mono text-[11px] text-shelf-text-tertiary">
-                    {CATEGORY_MAP[v.cat]?.label ?? v.cat}
+                  <div className="truncate pl-4 font-mono text-[11px] text-shelf-text-tertiary">
+                    {rec.why}
                   </div>
                 </div>
 
-                {installed ? (
+                {added ? (
                   <span className="demo-installed flex shrink-0 items-center gap-1 rounded-md bg-accent px-2.5 py-1.5 text-xs font-medium text-accent-contrast">
-                    <span className="text-[11px] font-bold">✓</span> Installed
+                    <span className="text-[11px] font-bold">✓</span> Added
                   </span>
                 ) : (
                   <span className="shrink-0 rounded-md border border-shelf-muted px-2.5 py-1.5 text-xs font-medium text-shelf-text-secondary">
-                    Install
+                    Add
                   </span>
                 )}
               </div>
