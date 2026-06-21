@@ -141,15 +141,29 @@ export async function getSkills(opts: SkillQuery = {}): Promise<SkillPage> {
   return { skills: data as Skill[], total: count ?? data.length }
 }
 
-export async function getFeaturedSkills(limit = 6): Promise<Skill[]> {
-  const { skills } = await getSkills({ featured: true, sort: 'trending', limit })
-  return skills
-}
+/**
+ * Fetch a hand-picked set of skills by slug, returned in the exact order given.
+ * Powers the curated landing-page shelves (a marquee spanning every category, a
+ * deliberately wide-range "become anything" grid) so the homepage shows the
+ * breadth of the catalog deterministically instead of relying on sparse,
+ * not-yet-real popularity signals. Missing slugs are skipped; offline it draws
+ * from the seed catalog so the shelves never come up empty.
+ */
+export async function getSkillsBySlugs(slugs: string[]): Promise<Skill[]> {
+  if (slugs.length === 0) return []
+  const order = new Map(slugs.map((slug, i) => [slug, i]))
+  const bySlug = (a: Skill, b: Skill) =>
+    (order.get(a.slug) ?? Infinity) - (order.get(b.slug) ?? Infinity)
 
-/** Skills ranked by time-decayed install velocity (the "Hot right now" shelf). */
-export async function getHotSkills(limit = 6): Promise<Skill[]> {
-  const { skills } = await getSkills({ sort: 'hot', limit })
-  return skills
+  const supabase = getSupabase()
+  if (!supabase) return FALLBACK.filter((s) => order.has(s.slug)).sort(bySlug)
+
+  const { data, error } = await supabase.from('skills').select('*').in('slug', slugs)
+  if (error || !data || data.length === 0) {
+    if (error) console.error('[getSkillsBySlugs] error:', error.message)
+    return FALLBACK.filter((s) => order.has(s.slug)).sort(bySlug)
+  }
+  return (data as Skill[]).sort(bySlug)
 }
 
 /**

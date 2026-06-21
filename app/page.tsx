@@ -6,7 +6,7 @@ import { EmailCapture } from '@/components/EmailCapture'
 import { FeaturedCarousel } from '@/components/FeaturedCarousel'
 import { SkillCard } from '@/components/SkillCard'
 import { CATEGORIES } from '@/lib/categories'
-import { getFeaturedSkills, getHotSkills, getSkills, formatSkillCount } from '@/lib/data'
+import { getSkillsBySlugs, getSkills, formatSkillCount } from '@/lib/data'
 import { getPacksBySlugs } from '@/lib/packs'
 import { getSupabase } from '@/lib/supabase'
 
@@ -64,6 +64,43 @@ const SHOWCASE_PACKS: { slug: string; discipline: string }[] = [
   { slug: 'personal-operating-system', discipline: 'Personal' },
 ]
 
+/**
+ * Curated "Featured this week" marquee — recognizable, high-craft skills with at
+ * least one from every discipline, so the opening skill rail reads as range, not
+ * a single lane. Order is the carousel order.
+ */
+const FEATURED_SKILLS = [
+  'codegraph', // coding — code intelligence graph
+  'anthropic-frontend-design', // design
+  'deep-research', // research
+  'pitch-deck-builder', // business / fundraising
+  'sql-to-insights', // data
+  'linkedin-post-writer', // writing
+  'gtd-system', // productivity
+  'life-coach', // personal
+  'nextjs-app-router', // coding
+  'ab-test-analyzer', // data
+  'competitive-intelligence', // research
+  'resume-writer', // business / personal
+]
+
+/**
+ * "Become anything" shelf — a deliberately wide span of what Claude can turn into
+ * from one chat. Each pick is a different role entirely; the variety is the point.
+ * Distinct from FEATURED_SKILLS so the two rails never repeat a card.
+ */
+const BECOME_ANYTHING_SKILLS = [
+  'term-sheet-negotiation', // a founder closing a round
+  'meal-planner', // a nutrition coach
+  'playwright-testing', // a QA engineer
+  'literature-review', // an academic researcher
+  'ui-ux-pro-max', // a product designer
+  'pandas-expert', // a data scientist
+  'grand-slam-offer-builder', // a growth marketer
+  'okr-builder', // a chief of staff
+  'cold-email-craft', // a sales rep
+]
+
 const STEPS = [
   {
     title: 'Connect once',
@@ -80,9 +117,9 @@ const STEPS = [
 ]
 
 export default async function HomePage() {
-  const [featured, hot, { total }, showcasePacks] = await Promise.all([
-    getFeaturedSkills(12),
-    getHotSkills(6),
+  const [featured, becomeAnything, { total }, showcasePacks] = await Promise.all([
+    getSkillsBySlugs(FEATURED_SKILLS),
+    getSkillsBySlugs(BECOME_ANYTHING_SKILLS),
     getSkills({ limit: 1 }),
     getPacksBySlugs(SHOWCASE_PACKS.map((p) => p.slug)),
   ])
@@ -205,39 +242,28 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* HOT RIGHT NOW — ranked by time-decayed install velocity */}
-      {hot.length > 0 && (
+      {/* BECOME ANYTHING — a deliberately wide span of roles from one chat */}
+      {becomeAnything.length > 0 && (
         <section className="py-8">
           <Reveal className="flex items-end justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <h2 className="text-2xl font-semibold text-shelf-text-primary">Hot right now</h2>
-              {/* SVG glyph (not an emoji) — themeable, consistent cross-platform,
-                  matches the LogoMark's round-stroke lime language */}
-              <svg
-                aria-hidden
-                className="h-5 w-5 text-accent"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            <div className="max-w-xl">
+              <h2 className="text-2xl font-semibold text-shelf-text-primary">
+                In one chat, become anything.
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-shelf-text-secondary">
+                Close a round, plan a week of meals, ship a test suite, run a literature
+                review — same Claude, whatever the day asks for.
+              </p>
             </div>
             <Link
-              href="/browse?sort=hot"
+              href="/browse"
               className="shrink-0 text-sm text-shelf-text-secondary transition-colors hover:text-accent-hover"
             >
-              View all →
+              Browse all →
             </Link>
           </Reveal>
           <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {hot.map((skill, i) => (
+            {becomeAnything.map((skill, i) => (
               <Reveal key={skill.id} delay={i * 60}>
                 <SkillCard skill={skill} />
               </Reveal>
