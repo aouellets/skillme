@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Analytics } from '@vercel/analytics/next'
 import { SITE_URL } from '@/lib/site'
 import { AuthButton } from '@/components/AuthButton'
+import { AdminNav } from '@/components/AdminNav'
 import { FavoritesProvider } from '@/components/FavoritesProvider'
 import { Wordmark } from '@/components/Logo'
 import { EmailCapture } from '@/components/EmailCapture'
@@ -59,7 +60,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-function Header() {
+async function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-shelf-border/80 bg-shelf-void/70 backdrop-blur-xl supports-[backdrop-filter]:bg-shelf-void/55">
       <div className="mx-auto flex h-16 max-w-content items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -83,6 +84,7 @@ function Header() {
           >
             Packs
           </Link>
+          <AdminNav />
           <AuthButton />
           <Link href="/connect" className="btn btn-primary ml-1">
             <span className="sm:hidden">Connect</span>
