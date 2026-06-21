@@ -16,17 +16,21 @@ export interface Partner {
   logo: string
   /** Official site / org URL the logo links to. */
   url: string
+  /** Brand accent color — drives the glow/rings/label in branded pack art. */
+  color: string
+  /** Dark brand tint for the top of the radial backdrop in branded art. */
+  tint: string
 }
 
 /** Keyed by the exact catalog `author` string. */
 const PARTNERS: Record<string, Partner> = {
-  Anthropic: { label: 'Anthropic', logo: 'anthropic', url: 'https://github.com/anthropics/skills' },
-  'Hugging Face': { label: 'Hugging Face', logo: 'huggingface', url: 'https://github.com/huggingface/skills' },
-  Google: { label: 'Google', logo: 'google', url: 'https://github.com/googleworkspace/cli' },
-  Vercel: { label: 'Vercel', logo: 'vercel', url: 'https://github.com/vercel-labs/agent-skills' },
-  Microsoft: { label: 'Microsoft', logo: 'microsoft', url: 'https://github.com/microsoft/skills' },
-  WordPress: { label: 'WordPress', logo: 'wordpress', url: 'https://github.com/WordPress/agent-skills' },
-  Meta: { label: 'Meta', logo: 'meta', url: 'https://github.com/facebookresearch' },
+  Anthropic: { label: 'Anthropic', logo: 'anthropic', url: 'https://github.com/anthropics/skills', color: '#d97757', tint: '#2a1712' },
+  'Hugging Face': { label: 'Hugging Face', logo: 'huggingface', url: 'https://github.com/huggingface/skills', color: '#ffd21e', tint: '#241f08' },
+  Google: { label: 'Google', logo: 'google', url: 'https://github.com/googleworkspace/cli', color: '#4285f4', tint: '#0d1b33' },
+  Vercel: { label: 'Vercel', logo: 'vercel', url: 'https://github.com/vercel-labs/agent-skills', color: '#f5f7f5', tint: '#16181c' },
+  Microsoft: { label: 'Microsoft', logo: 'microsoft', url: 'https://github.com/microsoft/skills', color: '#00a4ef', tint: '#0c1626' },
+  WordPress: { label: 'WordPress', logo: 'wordpress', url: 'https://github.com/WordPress/agent-skills', color: '#2ea8e0', tint: '#0b1f2a' },
+  Meta: { label: 'Meta', logo: 'meta', url: 'https://github.com/facebookresearch', color: '#0866ff', tint: '#0a1530' },
 }
 
 export interface ResolvedPartner extends Partner {

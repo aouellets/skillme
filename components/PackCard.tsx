@@ -19,6 +19,7 @@ export function PackCard({ pack }: { pack: PackCardData }) {
       <SkillThumbnail
         skill={{
           name: pack.name,
+          author: pack.author,
           category: pack.category,
           thumbnail_url: pack.thumbnail_url,
           thumbnail_gif: pack.thumbnail_gif,

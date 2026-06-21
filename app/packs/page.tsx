@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PackCard } from '@/components/PackCard'
-import { getPacks } from '@/lib/packs'
+import { getPacks, getPacksBySlugs } from '@/lib/packs'
+import { PARTNER_STRIP } from '@/lib/partners'
 
 export const dynamic = 'force-dynamic'
 
@@ -21,7 +22,15 @@ export const metadata: Metadata = {
 }
 
 export default async function PacksPage() {
-  const { packs, total } = await getPacks({ limit: 48 })
+  const [{ packs, total }, officialPacks] = await Promise.all([
+    getPacks({ limit: 48 }),
+    getPacksBySlugs(PARTNER_STRIP.map((p) => p.packSlug)),
+  ])
+
+  // Official packs get their own showcase up top — drop them from the main grid
+  // so they aren't listed twice.
+  const officialSlugs = new Set(officialPacks.map((p) => p.slug))
+  const restPacks = packs.filter((p) => !officialSlugs.has(p.slug))
 
   return (
     <div className="mx-auto max-w-content px-4 py-12 sm:px-6 lg:px-8">
@@ -53,20 +62,51 @@ export default async function PacksPage() {
         </Link>
       </div>
 
-      {/* Grid */}
-      {packs.length === 0 ? (
-        <div className="card mt-10 p-10 text-center">
-          <p className="text-shelf-text-secondary">No packs yet. Check back soon.</p>
-          <Link href="/browse" className="btn btn-secondary mt-4">
-            Browse individual skills →
-          </Link>
-        </div>
+      {/* Official partner packs — straight from the source */}
+      {officialPacks.length > 0 && (
+        <section className="mt-12">
+          <div className="flex items-end justify-between gap-4">
+            <div className="max-w-xl">
+              <h2 className="font-display text-xl font-semibold text-shelf-text-primary">
+                Straight from the source
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-shelf-text-secondary">
+                Official packs published by the teams who build the tools — Anthropic, Google,
+                Vercel, Microsoft, Hugging Face, and WordPress.
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {officialPacks.map((pack) => (
+              <PackCard key={pack.id} pack={pack} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* All other packs */}
+      {restPacks.length === 0 ? (
+        officialPacks.length === 0 && (
+          <div className="card mt-10 p-10 text-center">
+            <p className="text-shelf-text-secondary">No packs yet. Check back soon.</p>
+            <Link href="/browse" className="btn btn-secondary mt-4">
+              Browse individual skills →
+            </Link>
+          </div>
+        )
       ) : (
-        <div className="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {packs.map((pack) => (
-            <PackCard key={pack.id} pack={pack} />
-          ))}
-        </div>
+        <section className="mt-12">
+          {officialPacks.length > 0 && (
+            <h2 className="font-display text-xl font-semibold text-shelf-text-primary">
+              All packs
+            </h2>
+          )}
+          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {restPacks.map((pack) => (
+              <PackCard key={pack.id} pack={pack} />
+            ))}
+          </div>
+        </section>
       )}
     </div>
   )

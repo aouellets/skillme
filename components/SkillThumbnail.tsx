@@ -3,10 +3,12 @@
 import { useState, useRef } from 'react'
 import type { SkillCategory, PackCategory } from '@/lib/types'
 import { categoryThumbnailSvg } from '@/lib/category-art'
+import { partnerThumbnailSvg, hasPartnerArt } from '@/lib/partner-art'
 
 interface Props {
   skill: {
     name: string
+    author?: string | null
     category?: SkillCategory | PackCategory
     thumbnail_url?: string
     thumbnail_gif?: string
@@ -55,7 +57,14 @@ export function SkillThumbnail({ skill, size = 'card' }: Props) {
   }
 
   if (!hasAnyMedia) {
-    return <SkillPlaceholder category={skill.category} seed={skill.name} size={size} />
+    return (
+      <SkillPlaceholder
+        category={skill.category}
+        author={skill.author}
+        seed={skill.name}
+        size={size}
+      />
+    )
   }
 
   return (
@@ -144,26 +153,29 @@ function ThumbSheen() {
 }
 
 /**
- * Generated placeholder — shown when no media is provided. Renders the
- * category's art (brand color + line icon + label) as inline SVG so every
- * skill and pack gets a recognizable, on-brand thumbnail by category. Falls
- * back to the "collection" art for unknown/missing categories.
+ * Generated placeholder — shown when no media is provided. For official partner
+ * authors (Anthropic, Google, Vercel, …) we render *branded* art (their logo +
+ * brand glow + category label) so "skills straight from the source" read as
+ * distinct. Everything else falls back to the category's art (brand color +
+ * line icon + label), and unknown/missing categories to "collection".
  */
 function SkillPlaceholder({
   category,
+  author,
   seed,
   size,
 }: {
   category?: string
+  author?: string | null
   seed?: string
   size: 'card' | 'detail'
 }) {
+  const svg = hasPartnerArt(author)
+    ? partnerThumbnailSvg(author!, category)
+    : categoryThumbnailSvg(category, { seed })
   return (
     <div className={`relative w-full overflow-hidden ${ASPECT[size]}`}>
-      <div
-        className="absolute inset-0"
-        dangerouslySetInnerHTML={{ __html: categoryThumbnailSvg(category, { seed }) }}
-      />
+      <div className="absolute inset-0" dangerouslySetInnerHTML={{ __html: svg }} />
       <ThumbSheen />
     </div>
   )
