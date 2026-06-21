@@ -139,11 +139,11 @@ export default async function HomePage() {
       <section className="relative grid grid-cols-1 items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
         <div className="aurora" aria-hidden />
         <div className="fade-up">
-          <span className="eyebrow">Install intelligence</span>
+          <span className="eyebrow">The App Store for Claude</span>
           <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-shelf-text-primary sm:text-6xl">
-            The right skill,
+            Install
             <br />
-            automatically.
+            intelligence.
           </h1>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-shelf-text-secondary">
             Describe what you&apos;re working on and Claude finds the right skill from {countLabel},
