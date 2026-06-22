@@ -1,0 +1,527 @@
+[
+  {
+    "slug": "elastic-access-management",
+    "name": "Cloud Access Management",
+    "category": "coding",
+    "description": "Manage Elastic Cloud organization access: invite users, assign roles to Serverless projects, and create or revoke Cloud API keys. Use when granting, modifying, or auditing user access.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/cloud/access-management",
+    "tags": [
+      "access",
+      "cloud",
+      "elastic",
+      "management"
+    ],
+    "skill_content": "---\nname: Cloud Access Management\ndescription: Manage Elastic Cloud organization access: invite users, assign roles to Serverless projects, and create or revoke Cloud API keys. Use when granting, modifying, or auditing user access.\n---\n\n# Cloud Access Management\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nManage Elastic Cloud organization access: invite users, assign roles to Serverless projects, and create or revoke Cloud API keys. Use when granting, modifying, or auditing user access.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/cloud/access-management\n"
+  },
+  {
+    "slug": "elastic-create-project",
+    "name": "Cloud Create Project",
+    "category": "coding",
+    "description": "Creates Elastic Cloud Serverless projects (Elasticsearch, Observability, or Security) via the REST API, saves credentials to file, and bootstraps a scoped Elasticsearch API key. Use when creating a new serverless…",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/cloud/create-project",
+    "tags": [
+      "cloud",
+      "create",
+      "elastic",
+      "project"
+    ],
+    "skill_content": "---\nname: Cloud Create Project\ndescription: Creates Elastic Cloud Serverless projects (Elasticsearch, Observability, or Security) via the REST API, saves credentials to file, and bootstraps a scoped Elasticsearch API key. Use when creating a new serverless…\n---\n\n# Cloud Create Project\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nCreates Elastic Cloud Serverless projects (Elasticsearch, Observability, or Security) via the REST API, saves credentials to file, and bootstraps a scoped Elasticsearch API key. Use when creating a new serverless…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/cloud/create-project\n"
+  },
+  {
+    "slug": "elastic-manage-project",
+    "name": "Cloud Manage Project",
+    "category": "coding",
+    "description": "Manages existing Elastic Cloud Serverless projects: list, get, update, delete, reset credentials, resume, and load saved credentials. Connects to existing projects by resolving endpoints and acquiring scoped…",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/cloud/manage-project",
+    "tags": [
+      "cloud",
+      "elastic",
+      "manage",
+      "project"
+    ],
+    "skill_content": "---\nname: Cloud Manage Project\ndescription: Manages existing Elastic Cloud Serverless projects: list, get, update, delete, reset credentials, resume, and load saved credentials. Connects to existing projects by resolving endpoints and acquiring scoped…\n---\n\n# Cloud Manage Project\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nManages existing Elastic Cloud Serverless projects: list, get, update, delete, reset credentials, resume, and load saved credentials. Connects to existing projects by resolving endpoints and acquiring scoped…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/cloud/manage-project\n"
+  },
+  {
+    "slug": "elastic-network-security",
+    "name": "Cloud Network Security",
+    "category": "coding",
+    "description": "Manage Serverless network security (traffic filters): create, update, and delete IP filters and AWS PrivateLink VPC filters. Use when restricting network access or configuring private connectivity.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/cloud/network-security",
+    "tags": [
+      "cloud",
+      "elastic",
+      "network",
+      "security"
+    ],
+    "skill_content": "---\nname: Cloud Network Security\ndescription: Manage Serverless network security (traffic filters): create, update, and delete IP filters and AWS PrivateLink VPC filters. Use when restricting network access or configuring private connectivity.\n---\n\n# Cloud Network Security\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nManage Serverless network security (traffic filters): create, update, and delete IP filters and AWS PrivateLink VPC filters. Use when restricting network access or configuring private connectivity.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/cloud/network-security\n"
+  },
+  {
+    "slug": "elastic-setup",
+    "name": "Cloud Setup",
+    "category": "coding",
+    "description": "Configures Elastic Cloud authentication and environment defaults. Use when setting up EC_API_KEY, configuring Cloud API access, or when another cloud skill requires credentials.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/cloud/setup",
+    "tags": [
+      "cloud",
+      "elastic",
+      "setup",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Cloud Setup\ndescription: Configures Elastic Cloud authentication and environment defaults. Use when setting up EC_API_KEY, configuring Cloud API access, or when another cloud skill requires credentials.\n---\n\n# Cloud Setup\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nConfigures Elastic Cloud authentication and environment defaults. Use when setting up EC_API_KEY, configuring Cloud API access, or when another cloud skill requires credentials.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/cloud/setup\n"
+  },
+  {
+    "slug": "elastic-elasticsearch-audit",
+    "name": "Elasticsearch Audit",
+    "category": "data",
+    "description": "Enable, configure, and query Elasticsearch security audit logs. Use when the task involves audit logging setup, event filtering, or investigating security incidents like failed logins.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-audit",
+    "tags": [
+      "audit",
+      "elastic",
+      "elasticsearch",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Elasticsearch Audit\ndescription: Enable, configure, and query Elasticsearch security audit logs. Use when the task involves audit logging setup, event filtering, or investigating security incidents like failed logins.\n---\n\n# Elasticsearch Audit\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nEnable, configure, and query Elasticsearch security audit logs. Use when the task involves audit logging setup, event filtering, or investigating security incidents like failed logins.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-audit\n"
+  },
+  {
+    "slug": "elastic-elasticsearch-authn",
+    "name": "Elasticsearch Authn",
+    "category": "data",
+    "description": "Authenticate to Elasticsearch using native, file-based, LDAP/AD, SAML, OIDC, Kerberos, JWT, or certificate realms. Use when connecting with credentials, choosing a realm, or managing API keys. Assumes the target…",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-authn",
+    "tags": [
+      "authn",
+      "elastic",
+      "elasticsearch",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Elasticsearch Authn\ndescription: Authenticate to Elasticsearch using native, file-based, LDAP/AD, SAML, OIDC, Kerberos, JWT, or certificate realms. Use when connecting with credentials, choosing a realm, or managing API keys. Assumes the target…\n---\n\n# Elasticsearch Authn\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nAuthenticate to Elasticsearch using native, file-based, LDAP/AD, SAML, OIDC, Kerberos, JWT, or certificate realms. Use when connecting with credentials, choosing a realm, or managing API keys. Assumes the target…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-authn\n"
+  },
+  {
+    "slug": "elastic-elasticsearch-authz",
+    "name": "Elasticsearch Authz",
+    "category": "data",
+    "description": "Manage Elasticsearch RBAC: native users, roles, role mappings, document- and field-level security. Use when creating users or roles, assigning privileges, or mapping external realms like LDAP/SAML.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-authz",
+    "tags": [
+      "authz",
+      "elastic",
+      "elasticsearch",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Elasticsearch Authz\ndescription: Manage Elasticsearch RBAC: native users, roles, role mappings, document- and field-level security. Use when creating users or roles, assigning privileges, or mapping external realms like LDAP/SAML.\n---\n\n# Elasticsearch Authz\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nManage Elasticsearch RBAC: native users, roles, role mappings, document- and field-level security. Use when creating users or roles, assigning privileges, or mapping external realms like LDAP/SAML.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-authz\n"
+  },
+  {
+    "slug": "elastic-elasticsearch-esql",
+    "name": "Elasticsearch Esql",
+    "category": "data",
+    "description": "Execute ES|QL (Elasticsearch Query Language) queries, use when the user wants to query Elasticsearch data, analyze logs, aggregate metrics, explore data, or create charts and dashboards from ES|QL results.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-esql",
+    "tags": [
+      "elastic",
+      "elasticsearch",
+      "esql",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Elasticsearch Esql\ndescription: Execute ES|QL (Elasticsearch Query Language) queries, use when the user wants to query Elasticsearch data, analyze logs, aggregate metrics, explore data, or create charts and dashboards from ES|QL results.\n---\n\n# Elasticsearch Esql\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nExecute ES|QL (Elasticsearch Query Language) queries, use when the user wants to query Elasticsearch data, analyze logs, aggregate metrics, explore data, or create charts and dashboards from ES|QL results.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-esql\n"
+  },
+  {
+    "slug": "elastic-elasticsearch-file-ingest",
+    "name": "Elasticsearch File Ingest",
+    "category": "data",
+    "description": "Ingest and transform data files (CSV/JSON/Parquet/Arrow IPC) into Elasticsearch with stream processing and custom transforms. Use when loading files or batch importing data — not for reindexing, general ingest…",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-file-ingest",
+    "tags": [
+      "elastic",
+      "elasticsearch",
+      "file",
+      "ingest"
+    ],
+    "skill_content": "---\nname: Elasticsearch File Ingest\ndescription: Ingest and transform data files (CSV/JSON/Parquet/Arrow IPC) into Elasticsearch with stream processing and custom transforms. Use when loading files or batch importing data — not for reindexing, general ingest…\n---\n\n# Elasticsearch File Ingest\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nIngest and transform data files (CSV/JSON/Parquet/Arrow IPC) into Elasticsearch with stream processing and custom transforms. Use when loading files or batch importing data — not for reindexing, general ingest…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-file-ingest\n"
+  },
+  {
+    "slug": "elastic-elasticsearch-onboarding",
+    "name": "Elasticsearch Onboarding",
+    "category": "data",
+    "description": "Help developers new to Elasticsearch get from zero to a working search experience. Guide them through understanding their intent, mapping their data, and building a search experience with best practices baked in. Use…",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-onboarding",
+    "tags": [
+      "elastic",
+      "elasticsearch",
+      "onboarding",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Elasticsearch Onboarding\ndescription: Help developers new to Elasticsearch get from zero to a working search experience. Guide them through understanding their intent, mapping their data, and building a search experience with best practices baked in. Use…\n---\n\n# Elasticsearch Onboarding\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nHelp developers new to Elasticsearch get from zero to a working search experience. Guide them through understanding their intent, mapping their data, and building a search experience with best practices baked in. Use…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-onboarding\n"
+  },
+  {
+    "slug": "elastic-elasticsearch-security-troubleshooting",
+    "name": "Elasticsearch Security Troubleshooting",
+    "category": "data",
+    "description": "Diagnose and resolve Elasticsearch security errors: 401/403 failures, TLS problems, expired API keys, role mapping mismatches, and Kibana login issues. Use when the user reports a security error.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-security-troubleshooting",
+    "tags": [
+      "elastic",
+      "elasticsearch",
+      "security",
+      "troubleshooting"
+    ],
+    "skill_content": "---\nname: Elasticsearch Security Troubleshooting\ndescription: Diagnose and resolve Elasticsearch security errors: 401/403 failures, TLS problems, expired API keys, role mapping mismatches, and Kibana login issues. Use when the user reports a security error.\n---\n\n# Elasticsearch Security Troubleshooting\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nDiagnose and resolve Elasticsearch security errors: 401/403 failures, TLS problems, expired API keys, role mapping mismatches, and Kibana login issues. Use when the user reports a security error.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch/elasticsearch-security-troubleshooting\n"
+  },
+  {
+    "slug": "elastic-agent-builder",
+    "name": "Kibana Agent Builder",
+    "category": "data",
+    "description": "Create and manage Agent Builder agents and custom tools in Kibana. Use when asked to create, update, delete, test, or inspect agents or tools in Agent Builder.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/kibana/agent-builder",
+    "tags": [
+      "agent",
+      "builder",
+      "elastic",
+      "kibana"
+    ],
+    "skill_content": "---\nname: Kibana Agent Builder\ndescription: Create and manage Agent Builder agents and custom tools in Kibana. Use when asked to create, update, delete, test, or inspect agents or tools in Agent Builder.\n---\n\n# Kibana Agent Builder\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nCreate and manage Agent Builder agents and custom tools in Kibana. Use when asked to create, update, delete, test, or inspect agents or tools in Agent Builder.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/kibana/agent-builder\n"
+  },
+  {
+    "slug": "elastic-kibana-alerting-rules",
+    "name": "Kibana Alerting Rules",
+    "category": "data",
+    "description": "Create and manage Kibana alerting rules via REST API or Terraform. Use when creating, updating, or managing rule lifecycle (enable, disable, mute, snooze) or rules-as-code workflows.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-alerting-rules",
+    "tags": [
+      "alerting",
+      "elastic",
+      "kibana",
+      "rules"
+    ],
+    "skill_content": "---\nname: Kibana Alerting Rules\ndescription: Create and manage Kibana alerting rules via REST API or Terraform. Use when creating, updating, or managing rule lifecycle (enable, disable, mute, snooze) or rules-as-code workflows.\n---\n\n# Kibana Alerting Rules\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nCreate and manage Kibana alerting rules via REST API or Terraform. Use when creating, updating, or managing rule lifecycle (enable, disable, mute, snooze) or rules-as-code workflows.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-alerting-rules\n"
+  },
+  {
+    "slug": "elastic-kibana-anomaly-detection",
+    "name": "Kibana Anomaly Detection",
+    "category": "data",
+    "description": "Elastic ML anomaly detection skill — investigation/RCA, score explanation,",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-anomaly-detection",
+    "tags": [
+      "anomaly",
+      "detection",
+      "elastic",
+      "kibana"
+    ],
+    "skill_content": "---\nname: Kibana Anomaly Detection\ndescription: Elastic ML anomaly detection skill — investigation/RCA, score explanation,\n---\n\n# Kibana Anomaly Detection\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nElastic ML anomaly detection skill — investigation/RCA, score explanation,\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-anomaly-detection\n"
+  },
+  {
+    "slug": "elastic-kibana-audit",
+    "name": "Kibana Audit",
+    "category": "data",
+    "description": "Enable and configure Kibana audit logging for saved object access, logins, and space operations. Use when setting up Kibana audit, filtering events, or correlating Kibana and ES audit logs.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-audit",
+    "tags": [
+      "audit",
+      "elastic",
+      "kibana",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Kibana Audit\ndescription: Enable and configure Kibana audit logging for saved object access, logins, and space operations. Use when setting up Kibana audit, filtering events, or correlating Kibana and ES audit logs.\n---\n\n# Kibana Audit\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nEnable and configure Kibana audit logging for saved object access, logins, and space operations. Use when setting up Kibana audit, filtering events, or correlating Kibana and ES audit logs.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-audit\n"
+  },
+  {
+    "slug": "elastic-kibana-connectors",
+    "name": "Kibana Connectors",
+    "category": "data",
+    "description": "Create and manage Kibana connectors for Slack, PagerDuty, Jira, webhooks, and more via REST API or Terraform. Use when configuring third-party integrations or managing connectors as code.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-connectors",
+    "tags": [
+      "connectors",
+      "elastic",
+      "kibana",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Kibana Connectors\ndescription: Create and manage Kibana connectors for Slack, PagerDuty, Jira, webhooks, and more via REST API or Terraform. Use when configuring third-party integrations or managing connectors as code.\n---\n\n# Kibana Connectors\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nCreate and manage Kibana connectors for Slack, PagerDuty, Jira, webhooks, and more via REST API or Terraform. Use when configuring third-party integrations or managing connectors as code.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-connectors\n"
+  },
+  {
+    "slug": "elastic-kibana-dashboards",
+    "name": "Kibana Dashboards",
+    "category": "data",
+    "description": "Create and manage Kibana Dashboards and visualizations. Use when you need to define dashboards and visualizations declaratively, version control them, or automate their deployment.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-dashboards",
+    "tags": [
+      "dashboards",
+      "elastic",
+      "kibana",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Kibana Dashboards\ndescription: Create and manage Kibana Dashboards and visualizations. Use when you need to define dashboards and visualizations declaratively, version control them, or automate their deployment.\n---\n\n# Kibana Dashboards\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nCreate and manage Kibana Dashboards and visualizations. Use when you need to define dashboards and visualizations declaratively, version control them, or automate their deployment.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-dashboards\n"
+  },
+  {
+    "slug": "elastic-kibana-vega",
+    "name": "Kibana Vega",
+    "category": "data",
+    "description": "Create Vega and Vega-Lite visualizations with ES|QL data sources in Kibana. Use when building custom charts, dashboards, or programmatic panel layouts beyond standard Lens charts.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-vega",
+    "tags": [
+      "elastic",
+      "kibana",
+      "trusted-source",
+      "vega"
+    ],
+    "skill_content": "---\nname: Kibana Vega\ndescription: Create Vega and Vega-Lite visualizations with ES|QL data sources in Kibana. Use when building custom charts, dashboards, or programmatic panel layouts beyond standard Lens charts.\n---\n\n# Kibana Vega\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nCreate Vega and Vega-Lite visualizations with ES|QL data sources in Kibana. Use when building custom charts, dashboards, or programmatic panel layouts beyond standard Lens charts.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/kibana/kibana-vega\n"
+  },
+  {
+    "slug": "elastic-streams",
+    "name": "Kibana Streams",
+    "category": "data",
+    "description": "List, inspect, enable, disable, and resync Kibana Streams via the REST API. Use when the user needs stream details, ingest/query settings, queries, significant events, or attachments.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/kibana/streams",
+    "tags": [
+      "elastic",
+      "kibana",
+      "streams",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Kibana Streams\ndescription: List, inspect, enable, disable, and resync Kibana Streams via the REST API. Use when the user needs stream details, ingest/query settings, queries, significant events, or attachments.\n---\n\n# Kibana Streams\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nList, inspect, enable, disable, and resync Kibana Streams via the REST API. Use when the user needs stream details, ingest/query settings, queries, significant events, or attachments.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/kibana/streams\n"
+  },
+  {
+    "slug": "elastic-edot-dotnet-instrument",
+    "name": "Observability Edot Dotnet Instrument",
+    "category": "coding",
+    "description": "Instrument a .NET application with the Elastic Distribution of OpenTelemetry (EDOT) .NET SDK for automatic tracing, metrics, and logs. Use when adding observability to a .NET service that has no existing APM agent.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-dotnet-instrument",
+    "tags": [
+      "dotnet",
+      "edot",
+      "elastic",
+      "instrument"
+    ],
+    "skill_content": "---\nname: Observability Edot Dotnet Instrument\ndescription: Instrument a .NET application with the Elastic Distribution of OpenTelemetry (EDOT) .NET SDK for automatic tracing, metrics, and logs. Use when adding observability to a .NET service that has no existing APM agent.\n---\n\n# Observability Edot Dotnet Instrument\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nInstrument a .NET application with the Elastic Distribution of OpenTelemetry (EDOT) .NET SDK for automatic tracing, metrics, and logs. Use when adding observability to a .NET service that has no existing APM agent.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-dotnet-instrument\n"
+  },
+  {
+    "slug": "elastic-edot-dotnet-migrate",
+    "name": "Observability Edot Dotnet Migrate",
+    "category": "coding",
+    "description": "Migrate a .NET application from the classic Elastic APM .NET agent to the EDOT .NET SDK. Use when switching from Elastic.Apm.* packages to Elastic.OpenTelemetry.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-dotnet-migrate",
+    "tags": [
+      "dotnet",
+      "edot",
+      "elastic",
+      "migrate"
+    ],
+    "skill_content": "---\nname: Observability Edot Dotnet Migrate\ndescription: Migrate a .NET application from the classic Elastic APM .NET agent to the EDOT .NET SDK. Use when switching from Elastic.Apm.* packages to Elastic.OpenTelemetry.\n---\n\n# Observability Edot Dotnet Migrate\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nMigrate a .NET application from the classic Elastic APM .NET agent to the EDOT .NET SDK. Use when switching from Elastic.Apm.* packages to Elastic.OpenTelemetry.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-dotnet-migrate\n"
+  },
+  {
+    "slug": "elastic-edot-java-instrument",
+    "name": "Observability Edot Java Instrument",
+    "category": "coding",
+    "description": "Instrument a Java application with the Elastic Distribution of OpenTelemetry (EDOT) Java agent for automatic tracing, metrics, and logs. Use when adding observability to a Java service that has no existing APM agent.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-java-instrument",
+    "tags": [
+      "edot",
+      "elastic",
+      "instrument",
+      "java"
+    ],
+    "skill_content": "---\nname: Observability Edot Java Instrument\ndescription: Instrument a Java application with the Elastic Distribution of OpenTelemetry (EDOT) Java agent for automatic tracing, metrics, and logs. Use when adding observability to a Java service that has no existing APM agent.\n---\n\n# Observability Edot Java Instrument\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nInstrument a Java application with the Elastic Distribution of OpenTelemetry (EDOT) Java agent for automatic tracing, metrics, and logs. Use when adding observability to a Java service that has no existing APM agent.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-java-instrument\n"
+  },
+  {
+    "slug": "elastic-edot-java-migrate",
+    "name": "Observability Edot Java Migrate",
+    "category": "coding",
+    "description": "Migrate a Java application from the classic Elastic APM Java agent to the EDOT Java agent. Use when switching from elastic-apm-agent.jar to elastic-otel-javaagent.jar.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-java-migrate",
+    "tags": [
+      "edot",
+      "elastic",
+      "java",
+      "migrate"
+    ],
+    "skill_content": "---\nname: Observability Edot Java Migrate\ndescription: Migrate a Java application from the classic Elastic APM Java agent to the EDOT Java agent. Use when switching from elastic-apm-agent.jar to elastic-otel-javaagent.jar.\n---\n\n# Observability Edot Java Migrate\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nMigrate a Java application from the classic Elastic APM Java agent to the EDOT Java agent. Use when switching from elastic-apm-agent.jar to elastic-otel-javaagent.jar.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-java-migrate\n"
+  },
+  {
+    "slug": "elastic-edot-python-instrument",
+    "name": "Observability Edot Python Instrument",
+    "category": "coding",
+    "description": "Instrument a Python application with the Elastic Distribution of OpenTelemetry (EDOT) Python agent for automatic tracing, metrics, and logs. Use when adding observability to a Python service that has no existing APM…",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-python-instrument",
+    "tags": [
+      "edot",
+      "elastic",
+      "instrument",
+      "observability"
+    ],
+    "skill_content": "---\nname: Observability Edot Python Instrument\ndescription: Instrument a Python application with the Elastic Distribution of OpenTelemetry (EDOT) Python agent for automatic tracing, metrics, and logs. Use when adding observability to a Python service that has no existing APM…\n---\n\n# Observability Edot Python Instrument\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nInstrument a Python application with the Elastic Distribution of OpenTelemetry (EDOT) Python agent for automatic tracing, metrics, and logs. Use when adding observability to a Python service that has no existing APM…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-python-instrument\n"
+  },
+  {
+    "slug": "elastic-edot-python-migrate",
+    "name": "Observability Edot Python Migrate",
+    "category": "coding",
+    "description": "Migrate a Python application from the classic Elastic APM Python agent to the EDOT Python agent. Use when switching from elastic-apm to elastic-opentelemetry.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-python-migrate",
+    "tags": [
+      "edot",
+      "elastic",
+      "migrate",
+      "observability"
+    ],
+    "skill_content": "---\nname: Observability Edot Python Migrate\ndescription: Migrate a Python application from the classic Elastic APM Python agent to the EDOT Python agent. Use when switching from elastic-apm to elastic-opentelemetry.\n---\n\n# Observability Edot Python Migrate\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nMigrate a Python application from the classic Elastic APM Python agent to the EDOT Python agent. Use when switching from elastic-apm to elastic-opentelemetry.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/edot-python-migrate\n"
+  },
+  {
+    "slug": "elastic-k8s-investigation",
+    "name": "Observability K8s Investigation",
+    "category": "coding",
+    "description": "Investigate Kubernetes workload, node, and control-plane issues using OTel telemetry (EDOT). Use when diagnosing pod failures (CrashLoopBackOff, OOMKilled, Error), node pressure, resource exhaustion, image pull…",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/k8s-investigation",
+    "tags": [
+      "elastic",
+      "investigation",
+      "k8s",
+      "observability"
+    ],
+    "skill_content": "---\nname: Observability K8s Investigation\ndescription: Investigate Kubernetes workload, node, and control-plane issues using OTel telemetry (EDOT). Use when diagnosing pod failures (CrashLoopBackOff, OOMKilled, Error), node pressure, resource exhaustion, image pull…\n---\n\n# Observability K8s Investigation\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nInvestigate Kubernetes workload, node, and control-plane issues using OTel telemetry (EDOT). Use when diagnosing pod failures (CrashLoopBackOff, OOMKilled, Error), node pressure, resource exhaustion, image pull…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/k8s-investigation\n"
+  },
+  {
+    "slug": "elastic-llm-obs",
+    "name": "Observability Llm Obs",
+    "category": "coding",
+    "description": "Monitor LLMs and agentic apps: performance, token/cost, response quality, and workflow orchestration. Use when the user asks about LLM monitoring, GenAI observability, or AI cost/quality.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/llm-obs",
+    "tags": [
+      "elastic",
+      "llm",
+      "obs",
+      "observability"
+    ],
+    "skill_content": "---\nname: Observability Llm Obs\ndescription: Monitor LLMs and agentic apps: performance, token/cost, response quality, and workflow orchestration. Use when the user asks about LLM monitoring, GenAI observability, or AI cost/quality.\n---\n\n# Observability Llm Obs\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nMonitor LLMs and agentic apps: performance, token/cost, response quality, and workflow orchestration. Use when the user asks about LLM monitoring, GenAI observability, or AI cost/quality.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/llm-obs\n"
+  },
+  {
+    "slug": "elastic-logs-search",
+    "name": "Observability Logs Search",
+    "category": "coding",
+    "description": "Search and filter Observability logs using ES|QL. Use when investigating log spikes, errors, or anomalies; getting volume and trends; or drilling into services or containers during incidents.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/logs-search",
+    "tags": [
+      "elastic",
+      "logs",
+      "observability",
+      "search"
+    ],
+    "skill_content": "---\nname: Observability Logs Search\ndescription: Search and filter Observability logs using ES|QL. Use when investigating log spikes, errors, or anomalies; getting volume and trends; or drilling into services or containers during incidents.\n---\n\n# Observability Logs Search\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nSearch and filter Observability logs using ES|QL. Use when investigating log spikes, errors, or anomalies; getting volume and trends; or drilling into services or containers during incidents.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/logs-search\n"
+  },
+  {
+    "slug": "elastic-manage-slos",
+    "name": "Observability Manage Slos",
+    "category": "coding",
+    "description": "Create and manage SLOs in Elastic Observability using the Kibana API. Use when defining SLIs, setting error budgets, or managing SLO lifecycle.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/manage-slos",
+    "tags": [
+      "elastic",
+      "manage",
+      "observability",
+      "slos"
+    ],
+    "skill_content": "---\nname: Observability Manage Slos\ndescription: Create and manage SLOs in Elastic Observability using the Kibana API. Use when defining SLIs, setting error budgets, or managing SLO lifecycle.\n---\n\n# Observability Manage Slos\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nCreate and manage SLOs in Elastic Observability using the Kibana API. Use when defining SLIs, setting error budgets, or managing SLO lifecycle.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/manage-slos\n"
+  },
+  {
+    "slug": "elastic-service-health",
+    "name": "Observability Service Health",
+    "category": "coding",
+    "description": "Assess APM service health using SLOs, alerts, ML, throughput, latency, error rate, and dependencies. Use when checking service status, performance, or when the user asks about service health.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/observability/service-health",
+    "tags": [
+      "elastic",
+      "health",
+      "observability",
+      "service"
+    ],
+    "skill_content": "---\nname: Observability Service Health\ndescription: Assess APM service health using SLOs, alerts, ML, throughput, latency, error rate, and dependencies. Use when checking service status, performance, or when the user asks about service health.\n---\n\n# Observability Service Health\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nAssess APM service health using SLOs, alerts, ML, throughput, latency, error rate, and dependencies. Use when checking service status, performance, or when the user asks about service health.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/observability/service-health\n"
+  },
+  {
+    "slug": "elastic-alert-triage",
+    "name": "Security Alert Triage",
+    "category": "coding",
+    "description": "Triage Elastic Security alerts — gather context, classify threats, create cases, and acknowledge. Use when triaging alerts, performing SOC analysis, or investigating detections.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/security/alert-triage",
+    "tags": [
+      "alert",
+      "elastic",
+      "security",
+      "triage"
+    ],
+    "skill_content": "---\nname: Security Alert Triage\ndescription: Triage Elastic Security alerts — gather context, classify threats, create cases, and acknowledge. Use when triaging alerts, performing SOC analysis, or investigating detections.\n---\n\n# Security Alert Triage\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nTriage Elastic Security alerts — gather context, classify threats, create cases, and acknowledge. Use when triaging alerts, performing SOC analysis, or investigating detections.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/security/alert-triage\n"
+  },
+  {
+    "slug": "elastic-case-management",
+    "name": "Security Case Management",
+    "category": "coding",
+    "description": "Create, search, update, and manage SOC cases via the Kibana Cases API. Use when tracking incidents, linking alerts to cases, adding investigation notes, or managing triage output.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/security/case-management",
+    "tags": [
+      "case",
+      "elastic",
+      "management",
+      "security"
+    ],
+    "skill_content": "---\nname: Security Case Management\ndescription: Create, search, update, and manage SOC cases via the Kibana Cases API. Use when tracking incidents, linking alerts to cases, adding investigation notes, or managing triage output.\n---\n\n# Security Case Management\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nCreate, search, update, and manage SOC cases via the Kibana Cases API. Use when tracking incidents, linking alerts to cases, adding investigation notes, or managing triage output.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/security/case-management\n"
+  },
+  {
+    "slug": "elastic-detection-rule-management",
+    "name": "Security Detection Rule Management",
+    "category": "coding",
+    "description": "Create, tune, and manage Elastic Security detection rules (SIEM and Endpoint). Use for false positives, exceptions, new coverage, noisy rules, or rule management via Kibana API.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/security/detection-rule-management",
+    "tags": [
+      "detection",
+      "elastic",
+      "management",
+      "rule"
+    ],
+    "skill_content": "---\nname: Security Detection Rule Management\ndescription: Create, tune, and manage Elastic Security detection rules (SIEM and Endpoint). Use for false positives, exceptions, new coverage, noisy rules, or rule management via Kibana API.\n---\n\n# Security Detection Rule Management\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nCreate, tune, and manage Elastic Security detection rules (SIEM and Endpoint). Use for false positives, exceptions, new coverage, noisy rules, or rule management via Kibana API.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/security/detection-rule-management\n"
+  },
+  {
+    "slug": "elastic-generate-security-sample-data",
+    "name": "Security Generate Security Sample Data",
+    "category": "coding",
+    "description": "Generate sample security events, attack scenarios, and synthetic alerts for Elastic Security. Use when demoing, populating dashboards, testing detection rules, or setting up a POC.",
+    "author": "Elastic",
+    "source_url": "https://github.com/elastic/agent-skills/tree/main/skills/security/generate-security-sample-data",
+    "tags": [
+      "data",
+      "elastic",
+      "generate",
+      "sample"
+    ],
+    "skill_content": "---\nname: Security Generate Security Sample Data\ndescription: Generate sample security events, attack scenarios, and synthetic alerts for Elastic Security. Use when demoing, populating dashboards, testing detection rules, or setting up a POC.\n---\n\n# Security Generate Security Sample Data\n\nPart of the **Elastic Agent Skills** pack by Elastic (`elastic/agent-skills`).\n\nGenerate sample security events, attack scenarios, and synthetic alerts for Elastic Security. Use when demoing, populating dashboards, testing detection rules, or setting up a POC.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/elastic/agent-skills/tree/main/skills/security/generate-security-sample-data\n"
+  }
+]

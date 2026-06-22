@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "databricks-databricks-core",
+    "name": "Databricks Core",
+    "category": "data",
+    "description": "Databricks CLI operations and the parent/entry-point skill for all Databricks work: authentication, profile selection, data exploration, bundles, and Genie natural-language data Q&A. Load this first for any…",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-core",
+    "tags": [
+      "databricks",
+      "stable",
+      "trusted-source",
+      "data"
+    ],
+    "skill_content": "---\nname: Databricks Core\ndescription: Databricks CLI operations and the parent/entry-point skill for all Databricks work: authentication, profile selection, data exploration, bundles, and Genie natural-language data Q&A. Load this first for any…\n---\n\n# Databricks Core\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nDatabricks CLI operations and the parent/entry-point skill for all Databricks work: authentication, profile selection, data exploration, bundles, and Genie natural-language data Q&A. Load this first for any…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-core\n"
+  },
+  {
+    "slug": "databricks-databricks-apps",
+    "name": "Databricks Apps",
+    "category": "data",
+    "description": "Build apps on Databricks Apps platform. Use when asked to create dashboards, data apps, analytics tools, or visualizations. Evaluates data access patterns (analytics vs Lakebase synced tables) before scaffolding.…",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-apps",
+    "tags": [
+      "apps",
+      "databricks",
+      "stable",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Databricks Apps\ndescription: Build apps on Databricks Apps platform. Use when asked to create dashboards, data apps, analytics tools, or visualizations. Evaluates data access patterns (analytics vs Lakebase synced tables) before scaffolding.…\n---\n\n# Databricks Apps\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nBuild apps on Databricks Apps platform. Use when asked to create dashboards, data apps, analytics tools, or visualizations. Evaluates data access patterns (analytics vs Lakebase synced tables) before scaffolding.…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-apps\n"
+  },
+  {
+    "slug": "databricks-databricks-app-design",
+    "name": "Databricks App Design",
+    "category": "data",
+    "description": "Design the UX of Databricks data apps — dashboards, KPI pages, reports, charts, tables, and Genie/chat data assistants — mapped to concrete AppKit components. Use when BUILDING or reviewing any UI that displays data…",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-app-design",
+    "tags": [
+      "app",
+      "databricks",
+      "design",
+      "stable"
+    ],
+    "skill_content": "---\nname: Databricks App Design\ndescription: Design the UX of Databricks data apps — dashboards, KPI pages, reports, charts, tables, and Genie/chat data assistants — mapped to concrete AppKit components. Use when BUILDING or reviewing any UI that displays data…\n---\n\n# Databricks App Design\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nDesign the UX of Databricks data apps — dashboards, KPI pages, reports, charts, tables, and Genie/chat data assistants — mapped to concrete AppKit components. Use when BUILDING or reviewing any UI that displays data…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-app-design\n"
+  },
+  {
+    "slug": "databricks-databricks-dabs",
+    "name": "Databricks Dabs",
+    "category": "data",
+    "description": "Create, configure, validate, deploy, run, and manage Declarative Automation Bundles (DABs, formerly Databricks Asset Bundles). Use when working with Databricks resources via DABs including dashboards, jobs,…",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-dabs",
+    "tags": [
+      "dabs",
+      "databricks",
+      "stable",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Databricks Dabs\ndescription: Create, configure, validate, deploy, run, and manage Declarative Automation Bundles (DABs, formerly Databricks Asset Bundles). Use when working with Databricks resources via DABs including dashboards, jobs,…\n---\n\n# Databricks Dabs\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nCreate, configure, validate, deploy, run, and manage Declarative Automation Bundles (DABs, formerly Databricks Asset Bundles). Use when working with Databricks resources via DABs including dashboards, jobs,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-dabs\n"
+  },
+  {
+    "slug": "databricks-databricks-jobs",
+    "name": "Databricks Jobs",
+    "category": "data",
+    "description": "Develop and deploy Lakeflow Jobs on Databricks via DABs, Python SDK, or the CLI. Use when creating data engineering jobs with notebooks, Python wheels, SQL, dbt, or pipelines. Invoke BEFORE starting implementation.",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-jobs",
+    "tags": [
+      "databricks",
+      "jobs",
+      "stable",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Databricks Jobs\ndescription: Develop and deploy Lakeflow Jobs on Databricks via DABs, Python SDK, or the CLI. Use when creating data engineering jobs with notebooks, Python wheels, SQL, dbt, or pipelines. Invoke BEFORE starting implementation.\n---\n\n# Databricks Jobs\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nDevelop and deploy Lakeflow Jobs on Databricks via DABs, Python SDK, or the CLI. Use when creating data engineering jobs with notebooks, Python wheels, SQL, dbt, or pipelines. Invoke BEFORE starting implementation.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-jobs\n"
+  },
+  {
+    "slug": "databricks-databricks-lakebase",
+    "name": "Databricks Lakebase",
+    "category": "data",
+    "description": "Databricks Lakebase Postgres: projects, scaling, connectivity, Lakebase synced tables, and Data API. Use when asked about Lakebase databases, OLTP storage, or connecting apps to Postgres on Databricks.",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-lakebase",
+    "tags": [
+      "databricks",
+      "lakebase",
+      "stable",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Databricks Lakebase\ndescription: Databricks Lakebase Postgres: projects, scaling, connectivity, Lakebase synced tables, and Data API. Use when asked about Lakebase databases, OLTP storage, or connecting apps to Postgres on Databricks.\n---\n\n# Databricks Lakebase\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nDatabricks Lakebase Postgres: projects, scaling, connectivity, Lakebase synced tables, and Data API. Use when asked about Lakebase databases, OLTP storage, or connecting apps to Postgres on Databricks.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-lakebase\n"
+  },
+  {
+    "slug": "databricks-databricks-model-serving",
+    "name": "Databricks Model Serving",
+    "category": "data",
+    "description": "Databricks Model Serving (ops) plus MLflow model development (dev): manage serving endpoints, train and register models to Unity Catalog with @prod aliases, batch-score via spark_udf, build custom PyFunc /…",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-model-serving",
+    "tags": [
+      "databricks",
+      "model",
+      "serving",
+      "stable"
+    ],
+    "skill_content": "---\nname: Databricks Model Serving\ndescription: Databricks Model Serving (ops) plus MLflow model development (dev): manage serving endpoints, train and register models to Unity Catalog with @prod aliases, batch-score via spark_udf, build custom PyFunc /…\n---\n\n# Databricks Model Serving\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nDatabricks Model Serving (ops) plus MLflow model development (dev): manage serving endpoints, train and register models to Unity Catalog with @prod aliases, batch-score via spark_udf, build custom PyFunc /…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-model-serving\n"
+  },
+  {
+    "slug": "databricks-databricks-pipelines",
+    "name": "Databricks Pipelines",
+    "category": "data",
+    "description": "Develop Lakeflow Spark Declarative Pipelines (formerly Delta Live Tables) on Databricks. Use when building batch or streaming data pipelines with Python or SQL. Invoke BEFORE starting implementation.",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-pipelines",
+    "tags": [
+      "databricks",
+      "pipelines",
+      "stable",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Databricks Pipelines\ndescription: Develop Lakeflow Spark Declarative Pipelines (formerly Delta Live Tables) on Databricks. Use when building batch or streaming data pipelines with Python or SQL. Invoke BEFORE starting implementation.\n---\n\n# Databricks Pipelines\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nDevelop Lakeflow Spark Declarative Pipelines (formerly Delta Live Tables) on Databricks. Use when building batch or streaming data pipelines with Python or SQL. Invoke BEFORE starting implementation.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-pipelines\n"
+  },
+  {
+    "slug": "databricks-databricks-serverless-migration",
+    "name": "Databricks Serverless Migration",
+    "category": "data",
+    "description": "Migrate Databricks workloads from classic compute to serverless compute. Use when migrating notebooks, jobs, pipelines, or Scala JARs (`spark_jar_task`) from classic clusters to serverless, checking if existing code…",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-serverless-migration",
+    "tags": [
+      "databricks",
+      "migration",
+      "serverless",
+      "stable"
+    ],
+    "skill_content": "---\nname: Databricks Serverless Migration\ndescription: Migrate Databricks workloads from classic compute to serverless compute. Use when migrating notebooks, jobs, pipelines, or Scala JARs (`spark_jar_task`) from classic clusters to serverless, checking if existing code…\n---\n\n# Databricks Serverless Migration\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nMigrate Databricks workloads from classic compute to serverless compute. Use when migrating notebooks, jobs, pipelines, or Scala JARs (`spark_jar_task`) from classic clusters to serverless, checking if existing code…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-serverless-migration\n"
+  },
+  {
+    "slug": "databricks-databricks-vector-search",
+    "name": "Databricks Vector Search",
+    "category": "data",
+    "description": "Databricks Vector Search endpoints and indexes for RAG and semantic search; covers index types, search modes, end-to-end RAG patterns",
+    "author": "Databricks",
+    "source_url": "https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-vector-search",
+    "tags": [
+      "databricks",
+      "search",
+      "stable",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Databricks Vector Search\ndescription: Databricks Vector Search endpoints and indexes for RAG and semantic search; covers index types, search modes, end-to-end RAG patterns\n---\n\n# Databricks Vector Search\n\nPart of the **Databricks Stable Agent Skills** pack by Databricks (`databricks/databricks-agent-skills`).\n\nDatabricks Vector Search endpoints and indexes for RAG and semantic search; covers index types, search modes, end-to-end RAG patterns\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/databricks/databricks-agent-skills/tree/main/skills/databricks-vector-search\n"
+  }
+]

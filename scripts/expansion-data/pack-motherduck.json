@@ -1,0 +1,287 @@
+[
+  {
+    "slug": "motherduck-motherduck-connect",
+    "name": "Motherduck Connect",
+    "category": "data",
+    "description": "Connect to MotherDuck from any application. Use when setting up database connectivity via the Postgres endpoint (recommended), pg_duckdb, native DuckDB API, or JDBC. Covers connection strings, authentication, SSL,…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-connect",
+    "tags": [
+      "connect",
+      "motherduck",
+      "trusted-source",
+      "duckdb"
+    ],
+    "skill_content": "---\nname: Motherduck Connect\ndescription: Connect to MotherDuck from any application. Use when setting up database connectivity via the Postgres endpoint (recommended), pg_duckdb, native DuckDB API, or JDBC. Covers connection strings, authentication, SSL,…\n---\n\n# Motherduck Connect\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nConnect to MotherDuck from any application. Use when setting up database connectivity via the Postgres endpoint (recommended), pg_duckdb, native DuckDB API, or JDBC. Covers connection strings, authentication, SSL,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-connect\n"
+  },
+  {
+    "slug": "motherduck-motherduck-explore",
+    "name": "Motherduck Explore",
+    "category": "data",
+    "description": "Discover and explore databases, tables, columns, and data shares in MotherDuck. Use when you need to understand what data is available, preview table contents, or search the data catalog.",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-explore",
+    "tags": [
+      "explore",
+      "motherduck",
+      "trusted-source",
+      "duckdb"
+    ],
+    "skill_content": "---\nname: Motherduck Explore\ndescription: Discover and explore databases, tables, columns, and data shares in MotherDuck. Use when you need to understand what data is available, preview table contents, or search the data catalog.\n---\n\n# Motherduck Explore\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nDiscover and explore databases, tables, columns, and data shares in MotherDuck. Use when you need to understand what data is available, preview table contents, or search the data catalog.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-explore\n"
+  },
+  {
+    "slug": "motherduck-motherduck-query",
+    "name": "Motherduck Query",
+    "category": "data",
+    "description": "Execute DuckDB SQL queries against MotherDuck databases. Use when running analytics, aggregations, transformations, or any SQL operation. Covers query best practices, CTEs, window functions, QUALIFY, and performance…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-query",
+    "tags": [
+      "motherduck",
+      "query",
+      "trusted-source",
+      "duckdb"
+    ],
+    "skill_content": "---\nname: Motherduck Query\ndescription: Execute DuckDB SQL queries against MotherDuck databases. Use when running analytics, aggregations, transformations, or any SQL operation. Covers query best practices, CTEs, window functions, QUALIFY, and performance…\n---\n\n# Motherduck Query\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nExecute DuckDB SQL queries against MotherDuck databases. Use when running analytics, aggregations, transformations, or any SQL operation. Covers query best practices, CTEs, window functions, QUALIFY, and performance…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-query\n"
+  },
+  {
+    "slug": "motherduck-motherduck-duckdb-sql",
+    "name": "Motherduck Duckdb Sql",
+    "category": "data",
+    "description": "DuckDB SQL reference for MotherDuck. Use when you need exact DuckDB syntax or function behavior, friendly SQL features like QUALIFY, GROUP BY ALL, or list/struct types, MotherDuck-specific SQL such as shares,…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-duckdb-sql",
+    "tags": [
+      "duckdb",
+      "motherduck",
+      "sql",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Duckdb Sql\ndescription: DuckDB SQL reference for MotherDuck. Use when you need exact DuckDB syntax or function behavior, friendly SQL features like QUALIFY, GROUP BY ALL, or list/struct types, MotherDuck-specific SQL such as shares,…\n---\n\n# Motherduck Duckdb Sql\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nDuckDB SQL reference for MotherDuck. Use when you need exact DuckDB syntax or function behavior, friendly SQL features like QUALIFY, GROUP BY ALL, or list/struct types, MotherDuck-specific SQL such as shares,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-duckdb-sql\n"
+  },
+  {
+    "slug": "motherduck-motherduck-rest-api",
+    "name": "Motherduck Rest Api",
+    "category": "data",
+    "description": "MotherDuck REST API control-plane reference. Use when calling api.motherduck.com to provision service accounts, create, list, rotate, or revoke access tokens, configure Duckling instance sizes and read scaling,…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-rest-api",
+    "tags": [
+      "api",
+      "motherduck",
+      "rest",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Rest Api\ndescription: MotherDuck REST API control-plane reference. Use when calling api.motherduck.com to provision service accounts, create, list, rotate, or revoke access tokens, configure Duckling instance sizes and read scaling,…\n---\n\n# Motherduck Rest Api\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nMotherDuck REST API control-plane reference. Use when calling api.motherduck.com to provision service accounts, create, list, rotate, or revoke access tokens, configure Duckling instance sizes and read scaling,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-rest-api\n"
+  },
+  {
+    "slug": "motherduck-motherduck-load-data",
+    "name": "Motherduck Load Data",
+    "category": "data",
+    "description": "Load and ingest data into MotherDuck from local files, object storage (S3, GCS, Azure, R2), HTTPS, dataframes, or external databases. Use for any import or bulk-load task — CSV, Parquet, JSON, Delta, Iceberg, local…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-load-data",
+    "tags": [
+      "data",
+      "load",
+      "motherduck",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Load Data\ndescription: Load and ingest data into MotherDuck from local files, object storage (S3, GCS, Azure, R2), HTTPS, dataframes, or external databases. Use for any import or bulk-load task — CSV, Parquet, JSON, Delta, Iceberg, local…\n---\n\n# Motherduck Load Data\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nLoad and ingest data into MotherDuck from local files, object storage (S3, GCS, Azure, R2), HTTPS, dataframes, or external databases. Use for any import or bulk-load task — CSV, Parquet, JSON, Delta, Iceberg, local…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-load-data\n"
+  },
+  {
+    "slug": "motherduck-motherduck-model-data",
+    "name": "Motherduck Model Data",
+    "category": "data",
+    "description": "Design and build database schemas and data models in MotherDuck. Produces a file-based SQL project scaffold with a model manifest. Use for any schema design or data modeling task — creating tables, choosing data…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-model-data",
+    "tags": [
+      "data",
+      "model",
+      "motherduck",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Model Data\ndescription: Design and build database schemas and data models in MotherDuck. Produces a file-based SQL project scaffold with a model manifest. Use for any schema design or data modeling task — creating tables, choosing data…\n---\n\n# Motherduck Model Data\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nDesign and build database schemas and data models in MotherDuck. Produces a file-based SQL project scaffold with a model manifest. Use for any schema design or data modeling task — creating tables, choosing data…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-model-data\n"
+  },
+  {
+    "slug": "motherduck-motherduck-share-data",
+    "name": "Motherduck Share Data",
+    "category": "data",
+    "description": "Create and manage MotherDuck data shares for zero-copy, read-only data distribution. Use whenever someone wants to share a database with team members, another organization, or the public — covers CREATE SHARE,…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-share-data",
+    "tags": [
+      "data",
+      "motherduck",
+      "share",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Share Data\ndescription: Create and manage MotherDuck data shares for zero-copy, read-only data distribution. Use whenever someone wants to share a database with team members, another organization, or the public — covers CREATE SHARE,…\n---\n\n# Motherduck Share Data\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nCreate and manage MotherDuck data shares for zero-copy, read-only data distribution. Use whenever someone wants to share a database with team members, another organization, or the public — covers CREATE SHARE,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-share-data\n"
+  },
+  {
+    "slug": "motherduck-motherduck-create-dive",
+    "name": "Motherduck Create Dive",
+    "category": "data",
+    "description": "Create, edit, manage, share, or embed MotherDuck Dives — live React + SQL dashboards, charts, and data apps saved in the workspace. Use for any dashboard, chart, KPI display, or data visualization over MotherDuck…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-create-dive",
+    "tags": [
+      "create",
+      "dive",
+      "motherduck",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Create Dive\ndescription: Create, edit, manage, share, or embed MotherDuck Dives — live React + SQL dashboards, charts, and data apps saved in the workspace. Use for any dashboard, chart, KPI display, or data visualization over MotherDuck…\n---\n\n# Motherduck Create Dive\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nCreate, edit, manage, share, or embed MotherDuck Dives — live React + SQL dashboards, charts, and data apps saved in the workspace. Use for any dashboard, chart, KPI display, or data visualization over MotherDuck…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-create-dive\n"
+  },
+  {
+    "slug": "motherduck-motherduck-create-flight",
+    "name": "Motherduck Create Flight",
+    "category": "data",
+    "description": "Create, schedule, run, and debug MotherDuck Flights — Python jobs that run on MotherDuck compute. Use whenever someone wants to create a flight, schedule a Python script or recurring job on MotherDuck, set up…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-create-flight",
+    "tags": [
+      "create",
+      "flight",
+      "motherduck",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Create Flight\ndescription: Create, schedule, run, and debug MotherDuck Flights — Python jobs that run on MotherDuck compute. Use whenever someone wants to create a flight, schedule a Python script or recurring job on MotherDuck, set up…\n---\n\n# Motherduck Create Flight\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nCreate, schedule, run, and debug MotherDuck Flights — Python jobs that run on MotherDuck compute. Use whenever someone wants to create a flight, schedule a Python script or recurring job on MotherDuck, set up…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-create-flight\n"
+  },
+  {
+    "slug": "motherduck-motherduck-ducklake",
+    "name": "Motherduck Ducklake",
+    "category": "data",
+    "description": "Decide when DuckLake is the right MotherDuck storage pattern versus native MotherDuck storage (the default). Use when evaluating lakehouse or open table format storage, Iceberg-style requirements, fully managed…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-ducklake",
+    "tags": [
+      "ducklake",
+      "motherduck",
+      "trusted-source",
+      "duckdb"
+    ],
+    "skill_content": "---\nname: Motherduck Ducklake\ndescription: Decide when DuckLake is the right MotherDuck storage pattern versus native MotherDuck storage (the default). Use when evaluating lakehouse or open table format storage, Iceberg-style requirements, fully managed…\n---\n\n# Motherduck Ducklake\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nDecide when DuckLake is the right MotherDuck storage pattern versus native MotherDuck storage (the default). Use when evaluating lakehouse or open table format storage, Iceberg-style requirements, fully managed…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-ducklake\n"
+  },
+  {
+    "slug": "motherduck-motherduck-security-governance",
+    "name": "Motherduck Security Governance",
+    "category": "data",
+    "description": "Explain MotherDuck security, governance, and access-control patterns. Use for any question about SOC 2, GDPR, compliance, data residency, regions, SSO, service accounts, token handling, tenant isolation, sharing…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-security-governance",
+    "tags": [
+      "governance",
+      "motherduck",
+      "security",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Security Governance\ndescription: Explain MotherDuck security, governance, and access-control patterns. Use for any question about SOC 2, GDPR, compliance, data residency, regions, SSO, service accounts, token handling, tenant isolation, sharing…\n---\n\n# Motherduck Security Governance\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nExplain MotherDuck security, governance, and access-control patterns. Use for any question about SOC 2, GDPR, compliance, data residency, regions, SSO, service accounts, token handling, tenant isolation, sharing…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-security-governance\n"
+  },
+  {
+    "slug": "motherduck-motherduck-pricing-roi",
+    "name": "Motherduck Pricing Roi",
+    "category": "data",
+    "description": "Explain MotherDuck pricing and ROI tradeoffs. Use for any pricing, cost, billing, plan-comparison, instance-sizing, chargeback, or budget question — when an economic_buyer, technical_owner, or analytics_lead asks…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-pricing-roi",
+    "tags": [
+      "motherduck",
+      "pricing",
+      "roi",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Pricing Roi\ndescription: Explain MotherDuck pricing and ROI tradeoffs. Use for any pricing, cost, billing, plan-comparison, instance-sizing, chargeback, or budget question — when an economic_buyer, technical_owner, or analytics_lead asks…\n---\n\n# Motherduck Pricing Roi\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nExplain MotherDuck pricing and ROI tradeoffs. Use for any pricing, cost, billing, plan-comparison, instance-sizing, chargeback, or budget question — when an economic_buyer, technical_owner, or analytics_lead asks…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-pricing-roi\n"
+  },
+  {
+    "slug": "motherduck-motherduck-build-cfa-app",
+    "name": "Motherduck Build Cfa App",
+    "category": "data",
+    "description": "Design a MotherDuck-backed customer-facing analytics app. Use for embedded analytics, multi-tenant SaaS reporting, or product analytics for external users -- whenever the decision depends on per-customer isolation,…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-build-cfa-app",
+    "tags": [
+      "app",
+      "build",
+      "cfa",
+      "motherduck"
+    ],
+    "skill_content": "---\nname: Motherduck Build Cfa App\ndescription: Design a MotherDuck-backed customer-facing analytics app. Use for embedded analytics, multi-tenant SaaS reporting, or product analytics for external users -- whenever the decision depends on per-customer isolation,…\n---\n\n# Motherduck Build Cfa App\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nDesign a MotherDuck-backed customer-facing analytics app. Use for embedded analytics, multi-tenant SaaS reporting, or product analytics for external users -- whenever the decision depends on per-customer isolation,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-build-cfa-app\n"
+  },
+  {
+    "slug": "motherduck-motherduck-build-dashboard",
+    "name": "Motherduck Build Dashboard",
+    "category": "data",
+    "description": "Build a live MotherDuck dashboard as a Dive. Use when composing one shareable KPI, trend, and breakdown story over existing MotherDuck data, especially when the result should stay a saved workspace artifact rather…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-build-dashboard",
+    "tags": [
+      "build",
+      "dashboard",
+      "motherduck",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Build Dashboard\ndescription: Build a live MotherDuck dashboard as a Dive. Use when composing one shareable KPI, trend, and breakdown story over existing MotherDuck data, especially when the result should stay a saved workspace artifact rather…\n---\n\n# Motherduck Build Dashboard\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nBuild a live MotherDuck dashboard as a Dive. Use when composing one shareable KPI, trend, and breakdown story over existing MotherDuck data, especially when the result should stay a saved workspace artifact rather…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-build-dashboard\n"
+  },
+  {
+    "slug": "motherduck-motherduck-build-data-pipeline",
+    "name": "Motherduck Build Data Pipeline",
+    "category": "data",
+    "description": "Design an end-to-end MotherDuck data pipeline. Use for ETL/ELT workflows -- choosing raw, staging, and analytics boundaries, bulk ingestion paths, transformation sequencing, dlt/dbt integration, publication targets,…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-build-data-pipeline",
+    "tags": [
+      "build",
+      "data",
+      "motherduck",
+      "pipeline"
+    ],
+    "skill_content": "---\nname: Motherduck Build Data Pipeline\ndescription: Design an end-to-end MotherDuck data pipeline. Use for ETL/ELT workflows -- choosing raw, staging, and analytics boundaries, bulk ingestion paths, transformation sequencing, dlt/dbt integration, publication targets,…\n---\n\n# Motherduck Build Data Pipeline\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nDesign an end-to-end MotherDuck data pipeline. Use for ETL/ELT workflows -- choosing raw, staging, and analytics boundaries, bulk ingestion paths, transformation sequencing, dlt/dbt integration, publication targets,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-build-data-pipeline\n"
+  },
+  {
+    "slug": "motherduck-motherduck-migrate-to-motherduck",
+    "name": "Motherduck Migrate To Motherduck",
+    "category": "data",
+    "description": "Plan a migration onto MotherDuck. Use when moving from Snowflake, BigQuery, Redshift, PostgreSQL, dbt-heavy stacks, or lakehouse tooling and the key decisions are target pattern, cutover slices, source-vs-target…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-migrate-to-motherduck",
+    "tags": [
+      "migrate",
+      "motherduck",
+      "to",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Migrate To Motherduck\ndescription: Plan a migration onto MotherDuck. Use when moving from Snowflake, BigQuery, Redshift, PostgreSQL, dbt-heavy stacks, or lakehouse tooling and the key decisions are target pattern, cutover slices, source-vs-target…\n---\n\n# Motherduck Migrate To Motherduck\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nPlan a migration onto MotherDuck. Use when moving from Snowflake, BigQuery, Redshift, PostgreSQL, dbt-heavy stacks, or lakehouse tooling and the key decisions are target pattern, cutover slices, source-vs-target…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-migrate-to-motherduck\n"
+  },
+  {
+    "slug": "motherduck-motherduck-enable-self-serve-analytics",
+    "name": "Motherduck Enable Self Serve Analytics",
+    "category": "data",
+    "description": "Roll out self-serve analytics on MotherDuck for internal teams. Use when deciding the first governed dataset, the first Dive or share, ownership boundaries, and the rollout path from one audience to broader adoption.",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-enable-self-serve-analytics",
+    "tags": [
+      "analytics",
+      "enable",
+      "motherduck",
+      "self"
+    ],
+    "skill_content": "---\nname: Motherduck Enable Self Serve Analytics\ndescription: Roll out self-serve analytics on MotherDuck for internal teams. Use when deciding the first governed dataset, the first Dive or share, ownership boundaries, and the rollout path from one audience to broader adoption.\n---\n\n# Motherduck Enable Self Serve Analytics\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nRoll out self-serve analytics on MotherDuck for internal teams. Use when deciding the first governed dataset, the first Dive or share, ownership boundaries, and the rollout path from one audience to broader adoption.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-enable-self-serve-analytics\n"
+  },
+  {
+    "slug": "motherduck-motherduck-partner-delivery",
+    "name": "Motherduck Partner Delivery",
+    "category": "data",
+    "description": "Deliver repeatable MotherDuck architectures across multiple clients. Use when a consultancy, agency, or multi-client product team needs to standardize isolation, provisioning, regional deployment, sharing boundaries,…",
+    "author": "MotherDuck",
+    "source_url": "https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-partner-delivery",
+    "tags": [
+      "delivery",
+      "motherduck",
+      "partner",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Motherduck Partner Delivery\ndescription: Deliver repeatable MotherDuck architectures across multiple clients. Use when a consultancy, agency, or multi-client product team needs to standardize isolation, provisioning, regional deployment, sharing boundaries,…\n---\n\n# Motherduck Partner Delivery\n\nPart of the **MotherDuck Skills** pack by MotherDuck (`motherduckdb/agent-skills`).\n\nDeliver repeatable MotherDuck architectures across multiple clients. Use when a consultancy, agency, or multi-client product team needs to standardize isolation, provisioning, regional deployment, sharing boundaries,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/motherduckdb/agent-skills/tree/main/skills/motherduck-partner-delivery\n"
+  }
+]

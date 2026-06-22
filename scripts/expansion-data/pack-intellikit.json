@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "intellikit-skill",
+    "name": "Metrix Profiling",
+    "category": "coding",
+    "description": "Profile GPU kernels when performance analysis or optimization is required. Use for AMD ROCm GPU metrics, bandwidth, cache hit rates, coalescing, or kernel timing.",
+    "author": "AMD Research",
+    "source_url": "https://github.com/AMDResearch/intellikit/tree/main/metrix/skill",
+    "tags": [
+      "amd",
+      "corporate-research",
+      "intellikit",
+      "metrix"
+    ],
+    "skill_content": "---\nname: Metrix Profiling\ndescription: Profile GPU kernels when performance analysis or optimization is required. Use for AMD ROCm GPU metrics, bandwidth, cache hit rates, coalescing, or kernel timing.\n---\n\n# Metrix Profiling\n\nPart of the **AMD IntelliKit Skills** pack by AMD Research (`AMDResearch/intellikit`).\n\nProfile GPU kernels when performance analysis or optimization is required. Use for AMD ROCm GPU metrics, bandwidth, cache hit rates, coalescing, or kernel timing.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/AMDResearch/intellikit/tree/main/metrix/skill\n"
+  },
+  {
+    "slug": "intellikit-skill-2",
+    "name": "Accordo Validation",
+    "category": "coding",
+    "description": "Validate GPU kernel correctness by comparing reference and optimized outputs. Use when verifying that an optimized or modified kernel matches a reference implementation.",
+    "author": "AMD Research",
+    "source_url": "https://github.com/AMDResearch/intellikit/tree/main/accordo/skill",
+    "tags": [
+      "accordo",
+      "amd",
+      "corporate-research",
+      "intellikit"
+    ],
+    "skill_content": "---\nname: Accordo Validation\ndescription: Validate GPU kernel correctness by comparing reference and optimized outputs. Use when verifying that an optimized or modified kernel matches a reference implementation.\n---\n\n# Accordo Validation\n\nPart of the **AMD IntelliKit Skills** pack by AMD Research (`AMDResearch/intellikit`).\n\nValidate GPU kernel correctness by comparing reference and optimized outputs. Use when verifying that an optimized or modified kernel matches a reference implementation.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/AMDResearch/intellikit/tree/main/accordo/skill\n"
+  },
+  {
+    "slug": "intellikit-skill-3",
+    "name": "Nexus Trace",
+    "category": "coding",
+    "description": "Extract GPU kernel assembly and HIP source from HSA packet traces. Use when analyzing what code ran on the GPU, debugging kernel dispatch, or inspecting assembly and source mapping.",
+    "author": "AMD Research",
+    "source_url": "https://github.com/AMDResearch/intellikit/tree/main/nexus/skill",
+    "tags": [
+      "amd",
+      "corporate-research",
+      "intellikit",
+      "nexus"
+    ],
+    "skill_content": "---\nname: Nexus Trace\ndescription: Extract GPU kernel assembly and HIP source from HSA packet traces. Use when analyzing what code ran on the GPU, debugging kernel dispatch, or inspecting assembly and source mapping.\n---\n\n# Nexus Trace\n\nPart of the **AMD IntelliKit Skills** pack by AMD Research (`AMDResearch/intellikit`).\n\nExtract GPU kernel assembly and HIP source from HSA packet traces. Use when analyzing what code ran on the GPU, debugging kernel dispatch, or inspecting assembly and source mapping.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/AMDResearch/intellikit/tree/main/nexus/skill\n"
+  },
+  {
+    "slug": "intellikit-skill-4",
+    "name": "Linex Profiling",
+    "category": "coding",
+    "description": "Profile GPU kernels at source-line granularity with cycle-level timing and stall analysis. Use when identifying performance hotspots at the source code level or analyzing instruction-level metrics mapped to source lines.",
+    "author": "AMD Research",
+    "source_url": "https://github.com/AMDResearch/intellikit/tree/main/linex/skill",
+    "tags": [
+      "amd",
+      "corporate-research",
+      "intellikit",
+      "linex"
+    ],
+    "skill_content": "---\nname: Linex Profiling\ndescription: Profile GPU kernels at source-line granularity with cycle-level timing and stall analysis. Use when identifying performance hotspots at the source code level or analyzing instruction-level metrics mapped to source lines.\n---\n\n# Linex Profiling\n\nPart of the **AMD IntelliKit Skills** pack by AMD Research (`AMDResearch/intellikit`).\n\nProfile GPU kernels at source-line granularity with cycle-level timing and stall analysis. Use when identifying performance hotspots at the source code level or analyzing instruction-level metrics mapped to source lines.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/AMDResearch/intellikit/tree/main/linex/skill\n"
+  },
+  {
+    "slug": "intellikit-skill-5",
+    "name": "Test Kerncap",
+    "category": "coding",
+    "description": "Test local kerncap changes end-to-end by profiling an application, extracting a kernel, and validating the reproducer. Use when the user asks to test kerncap against any HIP or Triton workload, or wants to validate…",
+    "author": "AMD Research",
+    "source_url": "https://github.com/AMDResearch/intellikit/tree/main/kerncap/skill",
+    "tags": [
+      "amd",
+      "corporate-research",
+      "intellikit",
+      "kerncap"
+    ],
+    "skill_content": "---\nname: Test Kerncap\ndescription: Test local kerncap changes end-to-end by profiling an application, extracting a kernel, and validating the reproducer. Use when the user asks to test kerncap against any HIP or Triton workload, or wants to validate…\n---\n\n# Test Kerncap\n\nPart of the **AMD IntelliKit Skills** pack by AMD Research (`AMDResearch/intellikit`).\n\nTest local kerncap changes end-to-end by profiling an application, extracting a kernel, and validating the reproducer. Use when the user asks to test kerncap against any HIP or Triton workload, or wants to validate…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/AMDResearch/intellikit/tree/main/kerncap/skill\n"
+  }
+]

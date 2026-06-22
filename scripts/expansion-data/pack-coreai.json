@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "coreai-working-with-coreai",
+    "name": "Working With Coreai",
+    "category": "coding",
+    "description": "Use this skill whenever the user mentions coreai-torch, TorchConverter, coreai-build, AIModel, AIProgram, .aimodel, or wants to export/compile/run a PyTorch model on Apple silicon (iPhone, iPad, Mac). Also triggers…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/coreai-models/tree/main/skills/skills/working-with-coreai",
+    "tags": [
+      "ai",
+      "apple",
+      "coreai",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Working With Coreai\ndescription: Use this skill whenever the user mentions coreai-torch, TorchConverter, coreai-build, AIModel, AIProgram, .aimodel, or wants to export/compile/run a PyTorch model on Apple silicon (iPhone, iPad, Mac). Also triggers…\n---\n\n# Working With Coreai\n\nPart of the **Apple Core AI Skills** pack by Apple (`apple/coreai-models`).\n\nUse this skill whenever the user mentions coreai-torch, TorchConverter, coreai-build, AIModel, AIProgram, .aimodel, or wants to export/compile/run a PyTorch model on Apple silicon (iPhone, iPad, Mac). Also triggers…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/coreai-models/tree/main/skills/skills/working-with-coreai\n"
+  },
+  {
+    "slug": "coreai-model-authoring",
+    "name": "Model Authoring",
+    "category": "coding",
+    "description": "Empirical rules for authoring PyTorch models for on-device execution on Apple platforms, covering energy-efficient inference, scalable compute, and correctness testing. Use this skill whenever the user is writing,…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/coreai-models/tree/main/skills/skills/model-authoring",
+    "tags": [
+      "ai",
+      "apple",
+      "authoring",
+      "model"
+    ],
+    "skill_content": "---\nname: Model Authoring\ndescription: Empirical rules for authoring PyTorch models for on-device execution on Apple platforms, covering energy-efficient inference, scalable compute, and correctness testing. Use this skill whenever the user is writing,…\n---\n\n# Model Authoring\n\nPart of the **Apple Core AI Skills** pack by Apple (`apple/coreai-models`).\n\nEmpirical rules for authoring PyTorch models for on-device execution on Apple platforms, covering energy-efficient inference, scalable compute, and correctness testing. Use this skill whenever the user is writing,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/coreai-models/tree/main/skills/skills/model-authoring\n"
+  },
+  {
+    "slug": "coreai-model-compression-exploration",
+    "name": "Model Compression Exploration",
+    "category": "coding",
+    "description": "Systematically explore weight compression configurations (quantization and palettization) for a PyTorch model using coreai-opt, presenting a comprehensive overview of accuracy-vs-size tradeoff options. Use this skill…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/coreai-models/tree/main/skills/skills/model-compression-exploration",
+    "tags": [
+      "ai",
+      "apple",
+      "compression",
+      "exploration"
+    ],
+    "skill_content": "---\nname: Model Compression Exploration\ndescription: Systematically explore weight compression configurations (quantization and palettization) for a PyTorch model using coreai-opt, presenting a comprehensive overview of accuracy-vs-size tradeoff options. Use this skill…\n---\n\n# Model Compression Exploration\n\nPart of the **Apple Core AI Skills** pack by Apple (`apple/coreai-models`).\n\nSystematically explore weight compression configurations (quantization and palettization) for a PyTorch model using coreai-opt, presenting a comprehensive overview of accuracy-vs-size tradeoff options. Use this skill…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/coreai-models/tree/main/skills/skills/model-compression-exploration\n"
+  }
+]

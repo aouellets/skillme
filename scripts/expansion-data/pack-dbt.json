@@ -1,0 +1,167 @@
+[
+  {
+    "slug": "dbt-using-dbt-for-analytics-engineering",
+    "name": "Using Dbt For Analytics Engineering",
+    "category": "data",
+    "description": "Builds and modifies dbt models, writes SQL transformations using ref() and source(), creates tests, and validates results with dbt show. Use when doing any dbt work - building or modifying models, debugging errors,…",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/using-dbt-for-analytics-engineering",
+    "tags": [
+      "analytics",
+      "dbt",
+      "engineering",
+      "for"
+    ],
+    "skill_content": "---\nname: Using Dbt For Analytics Engineering\ndescription: Builds and modifies dbt models, writes SQL transformations using ref() and source(), creates tests, and validates results with dbt show. Use when doing any dbt work - building or modifying models, debugging errors,…\n---\n\n# Using Dbt For Analytics Engineering\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nBuilds and modifies dbt models, writes SQL transformations using ref() and source(), creates tests, and validates results with dbt show. Use when doing any dbt work - building or modifying models, debugging errors,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/using-dbt-for-analytics-engineering\n"
+  },
+  {
+    "slug": "dbt-adding-dbt-unit-test",
+    "name": "Adding Dbt Unit Test",
+    "category": "data",
+    "description": "Creates unit test YAML definitions that mock upstream model inputs and validate expected outputs. Use when adding unit tests for a dbt model or practicing test-driven development (TDD) in dbt.",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/adding-dbt-unit-test",
+    "tags": [
+      "adding",
+      "dbt",
+      "test",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Adding Dbt Unit Test\ndescription: Creates unit test YAML definitions that mock upstream model inputs and validate expected outputs. Use when adding unit tests for a dbt model or practicing test-driven development (TDD) in dbt.\n---\n\n# Adding Dbt Unit Test\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nCreates unit test YAML definitions that mock upstream model inputs and validate expected outputs. Use when adding unit tests for a dbt model or practicing test-driven development (TDD) in dbt.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/adding-dbt-unit-test\n"
+  },
+  {
+    "slug": "dbt-building-dbt-semantic-layer",
+    "name": "Building Dbt Semantic Layer",
+    "category": "data",
+    "description": "Use when creating or modifying dbt Semantic Layer components — semantic models, metrics, dimensions, entities, measures, or time spines. Covers MetricFlow configuration, metric types (simple, derived, cumulative,…",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/building-dbt-semantic-layer",
+    "tags": [
+      "building",
+      "dbt",
+      "layer",
+      "semantic"
+    ],
+    "skill_content": "---\nname: Building Dbt Semantic Layer\ndescription: Use when creating or modifying dbt Semantic Layer components — semantic models, metrics, dimensions, entities, measures, or time spines. Covers MetricFlow configuration, metric types (simple, derived, cumulative,…\n---\n\n# Building Dbt Semantic Layer\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nUse when creating or modifying dbt Semantic Layer components — semantic models, metrics, dimensions, entities, measures, or time spines. Covers MetricFlow configuration, metric types (simple, derived, cumulative,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/building-dbt-semantic-layer\n"
+  },
+  {
+    "slug": "dbt-answering-natural-language-questions-with-dbt",
+    "name": "Answering Natural Language Questions With Dbt",
+    "category": "data",
+    "description": "Writes and executes SQL queries against the data warehouse using dbt's Semantic Layer or ad-hoc SQL to answer business questions. Use when a user asks about analytics, metrics, KPIs, or data (e.g., \"What were total…",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/answering-natural-language-questions-with-dbt",
+    "tags": [
+      "answering",
+      "dbt",
+      "language",
+      "natural"
+    ],
+    "skill_content": "---\nname: Answering Natural Language Questions With Dbt\ndescription: Writes and executes SQL queries against the data warehouse using dbt's Semantic Layer or ad-hoc SQL to answer business questions. Use when a user asks about analytics, metrics, KPIs, or data (e.g., \"What were total…\n---\n\n# Answering Natural Language Questions With Dbt\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nWrites and executes SQL queries against the data warehouse using dbt's Semantic Layer or ad-hoc SQL to answer business questions. Use when a user asks about analytics, metrics, KPIs, or data (e.g., \"What were total…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/answering-natural-language-questions-with-dbt\n"
+  },
+  {
+    "slug": "dbt-working-with-dbt-mesh",
+    "name": "Working With Dbt Mesh",
+    "category": "data",
+    "description": "Use when changing a dbt model in a way that could break its consumers — renaming, removing, or retyping a column, or changing a model that downstream models, exposures, dashboards, or BI tools depend on — to judge…",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/working-with-dbt-mesh",
+    "tags": [
+      "dbt",
+      "mesh",
+      "trusted-source",
+      "with"
+    ],
+    "skill_content": "---\nname: Working With Dbt Mesh\ndescription: Use when changing a dbt model in a way that could break its consumers — renaming, removing, or retyping a column, or changing a model that downstream models, exposures, dashboards, or BI tools depend on — to judge…\n---\n\n# Working With Dbt Mesh\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nUse when changing a dbt model in a way that could break its consumers — renaming, removing, or retyping a column, or changing a model that downstream models, exposures, dashboards, or BI tools depend on — to judge…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/working-with-dbt-mesh\n"
+  },
+  {
+    "slug": "dbt-troubleshooting-dbt-job-errors",
+    "name": "Troubleshooting Dbt Job Errors",
+    "category": "data",
+    "description": "Diagnoses dbt Cloud/platform job failures by analyzing run logs, querying the Admin API, reviewing git history, and investigating data issues. Use when a dbt Cloud/platform job fails and you need to diagnose the root…",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/troubleshooting-dbt-job-errors",
+    "tags": [
+      "dbt",
+      "errors",
+      "job",
+      "troubleshooting"
+    ],
+    "skill_content": "---\nname: Troubleshooting Dbt Job Errors\ndescription: Diagnoses dbt Cloud/platform job failures by analyzing run logs, querying the Admin API, reviewing git history, and investigating data issues. Use when a dbt Cloud/platform job fails and you need to diagnose the root…\n---\n\n# Troubleshooting Dbt Job Errors\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nDiagnoses dbt Cloud/platform job failures by analyzing run logs, querying the Admin API, reviewing git history, and investigating data issues. Use when a dbt Cloud/platform job fails and you need to diagnose the root…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/troubleshooting-dbt-job-errors\n"
+  },
+  {
+    "slug": "dbt-configuring-dbt-mcp-server",
+    "name": "Configuring Dbt Mcp Server",
+    "category": "data",
+    "description": "Generates MCP server configuration JSON, resolves authentication setup, and validates server connectivity for dbt. Use when setting up, configuring, or troubleshooting the dbt MCP server for AI tools like Claude…",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/configuring-dbt-mcp-server",
+    "tags": [
+      "configuring",
+      "dbt",
+      "mcp",
+      "server"
+    ],
+    "skill_content": "---\nname: Configuring Dbt Mcp Server\ndescription: Generates MCP server configuration JSON, resolves authentication setup, and validates server connectivity for dbt. Use when setting up, configuring, or troubleshooting the dbt MCP server for AI tools like Claude…\n---\n\n# Configuring Dbt Mcp Server\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nGenerates MCP server configuration JSON, resolves authentication setup, and validates server connectivity for dbt. Use when setting up, configuring, or troubleshooting the dbt MCP server for AI tools like Claude…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/configuring-dbt-mcp-server\n"
+  },
+  {
+    "slug": "dbt-fetching-dbt-docs",
+    "name": "Fetching Dbt Docs",
+    "category": "data",
+    "description": "Retrieves and searches dbt documentation pages in LLM-friendly markdown format. Use when fetching dbt documentation, looking up dbt features, or answering questions about dbt Cloud, dbt Core, or the dbt Semantic Layer.",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/fetching-dbt-docs",
+    "tags": [
+      "dbt",
+      "docs",
+      "fetching",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Fetching Dbt Docs\ndescription: Retrieves and searches dbt documentation pages in LLM-friendly markdown format. Use when fetching dbt documentation, looking up dbt features, or answering questions about dbt Cloud, dbt Core, or the dbt Semantic Layer.\n---\n\n# Fetching Dbt Docs\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nRetrieves and searches dbt documentation pages in LLM-friendly markdown format. Use when fetching dbt documentation, looking up dbt features, or answering questions about dbt Cloud, dbt Core, or the dbt Semantic Layer.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/fetching-dbt-docs\n"
+  },
+  {
+    "slug": "dbt-running-dbt-commands",
+    "name": "Running Dbt Commands",
+    "category": "data",
+    "description": "Formats and executes dbt CLI commands, selects the correct dbt executable, and structures command parameters. Use when running models, tests, builds, compiles, or show queries via dbt CLI. Use when unsure which dbt…",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/running-dbt-commands",
+    "tags": [
+      "commands",
+      "dbt",
+      "running",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Running Dbt Commands\ndescription: Formats and executes dbt CLI commands, selects the correct dbt executable, and structures command parameters. Use when running models, tests, builds, compiles, or show queries via dbt CLI. Use when unsure which dbt…\n---\n\n# Running Dbt Commands\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nFormats and executes dbt CLI commands, selects the correct dbt executable, and structures command parameters. Use when running models, tests, builds, compiles, or show queries via dbt CLI. Use when unsure which dbt…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt/skills/running-dbt-commands\n"
+  },
+  {
+    "slug": "dbt-migrating-dbt-core-to-fusion",
+    "name": "Migrating Dbt Core To Fusion",
+    "category": "data",
+    "description": "Use when a user needs help triaging dbt-core to Fusion migration errors. Runs dbt-autofix first, then classifies remaining errors into actionable categories (auto-fixable, guided fixes, needs input, blocked).",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt-migration/skills/migrating-dbt-core-to-fusion",
+    "tags": [
+      "dbt",
+      "fusion",
+      "migrating",
+      "migration"
+    ],
+    "skill_content": "---\nname: Migrating Dbt Core To Fusion\ndescription: Use when a user needs help triaging dbt-core to Fusion migration errors. Runs dbt-autofix first, then classifies remaining errors into actionable categories (auto-fixable, guided fixes, needs input, blocked).\n---\n\n# Migrating Dbt Core To Fusion\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nUse when a user needs help triaging dbt-core to Fusion migration errors. Runs dbt-autofix first, then classifies remaining errors into actionable categories (auto-fixable, guided fixes, needs input, blocked).\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt-migration/skills/migrating-dbt-core-to-fusion\n"
+  },
+  {
+    "slug": "dbt-migrating-dbt-project-across-platforms",
+    "name": "Migrating Dbt Project Across Platforms",
+    "category": "data",
+    "description": "Use when migrating a dbt project from one data platform or data warehouse to another (e.g., Snowflake to Databricks, Databricks to Snowflake) using dbt Fusion's real-time compilation to identify and fix SQL dialect…",
+    "author": "dbt Labs",
+    "source_url": "https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt-migration/skills/migrating-dbt-project-across-platforms",
+    "tags": [
+      "across",
+      "dbt",
+      "migrating",
+      "migration"
+    ],
+    "skill_content": "---\nname: Migrating Dbt Project Across Platforms\ndescription: Use when migrating a dbt project from one data platform or data warehouse to another (e.g., Snowflake to Databricks, Databricks to Snowflake) using dbt Fusion's real-time compilation to identify and fix SQL dialect…\n---\n\n# Migrating Dbt Project Across Platforms\n\nPart of the **dbt Agent Skills** pack by dbt Labs (`dbt-labs/dbt-agent-skills`).\n\nUse when migrating a dbt project from one data platform or data warehouse to another (e.g., Snowflake to Databricks, Databricks to Snowflake) using dbt Fusion's real-time compilation to identify and fix SQL dialect…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt-migration/skills/migrating-dbt-project-across-platforms\n"
+  }
+]

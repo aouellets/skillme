@@ -55,19 +55,26 @@ async function main() {
 
   console.log(`Seeding ${rows.length} skills…`)
 
-  const { data, error } = await supabase
-    .from('skills')
-    .upsert(rows, { onConflict: 'slug' })
-    .select('slug')
-
-  if (error) {
-    console.error('Seed failed:', error.message)
-    process.exit(1)
+  // Upsert in batches — a single upsert of the full catalog (2k+ rows, each with
+  // a large skill_content) exceeds Postgres's statement_timeout. Chunking keeps
+  // each statement well under the limit and lets a failure point at its batch.
+  const BATCH = 100
+  let seeded = 0
+  for (let i = 0; i < rows.length; i += BATCH) {
+    const chunk = rows.slice(i, i + BATCH)
+    const { data, error } = await supabase
+      .from('skills')
+      .upsert(chunk, { onConflict: 'slug' })
+      .select('slug')
+    if (error) {
+      console.error(`Seed failed on batch ${i}-${i + chunk.length}:`, error.message)
+      process.exit(1)
+    }
+    seeded += data?.length ?? chunk.length
+    console.log(`  · ${seeded}/${rows.length}`)
   }
 
-  console.log(`Seeded ${data?.length ?? rows.length} skills:`)
-  for (const r of rows) console.log(`  · ${r.slug}`)
-  console.log('Done.')
+  console.log(`Seeded ${seeded} skills. Done.`)
 }
 
 main().catch((err) => {

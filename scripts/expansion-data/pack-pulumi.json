@@ -1,0 +1,212 @@
+[
+  {
+    "slug": "pulumi-pulumi-terraform-to-pulumi",
+    "name": "Pulumi Terraform To Pulumi",
+    "category": "coding",
+    "description": "Migrate Terraform/OpenTofu projects to Pulumi, including translating HCL source code and/or importing Terraform state into a Pulumi stack. Use when a user wants to convert Terraform to Pulumi, migrate from HCL, or…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/migration/skills/pulumi-terraform-to-pulumi",
+    "tags": [
+      "migration",
+      "pulumi",
+      "terraform",
+      "to"
+    ],
+    "skill_content": "---\nname: Pulumi Terraform To Pulumi\ndescription: Migrate Terraform/OpenTofu projects to Pulumi, including translating HCL source code and/or importing Terraform state into a Pulumi stack. Use when a user wants to convert Terraform to Pulumi, migrate from HCL, or…\n---\n\n# Pulumi Terraform To Pulumi\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nMigrate Terraform/OpenTofu projects to Pulumi, including translating HCL source code and/or importing Terraform state into a Pulumi stack. Use when a user wants to convert Terraform to Pulumi, migrate from HCL, or…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/migration/skills/pulumi-terraform-to-pulumi\n"
+  },
+  {
+    "slug": "pulumi-pulumi-cdk-to-pulumi",
+    "name": "Pulumi Cdk To Pulumi",
+    "category": "coding",
+    "description": "Load this skill when a user wants to migrate, convert, port, translate, or move an AWS CDK application (including CDK stacks, constructs, or CloudFormation-synthesized templates) to Pulumi. Phrases such as \"convert…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/migration/skills/pulumi-cdk-to-pulumi",
+    "tags": [
+      "cdk",
+      "migration",
+      "pulumi",
+      "to"
+    ],
+    "skill_content": "---\nname: Pulumi Cdk To Pulumi\ndescription: Load this skill when a user wants to migrate, convert, port, translate, or move an AWS CDK application (including CDK stacks, constructs, or CloudFormation-synthesized templates) to Pulumi. Phrases such as \"convert…\n---\n\n# Pulumi Cdk To Pulumi\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nLoad this skill when a user wants to migrate, convert, port, translate, or move an AWS CDK application (including CDK stacks, constructs, or CloudFormation-synthesized templates) to Pulumi. Phrases such as \"convert…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/migration/skills/pulumi-cdk-to-pulumi\n"
+  },
+  {
+    "slug": "pulumi-cloudformation-to-pulumi",
+    "name": "Cloudformation To Pulumi",
+    "category": "coding",
+    "description": "Convert, migrate, or import AWS CloudFormation stacks or templates into Pulumi programs. Load this skill whenever a user wants to move from CloudFormation to Pulumi, convert a CFN template, import existing…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/migration/skills/cloudformation-to-pulumi",
+    "tags": [
+      "cloudformation",
+      "migration",
+      "pulumi",
+      "to"
+    ],
+    "skill_content": "---\nname: Cloudformation To Pulumi\ndescription: Convert, migrate, or import AWS CloudFormation stacks or templates into Pulumi programs. Load this skill whenever a user wants to move from CloudFormation to Pulumi, convert a CFN template, import existing…\n---\n\n# Cloudformation To Pulumi\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nConvert, migrate, or import AWS CloudFormation stacks or templates into Pulumi programs. Load this skill whenever a user wants to move from CloudFormation to Pulumi, convert a CFN template, import existing…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/migration/skills/cloudformation-to-pulumi\n"
+  },
+  {
+    "slug": "pulumi-pulumi-arm-to-pulumi",
+    "name": "Pulumi Arm To Pulumi",
+    "category": "coding",
+    "description": "Convert or migrate Azure ARM (Azure Resource Manager) templates, Bicep templates, or code to Pulumi, including importing existing Azure resources. This skill MUST be loaded whenever a user requests migration,…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/migration/skills/pulumi-arm-to-pulumi",
+    "tags": [
+      "arm",
+      "migration",
+      "pulumi",
+      "to"
+    ],
+    "skill_content": "---\nname: Pulumi Arm To Pulumi\ndescription: Convert or migrate Azure ARM (Azure Resource Manager) templates, Bicep templates, or code to Pulumi, including importing existing Azure resources. This skill MUST be loaded whenever a user requests migration,…\n---\n\n# Pulumi Arm To Pulumi\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nConvert or migrate Azure ARM (Azure Resource Manager) templates, Bicep templates, or code to Pulumi, including importing existing Azure resources. This skill MUST be loaded whenever a user requests migration,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/migration/skills/pulumi-arm-to-pulumi\n"
+  },
+  {
+    "slug": "pulumi-pulumi-overview",
+    "name": "Pulumi Overview",
+    "category": "coding",
+    "description": "Use this skill for any task that creates, modifies, inspects, or destroys cloud infrastructure or SaaS configuration, from one-off CLI operations to full multi-resource projects, across providers in the Pulumi…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-overview",
+    "tags": [
+      "overview",
+      "pulumi",
+      "trusted-source",
+      "infrastructure-as-code"
+    ],
+    "skill_content": "---\nname: Pulumi Overview\ndescription: Use this skill for any task that creates, modifies, inspects, or destroys cloud infrastructure or SaaS configuration, from one-off CLI operations to full multi-resource projects, across providers in the Pulumi…\n---\n\n# Pulumi Overview\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nUse this skill for any task that creates, modifies, inspects, or destroys cloud infrastructure or SaaS configuration, from one-off CLI operations to full multi-resource projects, across providers in the Pulumi…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-overview\n"
+  },
+  {
+    "slug": "pulumi-pulumi-best-practices",
+    "name": "Pulumi Best Practices",
+    "category": "coding",
+    "description": "Load when the user is writing, reviewing, or debugging Pulumi TypeScript/Python programs; asks about Output<T> or apply() usage; wants to create ComponentResource classes; needs to refactor resources without…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-best-practices",
+    "tags": [
+      "best",
+      "practices",
+      "pulumi",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Pulumi Best Practices\ndescription: Load when the user is writing, reviewing, or debugging Pulumi TypeScript/Python programs; asks about Output<T> or apply() usage; wants to create ComponentResource classes; needs to refactor resources without…\n---\n\n# Pulumi Best Practices\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nLoad when the user is writing, reviewing, or debugging Pulumi TypeScript/Python programs; asks about Output<T> or apply() usage; wants to create ComponentResource classes; needs to refactor resources without…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-best-practices\n"
+  },
+  {
+    "slug": "pulumi-pulumi-component",
+    "name": "Pulumi Component",
+    "category": "coding",
+    "description": "Guide for authoring Pulumi ComponentResource classes. Use when creating reusable infrastructure components, designing component interfaces, setting up multi-language support, or distributing component packages.",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-component",
+    "tags": [
+      "component",
+      "pulumi",
+      "trusted-source",
+      "infrastructure-as-code"
+    ],
+    "skill_content": "---\nname: Pulumi Component\ndescription: Guide for authoring Pulumi ComponentResource classes. Use when creating reusable infrastructure components, designing component interfaces, setting up multi-language support, or distributing component packages.\n---\n\n# Pulumi Component\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nGuide for authoring Pulumi ComponentResource classes. Use when creating reusable infrastructure components, designing component interfaces, setting up multi-language support, or distributing component packages.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-component\n"
+  },
+  {
+    "slug": "pulumi-pulumi-automation-api",
+    "name": "Pulumi Automation Api",
+    "category": "coding",
+    "description": "Load this skill when a user asks how to run Pulumi programmatically, embed Pulumi in an application, orchestrate multiple stacks in code, build a self-service infrastructure portal, replace pulumi CLI shell scripts…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-automation-api",
+    "tags": [
+      "api",
+      "automation",
+      "pulumi",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Pulumi Automation Api\ndescription: Load this skill when a user asks how to run Pulumi programmatically, embed Pulumi in an application, orchestrate multiple stacks in code, build a self-service infrastructure portal, replace pulumi CLI shell scripts…\n---\n\n# Pulumi Automation Api\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nLoad this skill when a user asks how to run Pulumi programmatically, embed Pulumi in an application, orchestrate multiple stacks in code, build a self-service infrastructure portal, replace pulumi CLI shell scripts…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-automation-api\n"
+  },
+  {
+    "slug": "pulumi-pulumi-esc",
+    "name": "Pulumi Esc",
+    "category": "coding",
+    "description": "Guidance for working with Pulumi ESC (Environments, Secrets, and Configuration). Use when users ask about managing secrets, configuration, environments, short-term credentials, configuring OIDC for AWS, Azure, GCP,…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-esc",
+    "tags": [
+      "esc",
+      "pulumi",
+      "trusted-source",
+      "infrastructure-as-code"
+    ],
+    "skill_content": "---\nname: Pulumi Esc\ndescription: Guidance for working with Pulumi ESC (Environments, Secrets, and Configuration). Use when users ask about managing secrets, configuration, environments, short-term credentials, configuring OIDC for AWS, Azure, GCP,…\n---\n\n# Pulumi Esc\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nGuidance for working with Pulumi ESC (Environments, Secrets, and Configuration). Use when users ask about managing secrets, configuration, environments, short-term credentials, configuring OIDC for AWS, Azure, GCP,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/pulumi-esc\n"
+  },
+  {
+    "slug": "pulumi-provider-upgrade",
+    "name": "Provider Upgrade",
+    "category": "coding",
+    "description": "Upgrade any Pulumi provider to a newer version and reconcile the resulting diff. Use when users want to upgrade or update a provider (including editing package.json, requirements.txt, pyproject.toml, go.mod, or…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/provider-upgrade",
+    "tags": [
+      "provider",
+      "pulumi",
+      "trusted-source",
+      "upgrade"
+    ],
+    "skill_content": "---\nname: Provider Upgrade\ndescription: Upgrade any Pulumi provider to a newer version and reconcile the resulting diff. Use when users want to upgrade or update a provider (including editing package.json, requirements.txt, pyproject.toml, go.mod, or…\n---\n\n# Provider Upgrade\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nUpgrade any Pulumi provider to a newer version and reconcile the resulting diff. Use when users want to upgrade or update a provider (including editing package.json, requirements.txt, pyproject.toml, go.mod, or…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/provider-upgrade\n"
+  },
+  {
+    "slug": "pulumi-package-usage",
+    "name": "Package Usage",
+    "category": "coding",
+    "description": "Track which stacks across a Pulumi organization use a specific package and at what versions. Use for cross-stack audits, identifying outdated or unmaintained package versions across many stacks, finding affected…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/package-usage",
+    "tags": [
+      "package",
+      "pulumi",
+      "trusted-source",
+      "usage"
+    ],
+    "skill_content": "---\nname: Package Usage\ndescription: Track which stacks across a Pulumi organization use a specific package and at what versions. Use for cross-stack audits, identifying outdated or unmaintained package versions across many stacks, finding affected…\n---\n\n# Package Usage\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nTrack which stacks across a Pulumi organization use a specific package and at what versions. Use for cross-stack audits, identifying outdated or unmaintained package versions across many stacks, finding affected…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/pulumi/skills/package-usage\n"
+  },
+  {
+    "slug": "pulumi-pulumi-upgrade-provider",
+    "name": "Pulumi Upgrade Provider",
+    "category": "coding",
+    "description": "Automate Pulumi provider repo upgrades with the `upgrade-provider` tool. Use when upgrading a pulumi provider repository to a new upstream version, running `upgrade-provider`, and addressing its common failure modes…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/package-maintenance/skills/pulumi-upgrade-provider",
+    "tags": [
+      "maintenance",
+      "package",
+      "provider",
+      "pulumi"
+    ],
+    "skill_content": "---\nname: Pulumi Upgrade Provider\ndescription: Automate Pulumi provider repo upgrades with the `upgrade-provider` tool. Use when upgrading a pulumi provider repository to a new upstream version, running `upgrade-provider`, and addressing its common failure modes…\n---\n\n# Pulumi Upgrade Provider\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nAutomate Pulumi provider repo upgrades with the `upgrade-provider` tool. Use when upgrading a pulumi provider repository to a new upstream version, running `upgrade-provider`, and addressing its common failure modes…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/package-maintenance/skills/pulumi-upgrade-provider\n"
+  },
+  {
+    "slug": "pulumi-upstream-patches",
+    "name": "Upstream Patches",
+    "category": "coding",
+    "description": "Create, amend, remove, and rebase patches for Terraform provider submodules using `./scripts/upstream.sh`. Use when `upgrade-provider` or manual patch work needs owning-patch lookup, patch conflict fixes, patch/hunk…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/package-maintenance/skills/upstream-patches",
+    "tags": [
+      "maintenance",
+      "package",
+      "patches",
+      "pulumi"
+    ],
+    "skill_content": "---\nname: Upstream Patches\ndescription: Create, amend, remove, and rebase patches for Terraform provider submodules using `./scripts/upstream.sh`. Use when `upgrade-provider` or manual patch work needs owning-patch lookup, patch conflict fixes, patch/hunk…\n---\n\n# Upstream Patches\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nCreate, amend, remove, and rebase patches for Terraform provider submodules using `./scripts/upstream.sh`. Use when `upgrade-provider` or manual patch work needs owning-patch lookup, patch conflict fixes, patch/hunk…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/package-maintenance/skills/upstream-patches\n"
+  },
+  {
+    "slug": "pulumi-pulumi-neo-handoff",
+    "name": "Pulumi Neo Handoff",
+    "category": "coding",
+    "description": "Hand off the current thread to a new Pulumi Neo task as a one-way transfer. Use when the user explicitly asks to hand off, send, transfer, or continue current work in Pulumi Neo (e.g. \"hand this to Neo\", \"continue in…",
+    "author": "Pulumi",
+    "source_url": "https://github.com/pulumi/agent-skills/tree/main/delegation/skills/pulumi-neo-handoff",
+    "tags": [
+      "delegation",
+      "handoff",
+      "neo",
+      "pulumi"
+    ],
+    "skill_content": "---\nname: Pulumi Neo Handoff\ndescription: Hand off the current thread to a new Pulumi Neo task as a one-way transfer. Use when the user explicitly asks to hand off, send, transfer, or continue current work in Pulumi Neo (e.g. \"hand this to Neo\", \"continue in…\n---\n\n# Pulumi Neo Handoff\n\nPart of the **Pulumi Agent Skills** pack by Pulumi (`pulumi/agent-skills`).\n\nHand off the current thread to a new Pulumi Neo task as a one-way transfer. Use when the user explicitly asks to hand off, send, transfer, or continue current work in Pulumi Neo (e.g. \"hand this to Neo\", \"continue in…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pulumi/agent-skills/tree/main/delegation/skills/pulumi-neo-handoff\n"
+  }
+]

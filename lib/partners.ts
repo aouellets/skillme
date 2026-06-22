@@ -54,6 +54,26 @@ const PARTNERS: Record<string, Partner> = {
   // NOTE: HYROX is NOT a partner (it didn't author these skills). HYROX content
   // is licensed-affiliate methodology — see lib/methodology.ts, matched on the
   // `hyrox` tag, which leads the card/art with the HYROX wordmark descriptively.
+  // ── Trusted-source expansion (first-party / official repos) ──
+  'NVIDIA': { label: 'NVIDIA', logo: 'nvidia', url: 'https://github.com/NVIDIA/skills', color: '#76b900', tint: '#16200a', logoColor: '#76b900' },
+  'Grafana Labs': { label: 'Grafana Labs', logo: 'grafana', url: 'https://github.com/grafana/skills', color: '#f46800', tint: '#241405', logoColor: '#f46800' },
+  'Elastic': { label: 'Elastic', logo: 'elastic', url: 'https://github.com/elastic/agent-skills', color: '#00bfb3', tint: '#06201e', logoColor: '#00bfb3' },
+  'Apple': { label: 'Apple', logo: 'apple', url: 'https://github.com/apple', color: '#f5f7f5', tint: '#16181c', logoColor: '#ffffff' },
+  'Cockroach Labs': { label: 'Cockroach Labs', logo: 'cockroachlabs', url: 'https://github.com/cockroachdb/claude-plugin', color: '#6933ff', tint: '#150b2b', logoColor: '#ffffff' },
+  'MotherDuck': { label: 'MotherDuck', logo: 'motherduck', url: 'https://github.com/motherduckdb/agent-skills', color: '#ffc400', tint: '#231f00', logoColor: '#ffc400' },
+  'Snowflake Labs': { label: 'Snowflake Labs', logo: 'snowflake', url: 'https://github.com/Snowflake-Labs/coco-skills', color: '#29b5e8', tint: '#08222b', logoColor: '#29b5e8' },
+  'Pulumi': { label: 'Pulumi', logo: 'pulumi', url: 'https://github.com/pulumi/agent-skills', color: '#8a3391', tint: '#1a0f1c', logoColor: '#f7bf2a' },
+  'dbt Labs': { label: 'dbt Labs', logo: 'dbt', url: 'https://github.com/dbt-labs/dbt-agent-skills', color: '#ff694b', tint: '#24100c', logoColor: '#ff694b' },
+  'Databricks': { label: 'Databricks', logo: 'databricks', url: 'https://github.com/databricks/databricks-agent-skills', color: '#ff3621', tint: '#240a07', logoColor: '#ff3621' },
+  'Cloudflare': { label: 'Cloudflare', logo: 'cloudflare', url: 'https://github.com/cloudflare/skills', color: '#f38020', tint: '#241405', logoColor: '#f38020' },
+  'Redis': { label: 'Redis', logo: 'redis', url: 'https://github.com/redis/agent-skills', color: '#ff4438', tint: '#240a08', logoColor: '#ff4438' },
+  'Pinecone': { label: 'Pinecone', logo: 'pinecone', url: 'https://github.com/pinecone-io/skills', color: '#3d63dd', tint: '#0d1326', logoColor: '#ffffff' },
+  'Qdrant': { label: 'Qdrant', logo: 'qdrant', url: 'https://github.com/qdrant/skills', color: '#dc244c', tint: '#240a10', logoColor: '#ffffff' },
+  'Ai2': { label: 'Ai2', logo: 'ai2', url: 'https://github.com/allenai/asta-plugins', color: '#f0529c', tint: '#2a0f1d', logoColor: '#ffffff' },
+  'Confluent': { label: 'Confluent', logo: 'confluent', url: 'https://github.com/confluentinc/agent-skills', color: '#4d8bf0', tint: '#0c1326', logoColor: '#ffffff' },
+  'AMD Research': { label: 'AMD Research', logo: 'amd', url: 'https://github.com/AMDResearch/intellikit', color: '#ed1c24', tint: '#240809', logoColor: '#ffffff' },
+  'ClickHouse': { label: 'ClickHouse', logo: 'clickhouse', url: 'https://github.com/ClickHouse/agent-skills', color: '#faff69', tint: '#21210a', logoColor: '#faff69' },
+  'Apache Doris': { label: 'Apache Doris', logo: 'apachedoris', url: 'https://github.com/apache/doris-skills', color: '#1f8fff', tint: '#0a1d2e', logoColor: '#5ab9ff' },
 }
 
 export interface ResolvedPartner extends Partner {

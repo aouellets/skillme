@@ -1,0 +1,362 @@
+[
+  {
+    "slug": "apple-game-translating-to-metal4-api",
+    "name": "Translating To Metal4 Api",
+    "category": "coding",
+    "description": "ALWAYS use as the Metal 4 API reference and cross-API translation map when porting graphics code to Metal 4 — translating Metal 3, D3D12, or Vulkan calls, looking up any MTL4 / Metal 4 API or renamed type, finding…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/translating-to-metal4-api",
+    "tags": [
+      "and",
+      "api",
+      "game",
+      "metal"
+    ],
+    "skill_content": "---\nname: Translating To Metal4 Api\ndescription: ALWAYS use as the Metal 4 API reference and cross-API translation map when porting graphics code to Metal 4 — translating Metal 3, D3D12, or Vulkan calls, looking up any MTL4 / Metal 4 API or renamed type, finding…\n---\n\n# Translating To Metal4 Api\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use as the Metal 4 API reference and cross-API translation map when porting graphics code to Metal 4 — translating Metal 3, D3D12, or Vulkan calls, looking up any MTL4 / Metal 4 API or renamed type, finding…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/translating-to-metal4-api\n"
+  },
+  {
+    "slug": "apple-game-managing-metal4-synchronization",
+    "name": "Managing Metal4 Synchronization",
+    "category": "coding",
+    "description": "Metal 4 explicit synchronization — barriers, fences, events, and cross-API state translation (from D3D12, Vulkan, OpenGL). Use when porting GPU synchronization, translating resource state transitions, or debugging…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/managing-metal4-synchronization",
+    "tags": [
+      "and",
+      "game",
+      "managing",
+      "metal"
+    ],
+    "skill_content": "---\nname: Managing Metal4 Synchronization\ndescription: Metal 4 explicit synchronization — barriers, fences, events, and cross-API state translation (from D3D12, Vulkan, OpenGL). Use when porting GPU synchronization, translating resource state transitions, or debugging…\n---\n\n# Managing Metal4 Synchronization\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nMetal 4 explicit synchronization — barriers, fences, events, and cross-API state translation (from D3D12, Vulkan, OpenGL). Use when porting GPU synchronization, translating resource state transitions, or debugging…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/managing-metal4-synchronization\n"
+  },
+  {
+    "slug": "apple-game-managing-metal4-resources",
+    "name": "Managing Metal4 Resources",
+    "category": "coding",
+    "description": "ALWAYS use when working with Metal 4 resources — buffer / texture / heap creation, storage modes, `MTLResidencySet` management, heap aliasing, purgeable state, texture view pools, GPU lossless compression, and…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/managing-metal4-resources",
+    "tags": [
+      "and",
+      "game",
+      "managing",
+      "metal"
+    ],
+    "skill_content": "---\nname: Managing Metal4 Resources\ndescription: ALWAYS use when working with Metal 4 resources — buffer / texture / heap creation, storage modes, `MTLResidencySet` management, heap aliasing, purgeable state, texture view pools, GPU lossless compression, and…\n---\n\n# Managing Metal4 Resources\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when working with Metal 4 resources — buffer / texture / heap creation, storage modes, `MTLResidencySet` management, heap aliasing, purgeable state, texture view pools, GPU lossless compression, and…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/managing-metal4-resources\n"
+  },
+  {
+    "slug": "apple-game-creating-metal4-shader-pipelines",
+    "name": "Creating Metal4 Shader Pipelines",
+    "category": "coding",
+    "description": "ALWAYS use when creating Metal pipeline state objects with Metal 4 descriptors (MTL4RenderPipelineDescriptor, MTL4ComputePipelineDescriptor, MTL4MeshRenderPipelineDescriptor) via MTL4Compiler. Covers function…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/creating-metal4-shader-pipelines",
+    "tags": [
+      "and",
+      "creating",
+      "game",
+      "metal"
+    ],
+    "skill_content": "---\nname: Creating Metal4 Shader Pipelines\ndescription: ALWAYS use when creating Metal pipeline state objects with Metal 4 descriptors (MTL4RenderPipelineDescriptor, MTL4ComputePipelineDescriptor, MTL4MeshRenderPipelineDescriptor) via MTL4Compiler. Covers function…\n---\n\n# Creating Metal4 Shader Pipelines\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when creating Metal pipeline state objects with Metal 4 descriptors (MTL4RenderPipelineDescriptor, MTL4ComputePipelineDescriptor, MTL4MeshRenderPipelineDescriptor) via MTL4Compiler. Covers function…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/creating-metal4-shader-pipelines\n"
+  },
+  {
+    "slug": "apple-game-presenting-metal-drawables",
+    "name": "Presenting Metal Drawables",
+    "category": "coding",
+    "description": "ALWAYS use when implementing or debugging the Metal drawable presentation contract — `CAMetalLayer` configuration, drawable lifecycle (`nextDrawable`, `waitForDrawable`, `signalDrawable`, `present`), vsync…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/presenting-metal-drawables",
+    "tags": [
+      "and",
+      "drawables",
+      "game",
+      "metal"
+    ],
+    "skill_content": "---\nname: Presenting Metal Drawables\ndescription: ALWAYS use when implementing or debugging the Metal drawable presentation contract — `CAMetalLayer` configuration, drawable lifecycle (`nextDrawable`, `waitForDrawable`, `signalDrawable`, `present`), vsync…\n---\n\n# Presenting Metal Drawables\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when implementing or debugging the Metal drawable presentation contract — `CAMetalLayer` configuration, drawable lifecycle (`nextDrawable`, `waitForDrawable`, `signalDrawable`, `present`), vsync…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/presenting-metal-drawables\n"
+  },
+  {
+    "slug": "apple-game-managing-metal-cpp-lifetimes",
+    "name": "Managing Metal Cpp Lifetimes",
+    "category": "coding",
+    "description": "ALWAYS use when writing or porting Metal object lifetime management code in metal-cpp — including crashes on release, use-after-free, memory leaks, autorelease pool placement, NS::TransferPtr vs NS::RetainPtr…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/managing-metal-cpp-lifetimes",
+    "tags": [
+      "and",
+      "cpp",
+      "game",
+      "lifetimes"
+    ],
+    "skill_content": "---\nname: Managing Metal Cpp Lifetimes\ndescription: ALWAYS use when writing or porting Metal object lifetime management code in metal-cpp — including crashes on release, use-after-free, memory leaks, autorelease pool placement, NS::TransferPtr vs NS::RetainPtr…\n---\n\n# Managing Metal Cpp Lifetimes\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when writing or porting Metal object lifetime management code in metal-cpp — including crashes on release, use-after-free, memory leaks, autorelease pool placement, NS::TransferPtr vs NS::RetainPtr…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/managing-metal-cpp-lifetimes\n"
+  },
+  {
+    "slug": "apple-game-integrating-metal-shaderconverter-shaders",
+    "name": "Integrating Metal Shaderconverter Shaders",
+    "category": "coding",
+    "description": "ALWAYS use when integrating Metal shader converter (commonly referred to as MSC) shaders at runtime — binding model, top-level argument buffer (TLAB), root signature resource locations, descriptor/sampler heaps,…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/integrating-metal-shaderconverter-shaders",
+    "tags": [
+      "and",
+      "game",
+      "integrating",
+      "metal"
+    ],
+    "skill_content": "---\nname: Integrating Metal Shaderconverter Shaders\ndescription: ALWAYS use when integrating Metal shader converter (commonly referred to as MSC) shaders at runtime — binding model, top-level argument buffer (TLAB), root signature resource locations, descriptor/sampler heaps,…\n---\n\n# Integrating Metal Shaderconverter Shaders\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when integrating Metal shader converter (commonly referred to as MSC) shaders at runtime — binding model, top-level argument buffer (TLAB), root signature resource locations, descriptor/sampler heaps,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/integrating-metal-shaderconverter-shaders\n"
+  },
+  {
+    "slug": "apple-game-compiling-with-metal-shaderconverter",
+    "name": "Compiling With Metal Shaderconverter",
+    "category": "coding",
+    "description": "ALWAYS use when compiling DXIL/HLSL to metallib with Metal shader converter (commonly referred to as MSC) via the metal-shaderconverter CLI or libmetalirconverter (IRCompiler, IRObject, IRShaderReflection) at…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/compiling-with-metal-shaderconverter",
+    "tags": [
+      "and",
+      "compiling",
+      "game",
+      "metal"
+    ],
+    "skill_content": "---\nname: Compiling With Metal Shaderconverter\ndescription: ALWAYS use when compiling DXIL/HLSL to metallib with Metal shader converter (commonly referred to as MSC) via the metal-shaderconverter CLI or libmetalirconverter (IRCompiler, IRObject, IRShaderReflection) at…\n---\n\n# Compiling With Metal Shaderconverter\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when compiling DXIL/HLSL to metallib with Metal shader converter (commonly referred to as MSC) via the metal-shaderconverter CLI or libmetalirconverter (IRCompiler, IRObject, IRShaderReflection) at…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/compiling-with-metal-shaderconverter\n"
+  },
+  {
+    "slug": "apple-game-using-metalfx-temporal-upscaler",
+    "name": "Using Metalfx Temporal Upscaler",
+    "category": "coding",
+    "description": "ALWAYS use when the user wants to add MetalFX temporal upscaling, super-resolution, or upscaling to a Metal app — whether they say \"add MetalFX\", \"add temporal upscaling\", \"render at lower resolution and upscale\",…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-metalfx-temporal-upscaler",
+    "tags": [
+      "and",
+      "game",
+      "metal",
+      "metalfx"
+    ],
+    "skill_content": "---\nname: Using Metalfx Temporal Upscaler\ndescription: ALWAYS use when the user wants to add MetalFX temporal upscaling, super-resolution, or upscaling to a Metal app — whether they say \"add MetalFX\", \"add temporal upscaling\", \"render at lower resolution and upscale\",…\n---\n\n# Using Metalfx Temporal Upscaler\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when the user wants to add MetalFX temporal upscaling, super-resolution, or upscaling to a Metal app — whether they say \"add MetalFX\", \"add temporal upscaling\", \"render at lower resolution and upscale\",…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-metalfx-temporal-upscaler\n"
+  },
+  {
+    "slug": "apple-game-using-metalfx-frame-interpolation",
+    "name": "Using Metalfx Frame Interpolation",
+    "category": "coding",
+    "description": "ALWAYS use to add MetalFX frame interpolation with a dedicated PresentThread for precise dual-frame presentation to a Metal app. Use this skill when the user wants to add frame interpolation, frame generation, double…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-metalfx-frame-interpolation",
+    "tags": [
+      "and",
+      "frame",
+      "game",
+      "interpolation"
+    ],
+    "skill_content": "---\nname: Using Metalfx Frame Interpolation\ndescription: ALWAYS use to add MetalFX frame interpolation with a dedicated PresentThread for precise dual-frame presentation to a Metal app. Use this skill when the user wants to add frame interpolation, frame generation, double…\n---\n\n# Using Metalfx Frame Interpolation\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use to add MetalFX frame interpolation with a dedicated PresentThread for precise dual-frame presentation to a Metal app. Use this skill when the user wants to add frame interpolation, frame generation, double…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-metalfx-frame-interpolation\n"
+  },
+  {
+    "slug": "apple-game-setting-up-macos-window",
+    "name": "Setting Up Macos Window",
+    "category": "coding",
+    "description": "Setting up the macOS window layer when porting a Windows game to Metal. Covers AppDelegate + NSWindow programmatic setup, a CAMetalLayer-backed GameView with CAMetalDisplayLink, GameViewController lifecycle, AppKit…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/setting-up-macos-window",
+    "tags": [
+      "and",
+      "game",
+      "macos",
+      "metal"
+    ],
+    "skill_content": "---\nname: Setting Up Macos Window\ndescription: Setting up the macOS window layer when porting a Windows game to Metal. Covers AppDelegate + NSWindow programmatic setup, a CAMetalLayer-backed GameView with CAMetalDisplayLink, GameViewController lifecycle, AppKit…\n---\n\n# Setting Up Macos Window\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nSetting up the macOS window layer when porting a Windows game to Metal. Covers AppDelegate + NSWindow programmatic setup, a CAMetalLayer-backed GameView with CAMetalDisplayLink, GameViewController lifecycle, AppKit…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/setting-up-macos-window\n"
+  },
+  {
+    "slug": "apple-game-using-game-controller",
+    "name": "Using Game Controller",
+    "category": "coding",
+    "description": "ALWAYS use when the user has any question about game controller input on Apple platforms — whether writing new code, porting from Windows, or modernizing an existing implementation. Trigger when working with the…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-game-controller",
+    "tags": [
+      "and",
+      "controller",
+      "game",
+      "metal"
+    ],
+    "skill_content": "---\nname: Using Game Controller\ndescription: ALWAYS use when the user has any question about game controller input on Apple platforms — whether writing new code, porting from Windows, or modernizing an existing implementation. Trigger when working with the…\n---\n\n# Using Game Controller\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when the user has any question about game controller input on Apple platforms — whether writing new code, porting from Windows, or modernizing an existing implementation. Trigger when working with the…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-game-controller\n"
+  },
+  {
+    "slug": "apple-game-using-metal-validation",
+    "name": "Using Metal Validation",
+    "category": "coding",
+    "description": "ALWAYS use when a user wants to enable, configure, or run Metal validation — API validation (MTL_DEBUG_LAYER) for CPU-side API misuse, shader validation (MTL_SHADER_VALIDATION) for GPU-side memory errors, or the…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-metal-validation",
+    "tags": [
+      "and",
+      "game",
+      "metal",
+      "porting"
+    ],
+    "skill_content": "---\nname: Using Metal Validation\ndescription: ALWAYS use when a user wants to enable, configure, or run Metal validation — API validation (MTL_DEBUG_LAYER) for CPU-side API misuse, shader validation (MTL_SHADER_VALIDATION) for GPU-side memory errors, or the…\n---\n\n# Using Metal Validation\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when a user wants to enable, configure, or run Metal validation — API validation (MTL_DEBUG_LAYER) for CPU-side API misuse, shader validation (MTL_SHADER_VALIDATION) for GPU-side memory errors, or the…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-metal-validation\n"
+  },
+  {
+    "slug": "apple-game-using-gpucapture",
+    "name": "Using Gpucapture",
+    "category": "coding",
+    "description": "ALWAYS use when a user wants to capture a GPU trace (.gputrace) of a Metal application. Trigger when the user wants to capture a GPU trace, get a gputrace, record a Metal frame, capture a frame, capture GPU workload,…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-gpucapture",
+    "tags": [
+      "and",
+      "game",
+      "gpucapture",
+      "metal"
+    ],
+    "skill_content": "---\nname: Using Gpucapture\ndescription: ALWAYS use when a user wants to capture a GPU trace (.gputrace) of a Metal application. Trigger when the user wants to capture a GPU trace, get a gputrace, record a Metal frame, capture a frame, capture GPU workload,…\n---\n\n# Using Gpucapture\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when a user wants to capture a GPU trace (.gputrace) of a Metal application. Trigger when the user wants to capture a GPU trace, get a gputrace, record a Metal frame, capture a frame, capture GPU workload,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-gpucapture\n"
+  },
+  {
+    "slug": "apple-game-using-gpudebug",
+    "name": "Using Gpudebug",
+    "category": "coding",
+    "description": "ALWAYS use when a user has a .gputrace file and needs to inspect, navigate, or extract resources from it using the gpudebug CLI. Covers draw calls, render encoders, pipeline state, resource bindings,…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-gpudebug",
+    "tags": [
+      "and",
+      "game",
+      "gpudebug",
+      "metal"
+    ],
+    "skill_content": "---\nname: Using Gpudebug\ndescription: ALWAYS use when a user has a .gputrace file and needs to inspect, navigate, or extract resources from it using the gpudebug CLI. Covers draw calls, render encoders, pipeline state, resource bindings,…\n---\n\n# Using Gpudebug\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when a user has a .gputrace file and needs to inspect, navigate, or extract resources from it using the gpudebug CLI. Covers draw calls, render encoders, pipeline state, resource bindings,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/using-gpudebug\n"
+  },
+  {
+    "slug": "apple-game-debugging-rendering-issues",
+    "name": "Debugging Rendering Issues",
+    "category": "coding",
+    "description": "ALWAYS use when a user porting a game to Metal reports a rendering issue — blank screen, wrong output, or anything that looks incorrect on Metal vs. the source platform. Covers black screen, missing geometry, wrong…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/debugging-rendering-issues",
+    "tags": [
+      "and",
+      "debugging",
+      "game",
+      "issues"
+    ],
+    "skill_content": "---\nname: Debugging Rendering Issues\ndescription: ALWAYS use when a user porting a game to Metal reports a rendering issue — blank screen, wrong output, or anything that looks incorrect on Metal vs. the source platform. Covers black screen, missing geometry, wrong…\n---\n\n# Debugging Rendering Issues\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nALWAYS use when a user porting a game to Metal reports a rendering issue — blank screen, wrong output, or anything that looks incorrect on Metal vs. the source platform. Covers black screen, missing geometry, wrong…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/debugging-rendering-issues\n"
+  },
+  {
+    "slug": "apple-game-porting-methodology",
+    "name": "Porting Methodology",
+    "category": "coding",
+    "description": "Core development methodology for porting games and engines to Apple platforms. Defines porting goals, milestone lifecycle, debugging escalation, and conventions. Preloaded by the porting agent.",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-methodology",
+    "tags": [
+      "game",
+      "methodology",
+      "porting",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Porting Methodology\ndescription: Core development methodology for porting games and engines to Apple platforms. Defines porting goals, milestone lifecycle, debugging escalation, and conventions. Preloaded by the porting agent.\n---\n\n# Porting Methodology\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nCore development methodology for porting games and engines to Apple platforms. Defines porting goals, milestone lifecycle, debugging escalation, and conventions. Preloaded by the porting agent.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-methodology\n"
+  },
+  {
+    "slug": "apple-game-porting-discover",
+    "name": "Porting Discover",
+    "category": "coding",
+    "description": "Analyze a codebase before starting a Metal 4 port. Produces a discovery report with platform readiness, graphics backend analysis, feature coverage matrix, and trace-grounded findings. Use before any porting work begins.",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-discover",
+    "tags": [
+      "discover",
+      "game",
+      "porting",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Porting Discover\ndescription: Analyze a codebase before starting a Metal 4 port. Produces a discovery report with platform readiness, graphics backend analysis, feature coverage matrix, and trace-grounded findings. Use before any porting work begins.\n---\n\n# Porting Discover\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nAnalyze a codebase before starting a Metal 4 port. Produces a discovery report with platform readiness, graphics backend analysis, feature coverage matrix, and trace-grounded findings. Use before any porting work begins.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-discover\n"
+  },
+  {
+    "slug": "apple-game-porting-plan-goal",
+    "name": "Porting Plan Goal",
+    "category": "coding",
+    "description": "Define the next porting goal. Reads the discovery report and current porting state, proposes a goal with milestones, and creates a goal document.",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-plan-goal",
+    "tags": [
+      "game",
+      "goal",
+      "plan",
+      "porting"
+    ],
+    "skill_content": "---\nname: Porting Plan Goal\ndescription: Define the next porting goal. Reads the discovery report and current porting state, proposes a goal with milestones, and creates a goal document.\n---\n\n# Porting Plan Goal\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nDefine the next porting goal. Reads the discovery report and current porting state, proposes a goal with milestones, and creates a goal document.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-plan-goal\n"
+  },
+  {
+    "slug": "apple-game-porting-start-milestone",
+    "name": "Porting Start Milestone",
+    "category": "coding",
+    "description": "Begin the next milestone. Reads the goal document and latest handoff note, loads relevant skills, studies code paths, and produces a preparation summary for user review. Does NOT write code.",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-start-milestone",
+    "tags": [
+      "game",
+      "milestone",
+      "porting",
+      "start"
+    ],
+    "skill_content": "---\nname: Porting Start Milestone\ndescription: Begin the next milestone. Reads the goal document and latest handoff note, loads relevant skills, studies code paths, and produces a preparation summary for user review. Does NOT write code.\n---\n\n# Porting Start Milestone\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nBegin the next milestone. Reads the goal document and latest handoff note, loads relevant skills, studies code paths, and produces a preparation summary for user review. Does NOT write code.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-start-milestone\n"
+  },
+  {
+    "slug": "apple-game-porting-execute",
+    "name": "Porting Execute",
+    "category": "coding",
+    "description": "Begin writing code for the current milestone. This is the explicit go-signal after /porting-start-milestone preparation has been reviewed and approved by the user.",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-execute",
+    "tags": [
+      "execute",
+      "game",
+      "porting",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Porting Execute\ndescription: Begin writing code for the current milestone. This is the explicit go-signal after /porting-start-milestone preparation has been reviewed and approved by the user.\n---\n\n# Porting Execute\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nBegin writing code for the current milestone. This is the explicit go-signal after /porting-start-milestone preparation has been reviewed and approved by the user.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-execute\n"
+  },
+  {
+    "slug": "apple-game-porting-validate",
+    "name": "Porting Validate",
+    "category": "coding",
+    "description": "Run the validation checklist before the milestone's final commit. Checks runtime verification, visual correctness, reference artifact comparison, Metal validation, memory leaks, skill-driven code review, and data…",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-validate",
+    "tags": [
+      "game",
+      "porting",
+      "trusted-source",
+      "validate"
+    ],
+    "skill_content": "---\nname: Porting Validate\ndescription: Run the validation checklist before the milestone's final commit. Checks runtime verification, visual correctness, reference artifact comparison, Metal validation, memory leaks, skill-driven code review, and data…\n---\n\n# Porting Validate\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nRun the validation checklist before the milestone's final commit. Checks runtime verification, visual correctness, reference artifact comparison, Metal validation, memory leaks, skill-driven code review, and data…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-validate\n"
+  },
+  {
+    "slug": "apple-game-porting-handoff",
+    "name": "Porting Handoff",
+    "category": "coding",
+    "description": "Close out the current milestone. Prompts the user to commit, updates porting-memory.md (watch list and feature status), writes a handoff note, updates the goal document milestone status, and requests a context reset.",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-handoff",
+    "tags": [
+      "game",
+      "handoff",
+      "porting",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Porting Handoff\ndescription: Close out the current milestone. Prompts the user to commit, updates porting-memory.md (watch list and feature status), writes a handoff note, updates the goal document milestone status, and requests a context reset.\n---\n\n# Porting Handoff\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nClose out the current milestone. Prompts the user to commit, updates porting-memory.md (watch list and feature status), writes a handoff note, updates the goal document milestone status, and requests a context reset.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-handoff\n"
+  },
+  {
+    "slug": "apple-game-porting-status",
+    "name": "Porting Status",
+    "category": "coding",
+    "description": "Show the current porting status. Reads the goal document, porting-memory.md, and latest handoff note to report where things stand. Read-only — does not continue any work.",
+    "author": "Apple",
+    "source_url": "https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-status",
+    "tags": [
+      "game",
+      "porting",
+      "status",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Porting Status\ndescription: Show the current porting status. Reads the goal document, porting-memory.md, and latest handoff note to report where things stand. Read-only — does not continue any work.\n---\n\n# Porting Status\n\nPart of the **Apple Game Porting Skills** pack by Apple (`apple/game-porting-toolkit`).\n\nShow the current porting status. Reads the goal document, porting-memory.md, and latest handoff note to report where things stand. Read-only — does not continue any work.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apple/game-porting-toolkit/tree/main/game-porting-skills/skills/porting-status\n"
+  }
+]

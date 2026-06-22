@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "asta-semantic-scholar",
+    "name": "Semantic Scholar",
+    "category": "research",
+    "description": "Look up or search papers, authors, citations, and full-text snippets on Semantic Scholar. Use for fast, targeted queries about a paper, author, or specific named research artifact (benchmark, dataset, model, method,…",
+    "author": "Ai2",
+    "source_url": "https://github.com/allenai/asta-plugins/tree/main/plugins/asta/skills/semantic-scholar",
+    "tags": [
+      "asta",
+      "research-institute",
+      "scholar",
+      "semantic"
+    ],
+    "skill_content": "---\nname: Semantic Scholar\ndescription: Look up or search papers, authors, citations, and full-text snippets on Semantic Scholar. Use for fast, targeted queries about a paper, author, or specific named research artifact (benchmark, dataset, model, method,…\n---\n\n# Semantic Scholar\n\nPart of the **Asta Scientific Research Skills** pack by Ai2 (`allenai/asta-plugins`).\n\nLook up or search papers, authors, citations, and full-text snippets on Semantic Scholar. Use for fast, targeted queries about a paper, author, or specific named research artifact (benchmark, dataset, model, method,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/allenai/asta-plugins/tree/main/plugins/asta/skills/semantic-scholar\n"
+  },
+  {
+    "slug": "asta-asta-documents",
+    "name": "Asta Documents",
+    "category": "research",
+    "description": "Local document metadata index for files used by Asta skills and tools. Use this skill when the user asks to store a document \"in Asta\" or retrieve \"from Asta\". Use it when the",
+    "author": "Ai2",
+    "source_url": "https://github.com/allenai/asta-plugins/tree/main/plugins/asta/skills/asta-documents",
+    "tags": [
+      "asta",
+      "documents",
+      "research-institute",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Asta Documents\ndescription: Local document metadata index for files used by Asta skills and tools. Use this skill when the user asks to store a document \"in Asta\" or retrieve \"from Asta\". Use it when the\n---\n\n# Asta Documents\n\nPart of the **Asta Scientific Research Skills** pack by Ai2 (`allenai/asta-plugins`).\n\nLocal document metadata index for files used by Asta skills and tools. Use this skill when the user asks to store a document \"in Asta\" or retrieve \"from Asta\". Use it when the\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/allenai/asta-plugins/tree/main/plugins/asta/skills/asta-documents\n"
+  },
+  {
+    "slug": "asta-pdf-extraction",
+    "name": "Pdf Extraction",
+    "category": "research",
+    "description": "Extract text from PDFs using olmOCR or remote OCR. Use when user asks to \"extract text from PDF\", \"OCR a document\", \"read a PDF\", or needs to process scanned documents.",
+    "author": "Ai2",
+    "source_url": "https://github.com/allenai/asta-plugins/tree/main/plugins/asta-preview/skills/pdf-extraction",
+    "tags": [
+      "asta",
+      "extraction",
+      "pdf",
+      "research-institute"
+    ],
+    "skill_content": "---\nname: Pdf Extraction\ndescription: Extract text from PDFs using olmOCR or remote OCR. Use when user asks to \"extract text from PDF\", \"OCR a document\", \"read a PDF\", or needs to process scanned documents.\n---\n\n# Pdf Extraction\n\nPart of the **Asta Scientific Research Skills** pack by Ai2 (`allenai/asta-plugins`).\n\nExtract text from PDFs using olmOCR or remote OCR. Use when user asks to \"extract text from PDF\", \"OCR a document\", \"read a PDF\", or needs to process scanned documents.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/allenai/asta-plugins/tree/main/plugins/asta-preview/skills/pdf-extraction\n"
+  },
+  {
+    "slug": "asta-find-literature",
+    "name": "Find Literature",
+    "category": "research",
+    "description": "This skill should be used when the user asks to \"find papers\", \"search for papers\", \"what does the literature say\", \"find research on\", \"academic papers about\", \"literature review\", \"cite papers\", or needs to answer…",
+    "author": "Ai2",
+    "source_url": "https://github.com/allenai/asta-plugins/tree/main/plugins/asta-preview/skills/find-literature",
+    "tags": [
+      "asta",
+      "find",
+      "literature",
+      "research-institute"
+    ],
+    "skill_content": "---\nname: Find Literature\ndescription: This skill should be used when the user asks to \"find papers\", \"search for papers\", \"what does the literature say\", \"find research on\", \"academic papers about\", \"literature review\", \"cite papers\", or needs to answer…\n---\n\n# Find Literature\n\nPart of the **Asta Scientific Research Skills** pack by Ai2 (`allenai/asta-plugins`).\n\nThis skill should be used when the user asks to \"find papers\", \"search for papers\", \"what does the literature say\", \"find research on\", \"academic papers about\", \"literature review\", \"cite papers\", or needs to answer…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/allenai/asta-plugins/tree/main/plugins/asta-preview/skills/find-literature\n"
+  },
+  {
+    "slug": "asta-literature-report",
+    "name": "Literature Report",
+    "category": "research",
+    "description": "Create or update literature reviews/reports. Use whenever you need to research, summarize, or synthesize the literature.",
+    "author": "Ai2",
+    "source_url": "https://github.com/allenai/asta-plugins/tree/main/plugins/asta/skills/literature-report",
+    "tags": [
+      "asta",
+      "literature",
+      "report",
+      "research-institute"
+    ],
+    "skill_content": "---\nname: Literature Report\ndescription: Create or update literature reviews/reports. Use whenever you need to research, summarize, or synthesize the literature.\n---\n\n# Literature Report\n\nPart of the **Asta Scientific Research Skills** pack by Ai2 (`allenai/asta-plugins`).\n\nCreate or update literature reviews/reports. Use whenever you need to research, summarize, or synthesize the literature.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/allenai/asta-plugins/tree/main/plugins/asta/skills/literature-report\n"
+  },
+  {
+    "slug": "asta-experiment",
+    "name": "Experiment",
+    "category": "research",
+    "description": "Run scientific (software) experiments. Use when the user asks to \"run an experiment\", \"run an investigation\", or \"research with Asta.\" Also use this skill to analyze experimental data generate a research report from…",
+    "author": "Ai2",
+    "source_url": "https://github.com/allenai/asta-plugins/tree/main/plugins/asta-preview/skills/experiment",
+    "tags": [
+      "asta",
+      "experiment",
+      "research-institute",
+      "run"
+    ],
+    "skill_content": "---\nname: Experiment\ndescription: Run scientific (software) experiments. Use when the user asks to \"run an experiment\", \"run an investigation\", or \"research with Asta.\" Also use this skill to analyze experimental data generate a research report from…\n---\n\n# Experiment\n\nPart of the **Asta Scientific Research Skills** pack by Ai2 (`allenai/asta-plugins`).\n\nRun scientific (software) experiments. Use when the user asks to \"run an experiment\", \"run an investigation\", or \"research with Asta.\" Also use this skill to analyze experimental data generate a research report from…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/allenai/asta-plugins/tree/main/plugins/asta-preview/skills/experiment\n"
+  },
+  {
+    "slug": "asta-research-step",
+    "name": "Research Step",
+    "category": "research",
+    "description": "Plan and execute autonomous research as a graph of typed tasks tracked in beads. Use when working from a mission.md to drive multi-step research with explicit dependencies and structured outputs.",
+    "author": "Ai2",
+    "source_url": "https://github.com/allenai/asta-plugins/tree/main/plugins/asta-preview/skills/research-step",
+    "tags": [
+      "asta",
+      "research",
+      "research-institute",
+      "step"
+    ],
+    "skill_content": "---\nname: Research Step\ndescription: Plan and execute autonomous research as a graph of typed tasks tracked in beads. Use when working from a mission.md to drive multi-step research with explicit dependencies and structured outputs.\n---\n\n# Research Step\n\nPart of the **Asta Scientific Research Skills** pack by Ai2 (`allenai/asta-plugins`).\n\nPlan and execute autonomous research as a graph of typed tasks tracked in beads. Use when working from a mission.md to drive multi-step research with explicit dependencies and structured outputs.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/allenai/asta-plugins/tree/main/plugins/asta-preview/skills/research-step\n"
+  },
+  {
+    "slug": "asta-workspace",
+    "name": "Workspace",
+    "category": "research",
+    "description": "Show the user the agent's work on a research project and save iterations on the user's behalf. Scaffold rendering and deploy infrastructure (Quarto today, GitHub Pages, dev container), show the rendered output, save…",
+    "author": "Ai2",
+    "source_url": "https://github.com/allenai/asta-plugins/tree/main/plugins/asta/skills/workspace",
+    "tags": [
+      "asta",
+      "research-institute",
+      "trusted-source",
+      "workspace"
+    ],
+    "skill_content": "---\nname: Workspace\ndescription: Show the user the agent's work on a research project and save iterations on the user's behalf. Scaffold rendering and deploy infrastructure (Quarto today, GitHub Pages, dev container), show the rendered output, save…\n---\n\n# Workspace\n\nPart of the **Asta Scientific Research Skills** pack by Ai2 (`allenai/asta-plugins`).\n\nShow the user the agent's work on a research project and save iterations on the user's behalf. Scaffold rendering and deploy infrastructure (Quarto today, GitHub Pages, dev container), show the rendered output, save…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/allenai/asta-plugins/tree/main/plugins/asta/skills/workspace\n"
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "slug": "snowflake-snowflake-docs",
+    "name": "Snowflake Docs",
+    "category": "data",
+    "description": "Use for **ALL** Snowflake documentation lookups: feature questions, SQL syntax, best practices, how-to guides, configuration, and troubleshooting. This is the required entry point for any question about Snowflake…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/snowflake-docs",
+    "tags": [
+      "code",
+      "cortex",
+      "docs",
+      "official-labs"
+    ],
+    "skill_content": "---\nname: Snowflake Docs\ndescription: Use for **ALL** Snowflake documentation lookups: feature questions, SQL syntax, best practices, how-to guides, configuration, and troubleshooting. This is the required entry point for any question about Snowflake…\n---\n\n# Snowflake Docs\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse for **ALL** Snowflake documentation lookups: feature questions, SQL syntax, best practices, how-to guides, configuration, and troubleshooting. This is the required entry point for any question about Snowflake…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/snowflake-docs\n"
+  },
+  {
+    "slug": "snowflake-quickstart-guide",
+    "name": "Quickstart Guide",
+    "category": "data",
+    "description": "Use when a user pastes a Snowflake Quickstart URL or asks to learn/walk through a Quickstart. Fetches the source content from GitHub, parses it into stages, checks the learner's environment, and delivers a guided…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/quickstart-guide",
+    "tags": [
+      "code",
+      "cortex",
+      "guide",
+      "official-labs"
+    ],
+    "skill_content": "---\nname: Quickstart Guide\ndescription: Use when a user pastes a Snowflake Quickstart URL or asks to learn/walk through a Quickstart. Fetches the source content from GitHub, parses it into stages, checks the learner's environment, and delivers a guided…\n---\n\n# Quickstart Guide\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when a user pastes a Snowflake Quickstart URL or asks to learn/walk through a Quickstart. Fetches the source content from GitHub, parses it into stages, checks the learner's environment, and delivers a guided…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/quickstart-guide\n"
+  },
+  {
+    "slug": "snowflake-semantic-view-patterns",
+    "name": "Semantic View Patterns",
+    "category": "data",
+    "description": "Use when learning Snowflake Semantic View patterns, teaching SV concepts, applying patterns to existing SVs, or building new SVs with best practices. Triggers: semantic view patterns, sv patterns, walk me through,…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/semantic-view-patterns",
+    "tags": [
+      "code",
+      "cortex",
+      "official-labs",
+      "patterns"
+    ],
+    "skill_content": "---\nname: Semantic View Patterns\ndescription: Use when learning Snowflake Semantic View patterns, teaching SV concepts, applying patterns to existing SVs, or building new SVs with best practices. Triggers: semantic view patterns, sv patterns, walk me through,…\n---\n\n# Semantic View Patterns\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when learning Snowflake Semantic View patterns, teaching SV concepts, applying patterns to existing SVs, or building new SVs with best practices. Triggers: semantic view patterns, sv patterns, walk me through,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/semantic-view-patterns\n"
+  },
+  {
+    "slug": "snowflake-ontology-stack-builder",
+    "name": "Ontology Stack Builder",
+    "category": "data",
+    "description": "Use for ALL requests that mention: ontology, knowledge graph, semantic layer from schema, ontology-on-snowflake, abstract views, ontology metadata tables, KG_NODE, KG_EDGE, build ontology stack, generate ontology…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/ontology-stack-builder",
+    "tags": [
+      "builder",
+      "code",
+      "cortex",
+      "official-labs"
+    ],
+    "skill_content": "---\nname: Ontology Stack Builder\ndescription: Use for ALL requests that mention: ontology, knowledge graph, semantic layer from schema, ontology-on-snowflake, abstract views, ontology metadata tables, KG_NODE, KG_EDGE, build ontology stack, generate ontology…\n---\n\n# Ontology Stack Builder\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse for ALL requests that mention: ontology, knowledge graph, semantic layer from schema, ontology-on-snowflake, abstract views, ontology metadata tables, KG_NODE, KG_EDGE, build ontology stack, generate ontology…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/ontology-stack-builder\n"
+  },
+  {
+    "slug": "snowflake-snowpipe-bcdr",
+    "name": "Snowpipe Bcdr",
+    "category": "data",
+    "description": "Use when designing or operating Snowpipe disaster recovery on Azure ADLS Gen2 — choosing between dual-pipe, RA-GRS, active-active, or Failover Group patterns, and running failover/failback/catchup. Triggers: snowpipe…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/snowpipe-bcdr",
+    "tags": [
+      "bcdr",
+      "code",
+      "cortex",
+      "official-labs"
+    ],
+    "skill_content": "---\nname: Snowpipe Bcdr\ndescription: Use when designing or operating Snowpipe disaster recovery on Azure ADLS Gen2 — choosing between dual-pipe, RA-GRS, active-active, or Failover Group patterns, and running failover/failback/catchup. Triggers: snowpipe…\n---\n\n# Snowpipe Bcdr\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when designing or operating Snowpipe disaster recovery on Azure ADLS Gen2 — choosing between dual-pipe, RA-GRS, active-active, or Failover Group patterns, and running failover/failback/catchup. Triggers: snowpipe…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/snowpipe-bcdr\n"
+  },
+  {
+    "slug": "snowflake-openflow-spcs-privatelink",
+    "name": "Setup Openflow Privatelink",
+    "category": "data",
+    "description": "Use when configuring private connectivity from Snowflake OpenFlow (running on SPCS) to AWS-hosted or on-premises data sources via AWS PrivateLink. Covers NLB + VPC Endpoint Service on AWS, then…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/openflow-spcs-privatelink",
+    "tags": [
+      "code",
+      "cortex",
+      "official-labs",
+      "openflow"
+    ],
+    "skill_content": "---\nname: Setup Openflow Privatelink\ndescription: Use when configuring private connectivity from Snowflake OpenFlow (running on SPCS) to AWS-hosted or on-premises data sources via AWS PrivateLink. Covers NLB + VPC Endpoint Service on AWS, then…\n---\n\n# Setup Openflow Privatelink\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when configuring private connectivity from Snowflake OpenFlow (running on SPCS) to AWS-hosted or on-premises data sources via AWS PrivateLink. Covers NLB + VPC Endpoint Service on AWS, then…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/openflow-spcs-privatelink\n"
+  },
+  {
+    "slug": "snowflake-manage-zerocopy-sapbdc",
+    "name": "Manage Zerocopy Sapbdc",
+    "category": "data",
+    "description": "Manage the end-to-end lifecycle of the Snowflake and SAP BDC Zero-Copy Integration and connector. Use when: consuming SAP data products in Snowflake, publishing Snowflake databases to SAP BDC, analyzing shared SAP…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/manage-zerocopy-sapbdc",
+    "tags": [
+      "code",
+      "cortex",
+      "manage",
+      "official-labs"
+    ],
+    "skill_content": "---\nname: Manage Zerocopy Sapbdc\ndescription: Manage the end-to-end lifecycle of the Snowflake and SAP BDC Zero-Copy Integration and connector. Use when: consuming SAP data products in Snowflake, publishing Snowflake databases to SAP BDC, analyzing shared SAP…\n---\n\n# Manage Zerocopy Sapbdc\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nManage the end-to-end lifecycle of the Snowflake and SAP BDC Zero-Copy Integration and connector. Use when: consuming SAP data products in Snowflake, publishing Snowflake databases to SAP BDC, analyzing shared SAP…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/manage-zerocopy-sapbdc\n"
+  },
+  {
+    "slug": "snowflake-rbac",
+    "name": "Rbac",
+    "category": "data",
+    "description": "Use when designing or refactoring Snowflake RBAC: choosing a role hierarchy, creating database/schema access roles, setting up functional roles, deciding between primary and secondary roles, or referencing roles in…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/rbac",
+    "tags": [
+      "code",
+      "cortex",
+      "official-labs",
+      "rbac"
+    ],
+    "skill_content": "---\nname: Rbac\ndescription: Use when designing or refactoring Snowflake RBAC: choosing a role hierarchy, creating database/schema access roles, setting up functional roles, deciding between primary and secondary roles, or referencing roles in…\n---\n\n# Rbac\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when designing or refactoring Snowflake RBAC: choosing a role hierarchy, creating database/schema access roles, setting up functional roles, deciding between primary and secondary roles, or referencing roles in…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/rbac\n"
+  },
+  {
+    "slug": "snowflake-mlops",
+    "name": "Mlops",
+    "category": "data",
+    "description": "Use when a developer or data engineer wants to assess MLOps maturity, design a promotion strategy (Code/Model/Hybrid), or implement MLOps capabilities (CI/CD, monitoring, retraining, governance) on Snowflake for…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/mlops",
+    "tags": [
+      "code",
+      "cortex",
+      "mlops",
+      "official-labs"
+    ],
+    "skill_content": "---\nname: Mlops\ndescription: Use when a developer or data engineer wants to assess MLOps maturity, design a promotion strategy (Code/Model/Hybrid), or implement MLOps capabilities (CI/CD, monitoring, retraining, governance) on Snowflake for…\n---\n\n# Mlops\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when a developer or data engineer wants to assess MLOps maturity, design a promotion strategy (Code/Model/Hybrid), or implement MLOps capabilities (CI/CD, monitoring, retraining, governance) on Snowflake for…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/mlops\n"
+  },
+  {
+    "slug": "snowflake-dcr-v1-to-v2",
+    "name": "Dcr V1 To V2",
+    "category": "data",
+    "description": "Use when migrating a Snowflake Data Clean Room from V1 (SAMOOHA Provider/Consumer API) to V2 (Collaboration API). Discovers V1 setup via introspection queries, maps constructs to Collaboration API equivalents,…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/dcr-v1-to-v2",
+    "tags": [
+      "code",
+      "cortex",
+      "dcr",
+      "official-labs"
+    ],
+    "skill_content": "---\nname: Dcr V1 To V2\ndescription: Use when migrating a Snowflake Data Clean Room from V1 (SAMOOHA Provider/Consumer API) to V2 (Collaboration API). Discovers V1 setup via introspection queries, maps constructs to Collaboration API equivalents,…\n---\n\n# Dcr V1 To V2\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when migrating a Snowflake Data Clean Room from V1 (SAMOOHA Provider/Consumer API) to V2 (Collaboration API). Discovers V1 setup via introspection queries, maps constructs to Collaboration API equivalents,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/dcr-v1-to-v2\n"
+  },
+  {
+    "slug": "snowflake-spec-driven",
+    "name": "Spec Driven",
+    "category": "data",
+    "description": "Use when implementing a feature, fixing a bug, refactoring code, creating a spec, writing a specification, planning implementation, or following a structured development workflow. Creates specifications BEFORE…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/spec-driven",
+    "tags": [
+      "code",
+      "cortex",
+      "driven",
+      "official-labs"
+    ],
+    "skill_content": "---\nname: Spec Driven\ndescription: Use when implementing a feature, fixing a bug, refactoring code, creating a spec, writing a specification, planning implementation, or following a structured development workflow. Creates specifications BEFORE…\n---\n\n# Spec Driven\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when implementing a feature, fixing a bug, refactoring code, creating a spec, writing a specification, planning implementation, or following a structured development workflow. Creates specifications BEFORE…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/spec-driven\n"
+  },
+  {
+    "slug": "snowflake-snowpro-study",
+    "name": "Snowpro Study",
+    "category": "data",
+    "description": "Generate SnowPro certification study materials including study plans, domain deep-dives, flashcards, and practice exam questions for any SnowPro exam. Dynamically discovers current certifications and exam versions…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/snowpro-study",
+    "tags": [
+      "code",
+      "cortex",
+      "official-labs",
+      "snowflake"
+    ],
+    "skill_content": "---\nname: Snowpro Study\ndescription: Generate SnowPro certification study materials including study plans, domain deep-dives, flashcards, and practice exam questions for any SnowPro exam. Dynamically discovers current certifications and exam versions…\n---\n\n# Snowpro Study\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nGenerate SnowPro certification study materials including study plans, domain deep-dives, flashcards, and practice exam questions for any SnowPro exam. Dynamically discovers current certifications and exam versions…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/snowpro-study\n"
+  },
+  {
+    "slug": "snowflake-well-architected-framework-assessment",
+    "name": "Well Architected Framework Assessment",
+    "category": "data",
+    "description": "Use when running a Snowflake Well-Architected Framework (WAF) assessment for a customer account. Three-tier scale: On Track / Needs Improvement / Needs Attention. Results displayed inline; optional HTML export.…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/well-architected-framework-assessment",
+    "tags": [
+      "architected",
+      "assessment",
+      "code",
+      "cortex"
+    ],
+    "skill_content": "---\nname: Well Architected Framework Assessment\ndescription: Use when running a Snowflake Well-Architected Framework (WAF) assessment for a customer account. Three-tier scale: On Track / Needs Improvement / Needs Attention. Results displayed inline; optional HTML export.…\n---\n\n# Well Architected Framework Assessment\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when running a Snowflake Well-Architected Framework (WAF) assessment for a customer account. Three-tier scale: On Track / Needs Improvement / Needs Attention. Results displayed inline; optional HTML export.…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/well-architected-framework-assessment\n"
+  },
+  {
+    "slug": "snowflake-review-skill-sflabs",
+    "name": "Review Skill Sflabs",
+    "category": "data",
+    "description": "Use when a contributor has built a Cortex Code skill locally and wants a pre-PR readiness check before opening a pull request against Snowflake-Labs/cortex-code-skills. Verdict: promote, adapt, or skip — with…",
+    "author": "Snowflake Labs",
+    "source_url": "https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/review-skill-sflabs",
+    "tags": [
+      "code",
+      "cortex",
+      "official-labs",
+      "review"
+    ],
+    "skill_content": "---\nname: Review Skill Sflabs\ndescription: Use when a contributor has built a Cortex Code skill locally and wants a pre-PR readiness check before opening a pull request against Snowflake-Labs/cortex-code-skills. Verdict: promote, adapt, or skip — with…\n---\n\n# Review Skill Sflabs\n\nPart of the **Cortex Code Community Skills** pack by Snowflake Labs (`Snowflake-Labs/coco-skills`).\n\nUse when a contributor has built a Cortex Code skill locally and wants a pre-PR readiness check before opening a pull request against Snowflake-Labs/cortex-code-skills. Verdict: promote, adapt, or skip — with…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/Snowflake-Labs/coco-skills/tree/main/skills/review-skill-sflabs\n"
+  }
+]

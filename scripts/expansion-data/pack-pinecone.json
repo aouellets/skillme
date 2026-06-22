@@ -1,0 +1,137 @@
+[
+  {
+    "slug": "pinecone-pinecone-quickstart",
+    "name": "Pinecone Quickstart",
+    "category": "data",
+    "description": "Interactive Pinecone quickstart for new developers. Choose between two paths - Database (create an integrated index, upsert data, and query using Pinecone MCP + Python) or Assistant (create a Pinecone Assistant for…",
+    "author": "Pinecone",
+    "source_url": "https://github.com/pinecone-io/skills/tree/main/skills/pinecone-quickstart",
+    "tags": [
+      "pinecone",
+      "quickstart",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Pinecone Quickstart\ndescription: Interactive Pinecone quickstart for new developers. Choose between two paths - Database (create an integrated index, upsert data, and query using Pinecone MCP + Python) or Assistant (create a Pinecone Assistant for…\n---\n\n# Pinecone Quickstart\n\nPart of the **Pinecone Agent Skills** pack by Pinecone (`pinecone-io/skills`).\n\nInteractive Pinecone quickstart for new developers. Choose between two paths - Database (create an integrated index, upsert data, and query using Pinecone MCP + Python) or Assistant (create a Pinecone Assistant for…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pinecone-io/skills/tree/main/skills/pinecone-quickstart\n"
+  },
+  {
+    "slug": "pinecone-pinecone-query",
+    "name": "Pinecone Query",
+    "category": "data",
+    "description": "Query integrated indexes using text with Pinecone MCP. IMPORTANT - This skill ONLY works with integrated indexes (indexes with built-in Pinecone embedding models like multilingual-e5-large). For standard indexes or…",
+    "author": "Pinecone",
+    "source_url": "https://github.com/pinecone-io/skills/tree/main/skills/pinecone-query",
+    "tags": [
+      "pinecone",
+      "query",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Pinecone Query\ndescription: Query integrated indexes using text with Pinecone MCP. IMPORTANT - This skill ONLY works with integrated indexes (indexes with built-in Pinecone embedding models like multilingual-e5-large). For standard indexes or…\n---\n\n# Pinecone Query\n\nPart of the **Pinecone Agent Skills** pack by Pinecone (`pinecone-io/skills`).\n\nQuery integrated indexes using text with Pinecone MCP. IMPORTANT - This skill ONLY works with integrated indexes (indexes with built-in Pinecone embedding models like multilingual-e5-large). For standard indexes or…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pinecone-io/skills/tree/main/skills/pinecone-query\n"
+  },
+  {
+    "slug": "pinecone-pinecone-cli",
+    "name": "Pinecone Cli",
+    "category": "data",
+    "description": "Guide for using the Pinecone CLI (pc) to manage Pinecone resources from the terminal. The CLI supports ALL index types (standard, integrated, sparse) and all vector operations — unlike the MCP which only supports…",
+    "author": "Pinecone",
+    "source_url": "https://github.com/pinecone-io/skills/tree/main/skills/pinecone-cli",
+    "tags": [
+      "cli",
+      "pinecone",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Pinecone Cli\ndescription: Guide for using the Pinecone CLI (pc) to manage Pinecone resources from the terminal. The CLI supports ALL index types (standard, integrated, sparse) and all vector operations — unlike the MCP which only supports…\n---\n\n# Pinecone Cli\n\nPart of the **Pinecone Agent Skills** pack by Pinecone (`pinecone-io/skills`).\n\nGuide for using the Pinecone CLI (pc) to manage Pinecone resources from the terminal. The CLI supports ALL index types (standard, integrated, sparse) and all vector operations — unlike the MCP which only supports…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pinecone-io/skills/tree/main/skills/pinecone-cli\n"
+  },
+  {
+    "slug": "pinecone-pinecone-assistant",
+    "name": "Pinecone Assistant",
+    "category": "data",
+    "description": "Create, manage, and chat with Pinecone Assistants for document Q&A with citations. Handles all assistant operations - create, upload, sync, chat, context retrieval, and list. Recognizes natural language like \"create…",
+    "author": "Pinecone",
+    "source_url": "https://github.com/pinecone-io/skills/tree/main/skills/pinecone-assistant",
+    "tags": [
+      "assistant",
+      "pinecone",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Pinecone Assistant\ndescription: Create, manage, and chat with Pinecone Assistants for document Q&A with citations. Handles all assistant operations - create, upload, sync, chat, context retrieval, and list. Recognizes natural language like \"create…\n---\n\n# Pinecone Assistant\n\nPart of the **Pinecone Agent Skills** pack by Pinecone (`pinecone-io/skills`).\n\nCreate, manage, and chat with Pinecone Assistants for document Q&A with citations. Handles all assistant operations - create, upload, sync, chat, context retrieval, and list. Recognizes natural language like \"create…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pinecone-io/skills/tree/main/skills/pinecone-assistant\n"
+  },
+  {
+    "slug": "pinecone-pinecone-mcp",
+    "name": "Pinecone Mcp",
+    "category": "data",
+    "description": "Reference for the Pinecone MCP server tools. Documents all available tools - list-indexes, describe-index, describe-index-stats, create-index-for-model, upsert-records, search-records, cascading-search, and…",
+    "author": "Pinecone",
+    "source_url": "https://github.com/pinecone-io/skills/tree/main/skills/pinecone-mcp",
+    "tags": [
+      "mcp",
+      "pinecone",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Pinecone Mcp\ndescription: Reference for the Pinecone MCP server tools. Documents all available tools - list-indexes, describe-index, describe-index-stats, create-index-for-model, upsert-records, search-records, cascading-search, and…\n---\n\n# Pinecone Mcp\n\nPart of the **Pinecone Agent Skills** pack by Pinecone (`pinecone-io/skills`).\n\nReference for the Pinecone MCP server tools. Documents all available tools - list-indexes, describe-index, describe-index-stats, create-index-for-model, upsert-records, search-records, cascading-search, and…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pinecone-io/skills/tree/main/skills/pinecone-mcp\n"
+  },
+  {
+    "slug": "pinecone-pinecone-full-text-search",
+    "name": "Pinecone Full Text Search",
+    "category": "data",
+    "description": "Create, ingest into, and query a Pinecone full-text-search (FTS) index using the preview API (2026-01.alpha, public preview). Use when the user or agent asks to build a text search index on Pinecone, add dense or…",
+    "author": "Pinecone",
+    "source_url": "https://github.com/pinecone-io/skills/tree/main/skills/pinecone-full-text-search",
+    "tags": [
+      "full",
+      "pinecone",
+      "search",
+      "text"
+    ],
+    "skill_content": "---\nname: Pinecone Full Text Search\ndescription: Create, ingest into, and query a Pinecone full-text-search (FTS) index using the preview API (2026-01.alpha, public preview). Use when the user or agent asks to build a text search index on Pinecone, add dense or…\n---\n\n# Pinecone Full Text Search\n\nPart of the **Pinecone Agent Skills** pack by Pinecone (`pinecone-io/skills`).\n\nCreate, ingest into, and query a Pinecone full-text-search (FTS) index using the preview API (2026-01.alpha, public preview). Use when the user or agent asks to build a text search index on Pinecone, add dense or…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pinecone-io/skills/tree/main/skills/pinecone-full-text-search\n"
+  },
+  {
+    "slug": "pinecone-pinecone-docs",
+    "name": "Pinecone Docs",
+    "category": "data",
+    "description": "Curated documentation reference for developers building with Pinecone. Contains links to official docs organized by topic and data format references. Use when writing Pinecone code, looking up API parameters, or…",
+    "author": "Pinecone",
+    "source_url": "https://github.com/pinecone-io/skills/tree/main/skills/pinecone-docs",
+    "tags": [
+      "docs",
+      "pinecone",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Pinecone Docs\ndescription: Curated documentation reference for developers building with Pinecone. Contains links to official docs organized by topic and data format references. Use when writing Pinecone code, looking up API parameters, or…\n---\n\n# Pinecone Docs\n\nPart of the **Pinecone Agent Skills** pack by Pinecone (`pinecone-io/skills`).\n\nCurated documentation reference for developers building with Pinecone. Contains links to official docs organized by topic and data format references. Use when writing Pinecone code, looking up API parameters, or…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pinecone-io/skills/tree/main/skills/pinecone-docs\n"
+  },
+  {
+    "slug": "pinecone-pinecone-n8n",
+    "name": "Pinecone N8n",
+    "category": "data",
+    "description": "Build n8n workflows using the Pinecone Assistant node or Pinecone Vector Store node. Use when building RAG pipelines, chat-with-docs workflows, configuring Pinecone nodes in n8n, troubleshooting Pinecone n8n nodes,…",
+    "author": "Pinecone",
+    "source_url": "https://github.com/pinecone-io/skills/tree/main/skills/pinecone-n8n",
+    "tags": [
+      "n8n",
+      "pinecone",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Pinecone N8n\ndescription: Build n8n workflows using the Pinecone Assistant node or Pinecone Vector Store node. Use when building RAG pipelines, chat-with-docs workflows, configuring Pinecone nodes in n8n, troubleshooting Pinecone n8n nodes,…\n---\n\n# Pinecone N8n\n\nPart of the **Pinecone Agent Skills** pack by Pinecone (`pinecone-io/skills`).\n\nBuild n8n workflows using the Pinecone Assistant node or Pinecone Vector Store node. Use when building RAG pipelines, chat-with-docs workflows, configuring Pinecone nodes in n8n, troubleshooting Pinecone n8n nodes,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pinecone-io/skills/tree/main/skills/pinecone-n8n\n"
+  },
+  {
+    "slug": "pinecone-pinecone-help",
+    "name": "Pinecone Help",
+    "category": "data",
+    "description": "Overview of all available Pinecone skills and what a user needs to get started. Invoke when a user asks what skills are available, how to get started with Pinecone, or what they need to set up before using any…",
+    "author": "Pinecone",
+    "source_url": "https://github.com/pinecone-io/skills/tree/main/skills/pinecone-help",
+    "tags": [
+      "help",
+      "pinecone",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Pinecone Help\ndescription: Overview of all available Pinecone skills and what a user needs to get started. Invoke when a user asks what skills are available, how to get started with Pinecone, or what they need to set up before using any…\n---\n\n# Pinecone Help\n\nPart of the **Pinecone Agent Skills** pack by Pinecone (`pinecone-io/skills`).\n\nOverview of all available Pinecone skills and what a user needs to get started. Invoke when a user asks what skills are available, how to get started with Pinecone, or what they need to set up before using any…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/pinecone-io/skills/tree/main/skills/pinecone-help\n"
+  }
+]
