@@ -5,6 +5,7 @@ import { SkillCard } from '@/components/SkillCard'
 import { SkillThumbnail } from '@/components/SkillThumbnail'
 import { VerifiedMark } from '@/components/VerifiedMark'
 import { OfficialBadge } from '@/components/OfficialBadge'
+import { MethodologyBadge } from '@/components/MethodologyBadge'
 import { PartnerLogo } from '@/components/PartnerLogo'
 import { isOfficial } from '@/lib/skill-source'
 import { isPartner } from '@/lib/partners'
@@ -88,6 +89,7 @@ export default async function PackDetailPage({
           {isOfficial(pack) && <OfficialBadge />}
           {isPartner(pack.author) && <PartnerLogo author={pack.author} size={16} withLabel asLink />}
           {pack.verified && !isPartner(pack.author) && <VerifiedMark />}
+          <MethodologyBadge tags={pack.tags} />
         </div>
         <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-shelf-text-primary sm:text-5xl">
           {pack.name}

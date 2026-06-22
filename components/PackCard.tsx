@@ -22,6 +22,7 @@ export function PackCard({ pack }: { pack: PackCardData }) {
           name: pack.name,
           author: pack.author,
           category: pack.category,
+          tags: pack.tags,
           thumbnail_url: pack.thumbnail_url,
           thumbnail_gif: pack.thumbnail_gif,
           media_alt: pack.media_alt,
