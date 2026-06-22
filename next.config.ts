@@ -19,6 +19,20 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  /**
+   * Force the dynamically-rendered Open Graph / Twitter image routes to bundle
+   * the vendored brand fonts. They're read at render with `fs.readFile`, and
+   * production minification can drop them from the function's traced files —
+   * which 500s every share card with ENOENT. This guarantees their inclusion.
+   */
+  outputFileTracingIncludes: {
+    '/opengraph-image': ['./lib/og/fonts/**'],
+    '/twitter-image': ['./lib/og/fonts/**'],
+    '/skill/[slug]/opengraph-image': ['./lib/og/fonts/**'],
+    '/skill/[slug]/twitter-image': ['./lib/og/fonts/**'],
+    '/pack/[slug]/opengraph-image': ['./lib/og/fonts/**'],
+    '/pack/[slug]/twitter-image': ['./lib/og/fonts/**'],
+  },
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }]
   },

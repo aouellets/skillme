@@ -1,5 +1,5 @@
 import { readFile } from 'node:fs/promises'
-import { fileURLToPath } from 'node:url'
+import path from 'node:path'
 import type { ReactElement } from 'react'
 import type { SkillCategory } from '@/lib/types'
 
@@ -56,16 +56,23 @@ type FontEntry = { name: string; data: Buffer | ArrayBuffer; weight: FontWeight;
 
 let fontCache: FontEntry[] | null = null
 
+// Read the vendored fonts from the project tree via process.cwd() rather than a
+// `new URL(..., import.meta.url)` asset reference: webpack rewrites the latter
+// into an asset URL that breaks `fileURLToPath` under production minification
+// (ERR_INVALID_ARG_TYPE), and nft drops a templated path (ENOENT on Vercel).
+// `next.config.ts` outputFileTracingIncludes guarantees these files ship in the
+// OG function bundles at this project-relative location.
 export async function loadBrandFonts(): Promise<FontEntry[]> {
   if (fontCache) return fontCache
-  const read = (file: string) => readFile(fileURLToPath(new URL(`./fonts/${file}`, import.meta.url)))
+  const dir = path.join(process.cwd(), 'lib', 'og', 'fonts')
+  const readFont = (file: string) => readFile(path.join(dir, file))
   const [i400, i600, i700, i800, gRegular, gSemibold] = await Promise.all([
-    read('Inter-400.woff'),
-    read('Inter-600.woff'),
-    read('Inter-700.woff'),
-    read('Inter-800.woff'),
-    read('Geist-Regular.ttf'),
-    read('Geist-SemiBold.ttf'),
+    readFont('Inter-400.woff'),
+    readFont('Inter-600.woff'),
+    readFont('Inter-700.woff'),
+    readFont('Inter-800.woff'),
+    readFont('Geist-Regular.ttf'),
+    readFont('Geist-SemiBold.ttf'),
   ])
   fontCache = [
     { name: 'Inter', data: i400, weight: 400, style: 'normal' },
