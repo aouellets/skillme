@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Marquee } from './Marquee'
+import { PartnerMark } from './PartnerMark'
 import { PARTNER_STRIP, getPartner } from '@/lib/partners'
 
 /**
@@ -20,17 +21,9 @@ export function PartnerMarquee() {
           key={packSlug}
           href={`/pack/${packSlug}`}
           title={`${partner.label} — official skills`}
-          className="inline-flex items-center gap-2.5 text-shelf-text-tertiary grayscale transition-all duration-300 hover:text-shelf-text-primary hover:grayscale-0"
+          className="inline-flex items-center gap-2.5 text-shelf-text-secondary opacity-90 transition-all duration-300 hover:text-shelf-text-primary hover:opacity-100"
         >
-          <svg
-            width={22}
-            height={22}
-            viewBox={partner.mark.viewBox}
-            fill="currentColor"
-            aria-hidden
-          >
-            <path d={partner.mark.path} />
-          </svg>
+          <PartnerMark partner={partner} size={22} />
           <span className="whitespace-nowrap text-[15px] font-medium">{partner.label}</span>
         </Link>
       ))}

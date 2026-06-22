@@ -1,4 +1,5 @@
 import { getPartner } from '@/lib/partners'
+import { PartnerMark } from './PartnerMark'
 
 /**
  * Official partner brand mark, shown as a trust signal next to the author of a
@@ -28,16 +29,7 @@ export function PartnerLogo({
 
   const inner = (
     <span className={`inline-flex items-center gap-1.5 ${className}`}>
-      <svg
-        width={size}
-        height={size}
-        viewBox={partner.mark.viewBox}
-        fill="currentColor"
-        aria-hidden
-        className="shrink-0"
-      >
-        <path d={partner.mark.path} />
-      </svg>
+      <PartnerMark partner={partner} size={size} className="shrink-0" />
       {withLabel && <span>{partner.label}</span>}
     </span>
   )

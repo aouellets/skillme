@@ -69,7 +69,7 @@ export function partnerThumbnailSvg(author: string | undefined, category?: strin
   const partner = getPartner(author)
   if (!partner) return ''
 
-  const { color, tint, mark, label: brand } = partner
+  const { color, tint, mark, label: brand, logoColor } = partner
   const catKey = isCategoryArtKey(category) ? category : 'mixed'
   const catLabel = CATEGORY_ART[catKey].label.toUpperCase()
 
@@ -78,7 +78,8 @@ export function partnerThumbnailSvg(author: string | undefined, category?: strin
   const cy = 74
   const logoSize = 58
   const half = logoSize / 2
-  const logo = logoMarkup(author!, mark.viewBox, mark.path, color)
+  // Mark in its own brand color; the glow/rings stay the accent `color`.
+  const logo = logoMarkup(author!, mark.viewBox, mark.path, logoColor)
 
   // Optical nudge, converted from viewBox units to art units via the mark scale.
   const vb = mark.viewBox.split(/\s+/).map(Number)

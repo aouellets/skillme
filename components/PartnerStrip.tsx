@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { PartnerMark } from './PartnerMark'
 import { PARTNER_STRIP, getPartner } from '@/lib/partners'
 
 /**
@@ -23,11 +24,9 @@ export function PartnerStrip() {
             key={packSlug}
             href={`/pack/${packSlug}`}
             title={`${partner.label} — official skills`}
-            className="inline-flex items-center gap-2 text-shelf-text-tertiary grayscale transition-all hover:text-shelf-text-primary hover:grayscale-0"
+            className="inline-flex items-center gap-2 text-shelf-text-secondary opacity-90 transition-all hover:text-shelf-text-primary hover:opacity-100"
           >
-            <svg width={20} height={20} viewBox={partner.mark.viewBox} fill="currentColor" aria-hidden>
-              <path d={partner.mark.path} />
-            </svg>
+            <PartnerMark partner={partner} size={20} />
             <span className="text-sm font-medium">{partner.label}</span>
           </Link>
         ))}
