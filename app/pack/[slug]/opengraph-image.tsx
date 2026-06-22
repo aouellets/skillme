@@ -46,7 +46,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             height: 560,
             borderRadius: 9999,
             background:
-              'radial-gradient(circle at center, rgba(180,243,62,0.18), rgba(180,243,62,0))',
+              'radial-gradient(circle at center, rgba(238,70,40,0.18), rgba(238,70,40,0))',
           }}
         />
 
@@ -67,8 +67,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             style={{
               display: 'flex',
               alignItems: 'center',
-              border: `1px solid #5a440f`,
-              backgroundColor: '#241c0c',
+              border: `1px solid #5c2417`,
+              backgroundColor: '#2a1109',
               borderRadius: 999,
               padding: '10px 22px',
               fontSize: 26,

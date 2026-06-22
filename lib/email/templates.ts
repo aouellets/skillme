@@ -1,15 +1,15 @@
 /**
  * Skill Me email design system + templates.
  *
- * On-brand "premium dark-tech": near-black surfaces, one locked electric-lime
- * accent (#b4f33e), light text — mirrors styles/tokens.css. A dark email is also
+ * On-brand "premium dark-tech": near-black surfaces, one locked vermilion
+ * accent (#ee4628), light text — mirrors styles/tokens.css. A dark email is also
  * more robust than a light one against email-client dark-mode auto-inversion.
  *
  * Everything is built from email-client-safe primitives: table-based layout,
  * inline styles on every node, bgcolor attributes for Outlook, a hidden
  * preheader, an MSO/VML bulletproof button, and color-scheme meta so clients
  * keep the intended dark palette. Web fonts don't load reliably in email, so we
- * declare Space Grotesk first and fall back to a strong system stack.
+ * declare Inter first and fall back to a strong system stack.
  *
  * Each builder returns { subject, html, text } — the plaintext part matters for
  * deliverability and is always provided.
@@ -28,11 +28,11 @@ const C = {
   textBody: '#c9cfca',
   textSecondary: '#9ba29d',
   textTertiary: '#7a827c',
-  accent: '#b4f33e',
-  accentHover: '#c8f86d',
-  accentDim: '#16210b',
-  accentBorder: '#37491b',
-  onAccent: '#0a1400',
+  accent: '#ee4628',
+  accentHover: '#c23a20',
+  accentDim: '#2a1109',
+  accentBorder: '#5c2417',
+  onAccent: '#faf6f0',
   success: '#4ade80',
   danger: '#f05252',
   warning: '#f5c451',
@@ -41,7 +41,7 @@ const C = {
 const FONT_BODY =
   "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
 const FONT_DISPLAY =
-  "'Space Grotesk', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif"
+  "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif"
 
 const LOGO_URL = `${SITE_URL}/skill-me-icon-512.png`
 

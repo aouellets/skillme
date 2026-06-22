@@ -47,7 +47,7 @@ export function newsletterWelcomeEmail(): EmailParts {
         'Want Claude to install skills for you mid-conversation? Connect the Skill Me MCP from the ' +
           '<a href="' +
           SITE_URL +
-          '/connect" style="color:#b4f33e;text-decoration:none;">Connect page</a>.',
+          '/connect" style="color:#ee4628;text-decoration:none;">Connect page</a>.',
         { muted: true },
       ),
     footerNote: "You're receiving this because you subscribed at skillme.dev.",
@@ -84,14 +84,14 @@ export function newsletterDigestEmail(input: DigestInput): EmailParts {
   const sections: string[] = []
   if (skills.length) {
     sections.push(
-      `<p style="margin:6px 0 12px;font-family:'Space Grotesk','Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7a827c;">New skills</p>`,
+      `<p style="margin:6px 0 12px;font-family:'Inter','Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7a827c;">New skills</p>`,
     )
     sections.push(skills.map(skillCard).join(''))
   }
   if (packs.length) {
     if (skills.length) sections.push('<div style="height:8px;line-height:8px;font-size:1px;">&nbsp;</div>')
     sections.push(
-      `<p style="margin:6px 0 12px;font-family:'Space Grotesk','Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7a827c;">New packs</p>`,
+      `<p style="margin:6px 0 12px;font-family:'Inter','Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7a827c;">New packs</p>`,
     )
     sections.push(packs.map(packCard).join(''))
   }
@@ -284,5 +284,5 @@ function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 function escLine(s: string): string {
-  return esc(s).replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" style="color:#b4f33e;text-decoration:none;">$1</a>')
+  return esc(s).replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" style="color:#ee4628;text-decoration:none;">$1</a>')
 }

@@ -3,8 +3,8 @@
 /* Bind the self-hosted next/font families to the token variables. Declared
    after the token import so these win deterministically. */
 :root {
-  --font-display: var(--ff-display), 'Space Grotesk', system-ui, sans-serif;
-  --font-body: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-display: var(--ff-inter), 'Inter', system-ui, sans-serif;
+  --font-body: var(--ff-inter), 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, 'SFMono-Regular', monospace;
 }
 
@@ -61,6 +61,13 @@
   }
 }
 
+/* Flip the logo mark for placement on a light/paper surface: ink tile, paper
+   bars. The accent bar stays vermilion. One <Mark/> serves both modes. */
+.mark-on-paper {
+  --mark-bg: var(--brand-ink);
+  --mark-fg: var(--brand-paper);
+}
+
 @layer components {
   /* === Buttons — radius 8px (sm), tactile push on :active === */
   .btn {
@@ -94,7 +101,7 @@
   .btn-primary:hover {
     background-color: var(--shelf-accent-hover);
     border-color: var(--shelf-accent-hover);
-    box-shadow: 0 0 30px -8px rgba(180, 243, 62, 0.5);
+    box-shadow: 0 0 30px -8px rgba(238, 70, 40, 0.5);
   }
 
   .btn-secondary {
@@ -185,7 +192,9 @@
   .chip-active {
     border-color: var(--shelf-accent-border);
     background-color: var(--shelf-accent-dim);
-    color: var(--shelf-accent-hover);
+    /* Base accent (not the deeper hover tone) so the active label keeps AA
+       contrast against the dim ember fill on the void. */
+    color: var(--shelf-accent);
   }
 
   /* Eyebrow / kicker label — used sparingly (max 1 per 3 sections) */
@@ -248,10 +257,10 @@
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgba(180, 243, 62, 0.55),
-      rgba(180, 243, 62, 0.04) 30%,
+      rgba(238, 70, 40, 0.55),
+      rgba(238, 70, 40, 0.04) 30%,
       transparent 55%,
-      rgba(180, 243, 62, 0.18)
+      rgba(238, 70, 40, 0.18)
     );
     -webkit-mask: linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
@@ -270,8 +279,8 @@
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(60% 60% at 72% 18%, rgba(180, 243, 62, 0.14), transparent 70%),
-    radial-gradient(50% 50% at 18% 0%, rgba(78, 222, 128, 0.05), transparent 70%);
+    radial-gradient(60% 60% at 72% 18%, rgba(238, 70, 40, 0.14), transparent 70%),
+    radial-gradient(50% 50% at 18% 0%, rgba(194, 58, 32, 0.05), transparent 70%);
   filter: blur(8px);
 }
 
@@ -299,7 +308,7 @@
   border-radius: inherit;
   background: radial-gradient(
     340px circle at var(--mx, 50%) var(--my, -20%),
-    rgba(180, 243, 62, 0.1),
+    rgba(238, 70, 40, 0.1),
     transparent 60%
   );
   opacity: 0;

@@ -40,10 +40,10 @@ function page(title: string, message: string, status: number): Response {
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>${title} · Skill Me</title></head>
 <body style="margin:0;background:#080a0a;color:#f5f7f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
 <div style="max-width:440px;margin:0 auto;padding:64px 24px;text-align:center;">
-<div style="font-size:18px;font-weight:700;margin-bottom:24px;">Skill<span style="color:#b4f33e;"> Me</span></div>
+<div style="font-size:18px;font-weight:700;margin-bottom:24px;">skill<span style="color:#ee4628;">me</span></div>
 <h1 style="font-size:22px;margin:0 0 12px;">${title}</h1>
 <p style="font-size:15px;line-height:1.6;color:#9ba29d;margin:0 0 24px;">${message}</p>
-<a href="${SITE_URL}/browse" style="display:inline-block;padding:11px 22px;border-radius:8px;background:#b4f33e;color:#0a1400;font-weight:700;text-decoration:none;font-size:14px;">Browse Skill Me</a>
+<a href="${SITE_URL}/browse" style="display:inline-block;padding:11px 22px;border-radius:8px;background:#ee4628;color:#faf6f0;font-weight:700;text-decoration:none;font-size:14px;">Browse Skill Me</a>
 </div></body></html>`
   return new Response(html, { status, headers: { 'content-type': 'text/html; charset=utf-8' } })
 }

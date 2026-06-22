@@ -1,9 +1,22 @@
 /* === SKILL ME DESIGN TOKENS ===
-   Premium dark-tech. One locked accent (electric lime). One radius system.
+   Premium dark-tech. One locked accent (vermilion). One radius system.
    Internal token namespace stays `--shelf-*` (implementation detail, not the
    brand). Dials: VARIANCE 7 / MOTION 6 / DENSITY 4. */
 
 :root {
+  /* --- BRAND TOKENS — the single source of truth. Every brand color in the
+     app derives from these four. To rebrand, change them here only. --- */
+  --brand-ink: #1c1a17; /* warm near-black — text, mark container */
+  --brand-paper: #faf6f0; /* warm off-white — backgrounds, mark bars on dark */
+  --brand-accent: #ee4628; /* vermilion — primary CTA, the active bar, links */
+  --brand-accent-deep: #c23a20; /* hover / pressed, secondary */
+
+  /* --- Logo mark colors (drive <Mark/>). Defaults suit the dark shell: a
+     paper tile with ink bars. Add `.mark-on-paper` to flip for light surfaces. */
+  --mark-bg: var(--brand-paper);
+  --mark-fg: var(--brand-ink);
+  --mark-accent: var(--brand-accent);
+
   /* --- Core Palette (near-black with a faint cool-green undertone to seat the
      lime so it reads premium, not toxic) --- */
   --shelf-void: #080a0a; /* page background */
@@ -21,15 +34,15 @@
      three-tier hierarchy holds. */
   --shelf-text-tertiary: #7a827c;
 
-  /* --- Accent: Electric Lime (the locked brand color, used identically
-     everywhere — the green of the reference vitals UI) --- */
-  --shelf-accent: #b4f33e;
-  --shelf-accent-hover: #c8f86d;
-  --shelf-accent-dim: #16210b; /* tinted backgrounds */
-  --shelf-accent-border: #37491b; /* tinted borders */
-  --shelf-on-accent: #0a1400; /* text on a lime fill — AA on lime */
+  /* --- Accent: Vermilion (the locked brand color — derives from --brand-accent;
+     used for primary actions, links, focus, and active states) --- */
+  --shelf-accent: var(--brand-accent);
+  --shelf-accent-hover: var(--brand-accent-deep); /* hover / pressed */
+  --shelf-accent-dim: #2a1109; /* tinted backgrounds (deep ember on the void) */
+  --shelf-accent-border: #5c2417; /* tinted borders */
+  --shelf-on-accent: var(--brand-paper); /* text on a vermilion fill */
 
-  /* --- Semantic (kept distinct from the lime accent) --- */
+  /* --- Semantic (kept distinct from the vermilion accent) --- */
   --shelf-success: #4ade80;
   --shelf-warning: #f5c451;
   --shelf-danger: #f05252;
@@ -52,9 +65,8 @@
 
   /* --- Typography ---
      Families are injected by next/font in app/layout.tsx (self-hosted, no CLS):
-       --ff-display     → Space Grotesk
-       --font-geist-sans → Geist
-       --font-geist-mono → Geist Mono
+       --ff-inter       → Inter (display + body, incl. the wordmark)
+       --font-geist-mono → Geist Mono (code / eyebrow labels)
      Fallback stacks declared in globals.css. */
 
   /* --- Type Scale (fluid-ish, generous display) --- */
@@ -100,7 +112,7 @@
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 26px -18px rgba(0, 0, 0, 0.5);
   --card-edge-light: inset 0 1px 0 0 rgba(245, 247, 245, 0.05);
   --shadow-raised: 0 14px 34px -14px rgba(0, 0, 0, 0.66),
-    0 0 52px -26px rgba(180, 243, 62, 0.22);
+    0 0 52px -26px rgba(238, 70, 40, 0.22);
   --shadow-modal: 0 24px 70px rgba(0, 0, 0, 0.65);
-  --shadow-glow: 0 0 0 1px var(--shelf-accent-border), 0 0 48px -10px rgba(180, 243, 62, 0.32);
+  --shadow-glow: 0 0 0 1px var(--shelf-accent-border), 0 0 48px -10px rgba(238, 70, 40, 0.32);
 }
