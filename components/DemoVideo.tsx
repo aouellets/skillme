@@ -77,7 +77,14 @@ export function DemoVideo({
   // play() silently fails on a source-less element.
   useEffect(() => {
     if (near && playMode === 'inview' && !active) {
-      ref.current?.play().catch(() => {})
+      const el = ref.current
+      if (!el) return
+      // React's `muted` JSX prop doesn't reliably set the live `muted` property
+      // at mount, and the browser's autoplay policy gates on that property — so
+      // an unmuted-looking element gets its play() (and native autoplay) blocked.
+      // Force it imperatively before playing so muted autoplay is actually allowed.
+      el.muted = true
+      el.play().catch(() => {})
     }
   }, [near, playMode, active])
 
