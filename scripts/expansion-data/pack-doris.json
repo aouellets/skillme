@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "doris-doris-best-practices",
+    "name": "Doris Best Practices",
+    "category": "data",
+    "description": "Apache Doris table design and cluster sizing best practices. MUST USE when writing, reviewing, or optimizing Doris CREATE TABLE statements, partition/bucket strategies, data models, or cluster configurations. ALSO…",
+    "author": "Apache Doris",
+    "source_url": "https://github.com/apache/doris-skills/tree/main/skills/doris-best-practices",
+    "tags": [
+      "apache",
+      "best",
+      "doris",
+      "open-source-foundation"
+    ],
+    "skill_content": "---\nname: Doris Best Practices\ndescription: Apache Doris table design and cluster sizing best practices. MUST USE when writing, reviewing, or optimizing Doris CREATE TABLE statements, partition/bucket strategies, data models, or cluster configurations. ALSO…\n---\n\n# Doris Best Practices\n\nPart of the **Apache Doris Skills** pack by Apache Doris (`apache/doris-skills`).\n\nApache Doris table design and cluster sizing best practices. MUST USE when writing, reviewing, or optimizing Doris CREATE TABLE statements, partition/bucket strategies, data models, or cluster configurations. ALSO…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apache/doris-skills/tree/main/skills/doris-best-practices\n"
+  },
+  {
+    "slug": "doris-doris-architecture-advisor",
+    "name": "Doris Architecture Advisor",
+    "category": "data",
+    "description": "Workload-aware architecture design for Apache Doris. MUST USE when designing data architectures, choosing between data models, planning ingestion strategies, sizing clusters, or translating business requirements into…",
+    "author": "Apache Doris",
+    "source_url": "https://github.com/apache/doris-skills/tree/main/skills/doris-architecture-advisor",
+    "tags": [
+      "advisor",
+      "apache",
+      "architecture",
+      "doris"
+    ],
+    "skill_content": "---\nname: Doris Architecture Advisor\ndescription: Workload-aware architecture design for Apache Doris. MUST USE when designing data architectures, choosing between data models, planning ingestion strategies, sizing clusters, or translating business requirements into…\n---\n\n# Doris Architecture Advisor\n\nPart of the **Apache Doris Skills** pack by Apache Doris (`apache/doris-skills`).\n\nWorkload-aware architecture design for Apache Doris. MUST USE when designing data architectures, choosing between data models, planning ingestion strategies, sizing clusters, or translating business requirements into…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/apache/doris-skills/tree/main/skills/doris-architecture-advisor\n"
+  }
+]

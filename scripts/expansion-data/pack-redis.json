@@ -1,0 +1,137 @@
+[
+  {
+    "slug": "redis-redis-core",
+    "name": "Redis Core",
+    "category": "data",
+    "description": "Core Redis modeling guidance — choose the right data structure (String, Hash, List, Set, Sorted Set, JSON, Stream, Vector Set) and use consistent colon-separated key names. Use when designing a Redis data model,…",
+    "author": "Redis",
+    "source_url": "https://github.com/redis/agent-skills/tree/main/skills/redis-core",
+    "tags": [
+      "redis",
+      "trusted-source",
+      "cache",
+      "database"
+    ],
+    "skill_content": "---\nname: Redis Core\ndescription: Core Redis modeling guidance — choose the right data structure (String, Hash, List, Set, Sorted Set, JSON, Stream, Vector Set) and use consistent colon-separated key names. Use when designing a Redis data model,…\n---\n\n# Redis Core\n\nPart of the **Redis Agent Skills** pack by Redis (`redis/agent-skills`).\n\nCore Redis modeling guidance — choose the right data structure (String, Hash, List, Set, Sorted Set, JSON, Stream, Vector Set) and use consistent colon-separated key names. Use when designing a Redis data model,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/redis/agent-skills/tree/main/skills/redis-core\n"
+  },
+  {
+    "slug": "redis-redis-connections",
+    "name": "Redis Connections",
+    "category": "data",
+    "description": "Redis client and connection guidance covering connection pooling, multiplexing, pipelining, client-side caching with RESP3, avoiding slow commands (KEYS, SMEMBERS, HGETALL), and tuning socket timeouts. Use when…",
+    "author": "Redis",
+    "source_url": "https://github.com/redis/agent-skills/tree/main/skills/redis-connections",
+    "tags": [
+      "connections",
+      "redis",
+      "trusted-source",
+      "cache"
+    ],
+    "skill_content": "---\nname: Redis Connections\ndescription: Redis client and connection guidance covering connection pooling, multiplexing, pipelining, client-side caching with RESP3, avoiding slow commands (KEYS, SMEMBERS, HGETALL), and tuning socket timeouts. Use when…\n---\n\n# Redis Connections\n\nPart of the **Redis Agent Skills** pack by Redis (`redis/agent-skills`).\n\nRedis client and connection guidance covering connection pooling, multiplexing, pipelining, client-side caching with RESP3, avoiding slow commands (KEYS, SMEMBERS, HGETALL), and tuning socket timeouts. Use when…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/redis/agent-skills/tree/main/skills/redis-connections\n"
+  },
+  {
+    "slug": "redis-redis-query-engine",
+    "name": "Redis Query Engine",
+    "category": "data",
+    "description": "Redis Query Engine (RQE) guidance covering FT.CREATE schema design, field type selection (TEXT, TAG, NUMERIC, GEO, GEOSHAPE, VECTOR), DIALECT 2 query syntax, efficient FT.SEARCH and FT.AGGREGATE queries,…",
+    "author": "Redis",
+    "source_url": "https://github.com/redis/agent-skills/tree/main/skills/redis-query-engine",
+    "tags": [
+      "engine",
+      "query",
+      "redis",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Redis Query Engine\ndescription: Redis Query Engine (RQE) guidance covering FT.CREATE schema design, field type selection (TEXT, TAG, NUMERIC, GEO, GEOSHAPE, VECTOR), DIALECT 2 query syntax, efficient FT.SEARCH and FT.AGGREGATE queries,…\n---\n\n# Redis Query Engine\n\nPart of the **Redis Agent Skills** pack by Redis (`redis/agent-skills`).\n\nRedis Query Engine (RQE) guidance covering FT.CREATE schema design, field type selection (TEXT, TAG, NUMERIC, GEO, GEOSHAPE, VECTOR), DIALECT 2 query syntax, efficient FT.SEARCH and FT.AGGREGATE queries,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/redis/agent-skills/tree/main/skills/redis-query-engine\n"
+  },
+  {
+    "slug": "redis-redis-vector-search",
+    "name": "Redis Vector Search",
+    "category": "data",
+    "description": "Redis vector search guidance covering HNSW vs FLAT algorithm choice, vector index configuration (dims, distance metric, datatype), filtered hybrid search combining vector similarity with TAG or NUMERIC filters, and…",
+    "author": "Redis",
+    "source_url": "https://github.com/redis/agent-skills/tree/main/skills/redis-vector-search",
+    "tags": [
+      "redis",
+      "search",
+      "trusted-source",
+      "vector"
+    ],
+    "skill_content": "---\nname: Redis Vector Search\ndescription: Redis vector search guidance covering HNSW vs FLAT algorithm choice, vector index configuration (dims, distance metric, datatype), filtered hybrid search combining vector similarity with TAG or NUMERIC filters, and…\n---\n\n# Redis Vector Search\n\nPart of the **Redis Agent Skills** pack by Redis (`redis/agent-skills`).\n\nRedis vector search guidance covering HNSW vs FLAT algorithm choice, vector index configuration (dims, distance metric, datatype), filtered hybrid search combining vector similarity with TAG or NUMERIC filters, and…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/redis/agent-skills/tree/main/skills/redis-vector-search\n"
+  },
+  {
+    "slug": "redis-redis-semantic-cache",
+    "name": "Redis Semantic Cache",
+    "category": "data",
+    "description": "Redis LangCache guidance for semantic caching of LLM responses on Redis Cloud — calling search/set via the SDK or REST API, tuning the similarity threshold, separating caches per task type, and filtering with custom…",
+    "author": "Redis",
+    "source_url": "https://github.com/redis/agent-skills/tree/main/skills/redis-semantic-cache",
+    "tags": [
+      "cache",
+      "redis",
+      "semantic",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Redis Semantic Cache\ndescription: Redis LangCache guidance for semantic caching of LLM responses on Redis Cloud — calling search/set via the SDK or REST API, tuning the similarity threshold, separating caches per task type, and filtering with custom…\n---\n\n# Redis Semantic Cache\n\nPart of the **Redis Agent Skills** pack by Redis (`redis/agent-skills`).\n\nRedis LangCache guidance for semantic caching of LLM responses on Redis Cloud — calling search/set via the SDK or REST API, tuning the similarity threshold, separating caches per task type, and filtering with custom…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/redis/agent-skills/tree/main/skills/redis-semantic-cache\n"
+  },
+  {
+    "slug": "redis-redis-clustering",
+    "name": "Redis Clustering",
+    "category": "data",
+    "description": "Redis Cluster and replication guidance covering hash tags for multi-key operations, avoiding CROSSSLOT errors, and reading from replicas to scale read-heavy workloads. Use when designing keys for a sharded Redis…",
+    "author": "Redis",
+    "source_url": "https://github.com/redis/agent-skills/tree/main/skills/redis-clustering",
+    "tags": [
+      "clustering",
+      "redis",
+      "trusted-source",
+      "cache"
+    ],
+    "skill_content": "---\nname: Redis Clustering\ndescription: Redis Cluster and replication guidance covering hash tags for multi-key operations, avoiding CROSSSLOT errors, and reading from replicas to scale read-heavy workloads. Use when designing keys for a sharded Redis…\n---\n\n# Redis Clustering\n\nPart of the **Redis Agent Skills** pack by Redis (`redis/agent-skills`).\n\nRedis Cluster and replication guidance covering hash tags for multi-key operations, avoiding CROSSSLOT errors, and reading from replicas to scale read-heavy workloads. Use when designing keys for a sharded Redis…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/redis/agent-skills/tree/main/skills/redis-clustering\n"
+  },
+  {
+    "slug": "redis-redis-security",
+    "name": "Redis Security",
+    "category": "data",
+    "description": "Redis security guidance covering authentication (requirepass and ACL users), TLS, ACL-based least-privilege access control, restricting network exposure via bind and protected-mode, firewall rules, and disabling…",
+    "author": "Redis",
+    "source_url": "https://github.com/redis/agent-skills/tree/main/skills/redis-security",
+    "tags": [
+      "redis",
+      "security",
+      "trusted-source",
+      "cache"
+    ],
+    "skill_content": "---\nname: Redis Security\ndescription: Redis security guidance covering authentication (requirepass and ACL users), TLS, ACL-based least-privilege access control, restricting network exposure via bind and protected-mode, firewall rules, and disabling…\n---\n\n# Redis Security\n\nPart of the **Redis Agent Skills** pack by Redis (`redis/agent-skills`).\n\nRedis security guidance covering authentication (requirepass and ACL users), TLS, ACL-based least-privilege access control, restricting network exposure via bind and protected-mode, firewall rules, and disabling…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/redis/agent-skills/tree/main/skills/redis-security\n"
+  },
+  {
+    "slug": "redis-redis-observability",
+    "name": "Redis Observability",
+    "category": "data",
+    "description": "Redis observability guidance — which metrics to monitor (memory, connections, hit ratio, ops/sec, rejected connections), which built-in commands to reach for during incident triage (SLOWLOG, INFO, MEMORY DOCTOR,…",
+    "author": "Redis",
+    "source_url": "https://github.com/redis/agent-skills/tree/main/skills/redis-observability",
+    "tags": [
+      "observability",
+      "redis",
+      "trusted-source",
+      "cache"
+    ],
+    "skill_content": "---\nname: Redis Observability\ndescription: Redis observability guidance — which metrics to monitor (memory, connections, hit ratio, ops/sec, rejected connections), which built-in commands to reach for during incident triage (SLOWLOG, INFO, MEMORY DOCTOR,…\n---\n\n# Redis Observability\n\nPart of the **Redis Agent Skills** pack by Redis (`redis/agent-skills`).\n\nRedis observability guidance — which metrics to monitor (memory, connections, hit ratio, ops/sec, rejected connections), which built-in commands to reach for during incident triage (SLOWLOG, INFO, MEMORY DOCTOR,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/redis/agent-skills/tree/main/skills/redis-observability\n"
+  },
+  {
+    "slug": "redis-iris-development",
+    "name": "Iris Development",
+    "category": "data",
+    "description": "Iris is Redis's umbrella for AI-focused products. Use this skill when integrating with the Iris Redis Agent Memory (RAM) data plane on Redis Cloud — recording session events for an AI agent, creating or searching…",
+    "author": "Redis",
+    "source_url": "https://github.com/redis/agent-skills/tree/main/skills/iris-development",
+    "tags": [
+      "development",
+      "iris",
+      "redis",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Iris Development\ndescription: Iris is Redis's umbrella for AI-focused products. Use this skill when integrating with the Iris Redis Agent Memory (RAM) data plane on Redis Cloud — recording session events for an AI agent, creating or searching…\n---\n\n# Iris Development\n\nPart of the **Redis Agent Skills** pack by Redis (`redis/agent-skills`).\n\nIris is Redis's umbrella for AI-focused products. Use this skill when integrating with the Iris Redis Agent Memory (RAM) data plane on Redis Cloud — recording session events for an AI agent, creating or searching…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/redis/agent-skills/tree/main/skills/iris-development\n"
+  }
+]

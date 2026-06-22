@@ -1,0 +1,167 @@
+[
+  {
+    "slug": "aria-aria-knowledge",
+    "name": "Aria Knowledge",
+    "category": "coding",
+    "description": "Encoded knowledge for Project Aria Gen 2 and the Aria Research Kit (ARK) — hardware, profiles, calibration, coordinate systems, VRS format, time domains, on-device perception, MPS outputs (SLAM, point cloud, hand…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/aria-knowledge",
+    "tags": [
+      "aria",
+      "kit",
+      "knowledge",
+      "project"
+    ],
+    "skill_content": "---\nname: Aria Knowledge\ndescription: Encoded knowledge for Project Aria Gen 2 and the Aria Research Kit (ARK) — hardware, profiles, calibration, coordinate systems, VRS format, time domains, on-device perception, MPS outputs (SLAM, point cloud, hand…\n---\n\n# Aria Knowledge\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nEncoded knowledge for Project Aria Gen 2 and the Aria Research Kit (ARK) — hardware, profiles, calibration, coordinate systems, VRS format, time domains, on-device perception, MPS outputs (SLAM, point cloud, hand…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/aria-knowledge\n"
+  },
+  {
+    "slug": "aria-client-sdk",
+    "name": "Client Sdk",
+    "category": "coding",
+    "description": "Use when working with the Aria Client SDK — device pairing, recording, streaming, CLI commands (aria_gen2), Python SDK (aria.sdk_gen2), streaming visualization, multi-device time domain mapping, and device…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/client-sdk",
+    "tags": [
+      "aria",
+      "client",
+      "kit",
+      "project"
+    ],
+    "skill_content": "---\nname: Client Sdk\ndescription: Use when working with the Aria Client SDK — device pairing, recording, streaming, CLI commands (aria_gen2), Python SDK (aria.sdk_gen2), streaming visualization, multi-device time domain mapping, and device…\n---\n\n# Client Sdk\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nUse when working with the Aria Client SDK — device pairing, recording, streaming, CLI commands (aria_gen2), Python SDK (aria.sdk_gen2), streaming visualization, multi-device time domain mapping, and device…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/client-sdk\n"
+  },
+  {
+    "slug": "aria-client-sdk-ros2-integration",
+    "name": "Client Sdk Ros2 Integration",
+    "category": "coding",
+    "description": "Use when integrating Aria Gen 2 sensor streams with ROS2 — publishing raw Aria sensor data through ROS2 topics, decoding it in subscriber nodes, sharing device calibration across nodes. The integration uses a custom…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/client-sdk-ros2-integration",
+    "tags": [
+      "aria",
+      "client",
+      "integration",
+      "kit"
+    ],
+    "skill_content": "---\nname: Client Sdk Ros2 Integration\ndescription: Use when integrating Aria Gen 2 sensor streams with ROS2 — publishing raw Aria sensor data through ROS2 topics, decoding it in subscriber nodes, sharing device calibration across nodes. The integration uses a custom…\n---\n\n# Client Sdk Ros2 Integration\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nUse when integrating Aria Gen 2 sensor streams with ROS2 — publishing raw Aria sensor data through ROS2 topics, decoding it in subscriber nodes, sharing device calibration across nodes. The integration uses a custom…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/client-sdk-ros2-integration\n"
+  },
+  {
+    "slug": "aria-cloud-streaming",
+    "name": "Cloud Streaming",
+    "category": "coding",
+    "description": "Use when configuring Aria Gen 2 glasses to stream sensor data directly to an internet-accessible HTTPS endpoint — instead of the default local USB / same-network WiFi streaming to a nearby PC. For field deployments,…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/cloud-streaming",
+    "tags": [
+      "aria",
+      "cloud",
+      "kit",
+      "project"
+    ],
+    "skill_content": "---\nname: Cloud Streaming\ndescription: Use when configuring Aria Gen 2 glasses to stream sensor data directly to an internet-accessible HTTPS endpoint — instead of the default local USB / same-network WiFi streaming to a nearby PC. For field deployments,…\n---\n\n# Cloud Streaming\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nUse when configuring Aria Gen 2 glasses to stream sensor data directly to an internet-accessible HTTPS endpoint — instead of the default local USB / same-network WiFi streaming to a nearby PC. For field deployments,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/cloud-streaming\n"
+  },
+  {
+    "slug": "aria-custom-profile",
+    "name": "Custom Profile",
+    "category": "coding",
+    "description": "Use when authoring a custom profile JSON for Aria Gen 2. A profile fixes which sensors are enabled and at what rate, resolution, and encoding — **the same profile works for both recording and streaming**, despite the…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/custom-profile",
+    "tags": [
+      "aria",
+      "custom",
+      "kit",
+      "profile"
+    ],
+    "skill_content": "---\nname: Custom Profile\ndescription: Use when authoring a custom profile JSON for Aria Gen 2. A profile fixes which sensors are enabled and at what rate, resolution, and encoding — **the same profile works for both recording and streaming**, despite the…\n---\n\n# Custom Profile\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nUse when authoring a custom profile JSON for Aria Gen 2. A profile fixes which sensors are enabled and at what rate, resolution, and encoding — **the same profile works for both recording and streaming**, despite the…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/custom-profile\n"
+  },
+  {
+    "slug": "aria-mps",
+    "name": "Mps",
+    "category": "coding",
+    "description": "Use when working with Aria Machine Perception Services (MPS) — cloud-based processing of Aria VRS recordings for SLAM trajectories, hand tracking, semi-dense point clouds, and online calibration. Covers the aria_mps…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/mps",
+    "tags": [
+      "aria",
+      "kit",
+      "mps",
+      "project"
+    ],
+    "skill_content": "---\nname: Mps\ndescription: Use when working with Aria Machine Perception Services (MPS) — cloud-based processing of Aria VRS recordings for SLAM trajectories, hand tracking, semi-dense point clouds, and online calibration. Covers the aria_mps…\n---\n\n# Mps\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nUse when working with Aria Machine Perception Services (MPS) — cloud-based processing of Aria VRS recordings for SLAM trajectories, hand tracking, semi-dense point clouds, and online calibration. Covers the aria_mps…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/mps\n"
+  },
+  {
+    "slug": "aria-pilot-dataset",
+    "name": "Pilot Dataset",
+    "category": "coding",
+    "description": "Use when working with the Aria Gen2 Pilot Dataset — a multi-participant egocentric dataset with raw VRS sensor data, MPS outputs, and additional algorithm results (ASR, heart rate, hand-object interaction, depth…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/pilot-dataset",
+    "tags": [
+      "aria",
+      "dataset",
+      "kit",
+      "pilot"
+    ],
+    "skill_content": "---\nname: Pilot Dataset\ndescription: Use when working with the Aria Gen2 Pilot Dataset — a multi-participant egocentric dataset with raw VRS sensor data, MPS outputs, and additional algorithm results (ASR, heart rate, hand-object interaction, depth…\n---\n\n# Pilot Dataset\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nUse when working with the Aria Gen2 Pilot Dataset — a multi-participant egocentric dataset with raw VRS sensor data, MPS outputs, and additional algorithm results (ASR, heart rate, hand-object interaction, depth…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/pilot-dataset\n"
+  },
+  {
+    "slug": "aria-projectaria-tools",
+    "name": "Projectaria Tools",
+    "category": "coding",
+    "description": "Use when working with projectaria_tools (PAT) — the official Python/C++ library for reading Aria VRS recordings, accessing sensor data, device calibration, loading MPS results (eye gaze, hand tracking, SLAM…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/projectaria-tools",
+    "tags": [
+      "aria",
+      "kit",
+      "project",
+      "projectaria"
+    ],
+    "skill_content": "---\nname: Projectaria Tools\ndescription: Use when working with projectaria_tools (PAT) — the official Python/C++ library for reading Aria VRS recordings, accessing sensor data, device calibration, loading MPS results (eye gaze, hand tracking, SLAM…\n---\n\n# Projectaria Tools\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nUse when working with projectaria_tools (PAT) — the official Python/C++ library for reading Aria VRS recordings, accessing sensor data, device calibration, loading MPS results (eye gaze, hand tracking, SLAM…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/projectaria-tools\n"
+  },
+  {
+    "slug": "aria-vrs-cli",
+    "name": "Vrs Cli",
+    "category": "coding",
+    "description": "Use when the user wants to inspect, validate, or manipulate a VRS file using the native VRS command-line tools from facebookresearch/vrs — `vrs check`, `vrs print`, etc. VRS is the file format used by Aria…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/vrs-cli",
+    "tags": [
+      "aria",
+      "cli",
+      "kit",
+      "project"
+    ],
+    "skill_content": "---\nname: Vrs Cli\ndescription: Use when the user wants to inspect, validate, or manipulate a VRS file using the native VRS command-line tools from facebookresearch/vrs — `vrs check`, `vrs print`, etc. VRS is the file format used by Aria…\n---\n\n# Vrs Cli\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nUse when the user wants to inspect, validate, or manipulate a VRS file using the native VRS command-line tools from facebookresearch/vrs — `vrs check`, `vrs print`, etc. VRS is the file format used by Aria…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/vrs-cli\n"
+  },
+  {
+    "slug": "aria-vrs-health-check",
+    "name": "Vrs Health Check",
+    "category": "coding",
+    "description": "Use when working with VRS Health Check — validating Aria recording quality before MPS processing. Covers the run_vrs_health_check CLI, configurations, threshold checks, exit codes, overriding thresholds, and the…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/vrs-health-check",
+    "tags": [
+      "aria",
+      "check",
+      "health",
+      "kit"
+    ],
+    "skill_content": "---\nname: Vrs Health Check\ndescription: Use when working with VRS Health Check — validating Aria recording quality before MPS processing. Covers the run_vrs_health_check CLI, configurations, threshold checks, exit codes, overriding thresholds, and the…\n---\n\n# Vrs Health Check\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nUse when working with VRS Health Check — validating Aria recording quality before MPS processing. Covers the run_vrs_health_check CLI, configurations, threshold checks, exit codes, overriding thresholds, and the…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/vrs-health-check\n"
+  },
+  {
+    "slug": "aria-web-app-creator",
+    "name": "Web App Creator",
+    "category": "coding",
+    "description": "Build webapps that integrate with Meta Aria Gen2 (Nebula) smart glasses, usable by any agent that supports skills (Manus, Claude Code, etc.). macOS only — the backend launcher and auto-`open` browser hooks are…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/web-app-creator",
+    "tags": [
+      "app",
+      "aria",
+      "creator",
+      "kit"
+    ],
+    "skill_content": "---\nname: Web App Creator\ndescription: Build webapps that integrate with Meta Aria Gen2 (Nebula) smart glasses, usable by any agent that supports skills (Manus, Claude Code, etc.). macOS only — the backend launcher and auto-`open` browser hooks are…\n---\n\n# Web App Creator\n\nPart of the **Project Aria Plugins** pack by Meta (`facebookresearch/projectaria-plugins`).\n\nBuild webapps that integrate with Meta Aria Gen2 (Nebula) smart glasses, usable by any agent that supports skills (Manus, Claude Code, etc.). macOS only — the backend launcher and auto-`open` browser hooks are…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/projectaria-plugins/tree/main/projectaria_ark_plugin/skills/web-app-creator\n"
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "clickhouse-clickhouse-best-practices",
+    "name": "Clickhouse Best Practices",
+    "category": "data",
+    "description": "MUST USE when reviewing ClickHouse schemas, queries, or configurations. Contains 31 rules that MUST be checked before providing recommendations. Always read relevant rule files and cite specific rules in responses.",
+    "author": "ClickHouse",
+    "source_url": "https://github.com/ClickHouse/agent-skills/tree/main/skills/clickhouse-best-practices",
+    "tags": [
+      "and",
+      "best",
+      "chdb",
+      "clickhouse"
+    ],
+    "skill_content": "---\nname: Clickhouse Best Practices\ndescription: MUST USE when reviewing ClickHouse schemas, queries, or configurations. Contains 31 rules that MUST be checked before providing recommendations. Always read relevant rule files and cite specific rules in responses.\n---\n\n# Clickhouse Best Practices\n\nPart of the **ClickHouse Agent Skills** pack by ClickHouse (`ClickHouse/agent-skills`).\n\nMUST USE when reviewing ClickHouse schemas, queries, or configurations. Contains 31 rules that MUST be checked before providing recommendations. Always read relevant rule files and cite specific rules in responses.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/ClickHouse/agent-skills/tree/main/skills/clickhouse-best-practices\n"
+  },
+  {
+    "slug": "clickhouse-clickhouse-architecture-advisor",
+    "name": "Clickhouse Architecture Advisor",
+    "category": "data",
+    "description": "MUST USE when designing ClickHouse architectures, selecting between ingestion or modeling patterns, or translating best practices into workload-specific system designs. Complements clickhouse-best-practices with…",
+    "author": "ClickHouse",
+    "source_url": "https://github.com/ClickHouse/agent-skills/tree/main/skills/clickhouse-architecture-advisor",
+    "tags": [
+      "advisor",
+      "and",
+      "architecture",
+      "chdb"
+    ],
+    "skill_content": "---\nname: Clickhouse Architecture Advisor\ndescription: MUST USE when designing ClickHouse architectures, selecting between ingestion or modeling patterns, or translating best practices into workload-specific system designs. Complements clickhouse-best-practices with…\n---\n\n# Clickhouse Architecture Advisor\n\nPart of the **ClickHouse Agent Skills** pack by ClickHouse (`ClickHouse/agent-skills`).\n\nMUST USE when designing ClickHouse architectures, selecting between ingestion or modeling patterns, or translating best practices into workload-specific system designs. Complements clickhouse-best-practices with…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/ClickHouse/agent-skills/tree/main/skills/clickhouse-architecture-advisor\n"
+  },
+  {
+    "slug": "clickhouse-clickhouse-js-node-troubleshooting",
+    "name": "Clickhouse Js Node Troubleshooting",
+    "category": "data",
+    "description": "Troubleshoot and resolve common issues with the ClickHouse Node.js client (@clickhouse/client). Use this skill whenever a user reports errors, unexpected behavior, or configuration questions involving the Node.js…",
+    "author": "ClickHouse",
+    "source_url": "https://github.com/ClickHouse/agent-skills/tree/main/skills/clickhouse-js-node-troubleshooting",
+    "tags": [
+      "and",
+      "chdb",
+      "clickhouse",
+      "js"
+    ],
+    "skill_content": "---\nname: Clickhouse Js Node Troubleshooting\ndescription: Troubleshoot and resolve common issues with the ClickHouse Node.js client (@clickhouse/client). Use this skill whenever a user reports errors, unexpected behavior, or configuration questions involving the Node.js…\n---\n\n# Clickhouse Js Node Troubleshooting\n\nPart of the **ClickHouse Agent Skills** pack by ClickHouse (`ClickHouse/agent-skills`).\n\nTroubleshoot and resolve common issues with the ClickHouse Node.js client (@clickhouse/client). Use this skill whenever a user reports errors, unexpected behavior, or configuration questions involving the Node.js…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/ClickHouse/agent-skills/tree/main/skills/clickhouse-js-node-troubleshooting\n"
+  },
+  {
+    "slug": "clickhouse-chdb-datastore",
+    "name": "Chdb Datastore",
+    "category": "data",
+    "description": "Use when the user has tabular data (pandas DataFrame, parquet, csv, Arrow, json) and wants to filter, group, aggregate, join, or speed up slow pandas. Provides chDB DataStore — same pandas API, ClickHouse engine…",
+    "author": "ClickHouse",
+    "source_url": "https://github.com/ClickHouse/agent-skills/tree/main/skills/chdb-datastore",
+    "tags": [
+      "and",
+      "chdb",
+      "clickhouse",
+      "datastore"
+    ],
+    "skill_content": "---\nname: Chdb Datastore\ndescription: Use when the user has tabular data (pandas DataFrame, parquet, csv, Arrow, json) and wants to filter, group, aggregate, join, or speed up slow pandas. Provides chDB DataStore — same pandas API, ClickHouse engine…\n---\n\n# Chdb Datastore\n\nPart of the **ClickHouse Agent Skills** pack by ClickHouse (`ClickHouse/agent-skills`).\n\nUse when the user has tabular data (pandas DataFrame, parquet, csv, Arrow, json) and wants to filter, group, aggregate, join, or speed up slow pandas. Provides chDB DataStore — same pandas API, ClickHouse engine…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/ClickHouse/agent-skills/tree/main/skills/chdb-datastore\n"
+  },
+  {
+    "slug": "clickhouse-chdb-sql",
+    "name": "Chdb Sql",
+    "category": "data",
+    "description": "Use when the user wants to run SQL — especially analytical SQL — on local files (parquet/csv/json), URLs, S3 paths, or remote databases (Postgres, MySQL, MongoDB, ClickHouse Cloud, Iceberg, Delta Lake) without…",
+    "author": "ClickHouse",
+    "source_url": "https://github.com/ClickHouse/agent-skills/tree/main/skills/chdb-sql",
+    "tags": [
+      "and",
+      "chdb",
+      "clickhouse",
+      "sql"
+    ],
+    "skill_content": "---\nname: Chdb Sql\ndescription: Use when the user wants to run SQL — especially analytical SQL — on local files (parquet/csv/json), URLs, S3 paths, or remote databases (Postgres, MySQL, MongoDB, ClickHouse Cloud, Iceberg, Delta Lake) without…\n---\n\n# Chdb Sql\n\nPart of the **ClickHouse Agent Skills** pack by ClickHouse (`ClickHouse/agent-skills`).\n\nUse when the user wants to run SQL — especially analytical SQL — on local files (parquet/csv/json), URLs, S3 paths, or remote databases (Postgres, MySQL, MongoDB, ClickHouse Cloud, Iceberg, Delta Lake) without…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/ClickHouse/agent-skills/tree/main/skills/chdb-sql\n"
+  }
+]

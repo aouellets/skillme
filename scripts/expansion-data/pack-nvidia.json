@@ -1,0 +1,677 @@
+[
+  {
+    "slug": "nvidia-aiq-research",
+    "name": "Aiq Research",
+    "category": "research",
+    "description": "Use when asked to run deep research or AI-Q research through a reachable NVIDIA AI-Q Blueprint backend.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/aiq-research",
+    "tags": [
+      "ai",
+      "aiq",
+      "nvidia",
+      "research"
+    ],
+    "skill_content": "---\nname: Aiq Research\ndescription: Use when asked to run deep research or AI-Q research through a reachable NVIDIA AI-Q Blueprint backend.\n---\n\n# Aiq Research\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUse when asked to run deep research or AI-Q research through a reachable NVIDIA AI-Q Blueprint backend.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/aiq-research\n"
+  },
+  {
+    "slug": "nvidia-aiq-deploy",
+    "name": "Aiq Deploy",
+    "category": "research",
+    "description": "Use when asked to install, deploy, run, validate, troubleshoot, or stop NVIDIA AI-Q Blueprint infrastructure.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/aiq-deploy",
+    "tags": [
+      "ai",
+      "aiq",
+      "deploy",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Aiq Deploy\ndescription: Use when asked to install, deploy, run, validate, troubleshoot, or stop NVIDIA AI-Q Blueprint infrastructure.\n---\n\n# Aiq Deploy\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUse when asked to install, deploy, run, validate, troubleshoot, or stop NVIDIA AI-Q Blueprint infrastructure.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/aiq-deploy\n"
+  },
+  {
+    "slug": "nvidia-cudaq-guide",
+    "name": "Cudaq Guide",
+    "category": "research",
+    "description": "CUDA-Q onboarding guide for installation, test programs, GPU simulation, QPU hardware, and quantum applications.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cudaq-guide",
+    "tags": [
+      "cuda",
+      "cudaq",
+      "guide",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Cudaq Guide\ndescription: CUDA-Q onboarding guide for installation, test programs, GPU simulation, QPU hardware, and quantum applications.\n---\n\n# Cudaq Guide\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nCUDA-Q onboarding guide for installation, test programs, GPU simulation, QPU hardware, and quantum applications.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cudaq-guide\n"
+  },
+  {
+    "slug": "nvidia-accelerated-computing-cudf",
+    "name": "Accelerated Computing Cudf",
+    "category": "data",
+    "description": "Official NVIDIA-authored guidance for NVIDIA cuDF GPU DataFrames, pandas acceleration, dask-cuDF, ETL, joins, groupby, CSV/Parquet I/O, nullable semantics, and multi-GPU DataFrame workloads.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/accelerated-computing-cudf",
+    "tags": [
+      "accelerated",
+      "computing",
+      "cudf",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Accelerated Computing Cudf\ndescription: Official NVIDIA-authored guidance for NVIDIA cuDF GPU DataFrames, pandas acceleration, dask-cuDF, ETL, joins, groupby, CSV/Parquet I/O, nullable semantics, and multi-GPU DataFrame workloads.\n---\n\n# Accelerated Computing Cudf\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nOfficial NVIDIA-authored guidance for NVIDIA cuDF GPU DataFrames, pandas acceleration, dask-cuDF, ETL, joins, groupby, CSV/Parquet I/O, nullable semantics, and multi-GPU DataFrame workloads.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/accelerated-computing-cudf\n"
+  },
+  {
+    "slug": "nvidia-cufolio",
+    "name": "Cufolio",
+    "category": "business",
+    "description": "Use when a user asks to build, optimize, backtest, rebalance, or analyze a stock portfolio with Mean-CVaR, efficient frontiers, scenario generation, or NVIDIA cuOpt.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cufolio",
+    "tags": [
+      "cufolio",
+      "trusted-source",
+      "nvidia",
+      "gpu"
+    ],
+    "skill_content": "---\nname: Cufolio\ndescription: Use when a user asks to build, optimize, backtest, rebalance, or analyze a stock portfolio with Mean-CVaR, efficient frontiers, scenario generation, or NVIDIA cuOpt.\n---\n\n# Cufolio\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUse when a user asks to build, optimize, backtest, rebalance, or analyze a stock portfolio with Mean-CVaR, efficient frontiers, scenario generation, or NVIDIA cuOpt.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cufolio\n"
+  },
+  {
+    "slug": "nvidia-cuopt-developer",
+    "name": "Cuopt Developer",
+    "category": "coding",
+    "description": "Modify, build, test, debug, and contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI). Use for solver internals, PRs, DCO, and code conventions.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-developer",
+    "tags": [
+      "cuopt",
+      "developer",
+      "trusted-source",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Cuopt Developer\ndescription: Modify, build, test, debug, and contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI). Use for solver internals, PRs, DCO, and code conventions.\n---\n\n# Cuopt Developer\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nModify, build, test, debug, and contribute to NVIDIA cuOpt (C++/CUDA, Python, server, CI). Use for solver internals, PRs, DCO, and code conventions.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cuopt-developer\n"
+  },
+  {
+    "slug": "nvidia-cuopt-install",
+    "name": "Cuopt Install",
+    "category": "coding",
+    "description": "Install cuOpt for Python, C, or server via pip, conda, or Docker; verify the install. For building cuOpt from source, see cuopt-developer.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-install",
+    "tags": [
+      "cuopt",
+      "install",
+      "trusted-source",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Cuopt Install\ndescription: Install cuOpt for Python, C, or server via pip, conda, or Docker; verify the install. For building cuOpt from source, see cuopt-developer.\n---\n\n# Cuopt Install\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nInstall cuOpt for Python, C, or server via pip, conda, or Docker; verify the install. For building cuOpt from source, see cuopt-developer.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cuopt-install\n"
+  },
+  {
+    "slug": "nvidia-cuopt-numerical-optimization-api-python",
+    "name": "Cuopt Numerical Optimization Api Python",
+    "category": "coding",
+    "description": "Solve LP, MILP, QP (beta) with cuOpt Python API — linear/quadratic objectives, integer variables, scheduling, portfolio, least squares.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-numerical-optimization-api-python",
+    "tags": [
+      "api",
+      "cuopt",
+      "numerical",
+      "optimization"
+    ],
+    "skill_content": "---\nname: Cuopt Numerical Optimization Api Python\ndescription: Solve LP, MILP, QP (beta) with cuOpt Python API — linear/quadratic objectives, integer variables, scheduling, portfolio, least squares.\n---\n\n# Cuopt Numerical Optimization Api Python\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nSolve LP, MILP, QP (beta) with cuOpt Python API — linear/quadratic objectives, integer variables, scheduling, portfolio, least squares.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cuopt-numerical-optimization-api-python\n"
+  },
+  {
+    "slug": "nvidia-cuopt-numerical-optimization-formulation",
+    "name": "Cuopt Numerical Optimization Formulation",
+    "category": "coding",
+    "description": "LP, MILP, QP — concepts, problem-text parsing, and formulation patterns (parameters, constraints, decisions, objective). Concepts only; no API.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-numerical-optimization-formulation",
+    "tags": [
+      "cuopt",
+      "formulation",
+      "numerical",
+      "optimization"
+    ],
+    "skill_content": "---\nname: Cuopt Numerical Optimization Formulation\ndescription: LP, MILP, QP — concepts, problem-text parsing, and formulation patterns (parameters, constraints, decisions, objective). Concepts only; no API.\n---\n\n# Cuopt Numerical Optimization Formulation\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nLP, MILP, QP — concepts, problem-text parsing, and formulation patterns (parameters, constraints, decisions, objective). Concepts only; no API.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cuopt-numerical-optimization-formulation\n"
+  },
+  {
+    "slug": "nvidia-cuopt-routing-api-python",
+    "name": "Cuopt Routing Api Python",
+    "category": "coding",
+    "description": "Vehicle routing (VRP, TSP, PDP) with cuOpt — Python API only. Use when the user is building or solving routing in Python.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-routing-api-python",
+    "tags": [
+      "api",
+      "cuopt",
+      "python",
+      "routing"
+    ],
+    "skill_content": "---\nname: Cuopt Routing Api Python\ndescription: Vehicle routing (VRP, TSP, PDP) with cuOpt — Python API only. Use when the user is building or solving routing in Python.\n---\n\n# Cuopt Routing Api Python\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nVehicle routing (VRP, TSP, PDP) with cuOpt — Python API only. Use when the user is building or solving routing in Python.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cuopt-routing-api-python\n"
+  },
+  {
+    "slug": "nvidia-cuopt-routing-formulation",
+    "name": "Cuopt Routing Formulation",
+    "category": "coding",
+    "description": "Vehicle routing (VRP, TSP, PDP) — problem types and data requirements. Domain concepts; no API or interface.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cuopt-routing-formulation",
+    "tags": [
+      "cuopt",
+      "formulation",
+      "routing",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Cuopt Routing Formulation\ndescription: Vehicle routing (VRP, TSP, PDP) — problem types and data requirements. Domain concepts; no API or interface.\n---\n\n# Cuopt Routing Formulation\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nVehicle routing (VRP, TSP, PDP) — problem types and data requirements. Domain concepts; no API or interface.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cuopt-routing-formulation\n"
+  },
+  {
+    "slug": "nvidia-cupynumeric-hdf5",
+    "name": "Cupynumeric Hdf5",
+    "category": "coding",
+    "description": "Read and write large cuPyNumeric arrays to HDF5 with Legate's parallel, distributed HDF5 I/O (legate.io.hdf5: to_file, from_file, from_file_batched). Use when a developer needs to save a cuPyNumeric array to an…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cupynumeric-hdf5",
+    "tags": [
+      "cupynumeric",
+      "hdf5",
+      "trusted-source",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Cupynumeric Hdf5\ndescription: Read and write large cuPyNumeric arrays to HDF5 with Legate's parallel, distributed HDF5 I/O (legate.io.hdf5: to_file, from_file, from_file_batched). Use when a developer needs to save a cuPyNumeric array to an…\n---\n\n# Cupynumeric Hdf5\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nRead and write large cuPyNumeric arrays to HDF5 with Legate's parallel, distributed HDF5 I/O (legate.io.hdf5: to_file, from_file, from_file_batched). Use when a developer needs to save a cuPyNumeric array to an…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cupynumeric-hdf5\n"
+  },
+  {
+    "slug": "nvidia-cupynumeric-install",
+    "name": "Cupynumeric Install",
+    "category": "coding",
+    "description": "Install and verify cuPyNumeric for Python — requirements, commands, verification. Source builds are out of scope.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cupynumeric-install",
+    "tags": [
+      "cupynumeric",
+      "install",
+      "trusted-source",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Cupynumeric Install\ndescription: Install and verify cuPyNumeric for Python — requirements, commands, verification. Source builds are out of scope.\n---\n\n# Cupynumeric Install\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nInstall and verify cuPyNumeric for Python — requirements, commands, verification. Source builds are out of scope.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cupynumeric-install\n"
+  },
+  {
+    "slug": "nvidia-cupynumeric-migration-readiness",
+    "name": "Cupynumeric Migration Readiness",
+    "category": "coding",
+    "description": "Pre-migration readiness assessor for porting NumPy to cuPyNumeric. Use BEFORE substantial porting work begins when the user asks whether code will scale on GPU, whether they should migrate to cuPyNumeric, which NumPy…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cupynumeric-migration-readiness",
+    "tags": [
+      "cupynumeric",
+      "migration",
+      "readiness",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Cupynumeric Migration Readiness\ndescription: Pre-migration readiness assessor for porting NumPy to cuPyNumeric. Use BEFORE substantial porting work begins when the user asks whether code will scale on GPU, whether they should migrate to cuPyNumeric, which NumPy…\n---\n\n# Cupynumeric Migration Readiness\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nPre-migration readiness assessor for porting NumPy to cuPyNumeric. Use BEFORE substantial porting work begins when the user asks whether code will scale on GPU, whether they should migrate to cuPyNumeric, which NumPy…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cupynumeric-migration-readiness\n"
+  },
+  {
+    "slug": "nvidia-cupynumeric-parallel-data-load",
+    "name": "Cupynumeric Parallel Data Load",
+    "category": "coding",
+    "description": "Load a sharded, on-disk dataset (sharded .npy, Parquet/Arrow, raw binary, sharded HDF5, custom layouts) into a distributed cuPyNumeric ndarray via a manual partition + leaf @task launch with CPU/OMP/GPU variants. Use…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/cupynumeric-parallel-data-load",
+    "tags": [
+      "cupynumeric",
+      "data",
+      "load",
+      "parallel"
+    ],
+    "skill_content": "---\nname: Cupynumeric Parallel Data Load\ndescription: Load a sharded, on-disk dataset (sharded .npy, Parquet/Arrow, raw binary, sharded HDF5, custom layouts) into a distributed cuPyNumeric ndarray via a manual partition + leaf @task launch with CPU/OMP/GPU variants. Use…\n---\n\n# Cupynumeric Parallel Data Load\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nLoad a sharded, on-disk dataset (sharded .npy, Parquet/Arrow, raw binary, sharded HDF5, custom layouts) into a distributed cuPyNumeric ndarray via a manual partition + leaf @task launch with CPU/OMP/GPU variants. Use…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/cupynumeric-parallel-data-load\n"
+  },
+  {
+    "slug": "nvidia-dali-dynamic-mode",
+    "name": "Dali Dynamic Mode",
+    "category": "data",
+    "description": "DALI imperative dynamic mode (`nvidia.dali.experimental.dynamic`, ndd): use when working on ndd code or migrating pipelines; skip pipeline-only tasks.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/dali-dynamic-mode",
+    "tags": [
+      "dali",
+      "dynamic",
+      "mode",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Dali Dynamic Mode\ndescription: DALI imperative dynamic mode (`nvidia.dali.experimental.dynamic`, ndd): use when working on ndd code or migrating pipelines; skip pipeline-only tasks.\n---\n\n# Dali Dynamic Mode\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nDALI imperative dynamic mode (`nvidia.dali.experimental.dynamic`, ndd): use when working on ndd code or migrating pipelines; skip pipeline-only tasks.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/dali-dynamic-mode\n"
+  },
+  {
+    "slug": "nvidia-data-designer",
+    "name": "Data Designer",
+    "category": "data",
+    "description": "Use when the user wants to create a dataset, generate synthetic data, or build a data generation pipeline.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/data-designer",
+    "tags": [
+      "data",
+      "designer",
+      "nemo",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Data Designer\ndescription: Use when the user wants to create a dataset, generate synthetic data, or build a data generation pipeline.\n---\n\n# Data Designer\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUse when the user wants to create a dataset, generate synthetic data, or build a data generation pipeline.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/data-designer\n"
+  },
+  {
+    "slug": "nvidia-deepstream-dev",
+    "name": "Deepstream Dev",
+    "category": "data",
+    "description": "NVIDIA DeepStream SDK 9.0 development with Python pyservicemaker API. Use when building video analytics pipelines, GStreamer-based video processing, TensorRT inference integration, object detection/tracking, or…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/deepstream-dev",
+    "tags": [
+      "deepstream",
+      "dev",
+      "trusted-source",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Deepstream Dev\ndescription: NVIDIA DeepStream SDK 9.0 development with Python pyservicemaker API. Use when building video analytics pipelines, GStreamer-based video processing, TensorRT inference integration, object detection/tracking, or…\n---\n\n# Deepstream Dev\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nNVIDIA DeepStream SDK 9.0 development with Python pyservicemaker API. Use when building video analytics pipelines, GStreamer-based video processing, TensorRT inference integration, object detection/tracking, or…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/deepstream-dev\n"
+  },
+  {
+    "slug": "nvidia-deepstream-import-vision-model",
+    "name": "Deepstream Import Vision Model",
+    "category": "data",
+    "description": "Use this skill to bring any vision model from HuggingFace or NVIDIA NGC into an NVIDIA DeepStream pipeline with end-to-end automation: ONNX download, SafeTensors export, TRT engine build, custom nvinfer bbox parser,…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/deepstream-import-vision-model",
+    "tags": [
+      "deepstream",
+      "import",
+      "model",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Deepstream Import Vision Model\ndescription: Use this skill to bring any vision model from HuggingFace or NVIDIA NGC into an NVIDIA DeepStream pipeline with end-to-end automation: ONNX download, SafeTensors export, TRT engine build, custom nvinfer bbox parser,…\n---\n\n# Deepstream Import Vision Model\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUse this skill to bring any vision model from HuggingFace or NVIDIA NGC into an NVIDIA DeepStream pipeline with end-to-end automation: ONNX download, SafeTensors export, TRT engine build, custom nvinfer bbox parser,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/deepstream-import-vision-model\n"
+  },
+  {
+    "slug": "nvidia-digital-health-clinical-asr-setup",
+    "name": "Digital Health Clinical Asr Setup",
+    "category": "research",
+    "description": "Stage 1 of Clinical ASR Flywheel. Use when bootstrapping a cycle: NVCF+MW disclosure, NVIDIA_API_KEY check, deps install, TTS+ASR smoke test.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/digital-health-clinical-asr-setup",
+    "tags": [
+      "asr",
+      "clinical",
+      "digital",
+      "health"
+    ],
+    "skill_content": "---\nname: Digital Health Clinical Asr Setup\ndescription: Stage 1 of Clinical ASR Flywheel. Use when bootstrapping a cycle: NVCF+MW disclosure, NVIDIA_API_KEY check, deps install, TTS+ASR smoke test.\n---\n\n# Digital Health Clinical Asr Setup\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nStage 1 of Clinical ASR Flywheel. Use when bootstrapping a cycle: NVCF+MW disclosure, NVIDIA_API_KEY check, deps install, TTS+ASR smoke test.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/digital-health-clinical-asr-setup\n"
+  },
+  {
+    "slug": "nvidia-digital-health-clinical-asr-build",
+    "name": "Digital Health Clinical Asr Build",
+    "category": "research",
+    "description": "Stage 2 of the Clinical ASR Flywheel. Use when curating clinical terms, tagging IPA, and synthesizing a NeMo manifest. NOT for scoring (use /digital-health-clinical-asr-eval).",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/digital-health-clinical-asr-build",
+    "tags": [
+      "asr",
+      "build",
+      "clinical",
+      "digital"
+    ],
+    "skill_content": "---\nname: Digital Health Clinical Asr Build\ndescription: Stage 2 of the Clinical ASR Flywheel. Use when curating clinical terms, tagging IPA, and synthesizing a NeMo manifest. NOT for scoring (use /digital-health-clinical-asr-eval).\n---\n\n# Digital Health Clinical Asr Build\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nStage 2 of the Clinical ASR Flywheel. Use when curating clinical terms, tagging IPA, and synthesizing a NeMo manifest. NOT for scoring (use /digital-health-clinical-asr-eval).\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/digital-health-clinical-asr-build\n"
+  },
+  {
+    "slug": "nvidia-digital-health-clinical-asr-eval",
+    "name": "Digital Health Clinical Asr Eval",
+    "category": "research",
+    "description": "Stage 3 of Clinical ASR Flywheel. Score a NeMo manifest, produce the five-section KER leaderboard (by-ipa_source diagnostic). Not for ASR auth (/riva-asr).",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/digital-health-clinical-asr-eval",
+    "tags": [
+      "asr",
+      "clinical",
+      "digital",
+      "eval"
+    ],
+    "skill_content": "---\nname: Digital Health Clinical Asr Eval\ndescription: Stage 3 of Clinical ASR Flywheel. Score a NeMo manifest, produce the five-section KER leaderboard (by-ipa_source diagnostic). Not for ASR auth (/riva-asr).\n---\n\n# Digital Health Clinical Asr Eval\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nStage 3 of Clinical ASR Flywheel. Score a NeMo manifest, produce the five-section KER leaderboard (by-ipa_source diagnostic). Not for ASR auth (/riva-asr).\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/digital-health-clinical-asr-eval\n"
+  },
+  {
+    "slug": "nvidia-digital-health-clinical-asr-finetune",
+    "name": "Digital Health Clinical Asr Finetune",
+    "category": "research",
+    "description": "Stage 4 of the Clinical ASR Flywheel. Use when priority KER is above 0.3 to run stock NeMo SFT on Parakeet TDT v2 and offline cycle N+1 re-eval. NOT for generic word boosting (use /finetune-asr).",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/digital-health-clinical-asr-finetune",
+    "tags": [
+      "asr",
+      "clinical",
+      "digital",
+      "finetune"
+    ],
+    "skill_content": "---\nname: Digital Health Clinical Asr Finetune\ndescription: Stage 4 of the Clinical ASR Flywheel. Use when priority KER is above 0.3 to run stock NeMo SFT on Parakeet TDT v2 and offline cycle N+1 re-eval. NOT for generic word boosting (use /finetune-asr).\n---\n\n# Digital Health Clinical Asr Finetune\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nStage 4 of the Clinical ASR Flywheel. Use when priority KER is above 0.3 to run stock NeMo SFT on Parakeet TDT v2 and offline cycle N+1 re-eval. NOT for generic word boosting (use /finetune-asr).\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/digital-health-clinical-asr-finetune\n"
+  },
+  {
+    "slug": "nvidia-dynamo-interconnect-check",
+    "name": "Dynamo Interconnect Check",
+    "category": "coding",
+    "description": "Validate that a Dynamo deployment's NIXL/UCX/NCCL interconnect is ready for disaggregated serving over RDMA/NVLink. Use after recipe-runner brings a deployment up (especially disagg/multi-node) to confirm the KV…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/dynamo-interconnect-check",
+    "tags": [
+      "check",
+      "dynamo",
+      "interconnect",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Dynamo Interconnect Check\ndescription: Validate that a Dynamo deployment's NIXL/UCX/NCCL interconnect is ready for disaggregated serving over RDMA/NVLink. Use after recipe-runner brings a deployment up (especially disagg/multi-node) to confirm the KV…\n---\n\n# Dynamo Interconnect Check\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nValidate that a Dynamo deployment's NIXL/UCX/NCCL interconnect is ready for disaggregated serving over RDMA/NVLink. Use after recipe-runner brings a deployment up (especially disagg/multi-node) to confirm the KV…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/dynamo-interconnect-check\n"
+  },
+  {
+    "slug": "nvidia-dynamo-recipe-runner",
+    "name": "Dynamo Recipe Runner",
+    "category": "coding",
+    "description": "Select, validate, patch, and deploy existing NVIDIA Dynamo Kubernetes recipes. Use for model/backend/GPU/deployment-mode recipe bring-up; use router-starter for router-only mode work and troubleshoot for broken…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/dynamo-recipe-runner",
+    "tags": [
+      "dynamo",
+      "nvidia",
+      "recipe",
+      "runner"
+    ],
+    "skill_content": "---\nname: Dynamo Recipe Runner\ndescription: Select, validate, patch, and deploy existing NVIDIA Dynamo Kubernetes recipes. Use for model/backend/GPU/deployment-mode recipe bring-up; use router-starter for router-only mode work and troubleshoot for broken…\n---\n\n# Dynamo Recipe Runner\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nSelect, validate, patch, and deploy existing NVIDIA Dynamo Kubernetes recipes. Use for model/backend/GPU/deployment-mode recipe bring-up; use router-starter for router-only mode work and troubleshoot for broken…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/dynamo-recipe-runner\n"
+  },
+  {
+    "slug": "nvidia-dynamo-router-starter",
+    "name": "Dynamo Router Starter",
+    "category": "coding",
+    "description": "Start or patch Dynamo router modes and run router endpoint smoke checks. Use for round-robin, KV-aware, least-loaded, or device-aware routing setup; use recipe-runner for recipe deployment and troubleshoot for…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/dynamo-router-starter",
+    "tags": [
+      "dynamo",
+      "nvidia",
+      "router",
+      "starter"
+    ],
+    "skill_content": "---\nname: Dynamo Router Starter\ndescription: Start or patch Dynamo router modes and run router endpoint smoke checks. Use for round-robin, KV-aware, least-loaded, or device-aware routing setup; use recipe-runner for recipe deployment and troubleshoot for…\n---\n\n# Dynamo Router Starter\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nStart or patch Dynamo router modes and run router endpoint smoke checks. Use for round-robin, KV-aware, least-loaded, or device-aware routing setup; use recipe-runner for recipe deployment and troubleshoot for…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/dynamo-router-starter\n"
+  },
+  {
+    "slug": "nvidia-dynamo-troubleshoot",
+    "name": "Dynamo Troubleshoot",
+    "category": "coding",
+    "description": "Diagnose failed or unhealthy Dynamo deployments. Use when pods, model-cache jobs, PVCs, workers, frontend/router health, endpoints, or benchmark jobs fail; use recipe-runner/router-starter before this for normal…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/dynamo-troubleshoot",
+    "tags": [
+      "dynamo",
+      "nvidia",
+      "troubleshoot",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Dynamo Troubleshoot\ndescription: Diagnose failed or unhealthy Dynamo deployments. Use when pods, model-cache jobs, PVCs, workers, frontend/router health, endpoints, or benchmark jobs fail; use recipe-runner/router-starter before this for normal…\n---\n\n# Dynamo Troubleshoot\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nDiagnose failed or unhealthy Dynamo deployments. Use when pods, model-cache jobs, PVCs, workers, frontend/router health, endpoints, or benchmark jobs fail; use recipe-runner/router-starter before this for normal…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/dynamo-troubleshoot\n"
+  },
+  {
+    "slug": "nvidia-earth2studio-data-fetch",
+    "name": "Earth2studio Data Fetch",
+    "category": "research",
+    "description": "Fetch weather/climate data via Earth2Studio data sources for specific variables and times. Do NOT use for inference pipelines, model discovery, or installation.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/earth2studio-data-fetch",
+    "tags": [
+      "data",
+      "earth2studio",
+      "fetch",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Earth2studio Data Fetch\ndescription: Fetch weather/climate data via Earth2Studio data sources for specific variables and times. Do NOT use for inference pipelines, model discovery, or installation.\n---\n\n# Earth2studio Data Fetch\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nFetch weather/climate data via Earth2Studio data sources for specific variables and times. Do NOT use for inference pipelines, model discovery, or installation.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/earth2studio-data-fetch\n"
+  },
+  {
+    "slug": "nvidia-earth2studio-deterministic-forecast",
+    "name": "Earth2studio Deterministic Forecast",
+    "category": "research",
+    "description": "Build deterministic forecast scripts with Earth2Studio (model, data source, IO, inference). Do NOT use for ensemble, diagnostics, data-only fetch, or install.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/earth2studio-deterministic-forecast",
+    "tags": [
+      "deterministic",
+      "earth2studio",
+      "forecast",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Earth2studio Deterministic Forecast\ndescription: Build deterministic forecast scripts with Earth2Studio (model, data source, IO, inference). Do NOT use for ensemble, diagnostics, data-only fetch, or install.\n---\n\n# Earth2studio Deterministic Forecast\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nBuild deterministic forecast scripts with Earth2Studio (model, data source, IO, inference). Do NOT use for ensemble, diagnostics, data-only fetch, or install.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/earth2studio-deterministic-forecast\n"
+  },
+  {
+    "slug": "nvidia-earth2studio-discover",
+    "name": "Earth2studio Discover",
+    "category": "research",
+    "description": "Find Earth2Studio models, data sources, and examples for a weather/climate use case. Do NOT use for writing inference code, downloading data, or installation.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/earth2studio-discover",
+    "tags": [
+      "discover",
+      "earth2studio",
+      "trusted-source",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Earth2studio Discover\ndescription: Find Earth2Studio models, data sources, and examples for a weather/climate use case. Do NOT use for writing inference code, downloading data, or installation.\n---\n\n# Earth2studio Discover\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nFind Earth2Studio models, data sources, and examples for a weather/climate use case. Do NOT use for writing inference code, downloading data, or installation.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/earth2studio-discover\n"
+  },
+  {
+    "slug": "nvidia-earth2studio-install",
+    "name": "Earth2studio Install",
+    "category": "research",
+    "description": "Guide installing Earth2Studio via uv or pip, selecting model extras, and configuring the environment. Do NOT use for writing inference code, choosing models, or PhysicsNeMo questions.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/earth2studio-install",
+    "tags": [
+      "earth2studio",
+      "install",
+      "trusted-source",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Earth2studio Install\ndescription: Guide installing Earth2Studio via uv or pip, selecting model extras, and configuring the environment. Do NOT use for writing inference code, choosing models, or PhysicsNeMo questions.\n---\n\n# Earth2studio Install\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nGuide installing Earth2Studio via uv or pip, selecting model extras, and configuring the environment. Do NOT use for writing inference code, choosing models, or PhysicsNeMo questions.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/earth2studio-install\n"
+  },
+  {
+    "slug": "nvidia-holoscan-install-container",
+    "name": "Holoscan Install Container",
+    "category": "coding",
+    "description": "Install Holoscan SDK via the NGC Docker container. Use for container-based installs; not for native apt/pip/Conda installs.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/holoscan-install-container",
+    "tags": [
+      "container",
+      "holoscan",
+      "install",
+      "sdk"
+    ],
+    "skill_content": "---\nname: Holoscan Install Container\ndescription: Install Holoscan SDK via the NGC Docker container. Use for container-based installs; not for native apt/pip/Conda installs.\n---\n\n# Holoscan Install Container\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nInstall Holoscan SDK via the NGC Docker container. Use for container-based installs; not for native apt/pip/Conda installs.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/holoscan-install-container\n"
+  },
+  {
+    "slug": "nvidia-holoscan-install-debian",
+    "name": "Holoscan Install Debian",
+    "category": "coding",
+    "description": "Install Holoscan SDK natively on Ubuntu via apt. Use for C++ installs on Ubuntu; pair with /holoscan-install-wheel for Python.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/holoscan-install-debian",
+    "tags": [
+      "debian",
+      "holoscan",
+      "install",
+      "sdk"
+    ],
+    "skill_content": "---\nname: Holoscan Install Debian\ndescription: Install Holoscan SDK natively on Ubuntu via apt. Use for C++ installs on Ubuntu; pair with /holoscan-install-wheel for Python.\n---\n\n# Holoscan Install Debian\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nInstall Holoscan SDK natively on Ubuntu via apt. Use for C++ installs on Ubuntu; pair with /holoscan-install-wheel for Python.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/holoscan-install-debian\n"
+  },
+  {
+    "slug": "nvidia-holoscan-setup",
+    "name": "Holoscan Setup",
+    "category": "coding",
+    "description": "Guides Holoscan SDK installation: inspects the host, assesses platform compatibility, recommends an install method, and delegates to the matching install skill.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/holoscan-setup",
+    "tags": [
+      "holoscan",
+      "sdk",
+      "setup",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Holoscan Setup\ndescription: Guides Holoscan SDK installation: inspects the host, assesses platform compatibility, recommends an install method, and delegates to the matching install skill.\n---\n\n# Holoscan Setup\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nGuides Holoscan SDK installation: inspects the host, assesses platform compatibility, recommends an install method, and delegates to the matching install skill.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/holoscan-setup\n"
+  },
+  {
+    "slug": "nvidia-hsb-setup",
+    "name": "Hsb Setup",
+    "category": "coding",
+    "description": "Clone the latest NVIDIA Holoscan Sensor Bridge repo, ask which supported devkit is being used, configure the host per platform, build the correct demo container, run it, and verify HSB connectivity by pinging…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/hsb-setup",
+    "tags": [
+      "bridge",
+      "holoscan",
+      "hsb",
+      "sensor"
+    ],
+    "skill_content": "---\nname: Hsb Setup\ndescription: Clone the latest NVIDIA Holoscan Sensor Bridge repo, ask which supported devkit is being used, configure the host per platform, build the correct demo container, run it, and verify HSB connectivity by pinging…\n---\n\n# Hsb Setup\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nClone the latest NVIDIA Holoscan Sensor Bridge repo, ask which supported devkit is being used, configure the host per platform, build the correct demo container, run it, and verify HSB connectivity by pinging…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/hsb-setup\n"
+  },
+  {
+    "slug": "nvidia-hsb-flash",
+    "name": "Hsb Flash",
+    "category": "coding",
+    "description": "Flash the FPGA on an HSB board connected to an NVIDIA devkit. Supports HSB Lattice boards (FPGA versions 2407, 2412, 2507, 2510) and Leopard Imaging VB1940 \"all-in-one\" cameras (FPGA versions 2507, 2510). Uses…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/hsb-flash",
+    "tags": [
+      "bridge",
+      "flash",
+      "holoscan",
+      "hsb"
+    ],
+    "skill_content": "---\nname: Hsb Flash\ndescription: Flash the FPGA on an HSB board connected to an NVIDIA devkit. Supports HSB Lattice boards (FPGA versions 2407, 2412, 2507, 2510) and Leopard Imaging VB1940 \"all-in-one\" cameras (FPGA versions 2507, 2510). Uses…\n---\n\n# Hsb Flash\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nFlash the FPGA on an HSB board connected to an NVIDIA devkit. Supports HSB Lattice boards (FPGA versions 2407, 2412, 2507, 2510) and Leopard Imaging VB1940 \"all-in-one\" cameras (FPGA versions 2507, 2510). Uses…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/hsb-flash\n"
+  },
+  {
+    "slug": "nvidia-hsb-test",
+    "name": "Hsb Test",
+    "category": "coding",
+    "description": "Execute QA test plans on Holoscan Sensor Bridge hardware. Reads a user-provided test document, filters tests by the user's setup, determines which tests can run automatically, executes them with pass/fail evaluation,…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/hsb-test",
+    "tags": [
+      "bridge",
+      "holoscan",
+      "hsb",
+      "sensor"
+    ],
+    "skill_content": "---\nname: Hsb Test\ndescription: Execute QA test plans on Holoscan Sensor Bridge hardware. Reads a user-provided test document, filters tests by the user's setup, determines which tests can run automatically, executes them with pass/fail evaluation,…\n---\n\n# Hsb Test\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nExecute QA test plans on Holoscan Sensor Bridge hardware. Reads a user-provided test document, filters tests by the user's setup, determines which tests can run automatically, executes them with pass/fail evaluation,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/hsb-test\n"
+  },
+  {
+    "slug": "nvidia-dicom-metadata-extract",
+    "name": "Dicom Metadata Extract",
+    "category": "research",
+    "description": "Used for extracting selected metadata from one DICOM file and flagging standard-tag PHI presence. Not for anonymization or clinical use.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/dicom-metadata-extract",
+    "tags": [
+      "ai",
+      "dicom",
+      "extract",
+      "medical"
+    ],
+    "skill_content": "---\nname: Dicom Metadata Extract\ndescription: Used for extracting selected metadata from one DICOM file and flagging standard-tag PHI presence. Not for anonymization or clinical use.\n---\n\n# Dicom Metadata Extract\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUsed for extracting selected metadata from one DICOM file and flagging standard-tag PHI presence. Not for anonymization or clinical use.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/dicom-metadata-extract\n"
+  },
+  {
+    "slug": "nvidia-dicom-series-preflight",
+    "name": "Dicom Series Preflight",
+    "category": "research",
+    "description": "Used for header-only preflight of one DICOM series folder before conversion or inference. Not for de-identification or clinical clearance.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/dicom-series-preflight",
+    "tags": [
+      "ai",
+      "dicom",
+      "medical",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Dicom Series Preflight\ndescription: Used for header-only preflight of one DICOM series folder before conversion or inference. Not for de-identification or clinical clearance.\n---\n\n# Dicom Series Preflight\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUsed for header-only preflight of one DICOM series folder before conversion or inference. Not for de-identification or clinical clearance.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/dicom-series-preflight\n"
+  },
+  {
+    "slug": "nvidia-dicom-series-to-volume",
+    "name": "Dicom Series To Volume",
+    "category": "research",
+    "description": "Used for converting one CT DICOM series folder to a HU NIfTI volume with affine evidence. Not for multi-frame DICOM or clinical use.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/dicom-series-to-volume",
+    "tags": [
+      "ai",
+      "dicom",
+      "medical",
+      "nvidia"
+    ],
+    "skill_content": "---\nname: Dicom Series To Volume\ndescription: Used for converting one CT DICOM series folder to a HU NIfTI volume with affine evidence. Not for multi-frame DICOM or clinical use.\n---\n\n# Dicom Series To Volume\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUsed for converting one CT DICOM series folder to a HU NIfTI volume with affine evidence. Not for multi-frame DICOM or clinical use.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/dicom-series-to-volume\n"
+  },
+  {
+    "slug": "nvidia-nv-segment-ct",
+    "name": "Nv Segment Ct",
+    "category": "research",
+    "description": "Used for running NV-Segment-CT VISTA3D on CT NIfTI volumes and recording label-map evidence.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/nv-segment-ct",
+    "tags": [
+      "ai",
+      "ct",
+      "medical",
+      "nv"
+    ],
+    "skill_content": "---\nname: Nv Segment Ct\ndescription: Used for running NV-Segment-CT VISTA3D on CT NIfTI volumes and recording label-map evidence.\n---\n\n# Nv Segment Ct\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUsed for running NV-Segment-CT VISTA3D on CT NIfTI volumes and recording label-map evidence.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/nv-segment-ct\n"
+  },
+  {
+    "slug": "nvidia-nv-reason-cxr",
+    "name": "Nv Reason Cxr",
+    "category": "research",
+    "description": "Used for command-shape or live NV-Reason-CXR chest X-ray reasoning smoke tests. Not for diagnosis or clinical reporting.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/nv-reason-cxr",
+    "tags": [
+      "ai",
+      "cxr",
+      "medical",
+      "nv"
+    ],
+    "skill_content": "---\nname: Nv Reason Cxr\ndescription: Used for command-shape or live NV-Reason-CXR chest X-ray reasoning smoke tests. Not for diagnosis or clinical reporting.\n---\n\n# Nv Reason Cxr\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nUsed for command-shape or live NV-Reason-CXR chest X-ray reasoning smoke tests. Not for diagnosis or clinical reporting.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/nv-reason-cxr\n"
+  },
+  {
+    "slug": "nvidia-rag-blueprint",
+    "name": "Rag Blueprint",
+    "category": "data",
+    "description": "NVIDIA RAG Blueprint — deploy, configure, troubleshoot, and manage. Handles any RAG action: deploy, install, start, enable, disable, toggle, change, configure, troubleshoot, debug, fix, shutdown, stop, or tear down…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/rag-blueprint",
+    "tags": [
+      "blueprint",
+      "nvidia",
+      "rag",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Rag Blueprint\ndescription: NVIDIA RAG Blueprint — deploy, configure, troubleshoot, and manage. Handles any RAG action: deploy, install, start, enable, disable, toggle, change, configure, troubleshoot, debug, fix, shutdown, stop, or tear down…\n---\n\n# Rag Blueprint\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nNVIDIA RAG Blueprint — deploy, configure, troubleshoot, and manage. Handles any RAG action: deploy, install, start, enable, disable, toggle, change, configure, troubleshoot, debug, fix, shutdown, stop, or tear down…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/rag-blueprint\n"
+  },
+  {
+    "slug": "nvidia-rag-eval",
+    "name": "Rag Eval",
+    "category": "data",
+    "description": "Filesystem RAG benchmarks: corpus/, train.json, evaluate_rag.py (RAGAS quality). Not for prod monitoring, latency/throughput benchmarking (use rag-perf), or evals outside this repo layout.",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/rag-eval",
+    "tags": [
+      "blueprint",
+      "eval",
+      "nvidia",
+      "rag"
+    ],
+    "skill_content": "---\nname: Rag Eval\ndescription: Filesystem RAG benchmarks: corpus/, train.json, evaluate_rag.py (RAGAS quality). Not for prod monitoring, latency/throughput benchmarking (use rag-perf), or evals outside this repo layout.\n---\n\n# Rag Eval\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nFilesystem RAG benchmarks: corpus/, train.json, evaluate_rag.py (RAGAS quality). Not for prod monitoring, latency/throughput benchmarking (use rag-perf), or evals outside this repo layout.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/rag-eval\n"
+  },
+  {
+    "slug": "nvidia-rag-perf",
+    "name": "Rag Perf",
+    "category": "data",
+    "description": "Performance benchmarking for a deployed NVIDIA RAG Blueprint server: profiling pass + aiperf load test driven by a single YAML config. Not for accuracy / RAGAS scoring (use rag-eval) or for deploying / repairing…",
+    "author": "NVIDIA",
+    "source_url": "https://github.com/NVIDIA/skills/tree/main/skills/rag-perf",
+    "tags": [
+      "blueprint",
+      "nvidia",
+      "perf",
+      "rag"
+    ],
+    "skill_content": "---\nname: Rag Perf\ndescription: Performance benchmarking for a deployed NVIDIA RAG Blueprint server: profiling pass + aiperf load test driven by a single YAML config. Not for accuracy / RAGAS scoring (use rag-eval) or for deploying / repairing…\n---\n\n# Rag Perf\n\nPart of the **NVIDIA Skills** pack by NVIDIA (`NVIDIA/skills`).\n\nPerformance benchmarking for a deployed NVIDIA RAG Blueprint server: profiling pass + aiperf load test driven by a single YAML config. Not for accuracy / RAGAS scoring (use rag-eval) or for deploying / repairing…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/NVIDIA/skills/tree/main/skills/rag-perf\n"
+  }
+]

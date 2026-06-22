@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "secpriv-security-privacy-review",
+    "name": "SecPriv Security & Privacy Review",
+    "category": "coding",
+    "description": "Meta's unified security & privacy code-review skill: reviews code or a diff in a single pass, flagging security vulnerabilities and privacy issues with explanations and fixes. Use it as a review system prompt or a…",
+    "author": "Meta",
+    "source_url": "https://github.com/facebookresearch/secpriv-skill/tree/main/SKILL.md",
+    "tags": [
+      "secpriv",
+      "trusted-source",
+      "meta",
+      "security"
+    ],
+    "skill_content": "---\nname: SecPriv Security & Privacy Review\ndescription: Meta's unified security & privacy code-review skill: reviews code or a diff in a single pass, flagging security vulnerabilities and privacy issues with explanations and fixes. Use it as a review system prompt or a…\n---\n\n# SecPriv Security & Privacy Review\n\nPart of the **Meta SecPriv** pack by Meta (`facebookresearch/secpriv-skill`).\n\nMeta's unified security & privacy code-review skill: reviews code or a diff in a single pass, flagging security vulnerabilities and privacy issues with explanations and fixes. Use it as a review system prompt or a…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/facebookresearch/secpriv-skill/tree/main/SKILL.md\n"
+  }
+]

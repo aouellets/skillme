@@ -1,0 +1,602 @@
+[
+  {
+    "slug": "grafana-grafana-oss",
+    "name": "Grafana Oss",
+    "category": "coding",
+    "description": "Configure Grafana OSS — provisions dashboards from YAML, sets up data sources (Prometheus / Loki / Tempo / Pyroscope), writes dashboard JSON with template variables, builds panel queries, assigns built-in roles…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-core/grafana-oss",
+    "tags": [
+      "grafana",
+      "oss",
+      "trusted-source",
+      "observability"
+    ],
+    "skill_content": "---\nname: Grafana Oss\ndescription: Configure Grafana OSS — provisions dashboards from YAML, sets up data sources (Prometheus / Loki / Tempo / Pyroscope), writes dashboard JSON with template variables, builds panel queries, assigns built-in roles…\n---\n\n# Grafana Oss\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nConfigure Grafana OSS — provisions dashboards from YAML, sets up data sources (Prometheus / Loki / Tempo / Pyroscope), writes dashboard JSON with template variables, builds panel queries, assigns built-in roles…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-core/grafana-oss\n"
+  },
+  {
+    "slug": "grafana-dashboarding",
+    "name": "Dashboarding",
+    "category": "coding",
+    "description": "Create, modify, and organise Grafana dashboards including panels, variables, transformations, and alerting. Use when the user asks to create a Grafana dashboard, add a panel, configure a time series or stat panel,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-core/dashboarding",
+    "tags": [
+      "dashboarding",
+      "grafana",
+      "trusted-source",
+      "observability"
+    ],
+    "skill_content": "---\nname: Dashboarding\ndescription: Create, modify, and organise Grafana dashboards including panels, variables, transformations, and alerting. Use when the user asks to create a Grafana dashboard, add a panel, configure a time series or stat panel,…\n---\n\n# Dashboarding\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nCreate, modify, and organise Grafana dashboards including panels, variables, transformations, and alerting. Use when the user asks to create a Grafana dashboard, add a panel, configure a time series or stat panel,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-core/dashboarding\n"
+  },
+  {
+    "slug": "grafana-promql",
+    "name": "Promql",
+    "category": "coding",
+    "description": "Write, validate, and optimise PromQL queries for Prometheus and Grafana Cloud Metrics. Use when the user asks to query metrics, write a PromQL expression, calculate rates, aggregate across labels, build histogram…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-core/promql",
+    "tags": [
+      "grafana",
+      "promql",
+      "trusted-source",
+      "observability"
+    ],
+    "skill_content": "---\nname: Promql\ndescription: Write, validate, and optimise PromQL queries for Prometheus and Grafana Cloud Metrics. Use when the user asks to query metrics, write a PromQL expression, calculate rates, aggregate across labels, build histogram…\n---\n\n# Promql\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nWrite, validate, and optimise PromQL queries for Prometheus and Grafana Cloud Metrics. Use when the user asks to query metrics, write a PromQL expression, calculate rates, aggregate across labels, build histogram…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-core/promql\n"
+  },
+  {
+    "slug": "grafana-alerting-irm",
+    "name": "Alerting Irm",
+    "category": "coding",
+    "description": "Configure Grafana Alerting, Incident Response Management (IRM), and SLOs end-to-end — provisions Grafana-managed and data-source-managed alert rules, contact points (Slack/PagerDuty/email/webhook), notification…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-core/alerting-irm",
+    "tags": [
+      "alerting",
+      "grafana",
+      "irm",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Alerting Irm\ndescription: Configure Grafana Alerting, Incident Response Management (IRM), and SLOs end-to-end — provisions Grafana-managed and data-source-managed alert rules, contact points (Slack/PagerDuty/email/webhook), notification…\n---\n\n# Alerting Irm\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nConfigure Grafana Alerting, Incident Response Management (IRM), and SLOs end-to-end — provisions Grafana-managed and data-source-managed alert rules, contact points (Slack/PagerDuty/email/webhook), notification…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-core/alerting-irm\n"
+  },
+  {
+    "slug": "grafana-alloy",
+    "name": "Alloy",
+    "category": "coding",
+    "description": "Grafana Alloy OpenTelemetry collector and telemetry pipeline configuration. Covers the Alloy configuration language (blocks, attributes, expressions), components for collecting metrics/logs/traces/profiles, sending…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-core/alloy",
+    "tags": [
+      "alloy",
+      "grafana",
+      "trusted-source",
+      "observability"
+    ],
+    "skill_content": "---\nname: Alloy\ndescription: Grafana Alloy OpenTelemetry collector and telemetry pipeline configuration. Covers the Alloy configuration language (blocks, attributes, expressions), components for collecting metrics/logs/traces/profiles, sending…\n---\n\n# Alloy\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Alloy OpenTelemetry collector and telemetry pipeline configuration. Covers the Alloy configuration language (blocks, attributes, expressions), components for collecting metrics/logs/traces/profiles, sending…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-core/alloy\n"
+  },
+  {
+    "slug": "grafana-beyla",
+    "name": "Beyla",
+    "category": "coding",
+    "description": "Grafana Beyla eBPF auto-instrumentation for application observability without code changes. Covers supported languages/runtimes, requirements, installation, configuration (discovery, eBPF settings, OTLP traces…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-core/beyla",
+    "tags": [
+      "beyla",
+      "grafana",
+      "trusted-source",
+      "observability"
+    ],
+    "skill_content": "---\nname: Beyla\ndescription: Grafana Beyla eBPF auto-instrumentation for application observability without code changes. Covers supported languages/runtimes, requirements, installation, configuration (discovery, eBPF settings, OTLP traces…\n---\n\n# Beyla\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Beyla eBPF auto-instrumentation for application observability without code changes. Covers supported languages/runtimes, requirements, installation, configuration (discovery, eBPF settings, OTLP traces…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-core/beyla\n"
+  },
+  {
+    "slug": "grafana-opentelemetry",
+    "name": "Opentelemetry",
+    "category": "coding",
+    "description": "OpenTelemetry with Grafana stack. Covers OTel SDK instrumentation for Go/Java/Python/Node.js/.NET, OTLP protocol and endpoint configuration, sending telemetry to Grafana Cloud via OTLP endpoint, Grafana Alloy as OTel…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-core/opentelemetry",
+    "tags": [
+      "grafana",
+      "opentelemetry",
+      "trusted-source",
+      "observability"
+    ],
+    "skill_content": "---\nname: Opentelemetry\ndescription: OpenTelemetry with Grafana stack. Covers OTel SDK instrumentation for Go/Java/Python/Node.js/.NET, OTLP protocol and endpoint configuration, sending telemetry to Grafana Cloud via OTLP endpoint, Grafana Alloy as OTel…\n---\n\n# Opentelemetry\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nOpenTelemetry with Grafana stack. Covers OTel SDK instrumentation for Go/Java/Python/Node.js/.NET, OTLP protocol and endpoint configuration, sending telemetry to Grafana Cloud via OTLP endpoint, Grafana Alloy as OTel…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-core/opentelemetry\n"
+  },
+  {
+    "slug": "grafana-admin",
+    "name": "Admin",
+    "category": "coding",
+    "description": "Manage Grafana Cloud accounts — organizations, stacks, RBAC roles and assignments, SSO/SAML/OAuth/GitHub auth, service accounts for CI/CD, user invites, team membership, and API-driven provisioning. Creates stacks…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/admin",
+    "tags": [
+      "admin",
+      "cloud",
+      "grafana",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Admin\ndescription: Manage Grafana Cloud accounts — organizations, stacks, RBAC roles and assignments, SSO/SAML/OAuth/GitHub auth, service accounts for CI/CD, user invites, team membership, and API-driven provisioning. Creates stacks…\n---\n\n# Admin\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nManage Grafana Cloud accounts — organizations, stacks, RBAC roles and assignments, SSO/SAML/OAuth/GitHub auth, service accounts for CI/CD, user invites, team membership, and API-driven provisioning. Creates stacks…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/admin\n"
+  },
+  {
+    "slug": "grafana-send-data",
+    "name": "Send Data",
+    "category": "coding",
+    "description": "Sending telemetry data to Grafana Cloud — metrics via Prometheus remote write or OTLP, logs via Loki push or Alloy, traces via OTLP to Tempo, profiles via Pyroscope. Covers Alloy-based pipelines, direct SDK/agent…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/send-data",
+    "tags": [
+      "cloud",
+      "data",
+      "grafana",
+      "send"
+    ],
+    "skill_content": "---\nname: Send Data\ndescription: Sending telemetry data to Grafana Cloud — metrics via Prometheus remote write or OTLP, logs via Loki push or Alloy, traces via OTLP to Tempo, profiles via Pyroscope. Covers Alloy-based pipelines, direct SDK/agent…\n---\n\n# Send Data\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nSending telemetry data to Grafana Cloud — metrics via Prometheus remote write or OTLP, logs via Loki push or Alloy, traces via OTLP to Tempo, profiles via Pyroscope. Covers Alloy-based pipelines, direct SDK/agent…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/send-data\n"
+  },
+  {
+    "slug": "grafana-fleet-management",
+    "name": "Fleet Management",
+    "category": "coding",
+    "description": "Install, configure, and manage Grafana Alloy collector fleets using Fleet Management and remote configuration pipelines. Use when the user asks to configure Alloy, manage collector pipelines, deploy remote…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/fleet-management",
+    "tags": [
+      "cloud",
+      "fleet",
+      "grafana",
+      "management"
+    ],
+    "skill_content": "---\nname: Fleet Management\ndescription: Install, configure, and manage Grafana Alloy collector fleets using Fleet Management and remote configuration pipelines. Use when the user asks to configure Alloy, manage collector pipelines, deploy remote…\n---\n\n# Fleet Management\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nInstall, configure, and manage Grafana Alloy collector fleets using Fleet Management and remote configuration pipelines. Use when the user asks to configure Alloy, manage collector pipelines, deploy remote…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/fleet-management\n"
+  },
+  {
+    "slug": "grafana-cloud-integrations",
+    "name": "Cloud Integrations",
+    "category": "coding",
+    "description": "Set up, configure, and troubleshoot Grafana Cloud integrations for AWS, Azure, and other cloud providers. Use when the user asks to connect AWS CloudWatch, set up Azure Monitor, configure Confluent Cloud…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/cloud-integrations",
+    "tags": [
+      "cloud",
+      "grafana",
+      "integrations",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Cloud Integrations\ndescription: Set up, configure, and troubleshoot Grafana Cloud integrations for AWS, Azure, and other cloud providers. Use when the user asks to connect AWS CloudWatch, set up Azure Monitor, configure Confluent Cloud…\n---\n\n# Cloud Integrations\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nSet up, configure, and troubleshoot Grafana Cloud integrations for AWS, Azure, and other cloud providers. Use when the user asks to connect AWS CloudWatch, set up Azure Monitor, configure Confluent Cloud…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/cloud-integrations\n"
+  },
+  {
+    "slug": "grafana-infrastructure",
+    "name": "Infrastructure",
+    "category": "coding",
+    "description": "Grafana Cloud infrastructure monitoring — Kubernetes monitoring, cloud provider integrations (AWS, Azure, GCP), host and container monitoring, infrastructure dashboards, and collector setup. Use when setting up…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/infrastructure",
+    "tags": [
+      "cloud",
+      "grafana",
+      "infrastructure",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Infrastructure\ndescription: Grafana Cloud infrastructure monitoring — Kubernetes monitoring, cloud provider integrations (AWS, Azure, GCP), host and container monitoring, infrastructure dashboards, and collector setup. Use when setting up…\n---\n\n# Infrastructure\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Cloud infrastructure monitoring — Kubernetes monitoring, cloud provider integrations (AWS, Azure, GCP), host and container monitoring, infrastructure dashboards, and collector setup. Use when setting up…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/infrastructure\n"
+  },
+  {
+    "slug": "grafana-app-observability",
+    "name": "App Observability",
+    "category": "coding",
+    "description": "Grafana Cloud Application Observability (APM), Frontend Observability (RUM/Faro), and AI Observability. Covers RED metrics (Rate/Error/Duration), service maps, span metrics from traces, Faro JavaScript/React SDK for…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/app-observability",
+    "tags": [
+      "app",
+      "cloud",
+      "grafana",
+      "observability"
+    ],
+    "skill_content": "---\nname: App Observability\ndescription: Grafana Cloud Application Observability (APM), Frontend Observability (RUM/Faro), and AI Observability. Covers RED metrics (Rate/Error/Duration), service maps, span metrics from traces, Faro JavaScript/React SDK for…\n---\n\n# App Observability\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Cloud Application Observability (APM), Frontend Observability (RUM/Faro), and AI Observability. Covers RED metrics (Rate/Error/Duration), service maps, span metrics from traces, Faro JavaScript/React SDK for…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/app-observability\n"
+  },
+  {
+    "slug": "grafana-database-observability",
+    "name": "Database Observability",
+    "category": "coding",
+    "description": "Grafana Cloud Database Observability — query-level performance insights for MySQL and PostgreSQL. Covers setup with Grafana Alloy, query samples, visual explain plans, RED metrics, pg_stat_statements and Performance…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/database-observability",
+    "tags": [
+      "cloud",
+      "database",
+      "grafana",
+      "observability"
+    ],
+    "skill_content": "---\nname: Database Observability\ndescription: Grafana Cloud Database Observability — query-level performance insights for MySQL and PostgreSQL. Covers setup with Grafana Alloy, query samples, visual explain plans, RED metrics, pg_stat_statements and Performance…\n---\n\n# Database Observability\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Cloud Database Observability — query-level performance insights for MySQL and PostgreSQL. Covers setup with Grafana Alloy, query samples, visual explain plans, RED metrics, pg_stat_statements and Performance…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/database-observability\n"
+  },
+  {
+    "slug": "grafana-adaptive-metrics",
+    "name": "Adaptive Metrics",
+    "category": "coding",
+    "description": "Reduce Grafana Cloud Metrics costs by managing cardinality with Adaptive Metrics aggregation rules. Use when the user asks to reduce metrics costs, manage cardinality, create aggregation rules, apply label dropping,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/adaptive-metrics",
+    "tags": [
+      "adaptive",
+      "cloud",
+      "grafana",
+      "metrics"
+    ],
+    "skill_content": "---\nname: Adaptive Metrics\ndescription: Reduce Grafana Cloud Metrics costs by managing cardinality with Adaptive Metrics aggregation rules. Use when the user asks to reduce metrics costs, manage cardinality, create aggregation rules, apply label dropping,…\n---\n\n# Adaptive Metrics\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nReduce Grafana Cloud Metrics costs by managing cardinality with Adaptive Metrics aggregation rules. Use when the user asks to reduce metrics costs, manage cardinality, create aggregation rules, apply label dropping,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/adaptive-metrics\n"
+  },
+  {
+    "slug": "grafana-cost-management",
+    "name": "Cost Management",
+    "category": "coding",
+    "description": "Grafana Cloud cost management — usage monitoring, cost attribution by label, usage alerts, invoice management, and optimization strategies. Covers Adaptive Metrics (cardinality reduction), Adaptive Logs (log…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/cost-management",
+    "tags": [
+      "cloud",
+      "cost",
+      "grafana",
+      "management"
+    ],
+    "skill_content": "---\nname: Cost Management\ndescription: Grafana Cloud cost management — usage monitoring, cost attribution by label, usage alerts, invoice management, and optimization strategies. Covers Adaptive Metrics (cardinality reduction), Adaptive Logs (log…\n---\n\n# Cost Management\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Cloud cost management — usage monitoring, cost attribution by label, usage alerts, invoice management, and optimization strategies. Covers Adaptive Metrics (cardinality reduction), Adaptive Logs (log…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/cost-management\n"
+  },
+  {
+    "slug": "grafana-dpm-finder",
+    "name": "Dpm Finder",
+    "category": "coding",
+    "description": "Grafana Professional Services tool for identifying which Prometheus metrics drive high Data Points per Minute (DPM). Analyzes metric-level DPM with per-label breakdown to help optimize Grafana Cloud costs. Use when…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/dpm-finder",
+    "tags": [
+      "cloud",
+      "dpm",
+      "finder",
+      "grafana"
+    ],
+    "skill_content": "---\nname: Dpm Finder\ndescription: Grafana Professional Services tool for identifying which Prometheus metrics drive high Data Points per Minute (DPM). Analyzes metric-level DPM with per-label breakdown to help optimize Grafana Cloud costs. Use when…\n---\n\n# Dpm Finder\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Professional Services tool for identifying which Prometheus metrics drive high Data Points per Minute (DPM). Analyzes metric-level DPM with per-label breakdown to help optimize Grafana Cloud costs. Use when…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/dpm-finder\n"
+  },
+  {
+    "slug": "grafana-loki-label-analyzer",
+    "name": "Loki Label Analyzer",
+    "category": "coding",
+    "description": "Expert evaluator for Grafana Loki label strategy. Audits, designs, and improves label schemas using cardinality scoring, access-pattern alignment, static vs. dynamic label rules, and consistency checks. Use when the…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/loki-label-analyzer",
+    "tags": [
+      "analyzer",
+      "cloud",
+      "grafana",
+      "label"
+    ],
+    "skill_content": "---\nname: Loki Label Analyzer\ndescription: Expert evaluator for Grafana Loki label strategy. Audits, designs, and improves label schemas using cardinality scoring, access-pattern alignment, static vs. dynamic label rules, and consistency checks. Use when the…\n---\n\n# Loki Label Analyzer\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nExpert evaluator for Grafana Loki label strategy. Audits, designs, and improves label schemas using cardinality scoring, access-pattern alignment, static vs. dynamic label rules, and consistency checks. Use when the…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/loki-label-analyzer\n"
+  },
+  {
+    "slug": "grafana-prometheus-label-strategy",
+    "name": "Prometheus Label Strategy",
+    "category": "coding",
+    "description": "Expert evaluator for Prometheus label strategy on Grafana Cloud. Audits, designs, and improves label schemas using cardinality scoring, access-pattern alignment, static vs. dynamic label rules, histogram bucket…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/prometheus-label-strategy",
+    "tags": [
+      "cloud",
+      "grafana",
+      "label",
+      "prometheus"
+    ],
+    "skill_content": "---\nname: Prometheus Label Strategy\ndescription: Expert evaluator for Prometheus label strategy on Grafana Cloud. Audits, designs, and improves label schemas using cardinality scoring, access-pattern alignment, static vs. dynamic label rules, histogram bucket…\n---\n\n# Prometheus Label Strategy\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nExpert evaluator for Prometheus label strategy on Grafana Cloud. Audits, designs, and improves label schemas using cardinality scoring, access-pattern alignment, static vs. dynamic label rules, histogram bucket…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/prometheus-label-strategy\n"
+  },
+  {
+    "slug": "grafana-prometheus-cardinality-troubleshooter",
+    "name": "Prometheus Cardinality Troubleshooter",
+    "category": "coding",
+    "description": "Diagnostic guide for active Prometheus cardinality problems — slow queries, OOMing Prometheus, high Grafana Cloud Active Series or DPM bills, \"too many samples\" ingest errors, series churn, or rapid memory growth.…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/prometheus-cardinality-troubleshooter",
+    "tags": [
+      "cardinality",
+      "cloud",
+      "grafana",
+      "prometheus"
+    ],
+    "skill_content": "---\nname: Prometheus Cardinality Troubleshooter\ndescription: Diagnostic guide for active Prometheus cardinality problems — slow queries, OOMing Prometheus, high Grafana Cloud Active Series or DPM bills, \"too many samples\" ingest errors, series churn, or rapid memory growth.…\n---\n\n# Prometheus Cardinality Troubleshooter\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nDiagnostic guide for active Prometheus cardinality problems — slow queries, OOMing Prometheus, high Grafana Cloud Active Series or DPM bills, \"too many samples\" ingest errors, series churn, or rapid memory growth.…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/prometheus-cardinality-troubleshooter\n"
+  },
+  {
+    "slug": "grafana-oncall-irm",
+    "name": "Oncall Irm",
+    "category": "coding",
+    "description": "Grafana OnCall and Incident Response Management (IRM) — alert routing, escalation chains, on-call schedules, Jinja2 routing templates, Slack/mobile notifications, integrations (Alertmanager, Grafana Alerting,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/oncall-irm",
+    "tags": [
+      "cloud",
+      "grafana",
+      "irm",
+      "oncall"
+    ],
+    "skill_content": "---\nname: Oncall Irm\ndescription: Grafana OnCall and Incident Response Management (IRM) — alert routing, escalation chains, on-call schedules, Jinja2 routing templates, Slack/mobile notifications, integrations (Alertmanager, Grafana Alerting,…\n---\n\n# Oncall Irm\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana OnCall and Incident Response Management (IRM) — alert routing, escalation chains, on-call schedules, Jinja2 routing templates, Slack/mobile notifications, integrations (Alertmanager, Grafana Alerting,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/oncall-irm\n"
+  },
+  {
+    "slug": "grafana-ml-ai",
+    "name": "Ml Ai",
+    "category": "coding",
+    "description": "Grafana Cloud AI and ML features — Grafana Assistant (natural language queries, dashboard generation, incident investigations), Dynamic Alerting (ML forecasting and outlier detection), Sift (automated root cause…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/ml-ai",
+    "tags": [
+      "ai",
+      "cloud",
+      "grafana",
+      "ml"
+    ],
+    "skill_content": "---\nname: Ml Ai\ndescription: Grafana Cloud AI and ML features — Grafana Assistant (natural language queries, dashboard generation, incident investigations), Dynamic Alerting (ML forecasting and outlier detection), Sift (automated root cause…\n---\n\n# Ml Ai\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Cloud AI and ML features — Grafana Assistant (natural language queries, dashboard generation, incident investigations), Dynamic Alerting (ML forecasting and outlier detection), Sift (automated root cause…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/ml-ai\n"
+  },
+  {
+    "slug": "grafana-assistant-mcp",
+    "name": "Assistant Mcp",
+    "category": "coding",
+    "description": "Connect AI coding agents (Claude Code, Cursor, VS Code, OpenAI Codex) to Grafana Cloud via the `mcp-grafana` Model Context Protocol server. Installs the server with `go install`, generates a Grafana service-account…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/assistant-mcp",
+    "tags": [
+      "assistant",
+      "cloud",
+      "grafana",
+      "mcp"
+    ],
+    "skill_content": "---\nname: Assistant Mcp\ndescription: Connect AI coding agents (Claude Code, Cursor, VS Code, OpenAI Codex) to Grafana Cloud via the `mcp-grafana` Model Context Protocol server. Installs the server with `go install`, generates a Grafana service-account…\n---\n\n# Assistant Mcp\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nConnect AI coding agents (Claude Code, Cursor, VS Code, OpenAI Codex) to Grafana Cloud via the `mcp-grafana` Model Context Protocol server. Installs the server with `go install`, generates a Grafana service-account…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/assistant-mcp\n"
+  },
+  {
+    "slug": "grafana-private-connectivity",
+    "name": "Private Connectivity",
+    "category": "coding",
+    "description": "Grafana Cloud private network connectivity — AWS PrivateLink, Azure Private Link, and GCP Private Service Connect. Send telemetry (metrics, logs, traces, profiles) to Grafana Cloud without traversing the public…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/private-connectivity",
+    "tags": [
+      "cloud",
+      "connectivity",
+      "grafana",
+      "private"
+    ],
+    "skill_content": "---\nname: Private Connectivity\ndescription: Grafana Cloud private network connectivity — AWS PrivateLink, Azure Private Link, and GCP Private Service Connect. Send telemetry (metrics, logs, traces, profiles) to Grafana Cloud without traversing the public…\n---\n\n# Private Connectivity\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Cloud private network connectivity — AWS PrivateLink, Azure Private Link, and GCP Private Service Connect. Send telemetry (metrics, logs, traces, profiles) to Grafana Cloud without traversing the public…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/private-connectivity\n"
+  },
+  {
+    "slug": "grafana-testing",
+    "name": "Testing",
+    "category": "coding",
+    "description": "Grafana Cloud testing capabilities — Synthetic Monitoring (probing URLs, DNS, TCP, ping from multiple regions), k6 Cloud (managed load testing with distributed execution), and Frontend Observability (Faro, real user…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-cloud/testing",
+    "tags": [
+      "cloud",
+      "grafana",
+      "testing",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Testing\ndescription: Grafana Cloud testing capabilities — Synthetic Monitoring (probing URLs, DNS, TCP, ping from multiple regions), k6 Cloud (managed load testing with distributed execution), and Frontend Observability (Faro, real user…\n---\n\n# Testing\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Cloud testing capabilities — Synthetic Monitoring (probing URLs, DNS, TCP, ping from multiple regions), k6 Cloud (managed load testing with distributed execution), and Frontend Observability (Faro, real user…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-cloud/testing\n"
+  },
+  {
+    "slug": "grafana-loki",
+    "name": "Loki",
+    "category": "coding",
+    "description": "Grafana Loki log aggregation and LogQL query language. Covers LogQL syntax (log queries, metric queries, label matchers, line filters, parsers: json/logfmt/pattern/regexp/unpack, label filters, line_format), Loki…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/loki",
+    "tags": [
+      "grafana",
+      "lgtm",
+      "loki",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Loki\ndescription: Grafana Loki log aggregation and LogQL query language. Covers LogQL syntax (log queries, metric queries, label matchers, line filters, parsers: json/logfmt/pattern/regexp/unpack, label filters, line_format), Loki…\n---\n\n# Loki\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Loki log aggregation and LogQL query language. Covers LogQL syntax (log queries, metric queries, label matchers, line filters, parsers: json/logfmt/pattern/regexp/unpack, label filters, line_format), Loki…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/loki\n"
+  },
+  {
+    "slug": "grafana-tempo",
+    "name": "Tempo",
+    "category": "coding",
+    "description": "Grafana Tempo distributed tracing backend. Covers TraceQL query language (span selectors, attribute scopes, pipeline operators, structural operators, metrics functions), trace ingestion via OTLP/Jaeger/Zipkin, Tempo…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/tempo",
+    "tags": [
+      "grafana",
+      "lgtm",
+      "tempo",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Tempo\ndescription: Grafana Tempo distributed tracing backend. Covers TraceQL query language (span selectors, attribute scopes, pipeline operators, structural operators, metrics functions), trace ingestion via OTLP/Jaeger/Zipkin, Tempo…\n---\n\n# Tempo\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Tempo distributed tracing backend. Covers TraceQL query language (span selectors, attribute scopes, pipeline operators, structural operators, metrics functions), trace ingestion via OTLP/Jaeger/Zipkin, Tempo…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/tempo\n"
+  },
+  {
+    "slug": "grafana-prometheus",
+    "name": "Prometheus",
+    "category": "coding",
+    "description": "Prometheus and Grafana Cloud Metrics overview including PromQL query language, Metrics Drilldown, alerting, recording rules, and integration patterns. Use when working with Prometheus, writing PromQL queries,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/prometheus",
+    "tags": [
+      "grafana",
+      "lgtm",
+      "prometheus",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Prometheus\ndescription: Prometheus and Grafana Cloud Metrics overview including PromQL query language, Metrics Drilldown, alerting, recording rules, and integration patterns. Use when working with Prometheus, writing PromQL queries,…\n---\n\n# Prometheus\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nPrometheus and Grafana Cloud Metrics overview including PromQL query language, Metrics Drilldown, alerting, recording rules, and integration patterns. Use when working with Prometheus, writing PromQL queries,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/prometheus\n"
+  },
+  {
+    "slug": "grafana-mimir",
+    "name": "Mimir",
+    "category": "coding",
+    "description": "Grafana Mimir scalable long-term metrics storage. Covers architecture (distributor/ingester/compactor/querier/ query-frontend/store-gateway/ruler), deployment modes (monolithic/microservices), configuration,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/mimir",
+    "tags": [
+      "grafana",
+      "lgtm",
+      "mimir",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Mimir\ndescription: Grafana Mimir scalable long-term metrics storage. Covers architecture (distributor/ingester/compactor/querier/ query-frontend/store-gateway/ruler), deployment modes (monolithic/microservices), configuration,…\n---\n\n# Mimir\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Mimir scalable long-term metrics storage. Covers architecture (distributor/ingester/compactor/querier/ query-frontend/store-gateway/ruler), deployment modes (monolithic/microservices), configuration,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/mimir\n"
+  },
+  {
+    "slug": "grafana-pyroscope",
+    "name": "Pyroscope",
+    "category": "coding",
+    "description": "Grafana Pyroscope continuous profiling platform. Covers instrumentation of Go/Java/Python/Ruby/Node.js/ .NET/Rust apps via SDKs or eBPF (Alloy), flame graph analysis, ProfileQL queries, server configuration and…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/pyroscope",
+    "tags": [
+      "grafana",
+      "lgtm",
+      "pyroscope",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Pyroscope\ndescription: Grafana Pyroscope continuous profiling platform. Covers instrumentation of Go/Java/Python/Ruby/Node.js/ .NET/Rust apps via SDKs or eBPF (Alloy), flame graph analysis, ProfileQL queries, server configuration and…\n---\n\n# Pyroscope\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nGrafana Pyroscope continuous profiling platform. Covers instrumentation of Go/Java/Python/Ruby/Node.js/ .NET/Rust apps via SDKs or eBPF (Alloy), flame graph analysis, ProfileQL queries, server configuration and…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-lgtm/pyroscope\n"
+  },
+  {
+    "slug": "grafana-plugin-bundle-size",
+    "name": "Plugin Bundle Size",
+    "category": "coding",
+    "description": "Optimise Grafana app plugin bundle size using React.lazy, Suspense, and webpack code splitting. Use when the user asks to reduce plugin bundle size, optimise module.js, add code splitting, improve initial plugin load…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-plugins/plugin-bundle-size",
+    "tags": [
+      "bundle",
+      "grafana",
+      "plugins",
+      "size"
+    ],
+    "skill_content": "---\nname: Plugin Bundle Size\ndescription: Optimise Grafana app plugin bundle size using React.lazy, Suspense, and webpack code splitting. Use when the user asks to reduce plugin bundle size, optimise module.js, add code splitting, improve initial plugin load…\n---\n\n# Plugin Bundle Size\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nOptimise Grafana app plugin bundle size using React.lazy, Suspense, and webpack code splitting. Use when the user asks to reduce plugin bundle size, optimise module.js, add code splitting, improve initial plugin load…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-plugins/plugin-bundle-size\n"
+  },
+  {
+    "slug": "grafana-react-19-plugin-migration",
+    "name": "React 19 Plugin Migration",
+    "category": "coding",
+    "description": "Migrate a Grafana plugin to React 19 compatibility. Use when the user asks to update a plugin for React 19, prepare for React 19, fix React 19 compatibility, upgrade to React 19, migrate to React 19, bump…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-plugins/react-19-plugin-migration",
+    "tags": [
+      "19",
+      "grafana",
+      "migration",
+      "plugins"
+    ],
+    "skill_content": "---\nname: React 19 Plugin Migration\ndescription: Migrate a Grafana plugin to React 19 compatibility. Use when the user asks to update a plugin for React 19, prepare for React 19, fix React 19 compatibility, upgrade to React 19, migrate to React 19, bump…\n---\n\n# React 19 Plugin Migration\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nMigrate a Grafana plugin to React 19 compatibility. Use when the user asks to update a plugin for React 19, prepare for React 19, fix React 19 compatibility, upgrade to React 19, migrate to React 19, bump…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-plugins/react-19-plugin-migration\n"
+  },
+  {
+    "slug": "grafana-grafana-scenes",
+    "name": "Grafana Scenes",
+    "category": "coding",
+    "description": "Build Grafana plugin pages using the @grafana/scenes framework. Use when creating new scene pages, adding panels/visualizations, setting up drilldown navigation, defining variables, configuring query runners,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-plugins/grafana-scenes",
+    "tags": [
+      "grafana",
+      "plugins",
+      "scenes",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Grafana Scenes\ndescription: Build Grafana plugin pages using the @grafana/scenes framework. Use when creating new scene pages, adding panels/visualizations, setting up drilldown navigation, defining variables, configuring query runners,…\n---\n\n# Grafana Scenes\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nBuild Grafana plugin pages using the @grafana/scenes framework. Use when creating new scene pages, adding panels/visualizations, setting up drilldown navigation, defining variables, configuring query runners,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-plugins/grafana-scenes\n"
+  },
+  {
+    "slug": "grafana-app-sdk-concepts",
+    "name": "App Sdk Concepts",
+    "category": "coding",
+    "description": "Use when: user asks to create a Grafana app, initialize a grafana-app-sdk project, set up a Grafana App Platform app, scaffold a new app, or asks about deployment modes (standalone operator, grafana/apps,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-app-sdk/app-sdk-concepts",
+    "tags": [
+      "app",
+      "concepts",
+      "grafana",
+      "sdk"
+    ],
+    "skill_content": "---\nname: App Sdk Concepts\ndescription: Use when: user asks to create a Grafana app, initialize a grafana-app-sdk project, set up a Grafana App Platform app, scaffold a new app, or asks about deployment modes (standalone operator, grafana/apps,…\n---\n\n# App Sdk Concepts\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nUse when: user asks to create a Grafana app, initialize a grafana-app-sdk project, set up a Grafana App Platform app, scaffold a new app, or asks about deployment modes (standalone operator, grafana/apps,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-app-sdk/app-sdk-concepts\n"
+  },
+  {
+    "slug": "grafana-cue-kind-definition",
+    "name": "Cue Kind Definition",
+    "category": "coding",
+    "description": "Author CUE kind definitions for grafana-app-sdk apps - schemas, versioning, field constraints, named type definitions, custom routes, and codegen configuration. Scaffolds kinds via `grafana-app-sdk project kind add`,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-app-sdk/cue-kind-definition",
+    "tags": [
+      "app",
+      "cue",
+      "definition",
+      "grafana"
+    ],
+    "skill_content": "---\nname: Cue Kind Definition\ndescription: Author CUE kind definitions for grafana-app-sdk apps - schemas, versioning, field constraints, named type definitions, custom routes, and codegen configuration. Scaffolds kinds via `grafana-app-sdk project kind add`,…\n---\n\n# Cue Kind Definition\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nAuthor CUE kind definitions for grafana-app-sdk apps - schemas, versioning, field constraints, named type definitions, custom routes, and codegen configuration. Scaffolds kinds via `grafana-app-sdk project kind add`,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-app-sdk/cue-kind-definition\n"
+  },
+  {
+    "slug": "grafana-reconciler-logic",
+    "name": "Reconciler Logic",
+    "category": "coding",
+    "description": "Implement reconcilers and watchers for grafana-app-sdk apps — write `TypedReconciler[*MyKind]` reconcile functions, apply generation-based skip patterns, do conflict-safe status updates via `resource.UpdateObject`,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-app-sdk/reconciler-logic",
+    "tags": [
+      "app",
+      "grafana",
+      "logic",
+      "reconciler"
+    ],
+    "skill_content": "---\nname: Reconciler Logic\ndescription: Implement reconcilers and watchers for grafana-app-sdk apps — write `TypedReconciler[*MyKind]` reconcile functions, apply generation-based skip patterns, do conflict-safe status updates via `resource.UpdateObject`,…\n---\n\n# Reconciler Logic\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nImplement reconcilers and watchers for grafana-app-sdk apps — write `TypedReconciler[*MyKind]` reconcile functions, apply generation-based skip patterns, do conflict-safe status updates via `resource.UpdateObject`,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-app-sdk/reconciler-logic\n"
+  },
+  {
+    "slug": "grafana-admission-control",
+    "name": "Admission Control",
+    "category": "coding",
+    "description": "Use when the user asks to \"write a validator\", \"add validation\", \"implement admission control\", \"write a mutating webhook\", \"add a mutation handler\", \"validate incoming resources\", \"implement admission logic\", \"add…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-app-sdk/admission-control",
+    "tags": [
+      "admission",
+      "app",
+      "control",
+      "grafana"
+    ],
+    "skill_content": "---\nname: Admission Control\ndescription: Use when the user asks to \"write a validator\", \"add validation\", \"implement admission control\", \"write a mutating webhook\", \"add a mutation handler\", \"validate incoming resources\", \"implement admission logic\", \"add…\n---\n\n# Admission Control\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nUse when the user asks to \"write a validator\", \"add validation\", \"implement admission control\", \"write a mutating webhook\", \"add a mutation handler\", \"validate incoming resources\", \"implement admission logic\", \"add…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-app-sdk/admission-control\n"
+  },
+  {
+    "slug": "grafana-k6",
+    "name": "K6",
+    "category": "coding",
+    "description": "k6 performance and load testing. Covers writing test scripts in JavaScript/TypeScript, all test types (load/stress/spike/soak/smoke/breakpoint), thresholds, checks, scenarios, executors, extensions, result analysis,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-k6/k6",
+    "tags": [
+      "grafana",
+      "k6",
+      "trusted-source",
+      "observability"
+    ],
+    "skill_content": "---\nname: K6\ndescription: k6 performance and load testing. Covers writing test scripts in JavaScript/TypeScript, all test types (load/stress/spike/soak/smoke/breakpoint), thresholds, checks, scenarios, executors, extensions, result analysis,…\n---\n\n# K6\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nk6 performance and load testing. Covers writing test scripts in JavaScript/TypeScript, all test types (load/stress/spike/soak/smoke/breakpoint), thresholds, checks, scenarios, executors, extensions, result analysis,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-k6/k6\n"
+  },
+  {
+    "slug": "grafana-k6-docs",
+    "name": "K6 Docs",
+    "category": "coding",
+    "description": "Write or review k6 documentation across the three k6 repositories - k6-DefinitelyTyped (TypeScript types), k6-docs (user documentation), and k6 (release notes / changelog). Applies k6 doc style conventions, generates…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-k6/k6-docs",
+    "tags": [
+      "docs",
+      "grafana",
+      "k6",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: K6 Docs\ndescription: Write or review k6 documentation across the three k6 repositories - k6-DefinitelyTyped (TypeScript types), k6-docs (user documentation), and k6 (release notes / changelog). Applies k6 doc style conventions, generates…\n---\n\n# K6 Docs\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nWrite or review k6 documentation across the three k6 repositories - k6-DefinitelyTyped (TypeScript types), k6-docs (user documentation), and k6 (release notes / changelog). Applies k6 doc style conventions, generates…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-k6/k6-docs\n"
+  },
+  {
+    "slug": "grafana-k6-perf-test-website",
+    "name": "K6 Perf Test Website",
+    "category": "coding",
+    "description": "Use when the user wants to performance-test, load-test, or stress-test a public website end-to-end with k6. Produces a hybrid (protocol + browser) test suite, SLO-backed thresholds, a load-generator monitor sidecar,…",
+    "author": "Grafana Labs",
+    "source_url": "https://github.com/grafana/skills/tree/main/skills/grafana-k6/k6-perf-test-website",
+    "tags": [
+      "grafana",
+      "k6",
+      "perf",
+      "test"
+    ],
+    "skill_content": "---\nname: K6 Perf Test Website\ndescription: Use when the user wants to performance-test, load-test, or stress-test a public website end-to-end with k6. Produces a hybrid (protocol + browser) test suite, SLO-backed thresholds, a load-generator monitor sidecar,…\n---\n\n# K6 Perf Test Website\n\nPart of the **Grafana Skills** pack by Grafana Labs (`grafana/skills`).\n\nUse when the user wants to performance-test, load-test, or stress-test a public website end-to-end with k6. Produces a hybrid (protocol + browser) test suite, SLO-backed thresholds, a load-generator monitor sidecar,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/grafana/skills/tree/main/skills/grafana-k6/k6-perf-test-website\n"
+  }
+]

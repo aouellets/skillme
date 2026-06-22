@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "cloudflare-cloudflare",
+    "name": "Cloudflare",
+    "category": "coding",
+    "description": "Comprehensive Cloudflare platform skill covering Workers, Pages, storage (KV, D1, R2), AI (Workers AI, Vectorize, Agents SDK), feature flags (Flagship), networking (Tunnel, Spectrum), security (WAF, DDoS), and…",
+    "author": "Cloudflare",
+    "source_url": "https://github.com/cloudflare/skills/tree/main/skills/cloudflare",
+    "tags": [
+      "cloudflare",
+      "trusted-source",
+      "edge",
+      "workers"
+    ],
+    "skill_content": "---\nname: Cloudflare\ndescription: Comprehensive Cloudflare platform skill covering Workers, Pages, storage (KV, D1, R2), AI (Workers AI, Vectorize, Agents SDK), feature flags (Flagship), networking (Tunnel, Spectrum), security (WAF, DDoS), and…\n---\n\n# Cloudflare\n\nPart of the **Cloudflare Skills** pack by Cloudflare (`cloudflare/skills`).\n\nComprehensive Cloudflare platform skill covering Workers, Pages, storage (KV, D1, R2), AI (Workers AI, Vectorize, Agents SDK), feature flags (Flagship), networking (Tunnel, Spectrum), security (WAF, DDoS), and…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cloudflare/skills/tree/main/skills/cloudflare\n"
+  },
+  {
+    "slug": "cloudflare-agents-sdk",
+    "name": "Agents Sdk",
+    "category": "coding",
+    "description": "Build AI agents on Cloudflare Workers using the Agents SDK. Load when creating stateful agents, durable workflows, real-time WebSocket apps, scheduled tasks, MCP servers, chat applications, voice agents, or browser…",
+    "author": "Cloudflare",
+    "source_url": "https://github.com/cloudflare/skills/tree/main/skills/agents-sdk",
+    "tags": [
+      "agents",
+      "cloudflare",
+      "sdk",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Agents Sdk\ndescription: Build AI agents on Cloudflare Workers using the Agents SDK. Load when creating stateful agents, durable workflows, real-time WebSocket apps, scheduled tasks, MCP servers, chat applications, voice agents, or browser…\n---\n\n# Agents Sdk\n\nPart of the **Cloudflare Skills** pack by Cloudflare (`cloudflare/skills`).\n\nBuild AI agents on Cloudflare Workers using the Agents SDK. Load when creating stateful agents, durable workflows, real-time WebSocket apps, scheduled tasks, MCP servers, chat applications, voice agents, or browser…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cloudflare/skills/tree/main/skills/agents-sdk\n"
+  },
+  {
+    "slug": "cloudflare-durable-objects",
+    "name": "Durable Objects",
+    "category": "coding",
+    "description": "Create and review Cloudflare Durable Objects. Use when building stateful coordination (chat rooms, multiplayer games, booking systems), implementing RPC methods, SQLite storage, alarms, WebSockets, or reviewing DO…",
+    "author": "Cloudflare",
+    "source_url": "https://github.com/cloudflare/skills/tree/main/skills/durable-objects",
+    "tags": [
+      "cloudflare",
+      "durable",
+      "objects",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Durable Objects\ndescription: Create and review Cloudflare Durable Objects. Use when building stateful coordination (chat rooms, multiplayer games, booking systems), implementing RPC methods, SQLite storage, alarms, WebSockets, or reviewing DO…\n---\n\n# Durable Objects\n\nPart of the **Cloudflare Skills** pack by Cloudflare (`cloudflare/skills`).\n\nCreate and review Cloudflare Durable Objects. Use when building stateful coordination (chat rooms, multiplayer games, booking systems), implementing RPC methods, SQLite storage, alarms, WebSockets, or reviewing DO…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cloudflare/skills/tree/main/skills/durable-objects\n"
+  },
+  {
+    "slug": "cloudflare-sandbox-sdk",
+    "name": "Sandbox Sdk",
+    "category": "coding",
+    "description": "Build sandboxed applications for secure code execution. Load when building AI code execution, code interpreters, CI/CD systems, interactive dev environments, or executing untrusted code. Covers Sandbox SDK lifecycle,…",
+    "author": "Cloudflare",
+    "source_url": "https://github.com/cloudflare/skills/tree/main/skills/sandbox-sdk",
+    "tags": [
+      "cloudflare",
+      "sandbox",
+      "sdk",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Sandbox Sdk\ndescription: Build sandboxed applications for secure code execution. Load when building AI code execution, code interpreters, CI/CD systems, interactive dev environments, or executing untrusted code. Covers Sandbox SDK lifecycle,…\n---\n\n# Sandbox Sdk\n\nPart of the **Cloudflare Skills** pack by Cloudflare (`cloudflare/skills`).\n\nBuild sandboxed applications for secure code execution. Load when building AI code execution, code interpreters, CI/CD systems, interactive dev environments, or executing untrusted code. Covers Sandbox SDK lifecycle,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cloudflare/skills/tree/main/skills/sandbox-sdk\n"
+  },
+  {
+    "slug": "cloudflare-wrangler",
+    "name": "Wrangler",
+    "category": "coding",
+    "description": "Cloudflare Workers CLI for deploying, developing, and managing Workers, KV, R2, D1, Vectorize, Hyperdrive, Workers AI, Containers, Queues, Workflows, Pipelines, and Secrets Store. Load before running wrangler…",
+    "author": "Cloudflare",
+    "source_url": "https://github.com/cloudflare/skills/tree/main/skills/wrangler",
+    "tags": [
+      "cloudflare",
+      "trusted-source",
+      "wrangler",
+      "edge"
+    ],
+    "skill_content": "---\nname: Wrangler\ndescription: Cloudflare Workers CLI for deploying, developing, and managing Workers, KV, R2, D1, Vectorize, Hyperdrive, Workers AI, Containers, Queues, Workflows, Pipelines, and Secrets Store. Load before running wrangler…\n---\n\n# Wrangler\n\nPart of the **Cloudflare Skills** pack by Cloudflare (`cloudflare/skills`).\n\nCloudflare Workers CLI for deploying, developing, and managing Workers, KV, R2, D1, Vectorize, Hyperdrive, Workers AI, Containers, Queues, Workflows, Pipelines, and Secrets Store. Load before running wrangler…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cloudflare/skills/tree/main/skills/wrangler\n"
+  },
+  {
+    "slug": "cloudflare-web-perf",
+    "name": "Web Perf",
+    "category": "coding",
+    "description": "Analyzes web performance using Chrome DevTools MCP. Measures Core Web Vitals (LCP, INP, CLS) and supplementary metrics (FCP, TBT, Speed Index), identifies render-blocking resources, network dependency chains, layout…",
+    "author": "Cloudflare",
+    "source_url": "https://github.com/cloudflare/skills/tree/main/skills/web-perf",
+    "tags": [
+      "cloudflare",
+      "perf",
+      "trusted-source",
+      "web"
+    ],
+    "skill_content": "---\nname: Web Perf\ndescription: Analyzes web performance using Chrome DevTools MCP. Measures Core Web Vitals (LCP, INP, CLS) and supplementary metrics (FCP, TBT, Speed Index), identifies render-blocking resources, network dependency chains, layout…\n---\n\n# Web Perf\n\nPart of the **Cloudflare Skills** pack by Cloudflare (`cloudflare/skills`).\n\nAnalyzes web performance using Chrome DevTools MCP. Measures Core Web Vitals (LCP, INP, CLS) and supplementary metrics (FCP, TBT, Speed Index), identifies render-blocking resources, network dependency chains, layout…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cloudflare/skills/tree/main/skills/web-perf\n"
+  },
+  {
+    "slug": "cloudflare-cloudflare-one",
+    "name": "Cloudflare One",
+    "category": "coding",
+    "description": "Guides Cloudflare One Zero Trust and SASE work across Access, Gateway, WARP, Tunnel, Cloudflare WAN, DLP, CASB, device posture, and identity. Use when designing, configuring, troubleshooting, or reviewing Cloudflare…",
+    "author": "Cloudflare",
+    "source_url": "https://github.com/cloudflare/skills/tree/main/skills/cloudflare-one",
+    "tags": [
+      "cloudflare",
+      "one",
+      "trusted-source",
+      "edge"
+    ],
+    "skill_content": "---\nname: Cloudflare One\ndescription: Guides Cloudflare One Zero Trust and SASE work across Access, Gateway, WARP, Tunnel, Cloudflare WAN, DLP, CASB, device posture, and identity. Use when designing, configuring, troubleshooting, or reviewing Cloudflare…\n---\n\n# Cloudflare One\n\nPart of the **Cloudflare Skills** pack by Cloudflare (`cloudflare/skills`).\n\nGuides Cloudflare One Zero Trust and SASE work across Access, Gateway, WARP, Tunnel, Cloudflare WAN, DLP, CASB, device posture, and identity. Use when designing, configuring, troubleshooting, or reviewing Cloudflare…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cloudflare/skills/tree/main/skills/cloudflare-one\n"
+  },
+  {
+    "slug": "cloudflare-cloudflare-one-migrations",
+    "name": "Cloudflare One Migrations",
+    "category": "coding",
+    "description": "Plans migrations from Zscaler ZIA/ZPA, Palo Alto, legacy VPN, SWG, or SASE stacks to Cloudflare One. Use for migration assessments, policy mapping, rollout plans, and parity/gap analysis.",
+    "author": "Cloudflare",
+    "source_url": "https://github.com/cloudflare/skills/tree/main/skills/cloudflare-one-migrations",
+    "tags": [
+      "cloudflare",
+      "migrations",
+      "one",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Cloudflare One Migrations\ndescription: Plans migrations from Zscaler ZIA/ZPA, Palo Alto, legacy VPN, SWG, or SASE stacks to Cloudflare One. Use for migration assessments, policy mapping, rollout plans, and parity/gap analysis.\n---\n\n# Cloudflare One Migrations\n\nPart of the **Cloudflare Skills** pack by Cloudflare (`cloudflare/skills`).\n\nPlans migrations from Zscaler ZIA/ZPA, Palo Alto, legacy VPN, SWG, or SASE stacks to Cloudflare One. Use for migration assessments, policy mapping, rollout plans, and parity/gap analysis.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cloudflare/skills/tree/main/skills/cloudflare-one-migrations\n"
+  }
+]

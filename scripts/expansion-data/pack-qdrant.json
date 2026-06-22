@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "qdrant-qdrant-clients-sdk",
+    "name": "Qdrant Clients Sdk",
+    "category": "data",
+    "description": "Qdrant provides client SDKs for various programming languages, allowing easy integration with Qdrant deployments.",
+    "author": "Qdrant",
+    "source_url": "https://github.com/qdrant/skills/tree/main/skills/qdrant-clients-sdk",
+    "tags": [
+      "clients",
+      "qdrant",
+      "sdk",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Qdrant Clients Sdk\ndescription: Qdrant provides client SDKs for various programming languages, allowing easy integration with Qdrant deployments.\n---\n\n# Qdrant Clients Sdk\n\nPart of the **Qdrant Skills** pack by Qdrant (`qdrant/skills`).\n\nQdrant provides client SDKs for various programming languages, allowing easy integration with Qdrant deployments.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/qdrant/skills/tree/main/skills/qdrant-clients-sdk\n"
+  },
+  {
+    "slug": "qdrant-qdrant-deployment-options",
+    "name": "Qdrant Deployment Options",
+    "category": "data",
+    "description": "Guides Qdrant deployment selection. Use when someone asks 'how to deploy Qdrant', 'Docker vs Cloud', 'local mode', 'embedded Qdrant', 'Qdrant EDGE', 'which deployment option', 'self-hosted vs cloud', or 'need lowest…",
+    "author": "Qdrant",
+    "source_url": "https://github.com/qdrant/skills/tree/main/skills/qdrant-deployment-options",
+    "tags": [
+      "deployment",
+      "options",
+      "qdrant",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Qdrant Deployment Options\ndescription: Guides Qdrant deployment selection. Use when someone asks 'how to deploy Qdrant', 'Docker vs Cloud', 'local mode', 'embedded Qdrant', 'Qdrant EDGE', 'which deployment option', 'self-hosted vs cloud', or 'need lowest…\n---\n\n# Qdrant Deployment Options\n\nPart of the **Qdrant Skills** pack by Qdrant (`qdrant/skills`).\n\nGuides Qdrant deployment selection. Use when someone asks 'how to deploy Qdrant', 'Docker vs Cloud', 'local mode', 'embedded Qdrant', 'Qdrant EDGE', 'which deployment option', 'self-hosted vs cloud', or 'need lowest…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/qdrant/skills/tree/main/skills/qdrant-deployment-options\n"
+  },
+  {
+    "slug": "qdrant-qdrant-model-migration",
+    "name": "Qdrant Model Migration",
+    "category": "data",
+    "description": "Guides embedding model migration in Qdrant without downtime. Use when someone asks 'how to switch embedding models', 'how to migrate vectors', 'how to update to a new model', 'zero-downtime model change', 'how to…",
+    "author": "Qdrant",
+    "source_url": "https://github.com/qdrant/skills/tree/main/skills/qdrant-model-migration",
+    "tags": [
+      "migration",
+      "model",
+      "qdrant",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Qdrant Model Migration\ndescription: Guides embedding model migration in Qdrant without downtime. Use when someone asks 'how to switch embedding models', 'how to migrate vectors', 'how to update to a new model', 'zero-downtime model change', 'how to…\n---\n\n# Qdrant Model Migration\n\nPart of the **Qdrant Skills** pack by Qdrant (`qdrant/skills`).\n\nGuides embedding model migration in Qdrant without downtime. Use when someone asks 'how to switch embedding models', 'how to migrate vectors', 'how to update to a new model', 'zero-downtime model change', 'how to…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/qdrant/skills/tree/main/skills/qdrant-model-migration\n"
+  },
+  {
+    "slug": "qdrant-qdrant-monitoring",
+    "name": "Qdrant Monitoring",
+    "category": "data",
+    "description": "Guides Qdrant monitoring and observability setup. Use when someone asks 'how to monitor Qdrant', 'what metrics to track', 'is Qdrant healthy', 'optimizer stuck', 'why is memory growing', 'requests are slow', or needs…",
+    "author": "Qdrant",
+    "source_url": "https://github.com/qdrant/skills/tree/main/skills/qdrant-monitoring",
+    "tags": [
+      "monitoring",
+      "qdrant",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Qdrant Monitoring\ndescription: Guides Qdrant monitoring and observability setup. Use when someone asks 'how to monitor Qdrant', 'what metrics to track', 'is Qdrant healthy', 'optimizer stuck', 'why is memory growing', 'requests are slow', or needs…\n---\n\n# Qdrant Monitoring\n\nPart of the **Qdrant Skills** pack by Qdrant (`qdrant/skills`).\n\nGuides Qdrant monitoring and observability setup. Use when someone asks 'how to monitor Qdrant', 'what metrics to track', 'is Qdrant healthy', 'optimizer stuck', 'why is memory growing', 'requests are slow', or needs…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/qdrant/skills/tree/main/skills/qdrant-monitoring\n"
+  },
+  {
+    "slug": "qdrant-qdrant-performance-optimization",
+    "name": "Qdrant Performance Optimization",
+    "category": "data",
+    "description": "Different techniques to optimize the performance of Qdrant, including indexing strategies, query optimization, and hardware considerations. Use when you want to improve the speed and efficiency of your Qdrant deployment.",
+    "author": "Qdrant",
+    "source_url": "https://github.com/qdrant/skills/tree/main/skills/qdrant-performance-optimization",
+    "tags": [
+      "optimization",
+      "performance",
+      "qdrant",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Qdrant Performance Optimization\ndescription: Different techniques to optimize the performance of Qdrant, including indexing strategies, query optimization, and hardware considerations. Use when you want to improve the speed and efficiency of your Qdrant deployment.\n---\n\n# Qdrant Performance Optimization\n\nPart of the **Qdrant Skills** pack by Qdrant (`qdrant/skills`).\n\nDifferent techniques to optimize the performance of Qdrant, including indexing strategies, query optimization, and hardware considerations. Use when you want to improve the speed and efficiency of your Qdrant deployment.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/qdrant/skills/tree/main/skills/qdrant-performance-optimization\n"
+  },
+  {
+    "slug": "qdrant-qdrant-scaling",
+    "name": "Qdrant Scaling",
+    "category": "data",
+    "description": "Guides Qdrant scaling decisions. Use when someone asks 'how many nodes do I need', 'data doesn't fit on one node', 'need more throughput', 'cluster is slow', 'too many tenants', 'vertical or horizontal', 'how to…",
+    "author": "Qdrant",
+    "source_url": "https://github.com/qdrant/skills/tree/main/skills/qdrant-scaling",
+    "tags": [
+      "qdrant",
+      "scaling",
+      "trusted-source",
+      "vector-database"
+    ],
+    "skill_content": "---\nname: Qdrant Scaling\ndescription: Guides Qdrant scaling decisions. Use when someone asks 'how many nodes do I need', 'data doesn't fit on one node', 'need more throughput', 'cluster is slow', 'too many tenants', 'vertical or horizontal', 'how to…\n---\n\n# Qdrant Scaling\n\nPart of the **Qdrant Skills** pack by Qdrant (`qdrant/skills`).\n\nGuides Qdrant scaling decisions. Use when someone asks 'how many nodes do I need', 'data doesn't fit on one node', 'need more throughput', 'cluster is slow', 'too many tenants', 'vertical or horizontal', 'how to…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/qdrant/skills/tree/main/skills/qdrant-scaling\n"
+  },
+  {
+    "slug": "qdrant-qdrant-search-quality",
+    "name": "Qdrant Search Quality",
+    "category": "data",
+    "description": "Diagnoses and improves Qdrant search relevance. Use when someone reports 'search results are bad', 'wrong results', 'low precision', 'low recall', 'irrelevant matches', 'missing expected results', or asks 'how to…",
+    "author": "Qdrant",
+    "source_url": "https://github.com/qdrant/skills/tree/main/skills/qdrant-search-quality",
+    "tags": [
+      "qdrant",
+      "quality",
+      "search",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Qdrant Search Quality\ndescription: Diagnoses and improves Qdrant search relevance. Use when someone reports 'search results are bad', 'wrong results', 'low precision', 'low recall', 'irrelevant matches', 'missing expected results', or asks 'how to…\n---\n\n# Qdrant Search Quality\n\nPart of the **Qdrant Skills** pack by Qdrant (`qdrant/skills`).\n\nDiagnoses and improves Qdrant search relevance. Use when someone reports 'search results are bad', 'wrong results', 'low precision', 'low recall', 'irrelevant matches', 'missing expected results', or asks 'how to…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/qdrant/skills/tree/main/skills/qdrant-search-quality\n"
+  },
+  {
+    "slug": "qdrant-qdrant-version-upgrade",
+    "name": "Qdrant Version Upgrade",
+    "category": "data",
+    "description": "Guidance on how to upgrade your Qdrant version without interrupting the availability of your application and ensuring data integrity.",
+    "author": "Qdrant",
+    "source_url": "https://github.com/qdrant/skills/tree/main/skills/qdrant-version-upgrade",
+    "tags": [
+      "qdrant",
+      "trusted-source",
+      "upgrade",
+      "version"
+    ],
+    "skill_content": "---\nname: Qdrant Version Upgrade\ndescription: Guidance on how to upgrade your Qdrant version without interrupting the availability of your application and ensuring data integrity.\n---\n\n# Qdrant Version Upgrade\n\nPart of the **Qdrant Skills** pack by Qdrant (`qdrant/skills`).\n\nGuidance on how to upgrade your Qdrant version without interrupting the availability of your application and ensuring data integrity.\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/qdrant/skills/tree/main/skills/qdrant-version-upgrade\n"
+  }
+]

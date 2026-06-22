@@ -1,0 +1,302 @@
+[
+  {
+    "slug": "cockroachdb-upgrading-cluster-version",
+    "name": "Upgrading Cluster Version",
+    "category": "data",
+    "description": "Guides CockroachDB version upgrades with tier-appropriate procedures. Self-Hosted covers manual rolling binary replacement with finalization control. Advanced/BYOC covers Console-initiated major upgrades, maintenance…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-operations-and-lifecycle/upgrading-cluster-version",
+    "tags": [
+      "cluster",
+      "cockroachdb",
+      "trusted-source",
+      "upgrading"
+    ],
+    "skill_content": "---\nname: Upgrading Cluster Version\ndescription: Guides CockroachDB version upgrades with tier-appropriate procedures. Self-Hosted covers manual rolling binary replacement with finalization control. Advanced/BYOC covers Console-initiated major upgrades, maintenance…\n---\n\n# Upgrading Cluster Version\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nGuides CockroachDB version upgrades with tier-appropriate procedures. Self-Hosted covers manual rolling binary replacement with finalization control. Advanced/BYOC covers Console-initiated major upgrades, maintenance…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-operations-and-lifecycle/upgrading-cluster-version\n"
+  },
+  {
+    "slug": "cockroachdb-managing-cluster-settings",
+    "name": "Managing Cluster Settings",
+    "category": "data",
+    "description": "Reviews, audits, and modifies CockroachDB cluster settings. Self-Hosted has full control over all settings and start flags. Advanced/BYOC can modify most SQL-level settings but infrastructure settings are managed by…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-operations-and-lifecycle/managing-cluster-settings",
+    "tags": [
+      "cluster",
+      "cockroachdb",
+      "managing",
+      "settings"
+    ],
+    "skill_content": "---\nname: Managing Cluster Settings\ndescription: Reviews, audits, and modifies CockroachDB cluster settings. Self-Hosted has full control over all settings and start flags. Advanced/BYOC can modify most SQL-level settings but infrastructure settings are managed by…\n---\n\n# Managing Cluster Settings\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nReviews, audits, and modifies CockroachDB cluster settings. Self-Hosted has full control over all settings and start flags. Advanced/BYOC can modify most SQL-level settings but infrastructure settings are managed by…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-operations-and-lifecycle/managing-cluster-settings\n"
+  },
+  {
+    "slug": "cockroachdb-provisioning-cluster-for-production",
+    "name": "Provisioning Cluster For Production",
+    "category": "data",
+    "description": "Guides initial CockroachDB cluster provisioning and production deployment. Self-Hosted covers cockroach start/init, Kubernetes deployment (Operator, Helm), hardware sizing, and production configuration. Advanced/BYOC…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-operations-and-lifecycle/provisioning-cluster-for-production",
+    "tags": [
+      "cluster",
+      "cockroachdb",
+      "for",
+      "production"
+    ],
+    "skill_content": "---\nname: Provisioning Cluster For Production\ndescription: Guides initial CockroachDB cluster provisioning and production deployment. Self-Hosted covers cockroach start/init, Kubernetes deployment (Operator, Helm), hardware sizing, and production configuration. Advanced/BYOC…\n---\n\n# Provisioning Cluster For Production\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nGuides initial CockroachDB cluster provisioning and production deployment. Self-Hosted covers cockroach start/init, Kubernetes deployment (Operator, Helm), hardware sizing, and production configuration. Advanced/BYOC…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-operations-and-lifecycle/provisioning-cluster-for-production\n"
+  },
+  {
+    "slug": "cockroachdb-reviewing-cluster-health",
+    "name": "Reviewing Cluster Health",
+    "category": "data",
+    "description": "Performs a comprehensive health check of a CockroachDB cluster. Gathers deployment context first, then provides tier-appropriate diagnostics. Self-Hosted uses SQL against node-level system tables and CLI.…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-operations-and-lifecycle/reviewing-cluster-health",
+    "tags": [
+      "cluster",
+      "cockroachdb",
+      "health",
+      "reviewing"
+    ],
+    "skill_content": "---\nname: Reviewing Cluster Health\ndescription: Performs a comprehensive health check of a CockroachDB cluster. Gathers deployment context first, then provides tier-appropriate diagnostics. Self-Hosted uses SQL against node-level system tables and CLI.…\n---\n\n# Reviewing Cluster Health\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nPerforms a comprehensive health check of a CockroachDB cluster. Gathers deployment context first, then provides tier-appropriate diagnostics. Self-Hosted uses SQL against node-level system tables and CLI.…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-operations-and-lifecycle/reviewing-cluster-health\n"
+  },
+  {
+    "slug": "cockroachdb-configuring-audit-logging",
+    "name": "Configuring Audit Logging",
+    "category": "data",
+    "description": "Configures SQL audit logging on CockroachDB clusters to capture security-relevant events including authentication, privilege changes, and sensitive data access. Use when enabling audit logging for compliance, setting…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/configuring-audit-logging",
+    "tags": [
+      "audit",
+      "cockroachdb",
+      "configuring",
+      "logging"
+    ],
+    "skill_content": "---\nname: Configuring Audit Logging\ndescription: Configures SQL audit logging on CockroachDB clusters to capture security-relevant events including authentication, privilege changes, and sensitive data access. Use when enabling audit logging for compliance, setting…\n---\n\n# Configuring Audit Logging\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nConfigures SQL audit logging on CockroachDB clusters to capture security-relevant events including authentication, privilege changes, and sensitive data access. Use when enabling audit logging for compliance, setting…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/configuring-audit-logging\n"
+  },
+  {
+    "slug": "cockroachdb-managing-tls-certificates",
+    "name": "Managing Tls Certificates",
+    "category": "data",
+    "description": "Manages TLS certificates for CockroachDB clusters including CA certificate configuration, client certificate authentication, certificate rotation, and troubleshooting SSL/TLS connection errors. Use when setting up…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/managing-tls-certificates",
+    "tags": [
+      "certificates",
+      "cockroachdb",
+      "managing",
+      "tls"
+    ],
+    "skill_content": "---\nname: Managing Tls Certificates\ndescription: Manages TLS certificates for CockroachDB clusters including CA certificate configuration, client certificate authentication, certificate rotation, and troubleshooting SSL/TLS connection errors. Use when setting up…\n---\n\n# Managing Tls Certificates\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nManages TLS certificates for CockroachDB clusters including CA certificate configuration, client certificate authentication, certificate rotation, and troubleshooting SSL/TLS connection errors. Use when setting up…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/managing-tls-certificates\n"
+  },
+  {
+    "slug": "cockroachdb-enabling-cmek-encryption",
+    "name": "Enabling Cmek Encryption",
+    "category": "data",
+    "description": "Enables Customer-Managed Encryption Keys (CMEK) on CockroachDB Cloud clusters with the Advanced plan and Advanced Security Add-on to give organizations control over data-at-rest encryption keys via their cloud…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/enabling-cmek-encryption",
+    "tags": [
+      "cmek",
+      "cockroachdb",
+      "enabling",
+      "encryption"
+    ],
+    "skill_content": "---\nname: Enabling Cmek Encryption\ndescription: Enables Customer-Managed Encryption Keys (CMEK) on CockroachDB Cloud clusters with the Advanced plan and Advanced Security Add-on to give organizations control over data-at-rest encryption keys via their cloud…\n---\n\n# Enabling Cmek Encryption\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nEnables Customer-Managed Encryption Keys (CMEK) on CockroachDB Cloud clusters with the Advanced plan and Advanced Security Add-on to give organizations control over data-at-rest encryption keys via their cloud…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/enabling-cmek-encryption\n"
+  },
+  {
+    "slug": "cockroachdb-configuring-sso-and-scim",
+    "name": "Configuring Sso And Scim",
+    "category": "data",
+    "description": "Configures SSO authentication and SCIM 2.0 provisioning for CockroachDB across four distinct layers — Cloud Console SSO (SAML/OIDC), DB Console SSO (OIDC), SQL/Cluster SSO (JWT or LDAP/AD), and SCIM 2.0 automated…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/configuring-sso-and-scim",
+    "tags": [
+      "and",
+      "cockroachdb",
+      "configuring",
+      "scim"
+    ],
+    "skill_content": "---\nname: Configuring Sso And Scim\ndescription: Configures SSO authentication and SCIM 2.0 provisioning for CockroachDB across four distinct layers — Cloud Console SSO (SAML/OIDC), DB Console SSO (OIDC), SQL/Cluster SSO (JWT or LDAP/AD), and SCIM 2.0 automated…\n---\n\n# Configuring Sso And Scim\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nConfigures SSO authentication and SCIM 2.0 provisioning for CockroachDB across four distinct layers — Cloud Console SSO (SAML/OIDC), DB Console SSO (OIDC), SQL/Cluster SSO (JWT or LDAP/AD), and SCIM 2.0 automated…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/configuring-sso-and-scim\n"
+  },
+  {
+    "slug": "cockroachdb-enforcing-password-policies",
+    "name": "Enforcing Password Policies",
+    "category": "data",
+    "description": "Configures and enforces password policies on CockroachDB clusters including minimum length, complexity requirements, and hash cost settings. Use when strengthening authentication requirements, setting up password…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/enforcing-password-policies",
+    "tags": [
+      "cockroachdb",
+      "enforcing",
+      "password",
+      "policies"
+    ],
+    "skill_content": "---\nname: Enforcing Password Policies\ndescription: Configures and enforces password policies on CockroachDB clusters including minimum length, complexity requirements, and hash cost settings. Use when strengthening authentication requirements, setting up password…\n---\n\n# Enforcing Password Policies\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nConfigures and enforces password policies on CockroachDB clusters including minimum length, complexity requirements, and hash cost settings. Use when strengthening authentication requirements, setting up password…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/enforcing-password-policies\n"
+  },
+  {
+    "slug": "cockroachdb-hardening-user-privileges",
+    "name": "Hardening User Privileges",
+    "category": "data",
+    "description": "Hardens CockroachDB user privileges by auditing and tightening role-based access control, reducing admin grants, restricting PUBLIC role permissions, and applying least-privilege principles. Use when reducing…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/hardening-user-privileges",
+    "tags": [
+      "cockroachdb",
+      "hardening",
+      "privileges",
+      "trusted-source"
+    ],
+    "skill_content": "---\nname: Hardening User Privileges\ndescription: Hardens CockroachDB user privileges by auditing and tightening role-based access control, reducing admin grants, restricting PUBLIC role permissions, and applying least-privilege principles. Use when reducing…\n---\n\n# Hardening User Privileges\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nHardens CockroachDB user privileges by auditing and tightening role-based access control, reducing admin grants, restricting PUBLIC role permissions, and applying least-privilege principles. Use when reducing…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/hardening-user-privileges\n"
+  },
+  {
+    "slug": "cockroachdb-configuring-private-connectivity",
+    "name": "Configuring Private Connectivity",
+    "category": "data",
+    "description": "Configures private network connectivity for CockroachDB Cloud clusters including AWS PrivateLink, GCP Private Service Connect, Azure Private Link, egress private endpoints, and VPC peering. Use when setting up…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/configuring-private-connectivity",
+    "tags": [
+      "cockroachdb",
+      "configuring",
+      "connectivity",
+      "private"
+    ],
+    "skill_content": "---\nname: Configuring Private Connectivity\ndescription: Configures private network connectivity for CockroachDB Cloud clusters including AWS PrivateLink, GCP Private Service Connect, Azure Private Link, egress private endpoints, and VPC peering. Use when setting up…\n---\n\n# Configuring Private Connectivity\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nConfigures private network connectivity for CockroachDB Cloud clusters including AWS PrivateLink, GCP Private Service Connect, Azure Private Link, egress private endpoints, and VPC peering. Use when setting up…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/configuring-private-connectivity\n"
+  },
+  {
+    "slug": "cockroachdb-auditing-cloud-cluster-security",
+    "name": "Auditing Cloud Cluster Security",
+    "category": "data",
+    "description": "Audits the security posture of a CockroachDB cluster (Cloud or self-hosted) across network, authentication, authorization, encryption, audit logging, and backup dimensions. Use when assessing cluster security…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/auditing-cloud-cluster-security",
+    "tags": [
+      "auditing",
+      "cloud",
+      "cluster",
+      "cockroachdb"
+    ],
+    "skill_content": "---\nname: Auditing Cloud Cluster Security\ndescription: Audits the security posture of a CockroachDB cluster (Cloud or self-hosted) across network, authentication, authorization, encryption, audit logging, and backup dimensions. Use when assessing cluster security…\n---\n\n# Auditing Cloud Cluster Security\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nAudits the security posture of a CockroachDB cluster (Cloud or self-hosted) across network, authentication, authorization, encryption, audit logging, and backup dimensions. Use when assessing cluster security…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-security-and-governance/auditing-cloud-cluster-security\n"
+  },
+  {
+    "slug": "cockroachdb-designing-multi-region-applications",
+    "name": "Designing Multi Region Applications",
+    "category": "data",
+    "description": "Guides developers in selecting and implementing multi-region patterns for CockroachDB applications, covering active-passive vs active-active architectures, REGIONAL BY ROW, GLOBAL tables, manual geo-partitioning with…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-application-development/designing-multi-region-applications",
+    "tags": [
+      "applications",
+      "cockroachdb",
+      "designing",
+      "multi"
+    ],
+    "skill_content": "---\nname: Designing Multi Region Applications\ndescription: Guides developers in selecting and implementing multi-region patterns for CockroachDB applications, covering active-passive vs active-active architectures, REGIONAL BY ROW, GLOBAL tables, manual geo-partitioning with…\n---\n\n# Designing Multi Region Applications\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nGuides developers in selecting and implementing multi-region patterns for CockroachDB applications, covering active-passive vs active-active architectures, REGIONAL BY ROW, GLOBAL tables, manual geo-partitioning with…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-application-development/designing-multi-region-applications\n"
+  },
+  {
+    "slug": "cockroachdb-profiling-statement-fingerprints",
+    "name": "Profiling Statement Fingerprints",
+    "category": "data",
+    "description": "Ranks and analyzes statement fingerprints using aggregated SQL statistics from crdb_internal.statement_statistics to identify slow, resource-intensive, or error-prone query patterns. Use when investigating historical…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/profiling-statement-fingerprints",
+    "tags": [
+      "cockroachdb",
+      "fingerprints",
+      "profiling",
+      "statement"
+    ],
+    "skill_content": "---\nname: Profiling Statement Fingerprints\ndescription: Ranks and analyzes statement fingerprints using aggregated SQL statistics from crdb_internal.statement_statistics to identify slow, resource-intensive, or error-prone query patterns. Use when investigating historical…\n---\n\n# Profiling Statement Fingerprints\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nRanks and analyzes statement fingerprints using aggregated SQL statistics from crdb_internal.statement_statistics to identify slow, resource-intensive, or error-prone query patterns. Use when investigating historical…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/profiling-statement-fingerprints\n"
+  },
+  {
+    "slug": "cockroachdb-profiling-transaction-fingerprints",
+    "name": "Profiling Transaction Fingerprints",
+    "category": "data",
+    "description": "Analyzes transaction fingerprints using aggregated statistics from crdb_internal.transaction_statistics to identify high-retry transactions, contention patterns, and commit latency issues. Provides historical…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/profiling-transaction-fingerprints",
+    "tags": [
+      "cockroachdb",
+      "fingerprints",
+      "profiling",
+      "transaction"
+    ],
+    "skill_content": "---\nname: Profiling Transaction Fingerprints\ndescription: Analyzes transaction fingerprints using aggregated statistics from crdb_internal.transaction_statistics to identify high-retry transactions, contention patterns, and commit latency issues. Provides historical…\n---\n\n# Profiling Transaction Fingerprints\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nAnalyzes transaction fingerprints using aggregated statistics from crdb_internal.transaction_statistics to identify high-retry transactions, contention patterns, and commit latency issues. Provides historical…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/profiling-transaction-fingerprints\n"
+  },
+  {
+    "slug": "cockroachdb-auditing-table-statistics",
+    "name": "Auditing Table Statistics",
+    "category": "data",
+    "description": "Audits optimizer table statistics for staleness, missing coverage, and data quality issues using SHOW STATISTICS. Use when diagnosing poor query performance, unexpected plan changes, or after bulk data changes to…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/auditing-table-statistics",
+    "tags": [
+      "auditing",
+      "cockroachdb",
+      "statistics",
+      "table"
+    ],
+    "skill_content": "---\nname: Auditing Table Statistics\ndescription: Audits optimizer table statistics for staleness, missing coverage, and data quality issues using SHOW STATISTICS. Use when diagnosing poor query performance, unexpected plan changes, or after bulk data changes to…\n---\n\n# Auditing Table Statistics\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nAudits optimizer table statistics for staleness, missing coverage, and data quality issues using SHOW STATISTICS. Use when diagnosing poor query performance, unexpected plan changes, or after bulk data changes to…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/auditing-table-statistics\n"
+  },
+  {
+    "slug": "cockroachdb-analyzing-schema-change-storage-risk",
+    "name": "Analyzing Schema Change Storage Risk",
+    "category": "data",
+    "description": "Estimates storage requirements for CockroachDB online schema change backfills using SHOW RANGES WITH DETAILS, KEYS, INDEXES. Use before CREATE INDEX, ADD COLUMN with INDEX/UNIQUE, ALTER PRIMARY KEY, CREATE…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/analyzing-schema-change-storage-risk",
+    "tags": [
+      "analyzing",
+      "change",
+      "cockroachdb",
+      "risk"
+    ],
+    "skill_content": "---\nname: Analyzing Schema Change Storage Risk\ndescription: Estimates storage requirements for CockroachDB online schema change backfills using SHOW RANGES WITH DETAILS, KEYS, INDEXES. Use before CREATE INDEX, ADD COLUMN with INDEX/UNIQUE, ALTER PRIMARY KEY, CREATE…\n---\n\n# Analyzing Schema Change Storage Risk\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nEstimates storage requirements for CockroachDB online schema change backfills using SHOW RANGES WITH DETAILS, KEYS, INDEXES. Use before CREATE INDEX, ADD COLUMN with INDEX/UNIQUE, ALTER PRIMARY KEY, CREATE…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/analyzing-schema-change-storage-risk\n"
+  },
+  {
+    "slug": "cockroachdb-analyzing-range-distribution",
+    "name": "Analyzing Range Distribution",
+    "category": "data",
+    "description": "Analyzes CockroachDB range distribution across tables and indexes using SHOW RANGES to identify range count, size patterns, leaseholder placement, and replication health. Use when investigating hotspots, uneven data…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/analyzing-range-distribution",
+    "tags": [
+      "analyzing",
+      "cockroachdb",
+      "distribution",
+      "range"
+    ],
+    "skill_content": "---\nname: Analyzing Range Distribution\ndescription: Analyzes CockroachDB range distribution across tables and indexes using SHOW RANGES to identify range count, size patterns, leaseholder placement, and replication health. Use when investigating hotspots, uneven data…\n---\n\n# Analyzing Range Distribution\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nAnalyzes CockroachDB range distribution across tables and indexes using SHOW RANGES to identify range count, size patterns, leaseholder placement, and replication health. Use when investigating hotspots, uneven data…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/analyzing-range-distribution\n"
+  },
+  {
+    "slug": "cockroachdb-monitoring-background-jobs",
+    "name": "Monitoring Background Jobs",
+    "category": "data",
+    "description": "Monitors CockroachDB background job health by identifying failed, paused, and long-running jobs using SHOW JOBS and SHOW AUTOMATIC JOBS. Surfaces schema changes, backups/restores, automatic statistics collection, and…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/monitoring-background-jobs",
+    "tags": [
+      "background",
+      "cockroachdb",
+      "jobs",
+      "monitoring"
+    ],
+    "skill_content": "---\nname: Monitoring Background Jobs\ndescription: Monitors CockroachDB background job health by identifying failed, paused, and long-running jobs using SHOW JOBS and SHOW AUTOMATIC JOBS. Surfaces schema changes, backups/restores, automatic statistics collection, and…\n---\n\n# Monitoring Background Jobs\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nMonitors CockroachDB background job health by identifying failed, paused, and long-running jobs using SHOW JOBS and SHOW AUTOMATIC JOBS. Surfaces schema changes, backups/restores, automatic statistics collection, and…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/monitoring-background-jobs\n"
+  },
+  {
+    "slug": "cockroachdb-triaging-live-sql-activity",
+    "name": "Triaging Live Sql Activity",
+    "category": "data",
+    "description": "Diagnoses live CockroachDB cluster performance issues by identifying long-running queries, busy sessions, and active transactions using SQL-only interfaces. Use when users report cluster slowness, high CPU, or need…",
+    "author": "Cockroach Labs",
+    "source_url": "https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/triaging-live-sql-activity",
+    "tags": [
+      "activity",
+      "cockroachdb",
+      "live",
+      "sql"
+    ],
+    "skill_content": "---\nname: Triaging Live Sql Activity\ndescription: Diagnoses live CockroachDB cluster performance issues by identifying long-running queries, busy sessions, and active transactions using SQL-only interfaces. Use when users report cluster slowness, high CPU, or need…\n---\n\n# Triaging Live Sql Activity\n\nPart of the **CockroachDB Claude Plugin Skills** pack by Cockroach Labs (`cockroachdb/claude-plugin`).\n\nDiagnoses live CockroachDB cluster performance issues by identifying long-running queries, busy sessions, and active transactions using SQL-only interfaces. Use when users report cluster slowness, high CPU, or need…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/cockroachdb/claude-plugin/tree/main/skills/cockroachdb-observability-and-diagnostics/triaging-live-sql-activity\n"
+  }
+]

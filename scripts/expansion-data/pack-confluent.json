@@ -1,0 +1,107 @@
+[
+  {
+    "slug": "confluent-flink-udf",
+    "name": "Flink Udf",
+    "category": "data",
+    "description": "Build and deploy Apache Flink user-defined functions (UDFs) in Java for stream processing over Kafka. Use this skill when users want to create scalar UDFs, user-defined table functions (UDTFs), or process table…",
+    "author": "Confluent",
+    "source_url": "https://github.com/confluentinc/agent-skills/tree/main/skills/flink-udf",
+    "tags": [
+      "and",
+      "apache",
+      "confluent",
+      "flink"
+    ],
+    "skill_content": "---\nname: Flink Udf\ndescription: Build and deploy Apache Flink user-defined functions (UDFs) in Java for stream processing over Kafka. Use this skill when users want to create scalar UDFs, user-defined table functions (UDTFs), or process table…\n---\n\n# Flink Udf\n\nPart of the **Confluent Agent Skills** pack by Confluent (`confluentinc/agent-skills`).\n\nBuild and deploy Apache Flink user-defined functions (UDFs) in Java for stream processing over Kafka. Use this skill when users want to create scalar UDFs, user-defined table functions (UDTFs), or process table…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/confluentinc/agent-skills/tree/main/skills/flink-udf\n"
+  },
+  {
+    "slug": "confluent-kafka-schema-registry",
+    "name": "Kafka Schema Registry",
+    "category": "data",
+    "description": "Scan a project to identify Kafka applications, extract schemas from data models, tag PII fields, generate Terraform for Confluent Schema Registry registration, and produce a migration report with rollout ordering.…",
+    "author": "Confluent",
+    "source_url": "https://github.com/confluentinc/agent-skills/tree/main/skills/kafka-schema-registry",
+    "tags": [
+      "and",
+      "apache",
+      "confluent",
+      "kafka"
+    ],
+    "skill_content": "---\nname: Kafka Schema Registry\ndescription: Scan a project to identify Kafka applications, extract schemas from data models, tag PII fields, generate Terraform for Confluent Schema Registry registration, and produce a migration report with rollout ordering.…\n---\n\n# Kafka Schema Registry\n\nPart of the **Confluent Agent Skills** pack by Confluent (`confluentinc/agent-skills`).\n\nScan a project to identify Kafka applications, extract schemas from data models, tag PII fields, generate Terraform for Confluent Schema Registry registration, and produce a migration report with rollout ordering.…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/confluentinc/agent-skills/tree/main/skills/kafka-schema-registry\n"
+  },
+  {
+    "slug": "confluent-kafka-streams-programming",
+    "name": "Kafka Streams Programming",
+    "category": "data",
+    "description": "Architect, build, and debug Kafka Streams apps (JVM-embedded stream processing). Use when user mentions KStream, KTable, topology, TopologyTestDriver, StreamsBuilder, interactive queries, GlobalKTable,…",
+    "author": "Confluent",
+    "source_url": "https://github.com/confluentinc/agent-skills/tree/main/skills/kafka-streams-programming",
+    "tags": [
+      "and",
+      "apache",
+      "confluent",
+      "kafka"
+    ],
+    "skill_content": "---\nname: Kafka Streams Programming\ndescription: Architect, build, and debug Kafka Streams apps (JVM-embedded stream processing). Use when user mentions KStream, KTable, topology, TopologyTestDriver, StreamsBuilder, interactive queries, GlobalKTable,…\n---\n\n# Kafka Streams Programming\n\nPart of the **Confluent Agent Skills** pack by Confluent (`confluentinc/agent-skills`).\n\nArchitect, build, and debug Kafka Streams apps (JVM-embedded stream processing). Use when user mentions KStream, KTable, topology, TopologyTestDriver, StreamsBuilder, interactive queries, GlobalKTable,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/confluentinc/agent-skills/tree/main/skills/kafka-streams-programming\n"
+  },
+  {
+    "slug": "confluent-developing-kafka-python-client",
+    "name": "Developing Kafka Python Client",
+    "category": "data",
+    "description": "Use when the user wants to build a Python Kafka producer or consumer, add Schema Registry to existing Python code, migrate from raw JSON to schema-backed serialization, or scaffold a confluent-kafka-python project…",
+    "author": "Confluent",
+    "source_url": "https://github.com/confluentinc/agent-skills/tree/main/skills/developing-kafka-python-client",
+    "tags": [
+      "and",
+      "apache",
+      "client",
+      "confluent"
+    ],
+    "skill_content": "---\nname: Developing Kafka Python Client\ndescription: Use when the user wants to build a Python Kafka producer or consumer, add Schema Registry to existing Python code, migrate from raw JSON to schema-backed serialization, or scaffold a confluent-kafka-python project…\n---\n\n# Developing Kafka Python Client\n\nPart of the **Confluent Agent Skills** pack by Confluent (`confluentinc/agent-skills`).\n\nUse when the user wants to build a Python Kafka producer or consumer, add Schema Registry to existing Python code, migrate from raw JSON to schema-backed serialization, or scaffold a confluent-kafka-python project…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/confluentinc/agent-skills/tree/main/skills/developing-kafka-python-client\n"
+  },
+  {
+    "slug": "confluent-confluent-cloud-cdc-tableflow",
+    "name": "Confluent Cloud Cdc Tableflow",
+    "category": "data",
+    "description": "Set up end-to-end Change Data Capture (CDC) pipelines on Confluent Cloud using Debezium source connectors, Flink for transformation, and Tableflow for data lake integration. Supports JSON_SR, Avro, and Protobuf…",
+    "author": "Confluent",
+    "source_url": "https://github.com/confluentinc/agent-skills/tree/main/skills/confluent-cloud-cdc-tableflow",
+    "tags": [
+      "and",
+      "apache",
+      "cdc",
+      "cloud"
+    ],
+    "skill_content": "---\nname: Confluent Cloud Cdc Tableflow\ndescription: Set up end-to-end Change Data Capture (CDC) pipelines on Confluent Cloud using Debezium source connectors, Flink for transformation, and Tableflow for data lake integration. Supports JSON_SR, Avro, and Protobuf…\n---\n\n# Confluent Cloud Cdc Tableflow\n\nPart of the **Confluent Agent Skills** pack by Confluent (`confluentinc/agent-skills`).\n\nSet up end-to-end Change Data Capture (CDC) pipelines on Confluent Cloud using Debezium source connectors, Flink for transformation, and Tableflow for data lake integration. Supports JSON_SR, Avro, and Protobuf…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/confluentinc/agent-skills/tree/main/skills/confluent-cloud-cdc-tableflow\n"
+  },
+  {
+    "slug": "confluent-confluent-skill-reviewer",
+    "name": "Confluent Skill Reviewer",
+    "category": "data",
+    "description": "Review a Confluent agent skill in this repo against the Agent Skills spec (agentskills.io), Confluent conventions in CLAUDE.md, the PR template gates, and the evals-as-contract rule. Use this skill whenever the user…",
+    "author": "Confluent",
+    "source_url": "https://github.com/confluentinc/agent-skills/tree/main/skills/confluent-skill-reviewer",
+    "tags": [
+      "and",
+      "apache",
+      "confluent",
+      "kafka"
+    ],
+    "skill_content": "---\nname: Confluent Skill Reviewer\ndescription: Review a Confluent agent skill in this repo against the Agent Skills spec (agentskills.io), Confluent conventions in CLAUDE.md, the PR template gates, and the evals-as-contract rule. Use this skill whenever the user…\n---\n\n# Confluent Skill Reviewer\n\nPart of the **Confluent Agent Skills** pack by Confluent (`confluentinc/agent-skills`).\n\nReview a Confluent agent skill in this repo against the Agent Skills spec (agentskills.io), Confluent conventions in CLAUDE.md, the PR template gates, and the evals-as-contract rule. Use this skill whenever the user…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/confluentinc/agent-skills/tree/main/skills/confluent-skill-reviewer\n"
+  },
+  {
+    "slug": "confluent-confluent-skill-creator",
+    "name": "Confluent Skill Creator",
+    "category": "data",
+    "description": "Create Confluent-specific skills for external users. Use this skill when users want to create, build, or author a new skill related to Confluent Cloud, Confluent Platform, Apache Kafka, WarpStream, Flink, Connectors,…",
+    "author": "Confluent",
+    "source_url": "https://github.com/confluentinc/agent-skills/tree/main/skills/confluent-skill-creator",
+    "tags": [
+      "and",
+      "apache",
+      "confluent",
+      "creator"
+    ],
+    "skill_content": "---\nname: Confluent Skill Creator\ndescription: Create Confluent-specific skills for external users. Use this skill when users want to create, build, or author a new skill related to Confluent Cloud, Confluent Platform, Apache Kafka, WarpStream, Flink, Connectors,…\n---\n\n# Confluent Skill Creator\n\nPart of the **Confluent Agent Skills** pack by Confluent (`confluentinc/agent-skills`).\n\nCreate Confluent-specific skills for external users. Use this skill when users want to create, build, or author a new skill related to Confluent Cloud, Confluent Platform, Apache Kafka, WarpStream, Flink, Connectors,…\n\nThis catalog entry summarizes the skill for discovery. Get the full skill — including any bundled scripts and resources — from the source:\n\nFull skill & source: https://github.com/confluentinc/agent-skills/tree/main/skills/confluent-skill-creator\n"
+  }
+]

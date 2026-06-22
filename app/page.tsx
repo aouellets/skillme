@@ -85,6 +85,9 @@ const BECOME_ANYTHING_SKILLS = [
   'grand-slam-offer-builder',
   'okr-builder',
   'cold-email-craft',
+  'financial-planner',
+  'user-flow-mapper',
+  'customer-analytics',
 ]
 
 /** Roles the rotating headline cycles through (mirrors the skills below). */
@@ -141,13 +144,13 @@ export default async function HomePage() {
       getCounts(),
     ])
 
-  // The marquee carries the full partner roster; the showcase grid stays tight
-  // with the six headline packs so the landing page doesn't turn into a wall.
+  // The marquee carries the full partner roster; the showcase grid features the
+  // first twelve headline packs (a clean 2/3/4-up across breakpoints).
   const partnerShowcase = PARTNER_STRIP.map((p) =>
     partnerPacks.find((pk) => pk.slug === p.packSlug)
   )
     .filter((p): p is NonNullable<typeof p> => Boolean(p))
-    .slice(0, 6)
+    .slice(0, 12)
 
   const showcase = SHOWCASE_PACKS.map((s) => ({
     discipline: s.discipline,
@@ -360,7 +363,7 @@ export default async function HomePage() {
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-shelf-text-secondary">
                 Official packs published by the teams who build the tools: Anthropic, OpenAI,
-                Google, Vercel, Microsoft, Stripe, Supabase, Sentry, and more.
+                Google, NVIDIA, Cloudflare, Databricks, Elastic, Snowflake, Stripe, and more.
               </p>
             </div>
             <Link
