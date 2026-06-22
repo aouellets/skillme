@@ -77,6 +77,59 @@ export interface GrowthRow {
   churned_users: number
 }
 
+export interface ToolPerfRow {
+  tool: string
+  invocations: number
+  distinct_actors: number
+  errors: number
+  error_rate: number
+  p50_ms: number | null
+  p95_ms: number | null
+  invocations_24h: number
+  invocations_7d: number
+  invocations_prev_7d: number
+  last_used_at: string | null
+}
+
+export interface EventVolumeRow {
+  day: string
+  event_name: string
+  source: string
+  events: number
+  actors: number
+}
+
+export interface TrendingSkillRow {
+  skill_id: string
+  skill_name: string | null
+  installs_7d: number
+  installs_prev_7d: number
+  installs_delta: number
+  installs_growth: number | null
+  views_7d: number
+  activations_7d: number
+  actors_7d: number
+}
+
+export interface TrendingPackRow {
+  pack_id: string
+  pack_name: string | null
+  installs_7d: number
+  installs_prev_7d: number
+  installs_delta: number
+  installs_growth: number | null
+  actors_7d: number
+}
+
+export interface SearchTermRow {
+  term: string
+  searches: number
+  distinct_searchers: number
+  zero_result_searches: number
+  zero_result_rate: number
+  avg_results: number | null
+}
+
 export interface TelemetryDashboardData {
   activeUsers: ActiveUsersDailyRow[]
   activation: ActivationRow[]
@@ -85,6 +138,11 @@ export interface TelemetryDashboardData {
   skills: SkillPerfRow[]
   packs: PackPerfRow[]
   growth: GrowthRow[]
+  tools: ToolPerfRow[]
+  eventVolume: EventVolumeRow[]
+  trendingSkills: TrendingSkillRow[]
+  trendingPacks: TrendingPackRow[]
+  searchTerms: SearchTermRow[]
   /** Most recent telemetry_events.received_at — a "data through" staleness proxy. */
   freshness: string | null
 }
@@ -143,6 +201,27 @@ export function getGrowthAccounting(): Promise<GrowthRow[]> {
   return readMv<GrowthRow>('mv_growth_accounting', [{ column: 'period', ascending: true }])
 }
 
+export function getToolPerformance(): Promise<ToolPerfRow[]> {
+  return readMv<ToolPerfRow>('mv_tool_performance', [{ column: 'invocations', ascending: false }])
+}
+
+export function getEventVolumeDaily(): Promise<EventVolumeRow[]> {
+  // Newest first, capped to a quarter of history; the UI re-slices by range.
+  return readMv<EventVolumeRow>('mv_event_volume_daily', [{ column: 'day', ascending: false }], 2000)
+}
+
+export function getTrendingSkills(): Promise<TrendingSkillRow[]> {
+  return readMv<TrendingSkillRow>('mv_trending_skills', [{ column: 'installs_7d', ascending: false }], 100)
+}
+
+export function getTrendingPacks(): Promise<TrendingPackRow[]> {
+  return readMv<TrendingPackRow>('mv_trending_packs', [{ column: 'installs_7d', ascending: false }], 100)
+}
+
+export function getSearchTerms(): Promise<SearchTermRow[]> {
+  return readMv<SearchTermRow>('mv_search_terms', [{ column: 'searches', ascending: false }], 100)
+}
+
 /** "Data through" timestamp — newest received event. Null if none / unavailable. */
 export async function getDataFreshness(): Promise<string | null> {
   const supabase = getServiceSupabase()
@@ -159,16 +238,48 @@ export async function getDataFreshness(): Promise<string | null> {
 
 /** Load everything the dashboard needs, in parallel. Never throws. */
 export async function loadTelemetryDashboard(): Promise<TelemetryDashboardData> {
-  const [activeUsers, activation, retention, funnel, skills, packs, growth, freshness] =
-    await Promise.all([
-      getActiveUsersDaily(),
-      getActivation(),
-      getRetentionWeekly(),
-      getInstallFunnel(),
-      getSkillPerformance(),
-      getPackPerformance(),
-      getGrowthAccounting(),
-      getDataFreshness(),
-    ])
-  return { activeUsers, activation, retention, funnel, skills, packs, growth, freshness }
+  const [
+    activeUsers,
+    activation,
+    retention,
+    funnel,
+    skills,
+    packs,
+    growth,
+    tools,
+    eventVolume,
+    trendingSkills,
+    trendingPacks,
+    searchTerms,
+    freshness,
+  ] = await Promise.all([
+    getActiveUsersDaily(),
+    getActivation(),
+    getRetentionWeekly(),
+    getInstallFunnel(),
+    getSkillPerformance(),
+    getPackPerformance(),
+    getGrowthAccounting(),
+    getToolPerformance(),
+    getEventVolumeDaily(),
+    getTrendingSkills(),
+    getTrendingPacks(),
+    getSearchTerms(),
+    getDataFreshness(),
+  ])
+  return {
+    activeUsers,
+    activation,
+    retention,
+    funnel,
+    skills,
+    packs,
+    growth,
+    tools,
+    eventVolume,
+    trendingSkills,
+    trendingPacks,
+    searchTerms,
+    freshness,
+  }
 }

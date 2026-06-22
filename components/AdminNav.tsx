@@ -14,7 +14,7 @@ export async function AdminNav() {
   if (!(await isAdmin())) return null
   return (
     <Link
-      href="/admin/telemetry"
+      href="/admin"
       className="hidden rounded-sm px-2.5 py-2 text-sm text-shelf-text-secondary transition-colors hover:text-shelf-text-primary sm:px-3 lg:inline-flex"
     >
       Admin

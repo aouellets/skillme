@@ -1,40 +1,45 @@
 import type {
   ActiveUsersDailyRow,
   ActivationRow,
+  EventVolumeRow,
   FunnelRow,
   GrowthRow,
   PackPerfRow,
   RetentionRow,
+  SearchTermRow,
   SkillPerfRow,
   TelemetryDashboardData,
+  ToolPerfRow,
+  TrendingPackRow,
+  TrendingSkillRow,
 } from '@/lib/telemetry/admin-queries'
+import {
+  clampPct,
+  fmtDate,
+  fmtDateTime,
+  fmtHours,
+  fmtMs,
+  fmtNum,
+  fmtPct,
+  fmtRating,
+  fmtRelative,
+} from './format'
+import {
+  DeltaBadge,
+  EventVolumeExplorer,
+  Sparkline,
+  SortableTable,
+  type Column,
+} from './interactive'
 
 /**
- * Server-rendered, dependency-free telemetry dashboard. No charting library:
- * the data volume is tiny and everything stays a Server Component. Colors come
- * from the shelf-* theme tokens (no arbitrary Tailwind values); the only inline
- * styles are data-driven dimensions (bar widths, heatmap intensity) that a
- * utility class cannot express, and even those reference CSS theme variables.
+ * Server-rendered telemetry dashboard. Static visuals (funnel, retention
+ * heatmap, growth, cohorts) stay Server Components; tables and the activity
+ * timeline are delegated to the client primitives in ./interactive so admins
+ * can sort, search and range-filter the already-loaded rollups without extra
+ * server work. Colors come from the shelf-* theme tokens; the only inline
+ * styles are data-driven dimensions referencing CSS theme variables.
  */
-
-// --- formatting ---------------------------------------------------------------
-
-const fmtNum = (n: number) => n.toLocaleString('en-US')
-const fmtPct = (r: number | null | undefined) =>
-  r === null || r === undefined ? '—' : `${Math.round(r * 100)}%`
-const fmtRating = (r: number | null) => (r === null ? '—' : r.toFixed(2))
-const fmtHours = (h: number | null) =>
-  h === null ? '—' : h < 48 ? `${h.toFixed(1)}h` : `${(h / 24).toFixed(1)}d`
-const fmtDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-const fmtDateTime = (iso: string) =>
-  new Date(iso).toLocaleString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-  })
-const clampPct = (r: number) => `${Math.max(0, Math.min(100, Math.round(r * 100)))}%`
 
 // --- primitives ---------------------------------------------------------------
 
@@ -42,13 +47,15 @@ function Panel({
   title,
   description,
   children,
+  id,
 }: {
   title: string
   description?: string
   children: React.ReactNode
+  id?: string
 }) {
   return (
-    <section className="card p-5 sm:p-6">
+    <section id={id} className="card p-5 sm:p-6">
       <h2 className="font-display text-xl text-shelf-text-primary">{title}</h2>
       {description ? (
         <p className="mt-1 text-sm text-shelf-text-secondary">{description}</p>
@@ -102,7 +109,138 @@ function Td({ children, right }: { children: React.ReactNode; right?: boolean })
   )
 }
 
-// --- panels -------------------------------------------------------------------
+// --- KPI header ---------------------------------------------------------------
+
+/** Sum a daily series over a trailing window, optionally skipping the most
+ *  recent `skip` days (used to read the prior period). */
+function sumWindow(series: { day: string; v: number }[], days: number, skip = 0): number {
+  const end = Date.now() - skip * 86400000
+  const start = Date.now() - (skip + days) * 86400000
+  return series
+    .filter((p) => {
+      const t = new Date(p.day).getTime()
+      return t < end && t >= start
+    })
+    .reduce((s, p) => s + p.v, 0)
+}
+
+/** Daily totals for an event from the event-volume rollup, oldest→newest. */
+function eventSeries(rows: EventVolumeRow[], name: string): { day: string; v: number }[] {
+  const byDay = new Map<string, number>()
+  for (const r of rows) {
+    if (r.event_name !== name) continue
+    byDay.set(r.day, (byDay.get(r.day) ?? 0) + r.events)
+  }
+  return [...byDay.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([day, v]) => ({ day, v }))
+}
+
+function KpiCard({
+  label,
+  value,
+  sub,
+  delta,
+  pct,
+  spark,
+}: {
+  label: string
+  value: string
+  sub?: string
+  delta?: number
+  pct?: number | null
+  spark?: number[]
+}) {
+  return (
+    <div className="card flex flex-col justify-between gap-3 p-4">
+      <div>
+        <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+          {label}
+        </p>
+        <p className="mt-1 font-display text-3xl text-shelf-text-primary">{value}</p>
+        <div className="mt-1 flex items-center gap-2">
+          {delta !== undefined ? <DeltaBadge delta={delta} pct={pct} /> : null}
+          {sub ? <span className="text-xs text-shelf-text-tertiary">{sub}</span> : null}
+        </div>
+      </div>
+      {spark && spark.length > 1 ? (
+        <Sparkline values={spark} width={160} height={32} className="text-accent/70" />
+      ) : null}
+    </div>
+  )
+}
+
+export function KpiHeader({
+  activeUsers,
+  eventVolume,
+  tools,
+}: {
+  activeUsers: ActiveUsersDailyRow[]
+  eventVolume: EventVolumeRow[]
+  tools: ToolPerfRow[]
+}) {
+  // DAU: latest day total across sources, vs the same day one week earlier.
+  const dauByDay = new Map<string, number>()
+  for (const r of activeUsers) dauByDay.set(r.day, (dauByDay.get(r.day) ?? 0) + r.dau)
+  const dauSeries = [...dauByDay.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([day, v]) => ({ day, v }))
+  const latestDau = dauSeries.at(-1)?.v ?? 0
+  const weekAgoDau = dauSeries.at(-8)?.v ?? 0
+  const dauDelta = latestDau - weekAgoDau
+  const dauPct = weekAgoDau > 0 ? dauDelta / weekAgoDau : null
+
+  const installSeries = eventSeries(eventVolume, 'skill_installed')
+  const install7 = sumWindow(installSeries, 7)
+  const installPrev7 = sumWindow(installSeries, 7, 7)
+
+  const signupSeries = eventSeries(eventVolume, 'user_signed_up')
+  const signup7 = sumWindow(signupSeries, 7)
+  const signupPrev7 = sumWindow(signupSeries, 7, 7)
+
+  const toolSeries = eventSeries(eventVolume, 'mcp_tool_invoked')
+  const tool7 = tools.reduce((s, t) => s + t.invocations_7d, 0)
+  const toolPrev7 = tools.reduce((s, t) => s + t.invocations_prev_7d, 0)
+
+  const last30 = (s: { day: string; v: number }[]) => s.slice(-30).map((p) => p.v)
+
+  return (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <KpiCard
+        label="Active users · DAU"
+        value={fmtNum(latestDau)}
+        sub="vs 7d ago"
+        delta={dauDelta}
+        pct={dauPct}
+        spark={last30(dauSeries)}
+      />
+      <KpiCard
+        label="Tool calls · 7d"
+        value={fmtNum(tool7)}
+        sub="vs prior 7d"
+        delta={tool7 - toolPrev7}
+        pct={toolPrev7 > 0 ? (tool7 - toolPrev7) / toolPrev7 : null}
+        spark={last30(toolSeries)}
+      />
+      <KpiCard
+        label="Skill installs · 7d"
+        value={fmtNum(install7)}
+        sub="vs prior 7d"
+        delta={install7 - installPrev7}
+        pct={installPrev7 > 0 ? (install7 - installPrev7) / installPrev7 : null}
+        spark={last30(installSeries)}
+      />
+      <KpiCard
+        label="New signups · 7d"
+        value={fmtNum(signup7)}
+        sub="vs prior 7d"
+        delta={signup7 - signupPrev7}
+        pct={signupPrev7 > 0 ? (signup7 - signupPrev7) / signupPrev7 : null}
+        spark={last30(signupSeries)}
+      />
+    </div>
+  )
+}
+
+// --- panels: active users -----------------------------------------------------
 
 function ActiveUsersPanel({ rows }: { rows: ActiveUsersDailyRow[] }) {
   if (rows.length === 0) {
@@ -116,7 +254,6 @@ function ActiveUsersPanel({ rows }: { rows: ActiveUsersDailyRow[] }) {
   const latestDay = rows.reduce((max, r) => (r.day > max ? r.day : max), rows[0].day)
   const latest = rows.filter((r) => r.day === latestDay)
 
-  // DAU trend: sum across sources per day, oldest→newest, last 30 days.
   const byDay = new Map<string, number>()
   for (const r of rows) byDay.set(r.day, (byDay.get(r.day) ?? 0) + r.dau)
   const trend = [...byDay.entries()].sort((a, b) => a[0].localeCompare(b[0])).slice(-30)
@@ -156,6 +293,299 @@ function ActiveUsersPanel({ rows }: { rows: ActiveUsersDailyRow[] }) {
     </Panel>
   )
 }
+
+// --- panels: tool performance -------------------------------------------------
+
+function ToolPerfPanel({ rows }: { rows: ToolPerfRow[] }) {
+  const desc =
+    'MCP tool calls: volume, week-over-week trend, error rate and latency (p50 / p95).'
+  if (rows.length === 0) {
+    return (
+      <Panel title="MCP tool performance" description={desc}>
+        <EmptyState message="No tool calls recorded yet. mcp_tool_invoked events populate this once the MCP server is used." />
+      </Panel>
+    )
+  }
+  const columns: Column<ToolPerfRow>[] = [
+    {
+      key: 'tool',
+      label: 'Tool',
+      render: (r) => <span className="font-mono text-shelf-text-primary">{r.tool}</span>,
+      sortValue: (r) => r.tool,
+      defaultDesc: false,
+    },
+    {
+      key: 'invocations',
+      label: 'Calls',
+      align: 'right',
+      render: (r) => fmtNum(r.invocations),
+      sortValue: (r) => r.invocations,
+    },
+    {
+      key: 'inv24h',
+      label: '24h',
+      align: 'right',
+      render: (r) => fmtNum(r.invocations_24h),
+      sortValue: (r) => r.invocations_24h,
+    },
+    {
+      key: 'inv7d',
+      label: '7d',
+      align: 'right',
+      render: (r) => (
+        <span className="inline-flex items-center justify-end gap-2">
+          {fmtNum(r.invocations_7d)}
+          <DeltaBadge
+            delta={r.invocations_7d - r.invocations_prev_7d}
+            pct={
+              r.invocations_prev_7d > 0
+                ? (r.invocations_7d - r.invocations_prev_7d) / r.invocations_prev_7d
+                : null
+            }
+          />
+        </span>
+      ),
+      sortValue: (r) => r.invocations_7d,
+    },
+    {
+      key: 'actors',
+      label: 'Users',
+      align: 'right',
+      render: (r) => fmtNum(r.distinct_actors),
+      sortValue: (r) => r.distinct_actors,
+    },
+    {
+      key: 'error_rate',
+      label: 'Errors',
+      align: 'right',
+      render: (r) => (
+        <span className={r.error_rate > 0.05 ? 'text-danger' : 'text-shelf-text-secondary'}>
+          {fmtPct(r.error_rate)}
+        </span>
+      ),
+      sortValue: (r) => r.error_rate,
+    },
+    {
+      key: 'p50',
+      label: 'p50',
+      align: 'right',
+      render: (r) => fmtMs(r.p50_ms),
+      sortValue: (r) => r.p50_ms ?? 0,
+    },
+    {
+      key: 'p95',
+      label: 'p95',
+      align: 'right',
+      render: (r) => (
+        <span className={(r.p95_ms ?? 0) > 2000 ? 'text-danger' : 'text-shelf-text-secondary'}>
+          {fmtMs(r.p95_ms)}
+        </span>
+      ),
+      sortValue: (r) => r.p95_ms ?? 0,
+    },
+    {
+      key: 'last_used',
+      label: 'Last used',
+      align: 'right',
+      render: (r) => fmtRelative(r.last_used_at),
+      sortValue: (r) => r.last_used_at ?? '',
+    },
+  ]
+  return (
+    <Panel title="MCP tool performance" description={desc}>
+      <SortableTable
+        rows={rows}
+        columns={columns}
+        getKey={(r) => r.tool}
+        initialSortKey="invocations"
+      />
+    </Panel>
+  )
+}
+
+// --- panels: trending ---------------------------------------------------------
+
+function TrendingSkillsPanel({ rows }: { rows: TrendingSkillRow[] }) {
+  const desc = 'Last 7 days vs the prior 7, by install velocity.'
+  if (rows.length === 0) {
+    return (
+      <Panel title="Trending skills" description={desc}>
+        <EmptyState message="No skill activity in the last 7 days." />
+      </Panel>
+    )
+  }
+  const columns: Column<TrendingSkillRow>[] = [
+    {
+      key: 'skill',
+      label: 'Skill',
+      render: (r) => (
+        <span className="text-shelf-text-primary">{r.skill_name ?? r.skill_id.slice(0, 8)}</span>
+      ),
+      sortValue: (r) => r.skill_name ?? r.skill_id,
+      defaultDesc: false,
+    },
+    {
+      key: 'installs_7d',
+      label: 'Installs 7d',
+      align: 'right',
+      render: (r) => (
+        <span className="inline-flex items-center justify-end gap-2">
+          {fmtNum(r.installs_7d)}
+          <DeltaBadge delta={r.installs_delta} pct={r.installs_growth} />
+        </span>
+      ),
+      sortValue: (r) => r.installs_7d,
+    },
+    {
+      key: 'views_7d',
+      label: 'Views 7d',
+      align: 'right',
+      render: (r) => fmtNum(r.views_7d),
+      sortValue: (r) => r.views_7d,
+    },
+    {
+      key: 'activations_7d',
+      label: 'Activations 7d',
+      align: 'right',
+      render: (r) => fmtNum(r.activations_7d),
+      sortValue: (r) => r.activations_7d,
+    },
+  ]
+  return (
+    <Panel title="Trending skills" description={desc}>
+      <SortableTable
+        rows={rows}
+        columns={columns}
+        getKey={(r) => r.skill_id}
+        searchAccessor={(r) => r.skill_name ?? r.skill_id}
+        searchPlaceholder="Filter skills…"
+        initialSortKey="installs_7d"
+      />
+    </Panel>
+  )
+}
+
+function TrendingPacksPanel({ rows }: { rows: TrendingPackRow[] }) {
+  const desc = 'Last 7 days vs the prior 7, by install velocity.'
+  if (rows.length === 0) {
+    return (
+      <Panel title="Trending packs" description={desc}>
+        <EmptyState message="No pack installs in the last 7 days." />
+      </Panel>
+    )
+  }
+  const columns: Column<TrendingPackRow>[] = [
+    {
+      key: 'pack',
+      label: 'Pack',
+      render: (r) => (
+        <span className="text-shelf-text-primary">{r.pack_name ?? r.pack_id.slice(0, 8)}</span>
+      ),
+      sortValue: (r) => r.pack_name ?? r.pack_id,
+      defaultDesc: false,
+    },
+    {
+      key: 'installs_7d',
+      label: 'Installs 7d',
+      align: 'right',
+      render: (r) => (
+        <span className="inline-flex items-center justify-end gap-2">
+          {fmtNum(r.installs_7d)}
+          <DeltaBadge delta={r.installs_delta} pct={r.installs_growth} />
+        </span>
+      ),
+      sortValue: (r) => r.installs_7d,
+    },
+    {
+      key: 'actors_7d',
+      label: 'Installers 7d',
+      align: 'right',
+      render: (r) => fmtNum(r.actors_7d),
+      sortValue: (r) => r.actors_7d,
+    },
+  ]
+  return (
+    <Panel title="Trending packs" description={desc}>
+      <SortableTable
+        rows={rows}
+        columns={columns}
+        getKey={(r) => r.pack_id}
+        searchAccessor={(r) => r.pack_name ?? r.pack_id}
+        searchPlaceholder="Filter packs…"
+        initialSortKey="installs_7d"
+      />
+    </Panel>
+  )
+}
+
+// --- panels: search terms -----------------------------------------------------
+
+function SearchTermsPanel({ rows }: { rows: SearchTermRow[] }) {
+  const desc =
+    'Browse / recommend queries. A high zero-result rate is a direct catalog-gap signal.'
+  if (rows.length === 0) {
+    return (
+      <Panel title="Search terms" description={desc}>
+        <EmptyState message="No search queries recorded yet." />
+      </Panel>
+    )
+  }
+  const columns: Column<SearchTermRow>[] = [
+    {
+      key: 'term',
+      label: 'Query',
+      render: (r) => <span className="text-shelf-text-primary">{r.term}</span>,
+      sortValue: (r) => r.term,
+      defaultDesc: false,
+    },
+    {
+      key: 'searches',
+      label: 'Searches',
+      align: 'right',
+      render: (r) => fmtNum(r.searches),
+      sortValue: (r) => r.searches,
+    },
+    {
+      key: 'distinct_searchers',
+      label: 'Users',
+      align: 'right',
+      render: (r) => fmtNum(r.distinct_searchers),
+      sortValue: (r) => r.distinct_searchers,
+    },
+    {
+      key: 'avg_results',
+      label: 'Avg results',
+      align: 'right',
+      render: (r) => (r.avg_results === null ? '—' : r.avg_results.toFixed(1)),
+      sortValue: (r) => r.avg_results ?? 0,
+    },
+    {
+      key: 'zero_result_rate',
+      label: 'Zero-result',
+      align: 'right',
+      render: (r) => (
+        <span className={r.zero_result_rate >= 0.5 ? 'text-danger' : 'text-shelf-text-secondary'}>
+          {fmtPct(r.zero_result_rate)}
+        </span>
+      ),
+      sortValue: (r) => r.zero_result_rate,
+    },
+  ]
+  return (
+    <Panel title="Search terms" description={desc}>
+      <SortableTable
+        rows={rows}
+        columns={columns}
+        getKey={(r) => r.term}
+        searchAccessor={(r) => r.term}
+        searchPlaceholder="Filter queries…"
+        initialSortKey="searches"
+      />
+    </Panel>
+  )
+}
+
+// --- panels: activation -------------------------------------------------------
 
 function ActivationPanel({ rows }: { rows: ActivationRow[] }) {
   const desc = 'Signup → first install, by signup-week cohort, with time-to-activate.'
@@ -208,6 +638,8 @@ function ActivationPanel({ rows }: { rows: ActivationRow[] }) {
   )
 }
 
+// --- panels: retention --------------------------------------------------------
+
 function RetentionPanel({ rows }: { rows: RetentionRow[] }) {
   const desc = 'Weekly cohort retention by signup week. Cell shade = % of the cohort still active.'
   if (rows.length === 0) {
@@ -253,8 +685,6 @@ function RetentionPanel({ rows }: { rows: RetentionRow[] }) {
                       <td
                         key={o}
                         className="border-b border-shelf-border/60 px-3 py-2 text-right text-sm tabular-nums text-shelf-text-primary"
-                        // Heat intensity is data-driven (cannot be a utility class);
-                        // color-mix keeps the hue sourced from the theme accent token.
                         style={{
                           backgroundColor: `color-mix(in srgb, var(--shelf-accent) ${clampPct(
                             c.retention_rate
@@ -275,6 +705,8 @@ function RetentionPanel({ rows }: { rows: RetentionRow[] }) {
     </Panel>
   )
 }
+
+// --- panels: funnel -----------------------------------------------------------
 
 function FunnelPanel({ rows }: { rows: FunnelRow[] }) {
   const desc = 'Browse → view → install → activate, with drop-off at each step.'
@@ -298,10 +730,7 @@ function FunnelPanel({ rows }: { rows: FunnelRow[] }) {
               </span>
             </div>
             <div className="h-3 w-full overflow-hidden rounded-xs bg-shelf-void/60">
-              <div
-                className="h-full rounded-xs bg-accent"
-                style={{ width: clampPct(r.pct_of_top) }}
-              />
+              <div className="h-full rounded-xs bg-accent" style={{ width: clampPct(r.pct_of_top) }} />
             </div>
           </div>
         ))}
@@ -309,6 +738,8 @@ function FunnelPanel({ rows }: { rows: FunnelRow[] }) {
     </Panel>
   )
 }
+
+// --- panels: skill / pack performance (sortable) ------------------------------
 
 function SkillPerfPanel({ rows }: { rows: SkillPerfRow[] }) {
   const desc = 'Per skill: installs, uninstalls, distinct activators, rating, install→activation.'
@@ -319,37 +750,42 @@ function SkillPerfPanel({ rows }: { rows: SkillPerfRow[] }) {
       </Panel>
     )
   }
+  const columns: Column<SkillPerfRow>[] = [
+    {
+      key: 'skill',
+      label: 'Skill',
+      render: (r) => <span className="text-shelf-text-primary">{r.skill_name ?? r.skill_id.slice(0, 8)}</span>,
+      sortValue: (r) => r.skill_name ?? r.skill_id,
+      defaultDesc: false,
+    },
+    { key: 'installs', label: 'Installs', align: 'right', render: (r) => fmtNum(r.installs), sortValue: (r) => r.installs },
+    { key: 'uninstalls', label: 'Uninstalls', align: 'right', render: (r) => fmtNum(r.uninstalls), sortValue: (r) => r.uninstalls },
+    { key: 'activators', label: 'Activators', align: 'right', render: (r) => fmtNum(r.activating_users), sortValue: (r) => r.activating_users },
+    {
+      key: 'rating',
+      label: 'Rating',
+      align: 'right',
+      render: (r) => `${fmtRating(r.avg_rating)}${r.ratings > 0 ? ` (${r.ratings})` : ''}`,
+      sortValue: (r) => r.avg_rating ?? 0,
+    },
+    {
+      key: 'inst_act',
+      label: 'Inst→Act',
+      align: 'right',
+      render: (r) => fmtPct(r.install_to_activation_rate),
+      sortValue: (r) => r.install_to_activation_rate ?? 0,
+    },
+  ]
   return (
     <Panel title="Skill performance" description={desc}>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr>
-              <Th>Skill</Th>
-              <Th right>Installs</Th>
-              <Th right>Uninstalls</Th>
-              <Th right>Activators</Th>
-              <Th right>Rating</Th>
-              <Th right>Inst→Act</Th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r) => (
-              <tr key={r.skill_id}>
-                <Td>{r.skill_name}</Td>
-                <Td right>{fmtNum(r.installs)}</Td>
-                <Td right>{fmtNum(r.uninstalls)}</Td>
-                <Td right>{fmtNum(r.activating_users)}</Td>
-                <Td right>
-                  {fmtRating(r.avg_rating)}
-                  {r.ratings > 0 ? ` (${r.ratings})` : ''}
-                </Td>
-                <Td right>{fmtPct(r.install_to_activation_rate)}</Td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <SortableTable
+        rows={rows}
+        columns={columns}
+        getKey={(r) => r.skill_id}
+        searchAccessor={(r) => r.skill_name ?? r.skill_id}
+        searchPlaceholder="Filter skills…"
+        initialSortKey="installs"
+      />
     </Panel>
   )
 }
@@ -363,35 +799,34 @@ function PackPerfPanel({ rows }: { rows: PackPerfRow[] }) {
       </Panel>
     )
   }
+  const columns: Column<PackPerfRow>[] = [
+    {
+      key: 'pack',
+      label: 'Pack',
+      render: (r) => <span className="text-shelf-text-primary">{r.pack_name ?? r.pack_id.slice(0, 8)}</span>,
+      sortValue: (r) => r.pack_name ?? r.pack_id,
+      defaultDesc: false,
+    },
+    { key: 'installs', label: 'Installs', align: 'right', render: (r) => fmtNum(r.installs), sortValue: (r) => r.installs },
+    { key: 'installers', label: 'Installers', align: 'right', render: (r) => fmtNum(r.distinct_installers), sortValue: (r) => r.distinct_installers },
+    { key: 'skill_acts', label: 'Skill activations', align: 'right', render: (r) => fmtNum(r.derived_skill_activations), sortValue: (r) => r.derived_skill_activations },
+    { key: 'act_users', label: 'Activating users', align: 'right', render: (r) => fmtNum(r.distinct_activating_users), sortValue: (r) => r.distinct_activating_users },
+  ]
   return (
     <Panel title="Pack performance" description={desc}>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr>
-              <Th>Pack</Th>
-              <Th right>Installs</Th>
-              <Th right>Installers</Th>
-              <Th right>Skill activations</Th>
-              <Th right>Activating users</Th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((r) => (
-              <tr key={r.pack_id}>
-                <Td>{r.pack_name}</Td>
-                <Td right>{fmtNum(r.installs)}</Td>
-                <Td right>{fmtNum(r.distinct_installers)}</Td>
-                <Td right>{fmtNum(r.derived_skill_activations)}</Td>
-                <Td right>{fmtNum(r.distinct_activating_users)}</Td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <SortableTable
+        rows={rows}
+        columns={columns}
+        getKey={(r) => r.pack_id}
+        searchAccessor={(r) => r.pack_name ?? r.pack_id}
+        searchPlaceholder="Filter packs…"
+        initialSortKey="installs"
+      />
     </Panel>
   )
 }
+
+// --- panels: growth -----------------------------------------------------------
 
 const GROWTH_SEGMENTS = [
   { key: 'new_users' as const, label: 'New', varName: '--shelf-accent' },
@@ -479,18 +914,46 @@ export function TelemetryDashboard({
         {data.freshness ? ` Data through ${fmtDateTime(data.freshness)}.` : ' No events recorded yet.'}
       </p>
 
-      <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <div className="lg:col-span-2">
-          <ActiveUsersPanel rows={data.activeUsers} />
-        </div>
+      <div className="mt-8">
+        <KpiHeader
+          activeUsers={data.activeUsers}
+          eventVolume={data.eventVolume}
+          tools={data.tools}
+        />
+      </div>
+
+      <div className="mt-5">
+        <Panel
+          title="Activity timeline"
+          description="Every event by day. Filter by range, event and source; the trend delta compares the second half of the window to the first."
+        >
+          <EventVolumeExplorer rows={data.eventVolume} />
+        </Panel>
+      </div>
+
+      <div className="mt-5">
+        <ToolPerfPanel rows={data.tools} />
+      </div>
+
+      <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
+        <TrendingSkillsPanel rows={data.trendingSkills} />
+        <TrendingPacksPanel rows={data.trendingPacks} />
         <FunnelPanel rows={data.funnel} />
         <GrowthPanel rows={data.growth} />
         <ActivationPanel rows={data.activation} />
+        <SearchTermsPanel rows={data.searchTerms} />
+        <div className="lg:col-span-2">
+          <ActiveUsersPanel rows={data.activeUsers} />
+        </div>
         <div className="lg:col-span-2">
           <RetentionPanel rows={data.retention} />
         </div>
-        <SkillPerfPanel rows={data.skills} />
-        <PackPerfPanel rows={data.packs} />
+        <div className="lg:col-span-2">
+          <SkillPerfPanel rows={data.skills} />
+        </div>
+        <div className="lg:col-span-2">
+          <PackPerfPanel rows={data.packs} />
+        </div>
       </div>
     </div>
   )

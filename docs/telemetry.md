@@ -133,6 +133,37 @@ admin-guarded route (`lib/admin.ts`) — they are revoked from anon/authenticate
 - **`mv_growth_accounting`** — monthly `new_users` / `retained_users` /
   `resurrected_users` / `churned_users`.
 
+### v2 rollups (migration `0013`)
+
+Added to surface tool calls, trends and search in the admin dashboard. Same
+access model (revoked from anon/authenticated; admin reads via service role) and
+refreshed by the same `refresh_telemetry_rollups()`.
+
+- **`mv_tool_performance`** — per MCP tool (`mcp_tool_invoked`): `invocations`,
+  `distinct_actors`, `errors`, `error_rate`, `p50_ms`/`p95_ms` latency,
+  `invocations_24h`/`invocations_7d`/`invocations_prev_7d` (WoW trend),
+  `last_used_at`.
+- **`mv_event_volume_daily`** — `(day, event_name, source, events, actors)`. The
+  filterable activity timeline; the dashboard re-slices it client-side for the
+  range/event/source controls and KPI trend deltas (no per-request DB work).
+- **`mv_trending_skills`** — per skill: `installs_7d` vs `installs_prev_7d`
+  (`installs_delta`, `installs_growth`), plus `views_7d`, `activations_7d`,
+  `actors_7d`. Only rows with recent activity.
+- **`mv_trending_packs`** — per pack: `installs_7d` vs `installs_prev_7d` and
+  `actors_7d` (packs trend on installs only — `pack_browsed` carries no pack_id).
+- **`mv_search_terms`** — normalized browse queries: `searches`,
+  `distinct_searchers`, `avg_results`, `zero_result_rate` (a high zero-result
+  rate is a direct catalog-gap signal).
+
+### Why not Vercel Web Analytics as the metrics source
+
+`<Analytics/>` stays mounted for marketing pageviews, but the product metrics
+above are deliberately **first-party**: MCP tool calls, installs and activations
+happen server-side and never reach a browser, so Vercel Web Analytics literally
+cannot see them, and its API is plan-gated and pageview-only. Keep one source of
+truth (`telemetry_events` + these rollups) and deep-link to the Vercel dashboard
+for raw traffic rather than pulling it in.
+
 ### Refresh
 
 `public.refresh_telemetry_rollups()` refreshes all MVs `CONCURRENTLY`. Driven by
