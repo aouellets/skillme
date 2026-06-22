@@ -302,21 +302,25 @@
      overflow-x:clip, so a -10% bleed got sliced into a hard edge. Keep the
      glow inside the box and let it fade to transparent well before the right
      edge, so it reads as ambient warmth, not a clipped smear. */
-  inset: -30% 0 auto 0;
-  height: 720px;
+  /* Centers sit INSIDE the frame (positive Y): the bloom must land in the
+     visible hero, not above its top edge. A tall element pushed up by a big
+     negative inset hides the hot core off-screen and leaves only a muddy tail —
+     that was why earlier passes never read as prominent. */
+  inset: -15% 0 auto 0;
+  height: 700px;
   z-index: -1;
   pointer-events: none;
   background:
-    /* bright hot core behind the visual — luminance reads as glow, not stain */
-    radial-gradient(32% 42% at 67% -2%, rgba(255, 122, 84, 0.2), transparent 55%),
+    /* bright hot core behind the visual — high luminance reads as glow, not stain */
+    radial-gradient(28% 32% at 70% 30%, rgba(255, 190, 150, 0.62), transparent 55%),
     /* hotter mid behind the showcase */
-    radial-gradient(38% 48% at 64% 1%, rgba(238, 70, 40, 0.16), transparent 58%),
+    radial-gradient(38% 44% at 66% 34%, rgba(255, 112, 74, 0.48), transparent 60%),
     /* broad warm wash for spread */
-    radial-gradient(58% 68% at 60% 3%, rgba(238, 70, 40, 0.12), transparent 64%),
+    radial-gradient(60% 64% at 58% 22%, rgba(255, 86, 52, 0.24), transparent 64%),
     /* soft counter-light, upper-left, so it isn't one-sided */
-    radial-gradient(46% 54% at 13% 4%, rgba(255, 104, 64, 0.07), transparent 66%);
+    radial-gradient(48% 54% at 9% 18%, rgba(255, 128, 84, 0.16), transparent 66%);
   animation: auroraDrift 22s var(--ease-standard, ease-in-out) infinite alternate;
-  filter: blur(20px);
+  filter: blur(28px);
 }
 
 /* Slow, barely-perceptible breathing so the ember feels alive, not painted on.
@@ -344,12 +348,12 @@
   z-index: -1;
   pointer-events: none;
   background:
-    /* warm light spilling from the top-right */
-    radial-gradient(48% 38% at 82% -8%, rgba(255, 110, 72, 0.09), transparent 60%),
+    /* warm light spilling from the top-right — core just inside the top edge */
+    radial-gradient(46% 40% at 86% 4%, rgba(255, 140, 98, 0.28), transparent 60%),
     /* broad wash, top-center */
-    radial-gradient(60% 44% at 58% -6%, rgba(238, 70, 40, 0.06), transparent 64%),
-    /* faint counter-light, mid-left */
-    radial-gradient(44% 40% at 4% 18%, rgba(238, 70, 40, 0.04), transparent 66%);
+    radial-gradient(60% 48% at 60% -2%, rgba(255, 96, 60, 0.13), transparent 64%),
+    /* counter-light, mid-left */
+    radial-gradient(44% 46% at 0% 24%, rgba(255, 112, 72, 0.12), transparent 64%);
   animation: auraFieldDrift 36s var(--ease-standard, ease-in-out) infinite alternate;
 }
 
