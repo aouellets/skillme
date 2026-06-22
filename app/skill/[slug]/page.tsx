@@ -66,7 +66,7 @@ export default async function SkillDetailPage({
   const truncated = skill.skill_content.split('\n').length > PREVIEW_LINES
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
       <SkillViewTracker skillId={skill.id} />
       {/* Breadcrumb */}
       <nav className="flex flex-wrap items-center gap-2 text-sm text-shelf-text-tertiary">
@@ -120,7 +120,7 @@ export default async function SkillDetailPage({
         </div>
       </header>
 
-      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_340px]">
+      <div className="mt-6 grid grid-cols-1 gap-6 sm:mt-8 lg:grid-cols-[1fr_340px] lg:gap-8">
         <div className="min-w-0">
           <p className="max-w-2xl text-lg leading-relaxed text-shelf-text-secondary">
             {skill.description}
@@ -157,7 +157,7 @@ export default async function SkillDetailPage({
                 </a>
               )}
             </div>
-            <pre className="skill-preview mt-3 max-h-[420px] overflow-auto rounded-lg border border-shelf-border bg-shelf-void p-4 font-mono text-sm leading-relaxed text-shelf-text-secondary">
+            <pre className="skill-preview mt-3 max-h-[300px] overflow-auto rounded-lg border border-shelf-border bg-shelf-void p-4 font-mono text-sm leading-relaxed text-shelf-text-secondary sm:max-h-[420px]">
               <code>{preview}</code>
               {truncated && (
                 <span className="mt-2 block text-shelf-text-tertiary">
@@ -170,8 +170,10 @@ export default async function SkillDetailPage({
           <ReviewSection skillId={skill.id} slug={skill.slug} />
         </div>
 
-        {/* Sidebar */}
-        <aside className="space-y-4">
+        {/* Sidebar — on mobile this jumps above the long content column so the
+            Install action sits right under the hero (app-store pattern); on lg it
+            returns to the right-hand rail. */}
+        <aside className="order-first space-y-4 lg:order-none">
           <InstallInstructions skillName={skill.name} />
           <FavoriteButton skillId={skill.id} variant="button" />
           <CollectionPicker skillId={skill.id} />

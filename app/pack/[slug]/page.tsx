@@ -64,7 +64,7 @@ export default async function PackDetailPage({
   })
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-shelf-text-tertiary">
         <Link href="/packs" className="transition-colors hover:text-shelf-text-secondary">Packs</Link>
@@ -106,7 +106,7 @@ export default async function PackDetailPage({
         </div>
       </header>
 
-      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_340px]">
+      <div className="mt-6 grid grid-cols-1 gap-6 sm:mt-8 lg:grid-cols-[1fr_340px] lg:gap-8">
         <div className="min-w-0">
           <p className="max-w-2xl text-shelf-text-secondary leading-relaxed">{pack.description}</p>
 
@@ -119,7 +119,7 @@ export default async function PackDetailPage({
               <h2 className="mb-4 text-base font-medium text-shelf-text-primary">
                 Skills included ({pack.skills.length})
               </h2>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="grid grid-cols-2 gap-3">
                 {pack.skills.map((skill) => (
                   <SkillCard key={skill.id} skill={skill} />
                 ))}
@@ -131,8 +131,10 @@ export default async function PackDetailPage({
           <DemoGallery items={galleryItems} />
         </div>
 
-        {/* Sidebar */}
-        <aside className="space-y-4">
+        {/* Sidebar — on mobile this jumps above the content column so "Install
+            this pack" sits right under the hero; on lg it returns to the right
+            rail (desktop unchanged). */}
+        <aside className="order-first space-y-4 lg:order-none">
           <div className="card p-5">
             <h2 className="text-lg font-medium text-shelf-text-primary">Install this pack</h2>
             <ol className="mt-4 space-y-3 text-sm text-shelf-text-secondary">

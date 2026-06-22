@@ -110,16 +110,18 @@ export function BrowseClient({
 
         <CategoryFilter active={category} onChange={setCategory} />
 
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+        <div className="flex items-center gap-3 sm:flex-wrap">
+          <span className="shrink-0 font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
             Sort
           </span>
-          <div className="flex flex-wrap gap-2">
+          {/* Single scrolling row on mobile (matches the category filter);
+              wraps normally at sm+ so desktop is unchanged. */}
+          <div className="no-scrollbar flex min-w-0 flex-1 gap-2 overflow-x-auto sm:flex-none sm:flex-wrap sm:overflow-visible">
             {SORTS.map((s) => (
               <button
                 key={s.value}
                 onClick={() => setSort(s.value)}
-                className={`chip !py-1.5 text-xs ${sort === s.value ? 'chip-active' : ''}`}
+                className={`chip shrink-0 !py-1.5 text-xs ${sort === s.value ? 'chip-active' : ''}`}
               >
                 {s.label}
               </button>
