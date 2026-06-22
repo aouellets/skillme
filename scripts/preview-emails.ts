@@ -138,7 +138,7 @@ async function main() {
 
   for (const [name, parts] of Object.entries(samples)) {
     writeFileSync(join(outDir, `${name}.html`), parts.html)
-    index.push(`<li><a style="color:#b4f33e" href="./${name}.html">${name}</a> — ${parts.subject}</li>`)
+    index.push(`<li><a style="color:#ee4628" href="./${name}.html">${name}</a> — ${parts.subject}</li>`)
     console.log(`✓ wrote emails-preview/${name}.html — "${parts.subject}"`)
     if (sendTo && (!only || only.some((p) => name.startsWith(p)))) {
       const r = await send(sendTo, parts)

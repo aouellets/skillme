@@ -90,7 +90,7 @@ export const CATEGORY_ART: Record<CategoryArtKey, CategoryArt> = {
     ],
   },
   mixed: {
-    fg: '#b4f33e', bg: '#16210b', label: 'Collection',
+    fg: '#ee4628', bg: '#2a1109', label: 'Collection',
     icons: [
       '<path d="M12 3.5 14 9.5 20 12 14 14.5 12 20.5 10 14.5 4 12 10 9.5z"/><path d="M19 4.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/>',
       '<rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/>',

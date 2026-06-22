@@ -8,6 +8,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          ink: 'var(--brand-ink)',
+          paper: 'var(--brand-paper)',
+          accent: 'var(--brand-accent)',
+          'accent-deep': 'var(--brand-accent-deep)',
+        },
         shelf: {
           void: 'var(--shelf-void)',
           surface: 'var(--shelf-surface)',

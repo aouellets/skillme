@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 120" width="440" height="120" role="img" aria-label="Skill Me">
+  <!-- mark -->
+  <rect x="0" y="10" width="100" height="100" rx="27" fill="#FAF6F0"/>
+  <rect x="24" y="33" width="42" height="12" rx="6" fill="#1C1A17"/>
+  <rect x="24" y="54" width="83" height="12" rx="6" fill="#EE4628"/>
+  <rect x="24" y="75" width="33" height="12" rx="6" fill="#1C1A17"/>
+  <!-- wordmark -->
+  <text x="138" y="80" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="62" font-weight="700" letter-spacing="-2.5" fill="#FAF6F0">skill<tspan fill="#EE4628">me</tspan></text>
+</svg>
