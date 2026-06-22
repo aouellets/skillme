@@ -133,9 +133,6 @@ function Footer() {
             <Link href="/skill-media-guide" className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary">
               Media guide
             </Link>
-            <Link href="/motion" className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary">
-              Motion system
-            </Link>
             <Link href="/privacy" className="text-shelf-text-secondary transition-colors hover:text-shelf-text-primary">
               Privacy
             </Link>

@@ -58,43 +58,47 @@ export default async function AboutPage() {
   const [platformDemo, { total }] = await Promise.all([getPlatformDemos(), getSkills({ limit: 1 })])
   const skillStat = total > 0 ? formatSkillCount(total) : '300+'
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-      {/* Hero */}
-      <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
-        About
-      </p>
-      <h1 className="mt-3 font-display text-5xl text-shelf-text-primary">
-        The App Store for Claude.
-      </h1>
-      <p className="mt-5 text-lg leading-relaxed text-shelf-text-secondary">
-        Claude skills are powerful. Getting them is not. You need to find a GitHub repo,
-        read the README, download a file, upload a ZIP, and repeat for every skill
-        you want. That is the developer path, it works, but it excludes everyone else.
-      </p>
-      <p className="mt-4 text-lg leading-relaxed text-shelf-text-secondary">
-        Skill Me is the consumer path. Connect once, browse by category, say
-        &quot;install it&quot; in plain English. Skills activate in every future conversation.
-        No ZIP files. No terminal. No setup.
-      </p>
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
+      {/* Hero — single column on mobile, intro + key-facts side by side on lg */}
+      <section className="grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-start lg:gap-16">
+        <div>
+          <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+            About
+          </p>
+          <h1 className="mt-3 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-shelf-text-primary sm:text-6xl lg:text-7xl">
+            The App Store for Claude.
+          </h1>
+          <p className="mt-6 max-w-prose text-lg leading-relaxed text-shelf-text-secondary">
+            Claude skills are powerful. Getting them is not. You need to find a GitHub repo,
+            read the README, download a file, upload a ZIP, and repeat for every skill
+            you want. That is the developer path, it works, but it excludes everyone else.
+          </p>
+          <p className="mt-4 max-w-prose text-lg leading-relaxed text-shelf-text-secondary">
+            Skill Me is the consumer path. Connect once, browse by category, say
+            &quot;install it&quot; in plain English. Skills activate in every future conversation.
+            No ZIP files. No terminal. No setup.
+          </p>
+        </div>
 
-      {/* Key facts */}
-      <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {[
-          { stat: skillStat, label: 'Curated skills' },
-          { stat: 'MIT', label: 'Open source' },
-          { stat: 'Free', label: 'Always' },
-          { stat: '1 MCP', label: 'Connect once' },
-        ].map(({ stat, label }) => (
-          <div key={label} className="card p-5 text-center">
-            <div className="font-display text-3xl text-accent">{stat}</div>
-            <div className="mt-1 text-xs text-shelf-text-tertiary">{label}</div>
-          </div>
-        ))}
-      </div>
+        {/* Key facts — 2×2; sits beside the intro on lg, below it on mobile */}
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            { stat: skillStat, label: 'Curated skills' },
+            { stat: 'MIT', label: 'Open source' },
+            { stat: 'Free', label: 'Always' },
+            { stat: '1 MCP', label: 'Connect once' },
+          ].map(({ stat, label }) => (
+            <div key={label} className="card p-5 text-center">
+              <div className="font-display text-3xl text-accent sm:text-4xl">{stat}</div>
+              <div className="mt-1 text-xs text-shelf-text-tertiary">{label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      {/* Platform demo film */}
+      {/* Platform demo film — capped so it doesn't balloon on wide screens */}
       {(platformDemo.landscape || platformDemo.portrait) && (
-        <div className="mt-12">
+        <div className="mx-auto mt-14 max-w-4xl lg:mt-20">
           <PlatformDemoBlock
             landscape={platformDemo.landscape}
             portrait={platformDemo.portrait}
@@ -105,48 +109,52 @@ export default async function AboutPage() {
         </div>
       )}
 
-      {/* How it works */}
-      <section className="mt-14">
-        <h2 className="font-display text-3xl text-shelf-text-primary">How it works</h2>
-        <p className="mt-4 text-shelf-text-secondary">
-          Skill Me is a hosted MCP server plus a web catalog. Connect the MCP to
-          claude.ai once, it takes about 30 seconds. After that, your installed
-          skills automatically load at the start of every Claude conversation via
-          the <code className="rounded border border-shelf-border bg-shelf-void px-1.5 py-0.5 font-mono text-sm text-shelf-text-primary">get_active_skills</code> tool.
-          You never have to think about it again.
-        </p>
-        <p className="mt-3 text-shelf-text-secondary">
-          The source code is{' '}
-          <a
-            href="https://github.com/aouellets/skillme"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:text-accent-hover"
-          >
-            MIT licensed on GitHub
-          </a>
-          . You can self-host the MCP server, fork the catalog, and run your own
-          private instance. The skill format is the open SKILL.md standard supported
-          by Claude Code, Cursor, Gemini CLI, and others.
-        </p>
-      </section>
+      {/* How it works + Independent — prose held to a readable measure */}
+      <div className="mt-14 grid gap-10 lg:mt-24 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
+        <section className="max-w-prose">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-shelf-text-primary sm:text-4xl">
+            How it works
+          </h2>
+          <p className="mt-5 leading-relaxed text-shelf-text-secondary">
+            Skill Me is a hosted MCP server plus a web catalog. Connect the MCP to
+            claude.ai once, it takes about 30 seconds. After that, your installed
+            skills automatically load at the start of every Claude conversation via
+            the <code className="rounded border border-shelf-border bg-shelf-void px-1.5 py-0.5 font-mono text-sm text-shelf-text-primary">get_active_skills</code> tool.
+            You never have to think about it again.
+          </p>
+          <p className="mt-4 leading-relaxed text-shelf-text-secondary">
+            The source code is{' '}
+            <a
+              href="https://github.com/aouellets/skillme"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent-hover"
+            >
+              MIT licensed on GitHub
+            </a>
+            . You can self-host the MCP server, fork the catalog, and run your own
+            private instance. The skill format is the open SKILL.md standard supported
+            by Claude Code, Cursor, Gemini CLI, and others.
+          </p>
+        </section>
 
-      {/* Not affiliated with Anthropic */}
-      <section className="mt-10 card border-shelf-border p-5">
-        <p className="text-sm text-shelf-text-secondary">
-          <strong className="text-shelf-text-primary">Independent project.</strong>{' '}
-          Skill Me is not affiliated with, endorsed by, or connected to Anthropic.
-          It uses the public MCP standard and the open SKILL.md format.
-          Claude® is a trademark of Anthropic.
-        </p>
-      </section>
+        {/* Not affiliated with Anthropic — pulled aside on lg as a sidebar note */}
+        <section className="card h-fit border-shelf-border p-6 lg:sticky lg:top-24">
+          <p className="text-sm leading-relaxed text-shelf-text-secondary">
+            <strong className="text-shelf-text-primary">Independent project.</strong>{' '}
+            Skill Me is not affiliated with, endorsed by, or connected to Anthropic.
+            It uses the public MCP standard and the open SKILL.md format.
+            Claude® is a trademark of Anthropic.
+          </p>
+        </section>
+      </div>
 
-      {/* FAQ */}
-      <section className="mt-14">
-        <h2 className="font-display text-3xl text-shelf-text-primary">
+      {/* FAQ — two columns on lg so it fills the width and scans quickly */}
+      <section className="mt-14 lg:mt-24">
+        <h2 className="font-display text-3xl font-semibold tracking-tight text-shelf-text-primary sm:text-4xl">
           Frequently asked questions
         </h2>
-        <div className="mt-8 space-y-8">
+        <div className="mt-8 grid gap-x-12 gap-y-8 lg:grid-cols-2 lg:gap-y-10">
           {FAQ.map(({ q, a }) => (
             <div key={q}>
               <h3 className="text-base font-medium text-shelf-text-primary">{q}</h3>
@@ -157,14 +165,14 @@ export default async function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="mt-14 card border-accent-border bg-accent-dim p-6">
-        <h2 className="text-lg font-medium text-shelf-text-primary">
+      <section className="mt-14 card border-accent-border bg-accent-dim p-6 sm:p-8 lg:mt-24">
+        <h2 className="font-display text-xl font-semibold text-shelf-text-primary sm:text-2xl">
           Ready to get started?
         </h2>
         <p className="mt-2 text-sm text-shelf-text-secondary">
           Connect the MCP in 30 seconds and start browsing the catalog.
         </p>
-        <div className="mt-4 flex gap-3">
+        <div className="mt-5 flex flex-wrap gap-3">
           <Link href="/connect" className="btn btn-primary">
             Connect to Claude
           </Link>

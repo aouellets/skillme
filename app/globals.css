@@ -709,30 +709,47 @@
   }
 }
 
-/* === Motion showcase (/motion) — visualizers for the token system. Each loops
-   so the page is alive; the global reduced-motion net above stops them all.
-   Per-instance easing/duration come in as --demo-ease / --demo-dur inline. */
+/* === Motion showcase (/motion) — visualizers for the token system. To keep the
+   page calm, each demo is PAUSED until its section scrolls into view (so the
+   whole long page isn't churning at once) and the looping demos rest between
+   cycles instead of running flat-out. The global reduced-motion net stops them
+   entirely. Per-instance easing/duration come in as --demo-ease / --demo-dur. */
+.motion-dot,
+.motion-bar,
+.motion-stagger-item {
+  animation-play-state: paused;
+}
+.reveal[data-shown='true'] .motion-dot,
+.reveal[data-shown='true'] .motion-bar,
+.reveal[data-shown='true'] .motion-stagger-item {
+  animation-play-state: running;
+}
 .motion-dot {
-  animation: showcaseTravel 1.5s var(--demo-ease, var(--ease-entrance)) infinite;
+  /* Travel, then hold a beat before repeating (the 70→100% plateau is the rest). */
+  animation: showcaseTravel 2.4s var(--demo-ease, var(--ease-entrance)) infinite;
 }
 @keyframes showcaseTravel {
   0% { left: 0; }
-  70%, 100% { left: calc(100% - 0.875rem); }
+  58%, 100% { left: calc(100% - 0.875rem); }
 }
 .motion-bar {
   transform-origin: left center;
-  animation: showcaseFill var(--demo-dur, var(--dur-base)) var(--ease-entrance) infinite alternate;
+  /* Fill once at the token's real speed, then hold full (no rapid back-and-forth
+     pulse). Replaying the section re-runs it; that's how you compare speeds. */
+  animation: showcaseFill var(--demo-dur, var(--dur-base)) var(--ease-entrance) both;
 }
 @keyframes showcaseFill {
   from { transform: scaleX(0.04); }
   to { transform: scaleX(1); }
 }
 .motion-stagger-item {
-  animation: showcaseStagger 2.6s var(--ease-entrance) infinite both;
+  /* Long cycle that stays settled most of the time: a quick cascade in, a long
+     hold, a brief fade — so the grid rests rather than perpetually flashing. */
+  animation: showcaseStagger 5s var(--ease-entrance) infinite both;
   animation-delay: calc(var(--stagger-index, 0) * var(--stagger-step));
 }
 @keyframes showcaseStagger {
   0% { opacity: 0; transform: translateY(14px) scale(0.96); }
-  24%, 78% { opacity: 1; transform: none; }
+  10%, 90% { opacity: 1; transform: none; }
   100% { opacity: 0; transform: translateY(14px) scale(0.96); }
 }
