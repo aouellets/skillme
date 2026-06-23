@@ -75,7 +75,9 @@ create table if not exists public.packs (
   verified      boolean default false,    -- reviewed by Skill Me
   free          boolean default true,
   created_at    timestamptz default now(),
-  updated_at    timestamptz default now()
+  updated_at    timestamptz default now(),
+  -- Full-text search vector (populated by trigger below; see migration 0016)
+  fts tsvector
 );
 
 -- Which skills are in each pack (ordered)
@@ -151,13 +153,17 @@ create table if not exists public.skill_reviews (
   unique (user_token, skill_id)
 );
 
--- Populate the fts column via trigger (avoids generated column syntax issues)
+-- Populate the fts column via trigger (avoids generated column syntax issues).
+-- Weighted so name > tags/category > description; covers tags so keyword search
+-- finds skills by tag. Queried via PostgREST .textSearch (see migration 0016).
 create or replace function public.skills_fts_update()
 returns trigger language plpgsql as $$
 begin
-  new.fts := to_tsvector('english',
-    coalesce(new.name, '') || ' ' || coalesce(new.description, '')
-  );
+  new.fts :=
+       setweight(to_tsvector('english', coalesce(new.name, '')), 'A')
+    || setweight(to_tsvector('english', coalesce(array_to_string(new.tags, ' '), '')), 'B')
+    || setweight(to_tsvector('english', coalesce(new.category, '')), 'B')
+    || setweight(to_tsvector('english', coalesce(new.description, '')), 'C');
   return new;
 end;
 $$;
@@ -168,9 +174,40 @@ create trigger skills_fts_trigger
   for each row execute function public.skills_fts_update();
 
 -- Backfill fts for any existing rows
-update public.skills set fts = to_tsvector('english',
-  coalesce(name, '') || ' ' || coalesce(description, '')
-) where fts is null;
+update public.skills set fts =
+     setweight(to_tsvector('english', coalesce(name, '')), 'A')
+  || setweight(to_tsvector('english', coalesce(array_to_string(tags, ' '), '')), 'B')
+  || setweight(to_tsvector('english', coalesce(category, '')), 'B')
+  || setweight(to_tsvector('english', coalesce(description, '')), 'C')
+where fts is null;
+
+-- Packs full-text search (mirrors skills; see migration 0016). `add column`
+-- guard keeps this safe to run against an existing deployment.
+alter table public.packs add column if not exists fts tsvector;
+
+create or replace function public.packs_fts_update()
+returns trigger language plpgsql as $$
+begin
+  new.fts :=
+       setweight(to_tsvector('english', coalesce(new.name, '')), 'A')
+    || setweight(to_tsvector('english', coalesce(new.tagline, '')), 'B')
+    || setweight(to_tsvector('english', coalesce(array_to_string(new.tags, ' '), '')), 'B')
+    || setweight(to_tsvector('english', coalesce(new.description, '')), 'C');
+  return new;
+end;
+$$;
+
+drop trigger if exists packs_fts_trigger on public.packs;
+create trigger packs_fts_trigger
+  before insert or update on public.packs
+  for each row execute function public.packs_fts_update();
+
+update public.packs set fts =
+     setweight(to_tsvector('english', coalesce(name, '')), 'A')
+  || setweight(to_tsvector('english', coalesce(tagline, '')), 'B')
+  || setweight(to_tsvector('english', coalesce(array_to_string(tags, ' '), '')), 'B')
+  || setweight(to_tsvector('english', coalesce(description, '')), 'C')
+where fts is null;
 
 -- Indexes
 create index if not exists skills_category_idx on public.skills (category);
@@ -181,6 +218,7 @@ create index if not exists skills_fts_idx on public.skills using gin (fts);
 create index if not exists user_installs_token_idx on public.user_installs (user_token);
 create index if not exists packs_category_idx    on public.packs (category);
 create index if not exists packs_featured_idx    on public.packs (featured) where featured = true;
+create index if not exists packs_fts_idx         on public.packs using gin (fts);
 create index if not exists pack_skills_pack_idx  on public.pack_skills (pack_id);
 create index if not exists ucollections_user_idx on public.user_collections (user_token);
 create index if not exists ucollections_share_idx on public.user_collections (share_token);

@@ -2,8 +2,18 @@ import 'server-only'
 import { getSupabase } from './supabase'
 import { SEED_SKILLS, type SeedSkill } from './seed-data'
 import { resolveSourceUrl } from './skill-source'
-import { sanitizeSearchTerm } from './search'
+import { searchTerms, toTsQuery } from './search'
+import { embedText, isEmbeddingConfigured } from './embeddings'
 import type { Skill, SkillCategory } from './types'
+
+/**
+ * Minimum cosine similarity (text-embedding-3-small) for a semantic ("related")
+ * match to be shown. Calibrated against prod: gibberish queries top out around
+ * 0.31, genuine queries start ~0.39, so 0.37 keeps real matches while dropping
+ * noise (the few rows in the 0.31–0.37 band were off-topic). Tunable per-env via
+ * SEMANTIC_SEARCH_MIN_SIMILARITY without a code change.
+ */
+const SEMANTIC_MIN_SIMILARITY = Number(process.env.SEMANTIC_SEARCH_MIN_SIMILARITY ?? 0.37)
 
 export type SortOption = 'trending' | 'newest' | 'top_rated' | 'hot'
 
@@ -64,14 +74,15 @@ function applyFallbackQuery(opts: SkillQuery): SkillPage {
 
   if (featured) rows = rows.filter((s) => s.featured)
   if (category) rows = rows.filter((s) => s.category === category)
-  if (query) {
-    const q = query.toLowerCase()
-    rows = rows.filter(
-      (s) =>
-        s.name.toLowerCase().includes(q) ||
-        s.description.toLowerCase().includes(q) ||
-        s.tags.some((t) => t.toLowerCase().includes(q))
-    )
+  const terms = searchTerms(query)
+  if (terms.length) {
+    // Mirror the DB's full-text behaviour: every term must appear somewhere in
+    // name / description / tags (AND across terms, OR across fields), so
+    // multi-word queries match even when the words aren't adjacent.
+    rows = rows.filter((s) => {
+      const hay = `${s.name} ${s.description} ${s.tags.join(' ')}`.toLowerCase()
+      return terms.every((t) => hay.includes(t))
+    })
   }
 
   rows.sort((a, b) => {
@@ -109,9 +120,12 @@ export async function getSkills(opts: SkillQuery = {}): Promise<SkillPage> {
 
   if (featured) builder = builder.eq('featured', true)
   if (category) builder = builder.eq('category', category)
-  const q = sanitizeSearchTerm(query)
-  if (q) {
-    builder = builder.or(`name.ilike.%${q}%,description.ilike.%${q}%`)
+  const ts = toTsQuery(query)
+  if (ts) {
+    // Full-text match against the `fts` tsvector (name+tags+category+description,
+    // weighted, English-stemmed). Prefix + AND query so multi-word and
+    // as-you-type searches both work. See lib/search.ts toTsQuery().
+    builder = builder.textSearch('fts', ts, { config: 'english' })
   }
 
   // Featured shelves order by the curator-set rank first (nulls last), then by
@@ -139,6 +153,60 @@ export async function getSkills(opts: SkillQuery = {}): Promise<SkillPage> {
   }
 
   return { skills: data as Skill[], total: count ?? data.length }
+}
+
+interface RelatedOptions {
+  /** Skill ids already shown by keyword search — excluded from related. */
+  excludeIds?: string[]
+  limit?: number
+}
+
+/**
+ * Semantic "related" skills for a free-text query, via pgvector cosine top-k
+ * (the `match_skills` RPC from migration 0009). This is the recall safety net
+ * for vocabulary gaps that keyword/FTS can't bridge — e.g. searching
+ * "issue tracker" surfacing skills the catalog only tags "project-management".
+ *
+ * Returns full skill rows (hydrated by slug) in similarity order, filtered by
+ * {@link SEMANTIC_MIN_SIMILARITY}. Degrades to [] on every failure mode (no
+ * embedding credential, no Supabase, RPC error, empty query) so callers can
+ * treat it as a best-effort augmentation.
+ */
+export async function getRelatedSkills(
+  query: string,
+  opts: RelatedOptions = {}
+): Promise<Skill[]> {
+  const limit = opts.limit ?? 6
+  const excludeIds = opts.excludeIds ?? []
+  const supabase = getSupabase()
+  if (!supabase || !isEmbeddingConfigured() || !query.trim()) return []
+
+  try {
+    const vec = JSON.stringify(await embedText(query))
+    const { data, error } = await supabase.rpc('match_skills', {
+      query_embedding: vec,
+      // Over-fetch so the similarity floor still leaves up to `limit` rows.
+      match_count: limit * 2,
+      exclude_ids: excludeIds,
+    })
+    if (error || !Array.isArray(data)) {
+      if (error) console.warn('[getRelatedSkills] match_skills error:', error.message)
+      return []
+    }
+    const matches = (data as { slug: string; similarity: number }[])
+      .filter((r) => (r.similarity ?? 0) >= SEMANTIC_MIN_SIMILARITY)
+      .slice(0, limit)
+    if (matches.length === 0) return []
+    const simBySlug = new Map(matches.map((m) => [m.slug, m.similarity]))
+    const rows = await getSkillsBySlugs(matches.map((m) => m.slug))
+    return rows.map((r) => ({ ...r, similarity: simBySlug.get(r.slug) ?? 0 }))
+  } catch (err) {
+    console.warn(
+      '[getRelatedSkills] semantic path failed:',
+      err instanceof Error ? err.message : err
+    )
+    return []
+  }
 }
 
 /**

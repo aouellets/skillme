@@ -36,6 +36,7 @@ export function BrowseClient({
   const [sort, setSort] = useState<Sort>(initialSort)
 
   const [skills, setSkills] = useState<SkillSummary[]>([])
+  const [related, setRelated] = useState<SkillSummary[]>([])
   const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
   const [loadingMore, setLoadingMore] = useState(false)
@@ -60,10 +61,13 @@ export function BrowseClient({
       try {
         const res = await fetch(`/api/skills?${params.toString()}`)
         if (!res.ok) throw new Error('Failed to load skills')
-        const data: { skills: SkillSummary[]; total: number } = await res.json()
+        const data: { skills: SkillSummary[]; total: number; related?: SkillSummary[] } =
+          await res.json()
         if (current !== requestId.current) return // stale response
         setTotal(data.total)
         setSkills((prev) => (replace ? data.skills : [...prev, ...data.skills]))
+        // `related` is only computed for the first page; preserve it on load-more.
+        if (replace) setRelated(data.related ?? [])
       } catch (err) {
         if (current !== requestId.current) return
         setError(err instanceof Error ? err.message : 'Something went wrong')
@@ -141,7 +145,7 @@ export function BrowseClient({
               Try again
             </button>
           </div>
-        ) : skills.length === 0 ? (
+        ) : skills.length === 0 && related.length === 0 ? (
           <div className="card p-10 text-center">
             <p className="text-shelf-text-primary">
               No skills found{query ? ` for "${query}"` : ''}.
@@ -150,23 +154,47 @@ export function BrowseClient({
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-              {skills.map((skill, i) => (
-                <Reveal key={skill.id} index={i} className="h-full">
-                  <SkillCard skill={skill} />
-                </Reveal>
-              ))}
-            </div>
+            {skills.length > 0 && (
+              <>
+                <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+                  {skills.map((skill, i) => (
+                    <Reveal key={skill.id} index={i} className="h-full">
+                      <SkillCard skill={skill} />
+                    </Reveal>
+                  ))}
+                </div>
 
-            {hasMore && (
-              <div className="mt-8 flex justify-center">
-                <button
-                  onClick={() => fetchPage(skills.length, false)}
-                  disabled={loadingMore}
-                  className="btn btn-secondary"
-                >
-                  {loadingMore ? 'Loading…' : 'Load more'}
-                </button>
+                {hasMore && (
+                  <div className="mt-8 flex justify-center">
+                    <button
+                      onClick={() => fetchPage(skills.length, false)}
+                      disabled={loadingMore}
+                      className="btn btn-secondary"
+                    >
+                      {loadingMore ? 'Loading…' : 'Load more'}
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
+
+            {related.length > 0 && (
+              <div className={skills.length > 0 ? 'mt-12' : ''}>
+                <div className="flex items-baseline gap-3">
+                  <h2 className="font-display text-lg font-semibold text-shelf-text-primary">
+                    {skills.length > 0 ? 'Related matches' : 'No exact matches — related skills'}
+                  </h2>
+                  <span className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+                    Semantic
+                  </span>
+                </div>
+                <div className="mt-5 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+                  {related.map((skill, i) => (
+                    <Reveal key={skill.id} index={i} className="h-full">
+                      <SkillCard skill={skill} />
+                    </Reveal>
+                  ))}
+                </div>
               </div>
             )}
           </>

@@ -1,8 +1,12 @@
 import 'server-only'
 import { getSupabase } from './supabase'
 import { PACK_DEFINITIONS } from './pack-definitions'
-import { sanitizeSearchTerm } from './search'
+import { searchTerms, toTsQuery } from './search'
+import { embedText, isEmbeddingConfigured } from './embeddings'
 import type { Pack, PackCategory } from './types'
+
+/** See lib/data.ts — same calibrated floor, shared env knob. */
+const SEMANTIC_MIN_SIMILARITY = Number(process.env.SEMANTIC_SEARCH_MIN_SIMILARITY ?? 0.37)
 
 export interface PackQuery {
   category?: PackCategory
@@ -56,11 +60,11 @@ export async function getPacks(opts: PackQuery = {}): Promise<PackPage> {
 
   if (category) builder = builder.eq('category', category)
   if (featured) builder = builder.eq('featured', true)
-  const q = sanitizeSearchTerm(query)
-  if (q) {
-    builder = builder.or(
-      `name.ilike.%${q}%,tagline.ilike.%${q}%,description.ilike.%${q}%`
-    )
+  const ts = toTsQuery(query)
+  if (ts) {
+    // Full-text match against the `fts` tsvector (name+tagline+tags+description,
+    // English-stemmed). Prefix + AND query — see lib/search.ts toTsQuery().
+    builder = builder.textSearch('fts', ts, { config: 'english' })
   }
 
   builder = builder.order('install_count', { ascending: false }).range(offset, offset + limit - 1)
@@ -121,6 +125,48 @@ export async function getPackBySlug(slug: string): Promise<Pack | null> {
 }
 
 /**
+ * Semantic "related" packs for a free-text query, via the `match_packs` RPC
+ * (migration 0009). The recall safety net for vocabulary gaps keyword/FTS
+ * can't bridge. Returns full pack rows (hydrated by slug, with skill_count) in
+ * similarity order; degrades to [] on any failure. See getRelatedSkills.
+ */
+export async function getRelatedPacks(
+  query: string,
+  opts: { excludeIds?: string[]; limit?: number } = {}
+): Promise<Pack[]> {
+  const limit = opts.limit ?? 4
+  const excludeIds = opts.excludeIds ?? []
+  const supabase = getSupabase()
+  if (!supabase || !isEmbeddingConfigured() || !query.trim()) return []
+
+  try {
+    const vec = JSON.stringify(await embedText(query))
+    const { data, error } = await supabase.rpc('match_packs', {
+      query_embedding: vec,
+      match_count: limit * 2,
+      exclude_ids: excludeIds,
+    })
+    if (error || !Array.isArray(data)) {
+      if (error) console.warn('[getRelatedPacks] match_packs error:', error.message)
+      return []
+    }
+    const matches = (data as { slug: string; similarity: number }[])
+      .filter((r) => (r.similarity ?? 0) >= SEMANTIC_MIN_SIMILARITY)
+      .slice(0, limit)
+    if (matches.length === 0) return []
+    const simBySlug = new Map(matches.map((m) => [m.slug, m.similarity]))
+    const rows = await getPacksBySlugs(matches.map((m) => m.slug))
+    return rows.map((r) => ({ ...r, similarity: simBySlug.get(r.slug) ?? 0 }))
+  } catch (err) {
+    console.warn(
+      '[getRelatedPacks] semantic path failed:',
+      err instanceof Error ? err.message : err
+    )
+    return []
+  }
+}
+
+/**
  * Fetch a hand-picked set of packs by slug, returned in the exact order given.
  * Used by the landing-page showcase to surface one pack per discipline so the
  * grid conveys the breadth of the catalog instead of clustering by install
@@ -163,14 +209,14 @@ function applyFallbackPackQuery(opts: PackQuery): PackPage {
 
   if (category) rows = rows.filter((p) => p.category === category)
   if (featured) rows = rows.filter((p) => p.featured)
-  if (query?.trim()) {
-    const q = query.trim().toLowerCase()
-    rows = rows.filter(
-      (p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.tagline.toLowerCase().includes(q) ||
-        p.tags.some((t) => t.toLowerCase().includes(q))
-    )
+  const terms = searchTerms(query)
+  if (terms.length) {
+    // Mirror the DB's full-text behaviour: every term must appear somewhere in
+    // name / tagline / tags (AND across terms, OR across fields).
+    rows = rows.filter((p) => {
+      const hay = `${p.name} ${p.tagline} ${p.tags.join(' ')}`.toLowerCase()
+      return terms.every((t) => hay.includes(t))
+    })
   }
 
   return { packs: rows.slice(offset, offset + limit), total: rows.length }

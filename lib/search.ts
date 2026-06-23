@@ -1,24 +1,40 @@
+/** Max number of query terms we feed into a tsquery (cheap DoS guard). */
+const MAX_TS_TERMS = 8
+
 /**
- * Sanitize a user-supplied search term for safe interpolation into a PostgREST
- * `.or(...)` / `ilike` filter string.
+ * Split a raw search string into individual lowercased word tokens.
  *
- * PostgREST parses commas and parentheses as filter *syntax* (clause separators
- * and grouping), not as data — so interpolating raw user input into an
- * `.or('name.ilike.%term%,...')` expression allows filter injection: a caller
- * can inject extra clauses, reference other columns, or break the query. We
- * neutralise the structural metacharacters and the LIKE wildcards so the term
- * is matched as a literal, case-insensitive substring, and bound its length as
- * a cheap DoS guard.
- *
- * Returns an empty string when nothing searchable remains; callers should skip
- * the filter in that case.
+ * Strips everything except letters/digits/spaces, so the result is safe to use
+ * both in an in-memory `includes()` filter and as a `to_tsquery` lexeme (the
+ * stripping is what prevents `to_tsquery` syntax errors / filter injection —
+ * no `&`, `|`, `!`, `:`, `*`, quotes, or parens survive). Capped at
+ * {@link MAX_TS_TERMS} terms.
  */
-export function sanitizeSearchTerm(raw: string | undefined | null): string {
-  if (!raw) return ''
+export function searchTerms(raw: string | undefined | null): string[] {
+  if (!raw) return []
   return raw
-    .replace(/[,()]/g, ' ') // PostgREST .or() structural characters
-    .replace(/[%_*\\]/g, '') // LIKE / PostgREST wildcards + escape char
-    .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, 100)
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]+/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, MAX_TS_TERMS)
+}
+
+/**
+ * Build a prefix, AND-combined `to_tsquery` expression from raw user input for
+ * use with PostgREST `.textSearch(col, q, { config: 'english' })` (the default,
+ * type-less form maps to `to_tsquery`).
+ *
+ * Each token becomes a prefix term and all are required, e.g.
+ * `issue tracker` -> `issue:* & track:*`. The `:*` keeps live "as-you-type"
+ * matching working (a half-typed trailing word still matches), the `&` means
+ * every term must be present (so word order and adjacency no longer matter),
+ * and the shared `english` config gives stemming (`tracker` ~ `tracking`).
+ *
+ * Returns '' when nothing searchable remains; callers should skip the filter.
+ */
+export function toTsQuery(raw: string | undefined | null): string {
+  const terms = searchTerms(raw)
+  if (terms.length === 0) return ''
+  return terms.map((t) => `${t}:*`).join(' & ')
 }

@@ -30,6 +30,7 @@ export function PacksClient({
   const [category, setCategory] = useState<PackCategory | 'all'>(initialCategory)
 
   const [packs, setPacks] = useState<Pack[]>([])
+  const [related, setRelated] = useState<Pack[]>([])
   const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
   const [loadingMore, setLoadingMore] = useState(false)
@@ -58,10 +59,12 @@ export function PacksClient({
       try {
         const res = await fetch(`/api/packs?${params.toString()}`)
         if (!res.ok) throw new Error('Failed to load packs')
-        const data: { packs: Pack[]; total: number } = await res.json()
+        const data: { packs: Pack[]; total: number; related?: Pack[] } = await res.json()
         if (current !== requestId.current) return // stale response
         setTotal(data.total)
         setPacks((prev) => (replace ? data.packs : [...prev, ...data.packs]))
+        // `related` is only computed for the first page; preserve it on load-more.
+        if (replace) setRelated(data.related ?? [])
       } catch (err) {
         if (current !== requestId.current) return
         setError(err instanceof Error ? err.message : 'Something went wrong')
@@ -179,8 +182,8 @@ export function PacksClient({
             </button>
           </div>
         ) : isFiltering ? (
-          // Filtered view: a single flat results grid.
-          gridPacks.length === 0 ? (
+          // Filtered view: a single flat results grid (+ semantic related set).
+          gridPacks.length === 0 && related.length === 0 ? (
             <div className="card p-10 text-center">
               <p className="text-shelf-text-primary">
                 No packs found{query ? ` for "${query}"` : ''}.
@@ -191,22 +194,48 @@ export function PacksClient({
             </div>
           ) : (
             <>
-              <div className={GRID}>
-                {gridPacks.map((pack, i) => (
-                  <Reveal key={pack.id} index={i} className="h-full">
-                    <PackCard pack={pack} />
-                  </Reveal>
-                ))}
-              </div>
-              {hasMore && (
-                <div className="mt-8 flex justify-center">
-                  <button
-                    onClick={() => fetchPage(packs.length, false)}
-                    disabled={loadingMore}
-                    className="btn btn-secondary"
-                  >
-                    {loadingMore ? 'Loading…' : 'Load more'}
-                  </button>
+              {gridPacks.length > 0 && (
+                <>
+                  <div className={GRID}>
+                    {gridPacks.map((pack, i) => (
+                      <Reveal key={pack.id} index={i} className="h-full">
+                        <PackCard pack={pack} />
+                      </Reveal>
+                    ))}
+                  </div>
+                  {hasMore && (
+                    <div className="mt-8 flex justify-center">
+                      <button
+                        onClick={() => fetchPage(packs.length, false)}
+                        disabled={loadingMore}
+                        className="btn btn-secondary"
+                      >
+                        {loadingMore ? 'Loading…' : 'Load more'}
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {related.length > 0 && (
+                <div className={gridPacks.length > 0 ? 'mt-12' : ''}>
+                  <div className="flex items-baseline gap-3">
+                    <h2 className="font-display text-lg font-semibold text-shelf-text-primary">
+                      {gridPacks.length > 0
+                        ? 'Related matches'
+                        : 'No exact matches — related packs'}
+                    </h2>
+                    <span className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+                      Semantic
+                    </span>
+                  </div>
+                  <div className={`mt-5 ${GRID}`}>
+                    {related.map((pack, i) => (
+                      <Reveal key={pack.id} index={i} className="h-full">
+                        <PackCard pack={pack} />
+                      </Reveal>
+                    ))}
+                  </div>
                 </div>
               )}
             </>

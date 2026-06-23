@@ -74,6 +74,14 @@ const PARTNERS: Record<string, Partner> = {
   'AMD Research': { label: 'AMD Research', logo: 'amd', url: 'https://github.com/AMDResearch/intellikit', color: '#ed1c24', tint: '#240809', logoColor: '#ffffff' },
   'ClickHouse': { label: 'ClickHouse', logo: 'clickhouse', url: 'https://github.com/ClickHouse/agent-skills', color: '#faff69', tint: '#21210a', logoColor: '#faff69' },
   'Apache Doris': { label: 'Apache Doris', logo: 'apachedoris', url: 'https://github.com/apache/doris-skills', color: '#1f8fff', tint: '#0a1d2e', logoColor: '#5ab9ff' },
+  // ── Project-management MCP connectors (official vendor servers; logo = "this is the vendor's own MCP") ──
+  // monday.com is intentionally absent: it isn't in simple-icons, so monday-mcp carries no brand mark
+  // (same treatment as the community-authored airtable-mcp / trello-mcp connectors).
+  'Notion': { label: 'Notion', logo: 'notion', url: 'https://github.com/makenotion/notion-mcp-server', color: '#f5f7f5', tint: '#16181c', logoColor: '#ffffff' },
+  'Atlassian': { label: 'Atlassian', logo: 'atlassian', url: 'https://github.com/atlassian/atlassian-mcp-server', color: '#0052cc', tint: '#0a1330', logoColor: '#4c9aff' },
+  'Linear': { label: 'Linear', logo: 'linear', url: 'https://linear.app/docs/mcp', color: '#5e6ad2', tint: '#14152b', logoColor: '#8d94f0' },
+  'Asana': { label: 'Asana', logo: 'asana', url: 'https://developers.asana.com/docs/using-asanas-mcp-server', color: '#f06a6a', tint: '#240f0f', logoColor: '#f06a6a' },
+  'ClickUp': { label: 'ClickUp', logo: 'clickup', url: 'https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server-1', color: '#7b68ee', tint: '#15122b', logoColor: '#7b68ee' },
 }
 
 export interface ResolvedPartner extends Partner {

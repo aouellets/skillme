@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "notion-mcp",
+    "name": "Notion MCP",
+    "category": "productivity",
+    "description": "Connect Claude to Notion's official MCP server to read and write pages, query databases, search the workspace, and manage comments.",
+    "author": "Notion",
+    "source_url": "https://github.com/makenotion/notion-mcp-server",
+    "tags": ["mcp", "connector", "notion", "project-management"],
+    "skill_content": "---\nname: Notion MCP\ndescription: Connect Claude to Notion (official MCP) — read/write pages, query databases, search, and manage comments.\n---\n\n# Notion MCP\n\nNotion's **official** Model Context Protocol server. It lets Claude read and edit page content as Markdown, query and update databases, search across the workspace, and read/write comments — about 22 tools in total.\n\n## Connect (hosted, recommended)\n\nNotion offers a hosted remote server that authenticates via OAuth — no local install. See Notion's setup docs (developers.notion.com/docs/mcp) for the current endpoint and one-click install.\n\n## Connect (local, self-managed)\n\nRun the published package with a Notion integration token:\n\n```json\n{\n  \"mcpServers\": {\n    \"notion\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@notionhq/notion-mcp-server\"],\n      \"env\": { \"NOTION_TOKEN\": \"ntn_****\" }\n    }\n  }\n}\n```\n\nCreate the integration token in Notion **Settings → Connections → Develop or manage integrations**, then share the pages/databases you want Claude to access with that integration.\n\n## Pairs well with\n\n- **Notion Database Designer** — design the schema, then let this connector build and populate it.\n\nSource & license: https://github.com/makenotion/notion-mcp-server (MIT)."
+  },
+  {
+    "slug": "atlassian-mcp",
+    "name": "Jira & Confluence MCP (Atlassian)",
+    "category": "productivity",
+    "description": "Connect Claude to Atlassian's official remote MCP server for Jira issues and Confluence pages via OAuth.",
+    "author": "Atlassian",
+    "source_url": "https://github.com/atlassian/atlassian-mcp-server",
+    "tags": ["mcp", "connector", "jira", "project-management"],
+    "skill_content": "---\nname: Jira & Confluence MCP (Atlassian)\ndescription: Connect Claude to Atlassian's official remote MCP for Jira issues and Confluence pages.\n---\n\n# Jira & Confluence MCP (Atlassian)\n\nAtlassian's **official remote** MCP server (\"Rovo\"). It securely connects Jira and Confluence to Claude so you can search and read issues, create and update them, comment, and work with Confluence pages — all scoped to your Atlassian permissions.\n\n## Connect (hosted remote, OAuth)\n\nThe server is hosted by Atlassian at `https://mcp.atlassian.com/v1/sse` and authenticates with your Atlassian account via OAuth — no local install or API token to manage. Follow Atlassian's one-click setup for Claude (support.atlassian.com → Atlassian Remote MCP Server → Getting started).\n\n## Notes\n\n- Cloud only. For self-hosted Jira/Confluence Data Center, use a community MCP that targets the Data Center REST API instead.\n- Access is bounded by the signed-in user's existing Jira/Confluence permissions.\n\n## Pairs well with\n\n- **Jira Ticket Writer** — draft well-formed issues, then file them through this connector.\n\nSource & license: https://github.com/atlassian/atlassian-mcp-server (Apache-2.0)."
+  },
+  {
+    "slug": "linear-mcp",
+    "name": "Linear MCP",
+    "category": "productivity",
+    "description": "Connect Claude to Linear's official hosted MCP server to manage issues, projects, cycles, and teams via OAuth.",
+    "author": "Linear",
+    "source_url": "https://linear.app/docs/mcp",
+    "tags": ["mcp", "connector", "linear", "project-management"],
+    "skill_content": "---\nname: Linear MCP\ndescription: Connect Claude to Linear's official hosted MCP — manage issues, projects, cycles, and teams.\n---\n\n# Linear MCP\n\nLinear's **official hosted** MCP server. It lets Claude create and update issues, move them through workflow states, manage projects and cycles, and read team and label structure.\n\n## Connect (hosted remote, OAuth)\n\nThe server is hosted by Linear at `https://mcp.linear.app/mcp` and authenticates via OAuth — no local install and no API key to store. See Linear's MCP docs for the current one-click setup for Claude.\n\n## Notes\n\n- Access mirrors your Linear permissions and team membership.\n- Reads and writes happen live against your workspace — review changes before bulk operations.\n\n## Pairs well with\n\n- **Linear Workflow** — set up cycles, labels, SLAs, and triage, then operate the workspace through this connector.\n\nSource & docs: https://linear.app/docs/mcp (hosted service; see Linear's terms)."
+  },
+  {
+    "slug": "asana-mcp",
+    "name": "Asana MCP",
+    "category": "productivity",
+    "description": "Connect Claude to Asana's official MCP server to manage tasks, projects, workspaces, dependencies, and comments via OAuth.",
+    "author": "Asana",
+    "source_url": "https://developers.asana.com/docs/using-asanas-mcp-server",
+    "tags": ["mcp", "connector", "asana", "project-management"],
+    "skill_content": "---\nname: Asana MCP\ndescription: Connect Claude to Asana's official MCP — manage tasks, projects, workspaces, dependencies, and comments.\n---\n\n# Asana MCP\n\nAsana's **official** MCP server. It lets Claude create and update tasks, search and organize projects, manage subtasks and dependencies, and read/write comments across your workspaces.\n\n## Connect (hosted remote, OAuth)\n\nThe server is hosted by Asana at `https://mcp.asana.com/sse` (a v2 endpoint, `https://mcp.asana.com/v2/mcp`, is also available) and authenticates via OAuth — no local install. See Asana's developer docs for the current setup for Claude.\n\n## Notes\n\n- Access is scoped to the signed-in user's Asana workspaces and permissions.\n- Confirm the target project/workspace before batch-creating or moving tasks.\n\nSource & docs: https://developers.asana.com/docs/using-asanas-mcp-server (official Asana service)."
+  },
+  {
+    "slug": "clickup-mcp",
+    "name": "ClickUp MCP",
+    "category": "productivity",
+    "description": "Connect Claude to ClickUp's official MCP server to manage tasks, docs, time tracking, and project structure via OAuth.",
+    "author": "ClickUp",
+    "source_url": "https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server-1",
+    "tags": ["mcp", "connector", "clickup", "project-management"],
+    "skill_content": "---\nname: ClickUp MCP\ndescription: Connect Claude to ClickUp's official MCP — manage tasks, docs, time tracking, and project structure.\n---\n\n# ClickUp MCP\n\nClickUp's **official** MCP server (an expanding tool set covering tasks, lists, docs, time tracking, and workspace structure).\n\n## Connect (hosted remote, OAuth)\n\nThe server is hosted by ClickUp at `https://mcp.clickup.com/mcp` and authenticates via OAuth — no local install or token to store. Follow ClickUp's setup guide (developer.clickup.com → Connect an AI assistant to ClickUp's MCP server).\n\n## Notes\n\n- Prefer this official server over community ClickUp MCPs — several of those ship without a clear license.\n- Access is bounded by your ClickUp workspace permissions.\n\nSource & docs: https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server-1 (official ClickUp service)."
+  },
+  {
+    "slug": "monday-mcp",
+    "name": "monday.com MCP",
+    "category": "productivity",
+    "description": "Connect Claude to monday.com's official MCP server to manage boards, items, and workflows via OAuth.",
+    "author": "monday.com",
+    "source_url": "https://github.com/mondaycom/mcp",
+    "tags": ["mcp", "connector", "monday", "project-management"],
+    "skill_content": "---\nname: monday.com MCP\ndescription: Connect Claude to monday.com's official MCP — manage boards, items, and workflows.\n---\n\n# monday.com MCP\n\nmonday.com's **official** MCP servers. The **Platform MCP** gives Claude secure access to boards and items (create/update items, read columns, manage workflows); a separate **Apps MCP** helps build and deploy monday apps.\n\n## Connect (hosted Platform MCP, OAuth)\n\nThe hosted Platform MCP requires no local setup — add the server and authenticate via OAuth when prompted. See monday's developer docs (developer.monday.com → MCP servers) and monday.com/w/mcp.\n\n## Connect (local, self-managed)\n\nThe official package `@mondaydotcomorg/monday-api-mcp` provides a plug-and-play server that authenticates with your existing monday API token.\n\n## Notes\n\n- Access is scoped to the authenticated user's monday account and board permissions.\n\nSource & license: https://github.com/mondaycom/mcp (official monday.com)."
+  },
+  {
+    "slug": "airtable-mcp",
+    "name": "Airtable MCP",
+    "category": "productivity",
+    "description": "Connect Claude to Airtable bases to read/write records, search, and inspect or edit schema. Community server (no official Airtable MCP).",
+    "author": "domdomegg",
+    "source_url": "https://github.com/domdomegg/airtable-mcp-server",
+    "tags": ["mcp", "connector", "airtable", "project-management"],
+    "skill_content": "---\nname: Airtable MCP\ndescription: Connect Claude to Airtable — read/write records, search, and inspect or edit schema. Community MCP server.\n---\n\n# Airtable MCP\n\nA well-maintained **community** MCP server for Airtable (`domdomegg/airtable-mcp-server`). Airtable does not publish an official MCP, so this is the de-facto standard. It lets Claude list bases and tables, describe schema, read/search records, and (with write scopes) create and update records, tables, and fields.\n\n## Connect (local, npx)\n\n```json\n{\n  \"mcpServers\": {\n    \"airtable\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"airtable-mcp-server\"],\n      \"env\": { \"AIRTABLE_API_KEY\": \"pat123.abc123\" }\n    }\n  }\n}\n```\n\nCreate a **personal access token** in Airtable with the scopes you need: `schema.bases:read` and `data.records:read` for read-only; add `schema.bases:write`, `data.records:write`, and the comment scopes for writes.\n\n## Tools\n\nRead: `list_bases`, `list_tables`, `describe_table`, `list_records`, `search_records`, `get_record`, `list_comments`. Write: `create_record`, `update_records`, `delete_records`, `create_table`, `update_table`, `create_field`, `update_field`, `create_comment`.\n\n## Notes\n\n- Third-party (not built by Airtable). Review the source before connecting it to sensitive bases.\n\nSource & license: https://github.com/domdomegg/airtable-mcp-server (MIT)."
+  },
+  {
+    "slug": "trello-mcp",
+    "name": "Trello MCP",
+    "category": "productivity",
+    "description": "Connect Claude to Trello boards, lists, cards, checklists, and comments. Community server (30+ tools).",
+    "author": "delorenj",
+    "source_url": "https://github.com/delorenj/mcp-server-trello",
+    "tags": ["mcp", "connector", "trello", "project-management"],
+    "skill_content": "---\nname: Trello MCP\ndescription: Connect Claude to Trello — boards, lists, cards, checklists, comments, and attachments. Community MCP server.\n---\n\n# Trello MCP\n\nA popular **community** MCP server for Trello (`delorenj/mcp-server-trello`, 30+ tools). Trello is owned by Atlassian but is not covered by Atlassian's official Jira/Confluence MCP, so this server fills that gap. It lets Claude manage boards and workspaces, cards, lists, checklists, comments, attachments, and custom fields.\n\n## Connect (local, npx/bunx)\n\n```json\n{\n  \"mcpServers\": {\n    \"trello\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@delorenj/mcp-server-trello\"],\n      \"env\": {\n        \"TRELLO_API_KEY\": \"your-trello-api-key\",\n        \"TRELLO_TOKEN\": \"your-trello-token\"\n      }\n    }\n  }\n}\n```\n\nGet the API key from https://trello.com/app-key and generate a token from it. Optional env: `TRELLO_BOARD_ID`, `TRELLO_WORKSPACE_ID`, `TRELLO_ALLOWED_WORKSPACES` (to restrict access).\n\n## Notes\n\n- Third-party (not built by Atlassian/Trello). Review the source before granting workspace access.\n\nSource & license: https://github.com/delorenj/mcp-server-trello (MIT)."
+  }
+]
