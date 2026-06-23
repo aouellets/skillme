@@ -116,31 +116,39 @@ export async function getSkills(opts: SkillQuery = {}): Promise<SkillPage> {
   const { query, category, sort = 'trending', limit = 12, offset = 0, featured } = opts
   const { column, ascending } = orderColumn(sort)
 
-  let builder = supabase.from('skills').select('*', { count: 'exact' })
-
-  if (featured) builder = builder.eq('featured', true)
-  if (category) builder = builder.eq('category', category)
-  const ts = toTsQuery(query)
-  if (ts) {
+  // One builder per FTS expression so we can re-run with a looser query on a miss.
+  const query_ = (ts: string) => {
+    let builder = supabase.from('skills').select('*', { count: 'exact' })
+    if (featured) builder = builder.eq('featured', true)
+    if (category) builder = builder.eq('category', category)
     // Full-text match against the `fts` tsvector (name+tags+category+description,
-    // weighted, English-stemmed). Prefix + AND query so multi-word and
-    // as-you-type searches both work. See lib/search.ts toTsQuery().
-    builder = builder.textSearch('fts', ts, { config: 'english' })
+    // weighted, English-stemmed). Prefix query so as-you-type searches work.
+    // See lib/search.ts toTsQuery().
+    if (ts) builder = builder.textSearch('fts', ts, { config: 'english' })
+    // Featured shelves order by the curator-set rank first (nulls last), then by
+    // the requested sort column — so you can hand-pin the top of "Featured".
+    if (featured) {
+      builder = builder.order('featured_rank', { ascending: true, nullsFirst: false })
+    }
+    return builder.order(column, { ascending }).range(offset, offset + limit - 1)
   }
 
-  // Featured shelves order by the curator-set rank first (nulls last), then by
-  // the requested sort column — so you can hand-pin the top of "Featured".
-  if (featured) {
-    builder = builder.order('featured_rank', { ascending: true, nullsFirst: false })
-  }
-  builder = builder.order(column, { ascending }).range(offset, offset + limit - 1)
-
-  const { data, error, count } = await builder
-  if (error) {
-    console.error('[getSkills] Supabase query failed — code:', error.code, 'message:', error.message)
+  let res = await query_(toTsQuery(query))
+  if (res.error) {
+    console.error('[getSkills] Supabase query failed — code:', res.error.code, 'message:', res.error.message)
     return applyFallbackQuery(opts)
   }
 
+  // Recall fallback: the strict AND query above requires every word, so one
+  // stray/imprecise term ("pony tail hairstyle") zeroes out an otherwise good
+  // match. Retry the same terms OR-combined before giving up. Only meaningful
+  // with >1 term (a single term is identical under AND and OR).
+  if ((!res.data || res.data.length === 0) && searchTerms(query).length > 1) {
+    const or = await query_(toTsQuery(query, '|'))
+    if (!or.error && or.data && or.data.length > 0) res = or
+  }
+
+  const { data, count } = res
   if (!data || data.length === 0) {
     // Only treat an empty result as a failure for the unfiltered base catalog
     // (table empty / RLS misconfigured). A genuinely empty search or category

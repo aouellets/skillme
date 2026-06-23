@@ -51,30 +51,35 @@ export async function getPacks(opts: PackQuery = {}): Promise<PackPage> {
 
   const { category, featured, limit = 12, offset = 0, query } = opts
 
-  let builder = supabase
-    .from('packs')
-    .select(`
-      *,
-      pack_skills(count)
-    `, { count: 'exact' })
-
-  if (category) builder = builder.eq('category', category)
-  if (featured) builder = builder.eq('featured', true)
-  const ts = toTsQuery(query)
-  if (ts) {
+  // One builder per FTS expression so we can re-run with a looser query on a miss.
+  const query_ = (ts: string) => {
+    let builder = supabase
+      .from('packs')
+      .select(`
+        *,
+        pack_skills(count)
+      `, { count: 'exact' })
+    if (category) builder = builder.eq('category', category)
+    if (featured) builder = builder.eq('featured', true)
     // Full-text match against the `fts` tsvector (name+tagline+tags+description,
-    // English-stemmed). Prefix + AND query — see lib/search.ts toTsQuery().
-    builder = builder.textSearch('fts', ts, { config: 'english' })
+    // English-stemmed). Prefix query — see lib/search.ts toTsQuery().
+    if (ts) builder = builder.textSearch('fts', ts, { config: 'english' })
+    return builder.order('install_count', { ascending: false }).range(offset, offset + limit - 1)
   }
 
-  builder = builder.order('install_count', { ascending: false }).range(offset, offset + limit - 1)
-
-  const { data, error, count } = await builder
-  if (error) {
-    console.error('[getPacks] error:', error.message)
+  let res = await query_(toTsQuery(query))
+  if (res.error) {
+    console.error('[getPacks] error:', res.error.message)
     return applyFallbackPackQuery(opts)
   }
 
+  // Recall fallback: retry OR-combined when the strict AND query misses. See getSkills.
+  if ((!res.data || res.data.length === 0) && searchTerms(query).length > 1) {
+    const or = await query_(toTsQuery(query, '|'))
+    if (!or.error && or.data && or.data.length > 0) res = or
+  }
+
+  const { data, count } = res
   const packs = (data ?? []).map((p: Record<string, unknown>) => ({
     ...p,
     skill_count: Array.isArray(p.pack_skills)

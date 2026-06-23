@@ -12,7 +12,7 @@ export const installSkill: Tool<InstallArgs> = {
     name: 'install_skill',
     annotations: { title: 'Install skill', readOnlyHint: false, destructiveHint: false, idempotentHint: true },
     description:
-      'Install a skill from Skill Me so it activates in future Claude sessions. Returns confirmation and the skill content. Note: installed skills only load when get_active_skills is called at the start of a session — so call get_active_skills now to apply it immediately.',
+      'Install a skill from Skill Me. Saves it to the library for future sessions AND returns its content so it applies immediately — read and follow that content for the rest of this conversation.',
     inputSchema: {
       type: 'object',
       required: ['skill_id'],
@@ -50,7 +50,7 @@ export const installSkill: Tool<InstallArgs> = {
 
     const { data: skill, error: skillError } = await supabase
       .from('skills')
-      .select('id, name, description')
+      .select('id, name, description, skill_content')
       .eq('id', args.skill_id)
       .single()
 
@@ -84,8 +84,12 @@ export const installSkill: Tool<InstallArgs> = {
       { source: 'mcp', userToken: auth.token, sessionId: auth.token, context: ctx.context }
     )
 
-    return text(
-      `Installed "${skill.name}". ${skill.description}\n\nThis skill will activate automatically in your next session.`
-    )
+    // Return the content so the skill applies immediately — installs are saved
+    // for future sessions too, but get_active_skills only reloads at session
+    // start, so without this the skill would stay dark for the rest of this one.
+    const body = skill.skill_content
+      ? `\n\nIt's active now — apply it for the rest of this conversation:\n\n${skill.skill_content}`
+      : '\n\nIt will activate automatically in your next session.'
+    return text(`Installed "${skill.name}". ${skill.description}${body}`)
   },
 }

@@ -42,7 +42,7 @@ export const installPack: Tool<InstallPackArgs> = {
     // Fetch pack with its skills
     const { data: pack, error: packError } = await supabase
       .from('packs')
-      .select('id, name, pack_skills(skill_id, position, skills(id, name, description))')
+      .select('id, name, pack_skills(skill_id, position, skills(id, name, description, skill_content))')
       .eq('id', args.pack_id)
       .single()
 
@@ -53,7 +53,10 @@ export const installPack: Tool<InstallPackArgs> = {
     const packData = pack as unknown as {
       id: string
       name: string
-      pack_skills: Array<{ skill_id: string; skills: { id: string; name: string; description: string } | null }>
+      pack_skills: Array<{
+        skill_id: string
+        skills: { id: string; name: string; description: string; skill_content: string | null } | null
+      }>
     }
 
     const skillIds = packData.pack_skills
@@ -111,14 +114,22 @@ export const installPack: Tool<InstallPackArgs> = {
       ),
     ])
 
-    const skillNames = packData.pack_skills
-      .map((ps) => ps.skills?.name)
-      .filter(Boolean)
-      .map((n, i) => `  ${i + 1}. ${n}`)
-      .join('\n')
+    const installed = packData.pack_skills
+      .map((ps) => ps.skills)
+      .filter((s): s is NonNullable<typeof s> => Boolean(s))
+    const skillNames = installed.map((s, i) => `  ${i + 1}. ${s.name}`).join('\n')
+
+    // Inline each skill's content so the whole pack applies immediately — see install_skill.
+    const bodies = installed
+      .filter((s) => s.skill_content)
+      .map((s) => `## ${s.name}\n\n${s.skill_content}`)
+      .join('\n\n---\n\n')
+    const tail = bodies
+      ? `\n\nThey're active now — apply them for the rest of this conversation:\n\n${bodies}`
+      : '\n\nThey will activate automatically in your next session.'
 
     return text(
-      `Installed "${packData.name}" — ${skillIds.length} skills added to your library:\n\n${skillNames}\n\nAll skills activate automatically in your next session.`
+      `Installed "${packData.name}" — ${skillIds.length} skills added to your library:\n\n${skillNames}${tail}`
     )
   },
 }
