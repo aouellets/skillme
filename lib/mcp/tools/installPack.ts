@@ -2,6 +2,7 @@ import { getServiceSupabase } from '../../supabase'
 import { checkRateLimit } from '../rateLimit'
 import { text, requireToken, type Tool } from '../types'
 import { buildRow, insertEvents } from '../../telemetry/track'
+import { inlineSkills } from '../inlineContent'
 
 interface InstallPackArgs {
   pack_id?: string
@@ -119,14 +120,25 @@ export const installPack: Tool<InstallPackArgs> = {
       .filter((s): s is NonNullable<typeof s> => Boolean(s))
     const skillNames = installed.map((s, i) => `  ${i + 1}. ${s.name}`).join('\n')
 
-    // Inline each skill's content so the whole pack applies immediately — see install_skill.
-    const bodies = installed
-      .filter((s) => s.skill_content)
-      .map((s) => `## ${s.name}\n\n${s.skill_content}`)
-      .join('\n\n---\n\n')
-    const tail = bodies
-      ? `\n\nThey're active now — apply them for the rest of this conversation:\n\n${bodies}`
-      : '\n\nThey will activate automatically in your next session.'
+    // Inline skill content so the pack applies immediately — but bounded by a
+    // byte budget, because inlining every skill in a large pack produced tool
+    // results the connector rejected as a failed install (see inlineContent).
+    // Skills past the budget are still installed; we name them so the model can
+    // load any now with install_skill, and they activate next session anyway.
+    const { body, overflow } = inlineSkills(installed)
+    let tail: string
+    if (body) {
+      tail = `\n\nThey're active now — apply them for the rest of this conversation:\n\n${body}`
+      if (overflow.length > 0) {
+        const names = overflow.map((s) => `  • ${s.name} (skill_id: ${s.id})`).join('\n')
+        tail +=
+          `\n\n---\n\nThe other ${overflow.length} skill${overflow.length === 1 ? ' is' : 's are'} ` +
+          `saved to your library and will activate next session. To load one now, call ` +
+          `install_skill with its id:\n${names}`
+      }
+    } else {
+      tail = '\n\nThey will activate automatically in your next session.'
+    }
 
     return text(
       `Installed "${packData.name}" — ${skillIds.length} skills added to your library:\n\n${skillNames}${tail}`

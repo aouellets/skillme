@@ -2,6 +2,7 @@ import { getServiceSupabase } from '../../supabase'
 import { checkRateLimit } from '../rateLimit'
 import { text, requireToken, type Tool } from '../types'
 import { track } from '../../telemetry/track'
+import { inlineSkills } from '../inlineContent'
 
 interface InstallArgs {
   skill_id?: string
@@ -87,9 +88,14 @@ export const installSkill: Tool<InstallArgs> = {
     // Return the content so the skill applies immediately — installs are saved
     // for future sessions too, but get_active_skills only reloads at session
     // start, so without this the skill would stay dark for the rest of this one.
-    const body = skill.skill_content
-      ? `\n\nIt's active now — apply it for the rest of this conversation:\n\n${skill.skill_content}`
+    // Bounded so a single oversized skill can't produce a tool result the
+    // connector rejects (see inlineContent).
+    const { body } = inlineSkills([
+      { id: skill.id, name: skill.name, skill_content: skill.skill_content },
+    ])
+    const tail = body
+      ? `\n\nIt's active now — apply it for the rest of this conversation:\n\n${body}`
       : '\n\nIt will activate automatically in your next session.'
-    return text(`Installed "${skill.name}". ${skill.description}${body}`)
+    return text(`Installed "${skill.name}". ${skill.description}${tail}`)
   },
 }
