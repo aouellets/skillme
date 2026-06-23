@@ -2,7 +2,11 @@ import 'server-only'
 import { getSupabase } from './supabase'
 import { PACK_DEFINITIONS } from './pack-definitions'
 import { searchTerms, toTsQuery } from './search'
+import { embedText, isEmbeddingConfigured } from './embeddings'
 import type { Pack, PackCategory } from './types'
+
+/** See lib/data.ts — same calibrated floor, shared env knob. */
+const SEMANTIC_MIN_SIMILARITY = Number(process.env.SEMANTIC_SEARCH_MIN_SIMILARITY ?? 0.37)
 
 export interface PackQuery {
   category?: PackCategory
@@ -118,6 +122,48 @@ export async function getPackBySlug(slug: string): Promise<Pack | null> {
     skills,
     skill_count: skills.length,
   } as unknown as Pack
+}
+
+/**
+ * Semantic "related" packs for a free-text query, via the `match_packs` RPC
+ * (migration 0009). The recall safety net for vocabulary gaps keyword/FTS
+ * can't bridge. Returns full pack rows (hydrated by slug, with skill_count) in
+ * similarity order; degrades to [] on any failure. See getRelatedSkills.
+ */
+export async function getRelatedPacks(
+  query: string,
+  opts: { excludeIds?: string[]; limit?: number } = {}
+): Promise<Pack[]> {
+  const limit = opts.limit ?? 4
+  const excludeIds = opts.excludeIds ?? []
+  const supabase = getSupabase()
+  if (!supabase || !isEmbeddingConfigured() || !query.trim()) return []
+
+  try {
+    const vec = JSON.stringify(await embedText(query))
+    const { data, error } = await supabase.rpc('match_packs', {
+      query_embedding: vec,
+      match_count: limit * 2,
+      exclude_ids: excludeIds,
+    })
+    if (error || !Array.isArray(data)) {
+      if (error) console.warn('[getRelatedPacks] match_packs error:', error.message)
+      return []
+    }
+    const matches = (data as { slug: string; similarity: number }[])
+      .filter((r) => (r.similarity ?? 0) >= SEMANTIC_MIN_SIMILARITY)
+      .slice(0, limit)
+    if (matches.length === 0) return []
+    const simBySlug = new Map(matches.map((m) => [m.slug, m.similarity]))
+    const rows = await getPacksBySlugs(matches.map((m) => m.slug))
+    return rows.map((r) => ({ ...r, similarity: simBySlug.get(r.slug) ?? 0 }))
+  } catch (err) {
+    console.warn(
+      '[getRelatedPacks] semantic path failed:',
+      err instanceof Error ? err.message : err
+    )
+    return []
+  }
 }
 
 /**

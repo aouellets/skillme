@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import { getPacks } from '@/lib/packs'
+import { getPacks, getRelatedPacks } from '@/lib/packs'
 import { isPackCategory } from '@/lib/categories'
 
 export const runtime = 'nodejs'
@@ -17,14 +17,26 @@ export async function GET(req: NextRequest) {
     categoryParam && isPackCategory(categoryParam) ? categoryParam : undefined
 
   try {
+    const safeLimit = Number.isFinite(limit) ? Math.min(Math.max(limit, 1), 96) : 24
+    const safeOffset = Number.isFinite(offset) ? Math.max(offset, 0) : 0
+
     const { packs, total } = await getPacks({
       query,
       category,
-      limit: Number.isFinite(limit) ? Math.min(Math.max(limit, 1), 96) : 24,
-      offset: Number.isFinite(offset) ? Math.max(offset, 0) : 0,
+      limit: safeLimit,
+      offset: safeOffset,
     })
 
-    return Response.json({ packs, total })
+    // Semantic recall safety net for sparse keyword results — see the skills route.
+    let related: typeof packs = []
+    if (query?.trim() && safeOffset === 0 && !category && total < safeLimit) {
+      related = await getRelatedPacks(query, {
+        excludeIds: packs.map((p) => p.id),
+        limit: 4,
+      })
+    }
+
+    return Response.json({ packs, total, related })
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error'
     return Response.json({ error: message, packs: [], total: 0 }, { status: 500 })
