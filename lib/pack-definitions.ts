@@ -2101,4 +2101,20 @@ export const PACK_DEFINITIONS: PackDefinition[] = [
     install_count: 0,
     skill_slugs: ["notion-mcp", "atlassian-mcp", "linear-mcp", "asana-mcp", "clickup-mcp", "monday-mcp", "airtable-mcp", "trello-mcp", "jira-ticket-writer", "linear-workflow", "notion-database"],
   },
+  {
+    slug: "instagram-trend-post-builder",
+    name: "Instagram Trend Post Builder",
+    tagline: "Scout what's trending on Instagram, learn why it works, then build a post you actually want to make.",
+    description:
+      "A weekly Instagram workflow in three connected moves. First it scouts what's trending in your niche — winning Reel and carousel formats, hook styles, caption lengths, and hashtag patterns — using web search, no API key required. Then it teaches you why those trends are working, in plain language: the algorithm mechanics, the audience psychology, and the format dynamics behind each one, so you build judgment instead of chasing fads. Finally it builds an original post around what you actually want to say — interviewing you one question at a time, then handing back a copy-paste package: three hook variants, caption, CTA, a 15-20 hashtag set, alt text, and a visual direction. Use it at the start of each content cycle to go from \"what's working?\" to a finished post grounded in real signal.",
+    author: "Skill Me",
+    category: "business",
+    tags: ["instagram", "social-media", "content-strategy", "reels", "copywriting"],
+    featured: false,
+    verified: true,
+    free: true,
+    install_count: 0,
+    repo_url: "https://github.com/aouellets/instagram-trend-post-builder",
+    skill_slugs: ["instagram-trend-scout", "trend-educator", "instagram-post-builder"],
+  },
 ]

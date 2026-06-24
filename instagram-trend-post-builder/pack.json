@@ -1,0 +1,31 @@
+{
+  "name": "Instagram Trend Post Builder",
+  "slug": "instagram-trend-post-builder",
+  "version": "1.0.0",
+  "category": "business",
+  "license": "MIT",
+  "description": "A weekly Instagram workflow in three moves: scout what's trending in your niche, learn why it's working, then build an original post around what you actually want to say. Research → teach → create, as a connected flywheel.",
+  "tags": ["instagram", "social-media", "content-strategy", "reels", "copywriting", "trend-research"],
+  "skills": [
+    {
+      "slug": "instagram-trend-scout",
+      "stage": "S1",
+      "path": "instagram-trend-scout/SKILL.md",
+      "role": "Research — finds winning formats, hooks, and hashtag patterns for a niche via web search (no API required)."
+    },
+    {
+      "slug": "trend-educator",
+      "stage": "S2",
+      "path": "trend-educator/SKILL.md",
+      "role": "Teach — explains in plain language why each trend is working (algorithm, psychology, format) and surfaces opportunity angles."
+    },
+    {
+      "slug": "instagram-post-builder",
+      "stage": "S3",
+      "path": "instagram-post-builder/SKILL.md",
+      "role": "Build — interactively produces a copy-paste post package: 3 hooks, caption, CTA, 15-20 hashtags, alt text, visual direction."
+    }
+  ],
+  "flow": ["instagram-trend-scout", "trend-educator", "instagram-post-builder"],
+  "entry_skill": "instagram-trend-scout"
+}
