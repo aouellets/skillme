@@ -141,16 +141,47 @@ export default async function Image() {
                   key={s.slug}
                   style={{
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    position: 'relative',
                     width: 150,
                     height: 150,
-                    borderRadius: 36,
-                    background: `linear-gradient(155deg, ${color}, ${color}40)`,
-                    border: '1px solid rgba(255,255,255,0.08)',
+                    borderRadius: 34,
+                    backgroundColor: color,
+                    boxShadow: '0 10px 24px rgba(0,0,0,0.45)',
                   }}
                 >
-                  <div style={{ display: 'flex', fontSize: 56, fontWeight: 800, letterSpacing: -1, color: readableOn(color) }}>
+                  {/* glossy sheen → base depth: color-agnostic so every tile reads
+                      as a crafted app icon rather than a flat swatch */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      borderRadius: 34,
+                      background:
+                        'linear-gradient(157deg, rgba(255,255,255,0.30), rgba(255,255,255,0.05) 44%, rgba(0,0,0,0.26))',
+                    }}
+                  />
+                  {/* crisp top rim-light */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      borderRadius: 34,
+                      border: '1px solid rgba(255,255,255,0.20)',
+                    }}
+                  />
+                  <div
+                    style={{
+                      display: 'flex',
+                      width: '100%',
+                      height: '100%',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: 54,
+                      fontWeight: 800,
+                      letterSpacing: -1.5,
+                      color: readableOn(color),
+                    }}
+                  >
                     {monogram(s.name)}
                   </div>
                 </div>

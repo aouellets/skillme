@@ -42,7 +42,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
           backgroundColor: OG.void,
           fontFamily: 'Inter',
           padding: 76,
@@ -53,6 +52,19 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         {/* category-colored signature bar along the very top */}
         <div
           style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 8, backgroundColor: catColor }}
+        />
+        {/* subtle category-tinted ambient so flat (thumbnail-less) cards still
+            read as lit and on-brand rather than dead black */}
+        <div
+          style={{
+            position: 'absolute',
+            top: -200,
+            right: -150,
+            width: 680,
+            height: 680,
+            borderRadius: 9999,
+            background: `radial-gradient(circle at center, ${catColor}24, ${catColor}00 70%)`,
+          }}
         />
         {/* faint skill thumbnail as backdrop, if available */}
         {skill?.thumbnail_url && (
@@ -84,6 +96,9 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           <Lockup />
           {category && <Pill dot={catColor}>{category.label}</Pill>}
         </div>
+
+        {/* air above the title block bottom-weights the composition */}
+        <div style={{ display: 'flex', flex: 1 }} />
 
         {/* eyebrow + skill name + description */}
         <div style={{ display: 'flex', flexDirection: 'column', position: 'relative' }}>
@@ -132,6 +147,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
+            marginTop: 54,
             position: 'relative',
           }}
         >

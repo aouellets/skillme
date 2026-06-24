@@ -9,6 +9,7 @@ import {
   Lockup,
   Pill,
   SkillChip,
+  Check,
   fitSkillChips,
   truncateWords,
   headlineSize,
@@ -28,6 +29,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const tagline = pack?.tagline ?? 'A themed bundle of curated Claude skills.'
   const skillCount = pack?.skill_count ?? 0
   const installs = pack ? installLabel(pack.install_count) : null
+  const author = pack?.author?.trim()
+  const hasSignals = Boolean(author || pack?.verified || installs)
 
   // The headline contents: the actual skills in the pack, when we have them.
   // Pack to at most two rows so the footer always stays on-canvas.
@@ -36,7 +39,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const remaining = skillCount - shown.length
   // A long name forced onto two lines would blow the height budget once chips
   // are present, so cap the headline tighter when we're listing contents.
-  const nameSize = Math.min(headlineSize(name), shown.length > 0 ? 80 : 94)
+  const nameSize = Math.min(headlineSize(name), shown.length > 0 ? 74 : 94)
 
   return new ImageResponse(
     (
@@ -57,6 +60,19 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         {/* vermilion signature bar along the very top */}
         <div
           style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 8, backgroundColor: OG.accent }}
+        />
+        {/* subtle vermilion ambient, matching the skill/home cards so the flat
+            surface reads as lit and on-brand */}
+        <div
+          style={{
+            position: 'absolute',
+            top: -200,
+            right: -150,
+            width: 680,
+            height: 680,
+            borderRadius: 9999,
+            background: `radial-gradient(circle at center, ${OG.accent}22, ${OG.accent}00 70%)`,
+          }}
         />
 
         {/* header */}
@@ -114,7 +130,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
 
           {/* the actual skills in the pack */}
           {shown.length > 0 && (
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 30, maxWidth: 1048 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 26, maxWidth: 1048 }}>
               {shown.map((n) => (
                 <SkillChip key={n}>{n}</SkillChip>
               ))}
@@ -132,8 +148,15 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             position: 'relative',
           }}
         >
-          <div style={{ display: 'flex', fontSize: 28, color: OG.secondary }}>
-            {installs ?? 'Install the whole set in one command'}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 26, fontSize: 28, color: OG.secondary }}>
+            {author && <div style={{ display: 'flex' }}>{`by ${author}`}</div>}
+            {pack?.verified && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 9, color: OG.accent }}>
+                <Check size={26} /> Verified
+              </div>
+            )}
+            {installs && <div style={{ display: 'flex' }}>{installs}</div>}
+            {!hasSignals && <div style={{ display: 'flex' }}>Curated Claude skills</div>}
           </div>
           <div style={{ display: 'flex', fontSize: 28, fontWeight: 700, color: OG.accent }}>
             Install on skillme.dev
