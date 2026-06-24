@@ -1,7 +1,7 @@
 /**
- * Seed the Skill Scout Report (2026-06-20) candidates into the catalog.
+ * Seed the Skill Scout Report candidates into the catalog.
  *
- * Encodes the nine vetted GitHub candidates and ingests them through the shared
+ * Encodes vetted GitHub candidates and ingests them through the shared
  * engine (`lib/ingest.ts`): license-gated, safety-classified, auto-published.
  * Single-skill repos become skills; multi-skill suites become packs whose
  * members are the repo's individual skills.
@@ -9,6 +9,13 @@
  * Note: the report listed "obra/superpowers-marketplace", which is only a
  * marketplace pointer (no SKILL.md). The real skills live in `obra/superpowers`
  * (MIT, 234k★, 14 skills) — that is what we ingest for the Superpowers pack.
+ *
+ * 2026-06-20 batch: obsidian-second-brain, clipify, autoresearch, i-have-adhd,
+ *   NotFair Growth Suite, Superpowers, AI Marketing Suite, Startup Founder
+ *   Skills, Affiliate Marketing Skills.
+ *
+ * 2026-06-22 batch: last30days-skill, archify, claude-ads, claude-blog,
+ *   mattpocock/skills, solo-founder-playbook.
  *
  * Usage:
  *   npx tsx scripts/scout-seed.ts --dry-run   # preview discovery + counts
@@ -94,6 +101,66 @@ const CANDIDATES: IngestRepoSpec[] = [
         'A deep affiliate-marketing toolkit: blog and listicle builders, comparison and how-to writers, keyword clustering, SEO audits, conversion tracking, A/B testing, email and multi-program automation, and trend research.',
       category: 'business',
       tags: ['affiliate', 'marketing', 'seo', 'content', 'automation'],
+    },
+  },
+
+  // ── 2026-06-22 batch ─────────────────────────────────────────────────────
+
+  // Single-skill repos
+  { owner: 'mvanhorn', repo: 'last30days-skill' },
+  { owner: 'tt-a1i', repo: 'archify' },
+
+  // Multi-skill suites → packs
+  {
+    owner: 'AgriciDaniel',
+    repo: 'claude-ads',
+    pack: {
+      slug: 'paid-ads-audit-suite',
+      name: 'Paid Ads Audit Suite',
+      tagline: '250+ checks across Google, Meta, YouTube, LinkedIn, TikTok, Amazon & more.',
+      description:
+        'A deep-audit paid advertising toolkit: 22 sub-skills covering Google Ads (Search, PMax, AI Max, YouTube, Demand Gen), Meta (Andromeda creative, CAPI), LinkedIn, TikTok, Microsoft, Apple, and Amazon. Outputs a weighted 0-100 Ads Health Score with a prioritized fix plan and PDF-ready client reports.',
+      category: 'business',
+      tags: ['paid-ads', 'google-ads', 'meta-ads', 'advertising', 'audit'],
+    },
+  },
+  {
+    owner: 'AgriciDaniel',
+    repo: 'claude-blog',
+    pack: {
+      slug: 'blog-content-suite',
+      name: 'Blog & Content Production Suite',
+      tagline: 'Research, write, optimize, and distribute AI-citation-ready blog content.',
+      description:
+        'A complete blog-production suite with 29 user-invokable sub-skills: drafting, rewriting, SEO and GEO validation, AI-slop detection, Google API integration (Search Console, GA4, CrUX), editorial calendars, multilingual publishing, and CMS sync for WordPress, Ghost, and Strapi. Every article passes a 5-gate quality contract before delivery.',
+      category: 'writing',
+      tags: ['blog', 'seo', 'geo', 'content', 'writing'],
+    },
+  },
+  {
+    owner: 'mattpocock',
+    repo: 'skills',
+    pack: {
+      slug: 'real-engineering-skills',
+      name: "Matt Pocock's Real Engineering Skills",
+      tagline: 'Alignment-first engineering workflows: spec, domain model, TDD, refactor.',
+      description:
+        'A composable set of 12 engineering skills by the creator of ts-reset and Total TypeScript. Prioritizes alignment before coding (grilling sessions, domain modeling, PRDs) and tight feedback loops (TDD, handoffs, structured debugging). Counters AI tendency to over-engineer or drift from intent.',
+      category: 'coding',
+      tags: ['engineering', 'tdd', 'domain-modeling', 'alignment', 'workflow'],
+    },
+  },
+  {
+    owner: 'yayashuxue',
+    repo: 'solo-founder-playbook',
+    pack: {
+      slug: 'solo-founder-playbook',
+      name: 'Solo Founder Playbook',
+      tagline: '6 data-backed skills from 101 Starter Story founder interviews.',
+      description:
+        'Idea evaluation, failure-mode diagnosis, growth strategy, and plan roasting grounded in real founder data extracted from 101 Starter Story interviews. Includes a browser-based trial at solo-founder-playbook.vercel.app/try. Built for pre-revenue to early-revenue solo founders.',
+      category: 'business',
+      tags: ['solo-founder', 'startup', 'idea-validation', 'growth', 'indie-hacker'],
     },
   },
 ]
