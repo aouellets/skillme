@@ -227,11 +227,14 @@ export function SortableTable<T>({
               </tr>
             ) : (
               visible.map((row) => (
-                <tr key={getKey(row)}>
+                <tr
+                  key={getKey(row)}
+                  className="transition-colors hover:bg-shelf-elevated/40"
+                >
                   {columns.map((col) => (
                     <td
                       key={col.key}
-                      className={`border-b border-shelf-border/60 px-3 py-2 text-sm text-shelf-text-secondary ${
+                      className={`border-b border-shelf-border/60 px-3 py-2.5 text-sm text-shelf-text-secondary ${
                         col.align === 'right' ? 'text-right tabular-nums' : 'text-left'
                       }`}
                     >

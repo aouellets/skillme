@@ -31,9 +31,11 @@ import {
   fmtRating,
   fmtRelative,
 } from './format'
+import { useState } from 'react'
 import {
   DeltaBadge,
   EventVolumeExplorer,
+  SegmentedControl,
   Sparkline,
   SortableTable,
   type Column,
@@ -901,6 +903,72 @@ function GrowthPanel({ rows }: { rows: GrowthRow[] }) {
   )
 }
 
+// --- sections -----------------------------------------------------------------
+
+/** The three telemetry lenses. Splitting the 12 panels into focused groups keeps
+ *  each view to ~4 panels instead of one long undifferentiated scroll. */
+const SECTIONS = [
+  { key: 'adoption', label: 'Adoption' },
+  { key: 'engagement', label: 'Engagement' },
+  { key: 'catalog', label: 'Catalog' },
+] as const
+
+type SectionKey = (typeof SECTIONS)[number]['key']
+
+/** Who shows up and whether they stick around: active users, growth, retention,
+ *  activation. */
+function AdoptionSection({ data }: { data: TelemetryDashboardData }) {
+  return (
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+      <div className="lg:col-span-2">
+        <ActiveUsersPanel rows={data.activeUsers} />
+      </div>
+      <GrowthPanel rows={data.growth} />
+      <ActivationPanel rows={data.activation} />
+      <div className="lg:col-span-2">
+        <RetentionPanel rows={data.retention} />
+      </div>
+    </div>
+  )
+}
+
+/** What they do once here: the activity timeline, MCP tool calls, and the
+ *  browse→install funnel. */
+function EngagementSection({ data }: { data: TelemetryDashboardData }) {
+  return (
+    <div className="space-y-5">
+      <Panel
+        title="Activity timeline"
+        description="Every event by day. Filter by range, event and source; the trend delta compares the second half of the window to the first."
+      >
+        <EventVolumeExplorer rows={data.eventVolume} />
+      </Panel>
+      <ToolPerfPanel rows={data.tools} />
+      <FunnelPanel rows={data.funnel} />
+    </div>
+  )
+}
+
+/** How the catalog performs: trending + per-skill/pack tables, and the search
+ *  terms that surface catalog gaps. */
+function CatalogSection({ data }: { data: TelemetryDashboardData }) {
+  return (
+    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+      <TrendingSkillsPanel rows={data.trendingSkills} />
+      <TrendingPacksPanel rows={data.trendingPacks} />
+      <div className="lg:col-span-2">
+        <SkillPerfPanel rows={data.skills} />
+      </div>
+      <div className="lg:col-span-2">
+        <PackPerfPanel rows={data.packs} />
+      </div>
+      <div className="lg:col-span-2">
+        <SearchTermsPanel rows={data.searchTerms} />
+      </div>
+    </div>
+  )
+}
+
 // --- root ---------------------------------------------------------------------
 
 export function TelemetryDashboard({
@@ -910,17 +978,21 @@ export function TelemetryDashboard({
   data: TelemetryDashboardData
   adminEmail: string
 }) {
+  const [section, setSection] = useState<SectionKey>('adoption')
+
   return (
     <div className="mx-auto max-w-content px-4 py-12 sm:px-6 lg:px-8">
       <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
         Admin · {adminEmail}
       </p>
       <h1 className="mt-3 font-display text-4xl text-shelf-text-primary">Telemetry</h1>
-      <p className="mt-3 text-sm text-shelf-text-secondary">
+      <p className="mt-3 max-w-2xl text-sm text-shelf-text-secondary">
         First-party adoption analytics. Rollups refresh every 15 minutes.
         {data.freshness ? ` Data through ${fmtDateTime(data.freshness)}.` : ' No events recorded yet.'}
       </p>
 
+      {/* KPI strip stays pinned above the lens switcher — the at-a-glance summary
+          is always in view regardless of which section is open. */}
       <div className="mt-8">
         <KpiHeader
           activeUsers={data.activeUsers}
@@ -929,38 +1001,33 @@ export function TelemetryDashboard({
         />
       </div>
 
-      <div className="mt-5">
-        <Panel
-          title="Activity timeline"
-          description="Every event by day. Filter by range, event and source; the trend delta compares the second half of the window to the first."
-        >
-          <EventVolumeExplorer rows={data.eventVolume} />
-        </Panel>
+      {/* Sticky lens switcher. Sits just under the global header (h-16) so it
+          stays reachable while scrolling a long section. */}
+      <div className="sticky top-16 z-30 -mx-4 mt-8 border-b border-shelf-border bg-shelf-void/85 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div className="flex items-center justify-between gap-3">
+          <SegmentedControl
+            options={SECTIONS.map((s) => ({ key: s.key, label: s.label }))}
+            value={section}
+            onChange={(k) => setSection(k as SectionKey)}
+          />
+          <p className="hidden text-xs text-shelf-text-tertiary sm:block">
+            {section === 'adoption'
+              ? 'Acquisition, growth & retention'
+              : section === 'engagement'
+                ? 'Activity, tools & conversion'
+                : 'Skill, pack & search performance'}
+          </p>
+        </div>
       </div>
 
-      <div className="mt-5">
-        <ToolPerfPanel rows={data.tools} />
-      </div>
-
-      <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <TrendingSkillsPanel rows={data.trendingSkills} />
-        <TrendingPacksPanel rows={data.trendingPacks} />
-        <FunnelPanel rows={data.funnel} />
-        <GrowthPanel rows={data.growth} />
-        <ActivationPanel rows={data.activation} />
-        <SearchTermsPanel rows={data.searchTerms} />
-        <div className="lg:col-span-2">
-          <ActiveUsersPanel rows={data.activeUsers} />
-        </div>
-        <div className="lg:col-span-2">
-          <RetentionPanel rows={data.retention} />
-        </div>
-        <div className="lg:col-span-2">
-          <SkillPerfPanel rows={data.skills} />
-        </div>
-        <div className="lg:col-span-2">
-          <PackPerfPanel rows={data.packs} />
-        </div>
+      <div className="mt-6">
+        {section === 'adoption' ? (
+          <AdoptionSection data={data} />
+        ) : section === 'engagement' ? (
+          <EngagementSection data={data} />
+        ) : (
+          <CatalogSection data={data} />
+        )}
       </div>
     </div>
   )

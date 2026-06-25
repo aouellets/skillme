@@ -60,38 +60,42 @@ export function AdminReview({ initial }: { initial: SkillSubmission[] }) {
 
   return (
     <div className="mt-8">
-      <div className="flex flex-wrap items-center gap-2">
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Filter by name, author, email…"
-          className="input w-full max-w-xs text-sm"
-        />
-        <select
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          className="input py-1.5 text-sm"
-          aria-label="Status"
-        >
-          {STATUS_OPTIONS.map((o) => (
-            <option key={o.key} value={o.key}>
-              {o.label}
-            </option>
-          ))}
-        </select>
-        <select
-          value={sort}
-          onChange={(e) => setSort(e.target.value as 'newest' | 'oldest' | 'risk')}
-          className="input py-1.5 text-sm"
-          aria-label="Sort"
-        >
-          <option value="newest">Newest first</option>
-          <option value="oldest">Oldest first</option>
-          <option value="risk">Safety risk first</option>
-        </select>
-        <span className="ml-auto font-mono text-xs text-shelf-text-tertiary">
-          {visible.length} of {items.length}
-        </span>
+      {/* Sticky toolbar: the filters stay reachable while scrolling a long queue.
+          top-16 clears the global header; the bleed margins span the page gutter. */}
+      <div className="sticky top-16 z-20 -mx-4 border-b border-shelf-border bg-shelf-void/85 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Filter by name, author, email…"
+            className="input w-full max-w-xs text-sm"
+          />
+          <select
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
+            className="input py-1.5 text-sm"
+            aria-label="Status"
+          >
+            {STATUS_OPTIONS.map((o) => (
+              <option key={o.key} value={o.key}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value as 'newest' | 'oldest' | 'risk')}
+            className="input py-1.5 text-sm"
+            aria-label="Sort"
+          >
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="risk">Safety risk first</option>
+          </select>
+          <span className="ml-auto font-mono text-xs text-shelf-text-tertiary">
+            {visible.length} of {items.length}
+          </span>
+        </div>
       </div>
 
       {visible.length === 0 ? (
@@ -99,7 +103,7 @@ export function AdminReview({ initial }: { initial: SkillSubmission[] }) {
           <p className="text-shelf-text-secondary">No submissions match these filters.</p>
         </div>
       ) : (
-        <div className="mt-5 space-y-5">
+        <div className="mt-5 space-y-4">
           {visible.map((sub) => (
             <ReviewCard key={sub.id} sub={sub} onDone={() => removeItem(sub.id)} />
           ))}
@@ -137,7 +141,7 @@ function ReviewCard({ sub, onDone }: { sub: SkillSubmission; onDone: () => void 
   const verdictClass = VERDICT_STYLE[sub.safety_verdict] ?? VERDICT_STYLE.unknown
 
   return (
-    <div className="card p-6">
+    <div className="card p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h3 className="text-base font-medium text-shelf-text-primary">{sub.name}</h3>
@@ -171,35 +175,36 @@ function ReviewCard({ sub, onDone }: { sub: SkillSubmission; onDone: () => void 
         </pre>
       )}
 
-      <div className="mt-4 space-y-3">
+      <div className="mt-4 space-y-3 border-t border-shelf-border/60 pt-4">
         <input
           value={note}
           onChange={(e) => setNote(e.target.value)}
           placeholder="Reviewer note (sent with reject / request changes)"
           className="input w-full text-sm"
         />
-        <label className="flex items-center gap-2 text-sm text-shelf-text-secondary">
-          <input type="checkbox" checked={feature} onChange={(e) => setFeature(e.target.checked)} />
-          Feature this skill on approve
-        </label>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <label className="flex items-center gap-2 text-sm text-shelf-text-secondary">
+            <input type="checkbox" checked={feature} onChange={(e) => setFeature(e.target.checked)} />
+            Feature this skill on approve
+          </label>
+          <div className="flex flex-wrap gap-2">
+            <button onClick={() => act('reject')} disabled={busy} className="btn btn-ghost">
+              Reject
+            </button>
+            <button onClick={() => act('needs_changes')} disabled={busy} className="btn btn-secondary">
+              Request changes
+            </button>
+            <button onClick={() => act('approve')} disabled={busy} className="btn btn-primary">
+              {busy ? 'Working…' : feature ? 'Approve + feature' : 'Approve & publish'}
+            </button>
+          </div>
+        </div>
 
         {error && (
           <p role="alert" className="text-sm text-danger">
             {error}
           </p>
         )}
-
-        <div className="flex flex-wrap gap-2">
-          <button onClick={() => act('approve')} disabled={busy} className="btn btn-primary">
-            {busy ? 'Working…' : feature ? 'Approve + feature' : 'Approve & publish'}
-          </button>
-          <button onClick={() => act('needs_changes')} disabled={busy} className="btn btn-secondary">
-            Request changes
-          </button>
-          <button onClick={() => act('reject')} disabled={busy} className="btn btn-secondary">
-            Reject
-          </button>
-        </div>
       </div>
     </div>
   )
