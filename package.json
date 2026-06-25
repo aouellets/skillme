@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "node --import tsx --test \"lib/**/*.test.ts\"",
     "test:mcp": "node scripts/test-mcp-e2e.mjs",
     "build:catalog": "tsx scripts/build-expansion.ts && tsx scripts/export-skill-files.ts",
     "build:art": "tsx scripts/generate-category-art.ts",
