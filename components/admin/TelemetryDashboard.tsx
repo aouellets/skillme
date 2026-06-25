@@ -35,7 +35,6 @@ import {
 import { useState } from 'react'
 import {
   CategoryUsageExplorer,
-  Collapsible,
   DeltaBadge,
   EventVolumeExplorer,
   SegmentedControl,
@@ -539,6 +538,37 @@ function TrendingPanel({
   )
 }
 
+/** Per-skill / per-pack performance behind one Skills/Packs toggle — mirrors
+ *  TrendingPanel so the Catalog views share one interaction model, and keeps the
+ *  heavy tables to one at a time instead of two stacked. */
+function PerformancePanel({
+  skills,
+  packs,
+}: {
+  skills: SkillPerfRow[]
+  packs: PackPerfRow[]
+}) {
+  const [view, setView] = useState<'skills' | 'packs'>('skills')
+  return (
+    <Panel
+      title="Performance"
+      description="Per skill / pack: installs, activators, ratings and install→activation."
+    >
+      <div className="mb-4">
+        <SegmentedControl
+          options={[
+            { key: 'skills', label: 'Skills' },
+            { key: 'packs', label: 'Packs' },
+          ]}
+          value={view}
+          onChange={(k) => setView(k as 'skills' | 'packs')}
+        />
+      </div>
+      {view === 'skills' ? <SkillPerfBody rows={skills} /> : <PackPerfBody rows={packs} />}
+    </Panel>
+  )
+}
+
 // --- panels: search terms -----------------------------------------------------
 
 function SearchTermsPanel({ rows }: { rows: SearchTermRow[] }) {
@@ -601,6 +631,7 @@ function SearchTermsPanel({ rows }: { rows: SearchTermRow[] }) {
         searchAccessor={(r) => r.term}
         searchPlaceholder="Filter queries…"
         initialSortKey="searches"
+        maxRows={8}
       />
     </Panel>
   )
@@ -986,23 +1017,55 @@ function CategoryUsagePanel({ rows }: { rows: CategoryUsageRow[] }) {
   )
 }
 
-/** How the catalog performs. Summary-first: a StatCard strip, then the category
- *  lens, trending and search-gap signals, with the heavy per-skill/pack tables
- *  folded away by default so the section reads as a scannable column instead of
- *  a wall of tables. */
+/** The catalog analysis lenses. One question per view keeps the section to a
+ *  persistent summary strip + a single focused panel, instead of a long column
+ *  of stacked tables. */
+const CATALOG_VIEWS = [
+  { key: 'categories', label: 'Categories' },
+  { key: 'trending', label: 'Trending' },
+  { key: 'performance', label: 'Performance' },
+  { key: 'search', label: 'Search' },
+] as const
+
+type CatalogView = (typeof CATALOG_VIEWS)[number]['key']
+
+const CATALOG_VIEW_HINT: Record<CatalogView, string> = {
+  categories: 'Where usage concentrates by skill type',
+  trending: 'Movers over the last 7 days',
+  performance: 'Per skill / pack install & activation',
+  search: 'Top queries and catalog-gap signals',
+}
+
+/** How the catalog performs. Summary-first: a StatCard strip stays pinned, then
+ *  a sub-tab switcher reveals one analysis at a time — categories, trending,
+ *  performance, or search — so the section reads as a focused view instead of a
+ *  wall of tables. */
 function CatalogSection({ data }: { data: TelemetryDashboardData }) {
+  const [view, setView] = useState<CatalogView>('categories')
   return (
     <div className="space-y-5">
       <CatalogSummary data={data} />
-      <CategoryUsagePanel rows={data.categoryUsage} />
-      <TrendingPanel skills={data.trendingSkills} packs={data.trendingPacks} />
-      <SearchTermsPanel rows={data.searchTerms} />
-      <Collapsible title="Skill performance" count={data.skills.length} description="Installs, activators, rating, install→activation">
-        <SkillPerfBody rows={data.skills} />
-      </Collapsible>
-      <Collapsible title="Pack performance" count={data.packs.length} description="Installs, installers, derived skill activations">
-        <PackPerfBody rows={data.packs} />
-      </Collapsible>
+
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <SegmentedControl
+          options={CATALOG_VIEWS.map((v) => ({ key: v.key, label: v.label }))}
+          value={view}
+          onChange={(k) => setView(k as CatalogView)}
+        />
+        <p className="hidden text-xs text-shelf-text-tertiary sm:block">
+          {CATALOG_VIEW_HINT[view]}
+        </p>
+      </div>
+
+      {view === 'categories' ? (
+        <CategoryUsagePanel rows={data.categoryUsage} />
+      ) : view === 'trending' ? (
+        <TrendingPanel skills={data.trendingSkills} packs={data.trendingPacks} />
+      ) : view === 'performance' ? (
+        <PerformancePanel skills={data.skills} packs={data.packs} />
+      ) : (
+        <SearchTermsPanel rows={data.searchTerms} />
+      )}
     </div>
   )
 }
