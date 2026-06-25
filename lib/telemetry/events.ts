@@ -68,11 +68,20 @@ export const EVENT_SCHEMAS = {
     skill_id: skillId,
     via: z.enum(['single', 'pack']),
     pack_id: packId.optional(),
+    // First-party (Skill Me original) flag + whether an anonymous caller was
+    // nudged to sign in. Only set on single installs; pack installs aggregate
+    // first-party counts on pack_installed instead.
+    first_party: z.boolean().optional(),
+    nudged: z.boolean().optional(),
   }),
   skill_uninstalled: z.object({ skill_id: skillId }),
   pack_installed: z.object({
     pack_id: packId,
     skill_count: z.number().int().nonnegative(),
+    // Set when an anonymous caller installed a pack containing Skill Me
+    // originals and was nudged to sign in.
+    nudged: z.boolean().optional(),
+    first_party_count: z.number().int().nonnegative().optional(),
   }),
   skill_rated: z.object({ skill_id: skillId, rating: z.number().int().min(1).max(5) }),
   collection_managed: z.object({

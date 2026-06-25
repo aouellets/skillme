@@ -3,6 +3,7 @@ import { checkRateLimit } from '../rateLimit'
 import { text, requireToken, type Tool } from '../types'
 import { track } from '../../telemetry/track'
 import { inlineSkills } from '../inlineContent'
+import { isFirstParty, isAccountToken, firstPartyNudge } from '../firstParty'
 
 interface InstallArgs {
   skill_id?: string
@@ -51,7 +52,7 @@ export const installSkill: Tool<InstallArgs> = {
 
     const { data: skill, error: skillError } = await supabase
       .from('skills')
-      .select('id, name, description, skill_content')
+      .select('id, name, description, skill_content, author')
       .eq('id', args.skill_id)
       .single()
 
@@ -80,8 +81,20 @@ export const installSkill: Tool<InstallArgs> = {
     // Best-effort install counter; never block the install on it.
     await supabase.rpc('increment_install_count', { p_skill_id: skill.id })
 
+    // Soft account gate: anonymous installs of a Skill Me original still
+    // succeed, but we nudge the caller to sign in so their library persists.
+    const nudged = !isAccountToken(auth.token) && isFirstParty(skill.author)
+
     void track(
-      { name: 'skill_installed', properties: { skill_id: skill.id, via: 'single' } },
+      {
+        name: 'skill_installed',
+        properties: {
+          skill_id: skill.id,
+          via: 'single',
+          first_party: isFirstParty(skill.author),
+          ...(nudged ? { nudged: true } : {}),
+        },
+      },
       { source: 'mcp', userToken: auth.token, sessionId: auth.token, context: ctx.context }
     )
 
@@ -96,6 +109,7 @@ export const installSkill: Tool<InstallArgs> = {
     const tail = body
       ? `\n\nIt's active now — apply it for the rest of this conversation:\n\n${body}`
       : '\n\nIt will activate automatically in your next session.'
-    return text(`Installed "${skill.name}". ${skill.description}${tail}`)
+    const nudge = nudged ? firstPartyNudge([skill.name]) : ''
+    return text(`Installed "${skill.name}". ${skill.description}${tail}${nudge}`)
   },
 }

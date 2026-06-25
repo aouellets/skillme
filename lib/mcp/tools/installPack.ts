@@ -3,6 +3,7 @@ import { checkRateLimit } from '../rateLimit'
 import { text, requireToken, type Tool } from '../types'
 import { buildRow, insertEvents } from '../../telemetry/track'
 import { inlineSkills } from '../inlineContent'
+import { isFirstParty, isAccountToken, firstPartyNudge } from '../firstParty'
 
 interface InstallPackArgs {
   pack_id?: string
@@ -43,7 +44,7 @@ export const installPack: Tool<InstallPackArgs> = {
     // Fetch pack with its skills
     const { data: pack, error: packError } = await supabase
       .from('packs')
-      .select('id, name, pack_skills(skill_id, position, skills(id, name, description, skill_content))')
+      .select('id, name, pack_skills(skill_id, position, skills(id, name, description, skill_content, author))')
       .eq('id', args.pack_id)
       .single()
 
@@ -56,7 +57,13 @@ export const installPack: Tool<InstallPackArgs> = {
       name: string
       pack_skills: Array<{
         skill_id: string
-        skills: { id: string; name: string; description: string; skill_content: string | null } | null
+        skills: {
+          id: string
+          name: string
+          description: string
+          skill_content: string | null
+          author: string | null
+        } | null
       }>
     }
 
@@ -99,12 +106,30 @@ export const installPack: Tool<InstallPackArgs> = {
       await supabase.rpc('increment_install_count', { p_skill_id: skill_id })
     }
 
+    const installed = packData.pack_skills
+      .map((ps) => ps.skills)
+      .filter((s): s is NonNullable<typeof s> => Boolean(s))
+
+    // Soft account gate: anonymous pack installs still succeed, but we nudge the
+    // caller to sign in, naming any Skill Me originals in the pack so they know
+    // what they'd be keeping. Account-bound identities never see the nudge.
+    const firstPartyNames = isAccountToken(auth.token)
+      ? []
+      : installed.filter((s) => isFirstParty(s.author)).map((s) => s.name)
+
     // Telemetry: one pack_installed plus a skill_installed (via pack) per skill,
     // batched into a single fire-and-forget insert. Never blocks the response.
     const opts = { source: 'mcp' as const, userToken: auth.token, sessionId: auth.token, context: ctx.context }
     void insertEvents([
       buildRow(
-        { name: 'pack_installed', properties: { pack_id: packData.id, skill_count: skillIds.length } },
+        {
+          name: 'pack_installed',
+          properties: {
+            pack_id: packData.id,
+            skill_count: skillIds.length,
+            ...(firstPartyNames.length ? { nudged: true, first_party_count: firstPartyNames.length } : {}),
+          },
+        },
         opts
       ),
       ...skillIds.map((skill_id) =>
@@ -115,9 +140,6 @@ export const installPack: Tool<InstallPackArgs> = {
       ),
     ])
 
-    const installed = packData.pack_skills
-      .map((ps) => ps.skills)
-      .filter((s): s is NonNullable<typeof s> => Boolean(s))
     const skillNames = installed.map((s, i) => `  ${i + 1}. ${s.name}`).join('\n')
 
     // Inline skill content so the pack applies immediately — but bounded by a
@@ -140,8 +162,9 @@ export const installPack: Tool<InstallPackArgs> = {
       tail = '\n\nThey will activate automatically in your next session.'
     }
 
+    const nudge = firstPartyNudge(firstPartyNames)
     return text(
-      `Installed "${packData.name}" — ${skillIds.length} skills added to your library:\n\n${skillNames}${tail}`
+      `Installed "${packData.name}" — ${skillIds.length} skills added to your library:\n\n${skillNames}${tail}${nudge}`
     )
   },
 }
