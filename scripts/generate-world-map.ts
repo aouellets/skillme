@@ -26,12 +26,18 @@ function project(lng: number, lat: number): [number, number] {
 
 function ringPath(ring: number[][]): string {
   let d = ''
+  let prevLng = 0
   for (let i = 0; i < ring.length; i++) {
     const [lng, lat] = ring[i]
     const [x, y] = project(lng, lat)
-    d += `${i === 0 ? 'M' : 'L'}${x} ${y}`
+    // Start a new subpath at the first point or across an antimeridian crossing
+    // (consecutive raw longitudes more than 180° apart, e.g. Russia/Fiji).
+    const cmd = i === 0 || Math.abs(lng - prevLng) > 180 ? 'M' : 'L'
+    d += `${cmd}${x} ${y}`
+    prevLng = lng
   }
-  return d + 'Z'
+  // SVG fill auto-closes each subpath; an explicit Z would re-draw the streak.
+  return d
 }
 
 function geometryPath(geom: { type: string; coordinates: unknown }): string {
