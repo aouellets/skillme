@@ -21,11 +21,14 @@ as the primary path.)
    they need no client trust. Web client tracking is additive, for browsing only.
 3. **First-party, Supabase-native.** Events live in our Postgres under RLS.
 4. **Privacy by default.** No raw IP, no PII in `properties`/`context`. Coarse geo
-   (country/region/**city**) only, derived server-side from edge headers via
-   `lib/telemetry/geo.ts` and attached on every path — web ingest, the signup
-   event, and the MCP route (threaded through `ToolContext.context`). Emails and
-   usernames are **never** written to telemetry; they live only in `auth.users`
-   and are joined in at read time for the admin directory (see below).
+   (country/region/**city**, plus an approximate **lat/lng** rounded to 2 decimals
+   /~1.1 km for the admin world-map) only, derived server-side from edge headers
+   via `lib/telemetry/geo.ts` and attached on every path — web ingest, the signup
+   event, and the MCP route (threaded through `ToolContext.context`). The
+   coordinates are a network-edge / city-centroid approximation (not device GPS),
+   coarsened at capture so a precise point never persists. Emails and usernames
+   are **never** written to telemetry; they live only in `auth.users` and are
+   joined in at read time for the admin directory (see below).
 5. **Idempotent, at-least-once.** Every event carries an `idempotency_key`;
    duplicates are dropped by a unique constraint.
 
@@ -168,10 +171,13 @@ refreshed by the same `refresh_telemetry_rollups()`.
   keys (`user_id`, `user_token`, `anonymous_id`), `first_seen_at`/`last_seen_at`,
   event counts (`total_events`, `mcp_events`/`web_events`, `tool_invocations`,
   `installs`, `activations`, `sessions`), **last-known geo**
-  (`last_country`/`last_region`/`last_city` from the most recent located event =
-  "active from"), and **signup origin** (`signup_at`, `signup_method`,
-  `signup_country`/`signup_region`/`signup_city` = "signed up from"). Same access
-  model and refreshed by the same `refresh_telemetry_rollups()`.
+  (`last_country`/`last_region`/`last_city` + approximate `last_lat`/`last_lng`
+  from the most recent located event = "active from"), and **signup origin**
+  (`signup_at`, `signup_method`, `signup_country`/`signup_region`/`signup_city` +
+  `signup_lat`/`signup_lng` = "signed up from"). The coordinate columns (added in
+  migration `0019`) back the admin world-map and are null for actors whose located
+  events predate coordinate capture. Same access model and refreshed by the same
+  `refresh_telemetry_rollups()`.
 
   This is a deliberate, **admin-only** step from aggregate-only telemetry to
   per-user visibility. It still stores **no PII**: emails / display names are
@@ -199,8 +205,9 @@ Alternative: schedule the same RPC with `pg_cron`.
 ## Retention & deletion policy
 
 - **No PII / no raw IP** is ever stored. `context` holds app version, coarse geo
-  (country/region/city), and UA family only. Emails/usernames are read live from
-  `auth.users` for the admin directory, never written to telemetry.
+  (country/region/city + approximate, 2-decimal-rounded lat/lng), and UA family
+  only. Emails/usernames are read live from `auth.users` for the admin directory,
+  never written to telemetry.
 - **Account deletion / erasure:** `public.purge_telemetry_for_user(user_id)` hard-
   deletes every event attributed to the account — both `user_id` rows and MCP rows
   attributed by the `auth:<uuid>` token — plus the identity mapping. The

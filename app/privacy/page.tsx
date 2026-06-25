@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     'How Skill Me handles your data: optional sign-in, no access to your chats or files — only the skills and packs you choose to install.',
 }
 
-const UPDATED = 'June 18, 2026'
+const UPDATED = 'June 24, 2026'
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -68,6 +68,17 @@ export default function PrivacyPage() {
           &ldquo;Anonymous&rdquo;). We never display your email address. If you join the
           newsletter, we store the email address you enter so we can notify you about new skills
           and packs; you can ask us to remove it at any time.
+        </p>
+      </Section>
+
+      <Section title="Usage analytics & approximate location">
+        <p>
+          To understand how the catalog is used and where it&rsquo;s growing, we record
+          first-party, non-identifying product events &mdash; for example that a skill was viewed
+          or installed, and which MCP tools were called. From network-edge signals we derive an
+          approximate location (country, region, city, and an approximate map coordinate rounded
+          so it cannot pinpoint an individual). We never store your raw IP address, and these
+          events never contain your conversations, files, or contact details.
         </p>
       </Section>
 

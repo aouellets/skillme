@@ -149,12 +149,18 @@ export interface UserDirectoryMvRow {
   last_country: string | null
   last_region: string | null
   last_city: string | null
+  /** Approximate, coarsened coordinates (2 decimals) of the most recent located
+   *  event. Null for actors whose located events predate coordinate capture. */
+  last_lat: number | null
+  last_lng: number | null
   last_source: string | null
   signup_at: string | null
   signup_method: string | null
   signup_country: string | null
   signup_region: string | null
   signup_city: string | null
+  signup_lat: number | null
+  signup_lng: number | null
 }
 
 /** mv_user_directory row enriched with the account's auth.users identity. */
