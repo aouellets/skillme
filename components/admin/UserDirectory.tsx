@@ -1,8 +1,8 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import type { UserDirectoryRow } from '@/lib/telemetry/admin-queries'
-import { SortableTable, type Column } from './interactive'
+import { SegmentedControl, SortableTable, type Column } from './interactive'
 import { fmtNum, fmtDate, fmtRelative } from './format'
 
 /** ISO-3166 alpha-2 → regional-indicator flag emoji. '' when not a 2-letter code. */
@@ -39,6 +39,16 @@ const KIND_STYLE: Record<UserDirectoryRow['actor_kind'], string> = {
   web_anon: 'bg-shelf-text-tertiary/10 text-shelf-text-tertiary',
 }
 
+/** Actor-kind filter for the sticky toolbar. `all` keeps every row. */
+const KIND_FILTERS = [
+  { key: 'all', label: 'All' },
+  { key: 'account', label: 'Accounts' },
+  { key: 'mcp_anon', label: 'MCP' },
+  { key: 'web_anon', label: 'Web' },
+] as const
+
+type KindFilter = (typeof KIND_FILTERS)[number]['key']
+
 function shortId(value: string | null): string {
   if (!value) return '—'
   // Strip a leading "anon:"/"mcp_"/"auth:" marker then show a short, stable head.
@@ -61,12 +71,19 @@ export function UserDirectory({
   rows: UserDirectoryRow[]
   adminEmail: string
 }) {
+  const [kind, setKind] = useState<KindFilter>('all')
+
   const stats = useMemo(() => {
     const accounts = rows.filter((r) => r.actor_kind === 'account').length
     const located = rows.filter((r) => r.last_country).length
     const countries = new Set(rows.map((r) => r.last_country).filter(Boolean)).size
     return { total: rows.length, accounts, located, countries }
   }, [rows])
+
+  const filtered = useMemo(
+    () => (kind === 'all' ? rows : rows.filter((r) => r.actor_kind === kind)),
+    [rows, kind]
+  )
 
   const columns: Column<UserDirectoryRow>[] = [
     {
@@ -171,25 +188,45 @@ export function UserDirectory({
   ]
 
   return (
-    <div className="mx-auto max-w-content px-4 py-8 sm:px-6 lg:px-8">
-      <header className="mb-6">
-        <h1 className="font-display text-2xl text-shelf-text-primary">Users</h1>
-        <p className="mt-1 text-sm text-shelf-text-secondary">
-          Every resolved actor — accounts and anonymous connectors — with coarse geography and
-          signup origin. Emails are read live from auth.users for {adminEmail}; nothing here is
-          stored as PII in telemetry.
+    <div className="mx-auto max-w-content px-4 py-12 sm:px-6 lg:px-8">
+      <header>
+        <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">
+          Admin · {adminEmail}
         </p>
-        <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
-          <Stat label="Actors" value={fmtNum(stats.total)} />
-          <Stat label="Accounts" value={fmtNum(stats.accounts)} />
-          <Stat label="Located" value={fmtNum(stats.located)} />
-          <Stat label="Countries" value={fmtNum(stats.countries)} />
-        </dl>
+        <h1 className="mt-3 font-display text-4xl text-shelf-text-primary">Users</h1>
+        <p className="mt-3 max-w-2xl text-sm text-shelf-text-secondary">
+          Every resolved actor — accounts and anonymous connectors — with coarse geography and
+          signup origin. Emails are read live from auth.users; nothing here is stored as PII in
+          telemetry.
+        </p>
       </header>
 
-      <div className="card p-2 sm:p-3">
+      <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <StatCard label="Actors" value={fmtNum(stats.total)} sub="resolved identities" />
+        <StatCard label="Accounts" value={fmtNum(stats.accounts)} sub="signed-in users" />
+        <StatCard label="Located" value={fmtNum(stats.located)} sub="with coarse geography" />
+        <StatCard label="Countries" value={fmtNum(stats.countries)} sub="distinct, by last seen" />
+      </div>
+
+      {/* Sticky toolbar: the actor-kind filter stays reachable while scrolling
+          the directory. top-16 clears the global header; bleed margins span the
+          page gutter. */}
+      <div className="sticky top-16 z-20 -mx-4 mt-8 border-b border-shelf-border bg-shelf-void/85 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <SegmentedControl
+            options={KIND_FILTERS.map((k) => ({ key: k.key, label: k.label }))}
+            value={kind}
+            onChange={(k) => setKind(k as KindFilter)}
+          />
+          <span className="font-mono text-xs text-shelf-text-tertiary">
+            {fmtNum(filtered.length)} {kind === 'all' ? 'actors' : KIND_LABEL[kind].toLowerCase() + 's'}
+          </span>
+        </div>
+      </div>
+
+      <div className="mt-5 card p-2 sm:p-3">
         <SortableTable
-          rows={rows}
+          rows={filtered}
           columns={columns}
           getKey={(r) => r.actor_key}
           searchAccessor={(r) =>
@@ -209,18 +246,20 @@ export function UserDirectory({
           }
           searchPlaceholder="Filter by email, name, token, country…"
           initialSortKey="last_seen"
-          emptyMessage="No telemetry actors yet."
+          emptyMessage="No telemetry actors match this filter."
+          maxRows={12}
         />
       </div>
     </div>
   )
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function StatCard({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
-    <div className="flex items-baseline gap-2">
-      <dt className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">{label}</dt>
-      <dd className="font-mono text-shelf-text-primary">{value}</dd>
+    <div className="rounded-md border border-shelf-border bg-shelf-void/40 px-4 py-3">
+      <p className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary">{label}</p>
+      <p className="mt-1 font-display text-2xl text-shelf-text-primary">{value}</p>
+      {sub ? <p className="mt-0.5 text-xs text-shelf-text-tertiary">{sub}</p> : null}
     </div>
   )
 }
