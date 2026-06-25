@@ -186,6 +186,24 @@ refreshed by the same `refresh_telemetry_rollups()`.
   rollup at request time — only behind the `getAdminEmail()` gate, never
   persisted into telemetry tables.
 
+### Geographic adoption rollup (migration `0021`)
+
+- **`mv_geo_adoption`** — one row per location bucket (country + region + city +
+  coordinate rounded to 1 decimal) with `events` / `actors` / `installs` /
+  `activations` counts, powering the admin `/admin/geography` world-map.
+  Aggregate-only (no actor identity). Country totals shade the choropleth (they
+  need only the ISO code); the rounded coordinates place the bubbles and are null
+  for events that predate coordinate capture. Read by `getGeoAdoption()` (not
+  part of `loadTelemetryDashboard`), same admin-only access model, refreshed by
+  the same `refresh_telemetry_rollups()`.
+
+### Category usage rollup (migration `0020`)
+
+- **`mv_category_usage_daily`** — day × `category` × event × source counts for
+  skill-bearing events (`skill_viewed`/`installed`/`activated`), category resolved
+  via `public.skills`. Powers the "Skill categories" panel; the dashboard
+  re-slices it client-side by category / event / range / source.
+
 ### Why not Vercel Web Analytics as the metrics source
 
 `<Analytics/>` stays mounted for marketing pageviews, but the product metrics

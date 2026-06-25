@@ -140,6 +140,21 @@ export interface SearchTermRow {
   avg_results: number | null
 }
 
+/** One location bucket from mv_geo_adoption (migration 0021). Coordinates are
+ *  rounded to 1 decimal and null for events that predate coordinate capture. */
+export interface GeoAdoptionRow {
+  loc_key: string
+  country: string | null
+  region: string | null
+  city: string | null
+  lat: number | null
+  lng: number | null
+  events: number
+  actors: number
+  installs: number
+  activations: number
+}
+
 /** Raw row from mv_user_directory (no PII — emails join in at read time). */
 export interface UserDirectoryMvRow {
   actor_key: string
@@ -279,6 +294,12 @@ export function getTrendingPacks(): Promise<TrendingPackRow[]> {
 
 export function getSearchTerms(): Promise<SearchTermRow[]> {
   return readMv<SearchTermRow>('mv_search_terms', [{ column: 'searches', ascending: false }], 100)
+}
+
+/** Location buckets for the admin world-map, busiest first. Read directly by the
+ *  /admin/geography page (not part of loadTelemetryDashboard). [] on any failure. */
+export function getGeoAdoption(): Promise<GeoAdoptionRow[]> {
+  return readMv<GeoAdoptionRow>('mv_geo_adoption', [{ column: 'events', ascending: false }], 500)
 }
 
 /** "Data through" timestamp — newest received event. Null if none / unavailable. */
