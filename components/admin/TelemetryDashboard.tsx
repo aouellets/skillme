@@ -949,36 +949,109 @@ const SECTIONS = [
 
 type SectionKey = (typeof SECTIONS)[number]['key']
 
-/** Who shows up and whether they stick around: active users, growth, retention,
- *  activation. */
-function AdoptionSection({ data }: { data: TelemetryDashboardData }) {
+/** Shared sub-tab switcher row used inside each top-level section. A nested
+ *  SegmentedControl + an optional right-aligned hint, so every section reveals
+ *  one focused analysis at a time with the same interaction model. */
+function SubTabBar({
+  options,
+  value,
+  onChange,
+  hint,
+}: {
+  options: { key: string; label: string }[]
+  value: string
+  onChange: (key: string) => void
+  hint?: string
+}) {
   return (
-    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-      <div className="lg:col-span-2">
-        <ActiveUsersPanel rows={data.activeUsers} />
-      </div>
-      <GrowthPanel rows={data.growth} />
-      <ActivationPanel rows={data.activation} />
-      <div className="lg:col-span-2">
-        <RetentionPanel rows={data.retention} />
-      </div>
+    <div className="flex flex-wrap items-center justify-between gap-3">
+      <SegmentedControl options={options} value={value} onChange={onChange} />
+      {hint ? (
+        <p className="hidden text-xs text-shelf-text-tertiary sm:block">{hint}</p>
+      ) : null}
     </div>
   )
 }
 
-/** What they do once here: the activity timeline, MCP tool calls, and the
- *  browse→install funnel. */
-function EngagementSection({ data }: { data: TelemetryDashboardData }) {
+/** Who shows up and whether they stick around. One lens per view: active users,
+ *  growth, retention, activation. */
+const ADOPTION_VIEWS = [
+  { key: 'active', label: 'Active users' },
+  { key: 'growth', label: 'Growth' },
+  { key: 'retention', label: 'Retention' },
+  { key: 'activation', label: 'Activation' },
+] as const
+
+type AdoptionView = (typeof ADOPTION_VIEWS)[number]['key']
+
+const ADOPTION_VIEW_HINT: Record<AdoptionView, string> = {
+  active: 'Daily / weekly / monthly actives by source',
+  growth: 'New, retained, resurrected & churned',
+  retention: 'Weekly cohort retention',
+  activation: 'Signup → first install, by cohort',
+}
+
+function AdoptionSection({ data }: { data: TelemetryDashboardData }) {
+  const [view, setView] = useState<AdoptionView>('active')
   return (
     <div className="space-y-5">
-      <Panel
-        title="Activity timeline"
-        description="Every event by day. Filter by range, event and source; the trend delta compares the second half of the window to the first."
-      >
-        <EventVolumeExplorer rows={data.eventVolume} />
-      </Panel>
-      <ToolPerfPanel rows={data.tools} />
-      <FunnelPanel rows={data.funnel} />
+      <SubTabBar
+        options={ADOPTION_VIEWS.map((v) => ({ key: v.key, label: v.label }))}
+        value={view}
+        onChange={(k) => setView(k as AdoptionView)}
+        hint={ADOPTION_VIEW_HINT[view]}
+      />
+      {view === 'active' ? (
+        <ActiveUsersPanel rows={data.activeUsers} />
+      ) : view === 'growth' ? (
+        <GrowthPanel rows={data.growth} />
+      ) : view === 'retention' ? (
+        <RetentionPanel rows={data.retention} />
+      ) : (
+        <ActivationPanel rows={data.activation} />
+      )}
+    </div>
+  )
+}
+
+/** What they do once here. One lens per view: the activity timeline, MCP tool
+ *  calls, and the browse→install funnel. */
+const ENGAGEMENT_VIEWS = [
+  { key: 'activity', label: 'Activity' },
+  { key: 'tools', label: 'Tools' },
+  { key: 'funnel', label: 'Funnel' },
+] as const
+
+type EngagementView = (typeof ENGAGEMENT_VIEWS)[number]['key']
+
+const ENGAGEMENT_VIEW_HINT: Record<EngagementView, string> = {
+  activity: 'Every event by day, filterable',
+  tools: 'MCP tool calls, errors & latency',
+  funnel: 'Browse → view → install → activate',
+}
+
+function EngagementSection({ data }: { data: TelemetryDashboardData }) {
+  const [view, setView] = useState<EngagementView>('activity')
+  return (
+    <div className="space-y-5">
+      <SubTabBar
+        options={ENGAGEMENT_VIEWS.map((v) => ({ key: v.key, label: v.label }))}
+        value={view}
+        onChange={(k) => setView(k as EngagementView)}
+        hint={ENGAGEMENT_VIEW_HINT[view]}
+      />
+      {view === 'activity' ? (
+        <Panel
+          title="Activity timeline"
+          description="Every event by day. Filter by range, event and source; the trend delta compares the second half of the window to the first."
+        >
+          <EventVolumeExplorer rows={data.eventVolume} />
+        </Panel>
+      ) : view === 'tools' ? (
+        <ToolPerfPanel rows={data.tools} />
+      ) : (
+        <FunnelPanel rows={data.funnel} />
+      )}
     </div>
   )
 }
@@ -1046,16 +1119,12 @@ function CatalogSection({ data }: { data: TelemetryDashboardData }) {
     <div className="space-y-5">
       <CatalogSummary data={data} />
 
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <SegmentedControl
-          options={CATALOG_VIEWS.map((v) => ({ key: v.key, label: v.label }))}
-          value={view}
-          onChange={(k) => setView(k as CatalogView)}
-        />
-        <p className="hidden text-xs text-shelf-text-tertiary sm:block">
-          {CATALOG_VIEW_HINT[view]}
-        </p>
-      </div>
+      <SubTabBar
+        options={CATALOG_VIEWS.map((v) => ({ key: v.key, label: v.label }))}
+        value={view}
+        onChange={(k) => setView(k as CatalogView)}
+        hint={CATALOG_VIEW_HINT[view]}
+      />
 
       {view === 'categories' ? (
         <CategoryUsagePanel rows={data.categoryUsage} />
