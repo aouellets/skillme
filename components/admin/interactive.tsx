@@ -135,6 +135,7 @@ export function SortableTable<T>({
   searchPlaceholder = 'Filter…',
   initialSortKey,
   emptyMessage = 'No rows.',
+  maxRows,
 }: {
   rows: T[]
   columns: Column<T>[]
@@ -144,6 +145,9 @@ export function SortableTable<T>({
   searchPlaceholder?: string
   initialSortKey?: string
   emptyMessage?: string
+  /** Preview only the first N (sorted) rows behind a "Show all" toggle. Ignored
+   *  while a search query is active so filtering always reveals every match. */
+  maxRows?: number
 }) {
   const firstSortable = columns.find((c) => c.sortValue)
   const [sortKey, setSortKey] = useState<string | undefined>(
@@ -152,6 +156,7 @@ export function SortableTable<T>({
   const initialCol = columns.find((c) => c.key === (initialSortKey ?? firstSortable?.key))
   const [desc, setDesc] = useState<boolean>(initialCol?.defaultDesc ?? true)
   const [query, setQuery] = useState('')
+  const [expanded, setExpanded] = useState(false)
 
   const activeCol = columns.find((c) => c.key === sortKey)
 
@@ -184,6 +189,10 @@ export function SortableTable<T>({
       setDesc(col.defaultDesc ?? true)
     }
   }
+
+  const querying = Boolean(searchAccessor && query.trim())
+  const canPreview = maxRows != null && !querying && visible.length > maxRows
+  const shown = canPreview && !expanded ? visible.slice(0, maxRows) : visible
 
   return (
     <div>
@@ -226,7 +235,7 @@ export function SortableTable<T>({
                 </td>
               </tr>
             ) : (
-              visible.map((row) => (
+              shown.map((row) => (
                 <tr
                   key={getKey(row)}
                   className="transition-colors hover:bg-shelf-elevated/40"
@@ -247,6 +256,65 @@ export function SortableTable<T>({
           </tbody>
         </table>
       </div>
+      {canPreview ? (
+        <div className="mt-2 flex justify-center">
+          <button
+            onClick={() => setExpanded((e) => !e)}
+            className="font-mono text-xs uppercase tracking-widest text-shelf-text-tertiary transition-colors hover:text-shelf-text-primary"
+          >
+            {expanded ? 'Show less' : `Show all ${rows.length}`}
+          </button>
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
+// --- Collapsible --------------------------------------------------------------
+
+/**
+ * Disclosure block: a header button toggles a body. Used to fold heavy tables
+ * (skill / pack performance) so a dense section leads with its summary instead
+ * of a wall of rows. Header style matches the table column headers (Th).
+ */
+export function Collapsible({
+  title,
+  description,
+  count,
+  defaultOpen = false,
+  children,
+}: {
+  title: string
+  description?: string
+  count?: number
+  defaultOpen?: boolean
+  children: React.ReactNode
+}) {
+  const [open, setOpen] = useState(defaultOpen)
+  return (
+    <div className="card overflow-hidden">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-shelf-elevated/40 sm:px-6"
+      >
+        <span className="flex items-baseline gap-3">
+          <span aria-hidden className="font-mono text-xs text-shelf-text-tertiary">
+            {open ? '▾' : '▸'}
+          </span>
+          <span className="font-display text-xl text-shelf-text-primary">{title}</span>
+          {count !== undefined ? (
+            <span className="font-mono text-xs tabular-nums text-shelf-text-tertiary">
+              {fmtNum(count)}
+            </span>
+          ) : null}
+        </span>
+        {description ? (
+          <span className="hidden max-w-sm truncate text-right text-xs text-shelf-text-tertiary sm:block">
+            {description}
+          </span>
+        ) : null}
+      </button>
+      {open ? <div className="border-t border-shelf-border px-5 py-5 sm:px-6">{children}</div> : null}
     </div>
   )
 }

@@ -33,6 +33,7 @@ import {
 } from './format'
 import { useState } from 'react'
 import {
+  Collapsible,
   DeltaBadge,
   EventVolumeExplorer,
   SegmentedControl,
@@ -414,115 +415,124 @@ function ToolPerfPanel({ rows }: { rows: ToolPerfRow[] }) {
 
 // --- panels: trending ---------------------------------------------------------
 
-function TrendingSkillsPanel({ rows }: { rows: TrendingSkillRow[] }) {
-  const desc = 'Last 7 days vs the prior 7, by install velocity.'
-  if (rows.length === 0) {
-    return (
-      <Panel title="Trending skills" description={desc}>
-        <EmptyState message="No skill activity in the last 7 days." />
-      </Panel>
-    )
-  }
-  const columns: Column<TrendingSkillRow>[] = [
-    {
-      key: 'skill',
-      label: 'Skill',
-      render: (r) => (
-        <span className="text-shelf-text-primary">{r.skill_name ?? r.skill_id.slice(0, 8)}</span>
-      ),
-      sortValue: (r) => r.skill_name ?? r.skill_id,
-      defaultDesc: false,
-    },
-    {
-      key: 'installs_7d',
-      label: 'Installs 7d',
-      align: 'right',
-      render: (r) => (
-        <span className="inline-flex items-center justify-end gap-2">
-          {fmtNum(r.installs_7d)}
-          <DeltaBadge delta={r.installs_delta} pct={r.installs_growth} />
-        </span>
-      ),
-      sortValue: (r) => r.installs_7d,
-    },
-    {
-      key: 'views_7d',
-      label: 'Views 7d',
-      align: 'right',
-      render: (r) => fmtNum(r.views_7d),
-      sortValue: (r) => r.views_7d,
-    },
-    {
-      key: 'activations_7d',
-      label: 'Activations 7d',
-      align: 'right',
-      render: (r) => fmtNum(r.activations_7d),
-      sortValue: (r) => r.activations_7d,
-    },
-  ]
-  return (
-    <Panel title="Trending skills" description={desc}>
-      <SortableTable
-        rows={rows}
-        columns={columns}
-        getKey={(r) => r.skill_id}
-        searchAccessor={(r) => r.skill_name ?? r.skill_id}
-        searchPlaceholder="Filter skills…"
-        initialSortKey="installs_7d"
-      />
-    </Panel>
-  )
-}
+const TRENDING_SKILL_COLUMNS: Column<TrendingSkillRow>[] = [
+  {
+    key: 'skill',
+    label: 'Skill',
+    render: (r) => (
+      <span className="text-shelf-text-primary">{r.skill_name ?? r.skill_id.slice(0, 8)}</span>
+    ),
+    sortValue: (r) => r.skill_name ?? r.skill_id,
+    defaultDesc: false,
+  },
+  {
+    key: 'installs_7d',
+    label: 'Installs 7d',
+    align: 'right',
+    render: (r) => (
+      <span className="inline-flex items-center justify-end gap-2">
+        {fmtNum(r.installs_7d)}
+        <DeltaBadge delta={r.installs_delta} pct={r.installs_growth} />
+      </span>
+    ),
+    sortValue: (r) => r.installs_7d,
+  },
+  {
+    key: 'views_7d',
+    label: 'Views 7d',
+    align: 'right',
+    render: (r) => fmtNum(r.views_7d),
+    sortValue: (r) => r.views_7d,
+  },
+  {
+    key: 'activations_7d',
+    label: 'Activations 7d',
+    align: 'right',
+    render: (r) => fmtNum(r.activations_7d),
+    sortValue: (r) => r.activations_7d,
+  },
+]
 
-function TrendingPacksPanel({ rows }: { rows: TrendingPackRow[] }) {
-  const desc = 'Last 7 days vs the prior 7, by install velocity.'
-  if (rows.length === 0) {
-    return (
-      <Panel title="Trending packs" description={desc}>
-        <EmptyState message="No pack installs in the last 7 days." />
-      </Panel>
-    )
-  }
-  const columns: Column<TrendingPackRow>[] = [
-    {
-      key: 'pack',
-      label: 'Pack',
-      render: (r) => (
-        <span className="text-shelf-text-primary">{r.pack_name ?? r.pack_id.slice(0, 8)}</span>
-      ),
-      sortValue: (r) => r.pack_name ?? r.pack_id,
-      defaultDesc: false,
-    },
-    {
-      key: 'installs_7d',
-      label: 'Installs 7d',
-      align: 'right',
-      render: (r) => (
-        <span className="inline-flex items-center justify-end gap-2">
-          {fmtNum(r.installs_7d)}
-          <DeltaBadge delta={r.installs_delta} pct={r.installs_growth} />
-        </span>
-      ),
-      sortValue: (r) => r.installs_7d,
-    },
-    {
-      key: 'actors_7d',
-      label: 'Installers 7d',
-      align: 'right',
-      render: (r) => fmtNum(r.actors_7d),
-      sortValue: (r) => r.actors_7d,
-    },
-  ]
+const TRENDING_PACK_COLUMNS: Column<TrendingPackRow>[] = [
+  {
+    key: 'pack',
+    label: 'Pack',
+    render: (r) => (
+      <span className="text-shelf-text-primary">{r.pack_name ?? r.pack_id.slice(0, 8)}</span>
+    ),
+    sortValue: (r) => r.pack_name ?? r.pack_id,
+    defaultDesc: false,
+  },
+  {
+    key: 'installs_7d',
+    label: 'Installs 7d',
+    align: 'right',
+    render: (r) => (
+      <span className="inline-flex items-center justify-end gap-2">
+        {fmtNum(r.installs_7d)}
+        <DeltaBadge delta={r.installs_delta} pct={r.installs_growth} />
+      </span>
+    ),
+    sortValue: (r) => r.installs_7d,
+  },
+  {
+    key: 'actors_7d',
+    label: 'Installers 7d',
+    align: 'right',
+    render: (r) => fmtNum(r.actors_7d),
+    sortValue: (r) => r.actors_7d,
+  },
+]
+
+/** Trending skills and packs share one panel with a Skills | Packs toggle —
+ *  half the vertical footprint of two side-by-side tables, and it drops the
+ *  identity columns that already repeat in the performance tables below. Each
+ *  view previews its top rows behind a "Show all". */
+function TrendingPanel({
+  skills,
+  packs,
+}: {
+  skills: TrendingSkillRow[]
+  packs: TrendingPackRow[]
+}) {
+  const [view, setView] = useState<'skills' | 'packs'>('skills')
+  const rows = view === 'skills' ? skills : packs
+  const empty = view === 'skills' ? 'No skill activity in the last 7 days.' : 'No pack installs in the last 7 days.'
   return (
-    <Panel title="Trending packs" description={desc}>
-      <SortableTable
-        rows={rows}
-        columns={columns}
-        getKey={(r) => r.pack_id}
-        searchAccessor={(r) => r.pack_name ?? r.pack_id}
-        searchPlaceholder="Filter packs…"
-        initialSortKey="installs_7d"
-      />
+    <Panel title="Trending" description="Last 7 days vs the prior 7, by install velocity.">
+      <div className="mb-4">
+        <SegmentedControl
+          options={[
+            { key: 'skills', label: 'Skills' },
+            { key: 'packs', label: 'Packs' },
+          ]}
+          value={view}
+          onChange={(k) => setView(k as 'skills' | 'packs')}
+        />
+      </div>
+      {rows.length === 0 ? (
+        <EmptyState message={empty} />
+      ) : view === 'skills' ? (
+        <SortableTable
+          rows={skills}
+          columns={TRENDING_SKILL_COLUMNS}
+          getKey={(r) => r.skill_id}
+          searchAccessor={(r) => r.skill_name ?? r.skill_id}
+          searchPlaceholder="Filter skills…"
+          initialSortKey="installs_7d"
+          maxRows={8}
+        />
+      ) : (
+        <SortableTable
+          rows={packs}
+          columns={TRENDING_PACK_COLUMNS}
+          getKey={(r) => r.pack_id}
+          searchAccessor={(r) => r.pack_name ?? r.pack_id}
+          searchPlaceholder="Filter packs…"
+          initialSortKey="installs_7d"
+          maxRows={8}
+        />
+      )}
     </Panel>
   )
 }
@@ -750,14 +760,11 @@ function FunnelPanel({ rows }: { rows: FunnelRow[] }) {
 
 // --- panels: skill / pack performance (sortable) ------------------------------
 
-function SkillPerfPanel({ rows }: { rows: SkillPerfRow[] }) {
-  const desc = 'Per skill: installs, uninstalls, distinct activators, rating, install→activation.'
+/** Table body only — wrapped by a Collapsible in CatalogSection, so it carries
+ *  no Panel chrome of its own. */
+function SkillPerfBody({ rows }: { rows: SkillPerfRow[] }) {
   if (rows.length === 0) {
-    return (
-      <Panel title="Skill performance" description={desc}>
-        <EmptyState message="No skill activity yet." />
-      </Panel>
-    )
+    return <EmptyState message="No skill activity yet." />
   }
   const columns: Column<SkillPerfRow>[] = [
     {
@@ -786,27 +793,22 @@ function SkillPerfPanel({ rows }: { rows: SkillPerfRow[] }) {
     },
   ]
   return (
-    <Panel title="Skill performance" description={desc}>
-      <SortableTable
-        rows={rows}
-        columns={columns}
-        getKey={(r) => r.skill_id}
-        searchAccessor={(r) => r.skill_name ?? r.skill_id}
-        searchPlaceholder="Filter skills…"
-        initialSortKey="installs"
-      />
-    </Panel>
+    <SortableTable
+      rows={rows}
+      columns={columns}
+      getKey={(r) => r.skill_id}
+      searchAccessor={(r) => r.skill_name ?? r.skill_id}
+      searchPlaceholder="Filter skills…"
+      initialSortKey="installs"
+      maxRows={8}
+    />
   )
 }
 
-function PackPerfPanel({ rows }: { rows: PackPerfRow[] }) {
-  const desc = 'Per pack: installs, distinct installers, and derived skill activations.'
+/** Table body only — wrapped by a Collapsible in CatalogSection. */
+function PackPerfBody({ rows }: { rows: PackPerfRow[] }) {
   if (rows.length === 0) {
-    return (
-      <Panel title="Pack performance" description={desc}>
-        <EmptyState message="No pack activity yet." />
-      </Panel>
-    )
+    return <EmptyState message="No pack activity yet." />
   }
   const columns: Column<PackPerfRow>[] = [
     {
@@ -822,16 +824,15 @@ function PackPerfPanel({ rows }: { rows: PackPerfRow[] }) {
     { key: 'act_users', label: 'Activating users', align: 'right', render: (r) => fmtNum(r.distinct_activating_users), sortValue: (r) => r.distinct_activating_users },
   ]
   return (
-    <Panel title="Pack performance" description={desc}>
-      <SortableTable
-        rows={rows}
-        columns={columns}
-        getKey={(r) => r.pack_id}
-        searchAccessor={(r) => r.pack_name ?? r.pack_id}
-        searchPlaceholder="Filter packs…"
-        initialSortKey="installs"
-      />
-    </Panel>
+    <SortableTable
+      rows={rows}
+      columns={columns}
+      getKey={(r) => r.pack_id}
+      searchAccessor={(r) => r.pack_name ?? r.pack_id}
+      searchPlaceholder="Filter packs…"
+      initialSortKey="installs"
+      maxRows={8}
+    />
   )
 }
 
@@ -949,22 +950,42 @@ function EngagementSection({ data }: { data: TelemetryDashboardData }) {
   )
 }
 
-/** How the catalog performs: trending + per-skill/pack tables, and the search
- *  terms that surface catalog gaps. */
+/** At-a-glance roll-up of the already-loaded Catalog rows. NOTE: skill/pack
+ *  counts are the tracked (top-N) rows the rollups return, not the full catalog;
+ *  installs are summed from the trending (7d) rows. Labelled accordingly. */
+function CatalogSummary({ data }: { data: TelemetryDashboardData }) {
+  const installs7d = data.trendingSkills.reduce((s, r) => s + r.installs_7d, 0)
+  const zeroResultTerms = data.searchTerms.filter((r) => r.zero_result_rate >= 0.5).length
+  return (
+    <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <StatCard label="Skills tracked" value={fmtNum(data.skills.length)} sub="with recorded activity" />
+      <StatCard label="Packs tracked" value={fmtNum(data.packs.length)} sub="with recorded activity" />
+      <StatCard label="Installs · 7d" value={fmtNum(installs7d)} sub="across trending skills" />
+      <StatCard
+        label="Zero-result queries"
+        value={fmtNum(zeroResultTerms)}
+        sub={`of ${fmtNum(data.searchTerms.length)} terms · catalog gaps`}
+      />
+    </div>
+  )
+}
+
+/** How the catalog performs. Summary-first: a StatCard strip, then trending and
+ *  search-gap signals, with the heavy per-skill/pack tables folded away by
+ *  default so the section reads as a scannable column instead of a wall of
+ *  tables. */
 function CatalogSection({ data }: { data: TelemetryDashboardData }) {
   return (
-    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-      <TrendingSkillsPanel rows={data.trendingSkills} />
-      <TrendingPacksPanel rows={data.trendingPacks} />
-      <div className="lg:col-span-2">
-        <SkillPerfPanel rows={data.skills} />
-      </div>
-      <div className="lg:col-span-2">
-        <PackPerfPanel rows={data.packs} />
-      </div>
-      <div className="lg:col-span-2">
-        <SearchTermsPanel rows={data.searchTerms} />
-      </div>
+    <div className="space-y-5">
+      <CatalogSummary data={data} />
+      <TrendingPanel skills={data.trendingSkills} packs={data.trendingPacks} />
+      <SearchTermsPanel rows={data.searchTerms} />
+      <Collapsible title="Skill performance" count={data.skills.length} description="Installs, activators, rating, install→activation">
+        <SkillPerfBody rows={data.skills} />
+      </Collapsible>
+      <Collapsible title="Pack performance" count={data.packs.length} description="Installs, installers, derived skill activations">
+        <PackPerfBody rows={data.packs} />
+      </Collapsible>
     </div>
   )
 }
