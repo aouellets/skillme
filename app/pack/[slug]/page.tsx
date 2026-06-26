@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { SkillCard } from '@/components/SkillCard'
 import { SkillThumbnail } from '@/components/SkillThumbnail'
+import { PackSkillList } from '@/components/PackSkillList'
 import { VerifiedMark } from '@/components/VerifiedMark'
 import { OfficialBadge } from '@/components/OfficialBadge'
 import { MethodologyBadge } from '@/components/MethodologyBadge'
@@ -13,7 +13,7 @@ import { CopyButton } from '@/components/CopyButton'
 import { installLabel } from '@/lib/categories'
 import { getPackBySlug } from '@/lib/packs'
 import { getDemo, getDemosForSkillSlugs } from '@/lib/media'
-import { DemoSection, DemoGallery } from '@/components/DemoSection'
+import { DemoSection } from '@/components/DemoSection'
 import { getRepoStars } from '@/lib/github'
 import { MCP_URL } from '@/lib/site'
 
@@ -56,13 +56,15 @@ export default async function PackDetailPage({
   const stars = await getRepoStars(pack.repo_url)
 
   // Demo videos: this pack's own landscape demo + each member skill's demo.
+  // Every member skill becomes a list entry; the demo (when present) rides on
+  // the skill's own tile rather than in a separate gallery.
   const demo = await getDemo('pack', slug)
   const memberSlugs = (pack.skills ?? []).map((s) => s.slug)
   const memberDemos = await getDemosForSkillSlugs(memberSlugs)
-  const galleryItems = (pack.skills ?? []).flatMap((s) => {
-    const d = memberDemos.get(s.slug)
-    return d ? [{ slug: s.slug, name: s.name, demo: d }] : []
-  })
+  const packSkills = (pack.skills ?? []).map((s) => ({
+    ...s,
+    demo: memberDemos.get(s.slug) ?? null,
+  }))
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
@@ -108,34 +110,25 @@ export default async function PackDetailPage({
         </div>
       </header>
 
-      <div className="mt-6 grid grid-cols-1 gap-6 sm:mt-8 lg:grid-cols-[1fr_340px] lg:gap-8">
+      {/* Intro — description and the pack's own demo, full width above the
+          columns so a mobile visitor sees what the pack is (and watches it run)
+          before the install steps, instead of scrolling past boilerplate. */}
+      <div className="mt-6 max-w-3xl sm:mt-8">
+        <p className="text-shelf-text-secondary leading-relaxed">{pack.description}</p>
+        {/* Pack demo video (when published) */}
+        <DemoSection demo={demo} />
+      </div>
+
+      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_340px] lg:gap-8">
         <div className="min-w-0">
-          <p className="max-w-2xl text-shelf-text-secondary leading-relaxed">{pack.description}</p>
-
-          {/* Pack demo video (when published) */}
-          <DemoSection demo={demo} />
-
-          {/* Skills in this pack */}
-          {pack.skills && pack.skills.length > 0 && (
-            <section className="mt-8">
-              <h2 className="mb-4 text-base font-medium text-shelf-text-primary">
-                Skills included ({pack.skills.length})
-              </h2>
-              <div className="grid grid-cols-2 gap-3">
-                {pack.skills.map((skill) => (
-                  <SkillCard key={skill.id} skill={skill} />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Per-skill demo breakdown gallery (members that have a video) */}
-          <DemoGallery items={galleryItems} />
+          {/* The sub-pages: one unified, numbered list with each skill's demo
+              inline. */}
+          <PackSkillList items={packSkills} />
         </div>
 
-        {/* Sidebar — on mobile this jumps above the content column so "Install
-            this pack" sits right under the hero; on lg it returns to the right
-            rail (desktop unchanged). */}
+        {/* Sidebar — on mobile this jumps above the skills list so "Install this
+            pack" sits right after the intro; on lg it returns to the right rail
+            (desktop unchanged). */}
         <aside className="order-first space-y-4 lg:order-none">
           <div className="card p-5">
             <h2 className="text-lg font-medium text-shelf-text-primary">Install this pack</h2>
