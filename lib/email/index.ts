@@ -20,6 +20,8 @@ import { adminAlertEmail } from './builders'
  *                    (skillme.dev is the verified sending domain in Resend)
  *   EMAIL_REPLY_TO   Reply-To header, default "support@skillme.dev"
  *   ALERT_EMAIL      Where ops alerts go; falls back to the first ADMIN_EMAILS entry
+ *   RESEND_AUDIENCE_ID  Audience that newsletter signups are added to
+ *                    (addAudienceContact); audience sync is a no-op when unset
  */
 
 const RESEND_API = 'https://api.resend.com/emails'
@@ -42,6 +44,11 @@ function fromAddress(): string {
 
 function replyToAddress(): string {
   return process.env.EMAIL_REPLY_TO?.trim() || DEFAULT_REPLY_TO
+}
+
+/** Resend audience that newsletter signups are added to (broadcast list). */
+function audienceId(): string | undefined {
+  return process.env.RESEND_AUDIENCE_ID?.trim() || undefined
 }
 
 /** Destination for internal ops alerts (new submissions, etc.). */
@@ -123,6 +130,44 @@ export async function sendAdminAlert(subject: string, bodyLines: string[]): Prom
   }
   const { subject: full, html, text } = adminAlertEmail(subject, bodyLines)
   return sendEmail({ to, subject: full, html, text })
+}
+
+/**
+ * Add a contact to the Resend audience (the broadcast list). Best-effort like
+ * every other call here: a no-op when RESEND_API_KEY or RESEND_AUDIENCE_ID is
+ * unset, and never throws. Resend dedupes by email within an audience, so this
+ * is safe to call on every signup; a contact that already exists is treated as
+ * success. Adding a contact never sends mail — broadcasts stay separately gated.
+ */
+export async function addAudienceContact(email: string): Promise<SendResult> {
+  const key = apiKey()
+  const audience = audienceId()
+  if (!key || !audience) {
+    return { ok: false, error: 'not_configured' }
+  }
+
+  try {
+    const res = await fetch(`https://api.resend.com/audiences/${audience}/contacts`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${key}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, unsubscribed: false }),
+    })
+
+    if (!res.ok) {
+      const detail = await res.text().catch(() => '')
+      console.error(`[email] Resend audience add ${res.status} for ${email}: ${detail}`)
+      return { ok: false, error: `http_${res.status}` }
+    }
+
+    const data = (await res.json().catch(() => ({}))) as { id?: string }
+    return { ok: true, id: data.id }
+  } catch (e) {
+    console.error('[email] audience add failed:', e instanceof Error ? e.message : e)
+    return { ok: false, error: 'exception' }
+  }
 }
 
 // Public template surface — builders + types.

@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server'
 import { getServiceSupabase } from '@/lib/supabase'
 import { checkRateLimit } from '@/lib/mcp/rateLimit'
-import { sendEmail, newsletterWelcomeEmail } from '@/lib/email'
+import { sendEmail, newsletterWelcomeEmail, addAudienceContact } from '@/lib/email'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -59,6 +59,11 @@ export async function POST(req: NextRequest) {
   }
 
   console.log('[newsletter] signup:', email)
+
+  // Best-effort sync to the Resend broadcast audience. Runs on every signup
+  // (Resend dedupes per audience) so pre-existing Supabase rows backfill on a
+  // resubmit. Never sends mail and never blocks success.
+  await addAudienceContact(email)
 
   // Best-effort welcome — only on a genuinely new signup; never blocks success.
   if (isNew) {
